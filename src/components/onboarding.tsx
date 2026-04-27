@@ -37,6 +37,8 @@ import {
   IconFan,
   IconSparkles,
   IconPlay,
+  IconSearch,
+  IconX,
 } from "../icons";
 
 const TOTAL_STEPS = 5;
@@ -541,9 +543,20 @@ function StepEntities(props: {
   }, [entities]);
 
   const [activeDomain, setActiveDomain] = useState<string>(groups[0]?.[0] ?? "light");
+  const [query, setQuery] = useState("");
   const active = groups.find(([d]) => d === activeDomain) ?? groups[0];
   const totalExposed = exposed.size;
   const totalAvailable = entities.filter((e) => PICKABLE_DOMAINS.includes(e.domain)).length;
+  const q = query.trim().toLowerCase();
+  const filteredItems = active
+    ? q
+      ? active[1].filter(
+          (e) =>
+            (e.friendly_name ?? "").toLowerCase().includes(q) ||
+            e.entity_id.toLowerCase().includes(q),
+        )
+      : active[1]
+    : [];
 
   return (
     <div class="n-ob-step n-ob-step--entities">
@@ -595,21 +608,47 @@ function StepEntities(props: {
                 <button
                   type="button"
                   class="n-pill-btn n-pill-btn--ghost"
-                  onClick={() => active[1].forEach((e) => !exposed.has(e.entity_id) && onToggleExpose(e.entity_id))}
+                  onClick={() => filteredItems.forEach((e) => !exposed.has(e.entity_id) && onToggleExpose(e.entity_id))}
                 >
                   Tout exposer
                 </button>
                 <button
                   type="button"
                   class="n-pill-btn n-pill-btn--ghost"
-                  onClick={() => active[1].forEach((e) => exposed.has(e.entity_id) && onToggleExpose(e.entity_id))}
+                  onClick={() => filteredItems.forEach((e) => exposed.has(e.entity_id) && onToggleExpose(e.entity_id))}
                 >
                   Tout retirer
                 </button>
               </div>
             </div>
+            <div class="n-ob-ent__search">
+              <span class="n-ob-ent__search-icon" aria-hidden="true"><IconSearch size={14} /></span>
+              <input
+                type="text"
+                class="n-ob-ent__search-input"
+                value={query}
+                onInput={(ev) => setQuery((ev.target as HTMLInputElement).value)}
+                placeholder={`Rechercher dans ${DOMAIN_META[active[0]].label.toLowerCase()}…`}
+                aria-label="Rechercher une entité"
+              />
+              {query && (
+                <button
+                  type="button"
+                  class="n-ob-ent__search-clear"
+                  onClick={() => setQuery("")}
+                  aria-label="Effacer la recherche"
+                >
+                  <IconX size={12} />
+                </button>
+              )}
+            </div>
             <div class="n-ob-ent__grid">
-              {active[1].map((e) => {
+              {filteredItems.length === 0 && (
+                <div class="n-ob-ent__empty">
+                  Aucune entité ne correspond à « {query} »
+                </div>
+              )}
+              {filteredItems.map((e) => {
                 const isExposed = exposed.has(e.entity_id);
                 const isFav = favs.has(e.entity_id);
                 const Icon = DOMAIN_META[e.domain].Icon;

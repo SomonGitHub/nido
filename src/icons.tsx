@@ -338,6 +338,19 @@ export const IconStar = (p: P) => (
   </Icon>
 );
 
+export const IconSearch = (p: P) => (
+  <Icon {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m20 20-3.5-3.5" />
+  </Icon>
+);
+
+export const IconX = (p: P) => (
+  <Icon {...p}>
+    <path d="M6 6l12 12M18 6 6 18" />
+  </Icon>
+);
+
 export const IconStarFilled = (p: P) => (
   <Icon {...p} fill="currentColor">
     <path d="m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" />

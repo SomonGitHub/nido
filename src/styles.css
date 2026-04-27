@@ -10,10 +10,16 @@
   text-rendering: optimizeLegibility;
 }
 
+.nido-root-mount {
+  width: 100%;
+  height: 100%;
+}
+
 .nido-shell {
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 16px;
   box-sizing: border-box;
 }
@@ -39,7 +45,8 @@
   padding: 32px;
   position: relative;
   overflow: hidden;
-  min-height: calc(100vh - 32px);
+  min-height: calc(100vh - 32px); /* 32px = shell padding top + bottom */
+  box-sizing: border-box;
 }
 .nido-dashboard::before {
   content: "";
@@ -1039,19 +1046,21 @@
   flex-direction: column;
   padding: 16px;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: hidden;
+  max-height: 100vh;
   animation: nido-stagger-in 320ms var(--ease-out);
 }
 .n-ob__shell {
   position: relative;
-  flex: 1;
+  flex: 1 1 0;
   background: var(--bg-shell);
   border-radius: var(--r-2xl);
   padding: 32px;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 32px);
+  min-height: 0;
   overflow: hidden;
+  box-sizing: border-box;
 }
 .n-ob__shell::before {
   content: "";
@@ -1505,14 +1514,64 @@
   margin: 0;
 }
 .n-ob-ent__head-actions { display: flex; gap: 8px; }
+.n-ob-ent__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  border: 1px solid var(--ink-4);
+  margin-bottom: 12px;
+}
+.n-ob-ent__search-icon {
+  display: flex;
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+.n-ob-ent__search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--ink-1);
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+.n-ob-ent__search-input::placeholder { color: var(--ink-3); }
+.n-ob-ent__search-clear {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink-3);
+  padding: 4px;
+  border-radius: var(--r-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.n-ob-ent__search-clear:hover { background: var(--bg-shell); color: var(--ink-1); }
+.n-ob-ent__empty {
+  grid-column: 1 / -1;
+  padding: 24px;
+  border-radius: var(--r-md);
+  background: var(--bg-card);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-3);
+  text-align: center;
+}
 .n-ob-ent__grid {
   flex: 1;
+  min-height: 0;
   overflow: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-content: start;
-  max-height: 60vh;
+  max-height: 56vh;
+  padding-right: 4px;
   animation: nido-stagger-in 360ms var(--ease-out) both;
 }
 .n-ob-ent-card {
@@ -1553,9 +1612,13 @@
   font-weight: 600;
   color: var(--ink-1);
   letter-spacing: -0.01em;
-  white-space: nowrap;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .n-ob-ent-card__id {
   font-family: var(--font-mono);
@@ -1812,8 +1875,111 @@
   .n-ob-step--theme,
   .n-ob-step--family { grid-template-columns: 1fr; }
   .n-ob-step--entities { grid-template-columns: 1fr; }
+  .n-ob-step { gap: 20px; }
   .n-ob-step__illus { min-height: 220px; }
   .n-ob-ent__grid { grid-template-columns: 1fr; }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+  .n-ob {
+    padding: 8px;
+    overflow: hidden;
+  }
+  .n-ob__shell {
+    padding: 16px;
+    border-radius: var(--r-xl);
+    min-height: 0;
+    height: 100%;
+  }
+
+  /* Header */
+  .n-ob__header {
+    margin-bottom: 16px;
+    gap: 8px;
+    flex-wrap: nowrap;
+    flex: 0 0 auto;
+  }
+  .n-ob__brand-mark { width: 30px; height: 30px; }
+  .n-ob__brand-name { font-size: 14px; }
+  .n-ob__step-count { display: none; }
+  .n-ob__skip { font-size: 12px; padding: 4px; }
+
+  /* Body */
+  .n-ob__body {
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .n-ob-step { gap: 16px; }
+  .n-ob__h1 { font-size: clamp(28px, 8vw, 40px); margin-bottom: 16px; }
+  .n-ob__lead { font-size: 14px; margin-bottom: 16px; }
+  .n-ob__eyebrow { margin-bottom: 12px; font-size: 10px; }
+
+  /* Footer */
+  .n-ob__footer { margin-top: 16px; gap: 8px; flex: 0 0 auto; }
+  .n-ob__back { padding: 10px 14px; font-size: 13px; }
+  .n-ob__primary { padding: 12px 18px; font-size: 13px; }
+
+  /* Step 0 — welcome */
+  .n-ob-welcome-illus { max-width: 260px; }
+  .n-ob-steps-overview { gap: 16px; margin-top: 20px; }
+  .n-ob-recap__grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .n-ob-recap__value { font-size: 22px; }
+
+  /* Step 1 — connect illustration */
+  .n-ob-step__illus { min-height: 180px; }
+  .n-ob-step__illus svg { width: 220px; height: 220px; }
+  .n-ob-pill-card { margin-top: 16px; padding: 12px; }
+
+  /* Step 2 — entities: rail becomes horizontal chip bar */
+  .n-ob-ent__count { font-size: 22px; }
+  .n-ob-ent__rail { margin-bottom: 4px; }
+  .n-ob-ent__list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
+    gap: 6px;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .n-ob-ent__rail-row {
+    flex-shrink: 0;
+    padding: 6px 10px 6px 6px;
+    gap: 8px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--ink-4);
+  }
+  .n-ob-ent__rail-row.is-active { border-color: var(--ink-1); }
+  .n-ob-ent__rail-icon { width: 22px; height: 22px; }
+  .n-ob-ent__rail-label { font-size: 12px; flex: 0 0 auto; }
+  .n-ob-ent__rail-count { font-size: 10px; }
+
+  .n-ob-ent__head { flex-wrap: wrap; margin-bottom: 10px; gap: 8px; }
+  .n-ob-ent__title { font-size: 18px; }
+  .n-ob-ent__head-actions { width: 100%; }
+  .n-ob-ent__head-actions .n-pill-btn { flex: 1; padding: 6px 10px; font-size: 12px; }
+  .n-ob-ent__search { padding: 8px 12px; margin-bottom: 8px; }
+  .n-ob-ent__search-input { font-size: 14px; }
+  .n-ob-ent__grid { max-height: none; padding-right: 0; }
+  .n-ob-ent-card { padding: 10px; gap: 10px; }
+  .n-ob-ent-card__icon { width: 32px; height: 32px; }
+
+  /* Step 3 — theme */
+  .n-ob-theme__grid { gap: 8px; }
+  .n-ob-theme__tile { padding: 10px; }
+  .n-ob-theme__name { font-size: 14px; }
+  .n-ob-preview { padding: 16px; }
+  .n-ob-preview__greet { font-size: 22px; }
+
+  /* Step 4 — family */
+  .n-ob-family { padding: 12px; min-height: 0; }
+  .n-ob-family__list { max-height: none; }
 }
 
 /* Scene/script — activate button + flash */
