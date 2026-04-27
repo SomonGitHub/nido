@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nido — dev</title>
+    <style>
+      html, body { margin: 0; height: 100%; }
+      nido-panel { display: block; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <nido-panel id="panel"></nido-panel>
+    <script type="module">
+      import "./src/nido-panel.ts";
+
+      const now = new Date().toISOString();
+      const states = {
+        "light.salon_principal":     { entity_id: "light.salon_principal",     state: "on",  attributes: { friendly_name: "Plafond salon", brightness: 200 }, last_changed: now, last_updated: now },
+        "light.salon_lampadaire":    { entity_id: "light.salon_lampadaire",    state: "off", attributes: { friendly_name: "Lampadaire salon" },                last_changed: now, last_updated: now },
+        "light.cuisine_plan_travail":{ entity_id: "light.cuisine_plan_travail",state: "on",  attributes: { friendly_name: "Plan de travail", brightness: 80 }, last_changed: now, last_updated: now },
+        "light.chambre_parents":     { entity_id: "light.chambre_parents",     state: "off", attributes: { friendly_name: "Chambre parents" },                 last_changed: now, last_updated: now },
+
+        "cover.salon_volet":   { entity_id: "cover.salon_volet",   state: "open",   attributes: { friendly_name: "Volet salon",   current_position: 70 }, last_changed: now, last_updated: now },
+        "cover.chambre_volet": { entity_id: "cover.chambre_volet", state: "closed", attributes: { friendly_name: "Volet chambre", current_position: 0  }, last_changed: now, last_updated: now },
+
+        "switch.cuisine_cafetiere":{ entity_id: "switch.cuisine_cafetiere", state: "on",  attributes: { friendly_name: "Cafetière",     current_power_w: 850 }, last_changed: now, last_updated: now },
+        "switch.salon_lampe_deco": { entity_id: "switch.salon_lampe_deco",  state: "off", attributes: { friendly_name: "Lampe déco" },                          last_changed: now, last_updated: now },
+
+        "binary_sensor.porte_entree": { entity_id: "binary_sensor.porte_entree", state: "off", attributes: { friendly_name: "Porte d'entrée", device_class: "door" },     last_changed: now, last_updated: now },
+        "binary_sensor.salon_motion": { entity_id: "binary_sensor.salon_motion", state: "on",  attributes: { friendly_name: "Mouvement salon", device_class: "motion" },  last_changed: now, last_updated: now },
+        "binary_sensor.fumee_cuisine":{ entity_id: "binary_sensor.fumee_cuisine",state: "off", attributes: { friendly_name: "Détecteur fumée", device_class: "smoke" },   last_changed: now, last_updated: now },
+        "binary_sensor.fuite_sdb":    { entity_id: "binary_sensor.fuite_sdb",    state: "on",  attributes: { friendly_name: "Détecteur eau",   device_class: "moisture" },last_changed: now, last_updated: now },
+
+        "climate.salon":   { entity_id: "climate.salon",   state: "heat", attributes: { friendly_name: "Thermostat salon",   current_temperature: 19.5, temperature: 21,   min_temp: 7, max_temp: 35, target_temp_step: 0.5 }, last_changed: now, last_updated: now },
+        "climate.chambre": { entity_id: "climate.chambre", state: "off",  attributes: { friendly_name: "Thermostat chambre", current_temperature: 18,   temperature: 18.5, min_temp: 7, max_temp: 35, target_temp_step: 0.5 }, last_changed: now, last_updated: now },
+
+        "lock.entree":  { entity_id: "lock.entree",  state: "locked",   attributes: { friendly_name: "Serrure entrée" },  last_changed: now, last_updated: now },
+        "lock.garage":  { entity_id: "lock.garage",  state: "unlocked", attributes: { friendly_name: "Serrure garage" },  last_changed: now, last_updated: now },
+
+        "vacuum.robot": { entity_id: "vacuum.robot", state: "docked", attributes: { friendly_name: "Robot aspirateur", battery_level: 87 }, last_changed: now, last_updated: now },
+
+        "sensor.salon_temperature": { entity_id: "sensor.salon_temperature", state: "21.4",  attributes: { friendly_name: "Température salon",  device_class: "temperature", unit_of_measurement: "°C" }, last_changed: now, last_updated: now },
+        "sensor.salon_humidite":    { entity_id: "sensor.salon_humidite",    state: "47",    attributes: { friendly_name: "Humidité salon",     device_class: "humidity",    unit_of_measurement: "%" },  last_changed: now, last_updated: now },
+        "sensor.cuisine_power":     { entity_id: "sensor.cuisine_power",     state: "1240",  attributes: { friendly_name: "Conso cuisine",      device_class: "power",       unit_of_measurement: "W" },  last_changed: now, last_updated: now },
+        "sensor.entree_lux":        { entity_id: "sensor.entree_lux",        state: "320",   attributes: { friendly_name: "Luminosité entrée",  device_class: "illuminance", unit_of_measurement: "lx" }, last_changed: now, last_updated: now },
+
+        "media_player.salon": { entity_id: "media_player.salon", state: "playing", attributes: { friendly_name: "Enceinte salon", media_title: "Bloom", media_artist: "Beach House", volume_level: 0.4 }, last_changed: now, last_updated: now },
+
+        "alarm_control_panel.maison": { entity_id: "alarm_control_panel.maison", state: "armed_home", attributes: { friendly_name: "Alarme maison" }, last_changed: now, last_updated: now },
+
+        "camera.entree":  { entity_id: "camera.entree",  state: "streaming", attributes: { friendly_name: "Caméra entrée",  entity_picture: "https://picsum.photos/seed/nido-entree/480/270"  }, last_changed: now, last_updated: now },
+        "camera.jardin":  { entity_id: "camera.jardin",  state: "idle",      attributes: { friendly_name: "Caméra jardin",  entity_picture: "https://picsum.photos/seed/nido-jardin/480/270"  }, last_changed: now, last_updated: now },
+
+        "fan.chambre":  { entity_id: "fan.chambre",  state: "on",  attributes: { friendly_name: "Ventilateur chambre", percentage: 60 }, last_changed: now, last_updated: now },
+        "fan.cuisine":  { entity_id: "fan.cuisine",  state: "off", attributes: { friendly_name: "Hotte cuisine",       percentage: 0  }, last_changed: now, last_updated: now },
+
+        "scene.cinema":      { entity_id: "scene.cinema",      state: "scening", attributes: { friendly_name: "Mode cinéma" },     last_changed: now, last_updated: now },
+        "scene.bonne_nuit":  { entity_id: "scene.bonne_nuit",  state: "scening", attributes: { friendly_name: "Bonne nuit" },      last_changed: now, last_updated: now },
+        "script.arrosage":   { entity_id: "script.arrosage",   state: "off",     attributes: { friendly_name: "Arrosage jardin" }, last_changed: now, last_updated: now },
+      };
+
+      const areas = [
+        { area_id: "salon",   name: "Salon",   icon: null, picture: null },
+        { area_id: "cuisine", name: "Cuisine", icon: null, picture: null },
+        { area_id: "chambre", name: "Chambre", icon: null, picture: null },
+        { area_id: "entree",  name: "Entrée",  icon: null, picture: null },
+        { area_id: "sdb",     name: "Salle de bain", icon: null, picture: null },
+      ];
+
+      const mk = (id, area) => ({ entity_id: id, device_id: id, area_id: area, name: null, original_name: null, platform: "demo", disabled_by: null, hidden_by: null });
+      const entityRegistry = [
+        mk("light.salon_principal", "salon"),
+        mk("light.salon_lampadaire", "salon"),
+        mk("light.cuisine_plan_travail", "cuisine"),
+        mk("light.chambre_parents", "chambre"),
+        mk("cover.salon_volet", "salon"),
+        mk("cover.chambre_volet", "chambre"),
+        mk("switch.cuisine_cafetiere", "cuisine"),
+        mk("switch.salon_lampe_deco", "salon"),
+        mk("binary_sensor.porte_entree", "entree"),
+        mk("binary_sensor.salon_motion", "salon"),
+        mk("binary_sensor.fumee_cuisine", "cuisine"),
+        mk("binary_sensor.fuite_sdb", "sdb"),
+        mk("climate.salon", "salon"),
+        mk("climate.chambre", "chambre"),
+        mk("lock.entree", "entree"),
+        mk("lock.garage", "entree"),
+        mk("vacuum.robot", "salon"),
+        mk("sensor.salon_temperature", "salon"),
+        mk("sensor.salon_humidite", "salon"),
+        mk("sensor.cuisine_power", "cuisine"),
+        mk("sensor.entree_lux", "entree"),
+        mk("media_player.salon", "salon"),
+        mk("alarm_control_panel.maison", "entree"),
+        mk("camera.entree", "entree"),
+        mk("camera.jardin", "salon"),
+        mk("fan.chambre", "chambre"),
+        mk("fan.cuisine", "cuisine"),
+        mk("scene.cinema", "salon"),
+        mk("scene.bonne_nuit", "chambre"),
+        mk("script.arrosage", "salon"),
+      ];
+      const deviceRegistry = entityRegistry.map(e => ({ id: e.device_id, area_id: e.area_id, name: null, name_by_user: null }));
+
+      const wsHandlers = {
+        "config/area_registry/list":   () => areas,
+        "config/entity_registry/list": () => entityRegistry,
+        "config/device_registry/list": () => deviceRegistry,
+      };
+
+      const refresh = () => { document.getElementById("panel").hass = { ...fakeHass, states: { ...states } }; };
+
+      const fakeHass = {
+        states,
+        user: { id: "u1", name: "Simon", is_owner: true, is_admin: true },
+        language: "fr",
+        callService: async (domain, service, data) => {
+          console.log("callService", domain, service, data);
+          const id = data?.entity_id;
+          if (!id || !states[id]) return;
+          if (domain === "light" && service === "toggle") states[id].state = states[id].state === "on" ? "off" : "on";
+          else if (domain === "light" && service === "turn_on") {
+            states[id].state = "on";
+            if (typeof data.brightness_pct === "number") states[id].attributes.brightness = Math.round((data.brightness_pct / 100) * 255);
+          }
+          else if (domain === "light" && service === "turn_off") states[id].state = "off";
+          else if (domain === "switch" && service === "toggle") states[id].state = states[id].state === "on" ? "off" : "on";
+          else if (domain === "cover" && service === "set_cover_position") {
+            const pos = data.position ?? 0;
+            states[id].attributes.current_position = pos;
+            states[id].state = pos === 0 ? "closed" : "open";
+          }
+          else if (domain === "climate" && service === "set_temperature") {
+            if (typeof data.temperature === "number") states[id].attributes.temperature = data.temperature;
+          }
+          else if (domain === "climate" && service === "set_hvac_mode") {
+            if (typeof data.hvac_mode === "string") states[id].state = data.hvac_mode;
+          }
+          else if (domain === "lock" && (service === "lock" || service === "unlock")) {
+            states[id].state = service === "lock" ? "locked" : "unlocked";
+          }
+          else if (domain === "vacuum" && service === "start") states[id].state = "cleaning";
+          else if (domain === "vacuum" && service === "return_to_base") states[id].state = "returning";
+          else if (domain === "vacuum" && service === "pause") states[id].state = "paused";
+          else if (domain === "media_player" && service === "media_play_pause") {
+            states[id].state = states[id].state === "playing" ? "paused" : "playing";
+          }
+          else if (domain === "media_player" && service === "volume_set") {
+            if (typeof data.volume_level === "number") states[id].attributes.volume_level = data.volume_level;
+          }
+          else if (domain === "alarm_control_panel") {
+            if (service === "alarm_disarm") states[id].state = "disarmed";
+            else if (service === "alarm_arm_home") states[id].state = "armed_home";
+            else if (service === "alarm_arm_away") states[id].state = "armed_away";
+            else if (service === "alarm_arm_night") states[id].state = "armed_night";
+          }
+          else if (domain === "fan" && service === "toggle") states[id].state = states[id].state === "on" ? "off" : "on";
+          else if (domain === "fan" && service === "set_percentage") {
+            if (typeof data.percentage === "number") {
+              states[id].attributes.percentage = data.percentage;
+              states[id].state = data.percentage > 0 ? "on" : "off";
+            }
+          }
+          else if (domain === "scene" && service === "turn_on") {
+            console.log("scene activated", id);
+          }
+          else if (domain === "script" && service === "turn_on") {
+            console.log("script launched", id);
+          }
+          refresh();
+        },
+        callWS: async (msg) => {
+          const handler = wsHandlers[msg.type];
+          if (!handler) { console.warn("unhandled WS", msg); return []; }
+          return handler();
+        },
+        connection: { subscribeEvents: async () => () => {} },
+      };
+
+      requestAnimationFrame(refresh);
+    </script>
+  </body>
+</html>

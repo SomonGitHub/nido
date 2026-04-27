@@ -1,0 +1,27 @@
+{
+  "name": "nido-dashboard",
+  "version": "0.1.0",
+  "description": "Nido — dashboard familial Home Assistant (custom panel)",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Simon Vernusse",
+  "homepage": "https://github.com/SomonGitHub/nido",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SomonGitHub/nido.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "release": "npm run typecheck && npm run build"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.0",
+    "preact": "^10.25.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}
