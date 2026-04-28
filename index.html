@@ -58,6 +58,8 @@
         "scene.cinema":      { entity_id: "scene.cinema",      state: "scening", attributes: { friendly_name: "Mode cinéma" },     last_changed: now, last_updated: now },
         "scene.bonne_nuit":  { entity_id: "scene.bonne_nuit",  state: "scening", attributes: { friendly_name: "Bonne nuit" },      last_changed: now, last_updated: now },
         "script.arrosage":   { entity_id: "script.arrosage",   state: "off",     attributes: { friendly_name: "Arrosage jardin" }, last_changed: now, last_updated: now },
+
+        "weather.maison":    { entity_id: "weather.maison",    state: "partlycloudy", attributes: { friendly_name: "Météo maison", temperature: 16, temperature_unit: "°C", humidity: 62, wind_speed: 8, wind_speed_unit: "km/h", pressure: 1015 }, last_changed: now, last_updated: now },
       };
 
       const areas = [
@@ -100,6 +102,7 @@
         mk("scene.cinema", "salon"),
         mk("scene.bonne_nuit", "chambre"),
         mk("script.arrosage", "salon"),
+        mk("weather.maison", null),
       ];
       const deviceRegistry = entityRegistry.map(e => ({ id: e.device_id, area_id: e.area_id, name: null, name_by_user: null }));
 

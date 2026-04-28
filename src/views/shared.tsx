@@ -19,6 +19,7 @@ import {
   IconFan,
   IconSparkles,
   IconPlay,
+  IconCloudSun,
 } from "../icons";
 
 type IconCmp = (p: { size?: number }) => JSX.Element;
@@ -48,6 +49,7 @@ export const DOMAIN_LABEL: Record<string, string> = {
   fan: "Ventilateurs",
   scene: "Scènes",
   script: "Scripts",
+  weather: "Météo",
 };
 
 export const DOMAIN_ICON: Record<string, IconCmp> = {
@@ -65,4 +67,5 @@ export const DOMAIN_ICON: Record<string, IconCmp> = {
   fan: IconFan,
   scene: IconSparkles,
   script: IconPlay,
+  weather: IconCloudSun,
 };

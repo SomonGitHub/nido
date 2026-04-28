@@ -217,6 +217,56 @@ export const IconSun = (p: P) => (
   </Icon>
 );
 
+export const IconCloud = (p: P) => (
+  <Icon {...p}>
+    <path d="M7 18a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 9.5 4.5 4.5 0 0 1 17 18H7Z" />
+  </Icon>
+);
+
+export const IconCloudSun = (p: P) => (
+  <Icon {...p}>
+    <circle cx="8" cy="8" r="3" />
+    <path d="M8 2v1.5M8 12.5V14M2 8h1.5M12.5 8H14M3.5 3.5l1 1M11.5 3.5l-1 1" />
+    <path d="M11 18a3.5 3.5 0 0 1-.7-6.93A5 5 0 0 1 19.6 11.5 3.8 3.8 0 0 1 19 18H11Z" />
+  </Icon>
+);
+
+export const IconCloudRain = (p: P) => (
+  <Icon {...p}>
+    <path d="M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" />
+    <path d="M9 18v2M13 18v3M17 18v2" />
+  </Icon>
+);
+
+export const IconCloudSnow = (p: P) => (
+  <Icon {...p}>
+    <path d="M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" />
+    <path d="M8 19h.01M12 19h.01M16 19h.01M10 22h.01M14 22h.01" />
+  </Icon>
+);
+
+export const IconCloudBolt = (p: P) => (
+  <Icon {...p}>
+    <path d="M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" />
+    <path d="m12 17-2 4h3l-1 3" />
+  </Icon>
+);
+
+export const IconCloudFog = (p: P) => (
+  <Icon {...p}>
+    <path d="M7 13a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 4.5 4.5 4.5 0 0 1 17 13H7Z" />
+    <path d="M5 17h14M3 21h18" />
+  </Icon>
+);
+
+export const IconWind = (p: P) => (
+  <Icon {...p}>
+    <path d="M3 8h12a3 3 0 1 0-3-3" />
+    <path d="M3 13h17a3 3 0 1 1-3 3" />
+    <path d="M3 18h9" />
+  </Icon>
+);
+
 export const IconGauge = (p: P) => (
   <Icon {...p}>
     <path d="M4 16a8 8 0 1 1 16 0" />

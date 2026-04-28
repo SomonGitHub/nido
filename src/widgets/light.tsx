@@ -52,9 +52,16 @@ export function LightWidget({
     }
   };
 
+  /* Hero card always gets accent styling:
+     - full accent when on, soft/muted accent when off.
+     - Non-hero cards keep default behavior. */
+  const accentClass = hero
+    ? (isOn ? "n-card--accent" : "n-card--accent-muted")
+    : "n-card--default";
+
   const cardClass = [
     "n-card",
-    hero && isOn ? "n-card--accent" : "n-card--default",
+    accentClass,
     isOn ? `breathe-${breatheVariant}` : "",
     pending ? "is-pending" : "",
   ]

@@ -153,6 +153,36 @@
   color: var(--accent-ink);
   box-shadow: var(--shadow-hero);
 }
+
+/* Accent muted — hero card quand l'appareil est éteint.
+   Fond doux accent pour garder un point focal visuel. */
+.n-card--accent-muted {
+  background: var(--accent-soft);
+  color: var(--ink-1);
+  box-shadow: var(--shadow-md);
+}
+.n-card--accent-muted .n-icon-bubble {
+  background: color-mix(in srgb, var(--accent) 22%, var(--accent-soft));
+  color: var(--accent-deep);
+}
+.n-card--accent-muted .n-toggle {
+  background: color-mix(in srgb, var(--accent) 18%, var(--bg-inset));
+}
+.n-card--accent-muted .n-toggle__thumb {
+  background: var(--accent);
+}
+.n-card--accent-muted .n-eyebrow {
+  color: var(--accent-deep);
+  opacity: 0.7;
+}
+.n-card--accent-muted .n-muted {
+  color: var(--accent-deep);
+  opacity: 0.65;
+}
+.n-card--accent-muted .n-title {
+  color: var(--accent-deep);
+}
+
 .n-card[data-hero="true"] {
   min-height: 200px;
   padding: 24px;
@@ -688,6 +718,62 @@
 .n-pill-btn--ghost:hover:not(:disabled) {
   background: var(--bg-inset);
   color: var(--ink-1);
+}
+
+/* Weather pill (topbar) */
+.nido-weather-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--ink-4);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  color: var(--ink-1);
+}
+.nido-weather-pill__icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent);
+}
+.nido-weather-pill__temp {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.nido-weather-pill__sep {
+  width: 1px;
+  height: 12px;
+  background: var(--ink-4);
+}
+.nido-weather-pill__label {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/* Weather widget */
+.n-weather__icon { color: var(--accent); }
+.n-weather__readout {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 6px;
+}
+.n-weather__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.n-weather__sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ink-4);
 }
 
 /* Favorites section accent */

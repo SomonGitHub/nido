@@ -21,6 +21,7 @@ import { AlarmWidget } from "../widgets/alarm";
 import { CameraWidget } from "../widgets/camera";
 import { FanWidget } from "../widgets/fan";
 import { SceneScriptWidget } from "../widgets/scene-script";
+import { WeatherWidget, WeatherPill } from "../widgets/weather";
 import { IconSettings, IconChevronRight } from "../icons";
 import { pickAreaIcon } from "./shared";
 
@@ -52,6 +53,7 @@ const SUPPORTED_DOMAINS = new Set([
   "fan",
   "scene",
   "script",
+  "weather",
 ]);
 
 function greetingFor(hour: number): { greeting: string; sub: string } {
@@ -100,6 +102,8 @@ function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
     case "scene":
     case "script":
       return <SceneScriptWidget key={entity.entity_id} {...common} />;
+    case "weather":
+      return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} />;
     default:
       return null;
   }
@@ -213,6 +217,10 @@ export function Dashboard({
     () => entities.filter((e) => exposedSet.has(e.entity_id) && SUPPORTED_DOMAINS.has(e.domain)),
     [entities, exposedSet],
   );
+  const weatherEntity = useMemo(
+    () => exposedEntities.find((e) => e.domain === "weather"),
+    [exposedEntities],
+  );
   const byArea = useMemo(() => groupByArea(exposedEntities), [exposedEntities]);
 
   const favoriteEntities = useMemo(() => {
@@ -282,6 +290,7 @@ export function Dashboard({
         <header class="nido-topbar">
           <div class="nido-topbar__brand">Nido</div>
           <div class="nido-topbar__actions">
+            {weatherEntity && <WeatherPill entity={weatherEntity} />}
             <button
               type="button"
               class="n-pill-btn n-pill-btn--ghost"

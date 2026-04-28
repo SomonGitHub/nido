@@ -20,6 +20,7 @@ import { AlarmWidget } from "../widgets/alarm";
 import { CameraWidget } from "../widgets/camera";
 import { FanWidget } from "../widgets/fan";
 import { SceneScriptWidget } from "../widgets/scene-script";
+import { WeatherWidget } from "../widgets/weather";
 import { IconChevronLeft, IconMore } from "../icons";
 import { pickAreaIcon, DOMAIN_LABEL } from "./shared";
 
@@ -62,6 +63,8 @@ function renderWidget(entity: ResolvedEntity, hass: HassObject, areaName: string
     case "scene":
     case "script":
       return <SceneScriptWidget key={entity.entity_id} {...common} />;
+    case "weather":
+      return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={areaName} />;
     default:
       return null;
   }
