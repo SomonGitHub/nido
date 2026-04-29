@@ -59,15 +59,20 @@ export function WeatherPanel({ hass, weatherEntityId, onClose }: WeatherPanelPro
     async function fetchForecasts() {
       try {
         const fetchType = async (type: "daily" | "hourly") => {
-          const res = await hass.callWS<{ [key: string]: { forecast: ForecastItem[] } }>({
-            type: "call_service",
-            domain: "weather",
-            service: "get_forecasts",
-            service_data: { type },
-            target: { entity_id: weatherEntityId },
-            return_response: true
-          });
-          return res?.[weatherEntityId]?.forecast || [];
+          try {
+            const res = await hass.callWS<any>({
+              type: "call_service",
+              domain: "weather",
+              service: "get_forecasts",
+              service_data: { type },
+              target: { entity_id: weatherEntityId },
+              return_response: true
+            });
+            return res?.response?.[weatherEntityId]?.forecast || res?.[weatherEntityId]?.forecast || [];
+          } catch (err) {
+            console.warn(`Failed to fetch ${type} forecast:`, err);
+            return [];
+          }
         };
 
         const [dailyData, hourlyData] = await Promise.all([
@@ -80,10 +85,6 @@ export function WeatherPanel({ hass, weatherEntityId, onClose }: WeatherPanelPro
         setHourly(hourlyData);
       } catch (err) {
         console.error("Failed to fetch weather forecasts", err);
-      } finally {
-        if (!cancelled) {
-        // Handle loading end if needed
-      }
       }
     }
 
@@ -149,7 +150,7 @@ export function WeatherPanel({ hass, weatherEntityId, onClose }: WeatherPanelPro
                   <span>Pluie dans l'heure</span>
                 </div>
                 <div class="nido-wp-card-val">
-                  {nextRain.state === "unknown" ? "Donnée indisponible" : 
+                  {nextRain.state === "unknown" ? "Pas de pluie prévue" : 
                    new Date(nextRain.state).getTime() > Date.now() ? `Prévue à ${new Date(nextRain.state).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}` : 
                    "Pas de pluie prévue"}
                 </div>

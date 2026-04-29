@@ -63,6 +63,8 @@
         "sensor.maison_next_rain": { entity_id: "sensor.maison_next_rain", state: new Date(Date.now() + 1800000).toISOString(), attributes: { friendly_name: "Pluie dans l'heure" }, last_changed: now, last_updated: now },
         "sensor.maison_weather_alert": { entity_id: "sensor.maison_weather_alert", state: "Jaune", attributes: { friendly_name: "Vigilance Météo", "Orages": "Jaune", "Vent violent": "Vert" }, last_changed: now, last_updated: now },
         "sensor.maison_uv": { entity_id: "sensor.maison_uv", state: "4", attributes: { friendly_name: "Index UV" }, last_changed: now, last_updated: now },
+        "person.simon": { entity_id: "person.simon", state: "home", attributes: { friendly_name: "Simon", entity_picture: "https://picsum.photos/seed/simon/128/128" }, last_changed: now, last_updated: now },
+        "person.anna": { entity_id: "person.anna", state: "not_home", attributes: { friendly_name: "Anna", entity_picture: "https://picsum.photos/seed/anna/128/128" }, last_changed: now, last_updated: now },
       };
 
       const areas = [

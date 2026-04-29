@@ -233,6 +233,20 @@ export function Dashboard({
 
   const [showWeatherPanel, setShowWeatherPanel] = useState(false);
 
+  const personsAtHome = useMemo(() => {
+    return Object.values(hass.states).filter(
+      (s) => s.entity_id.startsWith("person.") && s.state === "home" && s.attributes.entity_picture
+    );
+  }, [hass.states]);
+
+  const getPictureUrl = (ent: string | undefined) => {
+    if (!ent) return null;
+    if (ent.startsWith("http")) return ent;
+    const base = (hass as any).hassUrl?.("");
+    if (base) return base.replace(/\/$/, "") + ent;
+    return ent;
+  };
+
   const byArea = useMemo(() => groupByArea(exposedEntities), [exposedEntities]);
 
   const favoriteEntities = useMemo(() => {
@@ -330,10 +344,31 @@ export function Dashboard({
 
         <section class="nido-hero">
           <div class="nido-hero__date">{dateStr}</div>
-          <h1>
-            {greeting}, <em>{userName}</em>
-          </h1>
-          <p class="nido-hero__sub">{sub}</p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+            <h1 style={{ margin: 0 }}>
+              {greeting}, <em>{userName}</em>
+            </h1>
+            {personsAtHome.length > 0 && (
+              <div class="nido-home-pill">
+                <div class="nido-home-pill__avatars">
+                  {personsAtHome.map((p) => {
+                    const pic = getPictureUrl(p.attributes.entity_picture as string);
+                    return pic ? (
+                      <img 
+                        key={p.entity_id}
+                        src={pic} 
+                        alt={p.attributes.friendly_name as string} 
+                        title={p.attributes.friendly_name as string}
+                        class="nido-home-pill__avatar"
+                      />
+                    ) : null;
+                  })}
+                </div>
+                <span class="nido-home-pill__text">À la maison</span>
+              </div>
+            )}
+          </div>
+          <p class="nido-hero__sub" style={{ marginTop: '24px' }}>{sub}</p>
         </section>
 
         {hasContent ? (
