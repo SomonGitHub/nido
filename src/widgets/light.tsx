@@ -107,6 +107,7 @@ export function LightWidget({
             max={100}
             step={1}
             value={pct}
+            style={{ '--val': `${((pct - 1) / 99) * 100}%` } as any}
             onInput={(e) => setBrightness(Number((e.target as HTMLInputElement).value))}
           />
         </div>

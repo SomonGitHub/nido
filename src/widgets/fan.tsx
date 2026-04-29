@@ -80,6 +80,7 @@ export function FanWidget({ hass, entity, roomLabel, breatheVariant = 2 }: FanWi
             max={100}
             step={1}
             value={pct}
+            style={{ '--val': `${pct}%` } as any}
             onInput={(e) => setPercentage(Number((e.target as HTMLInputElement).value))}
           />
         </div>

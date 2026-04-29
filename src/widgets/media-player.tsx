@@ -121,6 +121,7 @@ export function MediaPlayerWidget({
                 max={1}
                 step={0.05}
                 value={currentVolume}
+                style={{ '--val': `${currentVolume * 100}%` } as any}
                 onInput={(e) => setVolume(Number((e.target as HTMLInputElement).value))}
               />
             </div>

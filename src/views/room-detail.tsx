@@ -168,7 +168,7 @@ export function RoomDetail({
               {stats.temperature && (
                 <Stat
                   label="Température"
-                  value={Math.round(parseFloat(stats.temperature.value)).toString()}
+                  value={stats.temperature.value}
                   unit={stats.temperature.unit || "°"}
                 />
               )}

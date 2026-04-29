@@ -172,7 +172,7 @@ function RoomCard({ area, entities, accent = false, onOpen, dragProps }: RoomCar
             <div class="nido-room-card__stats">
               {stats.temperature && (
                 <span class="nido-room-card__stat">
-                  {Math.round(parseFloat(stats.temperature.value))}
+                  {stats.temperature.value}
                   {stats.temperature.unit || "°"}
                 </span>
               )}
@@ -288,7 +288,7 @@ export function Dashboard({
     <div class="nido-shell">
       <div class="nido-dashboard">
         <header class="nido-topbar">
-          <div class="nido-topbar__brand">Nido</div>
+          <span class="nido-topbar__brand">nido</span>
           <div class="nido-topbar__actions">
             {weatherEntity && <WeatherPill entity={weatherEntity} />}
             <button

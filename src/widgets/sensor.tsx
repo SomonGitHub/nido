@@ -29,8 +29,13 @@ const ICON_BY_CLASS: Record<string, IconCmp> = {
   battery: IconBattery,
 };
 
-function formatValue(state: string, unit: string | undefined): { value: string; unit: string } {
+function formatValue(
+  state: string,
+  unit: string | undefined,
+  deviceClass: string,
+): { value: string; unit: string } {
   if (state === "unavailable" || state === "unknown") return { value: "—", unit: "" };
+  if (deviceClass === "temperature") return { value: state, unit: unit ?? "" };
   const num = Number(state);
   if (Number.isFinite(num)) {
     const abs = Math.abs(num);
@@ -45,7 +50,7 @@ export function SensorWidget({ entity, roomLabel }: SensorWidgetProps) {
   const unit = entity.state.attributes.unit_of_measurement as string | undefined;
   const Icon = ICON_BY_CLASS[deviceClass] ?? IconActivity;
   const unavailable = entity.state.state === "unavailable";
-  const { value, unit: displayUnit } = formatValue(entity.state.state, unit);
+  const { value, unit: displayUnit } = formatValue(entity.state.state, unit, deviceClass);
 
   return (
     <div class="n-card n-card--compact" data-status={unavailable ? "indisponible" : "off"}>

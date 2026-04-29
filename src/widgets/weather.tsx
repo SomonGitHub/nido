@@ -42,9 +42,10 @@ export function describeCondition(state: string): { label: string; Icon: IconCmp
 }
 
 function formatTemp(value: unknown, unit: string): string {
+  if (value === null || value === undefined || value === "") return "—";
   const num = Number(value);
   if (!Number.isFinite(num)) return "—";
-  return `${Math.round(num)}${unit}`;
+  return `${value}${unit}`;
 }
 
 export function WeatherWidget({ entity, roomLabel }: WeatherWidgetProps) {

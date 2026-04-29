@@ -71,10 +71,12 @@
   color: var(--ink-3);
 }
 .nido-topbar__brand {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: -0.02em;
+  font-family: "Comfortaa", var(--font-sans);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  line-height: 1;
 }
 
 /* Hero greeting */
@@ -132,6 +134,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
+  align-items: center;
 }
 
 /* Card de base */
@@ -186,6 +189,62 @@
 .n-card[data-hero="true"] {
   min-height: 200px;
   padding: 24px;
+}
+
+/* Cover glow — rotating accent halo when cover is open */
+.n-cover-glow-wrap {
+  position: relative;
+  border-radius: calc(var(--r-lg) + 2px);
+  padding: 2px;
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent;
+  transition: box-shadow 500ms var(--ease-out);
+}
+.n-cover-glow-wrap[data-active="true"] {
+  box-shadow: 0 0 18px 2px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.n-cover-glow-wrap .n-card {
+  position: relative;
+  z-index: 1;
+}
+.n-cover-glow-wrap::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 35%,
+    color-mix(in srgb, var(--accent) 60%, transparent) 45%,
+    var(--accent) 50%,
+    color-mix(in srgb, var(--accent) 60%, transparent) 55%,
+    transparent 65%,
+    transparent 100%
+  );
+  animation: cover-glow-spin 3.5s linear infinite;
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+.n-cover-glow-wrap[data-active="true"]::before { opacity: 1; }
+
+@keyframes cover-glow-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .n-cover-glow-wrap::before { animation: none; }
+  .n-cover-glow-wrap[data-active="true"]::before {
+    background: var(--accent);
+    opacity: 0.6;
+  }
 }
 
 /* Head row */
@@ -324,11 +383,16 @@
   width: 100%;
   height: 10px;
   border-radius: var(--r-pill);
-  background: var(--bg-inset);
+  background: linear-gradient(to right, var(--accent) var(--val, 0%), var(--bg-inset) var(--val, 0%));
   outline: none;
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+.n-slider::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: var(--r-pill);
+  background: transparent;
 }
 .n-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -340,6 +404,17 @@
   border: 2px solid var(--bg-card);
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
   cursor: pointer;
+  margin-top: -3px;
+}
+.n-slider::-moz-range-track {
+  height: 10px;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+}
+.n-slider::-moz-range-progress {
+  height: 10px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
 }
 .n-slider::-moz-range-thumb {
   width: 16px;
@@ -350,7 +425,13 @@
   cursor: pointer;
 }
 .n-card--accent .n-slider {
+  background: linear-gradient(to right, rgba(255,255,255,0.5) var(--val, 0%), rgba(255,255,255,0.2) var(--val, 0%));
+}
+.n-card--accent .n-slider::-moz-range-track {
   background: rgba(255, 255, 255, 0.2);
+}
+.n-card--accent .n-slider::-moz-range-progress {
+  background: rgba(255,255,255,0.5);
 }
 .n-card--accent .n-slider::-webkit-slider-thumb {
   background: var(--accent-ink);
@@ -1093,6 +1174,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
+  align-items: center;
 }
 
 @media (max-width: 720px) {

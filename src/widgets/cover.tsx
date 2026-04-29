@@ -36,6 +36,7 @@ export function CoverWidget({ hass, entity, roomLabel }: CoverWidgetProps) {
   };
 
   return (
+    <div class="n-cover-glow-wrap" data-active={isOpen ? "true" : "false"}>
     <div class="n-card" data-on={isOpen ? "true" : "false"}>
       <div class="n-card__head">
         <div class="n-icon-bubble">
@@ -71,11 +72,13 @@ export function CoverWidget({ hass, entity, roomLabel }: CoverWidgetProps) {
             max={100}
             step={1}
             value={pos}
+            style={{ '--val': `${pos}%` } as any}
             onInput={(e) => setPosition(Number((e.target as HTMLInputElement).value))}
           />
         </div>
       )}
       {unavailable && <div class="n-muted">Indisponible</div>}
+    </div>
     </div>
   );
 }
