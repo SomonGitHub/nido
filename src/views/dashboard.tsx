@@ -1,4 +1,4 @@
-import { useMemo } from "preact/hooks";
+import { useMemo, useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
 import {
@@ -22,6 +22,7 @@ import { CameraWidget } from "../widgets/camera";
 import { FanWidget } from "../widgets/fan";
 import { SceneScriptWidget } from "../widgets/scene-script";
 import { WeatherWidget, WeatherPill } from "../widgets/weather";
+import { WeatherPanel } from "../components/weather-panel";
 import { IconSettings, IconChevronRight } from "../icons";
 import { pickAreaIcon } from "./shared";
 
@@ -221,6 +222,17 @@ export function Dashboard({
     () => exposedEntities.find((e) => e.domain === "weather"),
     [exposedEntities],
   );
+
+  const hasMeteoFrance = useMemo(() => {
+    if (!weatherEntity) return false;
+    const allIds = Object.keys(hass.states);
+    return allIds.some(
+      (id) => id.startsWith("sensor.") && (id.endsWith("_next_rain") || id.endsWith("_weather_alert") || id.endsWith("_uv"))
+    );
+  }, [hass.states, weatherEntity]);
+
+  const [showWeatherPanel, setShowWeatherPanel] = useState(false);
+
   const byArea = useMemo(() => groupByArea(exposedEntities), [exposedEntities]);
 
   const favoriteEntities = useMemo(() => {
@@ -290,7 +302,20 @@ export function Dashboard({
         <header class="nido-topbar">
           <span class="nido-topbar__brand">nido</span>
           <div class="nido-topbar__actions">
-            {weatherEntity && <WeatherPill entity={weatherEntity} />}
+            {weatherEntity && (
+              hasMeteoFrance ? (
+                <button
+                  type="button"
+                  class="nido-weather-pill-btn"
+                  onClick={() => setShowWeatherPanel(true)}
+                  aria-label="Voir la météo détaillée"
+                >
+                  <WeatherPill entity={weatherEntity} />
+                </button>
+              ) : (
+                <WeatherPill entity={weatherEntity} />
+              )
+            )}
             <button
               type="button"
               class="n-pill-btn n-pill-btn--ghost"
@@ -352,6 +377,14 @@ export function Dashboard({
           </div>
         )}
       </div>
+
+      {showWeatherPanel && weatherEntity && (
+        <WeatherPanel
+          hass={hass}
+          weatherEntityId={weatherEntity.entity_id}
+          onClose={() => setShowWeatherPanel(false)}
+        />
+      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { ResolvedEntity } from "../core/entities";
 import { IconCamera } from "../icons";
@@ -30,17 +30,30 @@ export function CameraWidget({ hass, entity, roomLabel }: CameraWidgetProps) {
   const unavailable = state === "unavailable";
   const isLive = state === "recording" || state === "streaming";
   const [bust, setBust] = useState(0);
+  const [imgError, setImgError] = useState(false);
+
   const baseUrl = pickPictureUrl(entity, hass);
   const url = baseUrl ? `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}t=${bust}` : null;
+
+  useEffect(() => {
+    setImgError(false);
+  }, [baseUrl]);
 
   return (
     <div class="n-card n-card--camera" data-on={isLive ? "true" : "false"}>
       <div class="n-camera__frame">
-        {url ? (
-          <img class="n-camera__img" src={url} alt={entity.friendly_name} loading="lazy" />
+        {url && !imgError ? (
+          <img 
+            class="n-camera__img" 
+            src={url} 
+            alt={entity.friendly_name} 
+            loading="lazy"
+            onError={() => setImgError(true)} 
+          />
         ) : (
-          <div class="n-camera__placeholder" aria-hidden="true">
+          <div class="n-camera__placeholder" aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <IconCamera size={28} />
+            {imgError && <span style={{ fontSize: '10px', marginTop: '4px', opacity: 0.7 }}>Erreur de flux</span>}
           </div>
         )}
         {isLive && <span class="n-camera__live">●&nbsp;LIVE</span>}
@@ -54,7 +67,7 @@ export function CameraWidget({ hass, entity, roomLabel }: CameraWidgetProps) {
           type="button"
           class="n-pill-btn"
           disabled={unavailable || !url}
-          onClick={() => setBust(Date.now())}
+          onClick={() => { setBust(Date.now()); setImgError(false); }}
         >
           Rafraîchir
         </button>

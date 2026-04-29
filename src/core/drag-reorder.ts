@@ -51,7 +51,7 @@ export function useDragReorder<T>(
   onReorder: (next: T[]) => void,
 ) {
   const [state, setState] = useState<DragState>({ draggingId: null, overId: null });
-  const startRef = useRef<{ id: string; x: number; y: number; entered: boolean } | null>(null);
+  const startRef = useRef<{ id: string; x: number; y: number; entered: boolean; pointerType: string; timerId?: number } | null>(null);
   const containerRef = useRef<HTMLElement | null>(null);
   const itemsRef = useRef(items);
   itemsRef.current = items;
@@ -77,18 +77,34 @@ export function useDragReorder<T>(
     const onMove = (ev: PointerEvent) => {
       const start = startRef.current;
       if (!start) return;
-      if (!start.entered) {
-        const dx = ev.clientX - start.x;
-        const dy = ev.clientY - start.y;
-        if (Math.hypot(dx, dy) < THRESHOLD_PX) return;
-        start.entered = true;
-        setState({ draggingId: start.id, overId: null });
+      
+      if (start.pointerType === "touch") {
+        if (!start.entered) {
+          const dx = ev.clientX - start.x;
+          const dy = ev.clientY - start.y;
+          if (Math.hypot(dx, dy) > THRESHOLD_PX) {
+            // User moved finger before 2s elapsed (probably scrolling), cancel drag
+            if (start.timerId) clearTimeout(start.timerId);
+            startRef.current = null;
+          }
+          return;
+        }
+      } else {
+        if (!start.entered) {
+          const dx = ev.clientX - start.x;
+          const dy = ev.clientY - start.y;
+          if (Math.hypot(dx, dy) < THRESHOLD_PX) return;
+          start.entered = true;
+          setState({ draggingId: start.id, overId: null });
+        }
       }
+
       const id = findCardId(ev.clientX, ev.clientY);
       setState((s) => (s.overId === id ? s : { ...s, overId: id }));
     };
     const onUp = () => {
       const start = startRef.current;
+      if (start?.timerId) clearTimeout(start.timerId);
       startRef.current = null;
       if (!start || !start.entered) return;
 
@@ -138,7 +154,20 @@ export function useDragReorder<T>(
           if (ev.button !== undefined && ev.button !== 0) return;
           const root = ev.currentTarget as Element;
           if (isInteractiveTarget(ev.target, root)) return;
-          startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false };
+          
+          if (ev.pointerType === "touch") {
+            const timerId = window.setTimeout(() => {
+              const start = startRef.current;
+              if (start && start.id === id && !start.entered) {
+                start.entered = true;
+                setState({ draggingId: id, overId: null });
+                if ("vibrate" in navigator) navigator.vibrate(50);
+              }
+            }, 2000);
+            startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: "touch", timerId };
+          } else {
+            startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: ev.pointerType };
+          }
         },
       };
     },

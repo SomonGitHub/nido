@@ -75,6 +75,16 @@ export function CoverWidget({ hass, entity, roomLabel }: CoverWidgetProps) {
             style={{ '--val': `${pos}%` } as any}
             onInput={(e) => setPosition(Number((e.target as HTMLInputElement).value))}
           />
+          <div style={{ marginTop: '12px', display: 'flex', justifyContent: 'flex-end' }}>
+            <button
+              type="button"
+              class="n-pill-btn"
+              style={{ fontSize: '12px', padding: '6px 12px' }}
+              onClick={() => setPosition(pos !== 0 ? 0 : 100)}
+            >
+              {pos !== 0 ? "Fermer" : "Ouvrir"}
+            </button>
+          </div>
         </div>
       )}
       {unavailable && <div class="n-muted">Indisponible</div>}

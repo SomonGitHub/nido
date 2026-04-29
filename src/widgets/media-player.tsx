@@ -39,6 +39,7 @@ export function MediaPlayerWidget({
   const isOff = state === "off" || state === "standby";
   const title = entity.state.attributes.media_title as string | undefined;
   const artist = entity.state.attributes.media_artist as string | undefined;
+  const appName = entity.state.attributes.app_name as string | undefined;
   const volume = entity.state.attributes.volume_level as number | undefined;
 
   const [draftVolume, setDraftVolume] = useState<number | null>(null);
@@ -75,10 +76,11 @@ export function MediaPlayerWidget({
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}
       <div class="n-title">{entity.friendly_name}</div>
 
-      {!isOff && !unavailable && (title || artist) && (
+      {!isOff && !unavailable && (title || artist || appName) && (
         <div class="n-media__track">
           {title && <div class="n-media__title">{title}</div>}
           {artist && <div class="n-muted">{artist}</div>}
+          {appName && <div class="n-muted" style={{ fontSize: '0.75rem', marginTop: (title || artist) ? '4px' : '0' }}>{appName}</div>}
         </div>
       )}
 
