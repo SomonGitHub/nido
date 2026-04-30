@@ -72,7 +72,7 @@
 }
 .nido-topbar__clock {
   font-family: var(--font-mono);
-  font-size: 28px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--ink-3);
   line-height: 1;
@@ -80,7 +80,7 @@
 .nido-topbar__brand span {
   font-family: "Comfortaa", var(--font-sans);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 24px;
   letter-spacing: 0.04em;
   color: var(--accent);
   line-height: 1;
