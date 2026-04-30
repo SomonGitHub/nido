@@ -52,7 +52,7 @@ export function useDragReorder<T>(
   onReorder: (next: T[]) => void,
 ) {
   const [state, setState] = useState<DragState>({ draggingId: null, overId: null });
-  const startRef = useRef<{ id: string; x: number; y: number; entered: boolean; pointerType: string; timerId?: number; pointerId?: number } | null>(null);
+  const startRef = useRef<{ id: string; x: number; y: number; entered: boolean; pointerType: string; timerId?: number } | null>(null);
   const containerRef = useRef<HTMLElement | null>(null);
   const itemsRef = useRef(items);
   itemsRef.current = items;
@@ -85,10 +85,6 @@ export function useDragReorder<T>(
           const dy = ev.clientY - start.y;
           if (Math.hypot(dx, dy) > TOUCH_THRESHOLD_PX) {
             if (start.timerId) clearTimeout(start.timerId);
-            if (start.pointerId != null) {
-              const el = containerRef.current?.querySelector(`[data-drag-id="${start.id}"]`) as HTMLElement | null;
-              if (el) try { el.releasePointerCapture(start.pointerId); } catch {}
-            }
             startRef.current = null;
           }
           return;
@@ -160,8 +156,6 @@ export function useDragReorder<T>(
           if (isInteractiveTarget(ev.target, root)) return;
           
           if (ev.pointerType === "touch") {
-            const target = ev.currentTarget as HTMLElement;
-            target.setPointerCapture(ev.pointerId);
             const timerId = window.setTimeout(() => {
               const start = startRef.current;
               if (start && start.id === id && !start.entered) {
@@ -170,7 +164,7 @@ export function useDragReorder<T>(
                 if ("vibrate" in navigator) navigator.vibrate(50);
               }
             }, 2000);
-            startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: "touch", timerId, pointerId: ev.pointerId };
+            startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: "touch", timerId };
           } else {
             startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: ev.pointerType };
           }
