@@ -868,7 +868,7 @@
   flex-direction: column;
   position: relative;
   min-width: 0;
-  touch-action: none;
+  touch-action: pan-y;
   transition: transform 220ms var(--ease-out), opacity 220ms;
 }
 .nido-drag-item > * { flex: 1 1 auto; min-width: 0; }
@@ -894,7 +894,7 @@
   transform: translateY(-2px);
 }
 .nido-rooms-grid .nido-room-card {
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 /* Hero date line */
@@ -2499,3 +2499,231 @@
   font-weight: 500;
   white-space: nowrap;
 }
+
+
+/* Notification Panel */
+.nido-notification-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nido-notification-panel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.nido-notification-panel__content {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  background: var(--bg-shell);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  animation: nido-slide-in-right 0.4s var(--ease-out);
+}
+
+@keyframes nido-slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.nido-notification-panel__header {
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ink-4);
+}
+
+.nido-notification-panel__header h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink-1);
+}
+
+.nido-notification-panel__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-inset);
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nido-notification-panel__close:hover {
+  background: var(--ink-4);
+}
+
+.nido-notification-panel__scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 32px 32px;
+}
+
+.nido-notification-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.nido-notification-empty__icon {
+  margin-bottom: 16px;
+  opacity: 0.2;
+}
+
+.nido-notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nido-notification-item {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  transition: transform 0.2s;
+  border: 1px solid transparent;
+}
+
+.nido-notification-item:hover {
+  transform: translateY(-2px);
+}
+
+.nido-notification-item__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nido-notification-item--info .nido-notification-item__icon {
+  background: color-mix(in srgb, var(--accent) 15%, var(--bg-card));
+  color: var(--accent);
+}
+
+.nido-notification-item--warning .nido-notification-item__icon {
+  background: color-mix(in srgb, var(--danger) 15%, var(--bg-card));
+  color: var(--danger);
+}
+
+.nido-notification-item--success .nido-notification-item__icon {
+  background: color-mix(in srgb, var(--positive) 15%, var(--bg-card));
+  color: var(--positive);
+}
+
+.nido-notification-item__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.nido-notification-item__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.nido-notification-item__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-1);
+}
+
+.nido-notification-item__time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-3);
+}
+
+.nido-notification-item__message {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.4;
+}
+
+.nido-notification-item__dismiss {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.nido-notification-item:hover .nido-notification-item__dismiss {
+  opacity: 1;
+}
+
+.nido-notification-item__dismiss:hover {
+  background: var(--bg-inset);
+  color: var(--ink-1);
+}
+
+/* Bell button with badge */
+.nido-bell-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-4);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nido-bell-btn:hover {
+  background: var(--bg-inset);
+  border-color: var(--ink-3);
+}
+
+.nido-bell-btn__badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-card);
+}
+

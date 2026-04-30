@@ -7,6 +7,7 @@ const KEYS = {
   onboarded: "nido.onboarded",
   theme: "nido.theme",
   mode: "nido.mode",
+  lastNotificationRead: "nido.lastNotificationRead",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -121,4 +122,12 @@ export function saveTheme(theme: ThemeName, mode: ThemeMode): void {
   if (!s) return;
   s.setItem(KEYS.theme, theme);
   s.setItem(KEYS.mode, mode);
+}
+
+export function loadLastNotificationRead(): string | null {
+  return safeStorage()?.getItem(KEYS.lastNotificationRead) ?? null;
+}
+
+export function saveLastNotificationRead(isoString: string): void {
+  safeStorage()?.setItem(KEYS.lastNotificationRead, isoString);
 }

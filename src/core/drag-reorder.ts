@@ -75,18 +75,33 @@ export function useDragReorder<T>(
   }, []);
 
   useEffect(() => {
+    const onTouchMove = (ev: TouchEvent) => {
+      const start = startRef.current;
+      if (!start || start.pointerType !== "touch") return;
+      // During active drag, always block scroll
+      if (start.entered) { ev.preventDefault(); return; }
+      // During long-press wait: block scroll while finger is still (prevents pointercancel).
+      // A deliberate fast scroll will exceed TOUCH_THRESHOLD_PX on the first event,
+      // skipping preventDefault entirely so the scroll gesture proceeds normally.
+      const touch = ev.touches[0];
+      if (!touch) return;
+      const dx = touch.clientX - start.x;
+      const dy = touch.clientY - start.y;
+      if (Math.hypot(dx, dy) <= TOUCH_THRESHOLD_PX) {
+        ev.preventDefault();
+      } else {
+        if (start.timerId) clearTimeout(start.timerId);
+        startRef.current = null;
+      }
+    };
+
     const onMove = (ev: PointerEvent) => {
       const start = startRef.current;
       if (!start) return;
-      
+
       if (start.pointerType === "touch") {
         if (!start.entered) {
-          const dx = ev.clientX - start.x;
-          const dy = ev.clientY - start.y;
-          if (Math.hypot(dx, dy) > TOUCH_THRESHOLD_PX) {
-            if (start.timerId) clearTimeout(start.timerId);
-            startRef.current = null;
-          }
+          // threshold already managed by onTouchMove; just bail until entered
           return;
         }
       } else {
@@ -134,10 +149,12 @@ export function useDragReorder<T>(
     document.addEventListener("pointermove", onMove);
     document.addEventListener("pointerup", onUp);
     document.addEventListener("pointercancel", onUp);
+    document.addEventListener("touchmove", onTouchMove, { passive: false });
     return () => {
       document.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerup", onUp);
       document.removeEventListener("pointercancel", onUp);
+      document.removeEventListener("touchmove", onTouchMove);
     };
   }, [findCardId]);
 
@@ -163,7 +180,7 @@ export function useDragReorder<T>(
                 setState({ draggingId: id, overId: null });
                 if ("vibrate" in navigator) navigator.vibrate(50);
               }
-            }, 2000);
+            }, 1500);
             startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: "touch", timerId };
           } else {
             startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: ev.pointerType };

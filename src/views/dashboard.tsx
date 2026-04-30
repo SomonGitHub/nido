@@ -23,8 +23,10 @@ import { FanWidget } from "../widgets/fan";
 import { SceneScriptWidget } from "../widgets/scene-script";
 import { WeatherWidget, WeatherPill } from "../widgets/weather";
 import { WeatherPanel } from "../components/weather-panel";
-import { IconSettings, IconChevronRight } from "../icons";
+import { IconSettings, IconChevronRight, IconBell } from "../icons";
 import { pickAreaIcon } from "./shared";
+import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
+import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 
 interface DashboardProps {
   hass: HassObject;
@@ -292,6 +294,27 @@ export function Dashboard({
   }, [hass.states, weatherEntity]);
 
   const [showWeatherPanel, setShowWeatherPanel] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+
+  const notifications = useMemo(() => {
+    const sensor = hass.states["sensor.nido_notifications"];
+    if (!sensor || !sensor.attributes.notifications) return [];
+    return sensor.attributes.notifications as NidoNotification[];
+  }, [hass.states["sensor.nido_notifications"]]);
+
+  const lastRead = useMemo(() => loadLastNotificationRead(), [showNotifications]);
+
+  const hasNewNotifications = useMemo(() => {
+    if (notifications.length === 0) return false;
+    if (!lastRead) return true;
+    const latest = notifications[notifications.length - 1];
+    return new Date(latest.timestamp) > new Date(lastRead);
+  }, [notifications, lastRead]);
+
+  const handleOpenNotifications = () => {
+    setShowNotifications(true);
+    saveLastNotificationRead(new Date().toISOString());
+  };
 
   const personsAtHome = useMemo(() => {
     return Object.values(hass.states).filter(
@@ -391,15 +414,23 @@ export function Dashboard({
                 <WeatherPill entity={weatherEntity} />
               )
             )}
+            <div class="nido-topbar__time">{timeStr}</div>
+            <button
+              type="button"
+              class="nido-bell-btn"
+              onClick={handleOpenNotifications}
+              aria-label="Notifications"
+            >
+              <IconBell size={20} />
+              {hasNewNotifications && <span class="nido-bell-btn__badge" />}
+            </button>
             <button
               type="button"
               class="n-pill-btn n-pill-btn--ghost"
               onClick={onConfigure}
             >
-              <IconSettings size={14} />
-              <span>Personnaliser</span>
+              <IconSettings size={16} />
             </button>
-            <div class="nido-topbar__time">{timeStr}</div>
           </div>
         </header>
 
@@ -480,6 +511,14 @@ export function Dashboard({
           hass={hass}
           weatherEntityId={weatherEntity.entity_id}
           onClose={() => setShowWeatherPanel(false)}
+        />
+      )}
+
+      {showNotifications && (
+        <NotificationPanel
+          hass={hass}
+          notifications={notifications}
+          onClose={() => setShowNotifications(false)}
         />
       )}
     </div>
