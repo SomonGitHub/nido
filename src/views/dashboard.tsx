@@ -398,7 +398,10 @@ export function Dashboard({
     <div class="nido-shell">
       <div class="nido-dashboard">
         <header class="nido-topbar">
-          <span class="nido-topbar__brand">nido</span>
+          <div class="nido-topbar__brand">
+            <div class="nido-topbar__clock">{timeStr}</div>
+            <span>nido</span>
+          </div>
           <div class="nido-topbar__actions">
             {weatherEntity && (
               hasMeteoFrance ? (
@@ -414,7 +417,7 @@ export function Dashboard({
                 <WeatherPill entity={weatherEntity} />
               )
             )}
-            <div class="nido-topbar__time">{timeStr}</div>
+            {/* L'heure a été déplacée dans le bloc brand */}
             <button
               type="button"
               class="nido-bell-btn"
