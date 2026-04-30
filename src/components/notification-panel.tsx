@@ -16,11 +16,17 @@ interface NotificationPanelProps {
 }
 
 export function NotificationPanel({ hass, notifications, onClose }: NotificationPanelProps) {
+
+  // Fonction de suppression via événement personnalisé
   const dismissNotification = async (id: string) => {
     try {
-      // On tente d'appeler un service dédié pour supprimer la notification côté HA.
-      // Si le capteur est géré par une automatisation/script, ce service permet de synchroniser l'état.
-      await hass.callService("script", "nido_dismiss_notification", { id });
+      // On utilise sendMessagePromise pour envoyer l'événement "nido_notification_event"
+      // Cela déclenchera l'automatisation "Nido: Gestionnaire de Notifications"
+      await (hass as any).connection.sendMessagePromise({
+        type: "fire_event",
+        event_type: "nido_notification_event",
+        event_data: { action: "dismiss", id: id }
+      });
     } catch (err) {
       console.warn("Failed to dismiss notification", err);
     }

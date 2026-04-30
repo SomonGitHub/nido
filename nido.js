@@ -1844,7 +1844,11 @@ const na = {
 function ta({ hass: n, notifications: t, onClose: i }) {
   const r = async (o) => {
     try {
-      await n.callService("script", "nido_dismiss_notification", { id: o });
+      await n.connection.sendMessagePromise({
+        type: "fire_event",
+        event_type: "nido_notification_event",
+        event_data: { action: "dismiss", id: o }
+      });
     } catch (a) {
       console.warn("Failed to dismiss notification", a);
     }
