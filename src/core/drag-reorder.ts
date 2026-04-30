@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 
 const THRESHOLD_PX = 6;
+const TOUCH_THRESHOLD_PX = 20;
 
 function isInteractiveTarget(target: EventTarget | null, root: Element): boolean {
   if (!(target instanceof Element)) return false;
@@ -51,7 +52,7 @@ export function useDragReorder<T>(
   onReorder: (next: T[]) => void,
 ) {
   const [state, setState] = useState<DragState>({ draggingId: null, overId: null });
-  const startRef = useRef<{ id: string; x: number; y: number; entered: boolean; pointerType: string; timerId?: number } | null>(null);
+  const startRef = useRef<{ id: string; x: number; y: number; entered: boolean; pointerType: string; timerId?: number; pointerId?: number } | null>(null);
   const containerRef = useRef<HTMLElement | null>(null);
   const itemsRef = useRef(items);
   itemsRef.current = items;
@@ -82,9 +83,12 @@ export function useDragReorder<T>(
         if (!start.entered) {
           const dx = ev.clientX - start.x;
           const dy = ev.clientY - start.y;
-          if (Math.hypot(dx, dy) > THRESHOLD_PX) {
-            // User moved finger before 2s elapsed (probably scrolling), cancel drag
+          if (Math.hypot(dx, dy) > TOUCH_THRESHOLD_PX) {
             if (start.timerId) clearTimeout(start.timerId);
+            if (start.pointerId != null) {
+              const el = containerRef.current?.querySelector(`[data-drag-id="${start.id}"]`) as HTMLElement | null;
+              if (el) try { el.releasePointerCapture(start.pointerId); } catch {}
+            }
             startRef.current = null;
           }
           return;
@@ -156,6 +160,8 @@ export function useDragReorder<T>(
           if (isInteractiveTarget(ev.target, root)) return;
           
           if (ev.pointerType === "touch") {
+            const target = ev.currentTarget as HTMLElement;
+            target.setPointerCapture(ev.pointerId);
             const timerId = window.setTimeout(() => {
               const start = startRef.current;
               if (start && start.id === id && !start.entered) {
@@ -164,7 +170,7 @@ export function useDragReorder<T>(
                 if ("vibrate" in navigator) navigator.vibrate(50);
               }
             }, 2000);
-            startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: "touch", timerId };
+            startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: "touch", timerId, pointerId: ev.pointerId };
           } else {
             startRef.current = { id, x: ev.clientX, y: ev.clientY, entered: false, pointerType: ev.pointerType };
           }

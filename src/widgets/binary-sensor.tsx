@@ -42,6 +42,7 @@ const LABEL_BY_CLASS: Record<string, { on: string; off: string }> = {
 };
 
 const ALERT_CLASSES = new Set(["smoke", "gas", "moisture"]);
+const OPENING_CLASSES = new Set(["door", "garage_door", "window"]);
 
 export function BinarySensorWidget({ entity, roomLabel }: BinarySensorProps) {
   const deviceClass = (entity.state.attributes.device_class as string | undefined) ?? "";
@@ -50,9 +51,10 @@ export function BinarySensorWidget({ entity, roomLabel }: BinarySensorProps) {
   const Icon = ICON_BY_CLASS[deviceClass] ?? IconShield;
   const labels = LABEL_BY_CLASS[deviceClass] ?? { on: "Actif", off: "Inactif" };
   const isAlert = ALERT_CLASSES.has(deviceClass);
+  const showGlow = OPENING_CLASSES.has(deviceClass);
   const status = unavailable ? "indisponible" : isOn ? "on" : "off";
 
-  return (
+  const card = (
     <div class="n-card n-card--compact" data-status={status} data-alert={isAlert ? "true" : "false"}>
       <div class="n-card__head">
         <div class="n-icon-bubble">
@@ -67,4 +69,14 @@ export function BinarySensorWidget({ entity, roomLabel }: BinarySensorProps) {
       </div>
     </div>
   );
+
+  if (showGlow) {
+    return (
+      <div class="n-cover-glow-wrap" data-active={isOn ? "true" : "false"}>
+        {card}
+      </div>
+    );
+  }
+
+  return card;
 }

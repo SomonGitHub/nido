@@ -1,6 +1,6 @@
 import { useState, useEffect } from "preact/hooks";
 import type { HassObject, HassEntity } from "../types";
-import { IconAlertTriangle, IconUmbrella, IconSunHigh } from "../icons";
+import { IconAlertTriangle, IconUmbrella, IconSunHigh, IconX } from "../icons";
 import { describeCondition } from "../widgets/weather";
 
 interface WeatherPanelProps {
@@ -123,6 +123,9 @@ export function WeatherPanel({ hass, weatherEntityId, onClose }: WeatherPanelPro
       <div class="nido-weather-panel__content">
         <header class="nido-weather-panel__header">
           <h2>Météo Détaillée</h2>
+          <button type="button" class="nido-weather-panel__close" onClick={onClose} aria-label="Fermer">
+            <IconX size={20} />
+          </button>
         </header>
 
         <div class="nido-weather-panel__scroll">

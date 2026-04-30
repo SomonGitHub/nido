@@ -110,15 +110,55 @@ function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
   }
 }
 
+interface PersonPresence {
+  name: string;
+  picture?: string;
+}
+
+function areaToMqttKey(name: string): string {
+  return name.replace(/[^\x00-\x7F]/g, "_").toLowerCase();
+}
+
+function detectRoomPresence(
+  hass: HassObject,
+  areas: Area[],
+): Map<string, PersonPresence[]> {
+  const areaKeyMap = new Map(areas.map((a) => [areaToMqttKey(a.name), a.area_id]));
+  const byArea = new Map<string, Map<string, PersonPresence>>();
+
+  for (const entity of Object.values(hass.states)) {
+    if (!entity.entity_id.startsWith("sensor.")) continue;
+    const stateKey = entity.state.toLowerCase();
+    const areaId = areaKeyMap.get(stateKey);
+    if (!areaId) continue;
+
+    const suffix = entity.entity_id.slice("sensor.".length);
+    const personName = suffix.slice(suffix.lastIndexOf("_") + 1);
+    if (!personName) continue;
+
+    const personEntity = hass.states[`person.${personName}`];
+    const picture = personEntity?.attributes.entity_picture as string | undefined;
+
+    const areaMap = byArea.get(areaId) ?? new Map<string, PersonPresence>();
+    if (!areaMap.has(personName)) areaMap.set(personName, { name: personName, picture });
+    byArea.set(areaId, areaMap);
+  }
+
+  return new Map(
+    Array.from(byArea.entries()).map(([id, map]) => [id, Array.from(map.values())]),
+  );
+}
+
 interface RoomCardProps {
   area: Area;
   entities: ResolvedEntity[];
   accent?: boolean;
   onOpen: () => void;
   dragProps: Record<string, unknown>;
+  presence?: PersonPresence[];
 }
 
-function RoomCard({ area, entities, accent = false, onOpen, dragProps }: RoomCardProps) {
+function RoomCard({ area, entities, accent = false, onOpen, dragProps, presence }: RoomCardProps) {
   const Icon = pickAreaIcon(area.name);
   const devices = entities.filter(
     (e) => e.domain !== "sensor" && e.domain !== "binary_sensor",
@@ -151,7 +191,27 @@ function RoomCard({ area, entities, accent = false, onOpen, dragProps }: RoomCar
           <span class="nido-room-card__icon">
             <Icon size={20} />
           </span>
-          <IconChevronRight size={16} />
+          <div class="nido-room-card__head-right">
+            {presence && presence.length > 0 && (
+              <div class="nido-room-card__presence">
+                {presence.map((p) =>
+                  p.picture ? (
+                    <img
+                      key={p.name}
+                      class="nido-room-card__avatar"
+                      src={p.picture}
+                      alt={p.name}
+                    />
+                  ) : (
+                    <span key={p.name} class="nido-room-card__avatar nido-room-card__avatar--initial">
+                      {p.name[0].toUpperCase()}
+                    </span>
+                  )
+                )}
+              </div>
+            )}
+            <IconChevronRight size={16} />
+          </div>
         </div>
         <div class="nido-room-card__foot">
           <div class="nido-room-card__name">{area.name}</div>
@@ -248,6 +308,7 @@ export function Dashboard({
   };
 
   const byArea = useMemo(() => groupByArea(exposedEntities), [exposedEntities]);
+  const roomPresence = useMemo(() => detectRoomPresence(hass, areas), [hass.states, areas]);
 
   const favoriteEntities = useMemo(() => {
     const byId = new Map(exposedEntities.map((e) => [e.entity_id, e]));
@@ -394,6 +455,7 @@ export function Dashboard({
                       accent={i === 0}
                       onOpen={() => onOpenRoom(a.area_id)}
                       dragProps={roomsDrag.itemPropsFor(a.area_id)}
+                      presence={roomPresence.get(a.area_id)}
                     />
                   ))}
                 </div>
