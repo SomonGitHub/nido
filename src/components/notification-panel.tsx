@@ -17,18 +17,26 @@ interface NotificationPanelProps {
 
 export function NotificationPanel({ hass, notifications, onClose }: NotificationPanelProps) {
 
-  // Fonction de suppression via événement personnalisé
+  // Fonction de suppression améliorée avec gestion d'erreur
   const dismissNotification = async (id: string) => {
+    if (!hass) return;
+
     try {
-      // On utilise sendMessagePromise pour envoyer l'événement "nido_notification_event"
-      // Cela déclenchera l'automatisation "Nido: Gestionnaire de Notifications"
+      // Envoi de l'événement vers Home Assistant
       await (hass as any).connection.sendMessagePromise({
         type: "fire_event",
         event_type: "nido_notification_event",
         event_data: { action: "dismiss", id: id }
       });
     } catch (err) {
-      console.warn("Failed to dismiss notification", err);
+      console.warn("Échec de la suppression via WebSocket, tentative via service...", err);
+
+      // Fallback : Appel de service si la connexion WebSocket directe est capricieuse
+      try {
+        await hass.callService("script", "nido_dismiss_notification", { id });
+      } catch (err2) {
+        console.error("Toutes les méthodes de suppression ont échoué", err2);
+      }
     }
   };
 
