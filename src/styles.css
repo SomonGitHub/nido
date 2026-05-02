@@ -193,7 +193,8 @@
   color: var(--accent-deep);
 }
 
-.n-card[data-hero="true"] {
+.n-card[data-hero="true"],
+.nido-drag-item[data-hero="true"] .n-card {
   min-height: 200px;
   padding: 24px;
 }
@@ -839,6 +840,333 @@
 .nido-weather-pill__label {
   font-size: 12px;
   color: var(--ink-3);
+}
+
+/* Lights pill (topbar) */
+.nido-lights-pill-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  transition: transform 200ms;
+}
+.nido-lights-pill-btn:hover { transform: scale(1.04); }
+.nido-lights-pill-btn:active { transform: scale(0.96); }
+
+.nido-lights-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 10px;
+  background: var(--accent-soft);
+  border-radius: var(--r-pill);
+  font-family: var(--font-sans);
+  color: var(--accent-deep);
+}
+.nido-lights-pill__count {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.nido-lights-pill__label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Lights panel */
+.nido-lights-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nido-lights-panel__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink-1);
+}
+.nido-lights-panel__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nido-lights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nido-lights-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: 14px 16px;
+  transition: opacity 0.2s;
+}
+.nido-lights-row.is-pending {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.nido-lights-row__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nido-lights-row__body {
+  flex: 1;
+  min-width: 0;
+}
+.nido-lights-row__name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nido-lights-row__room {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.nido-lights-row__pct {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+
+.nido-lights-panel__footer {
+  padding: 16px 32px 24px;
+  border-top: 1px solid var(--ink-4);
+}
+.nido-lights-panel__all-off {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--ink-4);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 180ms, color 180ms;
+}
+.nido-lights-panel__all-off:hover {
+  background: var(--ink-1);
+  color: var(--bg-shell);
+  border-color: var(--ink-1);
+}
+.nido-lights-panel__all-off:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Calendar widget ── */
+.nido-cal-widget {
+  cursor: pointer;
+  transition: transform 200ms var(--ease-spring), background 200ms;
+}
+.nido-cal-widget:hover {
+  transform: translateY(-2px);
+}
+.nido-cal-widget:active {
+  transform: scale(0.98);
+}
+.nido-cal-widget__bubble {
+  background: color-mix(in srgb, var(--cal-color, var(--ink-3)) 14%, var(--bg-inset)) !important;
+  color: var(--cal-color, var(--ink-3)) !important;
+}
+.nido-cal-widget__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ink-1);
+}
+.nido-cal-widget__when {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-top: auto;
+}
+.nido-cal-widget__sep { opacity: 0.5; }
+.nido-cal-widget__time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Calendar panel ── */
+.nido-cal-panel__legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 32px 12px;
+  border-bottom: 1px solid var(--ink-4);
+}
+.nido-cal-panel__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.nido-cal-panel__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nido-cal-panel__days {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nido-cal-panel__day {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--ink-4);
+}
+.nido-cal-panel__day:last-child { border-bottom: none; }
+
+.nido-cal-panel__badge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--bg-shell);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 200ms;
+}
+.nido-cal-panel__day.is-today .nido-cal-panel__badge {
+  background: var(--accent-soft);
+}
+.nido-cal-panel__badge-day {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.nido-cal-panel__day.is-today .nido-cal-panel__badge-day {
+  color: var(--accent-deep);
+}
+.nido-cal-panel__badge-num {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink-1);
+  line-height: 1;
+}
+.nido-cal-panel__day.is-today .nido-cal-panel__badge-num {
+  color: var(--accent-deep);
+}
+
+.nido-cal-panel__events {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+.nido-cal-panel__empty {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-4);
+  line-height: 44px;
+}
+
+.nido-cal-panel__event {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.nido-cal-panel__event-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.nido-cal-panel__event-body {
+  flex: 1;
+  min-width: 0;
+}
+.nido-cal-panel__event-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink-1);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nido-cal-panel__event-who {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  display: block;
+  margin-top: 2px;
+}
+.nido-cal-panel__event-time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  padding-top: 2px;
 }
 
 /* Weather widget */

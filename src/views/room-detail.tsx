@@ -21,6 +21,7 @@ import { CameraWidget } from "../widgets/camera";
 import { FanWidget } from "../widgets/fan";
 import { SceneScriptWidget } from "../widgets/scene-script";
 import { WeatherWidget } from "../widgets/weather";
+import { CalendarWidget } from "../widgets/calendar";
 import { IconChevronLeft, IconMore } from "../icons";
 import { pickAreaIcon, DOMAIN_LABEL } from "./shared";
 
@@ -65,6 +66,8 @@ function renderWidget(entity: ResolvedEntity, hass: HassObject, areaName: string
       return <SceneScriptWidget key={entity.entity_id} {...common} />;
     case "weather":
       return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={areaName} />;
+    case "calendar":
+      return <CalendarWidget key={entity.entity_id} hass={hass} entity={entity} roomLabel={areaName} />;
     default:
       return null;
   }

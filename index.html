@@ -65,6 +65,10 @@
         "sensor.maison_uv": { entity_id: "sensor.maison_uv", state: "4", attributes: { friendly_name: "Index UV" }, last_changed: now, last_updated: now },
         "person.simon": { entity_id: "person.simon", state: "home", attributes: { friendly_name: "Simon", entity_picture: "https://picsum.photos/seed/simon/128/128" }, last_changed: now, last_updated: now },
         "person.anna": { entity_id: "person.anna", state: "not_home", attributes: { friendly_name: "Anna", entity_picture: "https://picsum.photos/seed/anna/128/128" }, last_changed: now, last_updated: now },
+
+        "calendar.famille": { entity_id: "calendar.famille", state: "off", attributes: { friendly_name: "Famille", message: "Conservatoire", all_day: false, start_time: "2026-05-04 17:30:00", end_time: "2026-05-04 19:00:00", location: "", description: "" }, last_changed: now, last_updated: now },
+        "calendar.simon":   { entity_id: "calendar.simon",   state: "off", attributes: { friendly_name: "Simon",   message: "Sport",          all_day: false, start_time: "2026-05-04 19:00:00", end_time: "2026-05-04 20:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
+        "calendar.travail": { entity_id: "calendar.travail", state: "off", attributes: { friendly_name: "Travail", message: "Stand-up",        all_day: false, start_time: "2026-05-04 09:00:00", end_time: "2026-05-04 09:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
       };
 
       const areas = [
@@ -111,6 +115,9 @@
         mk("sensor.maison_next_rain", null),
         mk("sensor.maison_weather_alert", null),
         mk("sensor.maison_uv", null),
+        mk("calendar.famille", null),
+        mk("calendar.simon", null),
+        mk("calendar.travail", null),
       ];
       const deviceRegistry = entityRegistry.map(e => ({ id: e.device_id, area_id: e.area_id, name: null, name_by_user: null }));
 
@@ -200,7 +207,7 @@
         connection: { subscribeEvents: async () => () => {} },
       };
 
-      requestAnimationFrame(refresh);
+      customElements.whenDefined("nido-panel").then(refresh);
     </script>
   </body>
 </html>

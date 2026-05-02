@@ -40,6 +40,7 @@ import {
   IconSearch,
   IconX,
   IconCloudSun,
+  IconCalendar,
 } from "../icons";
 
 const TOTAL_STEPS = 5;
@@ -63,6 +64,7 @@ const DOMAIN_META: Record<
   scene: { label: "Scènes", Icon: IconSparkles },
   script: { label: "Scripts", Icon: IconPlay },
   weather: { label: "Météo", Icon: IconCloudSun },
+  calendar: { label: "Calendriers", Icon: IconCalendar },
 };
 
 const PICKABLE_DOMAINS = Object.keys(DOMAIN_META);

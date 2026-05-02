@@ -23,10 +23,12 @@ import { FanWidget } from "../widgets/fan";
 import { SceneScriptWidget } from "../widgets/scene-script";
 import { WeatherWidget, WeatherPill } from "../widgets/weather";
 import { WeatherPanel } from "../components/weather-panel";
-import { IconSettings, IconChevronRight, IconBell } from "../icons";
+import { IconSettings, IconChevronRight, IconBell, IconLightOn } from "../icons";
 import { pickAreaIcon } from "./shared";
 import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
+import { LightsPanel } from "../components/lights-panel";
+import { CalendarWidget } from "../widgets/calendar";
 
 interface DashboardProps {
   hass: HassObject;
@@ -57,6 +59,7 @@ const SUPPORTED_DOMAINS = new Set([
   "scene",
   "script",
   "weather",
+  "calendar",
 ]);
 
 function greetingFor(hour: number): { greeting: string; sub: string } {
@@ -107,6 +110,8 @@ function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
       return <SceneScriptWidget key={entity.entity_id} {...common} />;
     case "weather":
       return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} />;
+    case "calendar":
+      return <CalendarWidget key={entity.entity_id} hass={ctx.hass} entity={entity} roomLabel={ctx.areaName} />;
     default:
       return null;
   }
@@ -285,6 +290,12 @@ export function Dashboard({
     [exposedEntities],
   );
 
+  const lightsOnEntities = useMemo(
+    () => exposedEntities.filter((e) => e.domain === "light" && isEntityActive(e)),
+    [exposedEntities],
+  );
+  const lightsOn = lightsOnEntities.length;
+
   const hasMeteoFrance = useMemo(() => {
     if (!weatherEntity) return false;
     const allIds = Object.keys(hass.states);
@@ -295,6 +306,7 @@ export function Dashboard({
 
   const [showWeatherPanel, setShowWeatherPanel] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showLightsPanel, setShowLightsPanel] = useState(false);
 
   const notifications = useMemo(() => {
     const sensor = hass.states["sensor.nido_notifications"];
@@ -377,12 +389,13 @@ export function Dashboard({
               <div
                 key={e.entity_id}
                 class="nido-drag-item"
+                data-hero={activeCounter === 1 ? "true" : "false"}
                 {...favDrag.itemPropsFor(e.entity_id)}
               >
                 {renderWidget(e, {
                   hass,
                   areaName: areas.find((a) => a.area_id === e.area_id)?.name ?? "",
-                  hero: activeCounter === 1 && e.domain === "light",
+                  hero: activeCounter === 1,
                   variant,
                 })}
               </div>
@@ -417,7 +430,22 @@ export function Dashboard({
                 <WeatherPill entity={weatherEntity} />
               )
             )}
-            {/* L'heure a été déplacée dans le bloc brand */}
+            {lightsOn > 0 && (
+              <button
+                type="button"
+                class="nido-lights-pill-btn"
+                onClick={() => setShowLightsPanel(true)}
+                aria-label={`${lightsOn} lumière${lightsOn > 1 ? "s" : ""} allumée${lightsOn > 1 ? "s" : ""}`}
+              >
+                <div class="nido-lights-pill">
+                  <IconLightOn size={16} />
+                  <span class="nido-lights-pill__count">{lightsOn}</span>
+                  <span class="nido-lights-pill__label">
+                    {lightsOn === 1 ? "lumière" : "lumières"}
+                  </span>
+                </div>
+              </button>
+            )}
             <button
               type="button"
               class="nido-bell-btn"
@@ -522,6 +550,15 @@ export function Dashboard({
           hass={hass}
           notifications={notifications}
           onClose={() => setShowNotifications(false)}
+        />
+      )}
+
+      {showLightsPanel && (
+        <LightsPanel
+          hass={hass}
+          lights={lightsOnEntities}
+          areas={areas}
+          onClose={() => setShowLightsPanel(false)}
         />
       )}
     </div>

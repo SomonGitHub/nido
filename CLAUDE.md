@@ -53,10 +53,14 @@ nido-dashboard/                # = racine du repo HACS
       room-detail.tsx          # back + hero + stats panel + filters pills + widgets grid
     components/
       onboarding.tsx           # overlay plein écran 5 étapes (Welcome/Connect/Entities/Theme/Family)
-    widgets/                   # 1 fichier = 1 domaine HA (14 fichiers)
+      weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
+      notification-panel.tsx   # panneau notifications Nido (sensor.nido_notifications, dismiss via fire_event)
+    widgets/                   # 1 fichier = 1 domaine HA (15 fichiers)
       light, cover, switch, binary-sensor, climate, lock, vacuum,
-      sensor, media-player, alarm, camera, fan, scene-script
+      sensor, media-player, alarm, camera, fan, scene-script, weather
     icons.tsx                  # SVG inline 24×24, stroke=currentColor (40+ icônes)
+    logo.png                   # logo Nido (96px)
+    logo-data.ts               # logo en base64 data-URL (auto-generated)
     tokens.css                 # 4 thèmes × 2 modes via :host([data-theme][data-mode])
     styles.css                 # composants : .n-card, .n-toggle, .n-slider, drag states, ...
 ```
@@ -79,6 +83,7 @@ L'utilisateur configure Nido via **l'onboarding** (= aussi le panneau Settings, 
 - `nido.favorites` — array ordonné (insertion = ordre)
 - `nido.roomsOrder` — array d'`area_id` (pièces non-listées appendées en fin via `applyOrder`)
 - `nido.roomEntitiesOrder` — `Record<area_id, entity_id[]>` (par pièce)
+- `nido.lastNotificationRead` — ISO date, dernière lecture des notifications
 
 Drag-and-drop natif sur les 3 (Pointer Events). Sur `RoomDetail` filtré, le reorder calcule un `newFull` qui préserve la position des items hors filtre.
 
@@ -91,6 +96,17 @@ App tient un state `view` :
 Dashboard → clic card pièce → `setView({ kind: "room", areaId })` → RoomDetail. Bouton retour → `{ kind: "dashboard" }`. L'onboarding est un overlay en parallèle (z-index 1000).
 
 Si `hass.user.id ∈ excludedUsers`, l'App affiche un écran "Nido n'est pas pour vous" à la place.
+
+## Météo
+
+Le widget `weather` s'affiche comme les autres domaines dans le grid. En plus, un `WeatherPill` compact apparaît en haut du dashboard (température + icône condition). Cliquer ouvre le `WeatherPanel` (overlay) qui affiche :
+- Prévisions jour/heure via `weather/get_forecasts` (service HA)
+- Capteurs Météo France détectés automatiquement : pluie prochaine (`*_next_rain`), alertes météo (`*_weather_alert`), UV (`*_uv`)
+- `describeCondition(state)` exportée depuis `weather.tsx` : mapping condition HA → label FR + icône
+
+## Notifications
+
+Nido lit `sensor.nido_notifications` (attribut `notifications: NidoNotification[]`). Chaque notification a `id`, `title`, `message`, `type` (info/warning/success), `timestamp`. Le dashboard affiche une cloche avec badge si `notifications` contient des entrées plus récentes que `nido.lastNotificationRead`. Le panneau `NotificationPanel` permet de consulter et dismiss (via `fire_event` → `nido_notification_event`).
 
 ## Pièges connus
 
@@ -134,9 +150,9 @@ Convention CSS :
 7. Ajouter icônes dans `src/icons.tsx` si besoin
 8. Ajouter CSS spécifique dans `src/styles.css`
 
-## Domaines supportés (14)
+## Domaines supportés (15)
 
-`light` · `switch` · `cover` · `binary_sensor` · `climate` · `lock` · `vacuum` · `sensor` · `media_player` · `alarm_control_panel` · `camera` · `fan` · `scene` · `script`
+`light` · `switch` · `cover` · `binary_sensor` · `climate` · `lock` · `vacuum` · `sensor` · `media_player` · `alarm_control_panel` · `camera` · `fan` · `scene` · `script` · `weather`
 
 ## Drag & drop
 
