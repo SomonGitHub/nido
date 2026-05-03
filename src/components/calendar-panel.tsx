@@ -39,7 +39,7 @@ export function CalendarPanel({ hass, calendarEntities, onClose }: CalendarPanel
       `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}T00:00:00`;
 
     hass
-      .callWS<Record<string, { events: any[] }>>({
+      .callWS<Record<string, any[]>>({
         type: "calendar/get_events",
         entity_ids: calendarEntities.map((e) => e.entity_id),
         start_date_time: fmt(start),

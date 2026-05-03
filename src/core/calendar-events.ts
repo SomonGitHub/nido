@@ -27,7 +27,7 @@ interface HassCalendarEventRaw {
   uid?: string;
 }
 
-type HassCalendarEventsResponse = Record<string, { events: HassCalendarEventRaw[] }>;
+type HassCalendarEventsResponse = Record<string, HassCalendarEventRaw[]>;
 
 function midnight(d: Date): Date {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -48,8 +48,8 @@ export function parseHassEvents(
   const todayMidnight = midnight(today);
   const events: CalendarEvent[] = [];
 
-  for (const [entityId, data] of Object.entries(response)) {
-    for (const raw of data.events) {
+  for (const [entityId, eventList] of Object.entries(response)) {
+    for (const raw of eventList) {
       const startStr = raw.start.dateTime ?? raw.start.date ?? "";
       if (!startStr) continue;
 
