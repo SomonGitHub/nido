@@ -42,13 +42,23 @@ function parseDateStr(s: string): { date: Date; allDay: boolean } {
 }
 
 export function parseHassEvents(
-  response: HassCalendarEventsResponse,
+  response: HassCalendarEventsResponse | HassCalendarEventRaw[],
   today: Date,
 ): CalendarEvent[] {
   const todayMidnight = midnight(today);
   const events: CalendarEvent[] = [];
 
-  for (const [entityId, eventList] of Object.entries(response)) {
+  // Normalize: Always work with a Record<string, HassCalendarEventRaw[]>
+  const normalized: Record<string, HassCalendarEventRaw[]> = Array.isArray(response)
+    ? { "unknown": response }
+    : (response as Record<string, HassCalendarEventRaw[]>);
+
+  for (const [entityId, eventList] of Object.entries(normalized)) {
+    if (!Array.isArray(eventList)) {
+      console.warn(`[parseHassEvents] Expected array for ${entityId}, got:`, typeof eventList);
+      continue;
+    }
+
     for (const raw of eventList) {
       const startStr = raw.start.dateTime ?? raw.start.date ?? "";
       if (!startStr) continue;
@@ -60,7 +70,7 @@ export function parseHassEvents(
 
       events.push({
         id: `${entityId}-${raw.uid ?? raw.summary}-${startStr}`,
-        calendarId: entityId,
+        calendarId: entityId === "unknown" ? "calendar" : entityId,
         title: raw.summary,
         dayOffset,
         time: allDay

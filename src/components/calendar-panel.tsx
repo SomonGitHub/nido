@@ -31,22 +31,41 @@ export function CalendarPanel({ hass, calendarEntities, onClose }: CalendarPanel
       return;
     }
 
-    const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
     const end = new Date(start);
     end.setDate(end.getDate() + 7);
 
-    const fmt = (d: Date) =>
-      `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}T00:00:00`;
+    const startStr = start.toISOString();
+    const endStr = end.toISOString();
 
-    hass
-      .callWS<Record<string, any[]>>({
-        type: "calendar/get_events",
-        entity_ids: calendarEntities.map((e) => e.entity_id),
-        start_date_time: fmt(start),
-        end_date_time: fmt(end),
-      })
-      .then((res) => setEvents(parseHassEvents(res, today)))
-      .catch(() => setEvents([]));
+    console.log(`[CalendarPanel] Fetching events from ${startStr} to ${endStr}`);
+
+    Promise.all(
+      calendarEntities.map((e) =>
+        hass
+          .callWS<any[]>({
+            type: "calendar/get_events",
+            entity_id: e.entity_id,
+            start_date_time: startStr,
+            end_date_time: endStr,
+          })
+          .then((res) => ({ entity_id: e.entity_id, events: res }))
+          .catch((err) => {
+            console.error(`[CalendarPanel] Error for ${e.entity_id}:`, err);
+            return { entity_id: e.entity_id, events: [] };
+          }),
+      ),
+    ).then((results) => {
+      const combinedResponse: Record<string, any[]> = {};
+      for (const res of results) {
+        combinedResponse[res.entity_id] = res.events;
+      }
+      console.log("[CalendarPanel] Combined response:", combinedResponse);
+      const parsed = parseHassEvents(combinedResponse, today);
+      console.log("[CalendarPanel] Parsed events:", parsed);
+      setEvents(parsed);
+    });
   }, []);
 
   const days = Array.from({ length: 7 }, (_, offset) => {
