@@ -1,34 +1,64 @@
+import { useEffect, useState } from "preact/hooks";
+import type { HassObject } from "../types";
+import type { ResolvedEntity } from "../core/entities";
 import { IconX } from "../icons";
 import {
-  MOCK_CALENDAR_EVENTS,
-  CALENDAR_COLORS,
-  CALENDAR_NAMES,
-  getEventsForDay,
+  getCalendarColor,
+  parseHassEvents,
+  type CalendarEvent,
 } from "../core/calendar-events";
 
 interface CalendarPanelProps {
+  hass: HassObject;
+  calendarEntities: ResolvedEntity[];
   onClose: () => void;
 }
 
 const DAY_FR = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
 
-// Calendars that appear in the next 7 days
-const VISIBLE_CALENDAR_IDS = [
-  ...new Set(
-    MOCK_CALENDAR_EVENTS
-      .filter((e) => e.dayOffset >= 0 && e.dayOffset < 7)
-      .map((e) => e.calendarId),
-  ),
-];
-
-export function CalendarPanel({ onClose }: CalendarPanelProps) {
+export function CalendarPanel({ hass, calendarEntities, onClose }: CalendarPanelProps) {
+  const [events, setEvents] = useState<CalendarEvent[] | null>(null);
   const today = new Date();
+
+  // Stable color map: sorted entity_ids → palette index
+  const colorMap = new Map(
+    [...calendarEntities].sort((a, b) => a.entity_id.localeCompare(b.entity_id)).map((e, i) => [e.entity_id, getCalendarColor(i)]),
+  );
+
+  useEffect(() => {
+    if (calendarEntities.length === 0) {
+      setEvents([]);
+      return;
+    }
+
+    const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const end = new Date(start);
+    end.setDate(end.getDate() + 7);
+
+    const fmt = (d: Date) =>
+      `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}T00:00:00`;
+
+    hass
+      .callWS<Record<string, { events: any[] }>>({
+        type: "calendar/get_events",
+        entity_ids: calendarEntities.map((e) => e.entity_id),
+        start_date_time: fmt(start),
+        end_date_time: fmt(end),
+      })
+      .then((res) => setEvents(parseHassEvents(res, today)))
+      .catch(() => setEvents([]));
+  }, []);
 
   const days = Array.from({ length: 7 }, (_, offset) => {
     const d = new Date(today);
     d.setDate(today.getDate() + offset);
-    return { date: d, offset, events: getEventsForDay(offset) };
+    const dayEvents = (events ?? []).filter((e) => e.dayOffset === offset);
+    return { date: d, offset, events: dayEvents };
   });
+
+  const visibleCalendarIds = events
+    ? [...new Set(events.filter((e) => e.dayOffset >= 0 && e.dayOffset < 7).map((e) => e.calendarId))]
+    : [];
 
   return (
     <div class="nido-notification-panel">
@@ -49,62 +79,61 @@ export function CalendarPanel({ onClose }: CalendarPanelProps) {
           </button>
         </header>
 
-        {/* Légende calendriers */}
-        <div class="nido-cal-panel__legend">
-          {VISIBLE_CALENDAR_IDS.map((id) => (
-            <div key={id} class="nido-cal-panel__legend-item">
-              <span
-                class="nido-cal-panel__legend-dot"
-                style={{ background: CALENDAR_COLORS[id] ?? "var(--ink-3)" }}
-              />
-              <span>{CALENDAR_NAMES[id] ?? id}</span>
-            </div>
-          ))}
-        </div>
+        {visibleCalendarIds.length > 0 && (
+          <div class="nido-cal-panel__legend">
+            {visibleCalendarIds.map((id) => (
+              <div key={id} class="nido-cal-panel__legend-item">
+                <span
+                  class="nido-cal-panel__legend-dot"
+                  style={{ background: colorMap.get(id) ?? "var(--ink-3)" }}
+                />
+                <span>
+                  {calendarEntities.find((e) => e.entity_id === id)?.friendly_name ?? id}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
 
         <div class="nido-notification-panel__scroll">
-          <div class="nido-cal-panel__days">
-            {days.map(({ date, offset, events }) => (
-              <div
-                key={offset}
-                class={`nido-cal-panel__day ${offset === 0 ? "is-today" : ""}`}
-              >
-                {/* Badge date */}
-                <div class="nido-cal-panel__badge">
-                  <span class="nido-cal-panel__badge-day">{DAY_FR[date.getDay()]}</span>
-                  <span class="nido-cal-panel__badge-num">{date.getDate()}</span>
-                </div>
+          {events === null ? (
+            <div class="nido-cal-panel__loading">Chargement…</div>
+          ) : (
+            <div class="nido-cal-panel__days">
+              {days.map(({ date, offset, events: dayEvents }) => (
+                <div
+                  key={offset}
+                  class={`nido-cal-panel__day ${offset === 0 ? "is-today" : ""}`}
+                >
+                  <div class="nido-cal-panel__badge">
+                    <span class="nido-cal-panel__badge-day">{DAY_FR[date.getDay()]}</span>
+                    <span class="nido-cal-panel__badge-num">{date.getDate()}</span>
+                  </div>
 
-                {/* Événements du jour */}
-                <div class="nido-cal-panel__events">
-                  {events.length === 0 ? (
-                    <span class="nido-cal-panel__empty">—</span>
-                  ) : (
-                    events.map((e) => {
-                      const color = CALENDAR_COLORS[e.calendarId] ?? "var(--ink-3)";
-                      return (
+                  <div class="nido-cal-panel__events">
+                    {dayEvents.length === 0 ? (
+                      <span class="nido-cal-panel__empty">—</span>
+                    ) : (
+                      dayEvents.map((e) => (
                         <div key={e.id} class="nido-cal-panel__event">
                           <span
                             class="nido-cal-panel__event-dot"
-                            style={{ background: color }}
+                            style={{ background: colorMap.get(e.calendarId) ?? "var(--ink-3)" }}
                           />
                           <div class="nido-cal-panel__event-body">
                             <span class="nido-cal-panel__event-title">{e.title}</span>
-                            {e.who && (
-                              <span class="nido-cal-panel__event-who">{e.who}</span>
-                            )}
                           </div>
                           <span class="nido-cal-panel__event-time">
                             {e.allDay ? "Journée" : e.time}
                           </span>
                         </div>
-                      );
-                    })
-                  )}
+                      ))
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
       </div>

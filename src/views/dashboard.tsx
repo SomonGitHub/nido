@@ -74,6 +74,7 @@ interface RenderCtx {
   areaName: string;
   hero: boolean;
   variant: 1 | 2 | 3 | 4;
+  calendarEntities: ResolvedEntity[];
 }
 
 function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
@@ -111,7 +112,7 @@ function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
     case "weather":
       return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} />;
     case "calendar":
-      return <CalendarWidget key={entity.entity_id} hass={ctx.hass} entity={entity} roomLabel={ctx.areaName} />;
+      return <CalendarWidget key={entity.entity_id} hass={ctx.hass} entity={entity} roomLabel={ctx.areaName} calendarEntities={ctx.calendarEntities} />;
     default:
       return null;
   }
@@ -296,6 +297,11 @@ export function Dashboard({
   );
   const lightsOn = lightsOnEntities.length;
 
+  const calendarEntities = useMemo(
+    () => exposedEntities.filter((e) => e.domain === "calendar"),
+    [exposedEntities],
+  );
+
   const hasMeteoFrance = useMemo(() => {
     if (!weatherEntity) return false;
     const allIds = Object.keys(hass.states);
@@ -397,6 +403,7 @@ export function Dashboard({
                   areaName: areas.find((a) => a.area_id === e.area_id)?.name ?? "",
                   hero: activeCounter === 1,
                   variant,
+                  calendarEntities,
                 })}
               </div>
             );

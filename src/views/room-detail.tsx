@@ -34,7 +34,7 @@ interface RoomDetailProps {
   onReorderEntities: (ids: string[]) => void;
 }
 
-function renderWidget(entity: ResolvedEntity, hass: HassObject, areaName: string, variant: 1 | 2 | 3 | 4, hero = false) {
+function renderWidget(entity: ResolvedEntity, hass: HassObject, areaName: string, variant: 1 | 2 | 3 | 4, calendarEntities: ResolvedEntity[], hero = false) {
   const common = { hass, entity, roomLabel: areaName };
   switch (entity.domain) {
     case "light":
@@ -67,7 +67,7 @@ function renderWidget(entity: ResolvedEntity, hass: HassObject, areaName: string
     case "weather":
       return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={areaName} />;
     case "calendar":
-      return <CalendarWidget key={entity.entity_id} hass={hass} entity={entity} roomLabel={areaName} />;
+      return <CalendarWidget key={entity.entity_id} hass={hass} entity={entity} roomLabel={areaName} calendarEntities={calendarEntities} />;
     default:
       return null;
   }
@@ -87,6 +87,11 @@ export function RoomDetail({
   const orderedEntities = useMemo(
     () => applyOrder(entities, entitiesOrder, (e) => e.entity_id),
     [entities, entitiesOrder],
+  );
+
+  const calendarEntities = useMemo(
+    () => orderedEntities.filter((e) => e.domain === "calendar"),
+    [orderedEntities],
   );
 
   const domainCounts = useMemo(() => {
@@ -228,7 +233,7 @@ export function RoomDetail({
                 class="nido-drag-item"
                 {...drag.itemPropsFor(e.entity_id)}
               >
-                {renderWidget(e, hass, area.name, variant, i === 0 && e.domain === "light")}
+                {renderWidget(e, hass, area.name, variant, calendarEntities, i === 0 && e.domain === "light")}
               </div>
             );
           })}

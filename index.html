@@ -189,6 +189,38 @@
           refresh();
         },
         callWS: async (msg) => {
+          if (msg.type === "calendar/get_events") {
+            const today = new Date();
+            const dt = (offset, time) => {
+              const d = new Date(today); d.setDate(d.getDate() + offset);
+              const [h, m] = time.split(":").map(Number); d.setHours(h, m, 0, 0);
+              return d.toISOString();
+            };
+            const dateStr = (offset) => {
+              const d = new Date(today); d.setDate(d.getDate() + offset);
+              return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+            };
+            const allEvents = {
+              "calendar.famille": { events: [
+                { summary: "Conservatoire — Adèle",  start: { dateTime: dt(1,"17:30") }, end: { dateTime: dt(1,"19:00") } },
+                { summary: "Garde Achille — Mamie",  start: { date: dateStr(2) },        end: { date: dateStr(3) } },
+                { summary: "Réunion parent / prof",  start: { dateTime: dt(3,"18:00") }, end: { dateTime: dt(3,"19:00") } },
+                { summary: "Déjeuner en famille",    start: { dateTime: dt(5,"12:30") }, end: { dateTime: dt(5,"14:00") } },
+              ]},
+              "calendar.simon": { events: [
+                { summary: "Sport — Salle de sport", start: { dateTime: dt(1,"19:00") }, end: { dateTime: dt(1,"20:30") } },
+                { summary: "Rendez-vous médecin",    start: { dateTime: dt(4,"10:00") }, end: { dateTime: dt(4,"11:00") } },
+              ]},
+              "calendar.travail": { events: [
+                { summary: "Stand-up équipe",        start: { dateTime: dt(1,"09:00") }, end: { dateTime: dt(1,"09:30") } },
+                { summary: "Revue de sprint",        start: { dateTime: dt(3,"14:00") }, end: { dateTime: dt(3,"15:30") } },
+                { summary: "Call client Nexus",      start: { dateTime: dt(5,"15:30") }, end: { dateTime: dt(5,"16:30") } },
+              ]},
+            };
+            const result = {};
+            for (const id of (msg.entity_ids || [])) { if (allEvents[id]) result[id] = allEvents[id]; }
+            return result;
+          }
           if (msg.type === "call_service" && msg.domain === "weather" && msg.service === "get_forecasts") {
             const isHourly = msg.service_data?.type === "hourly";
             const mockForecast = Array.from({length: 24}).map((_, i) => ({
