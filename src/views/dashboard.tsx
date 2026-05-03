@@ -374,10 +374,14 @@ export function Dashboard({
     (next) => onReorderRooms(next.map((a) => a.area_id)),
   );
 
+  const hasVisibleFavorites = favoriteEntities.some(e => 
+    !(e.domain === "binary_sensor" && e.state.state === "off")
+  );
+
   let activeCounter = 0;
 
   const favoritesSection =
-    favoriteEntities.length > 0 ? (
+    hasVisibleFavorites ? (
       <section class="nido-room nido-room--favorites" key="__favorites">
         <div class="nido-section-title">
           <h2 class="is-accent">Favoris</h2>
@@ -389,19 +393,23 @@ export function Dashboard({
           }}
         >
           {favoriteEntities.map((e) => {
+            const isHiddenBinary = e.domain === "binary_sensor" && e.state.state === "off";
+            if (isHiddenBinary) return null;
+
             activeCounter += 1;
+            const isHero = activeCounter === 1;
             const variant = (((activeCounter - 1) % 4) + 1) as 1 | 2 | 3 | 4;
             return (
               <div
                 key={e.entity_id}
                 class="nido-drag-item"
-                data-hero={activeCounter === 1 ? "true" : "false"}
+                data-hero={isHero ? "true" : "false"}
                 {...favDrag.itemPropsFor(e.entity_id)}
               >
                 {renderWidget(e, {
                   hass,
                   areaName: areas.find((a) => a.area_id === e.area_id)?.name ?? "",
-                  hero: activeCounter === 1,
+                  hero: isHero,
                   variant,
                   calendarEntities,
                 })}

@@ -89,25 +89,35 @@ export function RoomDetail({
     [entities, entitiesOrder],
   );
 
-  const calendarEntities = useMemo(
-    () => orderedEntities.filter((e) => e.domain === "calendar"),
+  const visibleEntities = useMemo(
+    () =>
+      orderedEntities.filter((e) => {
+        if (e.domain !== "sensor") return true;
+        const dc = e.state.attributes.device_class;
+        return dc !== "temperature" && dc !== "humidity";
+      }),
     [orderedEntities],
+  );
+
+  const calendarEntities = useMemo(
+    () => visibleEntities.filter((e) => e.domain === "calendar"),
+    [visibleEntities],
   );
 
   const domainCounts = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const e of orderedEntities) {
+    for (const e of visibleEntities) {
       counts.set(e.domain, (counts.get(e.domain) ?? 0) + 1);
     }
     return Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
-  }, [orderedEntities]);
+  }, [visibleEntities]);
 
   const [filter, setFilter] = useState<string>("all");
 
   const filtered = useMemo(
     () =>
-      filter === "all" ? orderedEntities : orderedEntities.filter((e) => e.domain === filter),
-    [orderedEntities, filter],
+      filter === "all" ? visibleEntities : visibleEntities.filter((e) => e.domain === filter),
+    [visibleEntities, filter],
   );
 
   const drag = useDragReorder<ResolvedEntity>(
@@ -123,10 +133,10 @@ export function RoomDetail({
     },
   );
 
-  const devices = orderedEntities.filter(
+  const devices = visibleEntities.filter(
     (e) => e.domain !== "sensor" && e.domain !== "binary_sensor",
   ).length;
-  const active = orderedEntities.filter(isEntityActive).length;
+  const active = visibleEntities.filter(isEntityActive).length;
 
   return (
     <div class="nido-shell">
