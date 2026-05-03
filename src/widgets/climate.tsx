@@ -9,6 +9,7 @@ interface ClimateWidgetProps {
   entity: ResolvedEntity;
   roomLabel?: string;
   breatheVariant?: 1 | 2 | 3 | 4;
+  hero?: boolean;
 }
 
 const MODE_LABEL: Record<string, string> = {
@@ -36,6 +37,7 @@ export function ClimateWidget({
   entity,
   roomLabel,
   breatheVariant = 2,
+  hero = false,
 }: ClimateWidgetProps) {
   const unavailable = entity.state.state === "unavailable";
   const mode = entity.state.state;
@@ -64,10 +66,11 @@ export function ClimateWidget({
   };
 
   const ModeIcon = MODE_ICON[mode] ?? IconThermostat;
-  const cardClass = ["n-card", isActive ? `breathe-${breatheVariant}` : ""].filter(Boolean).join(" ");
+  const accentClass = hero ? (isActive ? "n-card--accent" : "n-card--accent-muted") : "";
+  const cardClass = ["n-card", accentClass, isActive ? `breathe-${breatheVariant}` : ""].filter(Boolean).join(" ");
 
   return (
-    <div class={cardClass} data-on={isActive ? "true" : "false"}>
+    <div class={cardClass} data-hero={hero ? "true" : "false"} data-on={isActive ? "true" : "false"}>
       {isActive && <div class="n-light__glow" aria-hidden="true" />}
 
       <div class="n-card__head">
@@ -78,7 +81,7 @@ export function ClimateWidget({
       </div>
 
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}
-      <div class="n-title">{entity.friendly_name}</div>
+      <div class={`n-title ${hero ? "n-title--xl" : ""}`}>{entity.friendly_name}</div>
 
       {!unavailable && (
         <>

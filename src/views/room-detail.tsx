@@ -40,13 +40,13 @@ function renderWidget(entity: ResolvedEntity, hass: HassObject, areaName: string
     case "light":
       return <LightWidget key={entity.entity_id} {...common} hero={hero} breatheVariant={variant} />;
     case "cover":
-      return <CoverWidget key={entity.entity_id} {...common} />;
+      return <CoverWidget key={entity.entity_id} {...common} hero={hero} />;
     case "switch":
-      return <SwitchWidget key={entity.entity_id} {...common} breatheVariant={variant} />;
+      return <SwitchWidget key={entity.entity_id} {...common} hero={hero} breatheVariant={variant} />;
     case "binary_sensor":
-      return <BinarySensorWidget key={entity.entity_id} entity={entity} roomLabel={areaName} />;
+      return <BinarySensorWidget key={entity.entity_id} entity={entity} roomLabel={areaName} hero={hero} />;
     case "climate":
-      return <ClimateWidget key={entity.entity_id} {...common} breatheVariant={variant} />;
+      return <ClimateWidget key={entity.entity_id} {...common} hero={hero} breatheVariant={variant} />;
     case "lock":
       return <LockWidget key={entity.entity_id} {...common} />;
     case "vacuum":
@@ -227,13 +227,15 @@ export function RoomDetail({
         >
           {filtered.map((e, i) => {
             const variant = ((i % 4) + 1) as 1 | 2 | 3 | 4;
+            const isHero = i === 0;
             return (
               <div
                 key={e.entity_id}
                 class="nido-drag-item"
+                data-hero={isHero ? "true" : "false"}
                 {...drag.itemPropsFor(e.entity_id)}
               >
-                {renderWidget(e, hass, area.name, variant, calendarEntities, i === 0 && e.domain === "light")}
+                {renderWidget(e, hass, area.name, variant, calendarEntities, isHero)}
               </div>
             );
           })}

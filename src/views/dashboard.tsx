@@ -85,13 +85,13 @@ function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
         <LightWidget key={entity.entity_id} {...common} hero={ctx.hero} breatheVariant={ctx.variant} />
       );
     case "cover":
-      return <CoverWidget key={entity.entity_id} {...common} />;
+      return <CoverWidget key={entity.entity_id} {...common} hero={ctx.hero} />;
     case "switch":
-      return <SwitchWidget key={entity.entity_id} {...common} breatheVariant={ctx.variant} />;
+      return <SwitchWidget key={entity.entity_id} {...common} hero={ctx.hero} breatheVariant={ctx.variant} />;
     case "binary_sensor":
-      return <BinarySensorWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} />;
+      return <BinarySensorWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} hero={ctx.hero} />;
     case "climate":
-      return <ClimateWidget key={entity.entity_id} {...common} breatheVariant={ctx.variant} />;
+      return <ClimateWidget key={entity.entity_id} {...common} hero={ctx.hero} breatheVariant={ctx.variant} />;
     case "lock":
       return <LockWidget key={entity.entity_id} {...common} />;
     case "vacuum":

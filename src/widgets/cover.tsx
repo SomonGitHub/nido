@@ -7,6 +7,7 @@ interface CoverWidgetProps {
   hass: HassObject;
   entity: ResolvedEntity;
   roomLabel?: string;
+  hero?: boolean;
 }
 
 function position(state: ResolvedEntity["state"]): number {
@@ -17,7 +18,7 @@ function position(state: ResolvedEntity["state"]): number {
   return 50;
 }
 
-export function CoverWidget({ hass, entity, roomLabel }: CoverWidgetProps) {
+export function CoverWidget({ hass, entity, roomLabel, hero = false }: CoverWidgetProps) {
   const unavailable = entity.state.state === "unavailable";
   const [draftPos, setDraftPos] = useState<number | null>(null);
   const pos = draftPos ?? position(entity.state);
@@ -35,9 +36,12 @@ export function CoverWidget({ hass, entity, roomLabel }: CoverWidgetProps) {
     }
   };
 
+  const accentClass = hero ? (isOpen ? "n-card--accent" : "n-card--accent-muted") : "";
+  const cardClass = ["n-card", accentClass].filter(Boolean).join(" ");
+
   return (
     <div class="n-cover-glow-wrap" data-active={isOpen ? "true" : "false"}>
-    <div class="n-card" data-on={isOpen ? "true" : "false"}>
+    <div class={cardClass} data-hero={hero ? "true" : "false"} data-on={isOpen ? "true" : "false"}>
       <div class="n-card__head">
         <div class="n-icon-bubble">
           <IconBlind size={20} />
@@ -54,13 +58,13 @@ export function CoverWidget({ hass, entity, roomLabel }: CoverWidgetProps) {
       </div>
 
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}
-      <div class="n-title">{entity.friendly_name}</div>
+      <div class={`n-title ${hero ? "n-title--xl" : ""}`}>{entity.friendly_name}</div>
 
       {!unavailable && (
         <div class="n-light__intensity">
           <div class="n-row-between">
             <span class="n-eyebrow">Ouverture</span>
-            <span class="n-value">
+            <span class={`n-value ${hero ? "n-value--xl" : ""}`}>
               {pos}
               <span class="n-value__unit">%</span>
             </span>

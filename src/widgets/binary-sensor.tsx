@@ -13,6 +13,7 @@ import type { JSX } from "preact";
 interface BinarySensorProps {
   entity: ResolvedEntity;
   roomLabel?: string;
+  hero?: boolean;
 }
 
 type IconCmp = (p: { size?: number }) => JSX.Element;
@@ -44,7 +45,7 @@ const LABEL_BY_CLASS: Record<string, { on: string; off: string }> = {
 const ALERT_CLASSES = new Set(["smoke", "gas", "moisture"]);
 const OPENING_CLASSES = new Set(["door", "garage_door", "window"]);
 
-export function BinarySensorWidget({ entity, roomLabel }: BinarySensorProps) {
+export function BinarySensorWidget({ entity, roomLabel, hero = false }: BinarySensorProps) {
   const deviceClass = (entity.state.attributes.device_class as string | undefined) ?? "";
   const isOn = entity.state.state === "on";
   const unavailable = entity.state.state === "unavailable";
@@ -54,16 +55,19 @@ export function BinarySensorWidget({ entity, roomLabel }: BinarySensorProps) {
   const showGlow = OPENING_CLASSES.has(deviceClass);
   const status = unavailable ? "indisponible" : isOn ? "on" : "off";
 
+  const accentClass = hero ? (isOn ? "n-card--accent" : "n-card--accent-muted") : "n-card--compact";
+  const cardClass = ["n-card", accentClass].filter(Boolean).join(" ");
+
   const card = (
-    <div class="n-card n-card--compact" data-status={status} data-alert={isAlert ? "true" : "false"}>
+    <div class={cardClass} data-hero={hero ? "true" : "false"} data-status={status} data-alert={isAlert ? "true" : "false"}>
       <div class="n-card__head">
         <div class="n-icon-bubble">
-          <Icon size={18} />
+          <Icon size={hero ? 22 : 18} />
         </div>
         <span class="n-dot" aria-hidden="true" />
       </div>
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}
-      <div class="n-title n-title--sm">{entity.friendly_name}</div>
+      <div class={`n-title ${hero ? "n-title--xl" : "n-title--sm"}`}>{entity.friendly_name}</div>
       <div class="n-binary-state">
         {unavailable ? "Indisponible" : isOn ? labels.on : labels.off}
       </div>
