@@ -41,22 +41,46 @@ export function CalendarPanel({ hass, calendarEntities, onClose }: CalendarPanel
 
     console.log(`[CalendarPanel] Fetching events from ${startStr} to ${endStr}`);
 
-    Promise.all(
-      calendarEntities.map((e) =>
-        hass
-          .callWS<any[]>({
-            type: "calendar/events",
-            entity_id: e.entity_id,
-            start_date_time: startStr,
-            end_date_time: endStr,
-          })
-          .then((res) => ({ entity_id: e.entity_id, events: res }))
-          .catch((err) => {
-            console.error(`[CalendarPanel] Error for ${e.entity_id}:`, err);
-            return { entity_id: e.entity_id, events: [] };
-          }),
-      ),
-    ).then((results) => {
+    const fetchEvents = async (entity_id: string) => {
+      try {
+        // Try the modern WebSocket API first (HA 2023.12+)
+        const res = await hass.callWS<any[]>({
+          type: "calendar/events",
+          entity_id,
+          start_date_time: startStr,
+          end_date_time: endStr,
+        });
+        return { entity_id, events: res };
+      } catch (err: any) {
+        if (err?.code === "unknown_command") {
+          console.warn(`[CalendarPanel] WS command unknown, trying service call for ${entity_id}`);
+          try {
+            // Fallback to service call with return_response (HA 2023.7+)
+            const res = await hass.callWS<any>({
+              type: "call_service",
+              domain: "calendar",
+              service: "get_events",
+              service_data: {
+                start_date_time: startStr,
+                end_date_time: endStr,
+              },
+              target: { entity_id },
+              return_response: true,
+            });
+            // Service response structure for calendar.get_events
+            const events = res?.response?.[entity_id]?.events || res?.[entity_id]?.events || [];
+            return { entity_id, events };
+          } catch (err2) {
+            console.error(`[CalendarPanel] Service call failed for ${entity_id}:`, err2);
+            return { entity_id, events: [] };
+          }
+        }
+        console.error(`[CalendarPanel] Error for ${entity_id}:`, err);
+        return { entity_id, events: [] };
+      }
+    };
+
+    Promise.all(calendarEntities.map((e) => fetchEvents(e.entity_id))).then((results) => {
       const combinedResponse: Record<string, any[]> = {};
       for (const res of results) {
         combinedResponse[res.entity_id] = res.events;

@@ -78,7 +78,7 @@ if (!customElements.get("nido-panel")) {
 }
 
 console.info(
-  "%c NIDO %c v0.2.9 ",
+  "%c NIDO %c v0.3.0 ",
   "background:#c75a2a;color:#fff;padding:2px 6px;border-radius:3px 0 0 3px;",
   "background:#1a1410;color:#fff;padding:2px 6px;border-radius:0 3px 3px 0;",
 );
