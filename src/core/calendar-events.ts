@@ -21,8 +21,8 @@ export function getCalendarColor(index: number): string {
 }
 
 interface HassCalendarEventRaw {
-  start: { dateTime?: string; date?: string };
-  end?: { dateTime?: string; date?: string };
+  start: { dateTime?: string; date?: string } | string;
+  end?: { dateTime?: string; date?: string } | string;
   summary: string;
   uid?: string;
 }
@@ -60,7 +60,13 @@ export function parseHassEvents(
     }
 
     for (const raw of eventList) {
-      const startStr = raw.start.dateTime ?? raw.start.date ?? "";
+      let startStr = "";
+      if (typeof raw.start === "string") {
+        startStr = raw.start;
+      } else if (raw.start) {
+        startStr = raw.start.dateTime ?? raw.start.date ?? "";
+      }
+
       if (!startStr) continue;
 
       const { date, allDay } = parseDateStr(startStr);
