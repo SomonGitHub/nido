@@ -99,7 +99,7 @@ function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
     case "sensor":
       return <SensorWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} />;
     case "media_player":
-      return <MediaPlayerWidget key={entity.entity_id} {...common} breatheVariant={ctx.variant} />;
+      return <MediaPlayerWidget key={entity.entity_id} {...common} hero={ctx.hero} breatheVariant={ctx.variant} />;
     case "alarm_control_panel":
       return <AlarmWidget key={entity.entity_id} {...common} />;
     case "camera":
@@ -112,7 +112,7 @@ function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
     case "weather":
       return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} />;
     case "calendar":
-      return <CalendarWidget key={entity.entity_id} hass={ctx.hass} entity={entity} roomLabel={ctx.areaName} calendarEntities={ctx.calendarEntities} />;
+      return <CalendarWidget key={entity.entity_id} hass={ctx.hass} entity={entity} roomLabel={ctx.areaName} hero={ctx.hero} calendarEntities={ctx.calendarEntities} />;
     default:
       return null;
   }

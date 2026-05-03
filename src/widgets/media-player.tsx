@@ -14,6 +14,7 @@ interface MediaPlayerWidgetProps {
   hass: HassObject;
   entity: ResolvedEntity;
   roomLabel?: string;
+  hero?: boolean;
   breatheVariant?: 1 | 2 | 3 | 4;
 }
 
@@ -31,6 +32,7 @@ export function MediaPlayerWidget({
   hass,
   entity,
   roomLabel,
+  hero = false,
   breatheVariant = 4,
 }: MediaPlayerWidgetProps) {
   const state = entity.state.state;
@@ -41,6 +43,7 @@ export function MediaPlayerWidget({
   const artist = entity.state.attributes.media_artist as string | undefined;
   const appName = entity.state.attributes.app_name as string | undefined;
   const volume = entity.state.attributes.volume_level as number | undefined;
+  const picture = entity.state.attributes.entity_picture as string | undefined;
 
   const [draftVolume, setDraftVolume] = useState<number | null>(null);
   const currentVolume = draftVolume ?? volume ?? 0;
@@ -62,10 +65,18 @@ export function MediaPlayerWidget({
     }
   };
 
-  const cardClass = ["n-card", isPlaying ? `breathe-${breatheVariant}` : ""].filter(Boolean).join(" ");
+  const accentClass = hero ? (isPlaying ? "n-card--accent" : "n-card--accent-muted") : "";
+  const cardClass = ["n-card", accentClass, isPlaying ? `breathe-${breatheVariant}` : ""].filter(Boolean).join(" ");
 
   return (
-    <div class={cardClass} data-on={isPlaying ? "true" : "false"}>
+    <div class={cardClass} data-hero={hero ? "true" : "false"} data-on={isPlaying ? "true" : "false"}>
+      {picture && (
+        <div class="n-media__bg" aria-hidden="true">
+          <img src={picture} alt="" />
+          <div class="n-media__bg-overlay" />
+        </div>
+      )}
+      {isPlaying && hero && <div class="n-light__glow glow-pulse-1" aria-hidden="true" />}
       <div class="n-card__head">
         <div class="n-icon-bubble">
           <IconMusic size={20} />
@@ -74,12 +85,12 @@ export function MediaPlayerWidget({
       </div>
 
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}
-      <div class="n-title">{entity.friendly_name}</div>
+      <div class={hero ? "n-title n-title--xl" : "n-title"}>{entity.friendly_name}</div>
 
       {!isOff && !unavailable && (title || artist || appName) && (
         <div class="n-media__track">
           {title && <div class="n-media__title">{title}</div>}
-          {artist && <div class="n-muted">{artist}</div>}
+          {artist && <div class="n-muted" style={hero ? { fontSize: '1rem' } : {}}>{artist}</div>}
           {appName && <div class="n-muted" style={{ fontSize: '0.75rem', marginTop: (title || artist) ? '4px' : '0' }}>{appName}</div>}
         </div>
       )}
@@ -93,7 +104,7 @@ export function MediaPlayerWidget({
               aria-label="Précédent"
               onClick={() => call("media_previous_track")}
             >
-              <IconSkipPrev size={16} />
+              <IconSkipPrev size={hero ? 20 : 16} />
             </button>
             <button
               type="button"
@@ -101,7 +112,7 @@ export function MediaPlayerWidget({
               aria-label={isPlaying ? "Pause" : "Lecture"}
               onClick={() => call("media_play_pause")}
             >
-              {isPlaying ? <IconPause size={18} /> : <IconPlay size={18} />}
+              {isPlaying ? <IconPause size={hero ? 24 : 18} /> : <IconPlay size={hero ? 24 : 18} />}
             </button>
             <button
               type="button"
@@ -109,7 +120,7 @@ export function MediaPlayerWidget({
               aria-label="Suivant"
               onClick={() => call("media_next_track")}
             >
-              <IconSkipNext size={16} />
+              <IconSkipNext size={hero ? 20 : 16} />
             </button>
           </div>
 

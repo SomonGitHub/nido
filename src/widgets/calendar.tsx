@@ -9,6 +9,7 @@ interface CalendarWidgetProps {
   hass: HassObject;
   entity: ResolvedEntity;
   roomLabel?: string;
+  hero?: boolean;
   calendarEntities: ResolvedEntity[];
 }
 
@@ -20,7 +21,7 @@ function formatDay(dayOffset: number, date: Date): string {
   return `${DAY_LABELS[date.getDay()]} ${date.getDate()}`;
 }
 
-export function CalendarWidget({ hass, entity, calendarEntities }: CalendarWidgetProps) {
+export function CalendarWidget({ hass, entity, roomLabel, hero = false, calendarEntities }: CalendarWidgetProps) {
   const [showPanel, setShowPanel] = useState(false);
 
   const sortedIds = [...calendarEntities].sort((a, b) => a.entity_id.localeCompare(b.entity_id)).map((e) => e.entity_id);
@@ -34,23 +35,26 @@ export function CalendarWidget({ hass, entity, calendarEntities }: CalendarWidge
     ? (() => { const d = new Date(today); d.setDate(today.getDate() + next.dayOffset); return d; })()
     : null;
 
+  const cardClass = ["n-card", hero ? "n-card--accent-muted" : "n-card--default", "nido-cal-widget"].join(" ");
+
   return (
     <>
       <div
-        class="n-card n-card--default nido-cal-widget"
+        class={cardClass}
+        data-hero={hero ? "true" : "false"}
         data-on="false"
         onClick={() => setShowPanel(true)}
       >
         <div class="n-card__head">
           <div class="n-icon-bubble nido-cal-widget__bubble" style={{ "--cal-color": color } as any}>
-            <IconCalendar size={18} />
+            <IconCalendar size={hero ? 22 : 18} />
           </div>
-          <span class="n-eyebrow">{entity.friendly_name}</span>
+          <span class="n-eyebrow">{roomLabel || entity.friendly_name}</span>
         </div>
 
         {next && eventDate ? (
           <>
-            <div class="nido-cal-widget__title">{next.title}</div>
+            <div class={hero ? "nido-cal-widget__title n-title--xl" : "nido-cal-widget__title"}>{next.title}</div>
             <div class="nido-cal-widget__when">
               <span class="nido-cal-widget__day">{formatDay(next.dayOffset, eventDate)}</span>
               <span class="nido-cal-widget__sep">·</span>
