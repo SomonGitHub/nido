@@ -45,7 +45,7 @@ export function CalendarPanel({ hass, calendarEntities, onClose }: CalendarPanel
       calendarEntities.map((e) =>
         hass
           .callWS<any[]>({
-            type: "calendar/get_events",
+            type: "calendar/events",
             entity_id: e.entity_id,
             start_date_time: startStr,
             end_date_time: endStr,
