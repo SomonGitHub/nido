@@ -548,10 +548,10 @@ export const IconPower = (p: P) => (
   </Icon>
 );
 
-export const IconShoppingCart = (p: P) => (
+export const IconNotebook = (p: P) => (
   <Icon {...p}>
-    <path d="M3 4h2l2.4 11a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L21 8H6" />
-    <circle cx="9" cy="20" r="1.4" />
-    <circle cx="17" cy="20" r="1.4" />
+    <path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
+    <path d="M9 7h6M9 11h6M9 15h4" />
+    <path d="M5 7h2M5 11h2M5 15h2" />
   </Icon>
 );

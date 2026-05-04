@@ -23,7 +23,7 @@ import { FanWidget } from "../widgets/fan";
 import { SceneScriptWidget } from "../widgets/scene-script";
 import { WeatherWidget, WeatherPill } from "../widgets/weather";
 import { WeatherPanel } from "../components/weather-panel";
-import { IconSettings, IconChevronRight, IconBell, IconLightOn, IconShoppingCart } from "../icons";
+import { IconSettings, IconChevronRight, IconBell, IconLightOn, IconNotebook } from "../icons";
 import { pickAreaIcon } from "./shared";
 import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
@@ -467,10 +467,10 @@ export function Dashboard({
               type="button"
               class="nido-bell-btn"
               onClick={() => setShowShoppingPanel(true)}
-              aria-label="Liste de courses"
-              title="Liste de courses"
+              aria-label="Bloc note"
+              title="Bloc note"
             >
-              <IconShoppingCart size={20} />
+              <IconNotebook size={20} />
             </button>
             <button
               type="button"

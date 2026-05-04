@@ -19,6 +19,7 @@ interface Stroke {
 
 const COLOR_KEY = "nido.shoppingColor";
 const SIZE_KEY = "nido.shoppingSize";
+const SIZE_REF = 600;
 
 function smoothPath(ctx: CanvasRenderingContext2D, points: [number, number][], size: number) {
   if (points.length < 2) return;
@@ -85,14 +86,15 @@ export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: Shoppin
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    const scale = sizeRef.current.w / SIZE_REF;
     ctx.clearRect(0, 0, sizeRef.current.w, sizeRef.current.h);
     for (const s of strokesRef.current) {
       ctx.strokeStyle = s.color;
-      smoothPath(ctx, s.points.map(fromNorm), s.size);
+      smoothPath(ctx, s.points.map(fromNorm), s.size * scale);
     }
     if (currentRef.current) {
       ctx.strokeStyle = currentRef.current.color;
-      smoothPath(ctx, currentRef.current.points.map(fromNorm), currentRef.current.size);
+      smoothPath(ctx, currentRef.current.points.map(fromNorm), currentRef.current.size * scale);
     }
   }, [fromNorm]);
 
@@ -226,14 +228,16 @@ export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: Shoppin
     };
 
     (async () => {
+      const conn = (hass as any).connection;
+      if (!conn || typeof conn.subscribeMessage !== "function") return;
       try {
-        const u = await (hass as any).connection.subscribeMessage(handle, {
+        const u = await conn.subscribeMessage(handle, {
           type: "mqtt/subscribe",
           topic: `${topicBase}/#`,
         });
         if (cancelled) { try { u(); } catch (_) {} } else { unsub = u; }
       } catch (err) {
-        console.error("[shopping] mqtt subscribe failed", err);
+        console.warn("[shopping] mqtt subscribe failed", err);
       }
     })();
 
@@ -297,7 +301,7 @@ export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: Shoppin
   }, [publishUndo, redrawAll]);
 
   const askClear = useCallback(() => {
-    if (!confirm("Effacer toute la liste ?")) return;
+    if (!confirm("Effacer le bloc note ?")) return;
     strokesRef.current = [];
     redrawAll();
     publishClear();
@@ -308,7 +312,7 @@ export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: Shoppin
       <div class="nido-shopping-panel__backdrop" onClick={onClose} />
       <div class="nido-shopping-panel__content">
         <header class="nido-shopping-panel__header">
-          <h2>Liste de courses</h2>
+          <h2>Bloc note</h2>
           <button
             type="button"
             class="nido-shopping-panel__close"
@@ -319,16 +323,18 @@ export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: Shoppin
           </button>
         </header>
 
-        <div class="nido-shopping-panel__board" ref={wrapRef}>
-          <canvas
-            ref={canvasRef}
-            class="nido-shopping-panel__canvas"
-            onPointerDown={onPointerDown as any}
-            onPointerMove={onPointerMove as any}
-            onPointerUp={onPointerEnd as any}
-            onPointerCancel={onPointerEnd as any}
-            onPointerLeave={onPointerEnd as any}
-          />
+        <div class="nido-shopping-panel__board">
+          <div class="nido-shopping-panel__sheet" ref={wrapRef}>
+            <canvas
+              ref={canvasRef}
+              class="nido-shopping-panel__canvas"
+              onPointerDown={onPointerDown as any}
+              onPointerMove={onPointerMove as any}
+              onPointerUp={onPointerEnd as any}
+              onPointerCancel={onPointerEnd as any}
+              onPointerLeave={onPointerEnd as any}
+            />
+          </div>
 
           <div class="nido-shopping-panel__toolbar" data-no-drag="true">
             <button
