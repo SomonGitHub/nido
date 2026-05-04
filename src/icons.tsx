@@ -540,3 +540,18 @@ export const IconCalendar = (p: P) => (
     <path d="M16 2v4M8 2v4M3 10h18" />
   </Icon>
 );
+
+export const IconPower = (p: P) => (
+  <Icon {...p}>
+    <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+    <line x1="12" y1="2" x2="12" y2="12" />
+  </Icon>
+);
+
+export const IconShoppingCart = (p: P) => (
+  <Icon {...p}>
+    <path d="M3 4h2l2.4 11a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L21 8H6" />
+    <circle cx="9" cy="20" r="1.4" />
+    <circle cx="17" cy="20" r="1.4" />
+  </Icon>
+);

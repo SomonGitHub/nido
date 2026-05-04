@@ -8,6 +8,7 @@ import {
   IconSkipPrev,
   IconSkipNext,
   IconVolume,
+  IconPower,
 } from "../icons";
 
 interface MediaPlayerWidgetProps {
@@ -77,11 +78,25 @@ export function MediaPlayerWidget({
         </div>
       )}
       {isPlaying && hero && <div class="n-light__glow glow-pulse-1" aria-hidden="true" />}
-      <div class="n-card__head">
-        <div class="n-icon-bubble">
-          <IconMusic size={20} />
+      <div class="n-card__head" style={{ alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div class="n-icon-bubble">
+            <IconMusic size={20} />
+          </div>
+          <span class="n-eyebrow">{STATE_LABEL[state] ?? state}</span>
         </div>
-        <span class="n-eyebrow">{STATE_LABEL[state] ?? state}</span>
+        <button
+          type="button"
+          class="n-icon-btn"
+          style={{ width: '36px', height: '36px', background: 'transparent' }}
+          aria-label="Allumer / Éteindre"
+          onClick={(e) => {
+            e.stopPropagation();
+            call("toggle");
+          }}
+        >
+          <IconPower size={18} />
+        </button>
       </div>
 
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}

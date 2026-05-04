@@ -23,11 +23,12 @@ import { FanWidget } from "../widgets/fan";
 import { SceneScriptWidget } from "../widgets/scene-script";
 import { WeatherWidget, WeatherPill } from "../widgets/weather";
 import { WeatherPanel } from "../components/weather-panel";
-import { IconSettings, IconChevronRight, IconBell, IconLightOn } from "../icons";
+import { IconSettings, IconChevronRight, IconBell, IconLightOn, IconShoppingCart } from "../icons";
 import { pickAreaIcon } from "./shared";
 import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 import { LightsPanel } from "../components/lights-panel";
+import { ShoppingPanel } from "../components/shopping-panel";
 import { CalendarWidget } from "../widgets/calendar";
 
 interface DashboardProps {
@@ -313,6 +314,7 @@ export function Dashboard({
   const [showWeatherPanel, setShowWeatherPanel] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showLightsPanel, setShowLightsPanel] = useState(false);
+  const [showShoppingPanel, setShowShoppingPanel] = useState(false);
 
   const notifications = useMemo(() => {
     const sensor = hass.states["sensor.nido_notifications"];
@@ -464,6 +466,15 @@ export function Dashboard({
             <button
               type="button"
               class="nido-bell-btn"
+              onClick={() => setShowShoppingPanel(true)}
+              aria-label="Liste de courses"
+              title="Liste de courses"
+            >
+              <IconShoppingCart size={20} />
+            </button>
+            <button
+              type="button"
+              class="nido-bell-btn"
               onClick={handleOpenNotifications}
               aria-label="Notifications"
             >
@@ -574,6 +585,13 @@ export function Dashboard({
           lights={lightsOnEntities}
           areas={areas}
           onClose={() => setShowLightsPanel(false)}
+        />
+      )}
+
+      {showShoppingPanel && (
+        <ShoppingPanel
+          hass={hass}
+          onClose={() => setShowShoppingPanel(false)}
         />
       )}
     </div>

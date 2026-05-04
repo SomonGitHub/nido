@@ -40,12 +40,32 @@ export function NotificationPanel({ hass, notifications, onClose }: Notification
     }
   };
 
+  const dismissAllNotifications = async () => {
+    if (!hass || notifications.length === 0) return;
+    try {
+      await Promise.all(notifications.map(n => dismissNotification(n.id)));
+    } catch (err) {
+      console.error("Erreur lors de la suppression de toutes les notifications", err);
+    }
+  };
+
   return (
     <div class="nido-notification-panel">
       <div class="nido-notification-panel__backdrop" onClick={onClose} />
       <div class="nido-notification-panel__content">
         <header class="nido-notification-panel__header">
-          <h2>Notifications</h2>
+          <div class="nido-notification-panel__title-group">
+            <h2>Notifications</h2>
+            {notifications.length > 0 && (
+              <button
+                type="button"
+                class="nido-notification-panel__clear-all"
+                onClick={dismissAllNotifications}
+              >
+                Tout supprimer
+              </button>
+            )}
+          </div>
           <button
             type="button"
             class="nido-notification-panel__close"
