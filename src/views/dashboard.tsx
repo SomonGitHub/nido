@@ -31,6 +31,8 @@ import { NotificationPanel, type NidoNotification } from "../components/notifica
 import { LightsPanel } from "../components/lights-panel";
 import { ShoppingPanel } from "../components/shopping-panel";
 import { CalendarWidget } from "../widgets/calendar";
+import { PowerGaugeWidget } from "../widgets/power-gauge";
+import { POWER_ENTITY_ID } from "./energy";
 
 interface DashboardProps {
   hass: HassObject;
@@ -41,6 +43,7 @@ interface DashboardProps {
   roomsOrder: string[];
   onConfigure: () => void;
   onOpenRoom: (areaId: string) => void;
+  onOpenEnergy?: () => void;
   onReorderFavorites: (ids: string[]) => void;
   onReorderRooms: (ids: string[]) => void;
 }
@@ -270,6 +273,7 @@ export function Dashboard({
   roomsOrder,
   onConfigure,
   onOpenRoom,
+  onOpenEnergy,
   onReorderFavorites,
   onReorderRooms,
 }: DashboardProps) {
@@ -438,6 +442,9 @@ export function Dashboard({
       </section>
     ) : null;
 
+  const showEnergy =
+    !!onOpenEnergy && exposedSet.has(POWER_ENTITY_ID) && !!hass.states[POWER_ENTITY_ID];
+
   const hasContent = exposedEntities.length > 0;
 
   return (
@@ -539,6 +546,29 @@ export function Dashboard({
         {hasContent ? (
           <>
             {favoritesSection}
+
+            {showEnergy && (
+              <section class="nido-room nido-room--energy" key="__energy">
+                <div class="nido-section-title">
+                  <h2>Consommation en direct</h2>
+                  <button
+                    type="button"
+                    class="n-pill-btn n-pill-btn--ghost"
+                    onClick={onOpenEnergy}
+                  >
+                    Voir le détail énergie
+                    <IconChevronRight size={12} />
+                  </button>
+                </div>
+                <div class="nido-energy-summary">
+                  <PowerGaugeWidget
+                    hass={hass}
+                    powerEntityId={POWER_ENTITY_ID}
+                    onOpen={onOpenEnergy}
+                  />
+                </div>
+              </section>
+            )}
 
             {populatedAreas.length > 0 && (
               <section class="nido-rooms-section">

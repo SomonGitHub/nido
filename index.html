@@ -69,6 +69,14 @@
         "calendar.famille": { entity_id: "calendar.famille", state: "off", attributes: { friendly_name: "Famille", message: "Conservatoire", all_day: false, start_time: "2026-05-04 17:30:00", end_time: "2026-05-04 19:00:00", location: "", description: "" }, last_changed: now, last_updated: now },
         "calendar.simon":   { entity_id: "calendar.simon",   state: "off", attributes: { friendly_name: "Simon",   message: "Sport",          all_day: false, start_time: "2026-05-04 19:00:00", end_time: "2026-05-04 20:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
         "calendar.travail": { entity_id: "calendar.travail", state: "off", attributes: { friendly_name: "Travail", message: "Stand-up",        all_day: false, start_time: "2026-05-04 09:00:00", end_time: "2026-05-04 09:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
+
+        "sensor.consommation_electrique_east":      { entity_id: "sensor.consommation_electrique_east",      state: "3260", attributes: { friendly_name: "Compteur Linky",          device_class: "power",  unit_of_measurement: "W",   state_class: "measurement" }, last_changed: now, last_updated: now },
+        "sensor.consommation_electrique_east_cost": { entity_id: "sensor.consommation_electrique_east_cost", state: "8.4",  attributes: { friendly_name: "Conso jour",              device_class: "energy", unit_of_measurement: "kWh", state_class: "total_increasing" }, last_changed: now, last_updated: now },
+        "sensor.plaque_cuisson_power":              { entity_id: "sensor.plaque_cuisson_power",              state: "1240", attributes: { friendly_name: "Plaque cuisson",          device_class: "power",  unit_of_measurement: "W" }, last_changed: now, last_updated: now },
+        "sensor.frigo_power":                       { entity_id: "sensor.frigo_power",                       state: "142",  attributes: { friendly_name: "Frigo + congélateur",     device_class: "power",  unit_of_measurement: "W" }, last_changed: now, last_updated: now },
+        "sensor.box_tv_power":                      { entity_id: "sensor.box_tv_power",                      state: "86",   attributes: { friendly_name: "Box + TV",                device_class: "power",  unit_of_measurement: "W" }, last_changed: now, last_updated: now },
+        "sensor.seche_serviettes_power":            { entity_id: "sensor.seche_serviettes_power",            state: "320",  attributes: { friendly_name: "Sèche-serviettes",        device_class: "power",  unit_of_measurement: "W" }, last_changed: now, last_updated: now },
+        "sensor.bureau_power":                      { entity_id: "sensor.bureau_power",                      state: "12",   attributes: { friendly_name: "Chargeurs bureau",        device_class: "power",  unit_of_measurement: "W" }, last_changed: now, last_updated: now },
       };
 
       const areas = [
@@ -118,6 +126,13 @@
         mk("calendar.famille", null),
         mk("calendar.simon", null),
         mk("calendar.travail", null),
+        mk("sensor.consommation_electrique_east", null),
+        mk("sensor.consommation_electrique_east_cost", null),
+        mk("sensor.plaque_cuisson_power", "cuisine"),
+        mk("sensor.frigo_power", "cuisine"),
+        mk("sensor.box_tv_power", "salon"),
+        mk("sensor.seche_serviettes_power", "sdb"),
+        mk("sensor.bureau_power", "salon"),
       ];
       const deviceRegistry = entityRegistry.map(e => ({ id: e.device_id, area_id: e.area_id, name: null, name_by_user: null }));
 
@@ -220,6 +235,31 @@
             const result = {};
             for (const id of (msg.entity_ids || [])) { if (allEvents[id]) result[id] = allEvents[id]; }
             return result;
+          }
+          if (msg.type === "history/history_during_period") {
+            const start = new Date(msg.start_time);
+            const end = new Date(msg.end_time);
+            const ids = msg.entity_ids || [];
+            const out = {};
+            for (const id of ids) {
+              const points = [];
+              const startMs = start.getTime();
+              const endMs = end.getTime();
+              const span = endMs - startMs;
+              const samples = 48;
+              const baseProfile = [120,110,100,90,90,95,140,260,420,360,300,380,520,460,400,360,400,560,720,820,720,520,360,220];
+              for (let i = 0; i <= samples; i += 1) {
+                const t = startMs + (span * i) / samples;
+                const dt = new Date(t);
+                const h = dt.getHours();
+                const base = baseProfile[h];
+                const jitter = Math.sin(i * 1.3) * 60 + Math.cos(i * 0.7) * 30;
+                const v = Math.max(40, Math.round(base + jitter));
+                points.push({ s: String(v), lu: t / 1000 });
+              }
+              out[id] = points;
+            }
+            return out;
           }
           if (msg.type === "call_service" && msg.domain === "weather" && msg.service === "get_forecasts") {
             const isHourly = msg.service_data?.type === "hourly";

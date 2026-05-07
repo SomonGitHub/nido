@@ -24,6 +24,7 @@ import {
 } from "./core/storage";
 import { Dashboard } from "./views/dashboard";
 import { RoomDetail } from "./views/room-detail";
+import { EnergyPage, POWER_ENTITY_ID } from "./views/energy";
 import { Onboarding } from "./components/onboarding";
 
 interface PanelHost {
@@ -56,9 +57,9 @@ export function App({ hass, host }: AppProps) {
     () => loadRoomEntitiesOrder(),
   );
   const [showOnboarding, setShowOnboarding] = useState(() => !isOnboarded());
-  const [view, setView] = useState<{ kind: "dashboard" } | { kind: "room"; areaId: string }>(
-    { kind: "dashboard" },
-  );
+  const [view, setView] = useState<
+    { kind: "dashboard" } | { kind: "room"; areaId: string } | { kind: "energy" }
+  >({ kind: "dashboard" });
 
   const reorderFavorites = (ids: string[]) => {
     setFavorites(ids);
@@ -177,9 +178,20 @@ export function App({ hass, host }: AppProps) {
     [entities, currentArea, exposedSet],
   );
 
+  const energyAvailable =
+    !!hass.states[POWER_ENTITY_ID] && exposedSet.has(POWER_ENTITY_ID);
+
   return (
     <>
-      {view.kind === "dashboard" || !currentArea ? (
+      {view.kind === "energy" ? (
+        <EnergyPage
+          hass={hass}
+          entities={entities}
+          exposed={exposed}
+          areas={areas}
+          onBack={() => setView({ kind: "dashboard" })}
+        />
+      ) : view.kind === "dashboard" || !currentArea ? (
         <Dashboard
           hass={hass}
           areas={areas}
@@ -189,6 +201,9 @@ export function App({ hass, host }: AppProps) {
           roomsOrder={roomsOrder}
           onConfigure={() => setShowOnboarding(true)}
           onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
+          onOpenEnergy={
+            energyAvailable ? () => setView({ kind: "energy" }) : undefined
+          }
           onReorderFavorites={reorderFavorites}
           onReorderRooms={reorderRooms}
         />
