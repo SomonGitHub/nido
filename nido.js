@@ -3005,7 +3005,7 @@ function sr({
     }) })
   ] });
 }
-const ne = "sensor.consommation_electrique_east", Qn = "sensor.consommation_electrique_east_cost", et = 9;
+const ne = "sensor.consommation_electrique_ccasn", Qn = "sensor.consommation_electrique_east_cost", et = 9;
 function lr({ hass: n, entities: t, exposed: i, areas: r, onBack: o }) {
   const a = j(() => new Set(i), [i]), l = j(
     () => t.filter((b) => a.has(b.entity_id)),

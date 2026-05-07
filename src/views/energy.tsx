@@ -8,7 +8,7 @@ import { SubscriptionGuardWidget } from "../widgets/subscription-guard";
 import { Hourly24hWidget } from "../widgets/hourly-24h";
 import { Top5ConsumersWidget } from "../widgets/top-consumers";
 
-export const POWER_ENTITY_ID = "sensor.consommation_electrique_east";
+export const POWER_ENTITY_ID = "sensor.consommation_electrique_ccasn";
 export const DAILY_COST_ENTITY_ID = "sensor.consommation_electrique_east_cost";
 const SUBSCRIBED_KVA = 9;
 

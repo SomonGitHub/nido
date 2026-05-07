@@ -70,7 +70,7 @@
         "calendar.simon":   { entity_id: "calendar.simon",   state: "off", attributes: { friendly_name: "Simon",   message: "Sport",          all_day: false, start_time: "2026-05-04 19:00:00", end_time: "2026-05-04 20:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
         "calendar.travail": { entity_id: "calendar.travail", state: "off", attributes: { friendly_name: "Travail", message: "Stand-up",        all_day: false, start_time: "2026-05-04 09:00:00", end_time: "2026-05-04 09:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
 
-        "sensor.consommation_electrique_east":      { entity_id: "sensor.consommation_electrique_east",      state: "3260", attributes: { friendly_name: "Compteur Linky",          device_class: "power",  unit_of_measurement: "W",   state_class: "measurement" }, last_changed: now, last_updated: now },
+        "sensor.consommation_electrique_ccasn":     { entity_id: "sensor.consommation_electrique_ccasn",     state: "3260", attributes: { friendly_name: "Compteur Linky",          device_class: "power",  unit_of_measurement: "W",   state_class: "measurement" }, last_changed: now, last_updated: now },
         "sensor.consommation_electrique_east_cost": { entity_id: "sensor.consommation_electrique_east_cost", state: "8.4",  attributes: { friendly_name: "Conso jour",              device_class: "energy", unit_of_measurement: "kWh", state_class: "total_increasing" }, last_changed: now, last_updated: now },
         "sensor.plaque_cuisson_power":              { entity_id: "sensor.plaque_cuisson_power",              state: "1240", attributes: { friendly_name: "Plaque cuisson",          device_class: "power",  unit_of_measurement: "W" }, last_changed: now, last_updated: now },
         "sensor.frigo_power":                       { entity_id: "sensor.frigo_power",                       state: "142",  attributes: { friendly_name: "Frigo + congélateur",     device_class: "power",  unit_of_measurement: "W" }, last_changed: now, last_updated: now },
@@ -126,7 +126,7 @@
         mk("calendar.famille", null),
         mk("calendar.simon", null),
         mk("calendar.travail", null),
-        mk("sensor.consommation_electrique_east", null),
+        mk("sensor.consommation_electrique_ccasn", null),
         mk("sensor.consommation_electrique_east_cost", null),
         mk("sensor.plaque_cuisson_power", "cuisine"),
         mk("sensor.frigo_power", "cuisine"),
