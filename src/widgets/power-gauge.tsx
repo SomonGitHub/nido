@@ -25,6 +25,7 @@ export function PowerGaugeWidget({
     (entity?.attributes.friendly_name as string | undefined) ?? "Compteur Linky";
   const rawState = entity?.state ?? "unavailable";
   const unavailable = rawState === "unavailable" || rawState === "unknown" || !entity;
+  const unit = (entity?.attributes.unit_of_measurement as string | undefined) ?? "W";
   const watts = useMemo(() => {
     if (unavailable) return 0;
     const n = Number(rawState);
@@ -150,19 +151,19 @@ export function PowerGaugeWidget({
             <div class="n-power-gauge__readout">
               <div class="n-power-gauge__value">
                 {watts.toLocaleString("fr-FR")}
-                <span class="n-power-gauge__unit">W</span>
+                <span class="n-power-gauge__unit">{unit}</span>
               </div>
               <div class="n-eyebrow n-power-gauge__sublabel">Puissance instantanée</div>
             </div>
           </div>
 
           <div class="n-power-gauge__foot">
-            <span>0 W</span>
+            <span>0 {unit}</span>
             <span class="n-power-gauge__pill">
               <span class="n-power-gauge__pill-dot" />
               {trendLabel} · {Math.round(pct * 100)}%
             </span>
-            <span>{max.toLocaleString("fr-FR")} W</span>
+            <span>{max.toLocaleString("fr-FR")} {unit}</span>
           </div>
         </>
       )}

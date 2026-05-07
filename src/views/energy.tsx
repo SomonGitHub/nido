@@ -8,7 +8,7 @@ import { SubscriptionGuardWidget } from "../widgets/subscription-guard";
 import { Hourly24hWidget } from "../widgets/hourly-24h";
 import { Top5ConsumersWidget } from "../widgets/top-consumers";
 
-export const POWER_ENTITY_ID = "sensor.consommation_electrique_ccasn";
+export const POWER_ENTITY_ID = "sensor.consommation_electrique_sinsts";
 export const DAILY_KWH_ENTITY_ID = "sensor.conso_daily";
 export const DAILY_COST_ENTITY_ID = "sensor.conso";
 export const PRICE_KWH_ENTITY_ID = "select.conso_hebdomadaire_2_en_eur";
@@ -38,6 +38,8 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
     const n = Number(powerEntity.state);
     return Number.isFinite(n) ? Math.max(0, n) : 0;
   }, [powerEntity, powerAvailable]);
+  const powerUnit =
+    (powerEntity?.attributes.unit_of_measurement as string | undefined) ?? "W";
 
   const dailyKwhEntity = hass.states[DAILY_KWH_ENTITY_ID];
   const dailyKwhValue = useMemo(() => {
@@ -137,7 +139,7 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
             <Stat
               label="Puissance"
               value={powerAvailable ? Math.round(currentPower).toLocaleString("fr-FR") : "—"}
-              unit={powerAvailable ? "W" : ""}
+              unit={powerAvailable ? powerUnit : ""}
             />
             {priceRawState !== null && (
               <>

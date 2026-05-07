@@ -70,7 +70,7 @@
         "calendar.simon":   { entity_id: "calendar.simon",   state: "off", attributes: { friendly_name: "Simon",   message: "Sport",          all_day: false, start_time: "2026-05-04 19:00:00", end_time: "2026-05-04 20:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
         "calendar.travail": { entity_id: "calendar.travail", state: "off", attributes: { friendly_name: "Travail", message: "Stand-up",        all_day: false, start_time: "2026-05-04 09:00:00", end_time: "2026-05-04 09:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
 
-        "sensor.consommation_electrique_ccasn":     { entity_id: "sensor.consommation_electrique_ccasn",     state: "3260", attributes: { friendly_name: "Compteur Linky",          device_class: "power",  unit_of_measurement: "W",   state_class: "measurement" }, last_changed: now, last_updated: now },
+        "sensor.consommation_electrique_sinsts":    { entity_id: "sensor.consommation_electrique_sinsts",    state: "3260", attributes: { friendly_name: "Compteur Linky (VA)",     device_class: "apparent_power", unit_of_measurement: "VA", state_class: "measurement" }, last_changed: now, last_updated: now },
         "sensor.conso":                             { entity_id: "sensor.conso",                             state: "1.62", attributes: { friendly_name: "Conso jour €",            device_class: "monetary", unit_of_measurement: "€",   state_class: "total_increasing" }, last_changed: now, last_updated: now },
         "sensor.conso_daily":                       { entity_id: "sensor.conso_daily",                       state: "8.4",  attributes: { friendly_name: "Conso jour kWh",          device_class: "energy",   unit_of_measurement: "kWh", state_class: "total_increasing" }, last_changed: now, last_updated: now },
         "select.conso_hebdomadaire_2_en_eur":       { entity_id: "select.conso_hebdomadaire_2_en_eur",       state: "0.2062", attributes: { friendly_name: "Tarif kWh", options: ["0.1841", "0.2062", "0.2516"] }, last_changed: now, last_updated: now },
@@ -128,7 +128,7 @@
         mk("calendar.famille", null),
         mk("calendar.simon", null),
         mk("calendar.travail", null),
-        mk("sensor.consommation_electrique_ccasn", null),
+        mk("sensor.consommation_electrique_sinsts", null),
         mk("sensor.conso", null),
         mk("sensor.conso_daily", null),
         mk("select.conso_hebdomadaire_2_en_eur", null),
