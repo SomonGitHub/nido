@@ -3553,10 +3553,18 @@
   .nido-energy__live-grid { grid-template-columns: 1fr; }
 }
 
+.nido-room--energy {
+  margin-top: 32px;
+}
 .nido-energy-summary {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(320px, 480px);
   gap: 16px;
+}
+@media (max-width: 720px) {
+  .nido-energy-summary {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ─── Power gauge widget ─── */

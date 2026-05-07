@@ -551,14 +551,6 @@ export function Dashboard({
               <section class="nido-room nido-room--energy" key="__energy">
                 <div class="nido-section-title">
                   <h2>Consommation en direct</h2>
-                  <button
-                    type="button"
-                    class="n-pill-btn n-pill-btn--ghost"
-                    onClick={onOpenEnergy}
-                  >
-                    Voir le détail énergie
-                    <IconChevronRight size={12} />
-                  </button>
                 </div>
                 <div class="nido-energy-summary">
                   <PowerGaugeWidget
