@@ -11,6 +11,7 @@ import { Top5ConsumersWidget } from "../widgets/top-consumers";
 export const POWER_ENTITY_ID = "sensor.consommation_electrique_ccasn";
 export const DAILY_KWH_ENTITY_ID = "sensor.conso_daily";
 export const DAILY_COST_ENTITY_ID = "sensor.conso";
+export const PRICE_KWH_ENTITY_ID = "select.conso_hebdomadaire_2_en_eur";
 const SUBSCRIBED_KVA = 9;
 
 interface EnergyPageProps {
@@ -53,6 +54,16 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
     return Number.isFinite(n) ? n : null;
   }, [dailyCostEntity]);
   const dailyCostUnit = (dailyCostEntity?.attributes.unit_of_measurement as string | undefined) ?? "€";
+
+  const priceEntity = hass.states[PRICE_KWH_ENTITY_ID];
+  const priceValue = useMemo(() => {
+    if (!priceEntity) return null;
+    const s = priceEntity.state;
+    if (s === "unavailable" || s === "unknown") return null;
+    const n = Number(s);
+    return Number.isFinite(n) ? n : null;
+  }, [priceEntity]);
+  const priceRawState = priceEntity?.state ?? null;
 
   const dateStr = useMemo(() => {
     const s = new Date()
@@ -128,6 +139,20 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
               value={powerAvailable ? Math.round(currentPower).toLocaleString("fr-FR") : "—"}
               unit={powerAvailable ? "W" : ""}
             />
+            {priceRawState !== null && (
+              <>
+                <Sep />
+                <Stat
+                  label="Tarif"
+                  value={
+                    priceValue !== null
+                      ? priceValue.toFixed(4).replace(".", ",").replace(/,?0+$/, "")
+                      : priceRawState
+                  }
+                  unit={priceValue !== null ? "€/kWh" : ""}
+                />
+              </>
+            )}
           </div>
         </section>
 
