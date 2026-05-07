@@ -9,7 +9,8 @@ import { Hourly24hWidget } from "../widgets/hourly-24h";
 import { Top5ConsumersWidget } from "../widgets/top-consumers";
 
 export const POWER_ENTITY_ID = "sensor.consommation_electrique_ccasn";
-export const DAILY_COST_ENTITY_ID = "sensor.consommation_electrique_east_cost";
+export const DAILY_KWH_ENTITY_ID = "sensor.conso";
+export const DAILY_COST_ENTITY_ID = "sensor.conso_daily";
 const SUBSCRIBED_KVA = 9;
 
 interface EnergyPageProps {
@@ -37,13 +38,21 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
     return Number.isFinite(n) ? Math.max(0, n) : 0;
   }, [powerEntity, powerAvailable]);
 
-  const dailyEntity = hass.states[DAILY_COST_ENTITY_ID];
-  const dailyValue = useMemo(() => {
-    if (!dailyEntity) return null;
-    const n = Number(dailyEntity.state);
+  const dailyKwhEntity = hass.states[DAILY_KWH_ENTITY_ID];
+  const dailyKwhValue = useMemo(() => {
+    if (!dailyKwhEntity) return null;
+    const n = Number(dailyKwhEntity.state);
     return Number.isFinite(n) ? n : null;
-  }, [dailyEntity]);
-  const dailyUnit = (dailyEntity?.attributes.unit_of_measurement as string | undefined) ?? "kWh";
+  }, [dailyKwhEntity]);
+  const dailyKwhUnit = (dailyKwhEntity?.attributes.unit_of_measurement as string | undefined) ?? "kWh";
+
+  const dailyCostEntity = hass.states[DAILY_COST_ENTITY_ID];
+  const dailyCostValue = useMemo(() => {
+    if (!dailyCostEntity) return null;
+    const n = Number(dailyCostEntity.state);
+    return Number.isFinite(n) ? n : null;
+  }, [dailyCostEntity]);
+  const dailyCostUnit = (dailyCostEntity?.attributes.unit_of_measurement as string | undefined) ?? "€";
 
   const dateStr = useMemo(() => {
     const s = new Date()
@@ -104,8 +113,14 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
           <div class="nido-energy__stats">
             <Stat
               label="Auj."
-              value={dailyValue !== null ? dailyValue.toFixed(1).replace(".", ",") : "—"}
-              unit={dailyValue !== null ? dailyUnit : ""}
+              value={dailyKwhValue !== null ? dailyKwhValue.toFixed(1).replace(".", ",") : "—"}
+              unit={dailyKwhValue !== null ? dailyKwhUnit : ""}
+            />
+            <Sep />
+            <Stat
+              label="Coût"
+              value={dailyCostValue !== null ? dailyCostValue.toFixed(2).replace(".", ",") : "—"}
+              unit={dailyCostValue !== null ? dailyCostUnit : ""}
             />
             <Sep />
             <Stat
@@ -113,8 +128,6 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
               value={powerAvailable ? Math.round(currentPower).toLocaleString("fr-FR") : "—"}
               unit={powerAvailable ? "W" : ""}
             />
-            <Sep />
-            <Stat label="Souscrit" value={String(SUBSCRIBED_KVA)} unit="kVA" />
           </div>
         </section>
 
@@ -148,7 +161,7 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
               <Hourly24hWidget
                 hass={hass}
                 powerEntityId={POWER_ENTITY_ID}
-                dailyConsumptionEntityId={DAILY_COST_ENTITY_ID}
+                dailyConsumptionEntityId={DAILY_KWH_ENTITY_ID}
               />
             </section>
 
