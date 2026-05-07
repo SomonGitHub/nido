@@ -1,4 +1,4 @@
-import { useMemo, useState } from "preact/hooks";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
 import {
@@ -26,6 +26,7 @@ import { WeatherPanel } from "../components/weather-panel";
 import { IconSettings, IconChevronRight, IconBell, IconLightOn, IconNotebook } from "../icons";
 import { pickAreaIcon } from "./shared";
 import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
+import { playNotificationSound } from "../core/notification-sound";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 import { LightsPanel } from "../components/lights-panel";
 import { ShoppingPanel } from "../components/shopping-panel";
@@ -321,6 +322,21 @@ export function Dashboard({
     if (!sensor || !sensor.attributes.notifications) return [];
     return sensor.attributes.notifications as NidoNotification[];
   }, [hass.states["sensor.nido_notifications"]]);
+
+  const knownNotifIdsRef = useRef<Set<string>>(new Set(notifications.map((n) => n.id)));
+  const isFirstNotifSyncRef = useRef(true);
+
+  useEffect(() => {
+    const known = knownNotifIdsRef.current;
+    if (isFirstNotifSyncRef.current) {
+      isFirstNotifSyncRef.current = false;
+      knownNotifIdsRef.current = new Set(notifications.map((n) => n.id));
+      return;
+    }
+    const hasNew = notifications.some((n) => !known.has(n.id));
+    if (hasNew) playNotificationSound();
+    knownNotifIdsRef.current = new Set(notifications.map((n) => n.id));
+  }, [notifications]);
 
   const lastRead = useMemo(() => loadLastNotificationRead(), [showNotifications]);
 
