@@ -27,14 +27,39 @@ function resolveUrl(hass: HassObject, path: string): string {
   return base.replace(/\/$/, "") + path;
 }
 
+interface WebRTCSession {
+  pc: RTCPeerConnection;
+  unsubscribe: () => void;
+}
+
+interface WebRTCMessage {
+  type: "session" | "answer" | "candidate" | "error";
+  session_id?: string;
+  answer?: string;
+  candidate?: { candidate: string; sdpMid?: string; sdpMLineIndex?: number };
+  code?: string;
+  message?: string;
+}
+
 async function startWebRTC(
   hass: HassObject,
   entityId: string,
   video: HTMLVideoElement,
-): Promise<RTCPeerConnection> {
-  const pc = new RTCPeerConnection({
+): Promise<WebRTCSession> {
+  let config: RTCConfiguration = {
     iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
-  });
+  };
+  try {
+    const cfg = await hass.callWS<{ configuration?: RTCConfiguration }>({
+      type: "camera/webrtc/get_client_config",
+      entity_id: entityId,
+    });
+    if (cfg?.configuration) config = cfg.configuration;
+  } catch {
+    /* keep STUN default */
+  }
+
+  const pc = new RTCPeerConnection(config);
   pc.addTransceiver("audio", { direction: "recvonly" });
   pc.addTransceiver("video", { direction: "recvonly" });
   pc.ontrack = (event) => {
@@ -46,24 +71,70 @@ async function startWebRTC(
 
   if (pc.iceGatheringState !== "complete") {
     await new Promise<void>((resolve) => {
-      const done = () => {
-        pc.removeEventListener("icegatheringstatechange", done);
-        resolve();
+      const onChange = () => {
+        if (pc.iceGatheringState === "complete") {
+          pc.removeEventListener("icegatheringstatechange", onChange);
+          resolve();
+        }
       };
-      pc.addEventListener("icegatheringstatechange", () => {
-        if (pc.iceGatheringState === "complete") done();
-      });
-      setTimeout(done, 3000);
+      pc.addEventListener("icegatheringstatechange", onChange);
+      setTimeout(() => {
+        pc.removeEventListener("icegatheringstatechange", onChange);
+        resolve();
+      }, 3000);
     });
   }
 
-  const result = await hass.callWS<{ answer: string }>({
-    type: "camera/web_rtc_offer",
-    entity_id: entityId,
-    offer: pc.localDescription!.sdp,
+  const conn = (hass.connection as unknown as {
+    subscribeMessage: (
+      cb: (msg: WebRTCMessage) => void,
+      payload: Record<string, unknown>,
+    ) => Promise<() => void>;
   });
-  await pc.setRemoteDescription({ type: "answer", sdp: result.answer });
-  return pc;
+
+  let answered = false;
+  let firstError: { code?: string; message?: string } | null = null;
+
+  const unsub = await conn.subscribeMessage(
+    (msg: WebRTCMessage) => {
+      if (msg.type === "answer" && msg.answer) {
+        answered = true;
+        pc.setRemoteDescription({ type: "answer", sdp: msg.answer }).catch((err) => {
+          console.warn("[Nido] setRemoteDescription failed:", err);
+        });
+      } else if (msg.type === "candidate" && msg.candidate) {
+        pc.addIceCandidate(msg.candidate).catch((err) => {
+          console.warn("[Nido] addIceCandidate failed:", err);
+        });
+      } else if (msg.type === "error") {
+        firstError = { code: msg.code, message: msg.message };
+        console.warn("[Nido] WebRTC error event:", msg);
+      }
+    },
+    {
+      type: "camera/webrtc/offer",
+      entity_id: entityId,
+      offer: pc.localDescription!.sdp,
+    },
+  );
+
+  await new Promise<void>((resolve, reject) => {
+    const start = Date.now();
+    const id = setInterval(() => {
+      if (answered) {
+        clearInterval(id);
+        resolve();
+      } else if (firstError) {
+        clearInterval(id);
+        reject(firstError);
+      } else if (Date.now() - start > 10_000) {
+        clearInterval(id);
+        reject(new Error("Timeout WebRTC: aucune réponse SDP"));
+      }
+    }, 100);
+  });
+
+  return { pc, unsubscribe: unsub };
 }
 
 async function autoPickStreamEntity(hass: HassObject, entityId: string): Promise<string | null> {
@@ -144,7 +215,7 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
     if (!streamEntity) return;
     let cancelled = false;
     let hls: Hls | null = null;
-    let pc: RTCPeerConnection | null = null;
+    let rtc: WebRTCSession | null = null;
     const video = videoRef.current;
     setError(null);
     setLoading(true);
@@ -156,6 +227,9 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
         entity_id: streamEntity!,
       });
       if (cancelled || !video) return;
+      if (!res?.url) {
+        throw { code: "start_stream_failed", message: "no HLS URL returned" };
+      }
       const url = resolveUrl(hass, res.url);
       if (video.canPlayType("application/vnd.apple.mpegurl")) {
         video.src = url;
@@ -176,7 +250,7 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
 
     async function tryWebRtc(): Promise<void> {
       if (!video) throw new Error("video element missing");
-      pc = await startWebRTC(hass, streamEntity!, video);
+      rtc = await startWebRTC(hass, streamEntity!, video);
       if (cancelled) return;
       setLoading(false);
     }
@@ -216,7 +290,10 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
     return () => {
       cancelled = true;
       if (hls) hls.destroy();
-      if (pc) pc.close();
+      if (rtc) {
+        try { rtc.unsubscribe(); } catch { /* ignore */ }
+        try { rtc.pc.close(); } catch { /* ignore */ }
+      }
       if (video) {
         video.pause();
         video.removeAttribute("src");
