@@ -27,6 +27,45 @@ function resolveUrl(hass: HassObject, path: string): string {
   return base.replace(/\/$/, "") + path;
 }
 
+async function startWebRTC(
+  hass: HassObject,
+  entityId: string,
+  video: HTMLVideoElement,
+): Promise<RTCPeerConnection> {
+  const pc = new RTCPeerConnection({
+    iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+  });
+  pc.addTransceiver("audio", { direction: "recvonly" });
+  pc.addTransceiver("video", { direction: "recvonly" });
+  pc.ontrack = (event) => {
+    video.srcObject = event.streams[0];
+  };
+
+  const offer = await pc.createOffer();
+  await pc.setLocalDescription(offer);
+
+  if (pc.iceGatheringState !== "complete") {
+    await new Promise<void>((resolve) => {
+      const done = () => {
+        pc.removeEventListener("icegatheringstatechange", done);
+        resolve();
+      };
+      pc.addEventListener("icegatheringstatechange", () => {
+        if (pc.iceGatheringState === "complete") done();
+      });
+      setTimeout(done, 3000);
+    });
+  }
+
+  const result = await hass.callWS<{ answer: string }>({
+    type: "camera/web_rtc_offer",
+    entity_id: entityId,
+    offer: pc.localDescription!.sdp,
+  });
+  await pc.setRemoteDescription({ type: "answer", sdp: result.answer });
+  return pc;
+}
+
 async function autoPickStreamEntity(hass: HassObject, entityId: string): Promise<string | null> {
   try {
     const registry = await hass.callWS<RegistryEntry[]>({
@@ -105,40 +144,68 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
     if (!streamEntity) return;
     let cancelled = false;
     let hls: Hls | null = null;
+    let pc: RTCPeerConnection | null = null;
     const video = videoRef.current;
     setError(null);
     setLoading(true);
     setNeedsPicker(false);
 
+    async function tryHls(): Promise<void> {
+      const res = await hass.callWS<StreamResponse>({
+        type: "camera/stream",
+        entity_id: streamEntity!,
+      });
+      if (cancelled || !video) return;
+      const url = resolveUrl(hass, res.url);
+      if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = url;
+        video.addEventListener("loadedmetadata", () => setLoading(false), { once: true });
+        video.addEventListener("error", () => setError("Erreur de lecture"), { once: true });
+      } else if (Hls.isSupported()) {
+        hls = new Hls({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: true });
+        hls.attachMedia(video);
+        hls.loadSource(url);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => setLoading(false));
+        hls.on(Hls.Events.ERROR, (_e, data) => {
+          if (data.fatal) setError("Erreur de stream");
+        });
+      } else {
+        throw new Error("Lecteur non supporté");
+      }
+    }
+
+    async function tryWebRtc(): Promise<void> {
+      if (!video) throw new Error("video element missing");
+      pc = await startWebRTC(hass, streamEntity!, video);
+      if (cancelled) return;
+      setLoading(false);
+    }
+
     async function start() {
       try {
-        const res = await hass.callWS<StreamResponse>({
-          type: "camera/stream",
-          entity_id: streamEntity!,
-        });
-        if (cancelled || !video) return;
-        const url = resolveUrl(hass, res.url);
-
-        if (video.canPlayType("application/vnd.apple.mpegurl")) {
-          video.src = url;
-          video.addEventListener("loadedmetadata", () => setLoading(false), { once: true });
-          video.addEventListener("error", () => setError("Erreur de lecture"), { once: true });
-        } else if (Hls.isSupported()) {
-          hls = new Hls({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: true });
-          hls.attachMedia(video);
-          hls.loadSource(url);
-          hls.on(Hls.Events.MANIFEST_PARSED, () => setLoading(false));
-          hls.on(Hls.Events.ERROR, (_e, data) => {
-            if (data.fatal) setError("Erreur de stream");
-          });
-        } else {
-          setError("Lecteur non supporté");
-        }
-      } catch (e) {
+        await tryHls();
+      } catch (hlsErr) {
         if (cancelled) return;
-        const err = e as { message?: string; code?: string };
-        const msg = err?.message || err?.code || String(e);
-        console.error("[Nido] camera/stream failed:", e);
+        const code = (hlsErr as { code?: string })?.code;
+        console.warn("[Nido] HLS failed, trying WebRTC:", hlsErr);
+        if (code === "start_stream_failed") {
+          try {
+            await tryWebRtc();
+            return;
+          } catch (rtcErr) {
+            if (cancelled) return;
+            console.error("[Nido] WebRTC also failed:", rtcErr);
+            const err = rtcErr as { message?: string; code?: string };
+            const msg = err?.message || err?.code || String(rtcErr);
+            setError(`Live indisponible : ${msg}`);
+            setNeedsPicker(true);
+            setLoading(false);
+            return;
+          }
+        }
+        const err = hlsErr as { message?: string; code?: string };
+        const msg = err?.message || err?.code || String(hlsErr);
+        console.error("[Nido] camera/stream failed:", hlsErr);
         setError(`Live indisponible : ${msg}`);
         setNeedsPicker(true);
         setLoading(false);
@@ -149,9 +216,11 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
     return () => {
       cancelled = true;
       if (hls) hls.destroy();
+      if (pc) pc.close();
       if (video) {
         video.pause();
         video.removeAttribute("src");
+        video.srcObject = null;
         video.load();
       }
     };
