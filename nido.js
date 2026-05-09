@@ -23274,27 +23274,51 @@ function Im(s, e) {
   return e.startsWith("http") ? e : (s.hassUrl?.("") ?? "").replace(/\/$/, "") + e;
 }
 async function Lm(s, e, t) {
-  const i = new RTCPeerConnection({
+  let i = {
     iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
-  });
-  i.addTransceiver("audio", { direction: "recvonly" }), i.addTransceiver("video", { direction: "recvonly" }), i.ontrack = (a) => {
-    t.srcObject = a.streams[0];
   };
-  const n = await i.createOffer();
-  await i.setLocalDescription(n), i.iceGatheringState !== "complete" && await new Promise((a) => {
-    const o = () => {
-      i.removeEventListener("icegatheringstatechange", o), a();
+  try {
+    const d = await s.callWS({
+      type: "camera/webrtc/get_client_config",
+      entity_id: e
+    });
+    d?.configuration && (i = d.configuration);
+  } catch {
+  }
+  const n = new RTCPeerConnection(i);
+  n.addTransceiver("audio", { direction: "recvonly" }), n.addTransceiver("video", { direction: "recvonly" }), n.ontrack = (d) => {
+    t.srcObject = d.streams[0];
+  };
+  const r = await n.createOffer();
+  await n.setLocalDescription(r), n.iceGatheringState !== "complete" && await new Promise((d) => {
+    const u = () => {
+      n.iceGatheringState === "complete" && (n.removeEventListener("icegatheringstatechange", u), d());
     };
-    i.addEventListener("icegatheringstatechange", () => {
-      i.iceGatheringState === "complete" && o();
-    }), setTimeout(o, 3e3);
+    n.addEventListener("icegatheringstatechange", u), setTimeout(() => {
+      n.removeEventListener("icegatheringstatechange", u), d();
+    }, 3e3);
   });
-  const r = await s.callWS({
-    type: "camera/web_rtc_offer",
-    entity_id: e,
-    offer: i.localDescription.sdp
-  });
-  return await i.setRemoteDescription({ type: "answer", sdp: r.answer }), i;
+  const a = s.connection;
+  let o = !1, c = null;
+  const l = await a.subscribeMessage(
+    (d) => {
+      d.type === "answer" && d.answer ? (o = !0, n.setRemoteDescription({ type: "answer", sdp: d.answer }).catch((u) => {
+        console.warn("[Nido] setRemoteDescription failed:", u);
+      })) : d.type === "candidate" && d.candidate ? n.addIceCandidate(d.candidate).catch((u) => {
+        console.warn("[Nido] addIceCandidate failed:", u);
+      }) : d.type === "error" && (c = { code: d.code, message: d.message }, console.warn("[Nido] WebRTC error event:", d));
+    },
+    {
+      type: "camera/webrtc/offer",
+      entity_id: e,
+      offer: n.localDescription.sdp
+    }
+  );
+  return await new Promise((d, u) => {
+    const f = Date.now(), p = setInterval(() => {
+      o ? (clearInterval(p), d()) : c ? (clearInterval(p), u(c)) : Date.now() - f > 1e4 && (clearInterval(p), u(new Error("Timeout WebRTC: aucune réponse SDP")));
+    }, 100);
+  }), { pc: n, unsubscribe: l };
 }
 async function km(s, e) {
   try {
@@ -23342,6 +23366,8 @@ function wm({ hass: s, entityId: e, title: t, onClose: i }) {
         entity_id: l
       });
       if (y || !E) return;
+      if (!L?.url)
+        throw { code: "start_stream_failed", message: "no HLS URL returned" };
       const I = Im(s, L.url);
       if (E.canPlayType("application/vnd.apple.mpegurl"))
         E.src = I, E.addEventListener("loadedmetadata", () => c(!1), { once: !0 }), E.addEventListener("error", () => a("Erreur de lecture"), { once: !0 });
@@ -23378,7 +23404,17 @@ function wm({ hass: s, entityId: e, title: t, onClose: i }) {
       }
     }
     return S(), () => {
-      y = !0, b && b.destroy(), x && x.close(), E && (E.pause(), E.removeAttribute("src"), E.srcObject = null, E.load());
+      if (y = !0, b && b.destroy(), x) {
+        try {
+          x.unsubscribe();
+        } catch {
+        }
+        try {
+          x.pc.close();
+        } catch {
+        }
+      }
+      E && (E.pause(), E.removeAttribute("src"), E.srcObject = null, E.load());
     };
   }, [s, l]);
   function m() {
