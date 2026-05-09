@@ -2,6 +2,7 @@ import { useState, useEffect } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { ResolvedEntity } from "../core/entities";
 import { IconCamera } from "../icons";
+import { CameraPanel } from "../components/camera-panel";
 
 interface CameraWidgetProps {
   hass: HassObject;
@@ -40,6 +41,7 @@ export function CameraWidget({ hass, entity, roomLabel }: CameraWidgetProps) {
   const isLive = state === "recording" || state === "streaming";
   const [bust, setBust] = useState(() => Date.now());
   const [imgError, setImgError] = useState(false);
+  const [showLive, setShowLive] = useState(false);
 
   const baseUrl = pickSnapshotUrl(entity, hass);
   const url = baseUrl ? `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}_=${bust}` : null;
@@ -56,14 +58,21 @@ export function CameraWidget({ hass, entity, roomLabel }: CameraWidgetProps) {
 
   return (
     <div class="n-card n-card--camera" data-on={isLive ? "true" : "false"}>
-      <div class="n-camera__frame">
+      <button
+        type="button"
+        class="n-camera__frame n-camera__frame--btn"
+        data-no-drag
+        disabled={unavailable}
+        onClick={() => !unavailable && setShowLive(true)}
+        aria-label={`Voir le live de ${entity.friendly_name}`}
+      >
         {url && !imgError ? (
-          <img 
-            class="n-camera__img" 
-            src={url} 
-            alt={entity.friendly_name} 
+          <img
+            class="n-camera__img"
+            src={url}
+            alt={entity.friendly_name}
             loading="lazy"
-            onError={() => setImgError(true)} 
+            onError={() => setImgError(true)}
           />
         ) : (
           <div class="n-camera__placeholder" aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -72,7 +81,8 @@ export function CameraWidget({ hass, entity, roomLabel }: CameraWidgetProps) {
           </div>
         )}
         {isLive && <span class="n-camera__live">●&nbsp;LIVE</span>}
-      </div>
+        {!unavailable && <span class="n-camera__play" aria-hidden="true">▶</span>}
+      </button>
 
       <div class="n-card__head n-card__head--inline">
         <div class="n-icon-bubble">
@@ -91,6 +101,15 @@ export function CameraWidget({ hass, entity, roomLabel }: CameraWidgetProps) {
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}
       <div class="n-title n-title--sm">{entity.friendly_name}</div>
       <div class="n-binary-state">{STATE_LABEL[state] ?? state}</div>
+
+      {showLive && (
+        <CameraPanel
+          hass={hass}
+          entityId={entity.entity_id}
+          title={entity.friendly_name}
+          onClose={() => setShowLive(false)}
+        />
+      )}
     </div>
   );
 }
