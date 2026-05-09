@@ -2418,10 +2418,10 @@ function Ku(s, e, t) {
     for (let x = 0; x < v.length; x++) {
       const E = v[x], T = J(E, 4), k = d.sampleCount;
       d.sampleCount += T;
-      const S = E[3] & 1, L = E[3] & 4, I = E[2] & 1, A = E[2] & 2, P = E[2] & 4, B = E[2] & 8;
+      const S = E[3] & 1, L = E[3] & 4, I = E[2] & 1, A = E[2] & 2, D = E[2] & 4, $ = E[2] & 8;
       let K = 8, z = T;
-      for (S && (K += 4), L && T && (!(E[K + 1] & 1) && d.keyFrameIndex === void 0 && (d.keyFrameIndex = k), K += 4, I ? (b = J(E, K), K += 4) : b = g, A && (K += 4), B && (K += 4), m += b, y += b, z--); z--; )
-        I ? (b = J(E, K), K += 4) : b = g, A && (K += 4), P && (E[K + 1] & 1 || d.keyFrameIndex === void 0 && (d.keyFrameIndex = d.sampleCount - (z + 1), d.keyFrameStart = m), K += 4), B && (K += 4), m += b, y += b;
+      for (S && (K += 4), L && T && (!(E[K + 1] & 1) && d.keyFrameIndex === void 0 && (d.keyFrameIndex = k), K += 4, I ? (b = J(E, K), K += 4) : b = g, A && (K += 4), $ && (K += 4), m += b, y += b, z--); z--; )
+        I ? (b = J(E, K), K += 4) : b = g, A && (K += 4), D && (E[K + 1] & 1 || d.keyFrameIndex === void 0 && (d.keyFrameIndex = d.sampleCount - (z + 1), d.keyFrameStart = m), K += 4), $ && (K += 4), m += b, y += b;
       !y && g && (y += g * T);
     }
     d.duration += y;
@@ -2476,20 +2476,20 @@ function zr(s, e) {
         const k = (v & 32) !== 0;
         let S = 8;
         g === r && (m && (S += 8), y && (S += 4), b && (x = J(p, S), S += 4), E && (T = J(p, S), S += 4), k && (S += 4), e.type === "video" && (a = yn(e.codec)), ne(u, ["trun"]).map((L) => {
-          const I = L[0], A = J(L, 0) & 16777215, P = (A & 1) !== 0;
-          let B = 0;
+          const I = L[0], A = J(L, 0) & 16777215, D = (A & 1) !== 0;
+          let $ = 0;
           const K = (A & 4) !== 0, z = (A & 256) !== 0;
-          let D = 0;
-          const C = (A & 512) !== 0;
+          let C = 0;
+          const P = (A & 512) !== 0;
           let F = 0;
-          const $ = (A & 1024) !== 0, V = (A & 2048) !== 0;
+          const B = (A & 1024) !== 0, V = (A & 2048) !== 0;
           let G = 0;
           const M = J(L, 4);
           let N = 8;
-          P && (B = J(L, N), N += 4), K && (N += 4);
-          let H = B + l;
+          D && ($ = J(L, N), N += 4), K && (N += 4);
+          let H = $ + l;
           for (let Q = 0; Q < M; Q++) {
-            if (z ? (D = J(L, N), N += 4) : D = x, C ? (F = J(L, N), N += 4) : F = T, $ && (N += 4), V && (I === 0 ? G = J(L, N) : G = hl(L, N), N += 4), e.type === ce.VIDEO) {
+            if (z ? (C = J(L, N), N += 4) : C = x, P ? (F = J(L, N), N += 4) : F = T, B && (N += 4), V && (I === 0 ? G = J(L, N) : G = hl(L, N), N += 4), e.type === ce.VIDEO) {
               let Z = 0;
               for (; Z < F; ) {
                 const ie = J(i, H);
@@ -2500,7 +2500,7 @@ function zr(s, e) {
                 H += ie, Z += ie + 4;
               }
             }
-            s += D / n;
+            s += C / n;
           }
         }));
       });
@@ -3222,7 +3222,7 @@ function ph(s, e, t, i, n) {
   } = hh(e, n);
   for (let L = r.length; L--; ) {
     const I = s[r[L]];
-    d || (d = I.channels[2] > 0), f = Math.min(f, I.minHeight), p = Math.min(p, I.minFramerate), g = Math.min(g, I.minBitrate), x.filter((P) => I.videoRanges[P] > 0).length > 0 && (u = !0);
+    d || (d = I.channels[2] > 0), f = Math.min(f, I.minHeight), p = Math.min(p, I.minFramerate), g = Math.min(g, I.minBitrate), x.filter((D) => I.videoRanges[D] > 0).length > 0 && (u = !0);
   }
   f = W(f) ? f : 0, p = W(p) ? p : 0;
   const E = Math.max(1080, f), T = Math.max(30, p);
@@ -3233,7 +3233,7 @@ function ph(s, e, t, i, n) {
       const A = s[I];
       if (I === L)
         return L;
-      if (y = u ? x.filter((P) => A.videoRanges[P] > 0) : [], k) {
+      if (y = u ? x.filter((D) => A.videoRanges[D] > 0) : [], k) {
         if (A.minBitrate > t)
           return qe(I, `min bitrate of ${A.minBitrate} > current estimate of ${t}`), L;
         if (!A.hasDefaultAudio)
@@ -3249,7 +3249,7 @@ function ph(s, e, t, i, n) {
           return qe(I, `min resolution of ${A.minHeight} > maximum of ${E}`), L;
         if (A.minFramerate > T)
           return qe(I, `min framerate of ${A.minFramerate} > maximum of ${T}`), L;
-        if (!y.some((P) => A.videoRanges[P] > 0))
+        if (!y.some((D) => A.videoRanges[D] > 0))
           return qe(I, `no variants with VIDEO-RANGE of ${ue(y)} found`), L;
         if (c && I.indexOf(c.substring(0, 4)) % 5 !== 0)
           return qe(I, `video codec preference "${c}" not found`), L;
@@ -3434,29 +3434,29 @@ class _h extends ze {
       const x = this.bwEstimator.getEstimateTTFB(), E = Math.abs(c.playbackRate);
       if (f <= Math.max(x, 1e3 * (u / (E * 2))))
         return;
-      const T = b ? b.len / E : 0, k = d.loading.first ? d.loading.first - d.loading.start : -1, S = d.loaded && k > -1, L = this.getBwEstimate(), I = a.levels, A = I[g], P = Math.max(d.loaded, Math.round(u * (n.bitrate || A.averageBitrate) / 8));
-      let B = S ? f - k : f;
-      B < 1 && S && (B = Math.min(f, d.loaded * 8 / L));
-      const K = S ? d.loaded * 1e3 / B : 0, z = x / 1e3, D = K ? (P - d.loaded) / K : P * 8 / L + z;
-      if (D <= T)
+      const T = b ? b.len / E : 0, k = d.loading.first ? d.loading.first - d.loading.start : -1, S = d.loaded && k > -1, L = this.getBwEstimate(), I = a.levels, A = I[g], D = Math.max(d.loaded, Math.round(u * (n.bitrate || A.averageBitrate) / 8));
+      let $ = S ? f - k : f;
+      $ < 1 && S && ($ = Math.min(f, d.loaded * 8 / L));
+      const K = S ? d.loaded * 1e3 / $ : 0, z = x / 1e3, C = K ? (D - d.loaded) / K : D * 8 / L + z;
+      if (C <= T)
         return;
-      const C = K ? K * 8 : L, F = ((i = t?.details || this.hls.latestLevelDetails) == null ? void 0 : i.live) === !0, $ = this.hls.config.abrBandWidthUpFactor;
+      const P = K ? K * 8 : L, F = ((i = t?.details || this.hls.latestLevelDetails) == null ? void 0 : i.live) === !0, B = this.hls.config.abrBandWidthUpFactor;
       let V = Number.POSITIVE_INFINITY, G;
       for (G = g - 1; G > p; G--) {
         const Q = I[G].maxBitrate, Z = !I[G].details || F;
-        if (V = this.getTimeToLoadFrag(z, C, u * Q, Z), V < Math.min(T, u + z))
+        if (V = this.getTimeToLoadFrag(z, P, u * Q, Z), V < Math.min(T, u + z))
           break;
       }
-      if (V >= D || V > u * 10)
+      if (V >= C || V > u * 10)
         return;
       S ? this.bwEstimator.sample(f - Math.min(x, k), d.loaded) : this.bwEstimator.sampleTTFB(f);
       const M = I[G].maxBitrate;
-      this.getBwEstimate() * $ > M && this.resetEstimator(M);
+      this.getBwEstimate() * B > M && this.resetEstimator(M);
       const N = this.findBestLevel(M, p, G, 0, T, 1, 1);
       N > -1 && (G = N), this.warn(`Fragment ${n.sn}${r ? " part " + r.index : ""} of level ${g} is loading too slowly;
       Fragment duration: ${n.duration.toFixed(3)}
       Time to underbuffer: ${T.toFixed(3)} s
-      Estimated load time for current fragment: ${D.toFixed(3)} s
+      Estimated load time for current fragment: ${C.toFixed(3)} s
       Estimated load time for down switch fragment: ${V.toFixed(3)} s
       TTFB estimate: ${k | 0} ms
       Current BW estimate: ${W(L) ? L | 0 : "Unknown"} bps
@@ -3473,7 +3473,7 @@ class _h extends ze {
           }
         }
       };
-      m || D > V * 2 ? H() : this.timer = self.setInterval(H, V * 1e3), a.trigger(_.FRAG_LOAD_EMERGENCY_ABORTED, {
+      m || C > V * 2 ? H() : this.timer = self.setInterval(H, V * 1e3), a.trigger(_.FRAG_LOAD_EMERGENCY_ABORTED, {
         frag: n,
         part: r,
         stats: d
@@ -3687,25 +3687,25 @@ class _h extends ze {
       audioPreference: L,
       videoPreference: I
     } = y, A = this.audioTracksByGroup || (this.audioTracksByGroup = El(v));
-    let P = -1;
+    let D = -1;
     if (E) {
       if (this.firstSelection !== -1)
         return this.firstSelection;
-      const C = this.codecTiers || (this.codecTiers = gh(g, A, t, i)), F = ph(C, k, e, L, I), {
-        codecSet: $,
+      const P = this.codecTiers || (this.codecTiers = gh(g, A, t, i)), F = ph(P, k, e, L, I), {
+        codecSet: B,
         videoRanges: V,
         minFramerate: G,
         minBitrate: M,
         minIndex: N,
         preferHDR: H
       } = F;
-      P = N, T = $, k = H ? V[V.length - 1] : V[0], S = G, e = Math.max(e, M), this.log(`picked start tier ${ue(F)}`);
+      D = N, T = B, k = H ? V[V.length - 1] : V[0], S = G, e = Math.max(e, M), this.log(`picked start tier ${ue(F)}`);
     } else
       T = b?.codecSet, k = b?.videoRange;
-    const B = p ? p.duration : f ? f.duration : 0, K = this.bwEstimator.getEstimateTTFB() / 1e3, z = [];
-    for (let C = i; C >= t; C--) {
-      var D;
-      const F = g[C], $ = C > u;
+    const $ = p ? p.duration : f ? f.duration : 0, K = this.bwEstimator.getEstimateTTFB() / 1e3, z = [];
+    for (let P = i; P >= t; P--) {
+      var C;
+      const F = g[P], B = P > u;
       if (!F)
         continue;
       if (y.useMediaCapabilities && !F.supportedResult && !F.supportedPromise) {
@@ -3720,24 +3720,24 @@ class _h extends ze {
           this.warn(`Error handling MediaCapabilities decodingInfo: ${ie}`);
         })) : F.supportedResult = yl;
       }
-      if ((T && F.codecSet !== T || k && F.videoRange !== k || $ && S > F.frameRate || !$ && S > 0 && S < F.frameRate || (D = F.supportedResult) != null && (D = D.decodingInfoResults) != null && D.some((Z) => Z.smooth === !1)) && (!E || C !== P)) {
-        z.push(C);
+      if ((T && F.codecSet !== T || k && F.videoRange !== k || B && S > F.frameRate || !B && S > 0 && S < F.frameRate || (C = F.supportedResult) != null && (C = C.decodingInfoResults) != null && C.some((Z) => Z.smooth === !1)) && (!E || P !== D)) {
+        z.push(P);
         continue;
       }
-      const V = F.details, G = (p ? V?.partTarget : V?.averagetargetduration) || B;
+      const V = F.details, G = (p ? V?.partTarget : V?.averagetargetduration) || $;
       let M;
-      $ ? M = o * e : M = a * e;
-      const N = B && n >= B * 2 && r === 0 ? F.averageBitrate : F.maxBitrate, H = this.getTimeToLoadFrag(K, M, N * G, V === void 0);
+      B ? M = o * e : M = a * e;
+      const N = $ && n >= $ * 2 && r === 0 ? F.averageBitrate : F.maxBitrate, H = this.getTimeToLoadFrag(K, M, N * G, V === void 0);
       if (
         // if adjusted bw is greater than level bitrate AND
         M >= N && // no level change, or new level has no error history
-        (C === d || F.loadError === 0 && F.fragmentError === 0) && // fragment fetchDuration unknown OR live stream OR fragment fetchDuration less than max allowed fetch duration, then this level matches
+        (P === d || F.loadError === 0 && F.fragmentError === 0) && // fragment fetchDuration unknown OR live stream OR fragment fetchDuration less than max allowed fetch duration, then this level matches
         // we don't account for max Fetch Duration for live streams, this is to avoid switching down when near the edge of live sliding window ...
         // special case to support startLevel = -1 (bitrateTest) on live streams : in that case we should not exit loop so that findBestLevel will return -1
         (H <= K || !W(H) || x && !this.bitrateTestDelay || H < l)
       ) {
         const Z = this.forcedAutoLevel;
-        return C !== m && (Z === -1 || Z !== m) && (z.length && this.trace(`Skipped level(s) ${z.join(",")} of ${i} max with CODECS and VIDEO-RANGE:"${g[z[0]].codecs}" ${g[z[0]].videoRange}; not compatible with "${T}" ${k}`), this.info(`switch candidate:${u}->${C} adjustedbw(${Math.round(M)})-bitrate=${Math.round(M - N)} ttfb:${K.toFixed(1)} avgDuration:${G.toFixed(1)} maxFetchDuration:${l.toFixed(1)} fetchDuration:${H.toFixed(1)} firstSelection:${E} codecSet:${F.codecSet} videoRange:${F.videoRange} hls.loadLevel:${m}`)), E && (this.firstSelection = C), C;
+        return P !== m && (Z === -1 || Z !== m) && (z.length && this.trace(`Skipped level(s) ${z.join(",")} of ${i} max with CODECS and VIDEO-RANGE:"${g[z[0]].codecs}" ${g[z[0]].videoRange}; not compatible with "${T}" ${k}`), this.info(`switch candidate:${u}->${P} adjustedbw(${Math.round(M)})-bitrate=${Math.round(M - N)} ttfb:${K.toFixed(1)} avgDuration:${G.toFixed(1)} maxFetchDuration:${l.toFixed(1)} fetchDuration:${H.toFixed(1)} firstSelection:${E} codecSet:${F.codecSet} videoRange:${F.videoRange} hls.loadLevel:${m}`)), E && (this.firstSelection = P), P;
       }
     }
     return -1;
@@ -4559,12 +4559,12 @@ class kh {
     const n = this.keySize + 6, r = this.invKeySchedule, a = this.invSBox, o = this.invSubMix, c = o[0], l = o[1], d = o[2], u = o[3], f = this.uint8ArrayToUint32Array_(i);
     let p = f[0], g = f[1], v = f[2], m = f[3];
     const y = new Int32Array(e), b = new Int32Array(y.length);
-    let x, E, T, k, S, L, I, A, P, B, K, z, D, C;
+    let x, E, T, k, S, L, I, A, D, $, K, z, C, P;
     const F = this.networkToHostOrderSwap;
     for (; t < y.length; ) {
-      for (P = F(y[t]), B = F(y[t + 1]), K = F(y[t + 2]), z = F(y[t + 3]), S = P ^ r[0], L = z ^ r[1], I = K ^ r[2], A = B ^ r[3], D = 4, C = 1; C < n; C++)
-        x = c[S >>> 24] ^ l[L >> 16 & 255] ^ d[I >> 8 & 255] ^ u[A & 255] ^ r[D], E = c[L >>> 24] ^ l[I >> 16 & 255] ^ d[A >> 8 & 255] ^ u[S & 255] ^ r[D + 1], T = c[I >>> 24] ^ l[A >> 16 & 255] ^ d[S >> 8 & 255] ^ u[L & 255] ^ r[D + 2], k = c[A >>> 24] ^ l[S >> 16 & 255] ^ d[L >> 8 & 255] ^ u[I & 255] ^ r[D + 3], S = x, L = E, I = T, A = k, D = D + 4;
-      x = a[S >>> 24] << 24 ^ a[L >> 16 & 255] << 16 ^ a[I >> 8 & 255] << 8 ^ a[A & 255] ^ r[D], E = a[L >>> 24] << 24 ^ a[I >> 16 & 255] << 16 ^ a[A >> 8 & 255] << 8 ^ a[S & 255] ^ r[D + 1], T = a[I >>> 24] << 24 ^ a[A >> 16 & 255] << 16 ^ a[S >> 8 & 255] << 8 ^ a[L & 255] ^ r[D + 2], k = a[A >>> 24] << 24 ^ a[S >> 16 & 255] << 16 ^ a[L >> 8 & 255] << 8 ^ a[I & 255] ^ r[D + 3], b[t] = F(x ^ p), b[t + 1] = F(k ^ g), b[t + 2] = F(T ^ v), b[t + 3] = F(E ^ m), p = P, g = B, v = K, m = z, t = t + 4;
+      for (D = F(y[t]), $ = F(y[t + 1]), K = F(y[t + 2]), z = F(y[t + 3]), S = D ^ r[0], L = z ^ r[1], I = K ^ r[2], A = $ ^ r[3], C = 4, P = 1; P < n; P++)
+        x = c[S >>> 24] ^ l[L >> 16 & 255] ^ d[I >> 8 & 255] ^ u[A & 255] ^ r[C], E = c[L >>> 24] ^ l[I >> 16 & 255] ^ d[A >> 8 & 255] ^ u[S & 255] ^ r[C + 1], T = c[I >>> 24] ^ l[A >> 16 & 255] ^ d[S >> 8 & 255] ^ u[L & 255] ^ r[C + 2], k = c[A >>> 24] ^ l[S >> 16 & 255] ^ d[L >> 8 & 255] ^ u[I & 255] ^ r[C + 3], S = x, L = E, I = T, A = k, C = C + 4;
+      x = a[S >>> 24] << 24 ^ a[L >> 16 & 255] << 16 ^ a[I >> 8 & 255] << 8 ^ a[A & 255] ^ r[C], E = a[L >>> 24] << 24 ^ a[I >> 16 & 255] << 16 ^ a[A >> 8 & 255] << 8 ^ a[S & 255] ^ r[C + 1], T = a[I >>> 24] << 24 ^ a[A >> 16 & 255] << 16 ^ a[S >> 8 & 255] << 8 ^ a[L & 255] ^ r[C + 2], k = a[A >>> 24] << 24 ^ a[S >> 16 & 255] << 16 ^ a[L >> 8 & 255] << 8 ^ a[I & 255] ^ r[C + 3], b[t] = F(x ^ p), b[t + 1] = F(k ^ g), b[t + 2] = F(T ^ v), b[t + 3] = F(E ^ m), p = D, g = $, v = K, m = z, t = t + 4;
     }
     return b.buffer;
   }
@@ -5763,13 +5763,13 @@ class tt {
       const z = E[1];
       if (z) {
         x.duration = parseFloat(z);
-        const D = (" " + E[2]).slice(1);
-        x.title = D || null, x.tagList.push(D ? ["INF", z, D] : ["INF", z]);
+        const C = (" " + E[2]).slice(1);
+        x.title = C || null, x.tagList.push(C ? ["INF", z, C] : ["INF", z]);
       } else if (E[3]) {
         if (W(x.duration)) {
           x.playlistOffset = v, x.setStart(v), k && ba(x, k, l), x.sn = p, x.level = i, x.cc = m, d.push(x);
-          const D = (" " + E[3]).slice(1);
-          x.relurl = ds(l, D), hs(x, b, u), b = x, v += x.duration, p++, g = 0, L = !0;
+          const C = (" " + E[3]).slice(1);
+          x.relurl = ds(l, C), hs(x, b, u), b = x, v += x.duration, p++, g = 0, L = !0;
         }
       } else {
         if (E = E[0].match(jh), !E) {
@@ -5778,93 +5778,93 @@ class tt {
         }
         for (T = 1; T < E.length && E[T] === void 0; T++)
           ;
-        const D = (" " + E[T]).slice(1), C = (" " + E[T + 1]).slice(1), F = E[T + 2] ? (" " + E[T + 2]).slice(1) : null;
-        switch (D) {
+        const C = (" " + E[T]).slice(1), P = (" " + E[T + 1]).slice(1), F = E[T + 2] ? (" " + E[T + 2]).slice(1) : null;
+        switch (C) {
           case "BYTERANGE":
-            b ? x.setByteRange(C, b) : x.setByteRange(C);
+            b ? x.setByteRange(P, b) : x.setByteRange(P);
             break;
           case "PROGRAM-DATE-TIME":
-            x.rawProgramDateTime = C, x.tagList.push(["PROGRAM-DATE-TIME", C]), S === -1 && (S = d.length);
+            x.rawProgramDateTime = P, x.tagList.push(["PROGRAM-DATE-TIME", P]), S === -1 && (S = d.length);
             break;
           case "PLAYLIST-TYPE":
-            l.type && at(l, D, E), l.type = C.toUpperCase();
+            l.type && at(l, C, E), l.type = P.toUpperCase();
             break;
           case "MEDIA-SEQUENCE":
-            l.startSN !== 0 ? at(l, D, E) : d.length > 0 && xa(l, D, E), p = l.startSN = parseInt(C);
+            l.startSN !== 0 ? at(l, C, E) : d.length > 0 && xa(l, C, E), p = l.startSN = parseInt(P);
             break;
           case "SKIP": {
-            l.skippedSegments && at(l, D, E);
-            const $ = new he(C, l), V = $.decimalInteger("SKIPPED-SEGMENTS");
+            l.skippedSegments && at(l, C, E);
+            const B = new he(P, l), V = B.decimalInteger("SKIPPED-SEGMENTS");
             if (W(V)) {
               l.skippedSegments += V;
               for (let M = V; M--; )
                 d.push(null);
               p += V;
             }
-            const G = $.enumeratedString("RECENTLY-REMOVED-DATERANGES");
+            const G = B.enumeratedString("RECENTLY-REMOVED-DATERANGES");
             G && (l.recentlyRemovedDateranges = (l.recentlyRemovedDateranges || []).concat(G.split("	")));
             break;
           }
           case "TARGETDURATION":
-            l.targetduration !== 0 && at(l, D, E), l.targetduration = Math.max(parseInt(C), 1);
+            l.targetduration !== 0 && at(l, C, E), l.targetduration = Math.max(parseInt(P), 1);
             break;
           case "VERSION":
-            l.version !== null && at(l, D, E), l.version = parseInt(C);
+            l.version !== null && at(l, C, E), l.version = parseInt(P);
             break;
           case "INDEPENDENT-SEGMENTS":
             break;
           case "ENDLIST":
-            l.live || at(l, D, E), l.live = !1;
+            l.live || at(l, C, E), l.live = !1;
             break;
           case "#":
-            (C || F) && x.tagList.push(F ? [C, F] : [C]);
+            (P || F) && x.tagList.push(F ? [P, F] : [P]);
             break;
           case "DISCONTINUITY":
             m++, x.tagList.push(["DIS"]);
             break;
           case "GAP":
-            x.gap = !0, x.tagList.push([D]);
+            x.gap = !0, x.tagList.push([C]);
             break;
           case "BITRATE":
-            x.tagList.push([D, C]), y = parseInt(C) * 1e3, W(y) ? x.bitrate = y : y = 0;
+            x.tagList.push([C, P]), y = parseInt(P) * 1e3, W(y) ? x.bitrate = y : y = 0;
             break;
           case "DATERANGE": {
-            const $ = new he(C, l), V = new wl($, l.dateRanges[$.ID], l.dateRangeTagCount);
-            l.dateRangeTagCount++, V.isValid || l.skippedSegments ? l.dateRanges[V.id] = V : oe.warn(`Ignoring invalid DATERANGE tag: "${C}"`), x.tagList.push(["EXT-X-DATERANGE", C]);
+            const B = new he(P, l), V = new wl(B, l.dateRanges[B.ID], l.dateRangeTagCount);
+            l.dateRangeTagCount++, V.isValid || l.skippedSegments ? l.dateRanges[V.id] = V : oe.warn(`Ignoring invalid DATERANGE tag: "${P}"`), x.tagList.push(["EXT-X-DATERANGE", P]);
             break;
           }
           case "DEFINE": {
             {
-              const $ = new he(C, l);
-              "IMPORT" in $ ? Mh(l, $, a) : ca(l, $, t);
+              const B = new he(P, l);
+              "IMPORT" in B ? Mh(l, B, a) : ca(l, B, t);
             }
             break;
           }
           case "DISCONTINUITY-SEQUENCE":
-            l.startCC !== 0 ? at(l, D, E) : d.length > 0 && xa(l, D, E), l.startCC = m = parseInt(C);
+            l.startCC !== 0 ? at(l, C, E) : d.length > 0 && xa(l, C, E), l.startCC = m = parseInt(P);
             break;
           case "KEY": {
-            const $ = ga(C, t, l);
-            if ($.isSupported()) {
-              if ($.method === "NONE") {
+            const B = ga(P, t, l);
+            if (B.isSupported()) {
+              if (B.method === "NONE") {
                 k = void 0;
                 break;
               }
               k || (k = {});
-              const V = k[$.keyFormat];
-              V != null && V.matches($) || (V && (k = le({}, k)), k[$.keyFormat] = $);
+              const V = k[B.keyFormat];
+              V != null && V.matches(B) || (V && (k = le({}, k)), k[B.keyFormat] = B);
             } else
-              oe.warn(`[Keys] Ignoring unsupported EXT-X-KEY tag: "${C}"`);
+              oe.warn(`[Keys] Ignoring unsupported EXT-X-KEY tag: "${P}"`);
             break;
           }
           case "START":
-            l.startTimeOffset = ma(C);
+            l.startTimeOffset = ma(P);
             break;
           case "MAP": {
-            const $ = new he(C, l);
+            const B = new he(P, l);
             if (x.duration) {
               const V = new In(n, c);
-              _a(V, $, i, k), f = V, x.initSegment = f, f.rawProgramDateTime && !x.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime);
+              _a(V, B, i, k), f = V, x.initSegment = f, f.rawProgramDateTime && !x.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime);
             } else {
               const V = x.byteRangeEndOffset;
               if (V) {
@@ -5872,36 +5872,36 @@ class tt {
                 I = `${V - G}@${G}`;
               } else
                 I = null;
-              _a(x, $, i, k), f = x, L = !0;
+              _a(x, B, i, k), f = x, L = !0;
             }
             f.cc = m;
             break;
           }
           case "SERVER-CONTROL": {
-            A && at(l, D, E), A = new he(C), l.canBlockReload = A.bool("CAN-BLOCK-RELOAD"), l.canSkipUntil = A.optionalFloat("CAN-SKIP-UNTIL", 0), l.canSkipDateRanges = l.canSkipUntil > 0 && A.bool("CAN-SKIP-DATERANGES"), l.partHoldBack = A.optionalFloat("PART-HOLD-BACK", 0), l.holdBack = A.optionalFloat("HOLD-BACK", 0);
+            A && at(l, C, E), A = new he(P), l.canBlockReload = A.bool("CAN-BLOCK-RELOAD"), l.canSkipUntil = A.optionalFloat("CAN-SKIP-UNTIL", 0), l.canSkipDateRanges = l.canSkipUntil > 0 && A.bool("CAN-SKIP-DATERANGES"), l.partHoldBack = A.optionalFloat("PART-HOLD-BACK", 0), l.holdBack = A.optionalFloat("HOLD-BACK", 0);
             break;
           }
           case "PART-INF": {
-            l.partTarget && at(l, D, E);
-            const $ = new he(C);
-            l.partTarget = $.decimalFloatingPoint("PART-TARGET");
+            l.partTarget && at(l, C, E);
+            const B = new he(P);
+            l.partTarget = B.decimalFloatingPoint("PART-TARGET");
             break;
           }
           case "PART": {
-            let $ = l.partList;
-            $ || ($ = l.partList = []);
-            const V = g > 0 ? $[$.length - 1] : void 0, G = g++, M = new he(C, l), N = new Mu(M, x, c, G, V);
-            $.push(N), x.duration += N.duration;
+            let B = l.partList;
+            B || (B = l.partList = []);
+            const V = g > 0 ? B[B.length - 1] : void 0, G = g++, M = new he(P, l), N = new Mu(M, x, c, G, V);
+            B.push(N), x.duration += N.duration;
             break;
           }
           case "PRELOAD-HINT": {
-            const $ = new he(C, l);
-            l.preloadHint = $;
+            const B = new he(P, l);
+            l.preloadHint = B;
             break;
           }
           case "RENDITION-REPORT": {
-            const $ = new he(C, l);
-            l.renditionReports = l.renditionReports || [], l.renditionReports.push($);
+            const B = new he(P, l);
+            l.renditionReports = l.renditionReports || [], l.renditionReports.push(B);
             break;
           }
           default:
@@ -5911,13 +5911,13 @@ class tt {
       }
     }
     b && !b.relurl ? (d.pop(), v -= b.duration, l.partList && (l.fragmentHint = b)) : l.partList && (hs(x, b, u), x.cc = m, l.fragmentHint = x, k && ba(x, k, l)), l.targetduration || (l.playlistParsingError = new Error("Missing Target Duration"));
-    const P = d.length, B = d[0], K = d[P - 1];
-    if (v += l.skippedSegments * l.targetduration, v > 0 && P && K) {
-      l.averagetargetduration = v / P;
+    const D = d.length, $ = d[0], K = d[D - 1];
+    if (v += l.skippedSegments * l.targetduration, v > 0 && D && K) {
+      l.averagetargetduration = v / D;
       const z = K.sn;
-      l.endSN = z !== "initSegment" ? z : 0, l.live || (K.endList = !0), S > 0 && (Xh(d, S), B && u.unshift(B));
+      l.endSN = z !== "initSegment" ? z : 0, l.live || (K.endList = !0), S > 0 && (Xh(d, S), $ && u.unshift($));
     }
-    return l.fragmentHint && (v += l.fragmentHint.duration), l.totalduration = v, u.length && l.dateRangeTagCount && B && Ml(u, l), l.endCC = m, l;
+    return l.fragmentHint && (v += l.fragmentHint.duration), l.totalduration = v, u.length && l.dateRangeTagCount && $ && Ml(u, l), l.endCC = m, l;
   }
 }
 function Ml(s, e) {
@@ -8634,10 +8634,10 @@ class Hf extends sc {
     const E = t.readUEG();
     E == 3 && t.skipBits(1);
     const T = t.readUEG(), k = t.readUEG(), S = t.readBoolean();
-    let L = 0, I = 0, A = 0, P = 0;
-    S && (L += t.readUEG(), I += t.readUEG(), A += t.readUEG(), P += t.readUEG());
-    const B = t.readUEG(), K = t.readUEG(), z = t.readUEG(), D = t.readBoolean();
-    for (let U = D ? 0 : i; U <= i; U++)
+    let L = 0, I = 0, A = 0, D = 0;
+    S && (L += t.readUEG(), I += t.readUEG(), A += t.readUEG(), D += t.readUEG());
+    const $ = t.readUEG(), K = t.readUEG(), z = t.readUEG(), C = t.readBoolean();
+    for (let U = C ? 0 : i; U <= i; U++)
       t.skipUEG(), t.skipUEG(), t.skipUEG();
     if (t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.readBoolean() && t.readBoolean())
       for (let ee = 0; ee < 4; ee++)
@@ -8651,12 +8651,12 @@ class Hf extends sc {
               t.readEG();
           }
     t.readBoolean(), t.readBoolean(), t.readBoolean() && (t.readUByte(), t.skipUEG(), t.skipUEG(), t.readBoolean());
-    const $ = t.readUEG();
+    const B = t.readUEG();
     let V = 0;
-    for (let U = 0; U < $; U++) {
+    for (let U = 0; U < B; U++) {
       let ee = !1;
       if (U !== 0 && (ee = t.readBoolean()), ee) {
-        U === $ && t.readUEG(), t.readBoolean(), t.readUEG();
+        U === B && t.readUEG(), t.readBoolean(), t.readUEG();
         let me = 0;
         for (let rt = 0; rt <= V; rt++) {
           const $e = t.readBoolean();
@@ -8712,7 +8712,7 @@ class Hf extends sc {
     let De = T, Me = k;
     if (S) {
       let U = 1, ee = 1;
-      E === 1 ? U = ee = 2 : E == 2 && (U = 2), De = T - U * I - U * L, Me = k - ee * P - ee * A;
+      E === 1 ? U = ee = 2 : E == 2 && (U = 2), De = T - U * I - U * L, Me = k - ee * D - ee * A;
     }
     const st = n ? ["A", "B", "C"][n] : "", zt = o << 24 | c << 16 | l << 8 | d;
     let Wt = 0;
@@ -8728,8 +8728,8 @@ class Hf extends sc {
         general_profile_compatibility_flags: [o, c, l, d],
         general_constraint_indicator_flags: [u, f, p, g, v, m],
         general_level_idc: y,
-        bit_depth: B + 8,
-        bit_depth_luma_minus8: B,
+        bit_depth: $ + 8,
+        bit_depth_luma_minus8: $,
         bit_depth_chroma_minus8: K,
         min_spatial_segmentation_idc: M,
         chroma_format_idc: E,
@@ -8834,18 +8834,18 @@ class gt {
     for (let S = E; S < x; S += Ie)
       if (e[S] === 71) {
         const L = !!(e[S + 1] & 64), I = ps(e, S), A = (e[S + 3] & 48) >> 4;
-        let P;
+        let D;
         if (A > 1) {
-          if (P = S + 5 + e[S + 4], P === S + Ie)
+          if (D = S + 5 + e[S + 4], D === S + Ie)
             continue;
         } else
-          P = S + 4;
+          D = S + 4;
         switch (I) {
           case d:
             L && (u && (r = Dt(u, this.logger)) && (this.readyVideoParser(a.segmentCodec), this.videoParser !== null && this.videoParser.parsePES(a, l, r, !1)), u = {
               data: [],
               size: 0
-            }), u && (u.data.push(e.subarray(P, S + Ie)), u.size += S + Ie - P);
+            }), u && (u.data.push(e.subarray(D, S + Ie)), u.size += S + Ie - D);
             break;
           case f:
             if (L) {
@@ -8866,21 +8866,21 @@ class gt {
                 size: 0
               };
             }
-            g && (g.data.push(e.subarray(P, S + Ie)), g.size += S + Ie - P);
+            g && (g.data.push(e.subarray(D, S + Ie)), g.size += S + Ie - D);
             break;
           case p:
             L && (v && (r = Dt(v, this.logger)) && this.parseID3PES(c, r), v = {
               data: [],
               size: 0
-            }), v && (v.data.push(e.subarray(P, S + Ie)), v.size += S + Ie - P);
+            }), v && (v.data.push(e.subarray(D, S + Ie)), v.size += S + Ie - D);
             break;
           case 0:
-            L && (P += e[P] + 1), b = this._pmtId = zf(e, P);
+            L && (D += e[D] + 1), b = this._pmtId = zf(e, D);
             break;
           case b: {
-            L && (P += e[P] + 1);
-            const B = Wf(e, P, this.typeSupported, i, this.observer, this.logger);
-            d = B.videoPid, d > 0 && (a.pid = d, a.segmentCodec = B.segmentVideoCodec), f = B.audioPid, f > 0 && (o.pid = f, o.segmentCodec = B.segmentAudioCodec), p = B.id3Pid, p > 0 && (c.pid = p), m !== null && !y && (this.logger.warn(`MPEG-TS PMT found at ${S} after unknown PID '${m}'. Backtracking to sync byte @${E} to parse all TS packets.`), m = null, S = E - 188), y = this.pmtParsed = !0;
+            L && (D += e[D] + 1);
+            const $ = Wf(e, D, this.typeSupported, i, this.observer, this.logger);
+            d = $.videoPid, d > 0 && (a.pid = d, a.segmentCodec = $.segmentVideoCodec), f = $.audioPid, f > 0 && (o.pid = f, o.segmentCodec = $.segmentAudioCodec), p = $.id3Pid, p > 0 && (c.pid = p), m !== null && !y && (this.logger.warn(`MPEG-TS PMT found at ${S} after unknown PID '${m}'. Backtracking to sync byte @${E} to parse all TS packets.`), m = null, S = E - 188), y = this.pmtParsed = !0;
             break;
           }
           case 17:
@@ -10474,26 +10474,26 @@ class Yi extends ze {
         (z && (t.width !== z.width || t.height !== z.height || ((S = t.pixelRatio) == null ? void 0 : S[0]) !== ((L = z.pixelRatio) == null ? void 0 : L[0]) || ((I = t.pixelRatio) == null ? void 0 : I[1]) !== ((A = z.pixelRatio) == null ? void 0 : A[1])) || !z && T || this.nextAudioTs === null && E) && this.resetInitSegment();
       }
       this.ISGenerated || (u = this.generateIS(e, t, r, a));
-      const P = this.isVideoContiguous;
-      let B = -1, K;
-      if (T && (B = ep(t.samples), !P && this.config.forceKeyFrameOnDiscontinuity))
-        if (g = !0, B > 0) {
-          this.warn(`Dropped ${B} out of ${x} video samples due to a missing keyframe`);
+      const D = this.isVideoContiguous;
+      let $ = -1, K;
+      if (T && ($ = ep(t.samples), !D && this.config.forceKeyFrameOnDiscontinuity))
+        if (g = !0, $ > 0) {
+          this.warn(`Dropped ${$} out of ${x} video samples due to a missing keyframe`);
           const z = this.getVideoStartPts(t.samples);
-          t.samples = t.samples.slice(B), t.dropped += B, m += (t.samples[0].pts - z) / t.inputTimeScale, K = m;
-        } else B === -1 && (this.warn(`No keyframe found out of ${x} video samples`), g = !1);
+          t.samples = t.samples.slice($), t.dropped += $, m += (t.samples[0].pts - z) / t.inputTimeScale, K = m;
+        } else $ === -1 && (this.warn(`No keyframe found out of ${x} video samples`), g = !1);
       if (this.ISGenerated) {
         if (E && T) {
-          const z = this.getVideoStartPts(t.samples), C = (Ge(e.samples[0].pts, z) - z) / t.inputTimeScale;
-          v += Math.max(0, C), m += Math.max(0, -C);
+          const z = this.getVideoStartPts(t.samples), P = (Ge(e.samples[0].pts, z) - z) / t.inputTimeScale;
+          v += Math.max(0, P), m += Math.max(0, -P);
         }
         if (E) {
           if (e.samplerate || (this.warn("regenerate InitSegment as audio detected"), u = this.generateIS(e, t, r, a)), d = this.remuxAudio(e, v, this.isAudioContiguous, a, b || T || c === j.AUDIO ? m : void 0), T) {
             const z = d ? d.endPTS - d.startPTS : 0;
-            t.inputTimeScale || (this.warn("regenerate InitSegment as video detected"), u = this.generateIS(e, t, r, a)), l = this.remuxVideo(t, m, P, z);
+            t.inputTimeScale || (this.warn("regenerate InitSegment as video detected"), u = this.generateIS(e, t, r, a)), l = this.remuxVideo(t, m, D, z);
           }
-        } else T && (l = this.remuxVideo(t, m, P, 0));
-        l && (l.firstKeyFrame = B, l.independent = B !== -1, l.firstKeyFramePTS = K);
+        } else T && (l = this.remuxVideo(t, m, D, 0));
+        l && (l.firstKeyFrame = $, l.independent = $ !== -1, l.firstKeyFramePTS = K);
       }
     }
     return this.ISGenerated && this._initPTS && this._initDTS && (i.samples.length && (p = ac(i, r, this._initPTS, this._initDTS)), n.samples.length && (f = oc(n, r, this._initPTS))), {
@@ -10635,15 +10635,15 @@ class Yi extends ze {
       });
       return;
     }
-    const P = new DataView(A.buffer);
-    P.setUint32(0, I), A.set(w.types.mdat, 4);
-    let B = !1, K = Number.POSITIVE_INFINITY, z = Number.POSITIVE_INFINITY, D = Number.NEGATIVE_INFINITY, C = Number.NEGATIVE_INFINITY;
+    const D = new DataView(A.buffer);
+    D.setUint32(0, I), A.set(w.types.mdat, 4);
+    let $ = !1, K = Number.POSITIVE_INFINITY, z = Number.POSITIVE_INFINITY, C = Number.NEGATIVE_INFINITY, P = Number.NEGATIVE_INFINITY;
     for (let M = 0; M < c; M++) {
       const N = a[M], H = N.units;
       let Q = 0;
       for (let _e = 0, ge = H.length; _e < ge; _e++) {
         const De = H[_e], Me = De.data, st = De.data.byteLength;
-        P.setUint32(f, st), f += 4, A.set(Me, f), f += st, Q += 4 + st;
+        D.setUint32(f, st), f += 4, A.set(Me, f), f += st, Q += 4 + st;
       }
       let Z;
       if (M < c - 1)
@@ -10652,12 +10652,12 @@ class Yi extends ze {
         const _e = this.config, ge = M > 0 ? N.dts - a[M - 1].dts : T;
         if (Z = M > 0 ? N.pts - a[M - 1].pts : T, _e.stretchShortVideoTrack && this.nextAudioTs !== null) {
           const De = Math.floor(_e.maxBufferHole * r), Me = (n ? m + n * r : this.nextAudioTs + d) - N.pts;
-          Me > De ? (p = Me - ge, p < 0 ? p = ge : B = !0, this.log(`It is approximately ${Me / 90} ms to the next segment; using duration ${p / 90} ms for the last video frame.`)) : p = ge;
+          Me > De ? (p = Me - ge, p < 0 ? p = ge : $ = !0, this.log(`It is approximately ${Me / 90} ms to the next segment; using duration ${p / 90} ms for the last video frame.`)) : p = ge;
         } else
           p = ge;
       }
       const ie = Math.round(N.pts - N.dts);
-      K = Math.min(K, p), D = Math.max(D, p), z = Math.min(z, Z), C = Math.max(C, Z), o.push(Ra(N.key, p, Q, ie));
+      K = Math.min(K, p), C = Math.max(C, p), z = Math.min(z, Z), P = Math.max(P, Z), o.push(Ra(N.key, p, Q, ie));
     }
     if (o.length) {
       if (Ct) {
@@ -10665,7 +10665,7 @@ class Yi extends ze {
           const M = o[0].flags;
           M.dependsOn = 2, M.isNonSync = 0;
         }
-      } else if (On && C - z < D - K && T / D < 0.025 && o[0].cts === 0) {
+      } else if (On && P - z < C - K && T / C < 0.025 && o[0].cts === 0) {
         this.warn("Found irregular gaps in sample duration. Using PTS instead of DTS to determine MP4 sample duration.");
         let M = g;
         for (let N = 0, H = o.length; N < H; N++) {
@@ -10679,7 +10679,7 @@ class Yi extends ze {
         }
       }
     }
-    p = B || !p ? T : p;
+    p = $ || !p ? T : p;
     const F = v + p;
     this.nextVideoTs = u = F - d, this.videoSampleDuration = p, this.isVideoContiguous = !0;
     const G = {
@@ -10713,44 +10713,44 @@ class Yi extends ze {
     const a = e.inputTimeScale, o = e.samplerate ? e.samplerate : a, c = a / o, l = this.getSamplesPerFrame(e), d = l * c, u = this._initPTS, f = e.segmentCodec === "mp3" && this.typeSupported.mpeg, p = [], g = r !== void 0;
     let v = e.samples, m = f ? 0 : 8, y = this.nextAudioTs || -1;
     const b = u.baseTime * a / u.timescale, x = b + t * a;
-    if (this.isAudioContiguous = i = i || v.length && y > 0 && (n && Math.abs(x - (y + b)) < 9e3 || Math.abs(Ge(v[0].pts, x) - (y + b)) < 20 * d), v.forEach(function(C) {
-      C.pts = Ge(C.pts, x);
+    if (this.isAudioContiguous = i = i || v.length && y > 0 && (n && Math.abs(x - (y + b)) < 9e3 || Math.abs(Ge(v[0].pts, x) - (y + b)) < 20 * d), v.forEach(function(P) {
+      P.pts = Ge(P.pts, x);
     }), !i || y < 0) {
-      const C = v.length;
-      if (v = v.filter((F) => F.pts >= 0), C !== v.length && this.warn(`Removed ${v.length - C} of ${C} samples (initPTS ${b} / ${a})`), !v.length)
+      const P = v.length;
+      if (v = v.filter((F) => F.pts >= 0), P !== v.length && this.warn(`Removed ${v.length - P} of ${P} samples (initPTS ${b} / ${a})`), !v.length)
         return;
       r === 0 ? y = 0 : n && !g ? y = Math.max(0, x - b) : y = v[0].pts - b;
     }
     if (e.segmentCodec === "aac") {
-      const C = this.config.maxAudioFramesDrift;
-      for (let F = 0, $ = y + b; F < v.length; F++) {
-        const V = v[F], G = V.pts, M = G - $, N = Math.abs(1e3 * M / a);
-        if (M <= -C * d && g)
-          F === 0 && (this.warn(`Audio frame @ ${(G / a).toFixed(3)}s overlaps marker by ${Math.round(1e3 * M / a)} ms.`), this.nextAudioTs = y = G - b, $ = G);
-        else if (M >= C * d && N < Xf && g) {
+      const P = this.config.maxAudioFramesDrift;
+      for (let F = 0, B = y + b; F < v.length; F++) {
+        const V = v[F], G = V.pts, M = G - B, N = Math.abs(1e3 * M / a);
+        if (M <= -P * d && g)
+          F === 0 && (this.warn(`Audio frame @ ${(G / a).toFixed(3)}s overlaps marker by ${Math.round(1e3 * M / a)} ms.`), this.nextAudioTs = y = G - b, B = G);
+        else if (M >= P * d && N < Xf && g) {
           let H = Math.round(M / d);
-          for ($ = G - H * d; $ < 0 && H && d; )
-            H--, $ += d;
-          F === 0 && (this.nextAudioTs = y = $ - b), this.warn(`Injecting ${H} audio frames @ ${(($ - b) / a).toFixed(3)}s due to ${Math.round(1e3 * M / a)} ms gap.`);
+          for (B = G - H * d; B < 0 && H && d; )
+            H--, B += d;
+          F === 0 && (this.nextAudioTs = y = B - b), this.warn(`Injecting ${H} audio frames @ ${((B - b) / a).toFixed(3)}s due to ${Math.round(1e3 * M / a)} ms gap.`);
           for (let Q = 0; Q < H; Q++) {
             let Z = Yf.getSilentFrame(e.parsedCodec || e.manifestCodec || e.codec, e.channelCount);
             Z || (this.log("Unable to get silent frame for given audio codec; duplicating last frame instead."), Z = V.unit.subarray()), v.splice(F, 0, {
               unit: Z,
-              pts: $
-            }), $ += d, F++;
+              pts: B
+            }), B += d, F++;
           }
         }
-        V.pts = $, $ += d;
+        V.pts = B, B += d;
       }
     }
     let E = null, T = null, k, S = 0, L = v.length;
     for (; L--; )
       S += v[L].unit.byteLength;
-    for (let C = 0, F = v.length; C < F; C++) {
-      const $ = v[C], V = $.unit;
-      let G = $.pts;
+    for (let P = 0, F = v.length; P < F; P++) {
+      const B = v[P], V = B.unit;
+      let G = B.pts;
       if (T !== null) {
-        const N = p[C - 1];
+        const N = p[P - 1];
         N.duration = Math.round((G - T) / c);
       } else if (i && e.segmentCodec === "aac" && (G = y + b), E = G, S > 0) {
         S += m;
@@ -10779,23 +10779,23 @@ class Yi extends ze {
       return;
     const A = p[p.length - 1];
     y = T - b, this.nextAudioTs = y + c * A.duration;
-    const P = f ? new Uint8Array(0) : w.moof(e.sequenceNumber++, E / c, le({}, e, {
+    const D = f ? new Uint8Array(0) : w.moof(e.sequenceNumber++, E / c, le({}, e, {
       samples: p
     }));
     e.samples = [];
-    const B = (E - b) / a, K = this.nextAudioTs / a, D = {
-      data1: P,
+    const $ = (E - b) / a, K = this.nextAudioTs / a, C = {
+      data1: D,
       data2: k,
-      startPTS: B,
+      startPTS: $,
       endPTS: K,
-      startDTS: B,
+      startDTS: $,
       endDTS: K,
       type: "audio",
       hasAudio: !0,
       hasVideo: !1,
       nb: I
     };
-    return this.isAudioContiguous = !0, D;
+    return this.isAudioContiguous = !0, C;
   }
 }
 function Ge(s, e) {
@@ -10931,8 +10931,8 @@ class tp extends ze {
     let k = r, S = 0;
     const L = m && (!y || !l && x < b || l && l.trackId === g.audio.id), I = L ? m : y;
     if (I) {
-      const $ = I.timescale, V = I.start - r * $, G = L ? g.audio.id : g.video.id;
-      k = I.start / $, S = L ? T - x : E - b, (a || !l) && (ip(l, k, r, S) || $ !== l.timescale) && (l && this.warn(`Timestamps at playlist time: ${a ? "" : "~"}${r} ${V / $} != initPTS: ${l.baseTime / l.timescale} (${l.baseTime}/${l.timescale}) trackId: ${l.trackId}`), this.log(`Found initPTS at playlist time: ${r} offset: ${k - r} (${V}/${$}) trackId: ${G}`), l = null, p.initPTS = V, p.timescale = $, p.trackId = G);
+      const B = I.timescale, V = I.start - r * B, G = L ? g.audio.id : g.video.id;
+      k = I.start / B, S = L ? T - x : E - b, (a || !l) && (ip(l, k, r, S) || B !== l.timescale) && (l && this.warn(`Timestamps at playlist time: ${a ? "" : "~"}${r} ${V / B} != initPTS: ${l.baseTime / l.timescale} (${l.baseTime}/${l.timescale}) trackId: ${l.trackId}`), this.log(`Found initPTS at playlist time: ${r} offset: ${k - r} (${V}/${B}) trackId: ${G}`), l = null, p.initPTS = V, p.timescale = B, p.trackId = G);
     } else
       this.warn(`No audio or video samples found for initPTS at playlist time: ${r}`);
     l ? (p.initPTS = l.baseTime, p.timescale = l.timescale, p.trackId = l.trackId) : ((!p.timescale || p.trackId === void 0 || p.initPTS === void 0) && (this.warn("Could not set initPTS"), p.initPTS = k, p.timescale = 1, p.trackId = -1), this.initPTS = l = {
@@ -10940,29 +10940,29 @@ class tp extends ze {
       timescale: p.timescale,
       trackId: p.trackId
     });
-    const A = k - l.baseTime / l.timescale, P = A + S;
-    S > 0 ? this.lastEndTime = P : (this.warn("Duration parsed from mp4 should be greater than zero"), this.resetNextTimestamp());
-    const B = !!g.audio, K = !!g.video;
+    const A = k - l.baseTime / l.timescale, D = A + S;
+    S > 0 ? this.lastEndTime = D : (this.warn("Duration parsed from mp4 should be greater than zero"), this.resetNextTimestamp());
+    const $ = !!g.audio, K = !!g.video;
     let z = "";
-    B && (z += "audio"), K && (z += "video");
-    const D = (g.audio ? g.audio.encrypted : !1) || (g.video ? g.video.encrypted : !1), C = {
+    $ && (z += "audio"), K && (z += "video");
+    const C = (g.audio ? g.audio.encrypted : !1) || (g.video ? g.video.encrypted : !1), P = {
       data1: f,
       startPTS: A,
       startDTS: A,
-      endPTS: P,
-      endDTS: P,
+      endPTS: D,
+      endDTS: D,
       type: z,
-      hasAudio: B,
+      hasAudio: $,
       hasVideo: K,
       nb: 1,
       dropped: 0,
-      encrypted: D
+      encrypted: C
     };
-    u.audio = B && !K ? C : void 0, u.video = K ? C : void 0;
+    u.audio = $ && !K ? P : void 0, u.video = K ? P : void 0;
     const F = y?.sampleCount;
     if (F) {
-      const $ = y.keyFrameIndex, V = $ !== -1;
-      C.nb = F, C.dropped = $ === 0 || this.isVideoContiguous ? 0 : V ? $ : F, C.independent = V, C.firstKeyFrame = $, V && y.keyFrameStart && (C.firstKeyFramePTS = (y.keyFrameStart - l.baseTime) / l.timescale), this.isVideoContiguous || (u.independent = V), this.isVideoContiguous || (this.isVideoContiguous = V), C.dropped && this.warn(`fmp4 does not start with IDR: firstIDR ${$}/${F} dropped: ${C.dropped} start: ${C.firstKeyFramePTS || "NA"}`);
+      const B = y.keyFrameIndex, V = B !== -1;
+      P.nb = F, P.dropped = B === 0 || this.isVideoContiguous ? 0 : V ? B : F, P.independent = V, P.firstKeyFrame = B, V && y.keyFrameStart && (P.firstKeyFramePTS = (y.keyFrameStart - l.baseTime) / l.timescale), this.isVideoContiguous || (u.independent = V), this.isVideoContiguous || (this.isVideoContiguous = V), P.dropped && this.warn(`fmp4 does not start with IDR: firstIDR ${B}/${F} dropped: ${P.dropped} start: ${P.firstKeyFramePTS || "NA"}`);
     }
     return u.initSegment = p, u.id3 = ac(i, r, l, l), n.samples.length && (u.text = oc(n, r, l)), u;
   }
@@ -11038,16 +11038,16 @@ class Ca {
       if (L.isSync()) {
         let A = L.softwareDecrypt(a, E.key.buffer, E.iv.buffer, I);
         if (i.part > -1) {
-          const B = L.flush();
-          A = B && B.buffer;
+          const $ = L.flush();
+          A = $ && $.buffer;
         }
         if (!A)
           return r.executeEnd = ct(), Fn(i);
         a = new Uint8Array(A);
       } else
         return this.asyncResult = !0, this.decryptionPromise = L.webCryptoDecrypt(a, E.key.buffer, E.iv.buffer, I).then((A) => {
-          const P = this.push(A, null, i);
-          return this.decryptionPromise = null, P;
+          const D = this.push(A, null, i);
+          return this.decryptionPromise = null, D;
         }), this.decryptionPromise;
     }
     const T = this.needsProbing(d, u);
@@ -11332,8 +11332,8 @@ class lc {
         accurateTimeOffset: ${c}
         timeOffset: ${v}
         initSegmentChange: ${I}`);
-      const P = new sp(i, n, t, o, d);
-      this.configureTransmuxer(P);
+      const D = new sp(i, n, t, o, d);
+      this.configureTransmuxer(D);
     }
     if (this.frag = r, this.part = a, this.workerContext)
       this.workerContext.worker.postMessage({
@@ -11345,12 +11345,12 @@ class lc {
         state: A
       }, e instanceof ArrayBuffer ? [e] : []);
     else if (g) {
-      const P = g.push(e, m, l, A);
-      gi(P) ? P.then((B) => {
-        this.handleTransmuxComplete(B);
-      }).catch((B) => {
-        this.transmuxerError(B, l, "transmuxer-interface push error");
-      }) : this.handleTransmuxComplete(P);
+      const D = g.push(e, m, l, A);
+      gi(D) ? D.then(($) => {
+        this.handleTransmuxComplete($);
+      }).catch(($) => {
+        this.transmuxerError($, l, "transmuxer-interface push error");
+      }) : this.handleTransmuxComplete(D);
     }
   }
   flush(e) {
@@ -12028,12 +12028,12 @@ class rr extends ze {
           else if (i != null && i.tuneInGoal && I - n.partTarget > i.tuneInGoal)
             this.warn(`CDN Tune-in goal increased from: ${i.tuneInGoal} to: ${A} with playlist age: ${n.age}`), A = 0;
           else {
-            const P = Math.floor(A / n.targetduration);
-            if (m += P, y !== void 0) {
-              const B = Math.round(A % n.targetduration / n.partTarget);
-              y += B;
+            const D = Math.floor(A / n.targetduration);
+            if (m += D, y !== void 0) {
+              const $ = Math.round(A % n.targetduration / n.partTarget);
+              y += $;
             }
-            this.log(`CDN Tune-in age: ${n.ageHeader}s last advanced ${L.toFixed(2)}s goal: ${A} skip sn ${P} to part ${y}`);
+            this.log(`CDN Tune-in age: ${n.ageHeader}s last advanced ${L.toFixed(2)}s goal: ${A} skip sn ${D} to part ${y}`);
           }
           n.tuneInGoal = A;
         }
@@ -12768,8 +12768,8 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !al(n,
     if (E && f !== "initSegment") {
       const S = c || o, L = this.blockedAudioAppend;
       if (r === "audio" && a !== "main" && !this.blockedAudioAppend && !(x.ending || x.ended)) {
-        const A = S.start + S.duration * 0.05, P = E.buffered, B = this.currentOp("video");
-        !P.length && !B ? this.blockAudio(S) : !B && !te.isBuffered(E, A) && this.lastVideoAppendEnd < A && this.blockAudio(S);
+        const A = S.start + S.duration * 0.05, D = E.buffered, $ = this.currentOp("video");
+        !D.length && !$ ? this.blockAudio(S) : !$ && !te.isBuffered(E, A) && this.lastVideoAppendEnd < A && this.blockAudio(S);
       } else if (r === "video") {
         const I = S.end;
         if (L) {
@@ -12825,8 +12825,8 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !al(n,
         else if (S.name === dc && this.sourceBufferCount === 0)
           I.errorAction = Nt(!0);
         else {
-          const P = ++this.appendErrors[r];
-          this.warn(`Failed ${P}/${this.hls.config.appendErrorMaxRetry} times to append segment in "${r}" sourceBuffer (${A || "no media error"})`), (P >= this.hls.config.appendErrorMaxRetry || A) && (I.fatal = !0);
+          const D = ++this.appendErrors[r];
+          this.warn(`Failed ${D}/${this.hls.config.appendErrorMaxRetry} times to append segment in "${r}" sourceBuffer (${A || "no media error"})`), (D >= this.hls.config.appendErrorMaxRetry || A) && (I.fatal = !0);
         }
         this.hls.trigger(_.ERROR, I);
       }
@@ -15921,21 +15921,21 @@ class bg extends ze {
           if (!E) {
             const A = m - c;
             if (A > Va) {
-              const P = c, B = l;
+              const D = c, $ = l;
               l += A;
               const K = a;
               a += A;
               const z = {
                 previousEvent: e[u - 1] || null,
                 nextEvent: d,
-                start: P,
-                end: P + A,
+                start: D,
+                end: D + A,
                 playout: {
                   start: K,
                   end: a
                 },
                 integrated: {
-                  start: B,
+                  start: $,
                   end: l
                 }
               };
@@ -16336,9 +16336,9 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       if (m && (T || k)) {
         const S = i(e.playingAsset), L = S?.media || e.primaryMedia;
         if (L) {
-          const I = f === "primary" ? L.currentTime : n(m, f, e.playingAsset, "timelinePos", "currentTime"), A = u - I, P = (T ? I : L.currentTime) + A;
-          if (P >= 0 && (!S || T || P <= S.duration)) {
-            L.currentTime = P;
+          const I = f === "primary" ? L.currentTime : n(m, f, e.playingAsset, "timelinePos", "currentTime"), A = u - I, D = (T ? I : L.currentTime) + A;
+          if (D >= 0 && (!S || T || D <= S.duration)) {
+            L.currentTime = D;
             return;
           }
         }
@@ -16356,9 +16356,9 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
         } else if (m) {
           const I = e.findItemIndex(m);
           if (y > I) {
-            const P = e.schedule.findJumpRestrictedIndex(I + 1, y);
-            if (P > I) {
-              e.setSchedulePosition(P);
+            const D = e.schedule.findJumpRestrictedIndex(I + 1, y);
+            if (D > I) {
+              e.setSchedulePosition(D);
               return;
             }
           }
@@ -16366,10 +16366,10 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
           if (L)
             e.timelinePos = S, e.checkBuffer();
           else {
-            const P = b.event.assetList, B = u - (b[f] || b).start;
-            for (let K = P.length; K--; ) {
-              const z = P[K];
-              if (z.duration && B >= z.startOffset && B < z.startOffset + z.duration) {
+            const D = b.event.assetList, $ = u - (b[f] || b).start;
+            for (let K = D.length; K--; ) {
+              const z = D[K];
+              if (z.duration && $ >= z.startOffset && $ < z.startOffset + z.duration) {
                 A = K;
                 break;
               }
@@ -18497,10 +18497,10 @@ var cr = (function() {
         return b;
       },
       set: function(A) {
-        const P = i(A);
-        if (P === !1)
+        const D = i(A);
+        if (D === !1)
           throw new SyntaxError("An invalid or illegal string was specified.");
-        b = P, this.hasBeenReset = !0;
+        b = D, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(d, "snapToLines", r({}, u, {
       get: function() {
@@ -18523,10 +18523,10 @@ var cr = (function() {
         return T;
       },
       set: function(A) {
-        const P = n(A);
-        if (!P)
+        const D = n(A);
+        if (!D)
           throw new SyntaxError("An invalid or illegal string was specified.");
-        T = P, this.hasBeenReset = !0;
+        T = D, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(d, "position", r({}, u, {
       get: function() {
@@ -18542,10 +18542,10 @@ var cr = (function() {
         return S;
       },
       set: function(A) {
-        const P = n(A);
-        if (!P)
+        const D = n(A);
+        if (!D)
           throw new SyntaxError("An invalid or illegal string was specified.");
-        S = P, this.hasBeenReset = !0;
+        S = D, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(d, "size", r({}, u, {
       get: function() {
@@ -18561,10 +18561,10 @@ var cr = (function() {
         return I;
       },
       set: function(A) {
-        const P = n(A);
-        if (!P)
+        const D = n(A);
+        if (!D)
           throw new SyntaxError("An invalid or illegal string was specified.");
-        I = P, this.hasBeenReset = !0;
+        I = D, this.hasBeenReset = !0;
       }
     })), d.displayState = void 0;
   }
@@ -20623,32 +20623,32 @@ class vm {
         if (L && S !== null)
           k = b + S, T = !0;
         else if (y.endOnNext && !T) {
-          const A = d.reduce((P, B) => {
-            if (B !== y.id) {
-              const K = l[B];
-              if (K.class === y.class && K.startDate > y.startDate && (!P || y.startDate < P.startDate))
+          const A = d.reduce((D, $) => {
+            if ($ !== y.id) {
+              const K = l[$];
+              if (K.class === y.class && K.startDate > y.startDate && (!D || y.startDate < D.startDate))
                 return K;
             }
-            return P;
+            return D;
           }, null);
           A && (k = A.startTime, T = !0);
         }
         const I = Object.keys(y.attr);
         for (let A = 0; A < I.length; A++) {
-          const P = I[A];
-          if (!Nh(P))
+          const D = I[A];
+          if (!Nh(D))
             continue;
-          const B = E[P];
-          if (B)
-            T && !(x != null && x.durationKnown) ? B.endTime = k : Math.abs(B.startTime - b) > 0.01 && (B.startTime = b, B.endTime = k);
+          const $ = E[D];
+          if ($)
+            T && !(x != null && x.durationKnown) ? $.endTime = k : Math.abs($.startTime - b) > 0.01 && ($.startTime = b, $.endTime = k);
           else if (o) {
-            let K = y.attr[P];
-            $h(P) && (K = ol(K));
-            const D = Wn(o, b, k, {
-              key: P,
+            let K = y.attr[D];
+            $h(D) && (K = ol(K));
+            const C = Wn(o, b, k, {
+              key: D,
               data: K
             }, Ve.dateRange);
-            D && (D.id = m, this.id3Track.addCue(D), E[P] = D, a && (P === "X-ASSET-LIST" || P === "X-ASSET-URL") && D.addEventListener("enter", this.onEventCueEnter));
+            C && (C.id = m, this.id3Track.addCue(C), E[D] = C, a && (D === "X-ASSET-LIST" || D === "X-ASSET-URL") && C.addEventListener("enter", this.onEventCueEnter));
           }
         }
         u[m] = {
@@ -20863,8 +20863,8 @@ class _m extends rr {
         if (r[I].uri !== d.url && !d.attrs["PATHWAY-ID"]) {
           const A = a[I] += 1;
           d.attrs["PATHWAY-ID"] = new Array(A + 1).join(".");
-          const P = this.createLevel(d);
-          r[I] = P, n.push(P);
+          const D = this.createLevel(d);
+          r[I] = D, n.push(D);
         } else
           r[I].addGroupId("audio", u.AUDIO), r[I].addGroupId("text", u.SUBTITLES);
       else {
@@ -22632,10 +22632,10 @@ class je {
     p && I.splice(1, 0, p), x && I.splice(1, 0, x), this.networkControllers = I;
     const A = [d, g, L, v, m, T, u];
     this.audioTrackController = this.createController(i.audioTrackController, I);
-    const P = i.audioStreamController;
-    P && I.push(this.audioStreamController = new P(this, u, k)), this.subtitleTrackController = this.createController(i.subtitleTrackController, I);
-    const B = i.subtitleStreamController;
-    B && I.push(this.subtititleStreamController = new B(this, u, k)), this.createController(i.timelineController, A), k.emeController = this.emeController = this.createController(i.emeController, A), this.cmcdController = this.createController(i.cmcdController, A), this.latencyController = this.createController(ym, A), this.coreComponents = A, I.push(l);
+    const D = i.audioStreamController;
+    D && I.push(this.audioStreamController = new D(this, u, k)), this.subtitleTrackController = this.createController(i.subtitleTrackController, I);
+    const $ = i.subtitleStreamController;
+    $ && I.push(this.subtititleStreamController = new $(this, u, k)), this.createController(i.timelineController, A), k.emeController = this.emeController = this.createController(i.emeController, A), this.cmcdController = this.createController(i.cmcdController, A), this.latencyController = this.createController(ym, A), this.coreComponents = A, I.push(l);
     const K = l.onErrorOut;
     typeof K == "function" && this.on(_.ERROR, K, l), this.on(_.MANIFEST_LOADED, y.onManifestLoaded, y);
   }
@@ -23273,7 +23273,30 @@ je.defaultConfig = void 0;
 function Im(s, e) {
   return e.startsWith("http") ? e : (s.hassUrl?.("") ?? "").replace(/\/$/, "") + e;
 }
-async function Lm(s, e) {
+async function Lm(s, e, t) {
+  const i = new RTCPeerConnection({
+    iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
+  });
+  i.addTransceiver("audio", { direction: "recvonly" }), i.addTransceiver("video", { direction: "recvonly" }), i.ontrack = (a) => {
+    t.srcObject = a.streams[0];
+  };
+  const n = await i.createOffer();
+  await i.setLocalDescription(n), i.iceGatheringState !== "complete" && await new Promise((a) => {
+    const o = () => {
+      i.removeEventListener("icegatheringstatechange", o), a();
+    };
+    i.addEventListener("icegatheringstatechange", () => {
+      i.iceGatheringState === "complete" && o();
+    }), setTimeout(o, 3e3);
+  });
+  const r = await s.callWS({
+    type: "camera/web_rtc_offer",
+    entity_id: e,
+    offer: i.localDescription.sdp
+  });
+  return await i.setRemoteDescription({ type: "answer", sdp: r.answer }), i;
+}
+async function km(s, e) {
   try {
     const t = await s.callWS({
       type: "config/entity_registry/list"
@@ -23287,7 +23310,7 @@ async function Lm(s, e) {
     return console.warn("[Nido] entity_registry lookup failed:", t), null;
   }
 }
-function km({ hass: s, entityId: e, title: t, onClose: i }) {
+function wm({ hass: s, entityId: e, title: t, onClose: i }) {
   const n = Se(null), [r, a] = X(null), [o, c] = X(!0), [l, d] = X(null), [u, f] = X(!1), [p, g] = X(""), v = re(() => Object.keys(s.states).filter((y) => y.startsWith("camera.") && y !== e).sort(), [s.states, e]);
   xe(() => {
     const y = (b) => {
@@ -23302,7 +23325,7 @@ function km({ hass: s, entityId: e, title: t, onClose: i }) {
         y || d(x);
         return;
       }
-      const E = await Lm(s, e);
+      const E = await km(s, e);
       y || d(E || e);
     }
     return b(), () => {
@@ -23310,28 +23333,52 @@ function km({ hass: s, entityId: e, title: t, onClose: i }) {
     };
   }, [s, e]), xe(() => {
     if (!l) return;
-    let y = !1, b = null;
-    const x = n.current;
+    let y = !1, b = null, x = null;
+    const E = n.current;
     a(null), c(!0), f(!1);
-    async function E() {
-      try {
-        const T = await s.callWS({
-          type: "camera/stream",
-          entity_id: l
+    async function T() {
+      const L = await s.callWS({
+        type: "camera/stream",
+        entity_id: l
+      });
+      if (y || !E) return;
+      const I = Im(s, L.url);
+      if (E.canPlayType("application/vnd.apple.mpegurl"))
+        E.src = I, E.addEventListener("loadedmetadata", () => c(!1), { once: !0 }), E.addEventListener("error", () => a("Erreur de lecture"), { once: !0 });
+      else if (je.isSupported())
+        b = new je({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: !0 }), b.attachMedia(E), b.loadSource(I), b.on(je.Events.MANIFEST_PARSED, () => c(!1)), b.on(je.Events.ERROR, (A, D) => {
+          D.fatal && a("Erreur de stream");
         });
-        if (y || !x) return;
-        const k = Im(s, T.url);
-        x.canPlayType("application/vnd.apple.mpegurl") ? (x.src = k, x.addEventListener("loadedmetadata", () => c(!1), { once: !0 }), x.addEventListener("error", () => a("Erreur de lecture"), { once: !0 })) : je.isSupported() ? (b = new je({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: !0 }), b.attachMedia(x), b.loadSource(k), b.on(je.Events.MANIFEST_PARSED, () => c(!1)), b.on(je.Events.ERROR, (S, L) => {
-          L.fatal && a("Erreur de stream");
-        })) : a("Lecteur non supporté");
-      } catch (T) {
+      else
+        throw new Error("Lecteur non supporté");
+    }
+    async function k() {
+      if (!E) throw new Error("video element missing");
+      x = await Lm(s, l, E), !y && c(!1);
+    }
+    async function S() {
+      try {
+        await T();
+      } catch (L) {
         if (y) return;
-        const k = T, S = k?.message || k?.code || String(T);
-        console.error("[Nido] camera/stream failed:", T), a(`Live indisponible : ${S}`), f(!0), c(!1);
+        const I = L?.code;
+        if (console.warn("[Nido] HLS failed, trying WebRTC:", L), I === "start_stream_failed")
+          try {
+            await k();
+            return;
+          } catch ($) {
+            if (y) return;
+            console.error("[Nido] WebRTC also failed:", $);
+            const K = $, z = K?.message || K?.code || String($);
+            a(`Live indisponible : ${z}`), f(!0), c(!1);
+            return;
+          }
+        const A = L, D = A?.message || A?.code || String(L);
+        console.error("[Nido] camera/stream failed:", L), a(`Live indisponible : ${D}`), f(!0), c(!1);
       }
     }
-    return E(), () => {
-      y = !0, b && b.destroy(), x && (x.pause(), x.removeAttribute("src"), x.load());
+    return S(), () => {
+      y = !0, b && b.destroy(), x && x.close(), E && (E.pause(), E.removeAttribute("src"), E.srcObject = null, E.load());
     };
   }, [s, l]);
   function m() {
@@ -23404,7 +23451,7 @@ function km({ hass: s, entityId: e, title: t, onClose: i }) {
     ] })
   ] });
 }
-const wm = {
+const Rm = {
   recording: "Enregistre",
   streaming: "En direct",
   idle: "En veille",
@@ -23413,21 +23460,21 @@ const wm = {
 function no(s) {
   return (s.hassUrl?.("") ?? "").replace(/\/$/, "");
 }
-function Rm(s, e) {
+function Dm(s, e) {
   const t = s.state.attributes.access_token;
   if (t)
     return `${no(e)}/api/camera_proxy/${s.entity_id}?token=${t}`;
   const i = s.state.attributes.entity_picture;
   return i ? i.startsWith("http") ? i : `${no(e)}${i}` : null;
 }
-const Dm = 1e4;
+const Cm = 1e4;
 function Nc({ hass: s, entity: e, roomLabel: t }) {
-  const i = e.state.state, n = i === "unavailable", r = i === "recording" || i === "streaming", [a, o] = X(() => Date.now()), [c, l] = X(!1), [d, u] = X(!1), f = Rm(e, s), p = f ? `${f}${f.includes("?") ? "&" : "?"}_=${a}` : null;
+  const i = e.state.state, n = i === "unavailable", r = i === "recording" || i === "streaming", [a, o] = X(() => Date.now()), [c, l] = X(!1), [d, u] = X(!1), f = Dm(e, s), p = f ? `${f}${f.includes("?") ? "&" : "?"}_=${a}` : null;
   return xe(() => {
     l(!1);
   }, [f, a]), xe(() => {
     if (n || !f) return;
-    const g = window.setInterval(() => o(Date.now()), Dm);
+    const g = window.setInterval(() => o(Date.now()), Cm);
     return () => window.clearInterval(g);
   }, [n, f]), /* @__PURE__ */ h("div", { class: "n-card n-card--camera", "data-on": r ? "true" : "false", children: [
     /* @__PURE__ */ h(
@@ -23475,9 +23522,9 @@ function Nc({ hass: s, entity: e, roomLabel: t }) {
     ] }),
     t && /* @__PURE__ */ h("div", { class: "n-eyebrow", children: t }),
     /* @__PURE__ */ h("div", { class: "n-title n-title--sm", children: e.friendly_name }),
-    /* @__PURE__ */ h("div", { class: "n-binary-state", children: wm[i] ?? i }),
+    /* @__PURE__ */ h("div", { class: "n-binary-state", children: Rm[i] ?? i }),
     d && /* @__PURE__ */ h(
-      km,
+      wm,
       {
         hass: s,
         entityId: e.entity_id,
@@ -23594,7 +23641,7 @@ function Bc({ hass: s, entity: e, roomLabel: t }) {
     }
   );
 }
-const Cm = {
+const Pm = {
   "clear-night": { label: "Nuit claire", Icon: zo },
   cloudy: { label: "Nuageux", Icon: Vo },
   exceptional: { label: "Conditions extrêmes", Icon: Sn },
@@ -23612,7 +23659,7 @@ const Cm = {
   "windy-variant": { label: "Venteux", Icon: $r }
 };
 function ai(s) {
-  return Cm[s] ?? { label: s || "—", Icon: Vo };
+  return Pm[s] ?? { label: s || "—", Icon: Vo };
 }
 function Uc(s, e) {
   if (s == null || s === "") return "—";
@@ -23648,15 +23695,15 @@ function so({ entity: s }) {
     /* @__PURE__ */ h("span", { class: "nido-weather-pill__label", children: e })
   ] });
 }
-function Pm(s, e) {
+function Mm(s, e) {
   const t = e.split(".")[1] || "", i = Object.values(s.states).filter((o) => o.entity_id.startsWith("sensor."));
   let n, r, a;
   for (const o of i)
     o.entity_id.endsWith("_next_rain") && (o.entity_id.includes(t) || !n) && (n = o), o.entity_id.endsWith("_weather_alert") && (o.entity_id.includes(t) || !r) && (r = o), o.entity_id.endsWith("_uv") && (o.entity_id.includes(t) || !a) && (a = o);
   return { nextRain: n, weatherAlert: r, uvIndex: a };
 }
-function Mm({ hass: s, weatherEntityId: e, onClose: t }) {
-  const [i, n] = X([]), [r, a] = X([]), o = s.states[e], { nextRain: c, weatherAlert: l, uvIndex: d } = Pm(s, e);
+function Om({ hass: s, weatherEntityId: e, onClose: t }) {
+  const [i, n] = X([]), [r, a] = X([]), o = s.states[e], { nextRain: c, weatherAlert: l, uvIndex: d } = Mm(s, e);
   if (xe(() => {
     let y = !1;
     async function b() {
@@ -23778,7 +23825,7 @@ function Vc(s) {
   const e = s.toLowerCase();
   return /(salon|séjour|sejour|living)/.test(e) ? Qd : /(chambre|bedroom)/.test(e) ? Zd : /(cuisine|kitchen)/.test(e) ? Jd : /(salle ?de ?bain|sdb|bath|douche|toilette)/.test(e) ? eu : /(entrée|entree|hall|couloir)/.test(e) ? tu : Uo;
 }
-const Om = {
+const Fm = {
   light: "Lumières",
   switch: "Prises",
   cover: "Volets",
@@ -23797,14 +23844,14 @@ const Om = {
   calendar: "Calendriers"
 };
 let Qt = null;
-function Fm() {
+function Nm() {
   if (typeof window > "u") return null;
   const s = window.AudioContext ?? window.webkitAudioContext;
   return s ? (Qt || (Qt = new s()), Qt.state === "suspended" && Qt.resume().catch(() => {
   }), Qt) : null;
 }
-function Nm() {
-  const s = Fm();
+function $m() {
+  const s = Nm();
   if (!s) return;
   const e = s.currentTime, t = s.createGain();
   t.gain.value = 0.07, t.connect(s.destination);
@@ -23819,7 +23866,7 @@ function Nm() {
     a.gain.setValueAtTime(0, e + n.start), a.gain.linearRampToValueAtTime(n.gain, e + n.start + 0.012), a.gain.exponentialRampToValueAtTime(8e-4, e + n.start + n.dur), r.connect(a), a.connect(t), r.start(e + n.start), r.stop(e + n.start + n.dur + 0.05);
   }
 }
-function $m({ hass: s, notifications: e, onClose: t }) {
+function Bm({ hass: s, notifications: e, onClose: t }) {
   const i = async (r) => {
     if (s)
       try {
@@ -23900,12 +23947,12 @@ function $m({ hass: s, notifications: e, onClose: t }) {
     ] })
   ] });
 }
-function Bm(s) {
+function Um(s) {
   const e = s.state.attributes.brightness;
   return typeof e != "number" ? 100 : Math.round(e / 255 * 100);
 }
-function Um({ hass: s, entity: e, roomName: t }) {
-  const [i, n] = X(!1), r = Bm(e), a = async () => {
+function Gm({ hass: s, entity: e, roomName: t }) {
+  const [i, n] = X(!1), r = Um(e), a = async () => {
     n(!0);
     try {
       await s.callService("light", "turn_off", { entity_id: e.entity_id });
@@ -23937,7 +23984,7 @@ function Um({ hass: s, entity: e, roomName: t }) {
     )
   ] });
 }
-function Gm({ hass: s, lights: e, areas: t, onClose: i }) {
+function Vm({ hass: s, lights: e, areas: t, onClose: i }) {
   const [n, r] = X(!1), a = new Map(t.map((c) => [c.area_id, c.name])), o = async () => {
     r(!0);
     try {
@@ -23970,7 +24017,7 @@ function Gm({ hass: s, lights: e, areas: t, onClose: i }) {
         )
       ] }),
       /* @__PURE__ */ h("div", { class: "nido-notification-panel__scroll", children: /* @__PURE__ */ h("div", { class: "nido-lights-list", children: e.map((c) => /* @__PURE__ */ h(
-        Um,
+        Gm,
         {
           hass: s,
           entity: c,
@@ -23991,7 +24038,7 @@ function Gm({ hass: s, lights: e, areas: t, onClose: i }) {
     ] })
   ] });
 }
-const qn = "nido.shoppingColor", ro = "nido.shoppingSize", Vm = 600;
+const qn = "nido.shoppingColor", ro = "nido.shoppingSize", Km = 600;
 function ao(s, e, t) {
   if (e.length < 2) return;
   s.lineWidth = t, s.lineCap = "round", s.lineJoin = "round", s.beginPath(), s.moveTo(e[0][0], e[0][1]);
@@ -24002,19 +24049,19 @@ function ao(s, e, t) {
   const i = e[e.length - 1];
   s.lineTo(i[0], i[1]), s.stroke();
 }
-function Km({ hass: s, onClose: e, topicBase: t = "shopping" }) {
+function Hm({ hass: s, onClose: e, topicBase: t = "shopping" }) {
   const i = Se(null), n = Se(null), r = Se([]), a = Se(null), o = Se(null), c = Se({ w: 0, h: 0 }), l = Se(null), d = Se("nido-" + Math.random().toString(36).slice(2, 8)), [u, f] = X(() => localStorage.getItem(qn) || "#1a1410"), [p, g] = X(() => parseInt(localStorage.getItem(ro) || "4", 10));
   xe(() => {
     if (localStorage.getItem(qn)) return;
-    const D = n.current;
-    if (!D) return;
-    const C = getComputedStyle(D).getPropertyValue("--ink-1").trim();
+    const C = n.current;
     if (!C) return;
+    const P = getComputedStyle(C).getPropertyValue("--ink-1").trim();
+    if (!P) return;
     const F = document.createElement("div");
-    F.style.color = C, document.body.appendChild(F);
-    const $ = getComputedStyle(F).color;
+    F.style.color = P, document.body.appendChild(F);
+    const B = getComputedStyle(F).color;
     document.body.removeChild(F);
-    const V = $.match(/\d+/g);
+    const V = B.match(/\d+/g);
     if (V && V.length >= 3) {
       const G = "#" + [+V[0], +V[1], +V[2]].map((M) => M.toString(16).padStart(2, "0")).join("");
       f(G);
@@ -24026,41 +24073,41 @@ function Km({ hass: s, onClose: e, topicBase: t = "shopping" }) {
   }, [u]), xe(() => {
     m.current = p, localStorage.setItem(ro, String(p));
   }, [p]);
-  const y = Ce((D) => [D[0] * c.current.w, D[1] * c.current.h], []), b = Ce(() => {
-    const D = i.current;
-    if (!D) return;
-    const C = D.getContext("2d");
+  const y = Ce((C) => [C[0] * c.current.w, C[1] * c.current.h], []), b = Ce(() => {
+    const C = i.current;
     if (!C) return;
-    const F = c.current.w / Vm;
-    C.clearRect(0, 0, c.current.w, c.current.h);
-    for (const $ of r.current)
-      C.strokeStyle = $.color, ao(C, $.points.map(y), $.size * F);
-    a.current && (C.strokeStyle = a.current.color, ao(C, a.current.points.map(y), a.current.size * F));
+    const P = C.getContext("2d");
+    if (!P) return;
+    const F = c.current.w / Km;
+    P.clearRect(0, 0, c.current.w, c.current.h);
+    for (const B of r.current)
+      P.strokeStyle = B.color, ao(P, B.points.map(y), B.size * F);
+    a.current && (P.strokeStyle = a.current.color, ao(P, a.current.points.map(y), a.current.size * F));
   }, [y]), x = Ce(() => {
-    const D = i.current, C = n.current;
-    if (!D || !C) return;
-    const F = C.getBoundingClientRect();
+    const C = i.current, P = n.current;
+    if (!C || !P) return;
+    const F = P.getBoundingClientRect();
     if (F.width === 0 || F.height === 0) return;
-    const $ = window.devicePixelRatio || 1;
-    D.width = Math.round(F.width * $), D.height = Math.round(F.height * $);
-    const V = D.getContext("2d");
-    V && V.setTransform($, 0, 0, $, 0, 0), c.current = { w: F.width, h: F.height }, b();
+    const B = window.devicePixelRatio || 1;
+    C.width = Math.round(F.width * B), C.height = Math.round(F.height * B);
+    const V = C.getContext("2d");
+    V && V.setTransform(B, 0, 0, B, 0, 0), c.current = { w: F.width, h: F.height }, b();
   }, [b]);
   xe(() => {
     x();
-    const D = new ResizeObserver(x);
-    return n.current && D.observe(n.current), () => D.disconnect();
+    const C = new ResizeObserver(x);
+    return n.current && C.observe(n.current), () => C.disconnect();
   }, [x]), xe(() => {
-    let D = !1;
+    let C = !1;
     return (async () => {
       if ("wakeLock" in navigator)
         try {
-          const C = await navigator.wakeLock.request("screen");
-          D ? C.release() : l.current = C;
+          const P = await navigator.wakeLock.request("screen");
+          C ? P.release() : l.current = P;
         } catch {
         }
     })(), () => {
-      if (D = !0, l.current) {
+      if (C = !0, l.current) {
         try {
           l.current.release();
         } catch {
@@ -24069,45 +24116,45 @@ function Km({ hass: s, onClose: e, topicBase: t = "shopping" }) {
       }
     };
   }, []);
-  const E = Ce((D) => `${t}/${D}`, [t]), T = Ce(async () => {
-    const D = JSON.stringify({
+  const E = Ce((C) => `${t}/${C}`, [t]), T = Ce(async () => {
+    const C = JSON.stringify({
       strokes: r.current,
       updatedAt: (/* @__PURE__ */ new Date()).toISOString(),
       updatedBy: d.current
     });
-    if (!(D.length > 2e5))
+    if (!(C.length > 2e5))
       try {
         await s.callService("mqtt", "publish", {
           topic: E("state"),
-          payload: D,
+          payload: C,
           qos: 0,
           retain: !0
         });
-      } catch (C) {
-        console.warn("[shopping] state publish failed", C);
+      } catch (P) {
+        console.warn("[shopping] state publish failed", P);
       }
-  }, [s, E]), k = Ce(async (D) => {
+  }, [s, E]), k = Ce(async (C) => {
     try {
       await s.callService("mqtt", "publish", {
         topic: E("strokes/add"),
-        payload: JSON.stringify(D),
+        payload: JSON.stringify(C),
         qos: 0,
         retain: !1
       });
-    } catch (C) {
-      console.warn("[shopping] add publish failed", C);
+    } catch (P) {
+      console.warn("[shopping] add publish failed", P);
     }
     T();
-  }, [s, E, T]), S = Ce(async (D) => {
+  }, [s, E, T]), S = Ce(async (C) => {
     try {
       await s.callService("mqtt", "publish", {
         topic: E("strokes/undo"),
-        payload: JSON.stringify({ id: D, by: d.current }),
+        payload: JSON.stringify({ id: C, by: d.current }),
         qos: 0,
         retain: !1
       });
-    } catch (C) {
-      console.warn("[shopping] undo publish failed", C);
+    } catch (P) {
+      console.warn("[shopping] undo publish failed", P);
     }
     T();
   }, [s, E, T]), L = Ce(async () => {
@@ -24118,16 +24165,16 @@ function Km({ hass: s, onClose: e, topicBase: t = "shopping" }) {
         qos: 0,
         retain: !1
       });
-    } catch (D) {
-      console.warn("[shopping] clear publish failed", D);
+    } catch (C) {
+      console.warn("[shopping] clear publish failed", C);
     }
     T();
   }, [s, E, T]);
   xe(() => {
-    let D = null, C = !1;
-    const F = ($) => {
+    let C = null, P = !1;
+    const F = (B) => {
       try {
-        const V = $.topic, G = $.payload ? JSON.parse($.payload) : null;
+        const V = B.topic, G = B.payload ? JSON.parse(B.payload) : null;
         if (!G) return;
         if (V.endsWith("/state"))
           Array.isArray(G.strokes) && G.updatedBy !== d.current && (r.current = G.strokes, b());
@@ -24147,61 +24194,61 @@ function Km({ hass: s, onClose: e, topicBase: t = "shopping" }) {
       }
     };
     return (async () => {
-      const $ = s.connection;
-      if (!(!$ || typeof $.subscribeMessage != "function"))
+      const B = s.connection;
+      if (!(!B || typeof B.subscribeMessage != "function"))
         try {
-          const V = await $.subscribeMessage(F, {
+          const V = await B.subscribeMessage(F, {
             type: "mqtt/subscribe",
             topic: `${t}/#`
           });
-          if (C)
+          if (P)
             try {
               V();
             } catch {
             }
           else
-            D = V;
+            C = V;
         } catch (V) {
           console.warn("[shopping] mqtt subscribe failed", V);
         }
     })(), () => {
-      if (C = !0, D)
+      if (P = !0, C)
         try {
-          D();
+          C();
         } catch {
         }
     };
   }, [s, t, b]);
-  const I = Ce((D) => {
+  const I = Ce((C) => {
     const F = i.current.getBoundingClientRect();
-    return [(D.clientX - F.left) / F.width, (D.clientY - F.top) / F.height];
-  }, []), A = Ce((D) => {
-    D.pointerType === "touch" && (D.width > 40 || D.height > 40) || o.current === null && (o.current = D.pointerId, i.current?.setPointerCapture(D.pointerId), a.current = {
+    return [(C.clientX - F.left) / F.width, (C.clientY - F.top) / F.height];
+  }, []), A = Ce((C) => {
+    C.pointerType === "touch" && (C.width > 40 || C.height > 40) || o.current === null && (o.current = C.pointerId, i.current?.setPointerCapture(C.pointerId), a.current = {
       id: d.current + "-" + Date.now(),
       by: d.current,
       color: v.current,
       size: m.current,
-      points: [I(D)],
+      points: [I(C)],
       t: Date.now()
-    }, b(), D.preventDefault());
-  }, [I, b]), P = Ce((D) => {
-    if (D.pointerId !== o.current) return;
-    const C = a.current;
-    C && (C.points.push(I(D)), b());
-  }, [I, b]), B = Ce((D) => {
-    if (D.pointerId !== o.current) return;
+    }, b(), C.preventDefault());
+  }, [I, b]), D = Ce((C) => {
+    if (C.pointerId !== o.current) return;
+    const P = a.current;
+    P && (P.points.push(I(C)), b());
+  }, [I, b]), $ = Ce((C) => {
+    if (C.pointerId !== o.current) return;
     o.current = null;
-    const C = a.current;
-    if (a.current = null, !C || C.points.length < 2) {
+    const P = a.current;
+    if (a.current = null, !P || P.points.length < 2) {
       b();
       return;
     }
-    r.current.push(C), k(C), b();
+    r.current.push(P), k(P), b();
   }, [b, k]), K = Ce(() => {
-    for (let D = r.current.length - 1; D >= 0; D--)
-      if (r.current[D].by === d.current) {
-        const C = r.current.splice(D, 1)[0];
-        S(C.id), b();
+    for (let C = r.current.length - 1; C >= 0; C--)
+      if (r.current[C].by === d.current) {
+        const P = r.current.splice(C, 1)[0];
+        S(P.id), b();
         return;
       }
   }, [S, b]), z = Ce(() => {
@@ -24230,10 +24277,10 @@ function Km({ hass: s, onClose: e, topicBase: t = "shopping" }) {
             ref: i,
             class: "nido-shopping-panel__canvas",
             onPointerDown: A,
-            onPointerMove: P,
-            onPointerUp: B,
-            onPointerCancel: B,
-            onPointerLeave: B
+            onPointerMove: D,
+            onPointerUp: $,
+            onPointerCancel: $,
+            onPointerLeave: $
           }
         ) }),
         /* @__PURE__ */ h("div", { class: "nido-shopping-panel__toolbar", "data-no-drag": "true", children: [
@@ -24254,7 +24301,7 @@ function Km({ hass: s, onClose: e, topicBase: t = "shopping" }) {
               type: "color",
               class: "nido-shopping-panel__color",
               value: u,
-              onInput: (D) => f(D.target.value),
+              onInput: (C) => f(C.target.value),
               "aria-label": "Couleur"
             }
           ),
@@ -24267,7 +24314,7 @@ function Km({ hass: s, onClose: e, topicBase: t = "shopping" }) {
               max: 12,
               step: 1,
               value: p,
-              onInput: (D) => g(parseInt(D.target.value, 10)),
+              onInput: (C) => g(parseInt(C.target.value, 10)),
               "aria-label": "Épaisseur"
             }
           ),
@@ -24307,7 +24354,7 @@ function Hc(s) {
   const [e, t, i] = s.split("-").map(Number);
   return { date: new Date(e, t - 1, i), allDay: !0 };
 }
-function Hm(s, e) {
+function zm(s, e) {
   const t = pn(e), i = [], n = Array.isArray(s) ? { unknown: s } : s;
   for (const [r, a] of Object.entries(n)) {
     if (!Array.isArray(a)) {
@@ -24332,7 +24379,7 @@ function Hm(s, e) {
   }
   return i.sort((r, a) => r.dayOffset !== a.dayOffset ? r.dayOffset - a.dayOffset : r.allDay && !a.allDay ? -1 : !r.allDay && a.allDay ? 1 : (r.time ?? "").localeCompare(a.time ?? ""));
 }
-function zm(s, e) {
+function Wm(s, e) {
   const t = s.message, i = s.start_time;
   if (!t || !i) return null;
   const { date: n, allDay: r } = Hc(i), a = Math.round(
@@ -24345,8 +24392,8 @@ function zm(s, e) {
     time: r ? void 0 : `${String(n.getHours()).padStart(2, "0")}:${String(n.getMinutes()).padStart(2, "0")}`
   };
 }
-const Wm = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-function Ym({ hass: s, calendarEntities: e, onClose: t }) {
+const Ym = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+function jm({ hass: s, calendarEntities: e, onClose: t }) {
   const [i, n] = X(null), r = /* @__PURE__ */ new Date(), a = new Map(
     [...e].sort((l, d) => l.entity_id.localeCompare(d.entity_id)).map((l, d) => [l.entity_id, Kc(d)])
   );
@@ -24398,7 +24445,7 @@ function Ym({ hass: s, calendarEntities: e, onClose: t }) {
       for (const y of g)
         v[y.entity_id] = y.events;
       console.log("[CalendarPanel] Combined response:", v);
-      const m = Hm(v, r);
+      const m = zm(v, r);
       console.log("[CalendarPanel] Parsed events:", m), n(m);
     });
   }, []);
@@ -24440,7 +24487,7 @@ function Ym({ hass: s, calendarEntities: e, onClose: t }) {
           class: `nido-cal-panel__day ${d === 0 ? "is-today" : ""}`,
           children: [
             /* @__PURE__ */ h("div", { class: "nido-cal-panel__badge", children: [
-              /* @__PURE__ */ h("span", { class: "nido-cal-panel__badge-day", children: Wm[l.getDay()] }),
+              /* @__PURE__ */ h("span", { class: "nido-cal-panel__badge-day", children: Ym[l.getDay()] }),
               /* @__PURE__ */ h("span", { class: "nido-cal-panel__badge-num", children: l.getDate() })
             ] }),
             /* @__PURE__ */ h("div", { class: "nido-cal-panel__events", children: u.length === 0 ? /* @__PURE__ */ h("span", { class: "nido-cal-panel__empty", children: "—" }) : u.map((f) => /* @__PURE__ */ h("div", { class: "nido-cal-panel__event", children: [
@@ -24461,12 +24508,12 @@ function Ym({ hass: s, calendarEntities: e, onClose: t }) {
     ] })
   ] });
 }
-const jm = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-function qm(s, e) {
-  return s === 0 ? "Aujourd'hui" : s === 1 ? "Demain" : `${jm[e.getDay()]} ${e.getDate()}`;
+const qm = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+function Xm(s, e) {
+  return s === 0 ? "Aujourd'hui" : s === 1 ? "Demain" : `${qm[e.getDay()]} ${e.getDate()}`;
 }
 function zc({ hass: s, entity: e, roomLabel: t, hero: i = !1, calendarEntities: n }) {
-  const [r, a] = X(!1), c = [...n].sort((g, v) => g.entity_id.localeCompare(v.entity_id)).map((g) => g.entity_id).indexOf(e.entity_id), l = Kc(c >= 0 ? c : 0), d = /* @__PURE__ */ new Date(), u = zm(e.state.attributes, d), f = u ? (() => {
+  const [r, a] = X(!1), c = [...n].sort((g, v) => g.entity_id.localeCompare(v.entity_id)).map((g) => g.entity_id).indexOf(e.entity_id), l = Kc(c >= 0 ? c : 0), d = /* @__PURE__ */ new Date(), u = Wm(e.state.attributes, d), f = u ? (() => {
     const g = new Date(d);
     return g.setDate(d.getDate() + u.dayOffset), g;
   })() : null, p = ["n-card", i ? "n-card--accent-muted" : "n-card--default", "nido-cal-widget"].join(" ");
@@ -24486,7 +24533,7 @@ function zc({ hass: s, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
           u && f ? /* @__PURE__ */ h(Le, { children: [
             /* @__PURE__ */ h("div", { class: i ? "nido-cal-widget__title n-title--xl" : "nido-cal-widget__title", children: u.title }),
             /* @__PURE__ */ h("div", { class: "nido-cal-widget__when", children: [
-              /* @__PURE__ */ h("span", { class: "nido-cal-widget__day", children: qm(u.dayOffset, f) }),
+              /* @__PURE__ */ h("span", { class: "nido-cal-widget__day", children: Xm(u.dayOffset, f) }),
               /* @__PURE__ */ h("span", { class: "nido-cal-widget__sep", children: "·" }),
               /* @__PURE__ */ h("span", { class: "nido-cal-widget__time", children: u.allDay ? "Journée" : u.time })
             ] })
@@ -24495,7 +24542,7 @@ function zc({ hass: s, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
       }
     ),
     r && /* @__PURE__ */ h(
-      Ym,
+      jm,
       {
         hass: s,
         calendarEntities: n,
@@ -24650,7 +24697,7 @@ function Wc({
   );
 }
 const gn = 64, Mi = 80, Oi = 80, lo = 270 / 360 * 2 * Math.PI * gn, co = 2 * Math.PI * gn;
-function Xm({
+function Qm({
   currentPower: s,
   subscribedKva: e = 9
 }) {
@@ -24723,28 +24770,28 @@ const Jt = {
   week: { label: "Semaine", bucketCount: 7, bucketHours: 24 },
   month: { label: "Mois", bucketCount: 30, bucketHours: 24 }
 };
-function Qm(s) {
+function Zm(s) {
   const e = new Date(s);
   return e.setMinutes(0, 0, 0), e;
 }
-function Zm(s) {
+function Jm(s) {
   const e = new Date(s);
   return e.setHours(0, 0, 0, 0), e;
 }
-function Jm(s) {
+function e0(s) {
   if (typeof s.lu == "number") return s.lu * 1e3;
   const e = s.last_updated ?? s.last_changed;
   if (!e) return null;
   const t = Date.parse(e);
   return Number.isFinite(t) ? t : null;
 }
-function e0(s) {
+function t0(s) {
   const e = s.s ?? s.state;
   if (e == null || e === "unavailable" || e === "unknown") return null;
   const t = Number(e);
   return Number.isFinite(t) ? t : null;
 }
-function t0(s) {
+function i0(s) {
   if (typeof s.start == "number") return s.start;
   const e = Date.parse(String(s.start));
   return Number.isFinite(e) ? e : null;
@@ -24752,7 +24799,7 @@ function t0(s) {
 function uo(s, e, t, i, n) {
   const r = new Array(i).fill(0);
   if (s.length === 0) return { buckets: r, total: 0 };
-  const a = s.map((l) => ({ t: Jm(l), v: e0(l) })).filter((l) => l.t !== null && l.v !== null).sort((l, d) => l.t - d.t);
+  const a = s.map((l) => ({ t: e0(l), v: t0(l) })).filter((l) => l.t !== null && l.v !== null).sort((l, d) => l.t - d.t);
   if (a.length === 0) return { buckets: r, total: 0 };
   for (let l = 0; l < a.length - 1; l += 1) {
     const d = a[l], u = a[l + 1], f = Math.max(d.t, e), p = Math.min(u.t, t);
@@ -24771,10 +24818,10 @@ function uo(s, e, t, i, n) {
   const c = r.reduce((l, d) => l + d, 0);
   return { buckets: r, total: c };
 }
-function i0(s, e, t, i) {
+function n0(s, e, t, i) {
   const n = new Array(t).fill(0);
   for (const a of s) {
-    const o = t0(a);
+    const o = i0(a);
     if (o === null) continue;
     const c = Math.floor((o - e) / i);
     if (!(c < 0 || c >= t)) {
@@ -24789,7 +24836,7 @@ function i0(s, e, t, i) {
   const r = n.reduce((a, o) => a + o, 0);
   return { buckets: n, total: r };
 }
-const n0 = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+const s0 = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
 function ho(s, e) {
   if (s === "day")
     return {
@@ -24802,7 +24849,7 @@ function ho(s, e) {
       const o = new Date(r);
       o.setDate(r.getDate() + a);
       const c = o.getDay() === 0 ? 6 : o.getDay() - 1;
-      n.push(n0[c]);
+      n.push(s0[c]);
     }
     return {
       axisLabels: [n[0], n[3], n[6]],
@@ -24819,11 +24866,11 @@ function ho(s, e) {
     bucketLabel: (n) => i[n] ?? ""
   };
 }
-function s0(s, e) {
+function r0(s, e) {
   const t = Date.now(), i = Jt[s], n = Math.floor((t - e) / (i.bucketHours * 36e5));
   return Math.max(0, Math.min(i.bucketCount - 1, n));
 }
-function r0({
+function a0({
   hass: s,
   powerEntityId: e,
   dailyConsumptionEntityId: t
@@ -24835,7 +24882,7 @@ function r0({
       a(!0);
       try {
         if (o === "day") {
-          const I = Qm(new Date(Date.now() - 828e5)), A = /* @__PURE__ */ new Date(), P = await s.callWS({
+          const I = Zm(new Date(Date.now() - 828e5)), A = /* @__PURE__ */ new Date(), D = await s.callWS({
             type: "history/history_during_period",
             start_time: I.toISOString(),
             end_time: A.toISOString(),
@@ -24844,64 +24891,64 @@ function r0({
             no_attributes: !0
           });
           if (S) return;
-          const B = P?.[e] ?? [], { buckets: K, total: z } = uo(
-            B,
+          const $ = D?.[e] ?? [], { buckets: K, total: z } = uo(
+            $,
             I.getTime(),
             A.getTime(),
             24,
             36e5
-          ), D = ho("day", I.getTime());
+          ), C = ho("day", I.getTime());
           n({
             buckets: K,
             total: z,
             available: z > 0,
-            axisLabels: D.axisLabels,
-            bucketLabel: D.bucketLabel,
+            axisLabels: C.axisLabels,
+            bucketLabel: C.bucketLabel,
             unit: "kWh",
             nowIndex: (/* @__PURE__ */ new Date()).getHours()
           });
         } else {
-          const I = o === "week" ? 7 : 30, A = Zm(new Date(Date.now() - (I - 1) * 864e5)), P = /* @__PURE__ */ new Date();
-          let B = [], K = 0, z = !1;
+          const I = o === "week" ? 7 : 30, A = Jm(new Date(Date.now() - (I - 1) * 864e5)), D = /* @__PURE__ */ new Date();
+          let $ = [], K = 0, z = !1;
           try {
-            const C = await s.callWS({
+            const P = await s.callWS({
               type: "recorder/statistics_during_period",
               start_time: A.toISOString(),
-              end_time: P.toISOString(),
+              end_time: D.toISOString(),
               statistic_ids: [e],
               period: "day"
             });
             if (S) return;
-            const F = C?.[e] ?? [];
+            const F = P?.[e] ?? [];
             if (F.length > 0) {
-              const $ = i0(F, A.getTime(), I, 864e5);
-              B = $.buckets, K = $.total, z = !0;
+              const B = n0(F, A.getTime(), I, 864e5);
+              $ = B.buckets, K = B.total, z = !0;
             }
           } catch {
             z = !1;
           }
           if (!z) {
-            const C = await s.callWS({
+            const P = await s.callWS({
               type: "history/history_during_period",
               start_time: A.toISOString(),
-              end_time: P.toISOString(),
+              end_time: D.toISOString(),
               entity_ids: [e],
               minimal_response: !0,
               no_attributes: !0
             });
             if (S) return;
-            const F = C?.[e] ?? [], $ = uo(F, A.getTime(), P.getTime(), I, 864e5);
-            B = $.buckets, K = $.total;
+            const F = P?.[e] ?? [], B = uo(F, A.getTime(), D.getTime(), I, 864e5);
+            $ = B.buckets, K = B.total;
           }
-          const D = ho(o, A.getTime());
+          const C = ho(o, A.getTime());
           n({
-            buckets: B,
+            buckets: $,
             total: K,
             available: K > 0,
-            axisLabels: D.axisLabels,
-            bucketLabel: D.bucketLabel,
+            axisLabels: C.axisLabels,
+            bucketLabel: C.bucketLabel,
             unit: "kWh",
-            nowIndex: s0(o, A.getTime())
+            nowIndex: r0(o, A.getTime())
           });
         }
       } catch (I) {
@@ -24953,10 +25000,10 @@ function r0({
       /* @__PURE__ */ h("div", { class: "n-bars", children: [
         b > 0 && /* @__PURE__ */ h("div", { class: "n-bars__avg", style: { bottom: `${b / x * 100}%` }, children: /* @__PURE__ */ h("span", { class: "n-bars__avg-label", children: k }) }),
         /* @__PURE__ */ h("div", { class: "n-bars__grid", children: f.map((S, L) => {
-          const I = L === m, A = L < m, P = S > 0 && S === E;
-          let B = "n-bars__bar";
-          return I ? B += " is-now" : P ? B += " is-peak" : A ? B += " is-past" : B += " is-future", /* @__PURE__ */ h("div", { class: "n-bars__col", children: [
-            /* @__PURE__ */ h("div", { class: B, style: { height: `${Math.max(2, S / x * 100)}%` } }),
+          const I = L === m, A = L < m, D = S > 0 && S === E;
+          let $ = "n-bars__bar";
+          return I ? $ += " is-now" : D ? $ += " is-peak" : A ? $ += " is-past" : $ += " is-future", /* @__PURE__ */ h("div", { class: "n-bars__col", children: [
+            /* @__PURE__ */ h("div", { class: $, style: { height: `${Math.max(2, S / x * 100)}%` } }),
             I && /* @__PURE__ */ h("div", { class: "n-bars__now-label", children: [
               S.toFixed(2),
               " kWh"
@@ -24968,7 +25015,7 @@ function r0({
     ] }) : /* @__PURE__ */ h("div", { class: "n-bars n-bars--empty", children: /* @__PURE__ */ h("div", { class: "n-muted", children: "Historique indisponible" }) })
   ] });
 }
-function a0({
+function o0({
   entities: s,
   primaryPowerEntityId: e,
   areas: t,
@@ -25035,8 +25082,8 @@ function a0({
     }) })
   ] });
 }
-const Je = "sensor.consommation_electrique_sinsts", fo = "sensor.conso_daily", o0 = "sensor.conso", l0 = "select.conso_hebdomadaire_2_en_eur", c0 = 9;
-function d0({ hass: s, entities: e, exposed: t, areas: i, onBack: n }) {
+const Je = "sensor.consommation_electrique_sinsts", fo = "sensor.conso_daily", l0 = "sensor.conso", c0 = "select.conso_hebdomadaire_2_en_eur", d0 = 9;
+function u0({ hass: s, entities: e, exposed: t, areas: i, onBack: n }) {
   const r = re(() => new Set(t), [t]), a = re(
     () => e.filter((T) => r.has(T.entity_id)),
     [e, r]
@@ -25048,11 +25095,11 @@ function d0({ hass: s, entities: e, exposed: t, areas: i, onBack: n }) {
     if (!u) return null;
     const T = Number(u.state);
     return Number.isFinite(T) ? T : null;
-  }, [u]), p = u?.attributes.unit_of_measurement ?? "kWh", g = s.states[o0], v = re(() => {
+  }, [u]), p = u?.attributes.unit_of_measurement ?? "kWh", g = s.states[l0], v = re(() => {
     if (!g) return null;
     const T = Number(g.state);
     return Number.isFinite(T) ? T : null;
-  }, [g]), m = g?.attributes.unit_of_measurement ?? "€", y = s.states[l0], b = re(() => {
+  }, [g]), m = g?.attributes.unit_of_measurement ?? "€", y = s.states[c0], b = re(() => {
     if (!y) return null;
     const T = y.state;
     if (T === "unavailable" || T === "unknown") return null;
@@ -25155,10 +25202,10 @@ function d0({ hass: s, entities: e, exposed: t, areas: i, onBack: n }) {
         /* @__PURE__ */ h("div", { class: "nido-energy__live-grid", children: [
           /* @__PURE__ */ h(Wc, { hass: s, powerEntityId: Je }),
           /* @__PURE__ */ h(
-            Xm,
+            Qm,
             {
               currentPower: l,
-              subscribedKva: c0
+              subscribedKva: d0
             }
           )
         ] })
@@ -25169,7 +25216,7 @@ function d0({ hass: s, entities: e, exposed: t, areas: i, onBack: n }) {
           /* @__PURE__ */ h("span", { class: "n-eyebrow", children: "kWh par heure" })
         ] }),
         /* @__PURE__ */ h(
-          r0,
+          a0,
           {
             hass: s,
             powerEntityId: Je,
@@ -25180,7 +25227,7 @@ function d0({ hass: s, entities: e, exposed: t, areas: i, onBack: n }) {
       /* @__PURE__ */ h("section", { class: "nido-energy__section", children: [
         /* @__PURE__ */ h("div", { class: "nido-section-title", children: /* @__PURE__ */ h("h2", { children: "Top consommateurs" }) }),
         /* @__PURE__ */ h(
-          a0,
+          o0,
           {
             entities: a,
             primaryPowerEntityId: Je,
@@ -25207,7 +25254,7 @@ function Fi({ label: s, value: e, unit: t }) {
 function Qn() {
   return /* @__PURE__ */ h("div", { class: "nido-energy__stat-sep", "aria-hidden": "true" });
 }
-const u0 = /* @__PURE__ */ new Set([
+const h0 = /* @__PURE__ */ new Set([
   "light",
   "cover",
   "switch",
@@ -25225,10 +25272,10 @@ const u0 = /* @__PURE__ */ new Set([
   "weather",
   "calendar"
 ]);
-function h0(s) {
+function f0(s) {
   return s >= 5 && s < 12 ? { greeting: "Bonjour", sub: "La maison se réveille doucement" } : s >= 12 && s < 18 ? { greeting: "Bel après-midi", sub: "Tout va bien à la maison" } : s >= 18 && s < 22 ? { greeting: "Bonsoir", sub: "Tout le monde est rentré" } : { greeting: "Bonne nuit", sub: "La maison veille sur vous" };
 }
-function f0(s, e) {
+function p0(s, e) {
   const t = { hass: e.hass, entity: s, roomLabel: e.areaName };
   switch (s.domain) {
     case "light":
@@ -25266,11 +25313,11 @@ function f0(s, e) {
       return null;
   }
 }
-function p0(s) {
+function g0(s) {
   return s.replace(/[^\x00-\x7F]/g, "_").toLowerCase();
 }
-function g0(s, e) {
-  const t = new Map(e.map((n) => [p0(n.name), n.area_id])), i = /* @__PURE__ */ new Map();
+function m0(s, e) {
+  const t = new Map(e.map((n) => [g0(n.name), n.area_id])), i = /* @__PURE__ */ new Map();
   for (const n of Object.values(s.states)) {
     if (!n.entity_id.startsWith("sensor.")) continue;
     const r = n.state.toLowerCase(), a = t.get(r);
@@ -25284,7 +25331,7 @@ function g0(s, e) {
     Array.from(i.entries()).map(([n, r]) => [n, Array.from(r.values())])
   );
 }
-function m0({ area: s, entities: e, accent: t = !1, onOpen: i, dragProps: n, presence: r }) {
+function v0({ area: s, entities: e, accent: t = !1, onOpen: i, dragProps: n, presence: r }) {
   const a = Vc(s.name), o = e.filter(
     (d) => d.domain !== "sensor" && d.domain !== "binary_sensor"
   ).length, c = e.filter(Rs).length, l = Po(e);
@@ -25356,7 +25403,7 @@ function m0({ area: s, entities: e, accent: t = !1, onOpen: i, dragProps: n, pre
     }
   );
 }
-function v0({
+function y0({
   hass: s,
   areas: e,
   entities: t,
@@ -25369,8 +25416,8 @@ function v0({
   onReorderFavorites: l,
   onReorderRooms: d
 }) {
-  const u = s.user?.name ?? "vous", f = /* @__PURE__ */ new Date(), p = f.getHours(), { greeting: g, sub: v } = h0(p), m = `${String(p).padStart(2, "0")}:${String(f.getMinutes()).padStart(2, "0")}`, y = f.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (U) => U.toUpperCase()), b = re(() => new Set(n), [n]), x = re(
-    () => t.filter((U) => b.has(U.entity_id) && u0.has(U.domain)),
+  const u = s.user?.name ?? "vous", f = /* @__PURE__ */ new Date(), p = f.getHours(), { greeting: g, sub: v } = f0(p), m = `${String(p).padStart(2, "0")}:${String(f.getMinutes()).padStart(2, "0")}`, y = f.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (U) => U.toUpperCase()), b = re(() => new Set(n), [n]), x = re(
+    () => t.filter((U) => b.has(U.entity_id) && h0.has(U.domain)),
     [t, b]
   ), E = re(
     () => x.find((U) => U.domain === "weather"),
@@ -25383,25 +25430,25 @@ function v0({
     [x]
   ), L = re(() => E ? Object.keys(s.states).some(
     (ee) => ee.startsWith("sensor.") && (ee.endsWith("_next_rain") || ee.endsWith("_weather_alert") || ee.endsWith("_uv"))
-  ) : !1, [s.states, E]), [I, A] = X(!1), [P, B] = X(!1), [K, z] = X(!1), [D, C] = X(!1), F = re(() => {
+  ) : !1, [s.states, E]), [I, A] = X(!1), [D, $] = X(!1), [K, z] = X(!1), [C, P] = X(!1), F = re(() => {
     const U = s.states["sensor.nido_notifications"];
     return !U || !U.attributes.notifications ? [] : U.attributes.notifications;
-  }, [s.states["sensor.nido_notifications"]]), $ = Se(new Set(F.map((U) => U.id))), V = Se(!0);
+  }, [s.states["sensor.nido_notifications"]]), B = Se(new Set(F.map((U) => U.id))), V = Se(!0);
   xe(() => {
-    const U = $.current;
+    const U = B.current;
     if (V.current) {
-      V.current = !1, $.current = new Set(F.map((me) => me.id));
+      V.current = !1, B.current = new Set(F.map((me) => me.id));
       return;
     }
-    F.some((me) => !U.has(me.id)) && Nm(), $.current = new Set(F.map((me) => me.id));
+    F.some((me) => !U.has(me.id)) && $m(), B.current = new Set(F.map((me) => me.id));
   }, [F]);
-  const G = re(() => yd(), [P]), M = re(() => {
+  const G = re(() => yd(), [D]), M = re(() => {
     if (F.length === 0) return !1;
     if (!G) return !0;
     const U = F[F.length - 1];
     return new Date(U.timestamp) > new Date(G);
   }, [F, G]), N = () => {
-    B(!0), _d((/* @__PURE__ */ new Date()).toISOString());
+    $(!0), _d((/* @__PURE__ */ new Date()).toISOString());
   }, H = re(() => Object.values(s.states).filter(
     (U) => U.entity_id.startsWith("person.") && U.state === "home" && U.attributes.entity_picture
   ), [s.states]), Q = (U) => {
@@ -25409,7 +25456,7 @@ function v0({
     if (U.startsWith("http")) return U;
     const ee = s.hassUrl?.("");
     return ee ? ee.replace(/\/$/, "") + U : U;
-  }, Z = re(() => cd(x), [x]), ie = re(() => g0(s, e), [s.states, e]), _e = re(() => {
+  }, Z = re(() => cd(x), [x]), ie = re(() => m0(s, e), [s.states, e]), _e = re(() => {
     const U = new Map(x.map((ee) => [ee.entity_id, ee]));
     return i.map((ee) => U.get(ee)).filter((ee) => !!ee);
   }, [x, i]), ge = re(() => {
@@ -25446,7 +25493,7 @@ function v0({
               class: "nido-drag-item",
               "data-hero": me ? "true" : "false",
               ...De.itemPropsFor(U.entity_id),
-              children: f0(U, {
+              children: p0(U, {
                 hass: s,
                 areaName: e.find(($e) => $e.area_id === U.area_id)?.name ?? "",
                 hero: me,
@@ -25497,7 +25544,7 @@ function v0({
             {
               type: "button",
               class: "nido-bell-btn",
-              onClick: () => C(!0),
+              onClick: () => P(!0),
               "aria-label": "Bloc note",
               title: "Bloc note",
               children: /* @__PURE__ */ h(ou, { size: 20 })
@@ -25577,7 +25624,7 @@ function v0({
                 Me.containerRef.current = U;
               },
               children: ge.map((U, ee) => /* @__PURE__ */ h(
-                m0,
+                v0,
                 {
                   area: U,
                   entities: Z.get(U.area_id) ?? [],
@@ -25597,23 +25644,23 @@ function v0({
       ] })
     ] }),
     I && E && /* @__PURE__ */ h(
-      Mm,
+      Om,
       {
         hass: s,
         weatherEntityId: E.entity_id,
         onClose: () => A(!1)
       }
     ),
-    P && /* @__PURE__ */ h(
-      $m,
+    D && /* @__PURE__ */ h(
+      Bm,
       {
         hass: s,
         notifications: F,
-        onClose: () => B(!1)
+        onClose: () => $(!1)
       }
     ),
     K && /* @__PURE__ */ h(
-      Gm,
+      Vm,
       {
         hass: s,
         lights: T,
@@ -25621,16 +25668,16 @@ function v0({
         onClose: () => z(!1)
       }
     ),
-    D && /* @__PURE__ */ h(
-      Km,
+    C && /* @__PURE__ */ h(
+      Hm,
       {
         hass: s,
-        onClose: () => C(!1)
+        onClose: () => P(!1)
       }
     )
   ] });
 }
-function y0(s, e, t, i, n, r = !1) {
+function _0(s, e, t, i, n, r = !1) {
   const a = { hass: e, entity: s, roomLabel: t };
   switch (s.domain) {
     case "light":
@@ -25668,7 +25715,7 @@ function y0(s, e, t, i, n, r = !1) {
       return null;
   }
 }
-function _0({
+function b0({
   hass: s,
   area: e,
   entities: t,
@@ -25793,7 +25840,7 @@ function _0({
           class: `n-pill-btn ${f === b ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
           onClick: () => p(b),
           children: [
-            Om[b] ?? b,
+            Fm[b] ?? b,
             " · ",
             x
           ]
@@ -25815,7 +25862,7 @@ function _0({
               class: "nido-drag-item",
               "data-hero": T ? "true" : "false",
               ...v.itemPropsFor(b.entity_id),
-              children: y0(b, s, e.name, E, d, T)
+              children: _0(b, s, e.name, E, d, T)
             },
             b.entity_id
           );
@@ -25859,7 +25906,7 @@ const Ni = 5, ei = {
   sauge: { name: "Sauge", desc: "Organique scandinave", swatches: ["#ebe7d8", "#6a7a3a", "#1a1d10"] },
   cosy: { name: "Cosy", desc: "Salon feutré", swatches: ["#f0eadd", "#b06030", "#1c1208"] }
 };
-function b0(s) {
+function x0(s) {
   const {
     hass: e,
     entities: t,
@@ -25875,7 +25922,7 @@ function b0(s) {
     onDone: f
   } = s, [p, g] = X(0), [v, m] = X(n), [y, b] = X(r), [x, E] = X(new Set(a)), [T, k] = X(new Set(o)), [S, L] = X(
     new Set(c)
-  ), [I, A] = X(null), [P, B] = X(null);
+  ), [I, A] = X(null), [D, $] = X(null);
   xe(() => {
     let M = !1;
     return e.callWS({ type: "config/auth/list" }).then((N) => {
@@ -25883,14 +25930,14 @@ function b0(s) {
         (N ?? []).filter((H) => !H.system_generated).sort((H, Q) => H.name.localeCompare(Q.name))
       );
     }).catch((N) => {
-      M || (B(N instanceof Error ? N.message : String(N)), e.user && A([e.user]));
+      M || ($(N instanceof Error ? N.message : String(N)), e.user && A([e.user]));
     }), () => {
       M = !0;
     };
   }, [e]);
-  const K = () => g((M) => Math.min(Ni - 1, M + 1)), z = () => g((M) => Math.max(0, M - 1)), D = (M, N) => {
+  const K = () => g((M) => Math.min(Ni - 1, M + 1)), z = () => g((M) => Math.max(0, M - 1)), C = (M, N) => {
     m(M), b(N), d(M, N);
-  }, C = (M) => {
+  }, P = (M) => {
     E((N) => {
       const H = new Set(N);
       return H.has(M) ? (H.delete(M), k((Q) => {
@@ -25904,7 +25951,7 @@ function b0(s) {
       const H = new Set(N);
       return H.has(M) ? H.delete(M) : (H.add(M), E((Q) => Q.has(M) ? Q : new Set(Q).add(M))), H;
     });
-  }, $ = (M) => {
+  }, B = (M) => {
     L((N) => {
       const H = new Set(N);
       return H.has(M) ? H.delete(M) : H.add(M), H;
@@ -25944,7 +25991,7 @@ function b0(s) {
     ] }),
     /* @__PURE__ */ h("div", { class: "n-ob__body", children: [
       p === 0 && /* @__PURE__ */ h(
-        x0,
+        E0,
         {
           isReturning: l,
           exposedCount: x.size,
@@ -25954,34 +26001,34 @@ function b0(s) {
           allowedUsersCount: I ? I.filter((M) => !S.has(M.id)).length : null
         }
       ),
-      p === 1 && /* @__PURE__ */ h(E0, { entitiesCount: t.length, areasCount: i.length }),
+      p === 1 && /* @__PURE__ */ h(T0, { entitiesCount: t.length, areasCount: i.length }),
       p === 2 && /* @__PURE__ */ h(
-        T0,
+        S0,
         {
           entities: t,
           exposed: x,
           favs: T,
-          onToggleExpose: C,
+          onToggleExpose: P,
           onToggleFav: F
         }
       ),
       p === 3 && /* @__PURE__ */ h(
-        S0,
+        A0,
         {
           theme: v,
           mode: y,
-          onPick: D,
+          onPick: C,
           userName: e.user?.name ?? "vous"
         }
       ),
       p === 4 && /* @__PURE__ */ h(
-        A0,
+        I0,
         {
           hass: e,
           users: I,
-          error: P,
+          error: D,
           excluded: S,
-          onToggleUser: $
+          onToggleUser: B
         }
       )
     ] }, p),
@@ -26033,7 +26080,7 @@ function $i({ offset: s, intervalMs: e }) {
   const n = mo[t % mo.length];
   return /* @__PURE__ */ h("div", { class: "n-ob-cycle", children: /* @__PURE__ */ h(n, { size: 28 }) }, t);
 }
-function x0(s) {
+function E0(s) {
   const { isReturning: e, exposedCount: t, favCount: i, themeLabel: n, modeLabel: r, allowedUsersCount: a } = s;
   return /* @__PURE__ */ h("div", { class: "n-ob-step n-ob-step--welcome", children: [
     /* @__PURE__ */ h("div", { class: "n-ob-step__col", children: [
@@ -26095,7 +26142,7 @@ function Bi(s) {
     s.hint && /* @__PURE__ */ h("div", { class: "n-ob-recap__hint", children: s.hint })
   ] });
 }
-function E0({ entitiesCount: s, areasCount: e }) {
+function T0({ entitiesCount: s, areasCount: e }) {
   const [t, i] = X("scanning");
   return xe(() => {
     const n = setTimeout(() => i("found"), 1100), r = setTimeout(() => i("connected"), 2200);
@@ -26169,7 +26216,7 @@ function E0({ entitiesCount: s, areasCount: e }) {
     ] })
   ] });
 }
-function T0(s) {
+function S0(s) {
   const { entities: e, exposed: t, favs: i, onToggleExpose: n, onToggleFav: r } = s, a = re(() => {
     const m = /* @__PURE__ */ new Map();
     for (const y of e)
@@ -26304,7 +26351,7 @@ function T0(s) {
     ] }) })
   ] });
 }
-function S0(s) {
+function A0(s) {
   const { theme: e, mode: t, userName: i, onPick: n } = s, r = Ss[e];
   return /* @__PURE__ */ h("div", { class: "n-ob-step n-ob-step--theme", children: [
     /* @__PURE__ */ h("div", { class: "n-ob-step__col", children: [
@@ -26431,7 +26478,7 @@ function S0(s) {
     )
   ] });
 }
-function A0(s) {
+function I0(s) {
   const { hass: e, users: t, error: i, excluded: n, onToggleUser: r } = s;
   return /* @__PURE__ */ h("div", { class: "n-ob-step n-ob-step--family", children: [
     /* @__PURE__ */ h("div", { class: "n-ob-step__col", children: [
@@ -26476,29 +26523,29 @@ function A0(s) {
     }) }) })
   ] });
 }
-const I0 = [
+const L0 = [
   "area_registry_updated",
   "entity_registry_updated",
   "device_registry_updated"
 ];
-function L0({ hass: s, host: e }) {
+function k0({ hass: s, host: e }) {
   const [t, i] = X(null), [n, r] = X(null), [a, o] = X(null), [c, l] = X(null), d = re(() => Oo(), []), [u, f] = X(() => ud()), [p, g] = X(() => hd()), [v, m] = X(() => fd()), [y, b] = X(() => pd()), [x, E] = X(
     () => md()
   ), [T, k] = X(() => !Cr()), [S, L] = X({ kind: "dashboard" }), I = (G) => {
     f(G), ns(G);
   }, A = (G) => {
     b(G), gd(G);
-  }, P = (G, M) => {
+  }, D = (G, M) => {
     E((N) => {
       const H = { ...N, [G]: M };
       return vd(H), H;
     });
-  }, B = Se(s);
-  B.current = s, xe(() => {
+  }, $ = Se(s);
+  $.current = s, xe(() => {
     if (!s) return;
     let G = !1;
     const M = [], N = async () => {
-      const H = B.current;
+      const H = $.current;
       if (H)
         try {
           const [Q, Z, ie] = await Promise.all([
@@ -26514,7 +26561,7 @@ function L0({ hass: s, host: e }) {
         }
     };
     return N(), Promise.all(
-      I0.map(
+      L0.map(
         (H) => s.connection.subscribeEvents(() => {
           G || N();
         }, H)
@@ -26550,15 +26597,15 @@ function L0({ hass: s, host: e }) {
       ] }),
       /* @__PURE__ */ h("p", { class: "n-ob__lead", children: "Votre compte n'a pas accès à ce tableau de bord. Vous pouvez continuer à utiliser Home Assistant normalement." })
     ] }) });
-  const C = re(() => new Set(p), [p]), F = S.kind === "room" ? t.find((G) => G.area_id === S.areaId) ?? null : null, $ = re(
+  const P = re(() => new Set(p), [p]), F = S.kind === "room" ? t.find((G) => G.area_id === S.areaId) ?? null : null, B = re(
     () => F ? K.filter(
-      (G) => G.area_id === F.area_id && C.has(G.entity_id)
+      (G) => G.area_id === F.area_id && P.has(G.entity_id)
     ) : [],
-    [K, F, C]
-  ), V = !!s.states[Je] && C.has(Je);
+    [K, F, P]
+  ), V = !!s.states[Je] && P.has(Je);
   return /* @__PURE__ */ h(Le, { children: [
     S.kind === "energy" ? /* @__PURE__ */ h(
-      d0,
+      u0,
       {
         hass: s,
         entities: K,
@@ -26567,7 +26614,7 @@ function L0({ hass: s, host: e }) {
         onBack: () => L({ kind: "dashboard" })
       }
     ) : S.kind === "dashboard" || !F ? /* @__PURE__ */ h(
-      v0,
+      y0,
       {
         hass: s,
         areas: t,
@@ -26582,18 +26629,18 @@ function L0({ hass: s, host: e }) {
         onReorderRooms: A
       }
     ) : /* @__PURE__ */ h(
-      _0,
+      b0,
       {
         hass: s,
         area: F,
-        entities: $,
+        entities: B,
         entitiesOrder: x[F.area_id] ?? [],
         onBack: () => L({ kind: "dashboard" }),
-        onReorderEntities: (G) => P(F.area_id, G)
+        onReorderEntities: (G) => D(F.area_id, G)
       }
     ),
     T && /* @__PURE__ */ h(
-      b0,
+      x0,
       {
         hass: s,
         entities: K,
@@ -26613,9 +26660,9 @@ function L0({ hass: s, host: e }) {
     )
   ] });
 }
-const k0 = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.006);filter:brightness(1.015)}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe 5.5s var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe 6.2s var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe 4.8s var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe 7s var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', w0 = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}.nido-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.nido-topbar__brand{display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:.85}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-card__head{padding-top:14px}.n-card--camera .n-binary-state{padding-bottom:16px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}.nido-camera-panel__picker{padding:16px 20px;border-top:1px solid rgba(var(--fg-rgb),.06);display:flex;flex-direction:column;gap:10px}.nido-camera-panel__picker-msg{margin:0;font-size:.85rem;color:var(--danger, #b00020)}.nido-camera-panel__picker-hint{margin:0;font-size:.85rem;color:var(--ink-2)}.nido-camera-panel__picker-row{display:flex;gap:8px;flex-wrap:wrap}.nido-camera-panel__picker-select{flex:1 1 220px;min-width:0;padding:8px 10px;border-radius:var(--r-sm);border:1px solid rgba(var(--fg-rgb),.15);background:var(--bg-inset);color:var(--fg);font:inherit}.nido-camera-panel__picker-save{padding:8px 14px;border-radius:var(--r-sm);border:0;background:var(--accent);color:var(--accent-ink, #fff);font:inherit;cursor:pointer}.nido-camera-panel__picker-save:disabled{opacity:.4;cursor:default}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin 2.4s linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.nido-topbar__actions{display:flex;align-items:center;gap:12px}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active{transform:scale(.96)}.nido-lights-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-pill__label{font-size:12px;opacity:.8}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:10px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__room{font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:140px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--ink-1);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}.nido-room-card__meta{display:flex;gap:10px;font-family:var(--font-sans);font-size:12px;opacity:.65;align-items:center}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__stats{margin-top:10px;display:flex;gap:12px}.nido-room-card__stat{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.02em;color:inherit;opacity:.85}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:8px;overflow:hidden}.n-ob__shell{padding:16px;border-radius:var(--r-xl);min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__actions>.nido-bell-btn,.nido-topbar__actions>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar__actions{flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:8px}.nido-weather-pill-btn,.nido-topbar__actions>.nido-weather-pill,.nido-lights-pill-btn{flex:0 0 100%;display:flex;justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:32px}.nido-energy-summary{display:grid;grid-template-columns:minmax(320px,480px);gap:16px}@media(max-width:720px){.nido-energy-summary{grid-template-columns:1fr}}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}', vo = "https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
+const w0 = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.006);filter:brightness(1.015)}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe 5.5s var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe 6.2s var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe 4.8s var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe 7s var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', R0 = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}.nido-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.nido-topbar__brand{display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:.85}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-card__head{padding-top:14px}.n-card--camera .n-binary-state{padding-bottom:16px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}.nido-camera-panel__picker{padding:16px 20px;border-top:1px solid rgba(var(--fg-rgb),.06);display:flex;flex-direction:column;gap:10px}.nido-camera-panel__picker-msg{margin:0;font-size:.85rem;color:var(--danger, #b00020)}.nido-camera-panel__picker-hint{margin:0;font-size:.85rem;color:var(--ink-2)}.nido-camera-panel__picker-row{display:flex;gap:8px;flex-wrap:wrap}.nido-camera-panel__picker-select{flex:1 1 220px;min-width:0;padding:8px 10px;border-radius:var(--r-sm);border:1px solid rgba(var(--fg-rgb),.15);background:var(--bg-inset);color:var(--fg);font:inherit}.nido-camera-panel__picker-save{padding:8px 14px;border-radius:var(--r-sm);border:0;background:var(--accent);color:var(--accent-ink, #fff);font:inherit;cursor:pointer}.nido-camera-panel__picker-save:disabled{opacity:.4;cursor:default}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin 2.4s linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.nido-topbar__actions{display:flex;align-items:center;gap:12px}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active{transform:scale(.96)}.nido-lights-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-pill__label{font-size:12px;opacity:.8}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:10px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__room{font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:140px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--ink-1);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}.nido-room-card__meta{display:flex;gap:10px;font-family:var(--font-sans);font-size:12px;opacity:.65;align-items:center}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__stats{margin-top:10px;display:flex;gap:12px}.nido-room-card__stat{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.02em;color:inherit;opacity:.85}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:8px;overflow:hidden}.n-ob__shell{padding:16px;border-radius:var(--r-xl);min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__actions>.nido-bell-btn,.nido-topbar__actions>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar__actions{flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:8px}.nido-weather-pill-btn,.nido-topbar__actions>.nido-weather-pill,.nido-lights-pill-btn{flex:0 0 100%;display:flex;justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:32px}.nido-energy-summary{display:grid;grid-template-columns:minmax(320px,480px);gap:16px}@media(max-width:720px){.nido-energy-summary{grid-template-columns:1fr}}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}', vo = "https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
 let yo = !1;
-function R0() {
+function D0() {
   if (yo || typeof document > "u") return;
   if (!document.head.querySelector(`link[href="${vo}"]`)) {
     const e = document.createElement("link");
@@ -26623,12 +26670,12 @@ function R0() {
   }
   yo = !0;
 }
-class D0 extends HTMLElement {
+class C0 extends HTMLElement {
   constructor() {
-    super(), this._hass = null, this._narrow = !1, this._route = { prefix: "", path: "" }, this._panel = {}, R0();
+    super(), this._hass = null, this._narrow = !1, this._route = { prefix: "", path: "" }, this._panel = {}, D0();
     const e = this.attachShadow({ mode: "open" }), t = document.createElement("style");
-    t.textContent = `${k0}
-${w0}`, this._mountPoint = document.createElement("div"), this._mountPoint.className = "nido-root-mount", e.append(t, this._mountPoint);
+    t.textContent = `${w0}
+${R0}`, this._mountPoint = document.createElement("div"), this._mountPoint.className = "nido-root-mount", e.append(t, this._mountPoint);
   }
   set hass(e) {
     this._hass = e, this._render();
@@ -26665,10 +26712,10 @@ ${w0}`, this._mountPoint = document.createElement("div"), this._mountPoint.class
     this.setAttribute("data-theme", e), this.setAttribute("data-mode", t);
   }
   _render() {
-    xr(To(L0, { hass: this._hass, host: this }), this._mountPoint);
+    xr(To(k0, { hass: this._hass, host: this }), this._mountPoint);
   }
 }
-customElements.get("nido-panel") || customElements.define("nido-panel", D0);
+customElements.get("nido-panel") || customElements.define("nido-panel", C0);
 console.info(
   "%c NIDO %c v0.3.1 ",
   "background:#c75a2a;color:#fff;padding:2px 6px;border-radius:3px 0 0 3px;",
