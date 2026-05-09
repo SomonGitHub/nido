@@ -209,7 +209,8 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
     return () => {
       cancelled = true;
     };
-  }, [hass, entityId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hass != null, entityId]);
 
   useEffect(() => {
     if (!streamEntity) return;
@@ -301,7 +302,8 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
         video.load();
       }
     };
-  }, [hass, streamEntity]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hass != null, streamEntity]);
 
   function handlePickerSubmit() {
     if (!pickerSelection) return;
