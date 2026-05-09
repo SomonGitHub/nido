@@ -23251,10 +23251,14 @@ function Sm(s, e) {
   return e.startsWith("http") ? e : (s.hassUrl?.("") ?? "").replace(/\/$/, "") + e;
 }
 function Am(s, e) {
-  if (e.endsWith("_snapshot")) {
-    const t = e.replace(/_snapshot$/, "_live_view");
-    if (s.states[t]) return t;
-  }
+  if (!e.endsWith("_snapshot")) return e;
+  const t = e.replace(/_snapshot$/, ""), i = [`${t}_live_view`, `${t}_live`, `${t}_stream`, t], n = Object.keys(s.states).filter(
+    (r) => r.startsWith("camera.") && r.startsWith(t.replace(/^camera\./, "camera.")) && r !== e
+  );
+  console.log("[Nido] camera siblings for", e, ":", n);
+  for (const r of i)
+    if (s.states[r])
+      return console.log("[Nido] using", r, "for stream"), r;
   return e;
 }
 function Im({ hass: s, entityId: e, title: t, onClose: i }) {
