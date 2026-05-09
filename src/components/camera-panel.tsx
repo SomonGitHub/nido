@@ -21,9 +21,18 @@ function resolveUrl(hass: HassObject, path: string): string {
 }
 
 function pickStreamEntity(hass: HassObject, entityId: string): string {
-  if (entityId.endsWith("_snapshot")) {
-    const live = entityId.replace(/_snapshot$/, "_live_view");
-    if (hass.states[live]) return live;
+  if (!entityId.endsWith("_snapshot")) return entityId;
+  const base = entityId.replace(/_snapshot$/, "");
+  const candidates = [`${base}_live_view`, `${base}_live`, `${base}_stream`, base];
+  const siblings = Object.keys(hass.states).filter(
+    (id) => id.startsWith("camera.") && id.startsWith(base.replace(/^camera\./, "camera.")) && id !== entityId,
+  );
+  console.log("[Nido] camera siblings for", entityId, ":", siblings);
+  for (const c of candidates) {
+    if (hass.states[c]) {
+      console.log("[Nido] using", c, "for stream");
+      return c;
+    }
   }
   return entityId;
 }
