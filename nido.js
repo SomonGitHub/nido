@@ -1,4 +1,4 @@
-var mn, de, _o, ft, vr, bo, xo, xn, Ui, ti, Eo, As, Jn, es, Zi = {}, Ji = [], Yc = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, vn = Array.isArray;
+var mn, de, _o, ft, yr, bo, xo, xn, Ui, ti, Eo, As, Jn, es, Zi = {}, Ji = [], Yc = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, yn = Array.isArray;
 function dt(s, e) {
   for (var t in e) s[t] = e[t];
   return s;
@@ -38,8 +38,8 @@ function So(s) {
     if (e != null && e.__e != null) return s.__e = s.__c.base = e.__e;
   }), So(s);
 }
-function yr(s) {
-  (!s.__d && (s.__d = !0) && ft.push(s) && !en.__r++ || vr != de.debounceRendering) && ((vr = de.debounceRendering) || bo)(en);
+function vr(s) {
+  (!s.__d && (s.__d = !0) && ft.push(s) && !en.__r++ || yr != de.debounceRendering) && ((yr = de.debounceRendering) || bo)(en);
 }
 function en() {
   try {
@@ -49,13 +49,13 @@ function en() {
   }
 }
 function Ao(s, e, t, i, n, r, a, o, c, l, d) {
-  var u, f, p, g, v, m, _, b = i && i.__k || Ji, x = e.length;
-  for (c = qc(t, e, b, c, x), u = 0; u < x; u++) (p = t.__k[u]) != null && (f = p.__i != -1 && b[p.__i] || Zi, p.__i = u, m = Ls(s, p, f, n, r, a, o, c, l, d), g = p.__e, p.ref && f.ref != p.ref && (f.ref && ks(f.ref, null, p), d.push(p.ref, p.__c || g, p)), v == null && g != null && (v = g), (_ = !!(4 & p.__u)) || f.__k === p.__k ? (c = Io(p, c, s, _), _ && f.__e && (f.__e = null)) : typeof p.type == "function" && m !== void 0 ? c = m : g && (c = g.nextSibling), p.__u &= -7);
-  return t.__e = v, c;
+  var u, f, p, g, y, m, _, b = i && i.__k || Ji, x = e.length;
+  for (c = qc(t, e, b, c, x), u = 0; u < x; u++) (p = t.__k[u]) != null && (f = p.__i != -1 && b[p.__i] || Zi, p.__i = u, m = Ls(s, p, f, n, r, a, o, c, l, d), g = p.__e, p.ref && f.ref != p.ref && (f.ref && ks(f.ref, null, p), d.push(p.ref, p.__c || g, p)), y == null && g != null && (y = g), (_ = !!(4 & p.__u)) || f.__k === p.__k ? (c = Io(p, c, s, _), _ && f.__e && (f.__e = null)) : typeof p.type == "function" && m !== void 0 ? c = m : g && (c = g.nextSibling), p.__u &= -7);
+  return t.__e = y, c;
 }
 function qc(s, e, t, i, n) {
   var r, a, o, c, l, d = t.length, u = d, f = 0;
-  for (s.__k = new Array(n), r = 0; r < n; r++) (a = e[r]) != null && typeof a != "boolean" && typeof a != "function" ? (typeof a == "string" || typeof a == "number" || typeof a == "bigint" || a.constructor == String ? a = s.__k[r] = Gi(null, a, null, null, null) : vn(a) ? a = s.__k[r] = Gi(Ie, { children: a }, null, null, null) : a.constructor === void 0 && a.__b > 0 ? a = s.__k[r] = Gi(a.type, a.props, a.key, a.ref ? a.ref : null, a.__v) : s.__k[r] = a, c = r + f, a.__ = s, a.__b = s.__b + 1, o = null, (l = a.__i = Xc(a, t, c, u)) != -1 && (u--, (o = t[l]) && (o.__u |= 2)), o == null || o.__v == null ? (l == -1 && (n > d ? f-- : n < d && f++), typeof a.type != "function" && (a.__u |= 4)) : l != c && (l == c - 1 ? f-- : l == c + 1 ? f++ : (l > c ? f-- : f++, a.__u |= 4))) : s.__k[r] = null;
+  for (s.__k = new Array(n), r = 0; r < n; r++) (a = e[r]) != null && typeof a != "boolean" && typeof a != "function" ? (typeof a == "string" || typeof a == "number" || typeof a == "bigint" || a.constructor == String ? a = s.__k[r] = Gi(null, a, null, null, null) : yn(a) ? a = s.__k[r] = Gi(Ie, { children: a }, null, null, null) : a.constructor === void 0 && a.__b > 0 ? a = s.__k[r] = Gi(a.type, a.props, a.key, a.ref ? a.ref : null, a.__v) : s.__k[r] = a, c = r + f, a.__ = s, a.__b = s.__b + 1, o = null, (l = a.__i = Xc(a, t, c, u)) != -1 && (u--, (o = t[l]) && (o.__u |= 2)), o == null || o.__v == null ? (l == -1 && (n > d ? f-- : n < d && f++), typeof a.type != "function" && (a.__u |= 4)) : l != c && (l == c - 1 ? f-- : l == c + 1 ? f++ : (l > c ? f-- : f++, a.__u |= 4))) : s.__k[r] = null;
   if (u) for (r = 0; r < d; r++) (o = t[r]) != null && (2 & o.__u) == 0 && (o.__e == i && (i = Gt(o)), wo(o, o));
   return i;
 }
@@ -111,7 +111,7 @@ function br(s) {
   };
 }
 function Ls(s, e, t, i, n, r, a, o, c, l) {
-  var d, u, f, p, g, v, m, _, b, x, E, T, k, S, L, I = e.type;
+  var d, u, f, p, g, y, m, _, b, x, E, T, k, S, L, I = e.type;
   if (e.constructor !== void 0) return null;
   128 & t.__u && (c = !!(32 & t.__u), r = [o = e.__e = t.__e]), (d = de.__b) && d(e);
   e: if (typeof I == "function") try {
@@ -124,14 +124,14 @@ function Ls(s, e, t, i, n, r, a, o, c, l) {
         break e;
       }
       u.componentWillUpdate != null && u.componentWillUpdate(_, u.__s, E), b && u.componentDidUpdate != null && u.__h.push(function() {
-        u.componentDidUpdate(p, g, v);
+        u.componentDidUpdate(p, g, y);
       });
     }
     if (u.context = E, u.props = _, u.__P = s, u.__e = !1, T = de.__r, k = 0, b) u.state = u.__s, u.__d = !1, T && T(e), d = u.render(u.props, u.state, u.context), Ji.push.apply(u.__h, u._sb), u._sb = [];
     else do
       u.__d = !1, T && T(e), d = u.render(u.props, u.state, u.context), u.state = u.__s;
     while (u.__d && ++k < 25);
-    u.state = u.__s, u.getChildContext != null && (i = dt(dt({}, i), u.getChildContext())), b && !f && u.getSnapshotBeforeUpdate != null && (v = u.getSnapshotBeforeUpdate(p, g)), S = d != null && d.type === Ie && d.key == null ? ko(d.props.children) : d, o = Ao(s, vn(S) ? S : [S], e, t, i, n, r, a, o, c, l), u.base = e.__e, e.__u &= -161, u.__h.length && a.push(u), m && (u.__E = u.__ = null);
+    u.state = u.__s, u.getChildContext != null && (i = dt(dt({}, i), u.getChildContext())), b && !f && u.getSnapshotBeforeUpdate != null && (y = u.getSnapshotBeforeUpdate(p, g)), S = d != null && d.type === Ie && d.key == null ? ko(d.props.children) : d, o = Ao(s, yn(S) ? S : [S], e, t, i, n, r, a, o, c, l), u.base = e.__e, e.__u &= -161, u.__h.length && a.push(u), m && (u.__E = u.__ = null);
   } catch (A) {
     if (e.__v = null, c || r != null) if (A.then) {
       for (e.__u |= c ? 160 : 128; o && o.nodeType == 8 && o.nextSibling; ) o = o.nextSibling;
@@ -162,10 +162,10 @@ function Lo(s, e, t) {
   });
 }
 function ko(s) {
-  return typeof s != "object" || s == null || s.__b > 0 ? s : vn(s) ? s.map(ko) : dt({}, s);
+  return typeof s != "object" || s == null || s.__b > 0 ? s : yn(s) ? s.map(ko) : dt({}, s);
 }
 function Qc(s, e, t, i, n, r, a, o, c) {
-  var l, d, u, f, p, g, v, m = t.props || Zi, _ = e.props, b = e.type;
+  var l, d, u, f, p, g, y, m = t.props || Zi, _ = e.props, b = e.type;
   if (b == "svg" ? n = "http://www.w3.org/2000/svg" : b == "math" ? n = "http://www.w3.org/1998/Math/MathML" : n || (n = "http://www.w3.org/1999/xhtml"), r != null) {
     for (l = 0; l < r.length; l++) if ((p = r[l]) && "setAttribute" in p == !!b && (b ? p.localName == b : p.nodeType == 3)) {
       s = p, r[l] = null;
@@ -180,10 +180,10 @@ function Qc(s, e, t, i, n, r, a, o, c) {
   else {
     if (r = r && mn.call(s.childNodes), !o && r != null) for (m = {}, l = 0; l < s.attributes.length; l++) m[(p = s.attributes[l]).name] = p.value;
     for (l in m) p = m[l], l == "dangerouslySetInnerHTML" ? u = p : l == "children" || l in _ || l == "value" && "defaultValue" in _ || l == "checked" && "defaultChecked" in _ || _i(s, l, null, p, n);
-    for (l in _) p = _[l], l == "children" ? f = p : l == "dangerouslySetInnerHTML" ? d = p : l == "value" ? g = p : l == "checked" ? v = p : o && typeof p != "function" || m[l] === p || _i(s, l, p, m[l], n);
+    for (l in _) p = _[l], l == "children" ? f = p : l == "dangerouslySetInnerHTML" ? d = p : l == "value" ? g = p : l == "checked" ? y = p : o && typeof p != "function" || m[l] === p || _i(s, l, p, m[l], n);
     if (d) o || u && (d.__html == u.__html || d.__html == s.innerHTML) || (s.innerHTML = d.__html), e.__k = [];
-    else if (u && (s.innerHTML = ""), Ao(e.type == "template" ? s.content : s, vn(f) ? f : [f], e, t, i, b == "foreignObject" ? "http://www.w3.org/1999/xhtml" : n, r, a, r ? r[0] : t.__k && Gt(t, 0), o, c), r != null) for (l = r.length; l--; ) Is(r[l]);
-    o || (l = "value", b == "progress" && g == null ? s.removeAttribute("value") : g != null && (g !== s[l] || b == "progress" && !g || b == "option" && g != m[l]) && _i(s, l, g, m[l], n), l = "checked", v != null && v != s[l] && _i(s, l, v, m[l], n));
+    else if (u && (s.innerHTML = ""), Ao(e.type == "template" ? s.content : s, yn(f) ? f : [f], e, t, i, b == "foreignObject" ? "http://www.w3.org/1999/xhtml" : n, r, a, r ? r[0] : t.__k && Gt(t, 0), o, c), r != null) for (l = r.length; l--; ) Is(r[l]);
+    o || (l = "value", b == "progress" && g == null ? s.removeAttribute("value") : g != null && (g !== s[l] || b == "progress" && !g || b == "option" && g != m[l]) && _i(s, l, g, m[l], n), l = "checked", y != null && y != s[l] && _i(s, l, y, m[l], n));
   }
   return s;
 }
@@ -226,9 +226,9 @@ mn = Ji.slice, de = { __e: function(s, e, t, i) {
   throw s;
 } }, _o = 0, Vi.prototype.setState = function(s, e) {
   var t;
-  t = this.__s != null && this.__s != this.state ? this.__s : this.__s = dt({}, this.state), typeof s == "function" && (s = s(dt({}, t), this.props)), s && dt(t, s), s != null && this.__v && (e && this._sb.push(e), yr(this));
+  t = this.__s != null && this.__s != this.state ? this.__s : this.__s = dt({}, this.state), typeof s == "function" && (s = s(dt({}, t), this.props)), s && dt(t, s), s != null && this.__v && (e && this._sb.push(e), vr(this));
 }, Vi.prototype.forceUpdate = function(s) {
-  this.__v && (this.__e = !0, s && this.__h.push(s), yr(this));
+  this.__v && (this.__e = !0, s && this.__h.push(s), vr(this));
 }, Vi.prototype.render = Ie, ft = [], bo = typeof Promise == "function" ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, xo = function(s, e) {
   return s.__v.__b - e.__v.__b;
 }, en.__r = 0, xn = Math.random().toString(8), Ui = "__d" + xn, ti = "__a" + xn, Eo = /(PointerCapture)$|Capture$/i, As = 0, Jn = br(!1), es = br(!0);
@@ -241,10 +241,10 @@ function h(s, e, t, i, n, r) {
   if (typeof s == "function" && (a = s.defaultProps)) for (o in a) c[o] === void 0 && (c[o] = a[o]);
   return de.vnode && de.vnode(l), l;
 }
-var oi, ve, En, Er, li = 0, Ro = [], be = de, Tr = be.__b, Sr = be.__r, Ar = be.diffed, Ir = be.__c, Lr = be.unmount, kr = be.__;
+var oi, ye, En, Er, li = 0, Ro = [], be = de, Tr = be.__b, Sr = be.__r, Ar = be.diffed, Ir = be.__c, Lr = be.unmount, kr = be.__;
 function ws(s, e) {
-  be.__h && be.__h(ve, s, li || e), li = 0;
-  var t = ve.__H || (ve.__H = { __: [], __h: [] });
+  be.__h && be.__h(ye, s, li || e), li = 0;
+  var t = ye.__H || (ye.__H = { __: [], __h: [] });
   return s >= t.__.length && t.__.push({}), t.__[s];
 }
 function X(s) {
@@ -255,7 +255,7 @@ function ed(s, e, t) {
   if (i.t = s, !i.__c && (i.__ = [Co(void 0, e), function(o) {
     var c = i.__N ? i.__N[0] : i.__[0], l = i.t(c, o);
     c !== l && (i.__N = [l, i.__[1]], i.__c.setState({}));
-  }], i.__c = ve, !ve.__f)) {
+  }], i.__c = ye, !ye.__f)) {
     var n = function(o, c, l) {
       if (!i.__c.__H) return !0;
       var d = i.__c.__H.__.filter(function(f) {
@@ -272,21 +272,21 @@ function ed(s, e, t) {
         }
       }), r && r.call(this, o, c, l) || u;
     };
-    ve.__f = !0;
-    var r = ve.shouldComponentUpdate, a = ve.componentWillUpdate;
-    ve.componentWillUpdate = function(o, c, l) {
+    ye.__f = !0;
+    var r = ye.shouldComponentUpdate, a = ye.componentWillUpdate;
+    ye.componentWillUpdate = function(o, c, l) {
       if (this.__e) {
         var d = r;
         r = void 0, n(o, c, l), r = d;
       }
       a && a.call(this, o, c, l);
-    }, ve.shouldComponentUpdate = n;
+    }, ye.shouldComponentUpdate = n;
   }
   return i.__N || i.__;
 }
 function Se(s, e) {
   var t = ws(oi++, 3);
-  !be.__s && Do(t.__H, e) && (t.__ = s, t.u = e, ve.__H.__h.push(t));
+  !be.__s && Do(t.__H, e) && (t.__ = s, t.u = e, ye.__H.__h.push(t));
 }
 function Ee(s) {
   return li = 5, re(function() {
@@ -313,21 +313,21 @@ function td() {
   }
 }
 be.__b = function(s) {
-  ve = null, Tr && Tr(s);
+  ye = null, Tr && Tr(s);
 }, be.__ = function(s, e) {
   s && e.__k && e.__k.__m && (s.__m = e.__k.__m), kr && kr(s, e);
 }, be.__r = function(s) {
   Sr && Sr(s), oi = 0;
-  var e = (ve = s.__c).__H;
-  e && (En === ve ? (e.__h = [], ve.__h = [], e.__.some(function(t) {
+  var e = (ye = s.__c).__H;
+  e && (En === ye ? (e.__h = [], ye.__h = [], e.__.some(function(t) {
     t.__N && (t.__ = t.__N), t.u = t.__N = void 0;
-  })) : (e.__h.some(Ki), e.__h.some(is), e.__h = [], oi = 0)), En = ve;
+  })) : (e.__h.some(Ki), e.__h.some(is), e.__h = [], oi = 0)), En = ye;
 }, be.diffed = function(s) {
   Ar && Ar(s);
   var e = s.__c;
   e && e.__H && (e.__H.__h.length && (Ro.push(e) !== 1 && Er === be.requestAnimationFrame || ((Er = be.requestAnimationFrame) || id)(td)), e.__H.__.some(function(t) {
     t.u && (t.__H = t.u), t.u = void 0;
-  })), En = ve = null;
+  })), En = ye = null;
 }, be.__c = function(s, e) {
   e.some(function(t) {
     try {
@@ -359,12 +359,12 @@ function id(s) {
   wr && (e = requestAnimationFrame(t));
 }
 function Ki(s) {
-  var e = ve, t = s.__c;
-  typeof t == "function" && (s.__c = void 0, t()), ve = e;
+  var e = ye, t = s.__c;
+  typeof t == "function" && (s.__c = void 0, t()), ye = e;
 }
 function is(s) {
-  var e = ve;
-  s.__c = s.__(), ve = e;
+  var e = ye;
+  s.__c = s.__(), ye = e;
 }
 function Do(s, e) {
   return !s || s.length !== e.length || e.some(function(t, i) {
@@ -541,10 +541,10 @@ function Mr(s, e) {
   const t = He();
   t && (t.setItem(Le.theme, s), t.setItem(Le.mode, e));
 }
-function vd() {
+function yd() {
   return He()?.getItem(Le.lastNotificationRead) ?? null;
 }
-function yd(s) {
+function vd(s) {
   He()?.setItem(Le.lastNotificationRead, s);
 }
 const _d = 6, bd = 20;
@@ -584,8 +584,8 @@ function ss(s, e, t) {
   const d = Ce((f, p) => {
     const g = a.current;
     if (!g) return null;
-    const v = g.querySelectorAll("[data-drag-id]");
-    for (const m of Array.from(v)) {
+    const y = g.querySelectorAll("[data-drag-id]");
+    for (const m of Array.from(y)) {
       const _ = m.getBoundingClientRect();
       if (f >= _.left && f <= _.right && p >= _.top && p <= _.bottom)
         return m.getAttribute("data-drag-id");
@@ -593,33 +593,33 @@ function ss(s, e, t) {
     return null;
   }, []);
   Se(() => {
-    const f = (v) => {
+    const f = (y) => {
       const m = r.current;
       if (!m || m.pointerType !== "touch") return;
       if (m.entered) {
-        v.preventDefault();
+        y.preventDefault();
         return;
       }
-      const _ = v.touches[0];
+      const _ = y.touches[0];
       if (!_) return;
       const b = _.clientX - m.x, x = _.clientY - m.y;
-      Math.hypot(b, x) <= bd ? v.preventDefault() : (m.timerId && clearTimeout(m.timerId), r.current = null);
-    }, p = (v) => {
+      Math.hypot(b, x) <= bd ? y.preventDefault() : (m.timerId && clearTimeout(m.timerId), r.current = null);
+    }, p = (y) => {
       const m = r.current;
       if (!m) return;
       if (m.pointerType === "touch") {
         if (!m.entered)
           return;
       } else if (!m.entered) {
-        const b = v.clientX - m.x, x = v.clientY - m.y;
+        const b = y.clientX - m.x, x = y.clientY - m.y;
         if (Math.hypot(b, x) < _d) return;
         m.entered = !0, n({ draggingId: m.id, overId: null });
       }
-      const _ = d(v.clientX, v.clientY);
+      const _ = d(y.clientX, y.clientY);
       n((b) => b.overId === _ ? b : { ...b, overId: _ });
     }, g = () => {
-      const v = r.current;
-      if (v?.timerId && clearTimeout(v.timerId), r.current = null, !v || !v.entered) return;
+      const y = r.current;
+      if (y?.timerId && clearTimeout(y.timerId), r.current = null, !y || !y.entered) return;
       const m = (_) => {
         _.preventDefault(), _.stopPropagation();
       };
@@ -646,18 +646,18 @@ function ss(s, e, t) {
         "data-drag-id": f,
         "data-dragging": p ? "true" : void 0,
         "data-drag-over": g ? "true" : void 0,
-        onPointerDown: (v) => {
-          if (v.button !== void 0 && v.button !== 0) return;
-          const m = v.currentTarget;
-          if (!xd(v.target, m))
-            if (v.pointerType === "touch") {
+        onPointerDown: (y) => {
+          if (y.button !== void 0 && y.button !== 0) return;
+          const m = y.currentTarget;
+          if (!xd(y.target, m))
+            if (y.pointerType === "touch") {
               const _ = window.setTimeout(() => {
                 const b = r.current;
                 b && b.id === f && !b.entered && (b.entered = !0, n({ draggingId: f, overId: null }), "vibrate" in navigator && navigator.vibrate(50));
               }, 1500);
-              r.current = { id: f, x: v.clientX, y: v.clientY, entered: !1, pointerType: "touch", timerId: _ };
+              r.current = { id: f, x: y.clientX, y: y.clientY, entered: !1, pointerType: "touch", timerId: _ };
             } else
-              r.current = { id: f, x: v.clientX, y: v.clientY, entered: !1, pointerType: v.pointerType };
+              r.current = { id: f, x: y.clientX, y: y.clientY, entered: !1, pointerType: y.pointerType };
         }
       };
     },
@@ -683,7 +683,7 @@ const Y = ({ children: s, size: e = 24, stroke: t = 1.5, fill: i = "none", style
     style: n,
     children: s
   }
-), vi = (s) => /* @__PURE__ */ h(Y, { ...s, children: [
+), yi = (s) => /* @__PURE__ */ h(Y, { ...s, children: [
   /* @__PURE__ */ h("path", { d: "M9 18h6" }),
   /* @__PURE__ */ h("path", { d: "M10 21h4" }),
   /* @__PURE__ */ h("path", { d: "M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z" }),
@@ -815,7 +815,7 @@ const Y = ({ children: s, size: e = 24, stroke: t = 1.5, fill: i = "none", style
 ] }), Gd = (s) => /* @__PURE__ */ h(Y, { ...s, children: /* @__PURE__ */ h("path", { d: "M19 12H5M11 6l-6 6 6 6" }) }), Vd = (s) => /* @__PURE__ */ h(Y, { ...s, children: /* @__PURE__ */ h("path", { d: "m5 12 5 5 9-11" }) }), Kd = (s) => /* @__PURE__ */ h(Y, { ...s, children: /* @__PURE__ */ h("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), Hd = (s) => /* @__PURE__ */ h(Y, { ...s, children: [
   /* @__PURE__ */ h("circle", { cx: "11", cy: "11", r: "7" }),
   /* @__PURE__ */ h("path", { d: "m20 20-3.5-3.5" })
-] }), yt = (s) => /* @__PURE__ */ h(Y, { ...s, children: /* @__PURE__ */ h("path", { d: "M6 6l12 12M18 6 6 18" }) }), zd = (s) => /* @__PURE__ */ h(Y, { ...s, fill: "currentColor", children: /* @__PURE__ */ h("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), Ho = (s) => /* @__PURE__ */ h(Y, { ...s, children: /* @__PURE__ */ h("path", { d: "M20 14a8 8 0 1 1-9.5-9.5A6 6 0 0 0 20 14Z" }) }), Wd = (s) => /* @__PURE__ */ h(Y, { ...s, children: [
+] }), vt = (s) => /* @__PURE__ */ h(Y, { ...s, children: /* @__PURE__ */ h("path", { d: "M6 6l12 12M18 6 6 18" }) }), zd = (s) => /* @__PURE__ */ h(Y, { ...s, fill: "currentColor", children: /* @__PURE__ */ h("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), Ho = (s) => /* @__PURE__ */ h(Y, { ...s, children: /* @__PURE__ */ h("path", { d: "M20 14a8 8 0 1 1-9.5-9.5A6 6 0 0 0 20 14Z" }) }), Wd = (s) => /* @__PURE__ */ h(Y, { ...s, children: [
   /* @__PURE__ */ h("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }),
   /* @__PURE__ */ h("path", { d: "m9 12 2 2 4-4" })
 ] }), Yd = (s) => /* @__PURE__ */ h(Y, { ...s, children: [
@@ -909,16 +909,16 @@ function qo({
     } finally {
       setTimeout(() => d(null), 50);
     }
-  }, v = [
+  }, y = [
     "n-card",
     t ? r ? "n-card--accent" : "n-card--accent-muted" : "n-card--default",
     r ? `breathe-${i}` : "",
     o ? "is-pending" : ""
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ h("div", { class: v, "data-hero": t ? "true" : "false", "data-on": r ? "true" : "false", children: [
+  return /* @__PURE__ */ h("div", { class: y, "data-hero": t ? "true" : "false", "data-on": r ? "true" : "false", children: [
     r && /* @__PURE__ */ h("div", { class: "n-light__glow glow-pulse-1", "aria-hidden": "true" }),
     /* @__PURE__ */ h("div", { class: "n-card__head", children: [
-      /* @__PURE__ */ h("div", { class: "n-icon-bubble", children: /* @__PURE__ */ h(vi, { size: 20 }) }),
+      /* @__PURE__ */ h("div", { class: "n-icon-bubble", children: /* @__PURE__ */ h(yi, { size: 20 }) }),
       /* @__PURE__ */ h(
         "button",
         {
@@ -1123,7 +1123,7 @@ function Jo({
   breatheVariant: i = 2,
   hero: n = !1
 }) {
-  const r = e.state.state === "unavailable", a = e.state.state, o = a !== "off" && !r, c = e.state.attributes.current_temperature, l = e.state.attributes.temperature, d = e.state.attributes.min_temp ?? 7, u = e.state.attributes.max_temp ?? 35, f = e.state.attributes.target_temp_step ?? 0.5, [p, g] = X(null), v = p ?? l ?? c ?? 20, m = async (E) => {
+  const r = e.state.state === "unavailable", a = e.state.state, o = a !== "off" && !r, c = e.state.attributes.current_temperature, l = e.state.attributes.temperature, d = e.state.attributes.min_temp ?? 7, u = e.state.attributes.max_temp ?? 35, f = e.state.attributes.target_temp_step ?? 0.5, [p, g] = X(null), y = p ?? l ?? c ?? 20, m = async (E) => {
     const T = Math.min(u, Math.max(d, E));
     g(T);
     try {
@@ -1146,7 +1146,7 @@ function Jo({
     !r && /* @__PURE__ */ h(Ie, { children: [
       /* @__PURE__ */ h("div", { class: "n-climate__temp", children: [
         /* @__PURE__ */ h("span", { class: "n-value n-value--xl", children: [
-          Math.round(v * 10) / 10,
+          Math.round(y * 10) / 10,
           /* @__PURE__ */ h("span", { class: "n-value__unit", children: "°C" })
         ] }),
         typeof c == "number" && /* @__PURE__ */ h("span", { class: "n-muted", children: [
@@ -1162,8 +1162,8 @@ function Jo({
             type: "button",
             class: "n-stepper",
             "aria-label": "Diminuer",
-            onClick: () => m(v - f),
-            disabled: v - f < d,
+            onClick: () => m(y - f),
+            disabled: y - f < d,
             children: /* @__PURE__ */ h(wd, { size: 16 })
           }
         ),
@@ -1173,8 +1173,8 @@ function Jo({
             type: "button",
             class: "n-stepper",
             "aria-label": "Augmenter",
-            onClick: () => m(v + f),
-            disabled: v + f > u,
+            onClick: () => m(y + f),
+            disabled: y + f > u,
             children: /* @__PURE__ */ h(Rd, { size: 16 })
           }
         )
@@ -1330,7 +1330,7 @@ function il({ entity: s, roomLabel: e }) {
     ] })
   ] });
 }
-const vu = {
+const yu = {
   playing: "En lecture",
   paused: "En pause",
   idle: "Au repos",
@@ -1346,17 +1346,17 @@ function nl({
   hero: i = !1,
   breatheVariant: n = 4
 }) {
-  const r = e.state.state, a = r === "unavailable", o = r === "playing", c = r === "off" || r === "standby", l = e.state.attributes.media_title, d = e.state.attributes.media_artist, u = e.state.attributes.app_name, f = e.state.attributes.volume_level, p = e.state.attributes.entity_picture, [g, v] = X(null), m = g ?? f ?? 0, _ = async (T, k = {}) => {
+  const r = e.state.state, a = r === "unavailable", o = r === "playing", c = r === "off" || r === "standby", l = e.state.attributes.media_title, d = e.state.attributes.media_artist, u = e.state.attributes.app_name, f = e.state.attributes.volume_level, p = e.state.attributes.entity_picture, [g, y] = X(null), m = g ?? f ?? 0, _ = async (T, k = {}) => {
     a || await s.callService("media_player", T, {
       entity_id: e.entity_id,
       ...k
     });
   }, b = async (T) => {
-    v(T);
+    y(T);
     try {
       await _("volume_set", { volume_level: T });
     } finally {
-      setTimeout(() => v(null), 50);
+      setTimeout(() => y(null), 50);
     }
   }, E = ["n-card", i ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${n}` : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ h("div", { class: E, "data-hero": i ? "true" : "false", "data-on": o ? "true" : "false", children: [
@@ -1368,7 +1368,7 @@ function nl({
     /* @__PURE__ */ h("div", { class: "n-card__head", style: { alignItems: "center" }, children: [
       /* @__PURE__ */ h("div", { style: { display: "flex", alignItems: "center", gap: "10px" }, children: [
         /* @__PURE__ */ h("div", { class: "n-icon-bubble", children: /* @__PURE__ */ h($s, { size: 20 }) }),
-        /* @__PURE__ */ h("span", { class: "n-eyebrow", children: vu[r] ?? r })
+        /* @__PURE__ */ h("span", { class: "n-eyebrow", children: yu[r] ?? r })
       ] }),
       /* @__PURE__ */ h(
         "button",
@@ -1444,7 +1444,7 @@ function nl({
     a && /* @__PURE__ */ h("div", { class: "n-muted", children: "Indisponible" })
   ] });
 }
-const yu = {
+const vu = {
   disarmed: "Désarmée",
   armed_home: "Présence",
   armed_away: "Absence",
@@ -1480,7 +1480,7 @@ function sl({ hass: s, entity: e, roomLabel: t }) {
       children: [
         /* @__PURE__ */ h("div", { class: "n-card__head", children: [
           /* @__PURE__ */ h("div", { class: "n-icon-bubble", children: /* @__PURE__ */ h(ci, { size: 20 }) }),
-          /* @__PURE__ */ h("span", { class: "n-eyebrow", children: yu[i] ?? i })
+          /* @__PURE__ */ h("span", { class: "n-eyebrow", children: vu[i] ?? i })
         ] }),
         t && /* @__PURE__ */ h("div", { class: "n-eyebrow", children: t }),
         /* @__PURE__ */ h("div", { class: "n-title", children: e.friendly_name }),
@@ -1524,7 +1524,7 @@ let q = /* @__PURE__ */ (function(s) {
   return s.NETWORK_ERROR = "networkError", s.MEDIA_ERROR = "mediaError", s.KEY_SYSTEM_ERROR = "keySystemError", s.MUX_ERROR = "muxError", s.OTHER_ERROR = "otherError", s;
 })({}), R = /* @__PURE__ */ (function(s) {
   return s.KEY_SYSTEM_NO_KEYS = "keySystemNoKeys", s.KEY_SYSTEM_NO_ACCESS = "keySystemNoAccess", s.KEY_SYSTEM_NO_SESSION = "keySystemNoSession", s.KEY_SYSTEM_NO_CONFIGURED_LICENSE = "keySystemNoConfiguredLicense", s.KEY_SYSTEM_LICENSE_REQUEST_FAILED = "keySystemLicenseRequestFailed", s.KEY_SYSTEM_SERVER_CERTIFICATE_REQUEST_FAILED = "keySystemServerCertificateRequestFailed", s.KEY_SYSTEM_SERVER_CERTIFICATE_UPDATE_FAILED = "keySystemServerCertificateUpdateFailed", s.KEY_SYSTEM_SESSION_UPDATE_FAILED = "keySystemSessionUpdateFailed", s.KEY_SYSTEM_STATUS_OUTPUT_RESTRICTED = "keySystemStatusOutputRestricted", s.KEY_SYSTEM_STATUS_INTERNAL_ERROR = "keySystemStatusInternalError", s.KEY_SYSTEM_DESTROY_MEDIA_KEYS_ERROR = "keySystemDestroyMediaKeysError", s.KEY_SYSTEM_DESTROY_CLOSE_SESSION_ERROR = "keySystemDestroyCloseSessionError", s.KEY_SYSTEM_DESTROY_REMOVE_SESSION_ERROR = "keySystemDestroyRemoveSessionError", s.MANIFEST_LOAD_ERROR = "manifestLoadError", s.MANIFEST_LOAD_TIMEOUT = "manifestLoadTimeOut", s.MANIFEST_PARSING_ERROR = "manifestParsingError", s.MANIFEST_INCOMPATIBLE_CODECS_ERROR = "manifestIncompatibleCodecsError", s.LEVEL_EMPTY_ERROR = "levelEmptyError", s.LEVEL_LOAD_ERROR = "levelLoadError", s.LEVEL_LOAD_TIMEOUT = "levelLoadTimeOut", s.LEVEL_PARSING_ERROR = "levelParsingError", s.LEVEL_SWITCH_ERROR = "levelSwitchError", s.AUDIO_TRACK_LOAD_ERROR = "audioTrackLoadError", s.AUDIO_TRACK_LOAD_TIMEOUT = "audioTrackLoadTimeOut", s.SUBTITLE_LOAD_ERROR = "subtitleTrackLoadError", s.SUBTITLE_TRACK_LOAD_TIMEOUT = "subtitleTrackLoadTimeOut", s.FRAG_LOAD_ERROR = "fragLoadError", s.FRAG_LOAD_TIMEOUT = "fragLoadTimeOut", s.FRAG_DECRYPT_ERROR = "fragDecryptError", s.FRAG_PARSING_ERROR = "fragParsingError", s.FRAG_GAP = "fragGap", s.REMUX_ALLOC_ERROR = "remuxAllocError", s.KEY_LOAD_ERROR = "keyLoadError", s.KEY_LOAD_TIMEOUT = "keyLoadTimeOut", s.BUFFER_ADD_CODEC_ERROR = "bufferAddCodecError", s.BUFFER_INCOMPATIBLE_CODECS_ERROR = "bufferIncompatibleCodecsError", s.BUFFER_APPEND_ERROR = "bufferAppendError", s.BUFFER_APPENDING_ERROR = "bufferAppendingError", s.BUFFER_STALLED_ERROR = "bufferStalledError", s.BUFFER_FULL_ERROR = "bufferFullError", s.BUFFER_SEEK_OVER_HOLE = "bufferSeekOverHole", s.BUFFER_NUDGE_ON_STALL = "bufferNudgeOnStall", s.ASSET_LIST_LOAD_ERROR = "assetListLoadError", s.ASSET_LIST_LOAD_TIMEOUT = "assetListLoadTimeout", s.ASSET_LIST_PARSING_ERROR = "assetListParsingError", s.INTERSTITIAL_ASSET_ITEM_ERROR = "interstitialAssetItemError", s.INTERNAL_EXCEPTION = "internalException", s.INTERNAL_ABORTED = "aborted", s.ATTACH_MEDIA_ERROR = "attachMediaError", s.UNKNOWN = "unknown", s;
-})({}), y = /* @__PURE__ */ (function(s) {
+})({}), v = /* @__PURE__ */ (function(s) {
   return s.MEDIA_ATTACHING = "hlsMediaAttaching", s.MEDIA_ATTACHED = "hlsMediaAttached", s.MEDIA_DETACHING = "hlsMediaDetaching", s.MEDIA_DETACHED = "hlsMediaDetached", s.MEDIA_ENDED = "hlsMediaEnded", s.STALL_RESOLVED = "hlsStallResolved", s.BUFFER_RESET = "hlsBufferReset", s.BUFFER_CODECS = "hlsBufferCodecs", s.BUFFER_CREATED = "hlsBufferCreated", s.BUFFER_APPENDING = "hlsBufferAppending", s.BUFFER_APPENDED = "hlsBufferAppended", s.BUFFER_EOS = "hlsBufferEos", s.BUFFERED_TO_END = "hlsBufferedToEnd", s.BUFFER_FLUSHING = "hlsBufferFlushing", s.BUFFER_FLUSHED = "hlsBufferFlushed", s.MANIFEST_LOADING = "hlsManifestLoading", s.MANIFEST_LOADED = "hlsManifestLoaded", s.MANIFEST_PARSED = "hlsManifestParsed", s.LEVEL_SWITCHING = "hlsLevelSwitching", s.LEVEL_SWITCHED = "hlsLevelSwitched", s.LEVEL_LOADING = "hlsLevelLoading", s.LEVEL_LOADED = "hlsLevelLoaded", s.LEVEL_UPDATED = "hlsLevelUpdated", s.LEVEL_PTS_UPDATED = "hlsLevelPtsUpdated", s.LEVELS_UPDATED = "hlsLevelsUpdated", s.AUDIO_TRACKS_UPDATED = "hlsAudioTracksUpdated", s.AUDIO_TRACK_SWITCHING = "hlsAudioTrackSwitching", s.AUDIO_TRACK_SWITCHED = "hlsAudioTrackSwitched", s.AUDIO_TRACK_LOADING = "hlsAudioTrackLoading", s.AUDIO_TRACK_LOADED = "hlsAudioTrackLoaded", s.AUDIO_TRACK_UPDATED = "hlsAudioTrackUpdated", s.SUBTITLE_TRACKS_UPDATED = "hlsSubtitleTracksUpdated", s.SUBTITLE_TRACKS_CLEARED = "hlsSubtitleTracksCleared", s.SUBTITLE_TRACK_SWITCH = "hlsSubtitleTrackSwitch", s.SUBTITLE_TRACK_LOADING = "hlsSubtitleTrackLoading", s.SUBTITLE_TRACK_LOADED = "hlsSubtitleTrackLoaded", s.SUBTITLE_TRACK_UPDATED = "hlsSubtitleTrackUpdated", s.SUBTITLE_FRAG_PROCESSED = "hlsSubtitleFragProcessed", s.CUES_PARSED = "hlsCuesParsed", s.NON_NATIVE_TEXT_TRACKS_FOUND = "hlsNonNativeTextTracksFound", s.INIT_PTS_FOUND = "hlsInitPtsFound", s.FRAG_LOADING = "hlsFragLoading", s.FRAG_LOAD_EMERGENCY_ABORTED = "hlsFragLoadEmergencyAborted", s.FRAG_LOADED = "hlsFragLoaded", s.FRAG_DECRYPTED = "hlsFragDecrypted", s.FRAG_PARSING_INIT_SEGMENT = "hlsFragParsingInitSegment", s.FRAG_PARSING_USERDATA = "hlsFragParsingUserdata", s.FRAG_PARSING_METADATA = "hlsFragParsingMetadata", s.FRAG_PARSED = "hlsFragParsed", s.FRAG_BUFFERED = "hlsFragBuffered", s.FRAG_CHANGED = "hlsFragChanged", s.FPS_DROP = "hlsFpsDrop", s.FPS_DROP_LEVEL_CAPPING = "hlsFpsDropLevelCapping", s.MAX_AUTO_LEVEL_UPDATED = "hlsMaxAutoLevelUpdated", s.ERROR = "hlsError", s.DESTROYING = "hlsDestroying", s.KEY_LOADING = "hlsKeyLoading", s.KEY_LOADED = "hlsKeyLoaded", s.LIVE_BACK_BUFFER_REACHED = "hlsLiveBackBufferReached", s.BACK_BUFFER_REACHED = "hlsBackBufferReached", s.STEERING_MANIFEST_LOADED = "hlsSteeringManifestLoaded", s.ASSET_LIST_LOADING = "hlsAssetListLoading", s.ASSET_LIST_LOADED = "hlsAssetListLoaded", s.INTERSTITIALS_UPDATED = "hlsInterstitialsUpdated", s.INTERSTITIALS_BUFFERED_TO_BOUNDARY = "hlsInterstitialsBufferedToBoundary", s.INTERSTITIAL_ASSET_PLAYER_CREATED = "hlsInterstitialAssetPlayerCreated", s.INTERSTITIAL_STARTED = "hlsInterstitialStarted", s.INTERSTITIAL_ASSET_STARTED = "hlsInterstitialAssetStarted", s.INTERSTITIAL_ASSET_ENDED = "hlsInterstitialAssetEnded", s.INTERSTITIAL_ASSET_ERROR = "hlsInterstitialAssetError", s.INTERSTITIAL_ENDED = "hlsInterstitialEnded", s.INTERSTITIALS_PRIMARY_RESUMED = "hlsInterstitialsPrimaryResumed", s.PLAYOUT_LIMIT_REACHED = "hlsPlayoutLimitReached", s.EVENT_CUE_ENTER = "hlsEventCueEnter", s;
 })({});
 var se = {
@@ -1798,7 +1798,7 @@ function Du() {
             p.netLoc = g[1], p.path = g[2];
           }
           p.netLoc && !p.path && (p.path = "/");
-          var v = {
+          var y = {
             // 2c) Otherwise, the embedded URL inherits the scheme of
             // the base URL.
             scheme: p.scheme,
@@ -1808,14 +1808,14 @@ function Du() {
             query: f.query,
             fragment: f.fragment
           };
-          if (!f.netLoc && (v.netLoc = p.netLoc, f.path[0] !== "/"))
+          if (!f.netLoc && (y.netLoc = p.netLoc, f.path[0] !== "/"))
             if (!f.path)
-              v.path = p.path, f.params || (v.params = p.params, f.query || (v.query = p.query));
+              y.path = p.path, f.params || (y.params = p.params, f.query || (y.query = p.query));
             else {
               var m = p.path, _ = m.substring(0, m.lastIndexOf("/") + 1) + f.path;
-              v.path = o.normalizePath(_);
+              y.path = o.normalizePath(_);
             }
-          return v.path === null && (v.path = d.alwaysNormalize ? o.normalizePath(f.path) : f.path), o.buildURLFromParts(v);
+          return y.path === null && (y.path = d.alwaysNormalize ? o.normalizePath(f.path) : f.path), o.buildURLFromParts(y);
         },
         parseURL: function(c) {
           var l = i.exec(c);
@@ -1924,7 +1924,7 @@ class ol {
     e[ce.AUDIO] = null, e[ce.VIDEO] = null, e[ce.AUDIOVIDEO] = null;
   }
 }
-function ye(s) {
+function ve(s) {
   return s.sn !== "initSegment";
 }
 class In extends ol {
@@ -2000,7 +2000,7 @@ class In extends ol {
     this._programDateTime = e;
   }
   get ref() {
-    return ye(this) ? (this._ref || (this._ref = {
+    return ve(this) ? (this._ref || (this._ref = {
       base: this.base,
       start: this.start,
       duration: this.duration,
@@ -2179,18 +2179,18 @@ function hl(s) {
           const f = xe(u.subarray(8, 12)), p = {
             soun: ce.AUDIO,
             vide: ce.VIDEO
-          }[f], g = ne(r, ["mdia", "minf", "stbl", "stsd"])[0], v = Nu(g);
+          }[f], g = ne(r, ["mdia", "minf", "stbl", "stsd"])[0], y = Nu(g);
           p ? (e[c] = {
             timescale: d,
             type: p,
-            stsd: v
+            stsd: y
           }, e[p] = ae({
             timescale: d,
             id: c
-          }, v)) : e[c] = {
+          }, y)) : e[c] = {
             timescale: d,
             type: f,
-            stsd: v
+            stsd: y
           };
         }
       }
@@ -2260,11 +2260,11 @@ function Nu(s) {
     case "hev1": {
       const c = ne(t, ["hvcC"])[0];
       if (c && c.length > 12) {
-        const l = c[1], d = ["", "A", "B", "C"][l >> 6], u = l & 31, f = J(c, 2), p = (l & 32) >> 5 ? "H" : "L", g = c[12], v = c.subarray(6, 12);
+        const l = c[1], d = ["", "A", "B", "C"][l >> 6], u = l & 31, f = J(c, 2), p = (l & 32) >> 5 ? "H" : "L", g = c[12], y = c.subarray(6, 12);
         n += "." + d + u, n += "." + $u(f).toString(16).toUpperCase(), n += "." + p + g;
         let m = "";
-        for (let _ = v.length; _--; ) {
-          const b = v[_];
+        for (let _ = y.length; _--; ) {
+          const b = y[_];
           (b || m) && (m = "." + b.toString(16).toUpperCase() + m);
         }
         n += m;
@@ -2291,8 +2291,8 @@ function Nu(s) {
     case "av01": {
       const c = ne(t, ["av1C"])[0];
       if (c && c.length > 2) {
-        const l = c[1] >>> 5, d = c[1] & 31, u = c[2] >>> 7 ? "H" : "M", f = (c[2] & 64) >> 6, p = (c[2] & 32) >> 5, g = l === 2 && f ? p ? 12 : 10 : f ? 10 : 8, v = (c[2] & 16) >> 4, m = (c[2] & 8) >> 3, _ = (c[2] & 4) >> 2, b = c[2] & 3;
-        n += "." + l + "." + Qe(d) + u + "." + Qe(g) + "." + v + "." + m + _ + b + "." + Qe(1) + "." + Qe(1) + "." + Qe(1) + "." + 0, r = bi("dav1", t);
+        const l = c[1] >>> 5, d = c[1] & 31, u = c[2] >>> 7 ? "H" : "M", f = (c[2] & 64) >> 6, p = (c[2] & 32) >> 5, g = l === 2 && f ? p ? 12 : 10 : f ? 10 : 8, y = (c[2] & 16) >> 4, m = (c[2] & 8) >> 3, _ = (c[2] & 4) >> 2, b = c[2] & 3;
+        n += "." + l + "." + Qe(d) + u + "." + Qe(g) + "." + y + "." + m + _ + b + "." + Qe(1) + "." + Qe(1) + "." + Qe(1) + "." + 0, r = bi("dav1", t);
       }
       break;
     }
@@ -2390,10 +2390,10 @@ function Gu(s, e, t) {
     const f = l.default, p = J(o, 0) | f?.flags;
     let g = f?.duration || 0;
     p & 8 && (p & 2 ? g = J(o, 12) : g = J(o, 8));
-    const v = ne(a, ["trun"]);
+    const y = ne(a, ["trun"]);
     let m = d.start || 0, _ = 0, b = g;
-    for (let x = 0; x < v.length; x++) {
-      const E = v[x], T = J(E, 4), k = d.sampleCount;
+    for (let x = 0; x < y.length; x++) {
+      const E = y[x], T = J(E, 4), k = d.sampleCount;
       d.sampleCount += T;
       const S = E[3] & 1, L = E[3] & 4, I = E[2] & 1, A = E[2] & 2, P = E[2] & 4, B = E[2] & 8;
       let K = 8, z = T;
@@ -2442,17 +2442,17 @@ function zr(s, e) {
     ne(c, ["traf"]).map((u) => {
       const f = ne(u, ["tfdt"]).map((p) => {
         const g = p[0];
-        let v = J(p, 4);
-        return g === 1 && (v *= Math.pow(2, 32), v += J(p, 8)), v / n;
+        let y = J(p, 4);
+        return g === 1 && (y *= Math.pow(2, 32), y += J(p, 8)), y / n;
       })[0];
       return f !== void 0 && (s = f), ne(u, ["tfhd"]).map((p) => {
-        const g = J(p, 4), v = J(p, 0) & 16777215, m = (v & 1) !== 0, _ = (v & 2) !== 0, b = (v & 8) !== 0;
+        const g = J(p, 4), y = J(p, 0) & 16777215, m = (y & 1) !== 0, _ = (y & 2) !== 0, b = (y & 8) !== 0;
         let x = 0;
-        const E = (v & 16) !== 0;
+        const E = (y & 16) !== 0;
         let T = 0;
-        const k = (v & 32) !== 0;
+        const k = (y & 32) !== 0;
         let S = 8;
-        g === r && (m && (S += 8), _ && (S += 4), b && (x = J(p, S), S += 4), E && (T = J(p, S), S += 4), k && (S += 4), e.type === "video" && (a = yn(e.codec)), ne(u, ["trun"]).map((L) => {
+        g === r && (m && (S += 8), _ && (S += 4), b && (x = J(p, S), S += 4), E && (T = J(p, S), S += 4), k && (S += 4), e.type === "video" && (a = vn(e.codec)), ne(u, ["trun"]).map((L) => {
           const I = L[0], A = J(L, 0) & 16777215, P = (A & 1) !== 0;
           let B = 0;
           const K = (A & 4) !== 0, z = (A & 256) !== 0;
@@ -2484,7 +2484,7 @@ function zr(s, e) {
     });
   }), t;
 }
-function yn(s) {
+function vn(s) {
   if (!s)
     return !1;
   const e = s.substring(0, 4);
@@ -2532,9 +2532,9 @@ function Ks(s, e, t, i) {
           if (d += 4, p === 1195456820) {
             const g = n[d++];
             if (g === 3) {
-              const v = n[d++], m = 31 & v, _ = 64 & v, b = _ ? 2 + m * 3 : 0, x = new Uint8Array(b);
+              const y = n[d++], m = 31 & y, _ = 64 & y, b = _ ? 2 + m * 3 : 0, x = new Uint8Array(b);
               if (_) {
-                x[0] = v;
+                x[0] = y;
                 for (let E = 1; E < b; E++)
                   x[E] = n[d++];
               }
@@ -2551,8 +2551,8 @@ function Ks(s, e, t, i) {
     } else if (a === 5 && o > 16) {
       const u = [];
       for (let g = 0; g < 16; g++) {
-        const v = n[d++].toString(16);
-        u.push(v.length == 1 ? "0" + v : v), (g === 3 || g === 5 || g === 7 || g === 9) && u.push("-");
+        const y = n[d++].toString(16);
+        u.push(y.length == 1 ? "0" + y : y), (g === 3 || g === 5 || g === 7 || g === 9) && u.push("-");
       }
       const f = o - 16, p = new Uint8Array(f);
       for (let g = 0; g < f; g++)
@@ -2815,7 +2815,7 @@ function Wr(s) {
 function nn(s) {
   const e = ml();
   return s.split(",").reduce((t, i) => {
-    const r = e && yn(i) ? 9 : Kt.video[i];
+    const r = e && vn(i) ? 9 : Kt.video[i];
     return r ? (r * 2 + t) / (t ? 3 : 2) : (Kt.audio[i] + t) / (t ? 2 : 1);
   }, 0);
 }
@@ -2914,12 +2914,12 @@ const eh = {
   smooth: !1,
   powerEfficient: !1
   // keySystemAccess: null,
-}, vl = {
+}, yl = {
   supported: !0,
   configurations: [],
   decodingInfoResults: [eh]
 };
-function yl(s, e) {
+function vl(s, e) {
   return {
     supported: !1,
     configurations: e,
@@ -2937,8 +2937,8 @@ function ih(s, e, t, i, n, r) {
           const g = e.groups[p];
           if (!g)
             throw new Error(`Audio track group ${p} not found`);
-          Object.keys(g.channels).forEach((v) => {
-            f[v] = (f[v] || 0) + g.channels[v];
+          Object.keys(g.channels).forEach((y) => {
+            f[y] = (f[y] || 0) + g.channels[y];
           });
         }
         return f;
@@ -2949,12 +2949,12 @@ function ih(s, e, t, i, n, r) {
       return !0;
     }
   return a !== void 0 && // Force media capabilities check for HEVC to avoid failure on Windows
-  (a.split(",").some((f) => yn(f)) || s.width > 1920 && s.height > 1088 || s.height > 1920 && s.width > 1088 || s.frameRate > Math.max(i, 30) || s.videoRange !== "SDR" && s.videoRange !== t || s.bitrate > Math.max(n, 8e6)) || !!u && W(d) && Object.keys(u).some((f) => parseInt(f) > d);
+  (a.split(",").some((f) => vn(f)) || s.width > 1920 && s.height > 1088 || s.height > 1920 && s.width > 1088 || s.frameRate > Math.max(i, 30) || s.videoRange !== "SDR" && s.videoRange !== t || s.bitrate > Math.max(n, 8e6)) || !!u && W(d) && Object.keys(u).some((f) => parseInt(f) > d);
 }
 function _l(s, e, t, i = {}) {
   const n = s.videoCodec;
   if (!n && !s.audioCodec || !t)
-    return Promise.resolve(vl);
+    return Promise.resolve(yl);
   const r = [], a = nh(s), o = a.length, c = sh(s, e, o > 0), l = c.length;
   for (let d = o || 1 * l || 1; d--; ) {
     const u = {
@@ -2969,8 +2969,8 @@ function _l(s, e, t, i = {}) {
   }
   if (n) {
     const d = navigator.userAgent;
-    if (n.split(",").some((u) => yn(u)) && ml())
-      return Promise.resolve(yl(new Error(`Overriding Windows Firefox HEVC MediaCapabilities result based on user-agent string: (${d})`), r));
+    if (n.split(",").some((u) => vn(u)) && ml())
+      return Promise.resolve(vl(new Error(`Overriding Windows Firefox HEVC MediaCapabilities result based on user-agent string: (${d})`), r));
   }
   return Promise.all(r.map((d) => {
     const u = ah(d);
@@ -3192,7 +3192,7 @@ const uh = (s) => {
 }, ue = (s, e) => JSON.stringify(s, uh(e));
 function hh(s, e, t, i, n) {
   const r = Object.keys(s), a = i?.channels, o = i?.audioCodec, c = n?.videoCodec, l = a && parseInt(a) === 2;
-  let d = !1, u = !1, f = 1 / 0, p = 1 / 0, g = 1 / 0, v = 1 / 0, m = 0, _ = [];
+  let d = !1, u = !1, f = 1 / 0, p = 1 / 0, g = 1 / 0, y = 1 / 0, m = 0, _ = [];
   const {
     preferHDR: b,
     allowedVideoRanges: x
@@ -3233,13 +3233,13 @@ function hh(s, e, t, i, n) {
         if (A.maxScore < m)
           return qe(I, `max score of ${A.maxScore} < selected max of ${m}`), L;
       }
-      return L && (nn(I) >= nn(L) || A.fragmentError > s[L].fragmentError) ? L : (v = A.minIndex, m = A.maxScore, I);
+      return L && (nn(I) >= nn(L) || A.fragmentError > s[L].fragmentError) ? L : (y = A.minIndex, m = A.maxScore, I);
     }, void 0),
     videoRanges: _,
     preferHDR: b,
     minFramerate: p,
     minBitrate: g,
-    minIndex: v
+    minIndex: y
   };
 }
 function qe(s, e) {
@@ -3353,18 +3353,18 @@ function St(s, e) {
 }
 function mh(s, e, t, i, n) {
   const r = e[i], o = e.reduce((f, p, g) => {
-    const v = p.uri;
-    return (f[v] || (f[v] = [])).push(g), f;
+    const y = p.uri;
+    return (f[y] || (f[y] = [])).push(g), f;
   }, {})[r.uri];
   o.length > 1 && (i = Math.max.apply(Math, o));
   const c = r.videoRange, l = r.frameRate, d = r.codecSet.substring(0, 4), u = Jr(e, i, (f) => {
     if (f.videoRange !== c || f.frameRate !== l || f.codecSet.substring(0, 4) !== d)
       return !1;
-    const p = f.audioGroups, g = t.filter((v) => !p || p.indexOf(v.groupId) !== -1);
+    const p = f.audioGroups, g = t.filter((y) => !p || p.indexOf(y.groupId) !== -1);
     return et(s, g, n) > -1;
   });
   return u > -1 ? u : Jr(e, i, (f) => {
-    const p = f.audioGroups, g = t.filter((v) => !p || p.indexOf(v.groupId) !== -1);
+    const p = f.audioGroups, g = t.filter((y) => !p || p.indexOf(y.groupId) !== -1);
     return et(s, g, n) > -1;
   });
 }
@@ -3381,7 +3381,7 @@ function an(s, e) {
   var t;
   return !!s && s !== ((t = e.loadLevelObj) == null ? void 0 : t.uri);
 }
-class vh extends ze {
+class yh extends ze {
   constructor(e) {
     super("abr", e.logger), this.hls = void 0, this.lastLevelLoadSec = 0, this.lastLoadedFragLevel = -1, this.firstSelection = -1, this._nextAutoLevel = -1, this.nextAutoLevelKey = "", this.audioTracksByGroup = null, this.codecTiers = null, this.timer = -1, this.fragCurrent = null, this.partCurrent = null, this.bitrateTestDelay = 0, this.rebufferNotice = -1, this.supportedCache = {}, this.bwEstimator = void 0, this._abandonRulesCheck = (t) => {
       var i;
@@ -3395,14 +3395,14 @@ class vh extends ze {
       } = a;
       if (!n || !c)
         return;
-      const l = performance.now(), d = r ? r.stats : n.stats, u = r ? r.duration : n.duration, f = l - d.loading.start, p = a.minAutoLevel, g = n.level, v = this._nextAutoLevel;
+      const l = performance.now(), d = r ? r.stats : n.stats, u = r ? r.duration : n.duration, f = l - d.loading.start, p = a.minAutoLevel, g = n.level, y = this._nextAutoLevel;
       if (d.aborted || d.loaded && d.loaded === d.total || g <= p) {
         this.clearTimer(), this._nextAutoLevel = -1;
         return;
       }
       if (!o)
         return;
-      const m = v > -1 && v !== g, _ = !!t || m;
+      const m = y > -1 && y !== g, _ = !!t || m;
       if (!_ && (c.paused || !c.playbackRate || !c.readyState))
         return;
       const b = a.mainForwardBufferInfo;
@@ -3450,7 +3450,7 @@ class vh extends ze {
           }
         }
       };
-      m || D > V * 2 ? H() : this.timer = self.setInterval(H, V * 1e3), a.trigger(y.FRAG_LOAD_EMERGENCY_ABORTED, {
+      m || D > V * 2 ? H() : this.timer = self.setInterval(H, V * 1e3), a.trigger(v.FRAG_LOAD_EMERGENCY_ABORTED, {
         frag: n,
         part: r,
         stats: d
@@ -3468,13 +3468,13 @@ class vh extends ze {
     const {
       hls: e
     } = this;
-    e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.FRAG_LOADING, this.onFragLoading, this), e.on(y.FRAG_LOADED, this.onFragLoaded, this), e.on(y.FRAG_BUFFERED, this.onFragBuffered, this), e.on(y.LEVEL_SWITCHING, this.onLevelSwitching, this), e.on(y.LEVEL_LOADED, this.onLevelLoaded, this), e.on(y.LEVELS_UPDATED, this.onLevelsUpdated, this), e.on(y.MAX_AUTO_LEVEL_UPDATED, this.onMaxAutoLevelUpdated, this), e.on(y.ERROR, this.onError, this);
+    e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.FRAG_LOADING, this.onFragLoading, this), e.on(v.FRAG_LOADED, this.onFragLoaded, this), e.on(v.FRAG_BUFFERED, this.onFragBuffered, this), e.on(v.LEVEL_SWITCHING, this.onLevelSwitching, this), e.on(v.LEVEL_LOADED, this.onLevelLoaded, this), e.on(v.LEVELS_UPDATED, this.onLevelsUpdated, this), e.on(v.MAX_AUTO_LEVEL_UPDATED, this.onMaxAutoLevelUpdated, this), e.on(v.ERROR, this.onError, this);
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e && (e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.FRAG_LOADING, this.onFragLoading, this), e.off(y.FRAG_LOADED, this.onFragLoaded, this), e.off(y.FRAG_BUFFERED, this.onFragBuffered, this), e.off(y.LEVEL_SWITCHING, this.onLevelSwitching, this), e.off(y.LEVEL_LOADED, this.onLevelLoaded, this), e.off(y.LEVELS_UPDATED, this.onLevelsUpdated, this), e.off(y.MAX_AUTO_LEVEL_UPDATED, this.onMaxAutoLevelUpdated, this), e.off(y.ERROR, this.onError, this));
+    e && (e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.FRAG_LOADING, this.onFragLoading, this), e.off(v.FRAG_LOADED, this.onFragLoaded, this), e.off(v.FRAG_BUFFERED, this.onFragBuffered, this), e.off(v.LEVEL_SWITCHING, this.onLevelSwitching, this), e.off(v.LEVEL_LOADED, this.onLevelLoaded, this), e.off(v.LEVELS_UPDATED, this.onLevelsUpdated, this), e.off(v.MAX_AUTO_LEVEL_UPDATED, this.onMaxAutoLevelUpdated, this), e.off(v.ERROR, this.onError, this));
   }
   destroy() {
     this.unregisterListeners(), this.clearTimer(), this.hls = this._abandonRulesCheck = this.supportedCache = null, this.fragCurrent = this.partCurrent = null;
@@ -3555,7 +3555,7 @@ class vh extends ze {
           part: i,
           id: t.type
         };
-        this.onFragBuffered(y.FRAG_BUFFERED, r), t.bitrateTest = !1;
+        this.onFragBuffered(v.FRAG_BUFFERED, r), t.bitrateTest = !1;
       } else
         this.lastLoadedFragLevel = t.level;
     }
@@ -3632,8 +3632,8 @@ class vh extends ze {
     const p = this.findBestLevel(c, a, n, l, f, d, u);
     if (this.rebufferNotice !== p && (this.rebufferNotice = p, this.info(`${l ? "rebuffering expected" : "buffer is empty"}, optimal quality level ${p}`)), p > -1)
       return p;
-    const g = i.levels[a], v = i.loadLevelObj;
-    return v && g?.bitrate < v.bitrate ? a : i.loadLevel;
+    const g = i.levels[a], y = i.loadLevelObj;
+    return y && g?.bitrate < y.bitrate ? a : i.loadLevel;
   }
   getStarvationDelay() {
     const e = this.hls, t = e.media;
@@ -3652,7 +3652,7 @@ class vh extends ze {
       partCurrent: p
     } = this, {
       levels: g,
-      allAudioTracks: v,
+      allAudioTracks: y,
       loadLevel: m,
       config: _
     } = this.hls;
@@ -3663,7 +3663,7 @@ class vh extends ze {
     const {
       audioPreference: L,
       videoPreference: I
-    } = _, A = this.audioTracksByGroup || (this.audioTracksByGroup = xl(v));
+    } = _, A = this.audioTracksByGroup || (this.audioTracksByGroup = xl(y));
     let P = -1;
     if (E) {
       if (this.firstSelection !== -1)
@@ -3695,7 +3695,7 @@ class vh extends ze {
           ie.error ? this.warn(`MediaCapabilities decodingInfo error: "${ie.error}" for level ${ge} ${ue(ie)}`) : ie.supported ? ie.decodingInfoResults.some((De) => De.smooth === !1 || De.powerEfficient === !1) && this.log(`MediaCapabilities decodingInfo for level ${ge} not smooth or powerEfficient: ${ue(ie)}`) : (this.warn(`Unsupported MediaCapabilities decodingInfo result for level ${ge} ${ue(ie)}`), ge > -1 && _e.length > 1 && (this.log(`Removing unsupported level ${ge}`), this.hls.removeLevel(ge), this.hls.loadLevel === -1 && (this.hls.nextLoadLevel = 0)));
         }).catch((ie) => {
           this.warn(`Error handling MediaCapabilities decodingInfo: ${ie}`);
-        })) : F.supportedResult = vl;
+        })) : F.supportedResult = yl;
       }
       if ((T && F.codecSet !== T || k && F.videoRange !== k || $ && S > F.frameRate || !$ && S > 0 && S < F.frameRate || (D = F.supportedResult) != null && (D = D.decodingInfoResults) != null && D.some((Z) => Z.smooth === !1)) && (!E || C !== P)) {
         z.push(C);
@@ -3762,7 +3762,7 @@ const El = {
     return null;
   }
 };
-function yh(s, e, t) {
+function vh(s, e, t) {
   if (e === null || !Array.isArray(s) || !s.length || !W(e))
     return null;
   const i = s[0].programDateTime;
@@ -3878,11 +3878,11 @@ class Eh extends ze {
   }
   registerListeners() {
     const e = this.hls;
-    e.on(y.ERROR, this.onError, this), e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.LEVEL_UPDATED, this.onLevelUpdated, this);
+    e.on(v.ERROR, this.onError, this), e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.LEVEL_UPDATED, this.onLevelUpdated, this);
   }
   unregisterListeners() {
     const e = this.hls;
-    e && (e.off(y.ERROR, this.onError, this), e.off(y.ERROR, this.onErrorOut, this), e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.LEVEL_UPDATED, this.onLevelUpdated, this));
+    e && (e.off(v.ERROR, this.onError, this), e.off(v.ERROR, this.onErrorOut, this), e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.LEVEL_UPDATED, this.onLevelUpdated, this));
   }
   destroy() {
     this.unregisterListeners(), this.hls = null;
@@ -4044,7 +4044,7 @@ class Eh extends ze {
         maxAutoLevel: g
       } = i;
       !i.autoLevelEnabled && !i.config.preserveManualLevelOnError && (i.loadLevel = -1);
-      const v = (r = e.frag) == null ? void 0 : r.type, _ = (v === j.AUDIO && l === R.FRAG_PARSING_ERROR || e.sourceBufferName === "audio" && (l === R.BUFFER_ADD_CODEC_ERROR || l === R.BUFFER_APPEND_ERROR)) && u.some(({
+      const y = (r = e.frag) == null ? void 0 : r.type, _ = (y === j.AUDIO && l === R.FRAG_PARSING_ERROR || e.sourceBufferName === "audio" && (l === R.BUFFER_ADD_CODEC_ERROR || l === R.BUFFER_APPEND_ERROR)) && u.some(({
         audioCodec: k
       }) => n.audioCodec !== k), x = e.sourceBufferName === "video" && (l === R.BUFFER_ADD_CODEC_ERROR || l === R.BUFFER_APPEND_ERROR) && u.some(({
         codecSet: k,
@@ -4058,7 +4058,7 @@ class Eh extends ze {
         if (S !== f && S >= p && S <= g && u[S].loadError === 0) {
           var o, c;
           const L = u[S];
-          if (l === R.FRAG_GAP && v === j.MAIN && e.frag) {
+          if (l === R.FRAG_GAP && y === j.MAIN && e.frag) {
             const I = u[S].details;
             if (I) {
               const A = It(e.frag, I.fragments, e.frag.start);
@@ -4068,7 +4068,7 @@ class Eh extends ze {
           } else {
             if (E === se.AUDIO_TRACK && L.hasAudioGroup(T) || E === se.SUBTITLE_TRACK && L.hasSubtitleGroup(T))
               continue;
-            if (v === j.AUDIO && (o = n.audioGroups) != null && o.some((I) => L.hasAudioGroup(I)) || v === j.SUBTITLE && (c = n.subtitleGroups) != null && c.some((I) => L.hasSubtitleGroup(I)) || _ && n.audioCodec === L.audioCodec || x && n.codecSet === L.codecSet || !_ && n.codecSet !== L.codecSet)
+            if (y === j.AUDIO && (o = n.audioGroups) != null && o.some((I) => L.hasAudioGroup(I)) || y === j.SUBTITLE && (c = n.subtitleGroups) != null && c.some((I) => L.hasSubtitleGroup(I)) || _ && n.audioCodec === L.audioCodec || x && n.codecSet === L.codecSet || !_ && n.codecSet !== L.codecSet)
               continue;
           }
           d = S;
@@ -4173,13 +4173,13 @@ class Th {
     const {
       hls: e
     } = this;
-    e && (e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.BUFFER_APPENDED, this.onBufferAppended, this), e.on(y.FRAG_BUFFERED, this.onFragBuffered, this), e.on(y.FRAG_LOADED, this.onFragLoaded, this));
+    e && (e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.BUFFER_APPENDED, this.onBufferAppended, this), e.on(v.FRAG_BUFFERED, this.onFragBuffered, this), e.on(v.FRAG_LOADED, this.onFragLoaded, this));
   }
   _unregisterListeners() {
     const {
       hls: e
     } = this;
-    e && (e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.BUFFER_APPENDED, this.onBufferAppended, this), e.off(y.FRAG_BUFFERED, this.onFragBuffered, this), e.off(y.FRAG_LOADED, this.onFragLoaded, this));
+    e && (e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.BUFFER_APPENDED, this.onBufferAppended, this), e.off(v.FRAG_BUFFERED, this.onFragBuffered, this), e.off(v.FRAG_LOADED, this.onFragLoaded, this));
   }
   destroy() {
     this._unregisterListeners(), this.hls = // @ts-ignore
@@ -4492,15 +4492,15 @@ class Ih {
   }
   initTable() {
     const e = this.sBox, t = this.invSBox, i = this.subMix, n = i[0], r = i[1], a = i[2], o = i[3], c = this.invSubMix, l = c[0], d = c[1], u = c[2], f = c[3], p = new Uint32Array(256);
-    let g = 0, v = 0, m = 0;
+    let g = 0, y = 0, m = 0;
     for (m = 0; m < 256; m++)
       m < 128 ? p[m] = m << 1 : p[m] = m << 1 ^ 283;
     for (m = 0; m < 256; m++) {
-      let _ = v ^ v << 1 ^ v << 2 ^ v << 3 ^ v << 4;
+      let _ = y ^ y << 1 ^ y << 2 ^ y << 3 ^ y << 4;
       _ = _ >>> 8 ^ _ & 255 ^ 99, e[g] = _, t[_] = g;
       const b = p[g], x = p[b], E = p[x];
       let T = p[_] * 257 ^ _ * 16843008;
-      n[g] = T << 24 | T >>> 8, r[g] = T << 16 | T >>> 16, a[g] = T << 8 | T >>> 24, o[g] = T, T = E * 16843009 ^ x * 65537 ^ b * 257 ^ g * 16843008, l[_] = T << 24 | T >>> 8, d[_] = T << 16 | T >>> 16, u[_] = T << 8 | T >>> 24, f[_] = T, g ? (g = b ^ p[p[p[E ^ b]]], v ^= p[p[v]]) : g = v = 1;
+      n[g] = T << 24 | T >>> 8, r[g] = T << 16 | T >>> 16, a[g] = T << 8 | T >>> 24, o[g] = T, T = E * 16843009 ^ x * 65537 ^ b * 257 ^ g * 16843008, l[_] = T << 24 | T >>> 8, d[_] = T << 16 | T >>> 16, u[_] = T << 8 | T >>> 24, f[_] = T, g ? (g = b ^ p[p[p[E ^ b]]], y ^= p[p[y]]) : g = y = 1;
     }
   }
   expandKey(e) {
@@ -4516,7 +4516,7 @@ class Ih {
       throw new Error("Invalid aes key size=" + r);
     const a = this.ksRows = (r + 6 + 1) * 4;
     let o, c;
-    const l = this.keySchedule = new Uint32Array(a), d = this.invKeySchedule = new Uint32Array(a), u = this.sBox, f = this.rcon, p = this.invSubMix, g = p[0], v = p[1], m = p[2], _ = p[3];
+    const l = this.keySchedule = new Uint32Array(a), d = this.invKeySchedule = new Uint32Array(a), u = this.sBox, f = this.rcon, p = this.invSubMix, g = p[0], y = p[1], m = p[2], _ = p[3];
     let b, x;
     for (o = 0; o < a; o++) {
       if (o < r) {
@@ -4526,7 +4526,7 @@ class Ih {
       x = b, o % r === 0 ? (x = x << 8 | x >>> 24, x = u[x >>> 24] << 24 | u[x >>> 16 & 255] << 16 | u[x >>> 8 & 255] << 8 | u[x & 255], x ^= f[o / r | 0] << 24) : r > 6 && o % r === 4 && (x = u[x >>> 24] << 24 | u[x >>> 16 & 255] << 16 | u[x >>> 8 & 255] << 8 | u[x & 255]), l[o] = b = (l[o - r] ^ x) >>> 0;
     }
     for (c = 0; c < a; c++)
-      o = a - c, c & 3 ? x = l[o] : x = l[o - 4], c < 4 || o <= 4 ? d[c] = x : d[c] = g[u[x >>> 24]] ^ v[u[x >>> 16 & 255]] ^ m[u[x >>> 8 & 255]] ^ _[u[x & 255]], d[c] = d[c] >>> 0;
+      o = a - c, c & 3 ? x = l[o] : x = l[o - 4], c < 4 || o <= 4 ? d[c] = x : d[c] = g[u[x >>> 24]] ^ y[u[x >>> 16 & 255]] ^ m[u[x >>> 8 & 255]] ^ _[u[x & 255]], d[c] = d[c] >>> 0;
   }
   // Adding this as a method greatly improves performance.
   networkToHostOrderSwap(e) {
@@ -4534,14 +4534,14 @@ class Ih {
   }
   decrypt(e, t, i) {
     const n = this.keySize + 6, r = this.invKeySchedule, a = this.invSBox, o = this.invSubMix, c = o[0], l = o[1], d = o[2], u = o[3], f = this.uint8ArrayToUint32Array_(i);
-    let p = f[0], g = f[1], v = f[2], m = f[3];
+    let p = f[0], g = f[1], y = f[2], m = f[3];
     const _ = new Int32Array(e), b = new Int32Array(_.length);
     let x, E, T, k, S, L, I, A, P, B, K, z, D, C;
     const F = this.networkToHostOrderSwap;
     for (; t < _.length; ) {
       for (P = F(_[t]), B = F(_[t + 1]), K = F(_[t + 2]), z = F(_[t + 3]), S = P ^ r[0], L = z ^ r[1], I = K ^ r[2], A = B ^ r[3], D = 4, C = 1; C < n; C++)
         x = c[S >>> 24] ^ l[L >> 16 & 255] ^ d[I >> 8 & 255] ^ u[A & 255] ^ r[D], E = c[L >>> 24] ^ l[I >> 16 & 255] ^ d[A >> 8 & 255] ^ u[S & 255] ^ r[D + 1], T = c[I >>> 24] ^ l[A >> 16 & 255] ^ d[S >> 8 & 255] ^ u[L & 255] ^ r[D + 2], k = c[A >>> 24] ^ l[S >> 16 & 255] ^ d[L >> 8 & 255] ^ u[I & 255] ^ r[D + 3], S = x, L = E, I = T, A = k, D = D + 4;
-      x = a[S >>> 24] << 24 ^ a[L >> 16 & 255] << 16 ^ a[I >> 8 & 255] << 8 ^ a[A & 255] ^ r[D], E = a[L >>> 24] << 24 ^ a[I >> 16 & 255] << 16 ^ a[A >> 8 & 255] << 8 ^ a[S & 255] ^ r[D + 1], T = a[I >>> 24] << 24 ^ a[A >> 16 & 255] << 16 ^ a[S >> 8 & 255] << 8 ^ a[L & 255] ^ r[D + 2], k = a[A >>> 24] << 24 ^ a[S >> 16 & 255] << 16 ^ a[L >> 8 & 255] << 8 ^ a[I & 255] ^ r[D + 3], b[t] = F(x ^ p), b[t + 1] = F(k ^ g), b[t + 2] = F(T ^ v), b[t + 3] = F(E ^ m), p = P, g = B, v = K, m = z, t = t + 4;
+      x = a[S >>> 24] << 24 ^ a[L >> 16 & 255] << 16 ^ a[I >> 8 & 255] << 8 ^ a[A & 255] ^ r[D], E = a[L >>> 24] << 24 ^ a[I >> 16 & 255] << 16 ^ a[A >> 8 & 255] << 8 ^ a[S & 255] ^ r[D + 1], T = a[I >>> 24] << 24 ^ a[A >> 16 & 255] << 16 ^ a[S >> 8 & 255] << 8 ^ a[L & 255] ^ r[D + 2], k = a[A >>> 24] << 24 ^ a[S >> 16 & 255] << 16 ^ a[L >> 8 & 255] << 8 ^ a[I & 255] ^ r[D + 3], b[t] = F(x ^ p), b[t + 1] = F(k ^ g), b[t + 2] = F(T ^ y), b[t + 3] = F(E ^ m), p = P, g = B, y = K, m = z, t = t + 4;
     }
     return b.buffer;
   }
@@ -4697,7 +4697,7 @@ class Rh {
       };
       e.stats = l.stats;
       const p = {
-        onSuccess: (g, v, m, _) => {
+        onSuccess: (g, y, m, _) => {
           this.resetLoader(e, l);
           let b = g.data;
           m.resetIV && e.decryptdata && (e.decryptdata.iv = new Uint8Array(b.slice(0, 16)), b = b.slice(16)), o({
@@ -4707,7 +4707,7 @@ class Rh {
             networkDetails: _
           });
         },
-        onError: (g, v, m, _) => {
+        onError: (g, y, m, _) => {
           this.resetLoader(e, l), c(new lt({
             type: q.NETWORK_ERROR,
             details: R.FRAG_LOAD_ERROR,
@@ -4722,7 +4722,7 @@ class Rh {
             stats: _
           }));
         },
-        onAbort: (g, v, m) => {
+        onAbort: (g, y, m) => {
           this.resetLoader(e, l), c(new lt({
             type: q.NETWORK_ERROR,
             details: R.INTERNAL_ABORTED,
@@ -4733,7 +4733,7 @@ class Rh {
             stats: g
           }));
         },
-        onTimeout: (g, v, m) => {
+        onTimeout: (g, y, m) => {
           this.resetLoader(e, l), c(new lt({
             type: q.NETWORK_ERROR,
             details: R.FRAG_LOAD_TIMEOUT,
@@ -4745,7 +4745,7 @@ class Rh {
           }));
         }
       };
-      t && (p.onProgress = (g, v, m, _) => t({
+      t && (p.onProgress = (g, y, m, _) => t({
         frag: e,
         part: null,
         payload: m,
@@ -4772,7 +4772,7 @@ class Rh {
         highWaterMark: sa
       };
       t.stats = l.stats, l.load(d, f, {
-        onSuccess: (p, g, v, m) => {
+        onSuccess: (p, g, y, m) => {
           this.resetLoader(e, l), this.updateStatsFromPart(e, t);
           const _ = {
             frag: e,
@@ -4782,7 +4782,7 @@ class Rh {
           };
           i(_), o(_);
         },
-        onError: (p, g, v, m) => {
+        onError: (p, g, y, m) => {
           this.resetLoader(e, l), c(new lt({
             type: q.NETWORK_ERROR,
             details: R.FRAG_LOAD_ERROR,
@@ -4794,11 +4794,11 @@ class Rh {
               data: void 0
             }, p),
             error: new Error(`HTTP Error ${p.code} ${p.text}`),
-            networkDetails: v,
+            networkDetails: y,
             stats: m
           }));
         },
-        onAbort: (p, g, v) => {
+        onAbort: (p, g, y) => {
           e.stats.aborted = t.stats.aborted, this.resetLoader(e, l), c(new lt({
             type: q.NETWORK_ERROR,
             details: R.INTERNAL_ABORTED,
@@ -4806,11 +4806,11 @@ class Rh {
             frag: e,
             part: t,
             error: new Error("Aborted"),
-            networkDetails: v,
+            networkDetails: y,
             stats: p
           }));
         },
-        onTimeout: (p, g, v) => {
+        onTimeout: (p, g, y) => {
           this.resetLoader(e, l), c(new lt({
             type: q.NETWORK_ERROR,
             details: R.FRAG_LOAD_TIMEOUT,
@@ -4818,7 +4818,7 @@ class Rh {
             frag: e,
             part: t,
             error: new Error(`Timeout after ${f.timeout}ms`),
-            networkDetails: v,
+            networkDetails: y,
             stats: p
           }));
         }
@@ -5499,7 +5499,7 @@ function Cl(s) {
   return null;
 }
 let Rt = {};
-class vt {
+class yt {
   static clearKeyUriToKeyIdMap() {
     Rt = {};
   }
@@ -5537,11 +5537,11 @@ class vt {
       return null;
     if ($t(this.method)) {
       let r = this.iv;
-      return r || (typeof e != "number" && (oe.warn(`missing IV for initialization segment with method="${this.method}" - compliance issue`), e = 0), r = Hh(e)), new vt(this.method, this.uri, "identity", this.keyFormatVersions, r);
+      return r || (typeof e != "number" && (oe.warn(`missing IV for initialization segment with method="${this.method}" - compliance issue`), e = 0), r = Hh(e)), new yt(this.method, this.uri, "identity", this.keyFormatVersions, r);
     }
     if (this.keyId) {
       const r = Rt[this.uri];
-      if (r && !cn(this.keyId, r) && vt.setKeyIdForUri(this.uri, this.keyId), this.pssh)
+      if (r && !cn(this.keyId, r) && yt.setKeyIdForUri(this.uri, this.keyId), this.pssh)
         return this;
     }
     const i = Rl(this.uri);
@@ -5575,7 +5575,7 @@ class vt {
       }
     if (!this.keyId || this.keyId.byteLength !== 16) {
       let r;
-      r = Kh(t), r || (r = ha(t), r || (r = Rt[this.uri])), r && (this.keyId = r, vt.setKeyIdForUri(this.uri, r));
+      r = Kh(t), r || (r = ha(t), r || (r = Rt[this.uri])), r && (this.keyId = r, yt.setKeyIdForUri(this.uri, r));
     }
     return this;
   }
@@ -5646,9 +5646,9 @@ class tt {
           name: l.NAME,
           url: tt.resolve(d, t)
         }, f = l.decimalResolution("RESOLUTION");
-        f && (u.width = f.width, u.height = f.height), va(l.CODECS, u);
+        f && (u.width = f.width, u.height = f.height), ya(l.CODECS, u);
         const p = l["SUPPLEMENTAL-CODECS"];
-        p && (u.supplemental = {}, va(p, u.supplemental)), (o = u.unknownCodecs) != null && o.length || r.push(u), n.levels.push(u);
+        p && (u.supplemental = {}, ya(p, u.supplemental)), (o = u.unknownCodecs) != null && o.length || r.push(u), n.levels.push(u);
       } else if (a[3]) {
         const l = a[3], d = a[4];
         switch (l) {
@@ -5705,7 +5705,7 @@ class tt {
       if (d) {
         const u = o[d], f = r[d] || [];
         r[d] = f;
-        const p = l.LANGUAGE, g = l["ASSOC-LANGUAGE"], v = l.CHANNELS, m = l.CHARACTERISTICS, _ = l["INSTREAM-ID"], b = {
+        const p = l.LANGUAGE, g = l["ASSOC-LANGUAGE"], y = l.CHANNELS, m = l.CHARACTERISTICS, _ = l["INSTREAM-ID"], b = {
           attrs: l,
           bitrate: 0,
           id: c++,
@@ -5718,9 +5718,9 @@ class tt {
           lang: p,
           url: l.URI ? tt.resolve(l.URI, t) : ""
         };
-        if (g && (b.assocLang = g), v && (b.channels = v), m && (b.characteristics = m), _ && (b.instreamId = _), u != null && u.length) {
+        if (g && (b.assocLang = g), y && (b.channels = y), m && (b.characteristics = m), _ && (b.instreamId = _), u != null && u.length) {
           const x = tt.findGroup(u, b.groupId) || u[0];
-          ya(b, x, "audioCodec"), ya(b, x, "textCodec");
+          va(b, x, "audioCodec"), va(b, x, "textCodec");
         }
         f.push(b);
       }
@@ -5732,11 +5732,11 @@ class tt {
     const c = {
       url: t
     }, l = new $h(t), d = l.fragments, u = [];
-    let f = null, p = 0, g = 0, v = 0, m = 0, _ = 0, b = null, x = new In(n, c), E, T, k, S = -1, L = !1, I = null, A;
+    let f = null, p = 0, g = 0, y = 0, m = 0, _ = 0, b = null, x = new In(n, c), E, T, k, S = -1, L = !1, I = null, A;
     if (Rn.lastIndex = 0, l.m3u8 = e, l.hasVariableRefs = la(e), ((o = Rn.exec(e)) == null ? void 0 : o[0]) !== "#EXTM3U")
       return l.playlistParsingError = new Error("Missing format identifier #EXTM3U"), l;
     for (; (E = Rn.exec(e)) !== null; ) {
-      L && (L = !1, x = new In(n, c), x.playlistOffset = v, x.setStart(v), x.sn = p, x.cc = m, _ && (x.bitrate = _), x.level = i, f && (x.initSegment = f, f.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime, f.rawProgramDateTime = null), I && (x.setByteRange(I), I = null)));
+      L && (L = !1, x = new In(n, c), x.playlistOffset = y, x.setStart(y), x.sn = p, x.cc = m, _ && (x.bitrate = _), x.level = i, f && (x.initSegment = f, f.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime, f.rawProgramDateTime = null), I && (x.setByteRange(I), I = null)));
       const z = E[1];
       if (z) {
         x.duration = parseFloat(z);
@@ -5744,9 +5744,9 @@ class tt {
         x.title = D || null, x.tagList.push(D ? ["INF", z, D] : ["INF", z]);
       } else if (E[3]) {
         if (W(x.duration)) {
-          x.playlistOffset = v, x.setStart(v), k && ba(x, k, l), x.sn = p, x.level = i, x.cc = m, d.push(x);
+          x.playlistOffset = y, x.setStart(y), k && ba(x, k, l), x.sn = p, x.level = i, x.cc = m, d.push(x);
           const D = (" " + E[3]).slice(1);
-          x.relurl = ds(l, D), hs(x, b, u), b = x, v += x.duration, p++, g = 0, L = !0;
+          x.relurl = ds(l, D), hs(x, b, u), b = x, y += x.duration, p++, g = 0, L = !0;
         }
       } else {
         if (E = E[0].match(Wh), !E) {
@@ -5887,14 +5887,14 @@ class tt {
         }
       }
     }
-    b && !b.relurl ? (d.pop(), v -= b.duration, l.partList && (l.fragmentHint = b)) : l.partList && (hs(x, b, u), x.cc = m, l.fragmentHint = x, k && ba(x, k, l)), l.targetduration || (l.playlistParsingError = new Error("Missing Target Duration"));
+    b && !b.relurl ? (d.pop(), y -= b.duration, l.partList && (l.fragmentHint = b)) : l.partList && (hs(x, b, u), x.cc = m, l.fragmentHint = x, k && ba(x, k, l)), l.targetduration || (l.playlistParsingError = new Error("Missing Target Duration"));
     const P = d.length, B = d[0], K = d[P - 1];
-    if (v += l.skippedSegments * l.targetduration, v > 0 && P && K) {
-      l.averagetargetduration = v / P;
+    if (y += l.skippedSegments * l.targetduration, y > 0 && P && K) {
+      l.averagetargetduration = y / P;
       const z = K.sn;
       l.endSN = z !== "initSegment" ? z : 0, l.live || (K.endList = !0), S > 0 && (jh(d, S), B && u.unshift(B));
     }
-    return l.fragmentHint && (v += l.fragmentHint.duration), l.totalduration = v, u.length && l.dateRangeTagCount && B && Pl(u, l), l.endCC = m, l;
+    return l.fragmentHint && (y += l.fragmentHint.duration), l.totalduration = y, u.length && l.dateRangeTagCount && B && Pl(u, l), l.endCC = m, l;
   }
 }
 function Pl(s, e) {
@@ -5952,20 +5952,20 @@ function ga(s, e, t) {
   const r = new he(s, t), a = (i = r.METHOD) != null ? i : "", o = r.URI, c = r.hexadecimalInteger("IV"), l = r.KEYFORMATVERSIONS, d = (n = r.KEYFORMAT) != null ? n : "identity";
   o && r.IV && !c && oe.error(`Invalid IV: ${r.IV}`);
   const u = o ? tt.resolve(o, e) : "", f = (l || "1").split("/").map(Number).filter(Number.isFinite);
-  return new vt(a, u, d, f, c, r.KEYID);
+  return new yt(a, u, d, f, c, r.KEYID);
 }
 function ma(s) {
   const t = new he(s).decimalFloatingPoint("TIME-OFFSET");
   return W(t) ? t : null;
 }
-function va(s, e) {
+function ya(s, e) {
   let t = (s || "").split(/[ ,]+/).filter((i) => i);
   ["video", "audio", "text"].forEach((i) => {
     const n = t.filter((r) => Hs(r, i));
     n.length && (e[`${i}Codec`] = n.map((r) => r.split("/")[0]).join(","), t = t.filter((r) => n.indexOf(r) === -1));
   }), e.unknownCodecs = t;
 }
-function ya(s, e, t) {
+function va(s, e, t) {
   const i = e[t];
   i && (s[t] = i);
 }
@@ -6018,10 +6018,10 @@ function Ml(s, e, t, i, n, r, a) {
   if (!s || p < s.startSN || p > s.endSN)
     return 0;
   let g;
-  const v = p - s.startSN, m = s.fragments;
-  for (m[v] = e, g = v; g > 0; g--)
+  const y = p - s.startSN, m = s.fragments;
+  for (m[y] = e, g = y; g > 0; g--)
     Dn(m[g], m[g - 1]);
-  for (g = v; g < m.length - 1; g++)
+  for (g = y; g < m.length - 1; g++)
     Dn(m[g], m[g + 1]);
   return s.fragmentHint && Dn(m[m.length - 1], s.fragmentHint), s.PTSKnown = s.alignedSliding = !0, f;
 }
@@ -6042,8 +6042,8 @@ function qh(s, e, t) {
   Zh(s, e, (d, u, f, p) => {
     if ((!e.startCC || e.skippedSegments) && u.cc !== d.cc) {
       const g = d.cc - u.cc;
-      for (let v = f; v < p.length; v++)
-        p[v].cc += g;
+      for (let y = f; y < p.length; y++)
+        p[y].cc += g;
       e.endCC = p[p.length - 1].cc;
     }
     W(d.startPTS) && W(d.endPTS) && (u.setStart(u.startPTS = d.startPTS), u.startDTS = d.startDTS, u.maxStartPTS = d.maxStartPTS, u.endPTS = d.endPTS, u.endDTS = d.endDTS, u.minEndPTS = d.minEndPTS, u.setDuration(d.endPTS - d.startPTS), u.duration && (r = u), e.PTSKnown = e.alignedSliding = !0), d.hasStreams && (u.elementaryStreams = d.elementaryStreams), u.loader = d.loader, d.hasStats && (u.stats = d.stats), d.initSegment && (u.initSegment = d.initSegment, i = d.initSegment);
@@ -6290,18 +6290,18 @@ class Qs extends Il {
       if (this.log(`Media seeking to ${W(u) ? u.toFixed(3) : u}, state: ${d}, ${p ? "out of" : "in"} buffer`), this.state === O.ENDED)
         this.resetLoadingState();
       else if (o) {
-        const g = a.maxFragLookUpTolerance, v = o.start - g, m = o.start + o.duration + g;
-        if (p || m < f.start || v > f.end) {
+        const g = a.maxFragLookUpTolerance, y = o.start - g, m = o.start + o.duration + g;
+        if (p || m < f.start || y > f.end) {
           const _ = u > m;
-          (u < v || _) && (_ && o.loader && (this.log(`Cancelling fragment load for seek (sn: ${o.sn})`), o.abortRequests(), this.resetLoadingState()), this.fragPrevious = null);
+          (u < y || _) && (_ && o.loader && (this.log(`Cancelling fragment load for seek (sn: ${o.sn})`), o.abortRequests(), this.resetLoadingState()), this.fragPrevious = null);
         }
       }
       if (c) {
         this.fragmentTracker.removeFragmentsInRange(u, 1 / 0, this.playlistType, !0);
         const g = this.lastCurrentTime;
         if (u > g && (this.lastCurrentTime = u), !this.loadingParts) {
-          const v = Math.max(f.end, u), m = this.shouldLoadParts(this.getLevelDetails(), v);
-          m && (this.log(`LL-Part loading ON after seeking to ${u.toFixed(2)} with buffer @${v.toFixed(2)}`), this.loadingParts = m);
+          const y = Math.max(f.end, u), m = this.shouldLoadParts(this.getLevelDetails(), y);
+          m && (this.log(`LL-Part loading ON after seeking to ${u.toFixed(2)} with buffer @${y.toFixed(2)}`), this.loadingParts = m);
         }
       }
       this.hls.hasEnoughToStart || (this.log(`Setting ${p ? "startPosition" : "nextLoadPosition"} to ${u} for seek without enough to start`), this.nextLoadPosition = u, p && (this.startPosition = u)), p && this.state === O.IDLE && this.tickImmediate();
@@ -6313,13 +6313,13 @@ class Qs extends Il {
     const {
       hls: e
     } = this;
-    e.on(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.MANIFEST_LOADED, this.onManifestLoaded, this), e.on(y.ERROR, this.onError, this);
+    e.on(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.MANIFEST_LOADED, this.onManifestLoaded, this), e.on(v.ERROR, this.onError, this);
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e.off(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.MANIFEST_LOADED, this.onManifestLoaded, this), e.off(y.ERROR, this.onError, this);
+    e.off(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.MANIFEST_LOADED, this.onManifestLoaded, this), e.off(v.ERROR, this.onError, this);
   }
   doTick() {
     this.onTickEnd();
@@ -6438,7 +6438,7 @@ class Qs extends Il {
         (a === O.FRAG_LOADING || !this.fragCurrent && a === O.PARSING) && (this.fragmentTracker.removeFragment(o), this.state = O.IDLE);
         return;
       }
-      "payload" in r && (this.log(`Loaded ${o.type} sn: ${o.sn} of ${this.playlistLabel()} ${o.level}`), this.hls.trigger(y.FRAG_LOADED, r)), this._handleFragmentLoadComplete(r);
+      "payload" in r && (this.log(`Loaded ${o.type} sn: ${o.sn} of ${this.playlistLabel()} ${o.level}`), this.hls.trigger(v.FRAG_LOADED, r)), this._handleFragmentLoadComplete(r);
     }).catch((r) => {
       this.state === O.STOPPED || this.state === O.ERROR || (this.warn(`Frag error: ${r?.message || r}`), this.resetFragmentLoading(e));
     });
@@ -6482,7 +6482,7 @@ class Qs extends Il {
       endOffset: t,
       type: i
     };
-    this.hls.trigger(y.BUFFER_FLUSHING, n);
+    this.hls.trigger(v.BUFFER_FLUSHING, n);
   }
   _loadInitSegment(e, t) {
     this._doFragLoad(e, t).then((i) => {
@@ -6500,7 +6500,7 @@ class Qs extends Il {
       if (a && a.byteLength > 0 && o != null && o.key && o.iv && $t(o.method)) {
         const c = self.performance.now();
         return this.decrypter.decrypt(new Uint8Array(a), o.key.buffer, o.iv.buffer, qs(o.method)).catch((l) => {
-          throw n.trigger(y.ERROR, {
+          throw n.trigger(v.ERROR, {
             type: q.MEDIA_ERROR,
             details: R.FRAG_DECRYPT_ERROR,
             fatal: !1,
@@ -6510,7 +6510,7 @@ class Qs extends Il {
           }), l;
         }).then((l) => {
           const d = self.performance.now();
-          return n.trigger(y.FRAG_DECRYPTED, {
+          return n.trigger(v.FRAG_DECRYPTED, {
             frag: r,
             payload: l,
             stats: {
@@ -6539,7 +6539,7 @@ class Qs extends Il {
     const r = e.tracks;
     if (r && !t.encrypted && ((i = r.audio) != null && i.encrypted || (n = r.video) != null && n.encrypted) && (!this.config.emeEnabled || !this.keyLoader.emeController)) {
       const a = this.media, o = new Error(`Encrypted track with no key in ${this.fragInfo(t)} (media ${a ? "attached mediaKeys: " + a.mediaKeys : "detached"})`);
-      return this.warn(o.message), !a || a.mediaKeys ? !1 : (this.hls.trigger(y.ERROR, {
+      return this.warn(o.message), !a || a.mediaKeys ? !1 : (this.hls.trigger(v.ERROR, {
         type: q.KEY_SYSTEM_ERROR,
         details: R.KEY_SYSTEM_NO_KEYS,
         fatal: !1,
@@ -6557,7 +6557,7 @@ class Qs extends Il {
   }
   fragBufferedComplete(e, t) {
     const i = this.mediaBuffer ? this.mediaBuffer : this.media;
-    if (this.log(`Buffered ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)} > buffer:${i ? nf.toString(te.getBuffered(i)) : "(detached)"})`), ye(e)) {
+    if (this.log(`Buffered ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)} > buffer:${i ? nf.toString(te.getBuffered(i)) : "(detached)"})`), ve(e)) {
       var n;
       if (e.type !== j.SUBTITLE) {
         const a = e.elementaryStreams;
@@ -6596,18 +6596,18 @@ class Qs extends Il {
     if (e.encrypted && !((r = e.decryptdata) != null && r.key)) {
       if (this.log(`Loading key for ${e.sn} of [${a.startSN}-${a.endSN}], ${this.playlistLabel()} ${e.level}`), this.state = O.KEY_LOADING, this.fragCurrent = e, o = this.keyLoader.load(e).then((f) => {
         if (!this.fragContextChanged(f.frag))
-          return this.hls.trigger(y.KEY_LOADED, f), this.state === O.KEY_LOADING && (this.state = O.IDLE), f;
-      }), this.hls.trigger(y.KEY_LOADING, {
+          return this.hls.trigger(v.KEY_LOADED, f), this.state === O.KEY_LOADING && (this.state = O.IDLE), f;
+      }), this.hls.trigger(v.KEY_LOADING, {
         frag: e
       }), this.fragCurrent === null)
         return this.log("context changed in KEY_LOADING"), Promise.resolve(null);
     } else e.encrypted || (o = this.keyLoader.loadClear(e, a.encryptedFragments, this.startFragRequested), o && this.log("[eme] blocking frag load until media-keys acquired"));
     const c = this.fragPrevious;
-    if (ye(e) && (!c || e.sn !== c.sn)) {
+    if (ve(e) && (!c || e.sn !== c.sn)) {
       const f = this.shouldLoadParts(t.details, e.end);
       f !== this.loadingParts && (this.log(`LL-Part loading ${f ? "ON" : "OFF"} loading sn ${c?.sn}->${e.sn}`), this.loadingParts = f);
     }
-    if (i = Math.max(e.start, i || 0), this.loadingParts && ye(e)) {
+    if (i = Math.max(e.start, i || 0), this.loadingParts && ve(e)) {
       const f = a.partList;
       if (f && n) {
         i > a.fragmentEnd && a.fragmentHint && (e = a.fragmentHint);
@@ -6615,17 +6615,17 @@ class Qs extends Il {
         if (p > -1) {
           const g = f[p];
           e = this.fragCurrent = g.fragment, this.log(`Loading ${e.type} sn: ${e.sn} part: ${g.index} (${p}/${f.length - 1}) of ${this.fragInfo(e, !1, g)}) cc: ${e.cc} [${a.startSN}-${a.endSN}], target: ${parseFloat(i.toFixed(3))}`), this.nextLoadPosition = g.start + g.duration, this.state = O.FRAG_LOADING;
-          let v;
-          return o ? v = o.then((m) => !m || this.fragContextChanged(m.frag) ? null : this.doFragPartsLoad(e, g, t, n)).catch((m) => this.handleFragLoadError(m)) : v = this.doFragPartsLoad(e, g, t, n).catch((m) => this.handleFragLoadError(m)), this.hls.trigger(y.FRAG_LOADING, {
+          let y;
+          return o ? y = o.then((m) => !m || this.fragContextChanged(m.frag) ? null : this.doFragPartsLoad(e, g, t, n)).catch((m) => this.handleFragLoadError(m)) : y = this.doFragPartsLoad(e, g, t, n).catch((m) => this.handleFragLoadError(m)), this.hls.trigger(v.FRAG_LOADING, {
             frag: e,
             part: g,
             targetBufferTime: i
-          }), this.fragCurrent === null ? Promise.reject(new Error("frag load aborted, context changed in FRAG_LOADING parts")) : v;
+          }), this.fragCurrent === null ? Promise.reject(new Error("frag load aborted, context changed in FRAG_LOADING parts")) : y;
         } else if (!e.url || this.loadedEndOfParts(f, i))
           return Promise.resolve(null);
       }
     }
-    if (ye(e) && this.loadingParts) {
+    if (ve(e) && this.loadingParts) {
       var l;
       this.log(`LL-Part loading OFF after next part miss @${i.toFixed(2)} Check buffer at sn: ${e.sn} loaded parts: ${(l = a.partList) == null ? void 0 : l.filter((f) => f.loaded).map((f) => `[${f.start}-${f.end}]`)}`), this.loadingParts = !1;
     } else if (!e.url)
@@ -6633,7 +6633,7 @@ class Qs extends Il {
     this.log(`Loading ${e.type} sn: ${e.sn} of ${this.fragInfo(e, !1)}) cc: ${e.cc} ${"[" + a.startSN + "-" + a.endSN + "]"}, target: ${parseFloat(i.toFixed(3))}`), W(e.sn) && !this.bitrateTest && (this.nextLoadPosition = e.start + e.duration), this.state = O.FRAG_LOADING;
     const d = this.config.progressive && e.type !== j.SUBTITLE;
     let u;
-    return d && o ? u = o.then((f) => !f || this.fragContextChanged(f.frag) ? null : this.fragmentLoader.load(e, n)).catch((f) => this.handleFragLoadError(f)) : u = Promise.all([this.fragmentLoader.load(e, d ? n : void 0), o]).then(([f]) => (!d && n && n(f), f)).catch((f) => this.handleFragLoadError(f)), this.hls.trigger(y.FRAG_LOADING, {
+    return d && o ? u = o.then((f) => !f || this.fragContextChanged(f.frag) ? null : this.fragmentLoader.load(e, n)).catch((f) => this.handleFragLoadError(f)) : u = Promise.all([this.fragmentLoader.load(e, d ? n : void 0), o]).then(([f]) => (!d && n && n(f), f)).catch((f) => this.handleFragLoadError(f)), this.hls.trigger(v.FRAG_LOADING, {
       frag: e,
       targetBufferTime: i
     }), this.fragCurrent === null ? Promise.reject(new Error("frag load aborted, context changed in FRAG_LOADING")) : u;
@@ -6645,7 +6645,7 @@ class Qs extends Il {
         this.fragmentLoader.loadPart(e, u, n).then((f) => {
           c[u.index] = f;
           const p = f.part;
-          this.hls.trigger(y.FRAG_LOADED, f);
+          this.hls.trigger(v.FRAG_LOADED, f);
           const g = Ta(i.details, e.sn, u.index + 1) || $l(l, e.sn, u.index + 1);
           if (g)
             d(g);
@@ -6663,9 +6663,9 @@ class Qs extends Il {
   handleFragLoadError(e) {
     if ("data" in e) {
       const t = e.data;
-      t.frag && t.details === R.INTERNAL_ABORTED ? this.handleFragLoadAborted(t.frag, t.part) : t.frag && t.type === q.KEY_SYSTEM_ERROR ? (t.frag.abortRequests(), this.resetStartWhenNotLoaded(), this.resetFragmentLoading(t.frag)) : this.hls.trigger(y.ERROR, t);
+      t.frag && t.details === R.INTERNAL_ABORTED ? this.handleFragLoadAborted(t.frag, t.part) : t.frag && t.type === q.KEY_SYSTEM_ERROR ? (t.frag.abortRequests(), this.resetStartWhenNotLoaded(), this.resetFragmentLoading(t.frag)) : this.hls.trigger(v.ERROR, t);
     } else
-      this.hls.trigger(y.ERROR, {
+      this.hls.trigger(v.ERROR, {
         type: q.OTHER_ERROR,
         details: R.INTERNAL_EXCEPTION,
         err: e,
@@ -6745,7 +6745,7 @@ class Qs extends Il {
       parent: t.type,
       data: c
     };
-    if (this.hls.trigger(y.BUFFER_APPENDING, u), e.dropped && e.independent && !i) {
+    if (this.hls.trigger(v.BUFFER_APPENDING, u), e.dropped && e.independent && !i) {
       if (r)
         return;
       this.flushBufferGap(t);
@@ -6825,9 +6825,9 @@ class Qs extends Il {
       if (!t.PTSKnown && !this.startFragRequested && this.startPosition === -1 || e < a) {
         var l;
         o && !this.loadingParts && (this.log("LL-Part loading ON for initial live fragment"), this.loadingParts = !0), c = this.getInitialLiveFragment(t);
-        const f = this.config.startPosition, p = this.hls.startPosition, g = this.hls.liveSyncPosition, v = ((l = c) == null ? void 0 : l.start) || 0;
+        const f = this.config.startPosition, p = this.hls.startPosition, g = this.hls.liveSyncPosition, y = ((l = c) == null ? void 0 : l.start) || 0;
         let m, _;
-        p !== -1 && p >= a ? (m = p, _ = p === f ? "config" : "next load start") : g !== null ? (m = g, _ = "live edge") : (m = e, _ = "buffer pos"), m < v && (m = v, _ = "live frag start"), m < a && (m = a, _ = "playlist start"), (this.startPosition != m || this.nextLoadPosition != m) && (this.log(`Setting startPosition to ${m.toFixed(3)} ${p === -1 ? "" : `(from ${f}) `}based on ${_}. live edge: ${g} live frag start: ${v.toFixed(3)} playlist start: ${a.toFixed(3)} buffer pos: ${e}`), this.startPosition = this.nextLoadPosition = m);
+        p !== -1 && p >= a ? (m = p, _ = p === f ? "config" : "next load start") : g !== null ? (m = g, _ = "live edge") : (m = e, _ = "buffer pos"), m < y && (m = y, _ = "live frag start"), m < a && (m = a, _ = "playlist start"), (this.startPosition != m || this.nextLoadPosition != m) && (this.log(`Setting startPosition to ${m.toFixed(3)} ${p === -1 ? "" : `(from ${f}) `}based on ${_}. live edge: ${g} live frag start: ${y.toFixed(3)} playlist start: ${a.toFixed(3)} buffer pos: ${e}`), this.startPosition = this.nextLoadPosition = m);
       }
     } else e <= a && (c = i[0]);
     if (!c) {
@@ -6922,7 +6922,7 @@ class Qs extends Il {
     const t = e.fragments, i = this.fragPrevious;
     let n = null;
     if (i) {
-      if (e.hasProgramDateTime && (n = yh(t, i.endProgramDateTime, this.config.maxFragLookUpTolerance), n && this.log(`Live playlist, switching playlist, load frag with same PDT: ${i.programDateTime}`)), !n) {
+      if (e.hasProgramDateTime && (n = vh(t, i.endProgramDateTime, this.config.maxFragLookUpTolerance), n && this.log(`Live playlist, switching playlist, load frag with same PDT: ${i.programDateTime}`)), !n) {
         const r = i.sn + 1;
         if (r >= e.startSN && r <= e.endSN) {
           const a = t[r - e.startSN];
@@ -6958,13 +6958,13 @@ class Qs extends Il {
     let f;
     if (e < t) {
       var p;
-      const v = e < this.lastCurrentTime || e > t - l || (p = this.media) != null && p.paused || !this.startFragRequested ? 0 : l;
-      f = It(r, a, e, v);
+      const y = e < this.lastCurrentTime || e > t - l || (p = this.media) != null && p.paused || !this.startFragRequested ? 0 : l;
+      f = It(r, a, e, y);
     } else
       f = a[a.length - 1];
     if (f) {
-      const g = f.sn - i.startSN, v = this.fragmentTracker.getState(f);
-      if ((v === Te.OK || v === Te.PARTIAL && f.gap) && (r = f), r && f.sn === r.sn && (!u || d[0].fragment.sn > f.sn || !i.live) && f.level === r.level) {
+      const g = f.sn - i.startSN, y = this.fragmentTracker.getState(f);
+      if ((y === Te.OK || y === Te.PARTIAL && f.gap) && (r = f), r && f.sn === r.sn && (!u || d[0].fragment.sn > f.sn || !i.live) && f.level === r.level) {
         const _ = a[g + 1];
         f.sn < o && this.fragmentTracker.getState(_) !== Te.OK ? f = _ : f = null;
       }
@@ -7005,7 +7005,7 @@ class Qs extends Il {
     return (e = this.hls) != null && e.hasEnoughToStart && t ? i = t.currentTime : this.nextLoadPosition >= 0 && (i = this.nextLoadPosition), i;
   }
   handleFragLoadAborted(e, t) {
-    this.transmuxer && e.type === this.playlistType && ye(e) && e.stats.aborted && (this.log(`Fragment ${e.sn}${t ? " part " + t.index : ""} of ${this.playlistLabel()} ${e.level} was aborted`), this.resetFragmentLoading(e));
+    this.transmuxer && e.type === this.playlistType && ve(e) && e.stats.aborted && (this.log(`Fragment ${e.sn}${t ? " part " + t.index : ""} of ${this.playlistLabel()} ${e.level} was aborted`), this.resetFragmentLoading(e));
   }
   resetFragmentLoading(e) {
     (!this.fragCurrent || !this.fragContextChanged(e) && this.state !== O.FRAG_LOADING_WAITING_RETRY) && (this.state = O.IDLE);
@@ -7036,8 +7036,8 @@ class Qs extends Il {
       flags: l,
       retryCount: d = 0,
       retryConfig: u
-    } = o, f = !!u, p = f && c === ke.RetryRequest, g = f && !o.resolved && l === Be.MoveAllAlternatesMatchingHost, v = (i = this.hls.latestLevelDetails) == null ? void 0 : i.live;
-    if (!p && g && ye(n) && !n.endList && v && !Al(t))
+    } = o, f = !!u, p = f && c === ke.RetryRequest, g = f && !o.resolved && l === Be.MoveAllAlternatesMatchingHost, y = (i = this.hls.latestLevelDetails) == null ? void 0 : i.live;
+    if (!p && g && ve(n) && !n.endList && y && !Al(t))
       this.resetFragmentErrors(e), this.treatAsGap(n), o.resolved = !0;
     else if ((p || g) && d < u.maxNumRetry) {
       var m;
@@ -7108,7 +7108,7 @@ class Qs extends Il {
         if (u <= 0)
           return this.warn(`Could not parse fragment ${e.sn} ${l} duration reliably (${u})`), c || !1;
         const f = n ? 0 : Ml(r, e, d.startPTS, d.endPTS, d.startDTS, d.endDTS, this);
-        return this.hls.trigger(y.LEVEL_PTS_UPDATED, {
+        return this.hls.trigger(v.LEVEL_PTS_UPDATED, {
           details: r,
           level: i,
           drift: f,
@@ -7124,7 +7124,7 @@ class Qs extends Il {
       const c = ((o = this.transmuxer) == null ? void 0 : o.error) === null;
       if ((i.fragmentError === 0 || c && (i.fragmentError < 2 || e.endList)) && this.treatAsGap(e, i), c) {
         const l = new Error(`Found no media in fragment ${e.sn} of ${this.playlistLabel()} ${e.level} resetting transmuxer to fallback to playlist timing`);
-        if (this.warn(l.message), this.hls.trigger(y.ERROR, {
+        if (this.warn(l.message), this.hls.trigger(v.ERROR, {
           type: q.MEDIA_ERROR,
           details: R.FRAG_PARSING_ERROR,
           fatal: !1,
@@ -7136,7 +7136,7 @@ class Qs extends Il {
         this.resetTransmuxer();
       }
     }
-    this.state = O.PARSED, this.log(`Parsed ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)})`), this.hls.trigger(y.FRAG_PARSED, {
+    this.state = O.PARSED, this.log(`Parsed ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)})`), this.hls.trigger(v.FRAG_PARSED, {
       frag: e,
       part: t
     });
@@ -7239,9 +7239,9 @@ function rf() {
       var d = t ? t + l : l, u = this._events[d];
       return u ? u.fn ? 1 : u.length : 0;
     }, o.prototype.emit = function(l, d, u, f, p, g) {
-      var v = t ? t + l : l;
-      if (!this._events[v]) return !1;
-      var m = this._events[v], _ = arguments.length, b, x;
+      var y = t ? t + l : l;
+      if (!this._events[y]) return !1;
+      var m = this._events[y], _ = arguments.length, b, x;
       if (m.fn) {
         switch (m.once && this.removeListener(l, m.fn, void 0, !0), _) {
           case 1:
@@ -7296,8 +7296,8 @@ function rf() {
       if (g.fn)
         g.fn === d && (!f || g.once) && (!u || g.context === u) && a(this, p);
       else {
-        for (var v = 0, m = [], _ = g.length; v < _; v++)
-          (g[v].fn !== d || f && !g[v].once || u && g[v].context !== u) && m.push(g[v]);
+        for (var y = 0, m = [], _ = g.length; y < _; y++)
+          (g[y].fn !== d || f && !g[y].once || u && g[y].context !== u) && m.push(g[y]);
         m.length ? this._events[p] = m.length === 1 ? m[0] : m : a(this, p);
       }
       return this;
@@ -7371,7 +7371,7 @@ function uf(s, e, t, i) {
   const n = [96e3, 88200, 64e3, 48e3, 44100, 32e3, 24e3, 22050, 16e3, 12e3, 11025, 8e3, 7350], r = e[t + 2], a = r >> 2 & 15;
   if (a > 12) {
     const p = new Error(`invalid ADTS sampling index:${a}`);
-    s.emit(y.ERROR, y.ERROR, {
+    s.emit(v.ERROR, v.ERROR, {
       type: q.MEDIA_ERROR,
       details: R.FRAG_PARSING_ERROR,
       fatal: !0,
@@ -7455,12 +7455,12 @@ function jl(s, e, t, i, n) {
       headerLength: f
     } = o, p = f + u, g = Math.max(0, t + p - e.length);
     g ? (c = new Uint8Array(p - f), c.set(e.subarray(t + f, e.length), 0)) : c = e.subarray(t + f, t + p);
-    const v = {
+    const y = {
       unit: c,
       pts: a
     };
-    return g || s.samples.push(v), {
-      sample: v,
+    return g || s.samples.push(y), {
+      sample: y,
       length: p,
       missing: g
     };
@@ -7478,13 +7478,13 @@ function jl(s, e, t, i, n) {
 function mf(s, e) {
   return Js(s, e) && _n(s, e + 6) + 10 <= s.length - e;
 }
-function vf(s) {
+function yf(s) {
   return s instanceof ArrayBuffer ? s : s.byteOffset == 0 && s.byteLength == s.buffer.byteLength ? s.buffer : new Uint8Array(s).buffer;
 }
 function Pn(s, e = 0, t = 1 / 0) {
-  return yf(s, e, t, Uint8Array);
+  return vf(s, e, t, Uint8Array);
 }
-function yf(s, e, t, i) {
+function vf(s, e, t, i) {
   const n = _f(s);
   let r = 1;
   "BYTES_PER_ELEMENT" in i && (r = i.BYTES_PER_ELEMENT);
@@ -7519,7 +7519,7 @@ function xf(s) {
     return;
   const o = Ve(Pn(s.data, 3 + i, a));
   let c;
-  return n === "-->" ? c = Ve(Pn(s.data, 4 + i + a)) : c = vf(s.data.subarray(4 + i + a)), e.mimeType = n, e.pictureType = r, e.description = o, e.data = c, e;
+  return n === "-->" ? c = Ve(Pn(s.data, 4 + i + a)) : c = yf(s.data.subarray(4 + i + a)), e.mimeType = n, e.pictureType = r, e.description = o, e.data = c, e;
 }
 function Ef(s) {
   if (s.size < 2)
@@ -7790,7 +7790,7 @@ function Ql(s, e, t, i, n) {
 function Zl(s, e) {
   const t = s[e + 1] >> 3 & 3, i = s[e + 1] >> 1 & 3, n = s[e + 2] >> 4 & 15, r = s[e + 2] >> 2 & 3;
   if (t !== 1 && n !== 0 && n !== 15 && r !== 3) {
-    const a = s[e + 2] >> 1 & 1, o = s[e + 3] >> 6, c = t === 3 ? 3 - i : i === 3 ? 3 : 4, l = Rf[c * 14 + n - 1] * 1e3, u = Df[(t === 3 ? 0 : t === 2 ? 1 : 2) * 3 + r], f = o === 3 ? 1 : 2, p = Cf[t][i], g = Pf[i], v = p * 8 * g, m = Math.floor(p * l / u + a) * g;
+    const a = s[e + 2] >> 1 & 1, o = s[e + 3] >> 6, c = t === 3 ? 3 - i : i === 3 ? 3 : 4, l = Rf[c * 14 + n - 1] * 1e3, u = Df[(t === 3 ? 0 : t === 2 ? 1 : 2) * 3 + r], f = o === 3 ? 1 : 2, p = Cf[t][i], g = Pf[i], y = p * 8 * g, m = Math.floor(p * l / u + a) * g;
     if (Ai === null) {
       const x = (navigator.userAgent || "").match(/Chrome\/(\d+)/i);
       Ai = x ? parseInt(x[1]) : 0;
@@ -7799,7 +7799,7 @@ function Zl(s, e) {
       sampleRate: u,
       channelCount: f,
       frameLength: m,
-      samplesPerFrame: v
+      samplesPerFrame: y
     };
   }
 }
@@ -7929,8 +7929,8 @@ function ic(s, e, t, i, n) {
   const u = e[t + 6] >> 5;
   let f = 0;
   u === 2 ? f += 2 : (u & 1 && u !== 1 && (f += 2), u & 4 && (f += 2));
-  const p = (e[t + 6] << 8 | e[t + 7]) >> 12 - f & 1, v = [2, 1, 2, 3, 3, 4, 4, 5][u] + p, m = e[t + 5] >> 3, _ = e[t + 5] & 7, b = new Uint8Array([r << 6 | m << 1 | _ >> 2, (_ & 3) << 6 | u << 3 | p << 2 | c >> 4, c << 4 & 224]), x = 1536 / o * 9e4, E = i + n * x, T = e.subarray(t, t + d);
-  return s.config = b, s.channelCount = v, s.samplerate = o, s.samples.push({
+  const p = (e[t + 6] << 8 | e[t + 7]) >> 12 - f & 1, y = [2, 1, 2, 3, 3, 4, 4, 5][u] + p, m = e[t + 5] >> 3, _ = e[t + 5] & 7, b = new Uint8Array([r << 6 | m << 1 | _ >> 2, (_ & 3) << 6 | u << 3 | p << 2 | c >> 4, c << 4 & 224]), x = 1536 / o * 9e4, E = i + n * x, T = e.subarray(t, t + d);
+  return s.config = b, s.channelCount = y, s.samplerate = o, s.samples.push({
     unit: T,
     pts: E
   }), d;
@@ -8315,18 +8315,18 @@ class Gf extends nc {
       switch (l.type) {
         // NDR
         case 1: {
-          let v = !1;
+          let y = !1;
           o = !0;
           const m = l.data;
           if (c && m.length > 4) {
             const _ = this.readSliceType(m);
-            (_ === 2 || _ === 4 || _ === 7 || _ === 9) && (v = !0);
+            (_ === 2 || _ === 4 || _ === 7 || _ === 9) && (y = !0);
           }
-          if (v) {
+          if (y) {
             var f;
             (f = a) != null && f.frame && !a.key && (this.pushAccessUnit(a, e), a = this.VideoSample = null);
           }
-          a || (a = this.VideoSample = this.createVideoSample(!0, i.pts, i.dts)), a.frame = !0, a.key = v;
+          a || (a = this.VideoSample = this.createVideoSample(!0, i.pts, i.dts)), a.frame = !0, a.key = y;
           break;
         }
         case 5:
@@ -8340,10 +8340,10 @@ class Gf extends nc {
         case 7: {
           var p, g;
           o = !0, c = !0;
-          const v = l.data, m = this.readSPS(v);
+          const y = l.data, m = this.readSPS(y);
           if (!e.sps || e.width !== m.width || e.height !== m.height || ((p = e.pixelRatio) == null ? void 0 : p[0]) !== m.pixelRatio[0] || ((g = e.pixelRatio) == null ? void 0 : g[1]) !== m.pixelRatio[1]) {
-            e.width = m.width, e.height = m.height, e.pixelRatio = m.pixelRatio, e.sps = [v];
-            const _ = v.subarray(1, 4);
+            e.width = m.width, e.height = m.height, e.pixelRatio = m.pixelRatio, e.sps = [y];
+            const _ = y.subarray(1, 4);
             let b = "avc1.";
             for (let x = 0; x < 3; x++) {
               let E = _[x].toString(16);
@@ -8401,7 +8401,7 @@ class Gf extends nc {
   readSPS(e) {
     const t = new si(e);
     let i = 0, n = 0, r = 0, a = 0, o, c, l;
-    const d = t.readUByte.bind(t), u = t.readBits.bind(t), f = t.readUEG.bind(t), p = t.readBoolean.bind(t), g = t.skipBits.bind(t), v = t.skipEG.bind(t), m = t.skipUEG.bind(t), _ = this.skipScalingList.bind(this);
+    const d = t.readUByte.bind(t), u = t.readBits.bind(t), f = t.readUEG.bind(t), p = t.readBoolean.bind(t), g = t.skipBits.bind(t), y = t.skipEG.bind(t), m = t.skipUEG.bind(t), _ = this.skipScalingList.bind(this);
     d();
     const b = d();
     if (u(5), g(3), d(), m(), b === 100 || b === 110 || b === 122 || b === 244 || b === 44 || b === 83 || b === 86 || b === 118 || b === 128) {
@@ -8415,8 +8415,8 @@ class Gf extends nc {
     if (x === 0)
       f();
     else if (x === 1)
-      for (g(1), v(), v(), o = f(), l = 0; l < o; l++)
-        v();
+      for (g(1), y(), y(), o = f(), l = 0; l < o; l++)
+        y();
     m(), g(1);
     const E = f(), T = f(), k = u(1);
     k === 0 && g(1), g(1), p() && (i = f(), n = f(), r = f(), a = f());
@@ -8599,7 +8599,7 @@ class Vf extends nc {
     t.readUByte(), t.readUByte(), t.readBits(4);
     const i = t.readBits(3);
     t.readBoolean();
-    const n = t.readBits(2), r = t.readBoolean(), a = t.readBits(5), o = t.readUByte(), c = t.readUByte(), l = t.readUByte(), d = t.readUByte(), u = t.readUByte(), f = t.readUByte(), p = t.readUByte(), g = t.readUByte(), v = t.readUByte(), m = t.readUByte(), _ = t.readUByte(), b = [], x = [];
+    const n = t.readBits(2), r = t.readBoolean(), a = t.readBits(5), o = t.readUByte(), c = t.readUByte(), l = t.readUByte(), d = t.readUByte(), u = t.readUByte(), f = t.readUByte(), p = t.readUByte(), g = t.readUByte(), y = t.readUByte(), m = t.readUByte(), _ = t.readUByte(), b = [], x = [];
     for (let U = 0; U < i; U++)
       b.push(t.readBoolean()), x.push(t.readBoolean());
     if (i > 0)
@@ -8663,20 +8663,20 @@ class Vf extends nc {
     let _e = !1;
     if (t.readBoolean()) {
       if (t.readBoolean()) {
-        const xt = t.readUByte(), hr = [1, 12, 10, 16, 40, 24, 20, 32, 80, 18, 15, 64, 160, 4, 3, 2], yi = [1, 11, 11, 11, 33, 11, 11, 11, 33, 11, 11, 33, 99, 3, 2, 1];
-        xt > 0 && xt < 16 ? (N = hr[xt - 1], H = yi[xt - 1]) : xt === 255 && (N = t.readBits(16), H = t.readBits(16));
+        const xt = t.readUByte(), hr = [1, 12, 10, 16, 40, 24, 20, 32, 80, 18, 15, 64, 160, 4, 3, 2], vi = [1, 11, 11, 11, 33, 11, 11, 11, 33, 11, 11, 33, 99, 3, 2, 1];
+        xt > 0 && xt < 16 ? (N = hr[xt - 1], H = vi[xt - 1]) : xt === 255 && (N = t.readBits(16), H = t.readBits(16));
       }
       if (t.readBoolean() && t.readBoolean(), t.readBoolean() && (t.readBits(3), t.readBoolean(), t.readBoolean() && (t.readUByte(), t.readUByte(), t.readUByte())), t.readBoolean() && (t.readUEG(), t.readUEG()), t.readBoolean(), t.readBoolean(), t.readBoolean(), _e = t.readBoolean(), _e && (t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG()), t.readBoolean() && (Z = t.readBits(32), ie = t.readBits(32), t.readBoolean() && t.readUEG(), t.readBoolean())) {
-        const yi = t.readBoolean(), fr = t.readBoolean();
+        const vi = t.readBoolean(), fr = t.readBoolean();
         let jt = !1;
-        (yi || fr) && (jt = t.readBoolean(), jt && (t.readUByte(), t.readBits(5), t.readBoolean(), t.readBits(5)), t.readBits(4), t.readBits(4), jt && t.readBits(4), t.readBits(5), t.readBits(5), t.readBits(5));
+        (vi || fr) && (jt = t.readBoolean(), jt && (t.readUByte(), t.readBits(5), t.readBoolean(), t.readBits(5)), t.readBits(4), t.readBits(4), jt && t.readBits(4), t.readBits(5), t.readBits(5), t.readBits(5));
         for (let pr = 0; pr <= i; pr++) {
           Q = t.readBoolean();
           const Wc = Q || t.readBoolean();
           let gr = !1;
           Wc ? t.readEG() : gr = t.readBoolean();
           const mr = gr ? 1 : t.readUEG() + 1;
-          if (yi)
+          if (vi)
             for (let qt = 0; qt < mr; qt++)
               t.readUEG(), t.readUEG(), jt && (t.readUEG(), t.readUEG()), t.skipBits(1);
           if (fr)
@@ -8703,7 +8703,7 @@ class Vf extends nc {
         general_profile_idc: a,
         general_profile_space: n,
         general_profile_compatibility_flags: [o, c, l, d],
-        general_constraint_indicator_flags: [u, f, p, g, v, m],
+        general_constraint_indicator_flags: [u, f, p, g, y, m],
         general_level_idc: _,
         bit_depth: B + 8,
         bit_depth_luma_minus8: B,
@@ -8797,7 +8797,7 @@ class gt {
     i || (this.sampleAes = null);
     let r;
     const a = this._videoTrack, o = this._audioTrack, c = this._id3Track, l = this._txtTrack;
-    let d = a.pid, u = a.pesData, f = o.pid, p = c.pid, g = o.pesData, v = c.pesData, m = null, _ = this.pmtParsed, b = this._pmtId, x = e.length;
+    let d = a.pid, u = a.pesData, f = o.pid, p = c.pid, g = o.pesData, y = c.pesData, m = null, _ = this.pmtParsed, b = this._pmtId, x = e.length;
     if (this.remainderData && (e = Ke(this.remainderData, e), x = e.length, this.remainderData = null), x < Ae && !n)
       return this.remainderData = e, {
         audioTrack: o,
@@ -8846,10 +8846,10 @@ class gt {
             g && (g.data.push(e.subarray(P, S + Ae)), g.size += S + Ae - P);
             break;
           case p:
-            L && (v && (r = Dt(v, this.logger)) && this.parseID3PES(c, r), v = {
+            L && (y && (r = Dt(y, this.logger)) && this.parseID3PES(c, r), y = {
               data: [],
               size: 0
-            }), v && (v.data.push(e.subarray(P, S + Ae)), v.size += S + Ae - P);
+            }), y && (y.data.push(e.subarray(P, S + Ae)), y.size += S + Ae - P);
             break;
           case 0:
             L && (P += e[P] + 1), b = this._pmtId = Kf(e, P);
@@ -8869,7 +8869,7 @@ class gt {
         }
       } else
         T++;
-    T > 0 && gs(this.observer, new Error(`Found ${T} TS packet/s that do not start with 0x47`), void 0, this.logger), a.pesData = u, o.pesData = g, c.pesData = v;
+    T > 0 && gs(this.observer, new Error(`Found ${T} TS packet/s that do not start with 0x47`), void 0, this.logger), a.pesData = u, o.pesData = g, c.pesData = y;
     const k = {
       audioTrack: o,
       videoTrack: a,
@@ -9090,8 +9090,8 @@ function Hf(s, e, t, i, n, r) {
                 t.ac3 !== !0 ? r.log("AC-3 audio found, not supported in this browser for now") : (a.audioPid = d, a.segmentAudioCodec = "ac3");
                 break;
             }
-            const v = s[f + 1] + 2;
-            f += v, p -= v;
+            const y = s[f + 1] + 2;
+            f += y, p -= y;
           }
         }
         break;
@@ -9109,7 +9109,7 @@ function Hf(s, e, t, i, n, r) {
   return a;
 }
 function gs(s, e, t, i) {
-  i.warn(`parsing error: ${e.message}`), s.emit(y.ERROR, y.ERROR, {
+  i.warn(`parsing error: ${e.message}`), s.emit(v.ERROR, v.ERROR, {
     type: q.MEDIA_ERROR,
     details: R.FRAG_PARSING_ERROR,
     fatal: !1,
@@ -9148,14 +9148,14 @@ function Dt(s, e) {
     const f = new Uint8Array(s.size);
     for (let p = 0, g = c.length; p < g; p++) {
       i = c[p];
-      let v = i.byteLength;
+      let y = i.byteLength;
       if (u)
-        if (u > v) {
-          u -= v;
+        if (u > y) {
+          u -= y;
           continue;
         } else
-          i = i.subarray(u), v -= u, u = 0;
-      f.set(i, t), t += v;
+          i = i.subarray(u), y -= u, u = 0;
+      f.set(i, t), t += y;
     }
     return n && (n -= r + 3), {
       data: f,
@@ -10216,16 +10216,16 @@ class w {
     let a = r.length;
     for (let g = 0; g < i.length; g += 1) {
       a += 3;
-      for (let v = 0; v < i[g].length; v += 1)
-        a += 2 + i[g][v].length;
+      for (let y = 0; y < i[g].length; y += 1)
+        a += 2 + i[g][y].length;
     }
     const o = new Uint8Array(a);
     o.set(r, 0), a = r.length;
     const c = i.length - 1;
     for (let g = 0; g < i.length; g += 1) {
       o.set(new Uint8Array([32 + g | (g === c ? 128 : 0), 0, i[g].length]), a), a += 3;
-      for (let v = 0; v < i[g].length; v += 1)
-        o.set(new Uint8Array([i[g][v].length >> 8, i[g][v].length & 255]), a), a += 2, o.set(i[g][v], a), a += i[g][v].length;
+      for (let y = 0; y < i[g].length; y += 1)
+        o.set(new Uint8Array([i[g][y].length >> 8, i[g][y].length & 255]), a), a += 2, o.set(i[g][y], a), a += i[g][y].length;
     }
     const l = w.box(w.types.hvcC, o), d = e.width, u = e.height, f = e.pixelRatio[0], p = e.pixelRatio[1];
     return w.box(
@@ -10442,7 +10442,7 @@ class Yi extends ze {
     return t && this.debug("PTS rollover detected"), n;
   }
   remux(e, t, i, n, r, a, o, c) {
-    let l, d, u, f, p, g, v = r, m = r;
+    let l, d, u, f, p, g, y = r, m = r;
     const _ = e.pid > -1, b = t.pid > -1, x = t.samples.length, E = e.samples.length > 0, T = o && x > 0 || x > 1;
     if ((!_ || E) && (!b || T) || this.ISGenerated || o) {
       if (this.ISGenerated) {
@@ -10462,10 +10462,10 @@ class Yi extends ze {
       if (this.ISGenerated) {
         if (E && T) {
           const z = this.getVideoStartPts(t.samples), C = (Ue(e.samples[0].pts, z) - z) / t.inputTimeScale;
-          v += Math.max(0, C), m += Math.max(0, -C);
+          y += Math.max(0, C), m += Math.max(0, -C);
         }
         if (E) {
-          if (e.samplerate || (this.warn("regenerate InitSegment as audio detected"), u = this.generateIS(e, t, r, a)), d = this.remuxAudio(e, v, this.isAudioContiguous, a, b || T || c === j.AUDIO ? m : void 0), T) {
+          if (e.samplerate || (this.warn("regenerate InitSegment as audio detected"), u = this.generateIS(e, t, r, a)), d = this.remuxAudio(e, y, this.isAudioContiguous, a, b || T || c === j.AUDIO ? m : void 0), T) {
             const z = d ? d.endPTS - d.startPTS : 0;
             t.inputTimeScale || (this.warn("regenerate InitSegment as video detected"), u = this.generateIS(e, t, r, a)), l = this.remuxVideo(t, m, P, z);
           }
@@ -10492,7 +10492,7 @@ class Yi extends ze {
   }
   generateIS(e, t, i, n) {
     const r = e.samples, a = t.samples, o = this.typeSupported, c = {}, l = this._initPTS;
-    let d = !l || n, u = "audio/mp4", f, p, g, v = -1;
+    let d = !l || n, u = "audio/mp4", f, p, g, y = -1;
     if (d && (f = p = 1 / 0), e.config && r.length) {
       switch (e.timescale = e.samplerate, e.segmentCodec) {
         case "mp3":
@@ -10510,7 +10510,7 @@ class Yi extends ze {
         metadata: {
           channelCount: e.channelCount
         }
-      }, d && (v = e.id, g = e.inputTimeScale, !l || g !== l.timescale ? f = p = this.computeInitPts(r[0].pts, g, i, "audio") : d = !1);
+      }, d && (y = e.id, g = e.inputTimeScale, !l || g !== l.timescale ? f = p = this.computeInitPts(r[0].pts, g, i, "audio") : d = !1);
     }
     if (t.sps && t.pps && a.length) {
       if (t.timescale = t.inputTimeScale, c.video = {
@@ -10523,7 +10523,7 @@ class Yi extends ze {
           height: t.height
         }
       }, d)
-        if (v = t.id, g = t.inputTimeScale, !l || g !== l.timescale) {
+        if (y = t.id, g = t.inputTimeScale, !l || g !== l.timescale) {
           const m = this.getVideoStartPts(a), _ = Ue(a[0].dts, m), b = this.computeInitPts(_, g, i, "video"), x = this.computeInitPts(m, g, i, "video");
           p = Math.min(p, b), f = Math.min(f, x);
         } else
@@ -10535,24 +10535,24 @@ class Yi extends ze {
       };
     }
     if (Object.keys(c).length)
-      return this.ISGenerated = !0, d ? (l && this.warn(`Timestamps at playlist time: ${n ? "" : "~"}${i} ${f / g} != initPTS: ${l.baseTime / l.timescale} (${l.baseTime}/${l.timescale}) trackId: ${l.trackId}`), this.log(`Found initPTS at playlist time: ${i} offset: ${f / g} (${f}/${g}) trackId: ${v}`), this._initPTS = {
+      return this.ISGenerated = !0, d ? (l && this.warn(`Timestamps at playlist time: ${n ? "" : "~"}${i} ${f / g} != initPTS: ${l.baseTime / l.timescale} (${l.baseTime}/${l.timescale}) trackId: ${l.trackId}`), this.log(`Found initPTS at playlist time: ${i} offset: ${f / g} (${f}/${g}) trackId: ${y}`), this._initPTS = {
         baseTime: f,
         timescale: g,
-        trackId: v
+        trackId: y
       }, this._initDTS = {
         baseTime: p,
         timescale: g,
-        trackId: v
+        trackId: y
       }) : f = g = void 0, {
         tracks: c,
         initPTS: f,
         timescale: g,
-        trackId: v
+        trackId: y
       };
   }
   remuxVideo(e, t, i, n) {
     const r = e.inputTimeScale, a = e.samples, o = [], c = a.length, l = this._initPTS, d = l.baseTime * r / l.timescale;
-    let u = this.nextVideoTs, f = 8, p = this.videoSampleDuration, g, v, m = Number.POSITIVE_INFINITY, _ = Number.NEGATIVE_INFINITY, b = !1;
+    let u = this.nextVideoTs, f = 8, p = this.videoSampleDuration, g, y, m = Number.POSITIVE_INFINITY, _ = Number.NEGATIVE_INFINITY, b = !1;
     if (!i || u === null) {
       const M = d + t * r, N = a[0].pts - Ue(a[0].dts, a[0].pts);
       Ct && u !== null && Math.abs(M - N - (u + d)) < 15e3 ? i = !0 : u = M - N - d;
@@ -10565,8 +10565,8 @@ class Yi extends ze {
     b && a.sort(function(M, N) {
       const H = M.dts - N.dts, Q = M.pts - N.pts;
       return H || Q;
-    }), g = a[0].dts, v = a[a.length - 1].dts;
-    const E = v - g, T = E ? Math.round(E / (c - 1)) : p || e.inputTimeScale / 30;
+    }), g = a[0].dts, y = a[a.length - 1].dts;
+    const E = y - g, T = E ? Math.round(E / (c - 1)) : p || e.inputTimeScale / 30;
     if (i) {
       const M = g - x, N = M > T, H = M < -1;
       if ((N || H) && (N ? this.warn(`${(e.segmentCodec || "").toUpperCase()}: ${Xt(M, !0)} ms (${M}dts) hole between fragments detected at ${t.toFixed(3)}`) : this.warn(`${(e.segmentCodec || "").toUpperCase()}: ${Xt(-M, !0)} ms (${M}dts) overlapping between fragments detected at ${t.toFixed(3)}`), !H || x >= a[0].pts || Ct)) {
@@ -10596,13 +10596,13 @@ class Yi extends ze {
         Z += H[ie].data.length;
       S += Z, k += Q, N.length = Z, N.dts < L ? (N.dts = L, L += T / 4 | 0 || 1) : L = N.dts, m = Math.min(N.pts, m), _ = Math.max(N.pts, _);
     }
-    v = a[c - 1].dts;
+    y = a[c - 1].dts;
     const I = S + 4 * k + 8;
     let A;
     try {
       A = new Uint8Array(I);
     } catch (M) {
-      this.observer.emit(y.ERROR, y.ERROR, {
+      this.observer.emit(v.ERROR, v.ERROR, {
         type: q.MUX_ERROR,
         details: R.REMUX_ALLOC_ERROR,
         fatal: !1,
@@ -10657,7 +10657,7 @@ class Yi extends ze {
       }
     }
     p = B || !p ? T : p;
-    const F = v + p;
+    const F = y + p;
     this.nextVideoTs = u = F - d, this.videoSampleDuration = p, this.isVideoContiguous = !0;
     const G = {
       data1: w.moof(e.sequenceNumber++, g, le(e, {
@@ -10688,20 +10688,20 @@ class Yi extends ze {
   }
   remuxAudio(e, t, i, n, r) {
     const a = e.inputTimeScale, o = e.samplerate ? e.samplerate : a, c = a / o, l = this.getSamplesPerFrame(e), d = l * c, u = this._initPTS, f = e.segmentCodec === "mp3" && this.typeSupported.mpeg, p = [], g = r !== void 0;
-    let v = e.samples, m = f ? 0 : 8, _ = this.nextAudioTs || -1;
+    let y = e.samples, m = f ? 0 : 8, _ = this.nextAudioTs || -1;
     const b = u.baseTime * a / u.timescale, x = b + t * a;
-    if (this.isAudioContiguous = i = i || v.length && _ > 0 && (n && Math.abs(x - (_ + b)) < 9e3 || Math.abs(Ue(v[0].pts, x) - (_ + b)) < 20 * d), v.forEach(function(C) {
+    if (this.isAudioContiguous = i = i || y.length && _ > 0 && (n && Math.abs(x - (_ + b)) < 9e3 || Math.abs(Ue(y[0].pts, x) - (_ + b)) < 20 * d), y.forEach(function(C) {
       C.pts = Ue(C.pts, x);
     }), !i || _ < 0) {
-      const C = v.length;
-      if (v = v.filter((F) => F.pts >= 0), C !== v.length && this.warn(`Removed ${v.length - C} of ${C} samples (initPTS ${b} / ${a})`), !v.length)
+      const C = y.length;
+      if (y = y.filter((F) => F.pts >= 0), C !== y.length && this.warn(`Removed ${y.length - C} of ${C} samples (initPTS ${b} / ${a})`), !y.length)
         return;
-      r === 0 ? _ = 0 : n && !g ? _ = Math.max(0, x - b) : _ = v[0].pts - b;
+      r === 0 ? _ = 0 : n && !g ? _ = Math.max(0, x - b) : _ = y[0].pts - b;
     }
     if (e.segmentCodec === "aac") {
       const C = this.config.maxAudioFramesDrift;
-      for (let F = 0, $ = _ + b; F < v.length; F++) {
-        const V = v[F], G = V.pts, M = G - $, N = Math.abs(1e3 * M / a);
+      for (let F = 0, $ = _ + b; F < y.length; F++) {
+        const V = y[F], G = V.pts, M = G - $, N = Math.abs(1e3 * M / a);
         if (M <= -C * d && g)
           F === 0 && (this.warn(`Audio frame @ ${(G / a).toFixed(3)}s overlaps marker by ${Math.round(1e3 * M / a)} ms.`), this.nextAudioTs = _ = G - b, $ = G);
         else if (M >= C * d && N < jf && g) {
@@ -10711,7 +10711,7 @@ class Yi extends ze {
           F === 0 && (this.nextAudioTs = _ = $ - b), this.warn(`Injecting ${H} audio frames @ ${(($ - b) / a).toFixed(3)}s due to ${Math.round(1e3 * M / a)} ms gap.`);
           for (let Q = 0; Q < H; Q++) {
             let Z = zf.getSilentFrame(e.parsedCodec || e.manifestCodec || e.codec, e.channelCount);
-            Z || (this.log("Unable to get silent frame for given audio codec; duplicating last frame instead."), Z = V.unit.subarray()), v.splice(F, 0, {
+            Z || (this.log("Unable to get silent frame for given audio codec; duplicating last frame instead."), Z = V.unit.subarray()), y.splice(F, 0, {
               unit: Z,
               pts: $
             }), $ += d, F++;
@@ -10720,11 +10720,11 @@ class Yi extends ze {
         V.pts = $, $ += d;
       }
     }
-    let E = null, T = null, k, S = 0, L = v.length;
+    let E = null, T = null, k, S = 0, L = y.length;
     for (; L--; )
-      S += v[L].unit.byteLength;
-    for (let C = 0, F = v.length; C < F; C++) {
-      const $ = v[C], V = $.unit;
+      S += y[L].unit.byteLength;
+    for (let C = 0, F = y.length; C < F; C++) {
+      const $ = y[C], V = $.unit;
       let G = $.pts;
       if (T !== null) {
         const N = p[C - 1];
@@ -10734,7 +10734,7 @@ class Yi extends ze {
         try {
           k = new Uint8Array(S);
         } catch (N) {
-          this.observer.emit(y.ERROR, y.ERROR, {
+          this.observer.emit(v.ERROR, v.ERROR, {
             type: q.MUX_ERROR,
             details: R.REMUX_ALLOC_ERROR,
             fatal: !1,
@@ -10904,7 +10904,7 @@ class Jf extends ze {
     if ((o = g) != null && o.length || (this.generateInitSegment(f), g = this.initData), !((c = g) != null && c.length))
       return this.warn("Failed to generate initSegment."), u;
     this.emitInitSegment && (p.tracks = this.initTracks, this.emitInitSegment = !1);
-    const v = Gu(f, g, this), m = g.audio ? v[g.audio.id] : null, _ = g.video ? v[g.video.id] : null, b = Ii(_, 1 / 0), x = Ii(m, 1 / 0), E = Ii(_, 0, !0), T = Ii(m, 0, !0);
+    const y = Gu(f, g, this), m = g.audio ? y[g.audio.id] : null, _ = g.video ? y[g.video.id] : null, b = Ii(_, 1 / 0), x = Ii(m, 1 / 0), E = Ii(_, 0, !0), T = Ii(m, 0, !0);
     let k = r, S = 0;
     const L = m && (!_ || !l && x < b || l && l.trackId === g.audio.id), I = L ? m : _;
     if (I) {
@@ -11004,7 +11004,7 @@ class Ca {
       timeOffset: p,
       initSegmentChange: g
     } = n || o, {
-      audioCodec: v,
+      audioCodec: y,
       videoCodec: m,
       defaultInitPts: _,
       duration: b,
@@ -11031,7 +11031,7 @@ class Ca {
     if (T) {
       const L = this.configureTransmuxer(a);
       if (L)
-        return this.logger.warn(`[transmuxer] ${L.message}`), this.observer.emit(y.ERROR, y.ERROR, {
+        return this.logger.warn(`[transmuxer] ${L.message}`), this.observer.emit(v.ERROR, v.ERROR, {
           type: q.MEDIA_ERROR,
           details: R.FRAG_PARSING_ERROR,
           fatal: !1,
@@ -11039,7 +11039,7 @@ class Ca {
           reason: L.message
         }), r.executeEnd = ct(), Fn(i);
     }
-    (d || u || g || T) && this.resetInitSegment(x, v, m, b, t), (d || g || T) && this.resetInitialTimestamp(_), l || this.resetContiguity();
+    (d || u || g || T) && this.resetInitSegment(x, y, m, b, t), (d || g || T) && this.resetInitialTimestamp(_), l || this.resetContiguity();
     const k = this.transmux(a, E, p, f, i);
     this.asyncResult = gi(k);
     const S = this.currentTransmuxState;
@@ -11221,7 +11221,7 @@ class oc {
       if (!this.hls)
         return;
       const l = new Error(`${c.message}  (${c.filename}:${c.lineno})`);
-      this.hls.config.enableWorker = !1, this.hls.logger.warn(`Error in "${this.id}" Web Worker, fallback to inline`), this.hls.trigger(y.ERROR, {
+      this.hls.config.enableWorker = !1, this.hls.logger.warn(`Error in "${this.id}" Web Worker, fallback to inline`), this.hls.trigger(v.ERROR, {
         type: q.OTHER_ERROR,
         details: R.INTERNAL_EXCEPTION,
         fatal: !1,
@@ -11232,9 +11232,9 @@ class oc {
     const r = e.config;
     this.hls = e, this.id = t, this.useWorker = !!r.enableWorker, this.onTransmuxComplete = i, this.onFlush = n;
     const a = (c, l) => {
-      l = l || {}, l.frag = this.frag || void 0, c === y.ERROR && (l = l, l.parent = this.id, l.part = this.part, this.error = l.error), this.hls.trigger(c, l);
+      l = l || {}, l.frag = this.frag || void 0, c === v.ERROR && (l = l, l.parent = this.id, l.part = this.part, this.error = l.error), this.hls.trigger(c, l);
     };
-    this.observer = new Zs(), this.observer.on(y.FRAG_DECRYPTED, a), this.observer.on(y.ERROR, a);
+    this.observer = new Zs(), this.observer.on(v.FRAG_DECRYPTED, a), this.observer.on(v.ERROR, a);
     const o = jr(r.preferManagedMediaSource);
     if (this.useWorker && typeof Worker < "u") {
       const c = this.hls.logger;
@@ -11298,16 +11298,16 @@ class oc {
     const {
       instanceNo: p,
       transmuxer: g
-    } = this, v = a ? a.start : r.start, m = r.decryptdata, _ = this.frag, b = !(_ && r.cc === _.cc), x = !(_ && l.level === _.level), E = _ ? l.sn - _.sn : -1, T = this.part ? l.part - this.part.index : -1, k = E === 0 && l.id > 1 && l.id === _?.stats.chunkCount, S = !x && (E === 1 || E === 0 && (T === 1 || k && T <= 0)), L = self.performance.now();
+    } = this, y = a ? a.start : r.start, m = r.decryptdata, _ = this.frag, b = !(_ && r.cc === _.cc), x = !(_ && l.level === _.level), E = _ ? l.sn - _.sn : -1, T = this.part ? l.part - this.part.index : -1, k = E === 0 && l.id > 1 && l.id === _?.stats.chunkCount, S = !x && (E === 1 || E === 0 && (T === 1 || k && T <= 0)), L = self.performance.now();
     (x || E || r.stats.parsing.start === 0) && (r.stats.parsing.start = L), a && (T || !S) && (a.stats.parsing.start = L);
-    const I = !(_ && ((u = r.initSegment) == null ? void 0 : u.url) === ((f = _.initSegment) == null ? void 0 : f.url)), A = new np(b, S, c, x, v, I);
+    const I = !(_ && ((u = r.initSegment) == null ? void 0 : u.url) === ((f = _.initSegment) == null ? void 0 : f.url)), A = new np(b, S, c, x, y, I);
     if (!S || b || I) {
       this.hls.logger.log(`[transmuxer-interface]: Starting new transmux session for ${r.type} sn: ${l.sn}${l.part > -1 ? " part: " + l.part : ""} ${this.id === j.MAIN ? "level" : "track"}: ${l.level} id: ${l.id}
         discontinuity: ${b}
         trackSwitch: ${x}
         contiguous: ${S}
         accurateTimeOffset: ${c}
-        timeOffset: ${v}
+        timeOffset: ${y}
         initSegmentChange: ${I}`);
       const P = new ip(i, n, t, o, d);
       this.configureTransmuxer(P);
@@ -11352,7 +11352,7 @@ class oc {
     }
   }
   transmuxerError(e, t, i) {
-    this.hls && (this.error = e, this.hls.trigger(y.ERROR, {
+    this.hls && (this.error = e, this.hls.trigger(v.ERROR, {
       type: q.MEDIA_ERROR,
       details: R.FRAG_PARSING_ERROR,
       chunkMeta: t,
@@ -11400,13 +11400,13 @@ class sp extends Qs {
     const {
       hls: e
     } = this;
-    e.on(y.LEVEL_LOADED, this.onLevelLoaded, this), e.on(y.AUDIO_TRACKS_UPDATED, this.onAudioTracksUpdated, this), e.on(y.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.on(y.AUDIO_TRACK_LOADED, this.onAudioTrackLoaded, this), e.on(y.BUFFER_RESET, this.onBufferReset, this), e.on(y.BUFFER_CREATED, this.onBufferCreated, this), e.on(y.BUFFER_FLUSHING, this.onBufferFlushing, this), e.on(y.BUFFER_FLUSHED, this.onBufferFlushed, this), e.on(y.INIT_PTS_FOUND, this.onInitPtsFound, this), e.on(y.FRAG_LOADING, this.onFragLoading, this), e.on(y.FRAG_BUFFERED, this.onFragBuffered, this);
+    e.on(v.LEVEL_LOADED, this.onLevelLoaded, this), e.on(v.AUDIO_TRACKS_UPDATED, this.onAudioTracksUpdated, this), e.on(v.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.on(v.AUDIO_TRACK_LOADED, this.onAudioTrackLoaded, this), e.on(v.BUFFER_RESET, this.onBufferReset, this), e.on(v.BUFFER_CREATED, this.onBufferCreated, this), e.on(v.BUFFER_FLUSHING, this.onBufferFlushing, this), e.on(v.BUFFER_FLUSHED, this.onBufferFlushed, this), e.on(v.INIT_PTS_FOUND, this.onInitPtsFound, this), e.on(v.FRAG_LOADING, this.onFragLoading, this), e.on(v.FRAG_BUFFERED, this.onFragBuffered, this);
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e && (super.unregisterListeners(), e.off(y.LEVEL_LOADED, this.onLevelLoaded, this), e.off(y.AUDIO_TRACKS_UPDATED, this.onAudioTracksUpdated, this), e.off(y.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.off(y.AUDIO_TRACK_LOADED, this.onAudioTrackLoaded, this), e.off(y.BUFFER_RESET, this.onBufferReset, this), e.off(y.BUFFER_CREATED, this.onBufferCreated, this), e.off(y.BUFFER_FLUSHING, this.onBufferFlushing, this), e.off(y.BUFFER_FLUSHED, this.onBufferFlushed, this), e.off(y.INIT_PTS_FOUND, this.onInitPtsFound, this), e.off(y.FRAG_LOADING, this.onFragLoading, this), e.off(y.FRAG_BUFFERED, this.onFragBuffered, this));
+    e && (super.unregisterListeners(), e.off(v.LEVEL_LOADED, this.onLevelLoaded, this), e.off(v.AUDIO_TRACKS_UPDATED, this.onAudioTracksUpdated, this), e.off(v.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.off(v.AUDIO_TRACK_LOADED, this.onAudioTrackLoaded, this), e.off(v.BUFFER_RESET, this.onBufferReset, this), e.off(v.BUFFER_CREATED, this.onBufferCreated, this), e.off(v.BUFFER_FLUSHING, this.onBufferFlushing, this), e.off(v.BUFFER_FLUSHED, this.onBufferFlushed, this), e.off(v.INIT_PTS_FOUND, this.onInitPtsFound, this), e.off(v.FRAG_LOADING, this.onFragLoading, this), e.off(v.FRAG_BUFFERED, this.onFragBuffered, this));
   }
   // INIT_PTS_FOUND is triggered when the video track parsed in the stream-controller has a new PTS value
   onInitPtsFound(e, {
@@ -11524,14 +11524,14 @@ class sp extends Qs {
     if (d === null)
       return;
     if (!this.switchingTrack && this._streamEnded(d, c)) {
-      t.trigger(y.BUFFER_EOS, {
+      t.trigger(v.BUFFER_EOS, {
         type: "audio"
       }), this.state = O.ENDED;
       return;
     }
-    const u = d.len, f = t.maxBufferLength, p = c.fragments, g = p[0].start, v = this.getLoadPosition(), m = this.flushing ? v : d.end;
+    const u = d.len, f = t.maxBufferLength, p = c.fragments, g = p[0].start, y = this.getLoadPosition(), m = this.flushing ? y : d.end;
     if (this.switchingTrack && n) {
-      const x = v;
+      const x = y;
       c.PTSKnown && x < g && (d.end > g || d.nextStart) && (this.log("Alt audio track ahead of main track, seek to start of alt audio track"), n.currentTime = g + 0.05);
     }
     if (u >= f && !this.switchingTrack && m < p[p.length - 1].start)
@@ -11544,7 +11544,7 @@ class sp extends Qs {
     if (this.exceedsMaxBuffer(d, f, _))
       return;
     let b = ((e = this.mainFragLoading) == null ? void 0 : e.frag) || null;
-    if (!this.audioOnly && this.startFragRequested && b && ye(_) && !_.endList && (!c.live || !this.loadingParts && m < this.hls.liveSyncPosition) && (this.fragmentTracker.getState(b) === Te.OK && (this.mainFragLoading = b = null), b && ye(b))) {
+    if (!this.audioOnly && this.startFragRequested && b && ve(_) && !_.endList && (!c.live || !this.loadingParts && m < this.hls.liveSyncPosition) && (this.fragmentTracker.getState(b) === Te.OK && (this.mainFragLoading = b = null), b && ve(b))) {
       if (_.start > b.end) {
         const E = this.fragmentTracker.getFragAtPos(m, j.MAIN);
         E && E.end > b.end && (b = E, this.mainFragLoading = {
@@ -11579,7 +11579,7 @@ class sp extends Qs {
   onLevelLoaded(e, t) {
     this.mainDetails = t.details;
     const i = this.cachedTrackLoadedData;
-    i && (this.cachedTrackLoadedData = null, this.onAudioTrackLoaded(y.AUDIO_TRACK_LOADED, i));
+    i && (this.cachedTrackLoadedData = null, this.onAudioTrackLoaded(v.AUDIO_TRACK_LOADED, i));
   }
   onAudioTrackLoaded(e, t) {
     var i;
@@ -11612,7 +11612,7 @@ class sp extends Qs {
       }
       r.alignedSliding || (Gl(r, l), r.alignedSliding || un(r, l), u = r.fragmentStart);
     }
-    d.details = r, this.levelLastLoaded = d, this.startFragRequested || this.setStartPosition(l, u), this.hls.trigger(y.AUDIO_TRACK_UPDATED, {
+    d.details = r, this.levelLastLoaded = d, this.startFragRequested || this.setStartPosition(l, u), this.hls.trigger(v.AUDIO_TRACK_UPDATED, {
       details: r,
       id: a,
       groupId: t.groupId
@@ -11652,14 +11652,14 @@ class sp extends Qs {
     } else {
       this.log(`Unknown video PTS for cc ${i.cc}, waiting for video PTS before demuxing audio frag ${i.sn} of [${d.startSN} ,${d.endSN}],track ${o}`);
       const {
-        cache: v
+        cache: y
       } = this.waitingData = this.waitingData || {
         frag: i,
         part: n,
         cache: new Vl(),
         complete: !1
       };
-      v.push(new Uint8Array(r)), this.state !== O.STOPPED && (this.state = O.WAITING_INIT_PTS);
+      y.push(new Uint8Array(r)), this.state !== O.STOPPED && (this.state = O.WAITING_INIT_PTS);
     }
   }
   _handleFragmentLoadComplete(e) {
@@ -11678,7 +11678,7 @@ class sp extends Qs {
     i && (this.mediaBuffer = i.buffer || null);
   }
   onFragLoading(e, t) {
-    !this.audioOnly && t.frag.type === j.MAIN && ye(t.frag) && (this.mainFragLoading = t, this.state === O.IDLE && this.tick());
+    !this.audioOnly && t.frag.type === j.MAIN && ve(t.frag) && (this.mainFragLoading = t, this.state === O.IDLE && this.tick());
   }
   onFragBuffered(e, t) {
     const {
@@ -11693,10 +11693,10 @@ class sp extends Qs {
       this.warn(`Fragment ${i.sn}${n ? " p: " + n.index : ""} of level ${i.level} finished buffering, but was aborted. state: ${this.state}, audioSwitch: ${this.switchingTrack ? this.switchingTrack.name : "false"}`);
       return;
     }
-    if (ye(i)) {
+    if (ve(i)) {
       this.fragPrevious = i;
       const r = this.switchingTrack;
-      r && (this.bufferedTrack = r, this.switchingTrack = null, this.hls.trigger(y.AUDIO_TRACK_SWITCHED, ae({}, r)));
+      r && (this.bufferedTrack = r, this.switchingTrack = null, this.hls.trigger(v.AUDIO_TRACK_SWITCHED, ae({}, r)));
     }
     this.fragBufferedComplete(i, n), this.media && this.tick();
   }
@@ -11773,20 +11773,20 @@ class sp extends Qs {
       audio: f,
       text: p,
       id3: g,
-      initSegment: v
+      initSegment: y
     } = r;
     if (this.fragContextChanged(c) || !u) {
       this.fragmentTracker.removeFragment(c);
       return;
     }
-    if (this.state = O.PARSING, this.switchingTrack && f && this.completeAudioSwitch(this.switchingTrack), v != null && v.tracks) {
+    if (this.state = O.PARSING, this.switchingTrack && f && this.completeAudioSwitch(this.switchingTrack), y != null && y.tracks) {
       const m = c.initSegment || c;
-      if (this.unhandledEncryptionError(v, c))
+      if (this.unhandledEncryptionError(y, c))
         return;
-      this._bufferInitSegment(d, v.tracks, m, a), n.trigger(y.FRAG_PARSING_INIT_SEGMENT, {
+      this._bufferInitSegment(d, y.tracks, m, a), n.trigger(v.FRAG_PARSING_INIT_SEGMENT, {
         frag: m,
         id: i,
-        tracks: v.tracks
+        tracks: y.tracks
       });
     }
     if (f) {
@@ -11809,7 +11809,7 @@ class sp extends Qs {
         frag: c,
         details: u
       }, g);
-      n.trigger(y.FRAG_PARSING_METADATA, m);
+      n.trigger(v.FRAG_PARSING_METADATA, m);
     }
     if (p) {
       const m = le({
@@ -11817,7 +11817,7 @@ class sp extends Qs {
         frag: c,
         details: u
       }, p);
-      n.trigger(y.FRAG_PARSING_USERDATA, m);
+      n.trigger(v.FRAG_PARSING_USERDATA, m);
     }
   }
   _bufferInitSegment(e, t, i, n) {
@@ -11826,7 +11826,7 @@ class sp extends Qs {
     const r = t.audio;
     r.id = j.AUDIO;
     const a = e.audioCodec;
-    this.log(`Init audio buffer, container:${r.container}, codecs[level/parsed]=[${a}/${r.codec}]`), a && a.split(",").length === 1 && (r.levelCodec = a), this.hls.trigger(y.BUFFER_CODECS, t);
+    this.log(`Init audio buffer, container:${r.container}, codecs[level/parsed]=[${a}/${r.codec}]`), a && a.split(",").length === 1 && (r.levelCodec = a), this.hls.trigger(v.BUFFER_CODECS, t);
     const o = r.initSegment;
     if (o != null && o.byteLength) {
       const c = {
@@ -11837,7 +11837,7 @@ class sp extends Qs {
         parent: i.type,
         data: o
       };
-      this.hls.trigger(y.BUFFER_APPENDING, c);
+      this.hls.trigger(v.BUFFER_APPENDING, c);
     }
     this.tickImmediate();
   }
@@ -11845,7 +11845,7 @@ class sp extends Qs {
     const n = this.fragmentTracker.getState(e);
     if (this.switchingTrack || n === Te.NOT_LOADED || n === Te.PARTIAL) {
       var r;
-      if (!ye(e))
+      if (!ve(e))
         this._loadInitSegment(e, t);
       else if ((r = t.details) != null && r.live && !this.initPTS[e.cc]) {
         this.log(`Waiting for video PTS in continuity counter ${e.cc} of live stream before loading audio fragment ${e.sn} of level ${this.trackId}`), this.state = O.WAITING_INIT_PTS;
@@ -11880,7 +11880,7 @@ class sp extends Qs {
     const {
       hls: t
     } = this;
-    this.flushAudioIfNeeded(e), this.bufferedTrack = e, this.switchingTrack = null, t.trigger(y.AUDIO_TRACK_SWITCHED, ae({}, e));
+    this.flushAudioIfNeeded(e), this.bufferedTrack = e, this.switchingTrack = null, t.trigger(v.AUDIO_TRACK_SWITCHED, ae({}, e));
   }
 }
 class rr extends ze {
@@ -11972,7 +11972,7 @@ class rr extends ze {
             const {
               networkDetails: E
             } = t;
-            x.trigger(y.ERROR, {
+            x.trigger(v.ERROR, {
               type: q.NETWORK_ERROR,
               details: R.LEVEL_PARSING_ERROR,
               fatal: !1,
@@ -11993,7 +11993,7 @@ class rr extends ze {
       const u = this.hls.mainForwardBufferInfo, f = u ? u.end - u.len : 0, p = (n.edge - f) * 1e3, g = Fl(n, p);
       if (n.requestScheduled + g < a ? n.requestScheduled = a : n.requestScheduled += g, this.log(`live playlist ${e} ${n.advanced ? "REFRESHED " + n.lastPartSn + "-" + n.lastPartIndex : n.updated ? "UPDATED" : "MISSED"}`), !this.canLoad || !n.live)
         return;
-      let v, m, _;
+      let y, m, _;
       if (n.canBlockReload && n.endSN && n.advanced) {
         const b = this.hls.config.lowLatencyMode, x = n.lastPartSn, E = n.endSN, T = n.lastPartIndex, k = T !== -1, S = x === E;
         k ? S ? (m = E + 1, _ = b ? 0 : T) : (m = x, _ = b ? T + 1 : n.maxPartIndex) : m = E + 1;
@@ -12014,12 +12014,12 @@ class rr extends ze {
           }
           n.tuneInGoal = A;
         }
-        if (v = this.getDeliveryDirectives(n, t.deliveryDirectives, m, _), b || !S) {
-          n.requestScheduled = a, this.loadingPlaylist(d, v);
+        if (y = this.getDeliveryDirectives(n, t.deliveryDirectives, m, _), b || !S) {
+          n.requestScheduled = a, this.loadingPlaylist(d, y);
           return;
         }
-      } else (n.canBlockReload || n.canSkipUntil) && (v = this.getDeliveryDirectives(n, t.deliveryDirectives, m, _));
-      v && m !== void 0 && n.canBlockReload && (n.requestScheduled = r.loading.first + Math.max(g - o * 2, g / 2)), this.scheduleLoading(d, v, n);
+      } else (n.canBlockReload || n.canSkipUntil) && (y = this.getDeliveryDirectives(n, t.deliveryDirectives, m, _));
+      y && m !== void 0 && n.canBlockReload && (n.requestScheduled = r.loading.first + Math.max(g - o * 2, g / 2)), this.scheduleLoading(d, y, n);
     } else
       this.clearTimer();
   }
@@ -12085,13 +12085,13 @@ class rp extends rr {
     const {
       hls: e
     } = this;
-    e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.MANIFEST_PARSED, this.onManifestParsed, this), e.on(y.LEVEL_LOADING, this.onLevelLoading, this), e.on(y.LEVEL_SWITCHING, this.onLevelSwitching, this), e.on(y.AUDIO_TRACK_LOADED, this.onAudioTrackLoaded, this), e.on(y.ERROR, this.onError, this);
+    e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.MANIFEST_PARSED, this.onManifestParsed, this), e.on(v.LEVEL_LOADING, this.onLevelLoading, this), e.on(v.LEVEL_SWITCHING, this.onLevelSwitching, this), e.on(v.AUDIO_TRACK_LOADED, this.onAudioTrackLoaded, this), e.on(v.ERROR, this.onError, this);
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.MANIFEST_PARSED, this.onManifestParsed, this), e.off(y.LEVEL_LOADING, this.onLevelLoading, this), e.off(y.LEVEL_SWITCHING, this.onLevelSwitching, this), e.off(y.AUDIO_TRACK_LOADED, this.onAudioTrackLoaded, this), e.off(y.ERROR, this.onError, this);
+    e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.MANIFEST_PARSED, this.onManifestParsed, this), e.off(v.LEVEL_LOADING, this.onLevelLoading, this), e.off(v.LEVEL_SWITCHING, this.onLevelSwitching, this), e.off(v.AUDIO_TRACK_LOADED, this.onAudioTrackLoaded, this), e.off(v.ERROR, this.onError, this);
   }
   destroy() {
     this.unregisterListeners(), this.tracks.length = 0, this.tracksInGroup.length = 0, this.currentTrack = null, super.destroy();
@@ -12152,14 +12152,14 @@ class rp extends rr {
       const d = {
         audioTracks: o
       };
-      this.log(`Updating audio tracks, ${o.length} track(s) found in group(s): ${i?.join(",")}`), this.hls.trigger(y.AUDIO_TRACKS_UPDATED, d);
+      this.log(`Updating audio tracks, ${o.length} track(s) found in group(s): ${i?.join(",")}`), this.hls.trigger(v.AUDIO_TRACKS_UPDATED, d);
       const u = this.trackId;
       if (l !== -1 && u === -1)
         this.setAudioTrack(l);
       else if (o.length && u === -1) {
         var a;
         const f = new Error(`No audio track selected for current audio group-ID(s): ${(a = this.groupIds) == null ? void 0 : a.join(",")} track count: ${o.length}`);
-        this.warn(f.message), this.hls.trigger(y.ERROR, {
+        this.warn(f.message), this.hls.trigger(v.ERROR, {
           type: q.MEDIA_ERROR,
           details: R.AUDIO_TRACK_LOAD_ERROR,
           fatal: !0,
@@ -12220,7 +12220,7 @@ class rp extends rr {
     }
     this.selectDefaultTrack = !1;
     const i = this.currentTrack, n = t[e], r = n.details && !n.details.live;
-    if (e === this.trackId && n === i && r || (this.log(`Switching to audio-track ${e} "${n.name}" lang:${n.lang} group:${n.groupId} channels:${n.channels}`), this.trackId = e, this.currentTrack = n, this.hls.trigger(y.AUDIO_TRACK_SWITCHING, ae({}, n)), r))
+    if (e === this.trackId && n === i && r || (this.log(`Switching to audio-track ${e} "${n.name}" lang:${n.lang} group:${n.groupId} channels:${n.channels}`), this.trackId = e, this.currentTrack = n, this.hls.trigger(v.AUDIO_TRACK_SWITCHING, ae({}, n)), r))
       return;
     const a = this.switchParams(n.url, i?.details, n.details);
     this.loadPlaylist(a);
@@ -12274,7 +12274,7 @@ class rp extends rr {
   loadingPlaylist(e, t) {
     super.loadingPlaylist(e, t);
     const i = e.id, n = e.groupId, r = this.getUrlWithDirectives(e.url, t), a = e.details, o = a?.age;
-    this.log(`Loading audio-track ${i} "${e.name}" lang:${e.lang} group:${n}${t?.msn !== void 0 ? " at sn " + t.msn + " part " + t.part : ""}${o && a.live ? " age " + o.toFixed(1) + (a.type && " " + a.type || "") : ""} ${r}`), this.hls.trigger(y.AUDIO_TRACK_LOADING, {
+    this.log(`Loading audio-track ${i} "${e.name}" lang:${e.lang} group:${n}${t?.msn !== void 0 ? " at sn " + t.msn + " part " + t.part : ""}${o && a.live ? " age " + o.toFixed(1) + (a.type && " " + a.type || "") : ""} ${r}`), this.hls.trigger(v.AUDIO_TRACK_LOADING, {
       url: r,
       id: i,
       groupId: n,
@@ -12414,7 +12414,7 @@ class lp extends ze {
         media: n,
         mediaSource: r
       } = this;
-      i && this.log("Media source opened"), !(!n || !r) && (r.removeEventListener("sourceopen", this._onMediaSourceOpen), n.removeEventListener("emptied", this._onMediaEmptied), this.updateDuration(), this.hls.trigger(y.MEDIA_ATTACHED, {
+      i && this.log("Media source opened"), !(!n || !r) && (r.removeEventListener("sourceopen", this._onMediaSourceOpen), n.removeEventListener("emptied", this._onMediaEmptied), this.updateDuration(), this.hls.trigger(v.MEDIA_ATTACHED, {
         media: n,
         mediaSource: r
       }), this.mediaSource !== null && this.checkPendingTracks());
@@ -12440,13 +12440,13 @@ class lp extends ze {
     const {
       hls: e
     } = this;
-    e.on(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.MANIFEST_PARSED, this.onManifestParsed, this), e.on(y.BUFFER_RESET, this.onBufferReset, this), e.on(y.BUFFER_APPENDING, this.onBufferAppending, this), e.on(y.BUFFER_CODECS, this.onBufferCodecs, this), e.on(y.BUFFER_EOS, this.onBufferEos, this), e.on(y.BUFFER_FLUSHING, this.onBufferFlushing, this), e.on(y.LEVEL_UPDATED, this.onLevelUpdated, this), e.on(y.FRAG_PARSED, this.onFragParsed, this), e.on(y.FRAG_CHANGED, this.onFragChanged, this), e.on(y.ERROR, this.onError, this);
+    e.on(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.MANIFEST_PARSED, this.onManifestParsed, this), e.on(v.BUFFER_RESET, this.onBufferReset, this), e.on(v.BUFFER_APPENDING, this.onBufferAppending, this), e.on(v.BUFFER_CODECS, this.onBufferCodecs, this), e.on(v.BUFFER_EOS, this.onBufferEos, this), e.on(v.BUFFER_FLUSHING, this.onBufferFlushing, this), e.on(v.LEVEL_UPDATED, this.onLevelUpdated, this), e.on(v.FRAG_PARSED, this.onFragParsed, this), e.on(v.FRAG_CHANGED, this.onFragChanged, this), e.on(v.ERROR, this.onError, this);
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e.off(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.MANIFEST_PARSED, this.onManifestParsed, this), e.off(y.BUFFER_RESET, this.onBufferReset, this), e.off(y.BUFFER_APPENDING, this.onBufferAppending, this), e.off(y.BUFFER_CODECS, this.onBufferCodecs, this), e.off(y.BUFFER_EOS, this.onBufferEos, this), e.off(y.BUFFER_FLUSHING, this.onBufferFlushing, this), e.off(y.LEVEL_UPDATED, this.onLevelUpdated, this), e.off(y.FRAG_PARSED, this.onFragParsed, this), e.off(y.FRAG_CHANGED, this.onFragChanged, this), e.off(y.ERROR, this.onError, this);
+    e.off(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.MANIFEST_PARSED, this.onManifestParsed, this), e.off(v.BUFFER_RESET, this.onBufferReset, this), e.off(v.BUFFER_APPENDING, this.onBufferAppending, this), e.off(v.BUFFER_CODECS, this.onBufferCodecs, this), e.off(v.BUFFER_EOS, this.onBufferEos, this), e.off(v.BUFFER_FLUSHING, this.onBufferFlushing, this), e.off(v.LEVEL_UPDATED, this.onLevelUpdated, this), e.off(v.FRAG_PARSED, this.onFragParsed, this), e.off(v.FRAG_CHANGED, this.onFragChanged, this), e.off(v.ERROR, this.onError, this);
   }
   transferMedia() {
     const {
@@ -12537,7 +12537,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
           this.log(`attachTransferred: waiting for playback to reach new tracks start time ${c} -> ${d}`);
           return;
         }
-        this.warn(`attachTransferred: resetting MediaSource for incompatible tracks ("${Object.keys(n)}"->"${Object.keys(i)}") start time: ${d} currentTime: ${c}`), this.onMediaDetaching(y.MEDIA_DETACHING, {}), this.onMediaAttaching(y.MEDIA_ATTACHING, t), e.currentTime = d;
+        this.warn(`attachTransferred: resetting MediaSource for incompatible tracks ("${Object.keys(n)}"->"${Object.keys(i)}") start time: ${d} currentTime: ${c}`), this.onMediaDetaching(v.MEDIA_DETACHING, {}), this.onMediaAttaching(v.MEDIA_ATTACHING, t), e.currentTime = d;
         return;
       }
       this.transferData = void 0, r.forEach((c) => {
@@ -12550,8 +12550,8 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
               const m = te.getBuffered(u);
               f.detectEvictedFragments(l, m, p, null, !0);
             }
-            const g = Nn(l), v = [l, u];
-            this.sourceBuffers[g] = v, u.updating && this.operationQueue && this.operationQueue.prependBlocker(l), this.trackSourceBuffer(l, d);
+            const g = Nn(l), y = [l, u];
+            this.sourceBuffers[g] = y, u.updating && this.operationQueue && this.operationQueue.prependBlocker(l), this.trackSourceBuffer(l, d);
           }
         }
       }), o(), this.bufferCreated();
@@ -12592,7 +12592,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
       }
       r.removeEventListener("sourceopen", this._onMediaSourceOpen), r.removeEventListener("sourceended", this._onMediaSourceEnded), r.removeEventListener("sourceclose", this._onMediaSourceClose), this.appendSource && (r.removeEventListener("startstreaming", this._onStartStreaming), r.removeEventListener("endstreaming", this._onEndStreaming)), this.mediaSource = null, this._objectUrl = null;
     }
-    n && (n.removeEventListener("emptied", this._onMediaEmptied), i || (a && self.URL.revokeObjectURL(a), this.mediaSrc === a ? (n.removeAttribute("src"), this.appendSource && Fa(n), n.load()) : this.warn("media|source.src was changed by a third party - skip cleanup")), this.media = null), this.hls.trigger(y.MEDIA_DETACHED, t);
+    n && (n.removeEventListener("emptied", this._onMediaEmptied), i || (a && self.URL.revokeObjectURL(a), this.mediaSrc === a ? (n.removeAttribute("src"), this.appendSource && Fa(n), n.load()) : this.warn("media|source.src was changed by a third party - skip cleanup")), this.media = null), this.hls.trigger(v.MEDIA_DETACHED, t);
   }
   onBufferReset() {
     this.sourceBuffers.forEach(([e]) => {
@@ -12634,7 +12634,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
         id: f,
         codec: p,
         levelCodec: g,
-        container: v,
+        container: y,
         metadata: m,
         supplemental: _
       } = u;
@@ -12645,7 +12645,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
         listeners: [],
         codec: p,
         supplemental: _,
-        container: v,
+        container: y,
         levelCodec: g,
         metadata: m,
         id: f
@@ -12653,7 +12653,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
       const S = Hi(T, k), L = S?.replace(Oa, "$1");
       let I = Hi(p, g);
       const A = (d = I) == null ? void 0 : d.replace(Oa, "$1");
-      I && S && L !== A && (c.slice(0, 5) === "audio" && (I = sn(I, this.appendSource)), this.log(`switching codec ${T} to ${I}`), I !== (b.pendingCodec || b.codec) && (b.pendingCodec = I), b.container = v, this.appendChangeType(c, v, I));
+      I && S && L !== A && (c.slice(0, 5) === "audio" && (I = sn(I, this.appendSource)), this.log(`switching codec ${T} to ${I}`), I !== (b.pendingCodec || b.codec) && (b.pendingCodec = I), b.container = y, this.appendChangeType(c, y, I));
     }), (this.tracksReady || this.sourceBufferCount) && (t.tracks = this.sourceBufferTracks), !this.sourceBufferCount && (this.bufferCodecEventsTotal > 1 && !this.tracks.video && !t.video && ((i = t.audio) == null ? void 0 : i.id) === "main" && (this.log("Main audio-only"), this.bufferCodecEventsTotal = 1), this.mediaSourceOpenOrEnded && this.checkPendingTracks());
   }
   get sourceBufferTracks() {
@@ -12736,8 +12736,8 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
       cc: p
     } = o, g = self.performance.now();
     u.start = g;
-    const v = o.stats.buffering, m = c ? c.stats.buffering : null;
-    v.start === 0 && (v.start = g), m && m.start === 0 && (m.start = g);
+    const y = o.stats.buffering, m = c ? c.stats.buffering : null;
+    y.start === 0 && (y.start = g), m && m.start === 0 && (m.start = g);
     const _ = i.audio;
     let b = !1;
     r === "audio" && _?.container === "audio/mpeg" && (b = !this.lastMpegAudioChunk || l.id === 1 || this.lastMpegAudioChunk.sn !== l.sn, this.lastMpegAudioChunk = l);
@@ -12768,11 +12768,11 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
       },
       onComplete: () => {
         const S = self.performance.now();
-        u.executeEnd = u.end = S, v.first === 0 && (v.first = S), m && m.first === 0 && (m.first = S);
+        u.executeEnd = u.end = S, y.first === 0 && (y.first = S), m && m.first === 0 && (m.first = S);
         const L = {};
         this.sourceBuffers.forEach(([I, A]) => {
           I && (L[I] = te.getBuffered(A));
-        }), this.appendErrors[r] = 0, r === "audio" || r === "video" ? this.appendErrors.audiovideo = 0 : (this.appendErrors.audio = 0, this.appendErrors.video = 0), this.hls.trigger(y.BUFFER_APPENDED, {
+        }), this.appendErrors[r] = 0, r === "audio" || r === "video" ? this.appendErrors.audiovideo = 0 : (this.appendErrors.audio = 0, this.appendErrors.video = 0), this.hls.trigger(v.BUFFER_APPENDED, {
           type: r,
           frag: o,
           part: c,
@@ -12805,7 +12805,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
           const P = ++this.appendErrors[r];
           this.warn(`Failed ${P}/${this.hls.config.appendErrorMaxRetry} times to append segment in "${r}" sourceBuffer (${A || "no media error"})`), (P >= this.hls.config.appendErrorMaxRetry || A) && (I.fatal = !0);
         }
-        this.hls.trigger(y.ERROR, I);
+        this.hls.trigger(v.ERROR, I);
       }
     };
     this.log(`queuing "${r}" append sn: ${f}${c ? " p: " + c.index : ""} of ${o.type === j.MAIN ? "level" : "track"} ${o.level} cc: ${p}`), this.append(k, r, this.isPending(this.tracks[r]));
@@ -12819,7 +12819,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
       onStart: () => {
       },
       onComplete: () => {
-        this.hls.trigger(y.BUFFER_FLUSHED, {
+        this.hls.trigger(v.BUFFER_FLUSHED, {
           type: e
         });
       },
@@ -12848,7 +12848,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
       const c = self.performance.now();
       i.stats.buffering.end = c, n && (n.stats.buffering.end = c);
       const l = n ? n.stats : i.stats;
-      this.hls.trigger(y.FRAG_BUFFERED, {
+      this.hls.trigger(v.FRAG_BUFFERED, {
         frag: i,
         part: n,
         stats: l,
@@ -12895,8 +12895,8 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
         a && this.log(`Could not call mediaSource.endOfStream(). mediaSource.readyState: ${a.readyState}`);
         return;
       }
-      this.log("Calling mediaSource.endOfStream()"), a.endOfStream(), this.hls.trigger(y.BUFFERED_TO_END, void 0);
-    })) : (this.tracksEnded(), this.hls.trigger(y.BUFFERED_TO_END, void 0)) : t.type === "video" && this.unblockAudio();
+      this.log("Calling mediaSource.endOfStream()"), a.endOfStream(), this.hls.trigger(v.BUFFERED_TO_END, void 0);
+    })) : (this.tracksEnded(), this.hls.trigger(v.BUFFERED_TO_END, void 0)) : t.type === "video" && this.unblockAudio();
   }
   tracksEnded() {
     this.sourceBuffers.forEach(([e]) => {
@@ -12956,19 +12956,19 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
         const o = te.getBuffered(r);
         if (o.length > 0 && i > o.start(0)) {
           var a;
-          this.hls.trigger(y.BACK_BUFFER_REACHED, {
+          this.hls.trigger(v.BACK_BUFFER_REACHED, {
             bufferEnd: i
           });
           const c = this.tracks[n];
           if ((a = this.details) != null && a.live)
-            this.hls.trigger(y.LIVE_BACK_BUFFER_REACHED, {
+            this.hls.trigger(v.LIVE_BACK_BUFFER_REACHED, {
               bufferEnd: i
             });
           else if (c != null && c.ended) {
             this.log(`Cannot flush ${n} back buffer while SourceBuffer is in ended state`);
             return;
           }
-          this.hls.trigger(y.BUFFER_FLUSHING, {
+          this.hls.trigger(v.BUFFER_FLUSHING, {
             startOffset: 0,
             endOffset: i,
             type: n
@@ -12986,7 +12986,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
         const c = a.start(o - 1), l = a.end(o - 1);
         if (i > c || e >= c && e <= l)
           return;
-        this.hls.trigger(y.BUFFER_FLUSHING, {
+        this.hls.trigger(v.BUFFER_FLUSHING, {
           startOffset: c,
           endOffset: 1 / 0,
           type: n
@@ -13071,14 +13071,14 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
             metadata: n.metadata
           };
         }
-      }), this.hls.trigger(y.BUFFER_CREATED, {
+      }), this.hls.trigger(v.BUFFER_CREATED, {
         tracks: e
       }), this.log(`SourceBuffers created. Running queue: ${this.operationQueue}`), this.sourceBuffers.forEach(([t]) => {
         this.executeNext(t);
       });
     } else {
       const e = new Error("could not create source buffer for media codec(s)");
-      this.hls.trigger(y.ERROR, {
+      this.hls.trigger(v.ERROR, {
         type: q.MEDIA_ERROR,
         details: R.BUFFER_INCOMPATIBLE_CODECS_ERROR,
         fatal: !0,
@@ -13105,7 +13105,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
           t[u] = f, o.buffer = d;
         } catch (d) {
           var n;
-          this.error(`error while trying to add sourceBuffer: ${d.message}`), this.shiftAndExecuteNext(a), (n = this.operationQueue) == null || n.removeBlockers(), delete this.tracks[a], this.hls.trigger(y.ERROR, {
+          this.error(`error while trying to add sourceBuffer: ${d.message}`), this.shiftAndExecuteNext(a), (n = this.operationQueue) == null || n.removeBlockers(), delete this.tracks[a], this.hls.trigger(v.ERROR, {
             type: q.MEDIA_ERROR,
             details: R.BUFFER_ADD_CODEC_ERROR,
             fatal: !1,
@@ -13144,7 +13144,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
       listeners: []
     }, this.removeBufferListeners(e), this.addBufferListener(e, "updatestart", this.onSBUpdateStart), this.addBufferListener(e, "updateend", this.onSBUpdateEnd), this.addBufferListener(e, "error", this.onSBUpdateError), this.appendSource && this.addBufferListener(e, "bufferedchange", (r, a) => {
       const o = a.removedRanges;
-      o != null && o.length && this.hls.trigger(y.BUFFER_FLUSHED, {
+      o != null && o.length && this.hls.trigger(v.BUFFER_FLUSHED, {
         type: r
       });
     });
@@ -13170,7 +13170,7 @@ transfer tracks: ${ue(n, (c, l) => c === "initSegment" ? void 0 : l)}}`), !rl(n,
   onSBUpdateError(e, t) {
     var i;
     const n = new Error(`${e} SourceBuffer error. MediaSource readyState: ${(i = this.mediaSource) == null ? void 0 : i.readyState}`);
-    this.error(`${n}`, t), this.hls.trigger(y.ERROR, {
+    this.error(`${n}`, t), this.hls.trigger(v.ERROR, {
       type: q.MEDIA_ERROR,
       details: R.BUFFER_APPENDING_ERROR,
       sourceBufferName: e,
@@ -13320,13 +13320,13 @@ class ar {
     const {
       hls: e
     } = this;
-    e.on(y.FPS_DROP_LEVEL_CAPPING, this.onFpsDropLevelCapping, this), e.on(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(y.MANIFEST_PARSED, this.onManifestParsed, this), e.on(y.LEVELS_UPDATED, this.onLevelsUpdated, this), e.on(y.BUFFER_CODECS, this.onBufferCodecs, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this);
+    e.on(v.FPS_DROP_LEVEL_CAPPING, this.onFpsDropLevelCapping, this), e.on(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(v.MANIFEST_PARSED, this.onManifestParsed, this), e.on(v.LEVELS_UPDATED, this.onLevelsUpdated, this), e.on(v.BUFFER_CODECS, this.onBufferCodecs, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this);
   }
   unregisterListener() {
     const {
       hls: e
     } = this;
-    e.off(y.FPS_DROP_LEVEL_CAPPING, this.onFpsDropLevelCapping, this), e.off(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(y.MANIFEST_PARSED, this.onManifestParsed, this), e.off(y.LEVELS_UPDATED, this.onLevelsUpdated, this), e.off(y.BUFFER_CODECS, this.onBufferCodecs, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this);
+    e.off(v.FPS_DROP_LEVEL_CAPPING, this.onFpsDropLevelCapping, this), e.off(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(v.MANIFEST_PARSED, this.onManifestParsed, this), e.off(v.LEVELS_UPDATED, this.onLevelsUpdated, this), e.off(v.BUFFER_CODECS, this.onBufferCodecs, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this);
   }
   onFpsDropLevelCapping(e, t) {
     const i = this.hls.levels[t.droppedLevel];
@@ -13496,19 +13496,19 @@ class dc {
   }
 }
 const Na = "Bare Item", mp = "Boolean";
-function vp(s) {
+function yp(s) {
   if (typeof s != "boolean")
     throw nt(s, mp);
   return s ? "?1" : "?0";
 }
-function yp(s) {
+function vp(s) {
   return btoa(String.fromCharCode(...s));
 }
 const _p = "Byte Sequence";
 function bp(s) {
   if (ArrayBuffer.isView(s) === !1)
     throw nt(s, _p);
-  return `:${yp(s)}:`;
+  return `:${vp(s)}:`;
 }
 const xp = "Integer";
 function Ep(s) {
@@ -13556,7 +13556,7 @@ function $a(s) {
     throw nt(e, Rp);
   return e;
 }
-function vs(s) {
+function ys(s) {
   switch (typeof s) {
     case "number":
       if (!W(s))
@@ -13567,7 +13567,7 @@ function vs(s) {
     case "symbol":
       return $a(s);
     case "boolean":
-      return vp(s);
+      return yp(s);
     case "object":
       if (s instanceof Date)
         return Tp(s);
@@ -13580,16 +13580,16 @@ function vs(s) {
   }
 }
 const Dp = "Key";
-function ys(s) {
+function vs(s) {
   if (/^[a-z*][a-z0-9\-_.*]*$/.test(s) === !1)
     throw nt(s, Dp);
   return s;
 }
 function or(s) {
-  return s == null ? "" : Object.entries(s).map(([e, t]) => t === !0 ? `;${ys(e)}` : `;${ys(e)}=${vs(t)}`).join("");
+  return s == null ? "" : Object.entries(s).map(([e, t]) => t === !0 ? `;${vs(e)}` : `;${vs(e)}=${ys(t)}`).join("");
 }
 function fc(s) {
-  return s instanceof it ? `${vs(s.value)}${or(s.params)}` : vs(s);
+  return s instanceof it ? `${ys(s.value)}${or(s.params)}` : ys(s);
 }
 function Cp(s) {
   return `(${s.value.map(fc).join(" ")})${or(s.params)}`;
@@ -13602,7 +13602,7 @@ function Pp(s, e = {
   const t = s instanceof Map ? s.entries() : Object.entries(s), i = e?.whitespace ? " " : "";
   return Array.from(t).map(([n, r]) => {
     r instanceof it || (r = new it(r));
-    let a = ys(n);
+    let a = vs(n);
     return r.value === !0 ? a += or(r.params) : (a += "=", Array.isArray(r.value) ? a += Cp(r) : a += fc(r)), a;
   }).join(`,${i}`);
 }
@@ -13738,27 +13738,27 @@ const qi = (s) => Math.round(s), _s = (s, e) => Array.isArray(s) ? s.map((t) => 
    * Top Bitrate (kbps) rounded integer
    */
   tb: qi
-}, mc = "request", vc = "response", lr = ["ab", "bg", "bl", "br", "bs", "bsd", "cdn", "cid", "cs", "df", "ec", "lab", "lb", "ltc", "msd", "mtp", "pb", "pr", "pt", "sf", "sid", "sn", "st", "sta", "tab", "tb", "tbl", "tpb", "ts", "v"], Kp = ["e"], Hp = /^[a-zA-Z0-9-.]+-[a-zA-Z0-9-.]+$/;
+}, mc = "request", yc = "response", lr = ["ab", "bg", "bl", "br", "bs", "bsd", "cdn", "cid", "cs", "df", "ec", "lab", "lb", "ltc", "msd", "mtp", "pb", "pr", "pt", "sf", "sid", "sn", "st", "sta", "tab", "tb", "tbl", "tpb", "ts", "v"], Kp = ["e"], Hp = /^[a-zA-Z0-9-.]+-[a-zA-Z0-9-.]+$/;
 function bn(s) {
   return Hp.test(s);
 }
 function zp(s) {
   return lr.includes(s) || Kp.includes(s) || bn(s);
 }
-const yc = ["d", "dl", "nor", "ot", "rtp", "su"];
+const vc = ["d", "dl", "nor", "ot", "rtp", "su"];
 function Wp(s) {
-  return lr.includes(s) || yc.includes(s) || bn(s);
+  return lr.includes(s) || vc.includes(s) || bn(s);
 }
 const Yp = ["cmsdd", "cmsds", "rc", "smrt", "ttfb", "ttfbb", "ttlb", "url"];
 function jp(s) {
-  return lr.includes(s) || yc.includes(s) || Yp.includes(s) || bn(s);
+  return lr.includes(s) || vc.includes(s) || Yp.includes(s) || bn(s);
 }
 const qp = ["bl", "br", "bs", "cid", "d", "dl", "mtp", "nor", "nrr", "ot", "pr", "rtp", "sf", "sid", "st", "su", "tb", "v"];
 function Xp(s) {
   return qp.includes(s) || bn(s);
 }
 const Qp = {
-  [vc]: jp,
+  [yc]: jp,
   [gc]: zp,
   [mc]: Wp
 };
@@ -13770,7 +13770,7 @@ function _c(s, e = {}) {
   let a = Object.keys(s).filter(r);
   const o = e.filter;
   typeof o == "function" && (a = a.filter(o));
-  const c = n === vc || n === gc;
+  const c = n === yc || n === gc;
   c && !a.includes("ts") && a.push("ts"), i > 1 && !a.includes("v") && a.push("v");
   const l = le({}, Vp, e.formatters), d = {
     version: i,
@@ -13869,11 +13869,11 @@ class rg {
   }
   registerListeners() {
     const e = this.hls;
-    e.on(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(y.MEDIA_DETACHED, this.onMediaDetached, this), e.on(y.BUFFER_CREATED, this.onBufferCreated, this);
+    e.on(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(v.MEDIA_DETACHED, this.onMediaDetached, this), e.on(v.BUFFER_CREATED, this.onBufferCreated, this);
   }
   unregisterListeners() {
     const e = this.hls;
-    e.off(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(y.MEDIA_DETACHED, this.onMediaDetached, this), e.off(y.BUFFER_CREATED, this.onBufferCreated, this);
+    e.off(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(v.MEDIA_DETACHED, this.onMediaDetached, this), e.off(v.BUFFER_CREATED, this.onBufferCreated, this);
   }
   destroy() {
     this.unregisterListeners(), this.onMediaDetached(), this.hls = this.config = this.audioBuffer = this.videoBuffer = null, this.onWaiting = this.onPlaying = this.media = null;
@@ -14046,11 +14046,11 @@ class og extends ze {
   }
   registerListeners() {
     const e = this.hls;
-    e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.MANIFEST_LOADED, this.onManifestLoaded, this), e.on(y.MANIFEST_PARSED, this.onManifestParsed, this), e.on(y.ERROR, this.onError, this);
+    e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.MANIFEST_LOADED, this.onManifestLoaded, this), e.on(v.MANIFEST_PARSED, this.onManifestParsed, this), e.on(v.ERROR, this.onError, this);
   }
   unregisterListeners() {
     const e = this.hls;
-    e && (e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.MANIFEST_LOADED, this.onManifestLoaded, this), e.off(y.MANIFEST_PARSED, this.onManifestParsed, this), e.off(y.ERROR, this.onError, this));
+    e && (e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.MANIFEST_LOADED, this.onManifestLoaded, this), e.off(v.MANIFEST_PARSED, this.onManifestParsed, this), e.off(v.ERROR, this.onError, this));
   }
   pathways() {
     return (this.levels || []).reduce((e, t) => (e.indexOf(t.pathwayId) === -1 && e.push(t.pathwayId), e), []);
@@ -14143,7 +14143,7 @@ class og extends ze {
         return;
       const o = this.hls.nextLoadLevel, c = this.hls.levels[o];
       if (t = this.getLevelsForPathway(a), t.length > 0) {
-        this.log(`Setting Pathway to "${a}"`), this.pathwayId = a, Bl(t), this.hls.trigger(y.LEVELS_UPDATED, {
+        this.log(`Setting Pathway to "${a}"`), this.pathwayId = a, Bl(t), this.hls.trigger(v.LEVELS_UPDATED, {
           levels: t
         });
         const l = this.hls.levels[o];
@@ -14177,7 +14177,7 @@ class og extends ze {
         u["PATHWAY-ID"] = a;
         const f = u.AUDIO && `${u.AUDIO}_clone_${a}`, p = u.SUBTITLES && `${u.SUBTITLES}_clone_${a}`;
         f && (i[u.AUDIO] = f, u.AUDIO = f), p && (n[u.SUBTITLES] = p, u.SUBTITLES = p);
-        const g = bc(d.uri, u["STABLE-VARIANT-ID"], "PER-VARIANT-URIS", c), v = new hi({
+        const g = bc(d.uri, u["STABLE-VARIANT-ID"], "PER-VARIANT-URIS", c), y = new hi({
           attrs: u,
           audioCodec: d.audioCodec,
           bitrate: d.bitrate,
@@ -14189,11 +14189,11 @@ class og extends ze {
         });
         if (d.audioGroups)
           for (let m = 1; m < d.audioGroups.length; m++)
-            v.addGroupId("audio", `${d.audioGroups[m]}_clone_${a}`);
+            y.addGroupId("audio", `${d.audioGroups[m]}_clone_${a}`);
         if (d.subtitleGroups)
           for (let m = 1; m < d.subtitleGroups.length; m++)
-            v.addGroupId("text", `${d.subtitleGroups[m]}_clone_${a}`);
-        return v;
+            y.addGroupId("text", `${d.subtitleGroups[m]}_clone_${a}`);
+        return y;
       });
       t.push(...l), Ua(this.audioTracks, i, c, a), Ua(this.subtitleTracks, n, c, a);
     });
@@ -14231,15 +14231,15 @@ class og extends ze {
         }
         this.updated = performance.now(), this.timeToLoad = g.TTL;
         const {
-          "RELOAD-URI": v,
+          "RELOAD-URI": y,
           "PATHWAY-CLONES": m,
           "PATHWAY-PRIORITY": _
         } = g;
-        if (v)
+        if (y)
           try {
-            this.uri = new self.URL(v, n).href;
+            this.uri = new self.URL(y, n).href;
           } catch {
-            this.enabled = !1, this.log(`Failed to parse Steering Manifest RELOAD-URI: ${v}`);
+            this.enabled = !1, this.log(`Failed to parse Steering Manifest RELOAD-URI: ${y}`);
             return;
           }
         this.scheduleRefresh(this.uri || f.url), m && this.clonePathways(m);
@@ -14247,7 +14247,7 @@ class og extends ze {
           steeringManifest: g,
           url: n.toString()
         };
-        this.hls.trigger(y.STEERING_MANIFEST_LOADED, b), _ && this.updatePathwayPriority(_);
+        this.hls.trigger(v.STEERING_MANIFEST_LOADED, b), _ && this.updatePathwayPriority(_);
       },
       onError: (d, u, f, p) => {
         if (this.log(`Error loading steering manifest: ${d.code} ${d.text} (${u.url})`), this.stopLoad(), d.code === 410) {
@@ -14256,9 +14256,9 @@ class og extends ze {
         }
         let g = this.timeToLoad * 1e3;
         if (d.code === 429) {
-          const v = this.loader;
-          if (typeof v?.getResponseHeader == "function") {
-            const m = v.getResponseHeader("Retry-After");
+          const y = this.loader;
+          if (typeof y?.getResponseHeader == "function") {
+            const m = y.getResponseHeader("Retry-After");
             m && (g = parseFloat(m) * 1e3);
           }
           this.log(`Steering manifest ${u.url} rate limited`);
@@ -14328,10 +14328,10 @@ class Bt extends ze {
           }
           let c;
           try {
-            const p = xe(new Uint8Array(n)), g = Xs(JSON.parse(p).sinf), v = pl(g);
-            if (!v)
+            const p = xe(new Uint8Array(n)), g = Xs(JSON.parse(p).sinf), y = pl(g);
+            if (!y)
               throw new Error("'schm' box missing or not cbcs/cenc with schi > tenc");
-            c = new Uint8Array(v.subarray(8, 24));
+            c = new Uint8Array(y.subarray(8, 24));
           } catch (p) {
             this.warn(`${r} Failed to parse sinf: ${p}`);
             return;
@@ -14342,16 +14342,16 @@ class Bt extends ze {
           } = this;
           let f = d[l];
           for (let p = 0; p < u.length; p++) {
-            const g = u[p], v = g.decryptdata;
-            if (!v.keyId)
+            const g = u[p], y = g.decryptdata;
+            if (!y.keyId)
               continue;
-            const m = we(v.keyId);
-            if (cn(c, v.keyId) || v.uri.replace(/-/g, "").indexOf(l) !== -1) {
+            const m = we(y.keyId);
+            if (cn(c, y.keyId) || y.uri.replace(/-/g, "").indexOf(l) !== -1) {
               if (f = d[m], !f)
                 continue;
-              if (v.pssh)
+              if (y.pssh)
                 break;
-              delete d[m], v.pssh = new Uint8Array(n), v.keyId = c, f = d[l] = f.then(() => this.generateRequestWithPreferredKeySession(g, i, n, "encrypted-event-key-match")), f.catch((_) => this.handleError(_));
+              delete d[m], y.pssh = new Uint8Array(n), y.keyId = c, f = d[l] = f.then(() => this.generateRequestWithPreferredKeySession(g, i, n, "encrypted-event-key-match")), f.catch((_) => this.handleError(_));
               break;
             }
           }
@@ -14368,10 +14368,10 @@ class Bt extends ze {
     e.requestMediaKeySystemAccessFunc = null, e.licenseXhrSetup = e.licenseResponseCallback = void 0, e.drmSystems = e.drmSystemOptions = {}, this.hls = this.config = this.keyIdToKeySessionPromise = null, this.onMediaEncrypted = this.onWaitingForKey = null;
   }
   registerListeners() {
-    this.hls.on(y.MEDIA_ATTACHED, this.onMediaAttached, this), this.hls.on(y.MEDIA_DETACHED, this.onMediaDetached, this), this.hls.on(y.MANIFEST_LOADING, this.onManifestLoading, this), this.hls.on(y.MANIFEST_LOADED, this.onManifestLoaded, this), this.hls.on(y.DESTROYING, this.onDestroying, this);
+    this.hls.on(v.MEDIA_ATTACHED, this.onMediaAttached, this), this.hls.on(v.MEDIA_DETACHED, this.onMediaDetached, this), this.hls.on(v.MANIFEST_LOADING, this.onManifestLoading, this), this.hls.on(v.MANIFEST_LOADED, this.onManifestLoaded, this), this.hls.on(v.DESTROYING, this.onDestroying, this);
   }
   unregisterListeners() {
-    this.hls.off(y.MEDIA_ATTACHED, this.onMediaAttached, this), this.hls.off(y.MEDIA_DETACHED, this.onMediaDetached, this), this.hls.off(y.MANIFEST_LOADING, this.onManifestLoading, this), this.hls.off(y.MANIFEST_LOADED, this.onManifestLoaded, this), this.hls.off(y.DESTROYING, this.onDestroying, this);
+    this.hls.off(v.MEDIA_ATTACHED, this.onMediaAttached, this), this.hls.off(v.MEDIA_DETACHED, this.onMediaDetached, this), this.hls.off(v.MANIFEST_LOADING, this.onManifestLoading, this), this.hls.off(v.MANIFEST_LOADED, this.onManifestLoaded, this), this.hls.off(v.DESTROYING, this.onDestroying, this);
   }
   getLicenseServerUrl(e) {
     const {
@@ -14564,9 +14564,9 @@ class Bt extends ze {
       if (e instanceof $e) {
         t && (e.data.frag = t);
         const i = e.data.decryptdata;
-        this.error(`${e.message}${i ? ` (${we(i.keyId || [])})` : ""}`), this.hls.trigger(y.ERROR, e.data);
+        this.error(`${e.message}${i ? ` (${we(i.keyId || [])})` : ""}`), this.hls.trigger(v.ERROR, e.data);
       } else
-        this.error(e.message), this.hls.trigger(y.ERROR, {
+        this.error(e.message), this.hls.trigger(v.ERROR, {
           type: q.KEY_SYSTEM_ERROR,
           details: R.KEY_SYSTEM_NO_KEYS,
           error: e,
@@ -14626,8 +14626,8 @@ class Bt extends ze {
     const o = ki(e.decryptdata), c = e.decryptdata.uri;
     this.log(`Generating key-session request for "${n}" keyId: ${o} URI: ${c} (init data type: ${t} length: ${i.byteLength})`);
     const l = new Zs(), d = e._onmessage = (g) => {
-      const v = e.mediaKeysSession;
-      if (!v) {
+      const y = e.mediaKeysSession;
+      if (!y) {
         l.emit("error", new Error("invalid state"));
         return;
       }
@@ -14635,13 +14635,13 @@ class Bt extends ze {
         messageType: m,
         message: _
       } = g;
-      this.log(`"${m}" message event for session "${v.sessionId}" message size: ${_.byteLength}`), m === "license-request" || m === "license-renewal" ? this.renewLicense(e, _).catch((b) => {
+      this.log(`"${m}" message event for session "${y.sessionId}" message size: ${_.byteLength}`), m === "license-request" || m === "license-renewal" ? this.renewLicense(e, _).catch((b) => {
         l.eventNames().length ? l.emit("error", b) : this.handleError(b);
       }) : m === "license-release" ? e.keySystem === fe.FAIRPLAY && this.updateKeySession(e, us("acknowledged")).then(() => this.removeSession(e)).catch((b) => this.handleError(b)) : this.warn(`unhandled media key message type "${m}"`);
-    }, u = (g, v) => {
-      v.keyStatus = g;
+    }, u = (g, y) => {
+      y.keyStatus = g;
       let m;
-      g.startsWith("usable") ? l.emit("resolved") : g === "internal-error" || g === "output-restricted" || g === "output-downscaled" ? m = Ga(g, v.decryptdata) : g === "expired" ? m = new Error(`key expired (keyId: ${o})`) : g === "released" ? m = new Error("key released") : g === "status-pending" || this.warn(`unhandled key status change "${g}" (keyId: ${o})`), m && (l.eventNames().length ? l.emit("error", m) : this.handleError(m));
+      g.startsWith("usable") ? l.emit("resolved") : g === "internal-error" || g === "output-restricted" || g === "output-downscaled" ? m = Ga(g, y.decryptdata) : g === "expired" ? m = new Error(`key expired (keyId: ${o})`) : g === "released" ? m = new Error("key released") : g === "status-pending" || this.warn(`unhandled key status change "${g}" (keyId: ${o})`), m && (l.eventNames().length ? l.emit("error", m) : this.handleError(m));
     }, f = e._onkeystatuseschange = (g) => {
       if (!e.mediaKeysSession) {
         l.emit("error", new Error("invalid state"));
@@ -14670,8 +14670,8 @@ class Bt extends ze {
       }
     };
     Pe(e.mediaKeysSession, "message", d), Pe(e.mediaKeysSession, "keystatuseschange", f);
-    const p = new Promise((g, v) => {
-      l.on("error", v), l.on("resolved", g);
+    const p = new Promise((g, y) => {
+      l.on("error", y), l.on("resolved", g);
     });
     return e.mediaKeysSession.generateRequest(t, i).then(() => {
       this.log(`Request generated for key-session "${e.mediaKeysSession.sessionId}" keyId: ${o} URI: ${c}`);
@@ -14716,10 +14716,10 @@ class Bt extends ze {
         retryDelay: 0,
         maxRetryDelay: 0
       }, u = {
-        onSuccess: (f, p, g, v) => {
+        onSuccess: (f, p, g, y) => {
           a(f.data);
         },
-        onError: (f, p, g, v) => {
+        onError: (f, p, g, y) => {
           o(new $e({
             type: q.KEY_SYSTEM_ERROR,
             details: R.KEY_SYSTEM_SERVER_CERTIFICATE_REQUEST_FAILED,
@@ -14885,17 +14885,17 @@ class Bt extends ze {
     if (t && t(), !this.mediaKeys && !this.mediaKeySessions.length)
       return;
     const i = this.media, n = this.mediaKeySessions.slice();
-    this.mediaKeySessions = [], this.mediaKeys = null, vt.clearKeyUriToKeyIdMap();
+    this.mediaKeySessions = [], this.mediaKeys = null, yt.clearKeyUriToKeyIdMap();
     const r = n.length;
     Bt.CDMCleanupPromise = Promise.all(n.map((a) => this.removeSession(a)).concat((i == null || (e = i.setMediaKeys(null)) == null ? void 0 : e.catch((a) => {
-      this.log(`Could not clear media keys: ${a}`), this.hls && this.hls.trigger(y.ERROR, {
+      this.log(`Could not clear media keys: ${a}`), this.hls && this.hls.trigger(v.ERROR, {
         type: q.OTHER_ERROR,
         details: R.KEY_SYSTEM_DESTROY_MEDIA_KEYS_ERROR,
         fatal: !1,
         error: new Error(`Could not clear media keys: ${a}`)
       });
     })) || Promise.resolve())).catch((a) => {
-      this.log(`Could not close sessions and clear media keys: ${a}`), this.hls && this.hls.trigger(y.ERROR, {
+      this.log(`Could not close sessions and clear media keys: ${a}`), this.hls && this.hls.trigger(v.ERROR, {
         type: q.OTHER_ERROR,
         details: R.KEY_SYSTEM_DESTROY_CLOSE_SESSION_ERROR,
         fatal: !1,
@@ -14936,14 +14936,14 @@ class Bt extends ze {
       return (Vh(o) ? new Promise((l, d) => {
         self.setTimeout(() => d(new Error("MediaKeySession.remove() timeout")), 8e3), t.remove().then(l).catch(d);
       }) : Promise.resolve()).catch((l) => {
-        this.log(`Could not remove session: ${l}`), this.hls && this.hls.trigger(y.ERROR, {
+        this.log(`Could not remove session: ${l}`), this.hls && this.hls.trigger(v.ERROR, {
           type: q.OTHER_ERROR,
           details: R.KEY_SYSTEM_DESTROY_REMOVE_SESSION_ERROR,
           fatal: !1,
           error: new Error(`Could not remove session: ${l}`)
         });
       }).then(() => t.close()).catch((l) => {
-        this.log(`Could not close session: ${l}`), this.hls && this.hls.trigger(y.ERROR, {
+        this.log(`Could not close session: ${l}`), this.hls && this.hls.trigger(v.ERROR, {
           type: q.OTHER_ERROR,
           details: R.KEY_SYSTEM_DESTROY_CLOSE_SESSION_ERROR,
           fatal: !1,
@@ -14990,10 +14990,10 @@ class cg {
     this.streamController = e;
   }
   registerListeners() {
-    this.hls.on(y.MEDIA_ATTACHING, this.onMediaAttaching, this), this.hls.on(y.MEDIA_DETACHING, this.onMediaDetaching, this);
+    this.hls.on(v.MEDIA_ATTACHING, this.onMediaAttaching, this), this.hls.on(v.MEDIA_DETACHING, this.onMediaDetaching, this);
   }
   unregisterListeners() {
-    this.hls.off(y.MEDIA_ATTACHING, this.onMediaAttaching, this), this.hls.off(y.MEDIA_DETACHING, this.onMediaDetaching, this);
+    this.hls.off(v.MEDIA_ATTACHING, this.onMediaAttaching, this), this.hls.off(v.MEDIA_DETACHING, this.onMediaDetaching, this);
   }
   destroy() {
     this.timer && clearInterval(this.timer), this.unregisterListeners(), this.isVideoPlaybackQualityAvailable = !1, this.media = null;
@@ -15013,13 +15013,13 @@ class cg {
     if (t) {
       if (this.lastTime) {
         const r = n - this.lastTime, a = i - this.lastDroppedFrames, o = t - this.lastDecodedFrames, c = 1e3 * a / r, l = this.hls;
-        if (l.trigger(y.FPS_DROP, {
+        if (l.trigger(v.FPS_DROP, {
           currentDropped: a,
           currentDecoded: o,
           totalDroppedFrames: i
         }), c > 0 && a > l.config.fpsDroppedMonitoringThreshold * o) {
           let d = l.currentLevel;
-          l.logger.warn("drop FPS ratio greater than max allowed value for currentLevel: " + d), d > 0 && (l.autoLevelCapping === -1 || l.autoLevelCapping >= d) && (d = d - 1, l.trigger(y.FPS_DROP_LEVEL_CAPPING, {
+          l.logger.warn("drop FPS ratio greater than max allowed value for currentLevel: " + d), d > 0 && (l.autoLevelCapping === -1 || l.autoLevelCapping >= d) && (d = d - 1, l.trigger(v.FPS_DROP_LEVEL_CAPPING, {
             level: d,
             droppedLevel: l.currentLevel
           }), l.autoLevelCapping = d, this.streamController.nextLevelSwitch());
@@ -15147,13 +15147,13 @@ class hg extends rr {
     const {
       hls: e
     } = this;
-    e.on(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.MANIFEST_PARSED, this.onManifestParsed, this), e.on(y.LEVEL_LOADING, this.onLevelLoading, this), e.on(y.LEVEL_SWITCHING, this.onLevelSwitching, this), e.on(y.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.on(y.ERROR, this.onError, this);
+    e.on(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.MANIFEST_PARSED, this.onManifestParsed, this), e.on(v.LEVEL_LOADING, this.onLevelLoading, this), e.on(v.LEVEL_SWITCHING, this.onLevelSwitching, this), e.on(v.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.on(v.ERROR, this.onError, this);
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e.off(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.MANIFEST_PARSED, this.onManifestParsed, this), e.off(y.LEVEL_LOADING, this.onLevelLoading, this), e.off(y.LEVEL_SWITCHING, this.onLevelSwitching, this), e.off(y.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.off(y.ERROR, this.onError, this);
+    e.off(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.MANIFEST_PARSED, this.onManifestParsed, this), e.off(v.LEVEL_LOADING, this.onLevelLoading, this), e.off(v.LEVEL_SWITCHING, this.onLevelSwitching, this), e.off(v.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.off(v.ERROR, this.onError, this);
   }
   // Listen for subtitle track change, then extract the current track ID.
   onMediaAttached(e, t) {
@@ -15231,7 +15231,7 @@ class hg extends rr {
       const l = {
         subtitleTracks: a
       };
-      this.log(`Updating subtitle tracks, ${a.length} track(s) found in "${i?.join(",")}" group-id`), this.hls.trigger(y.SUBTITLE_TRACKS_UPDATED, l), c !== -1 && this.trackId === -1 && this.setSubtitleTrack(c);
+      this.log(`Updating subtitle tracks, ${a.length} track(s) found in "${i?.join(",")}" group-id`), this.hls.trigger(v.SUBTITLE_TRACKS_UPDATED, l), c !== -1 && this.trackId === -1 && this.setSubtitleTrack(c);
     }
   }
   findTrackId(e) {
@@ -15315,7 +15315,7 @@ class hg extends rr {
   loadingPlaylist(e, t) {
     super.loadingPlaylist(e, t);
     const i = e.id, n = e.groupId, r = this.getUrlWithDirectives(e.url, t), a = e.details, o = a?.age;
-    this.log(`Loading subtitle ${i} "${e.name}" lang:${e.lang} group:${n}${t?.msn !== void 0 ? " at sn " + t.msn + " part " + t.part : ""}${o && a.live ? " age " + o.toFixed(1) + (a.type && " " + a.type || "") : ""} ${r}`), this.hls.trigger(y.SUBTITLE_TRACK_LOADING, {
+    this.log(`Loading subtitle ${i} "${e.name}" lang:${e.lang} group:${n}${t?.msn !== void 0 ? " at sn " + t.msn + " part " + t.part : ""}${o && a.live ? " age " + o.toFixed(1) + (a.type && " " + a.type || "") : ""} ${r}`), this.hls.trigger(v.SUBTITLE_TRACK_LOADING, {
       url: r,
       id: i,
       groupId: n,
@@ -15360,7 +15360,7 @@ class hg extends rr {
     this.selectDefaultTrack = !1;
     const i = this.currentTrack, n = t[e] || null;
     if (this.trackId = e, this.currentTrack = n, this.toggleTrackModes(), !n) {
-      this.hls.trigger(y.SUBTITLE_TRACK_SWITCH, {
+      this.hls.trigger(v.SUBTITLE_TRACK_SWITCH, {
         id: e
       });
       return;
@@ -15376,7 +15376,7 @@ class hg extends rr {
       type: l,
       url: d
     } = n;
-    this.hls.trigger(y.SUBTITLE_TRACK_SWITCH, {
+    this.hls.trigger(v.SUBTITLE_TRACK_SWITCH, {
       id: a,
       groupId: o,
       name: c,
@@ -15557,22 +15557,22 @@ function Mt(s) {
   const e = s.timelineStart, t = s.duration || 0;
   return `["${s.identifier}" ${e.toFixed(2)}-${(e + t).toFixed(2)}]`;
 }
-class vg {
+class yg {
   constructor(e, t, i, n) {
     this.hls = void 0, this.interstitial = void 0, this.assetItem = void 0, this.tracks = null, this.hasDetails = !1, this.mediaAttached = null, this._currentTime = void 0, this._bufferedEosTime = void 0, this.checkPlayout = () => {
-      this.reachedPlayout(this.currentTime) && this.hls && this.hls.trigger(y.PLAYOUT_LIMIT_REACHED, {});
+      this.reachedPlayout(this.currentTime) && this.hls && this.hls.trigger(v.PLAYOUT_LIMIT_REACHED, {});
     };
     const r = this.hls = new e(t);
     this.interstitial = i, this.assetItem = n;
     const a = () => {
       this.hasDetails = !0;
     };
-    r.once(y.LEVEL_LOADED, a), r.once(y.AUDIO_TRACK_LOADED, a), r.once(y.SUBTITLE_TRACK_LOADED, a), r.on(y.MEDIA_ATTACHING, (o, {
+    r.once(v.LEVEL_LOADED, a), r.once(v.AUDIO_TRACK_LOADED, a), r.once(v.SUBTITLE_TRACK_LOADED, a), r.on(v.MEDIA_ATTACHING, (o, {
       media: c
     }) => {
-      this.removeMediaListeners(), this.mediaAttached = c, this.interstitial.playoutLimit && (c.addEventListener("timeupdate", this.checkPlayout), this.appendInPlace && r.on(y.BUFFER_APPENDED, () => {
+      this.removeMediaListeners(), this.mediaAttached = c, this.interstitial.playoutLimit && (c.addEventListener("timeupdate", this.checkPlayout), this.appendInPlace && r.on(v.BUFFER_APPENDED, () => {
         const d = this.bufferedEnd;
-        this.reachedPlayout(d) && (this._bufferedEosTime = d, r.trigger(y.BUFFERED_TO_END, void 0));
+        this.reachedPlayout(d) && (this._bufferedEosTime = d, r.trigger(v.BUFFERED_TO_END, void 0));
       }));
     });
   }
@@ -15730,7 +15730,7 @@ class vg {
   }
 }
 const Va = 0.033;
-class yg extends ze {
+class vg extends ze {
   constructor(e, t) {
     super("interstitials-sched", t), this.onScheduleUpdate = void 0, this.eventMap = {}, this.events = null, this.items = null, this.durations = {
       primary: 0,
@@ -15841,9 +15841,9 @@ class yg extends ze {
       if (g && !f)
         return -1;
       if (!u && !p && !f && !g) {
-        const v = l.startTime, m = d.startTime;
-        if (v !== m)
-          return v - m;
+        const y = l.startTime, m = d.startTime;
+        if (y !== m)
+          return y - m;
       }
       return l.dateRange.tagOrder - d.dateRange.tagOrder;
     }), this.events = a, c.forEach((l) => {
@@ -15875,8 +15875,8 @@ class yg extends ze {
       this.resolveOffsets(e, t);
       let c = 0, l = 0;
       if (e.forEach((d, u) => {
-        const f = d.cue.pre, p = d.cue.post, g = e[u - 1] || null, v = d.appendInPlace, m = p ? r : d.startOffset, _ = d.duration, b = d.timelineOccupancy === fn.Range ? _ : 0, x = d.resumptionOffset, E = g?.startTime === m, T = m + d.cumulativeDuration;
-        let k = v ? T + _ : m + x;
+        const f = d.cue.pre, p = d.cue.post, g = e[u - 1] || null, y = d.appendInPlace, m = p ? r : d.startOffset, _ = d.duration, b = d.timelineOccupancy === fn.Range ? _ : 0, x = d.resumptionOffset, E = g?.startTime === m, T = m + d.cumulativeDuration;
+        let k = y ? T + _ : m + x;
         if (f || !p && m <= 0) {
           const L = l;
           l += b, d.timelineStart = T;
@@ -16042,7 +16042,7 @@ class _g {
       n = Tc(i, this.hls.sessionId, e.baseUrl);
     } catch (f) {
       const p = this.assignAssetListError(e, R.ASSET_LIST_LOAD_ERROR, f, i);
-      this.hls.trigger(y.ERROR, p);
+      this.hls.trigger(v.ERROR, p);
       return;
     }
     t && n.protocol !== "data:" && n.searchParams.set("_HLS_start_offset", "" + t);
@@ -16056,29 +16056,29 @@ class _g {
       retryDelay: 0,
       maxRetryDelay: 0
     }, u = {
-      onSuccess: (f, p, g, v) => {
+      onSuccess: (f, p, g, y) => {
         const m = f.data, _ = m?.ASSETS;
         if (!Array.isArray(_)) {
-          const b = this.assignAssetListError(e, R.ASSET_LIST_PARSING_ERROR, new Error("Invalid interstitial asset list"), g.url, p, v);
-          this.hls.trigger(y.ERROR, b);
+          const b = this.assignAssetListError(e, R.ASSET_LIST_PARSING_ERROR, new Error("Invalid interstitial asset list"), g.url, p, y);
+          this.hls.trigger(v.ERROR, b);
           return;
         }
-        e.assetListResponse = m, this.hls.trigger(y.ASSET_LIST_LOADED, {
+        e.assetListResponse = m, this.hls.trigger(v.ASSET_LIST_LOADED, {
           event: e,
           assetListResponse: m,
-          networkDetails: v
+          networkDetails: y
         });
       },
-      onError: (f, p, g, v) => {
-        const m = this.assignAssetListError(e, R.ASSET_LIST_LOAD_ERROR, new Error(`Error loading X-ASSET-LIST: HTTP status ${f.code} ${f.text} (${p.url})`), p.url, v, g);
-        this.hls.trigger(y.ERROR, m);
+      onError: (f, p, g, y) => {
+        const m = this.assignAssetListError(e, R.ASSET_LIST_LOAD_ERROR, new Error(`Error loading X-ASSET-LIST: HTTP status ${f.code} ${f.text} (${p.url})`), p.url, y, g);
+        this.hls.trigger(v.ERROR, m);
       },
       onTimeout: (f, p, g) => {
-        const v = this.assignAssetListError(e, R.ASSET_LIST_LOAD_TIMEOUT, new Error(`Timeout loading X-ASSET-LIST (${p.url})`), p.url, f, g);
-        this.hls.trigger(y.ERROR, v);
+        const y = this.assignAssetListError(e, R.ASSET_LIST_LOAD_TIMEOUT, new Error(`Timeout loading X-ASSET-LIST (${p.url})`), p.url, f, g);
+        this.hls.trigger(v.ERROR, y);
       }
     };
-    return o.load(c, d, u), this.hls.trigger(y.ASSET_LIST_LOADING, {
+    return o.load(c, d, u), this.hls.trigger(v.ASSET_LIST_LOADING, {
       event: e
     }), o;
   }
@@ -16128,9 +16128,9 @@ class bg extends ze {
         const p = this.findItemIndex(o);
         let g = this.schedule.findItemIndexAtTime(i);
         if (g === -1 && (g = p + (a ? -1 : 1), this.log(`seeked ${a ? "back " : ""}to position not covered by schedule ${i} (resolving from ${p} to ${g})`)), !this.isInterstitial(o) && (c = this.media) != null && c.paused && (this.shouldPlay = !1), !a && g > p) {
-          const v = this.schedule.findJumpRestrictedIndex(p + 1, g);
-          if (v > p) {
-            this.setSchedulePosition(v);
+          const y = this.schedule.findJumpRestrictedIndex(p + 1, g);
+          if (y > p) {
+            this.setSchedulePosition(y);
             return;
           }
         }
@@ -16175,28 +16175,28 @@ class bg extends ze {
       const r = this.schedule;
       if (!r)
         return;
-      const a = this.playingItem, o = r.events || [], c = r.items || [], l = r.durations, d = i.map((v) => v.identifier), u = !!(o.length || d.length);
+      const a = this.playingItem, o = r.events || [], c = r.items || [], l = r.durations, d = i.map((y) => y.identifier), u = !!(o.length || d.length);
       (u || n) && this.log(`INTERSTITIALS_UPDATED (${o.length}): ${o}
-Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.log(`Removed events ${d}`);
+Schedule: ${c.map((y) => We(y))} pos: ${this.timelinePos}`), d.length && this.log(`Removed events ${d}`);
       let f = null, p = null;
       a && (f = this.updateItem(a, this.timelinePos), this.itemsMatch(a, f) ? this.playingItem = f : this.waitingItem = this.endedItem = null), this.waitingItem = this.updateItem(this.waitingItem), this.endedItem = this.updateItem(this.endedItem);
       const g = this.bufferingItem;
-      if (g && (p = this.updateItem(g, this.bufferedPos), this.itemsMatch(g, p) ? this.bufferingItem = p : g.event && (this.bufferingItem = this.playingItem, this.clearInterstitial(g.event, null))), i.forEach((v) => {
-        v.assetList.forEach((m) => {
+      if (g && (p = this.updateItem(g, this.bufferedPos), this.itemsMatch(g, p) ? this.bufferingItem = p : g.event && (this.bufferingItem = this.playingItem, this.clearInterstitial(g.event, null))), i.forEach((y) => {
+        y.assetList.forEach((m) => {
           this.clearAssetPlayer(m.identifier, null);
         });
-      }), this.playerQueue.forEach((v) => {
-        if (v.interstitial.appendInPlace) {
-          const m = v.assetItem.timelineStart, _ = v.timelineOffset - m;
+      }), this.playerQueue.forEach((y) => {
+        if (y.interstitial.appendInPlace) {
+          const m = y.assetItem.timelineStart, _ = y.timelineOffset - m;
           if (_)
             try {
-              v.timelineOffset = m;
+              y.timelineOffset = m;
             } catch (b) {
-              Math.abs(_) > Ut && this.warn(`${b} ("${v.assetId}" ${v.timelineOffset}->${m})`);
+              Math.abs(_) > Ut && this.warn(`${b} ("${y.assetId}" ${y.timelineOffset}->${m})`);
             }
         }
       }), u || n) {
-        if (this.hls.trigger(y.INTERSTITIALS_UPDATED, {
+        if (this.hls.trigger(v.INTERSTITIALS_UPDATED, {
           events: o.slice(0),
           schedule: c.slice(0),
           durations: l,
@@ -16207,15 +16207,15 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
         }
         a && this.trimInPlace(f, a), g && p !== f && this.trimInPlace(p, g), this.checkBuffer();
       }
-    }, this.hls = e, this.HlsPlayerClass = t, this.assetListLoader = new _g(e), this.schedule = new yg(this.onScheduleUpdate, e.logger), this.registerListeners();
+    }, this.hls = e, this.HlsPlayerClass = t, this.assetListLoader = new _g(e), this.schedule = new vg(this.onScheduleUpdate, e.logger), this.registerListeners();
   }
   registerListeners() {
     const e = this.hls;
-    e && (e.on(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.LEVEL_UPDATED, this.onLevelUpdated, this), e.on(y.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.on(y.AUDIO_TRACK_UPDATED, this.onAudioTrackUpdated, this), e.on(y.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.on(y.SUBTITLE_TRACK_UPDATED, this.onSubtitleTrackUpdated, this), e.on(y.EVENT_CUE_ENTER, this.onInterstitialCueEnter, this), e.on(y.ASSET_LIST_LOADED, this.onAssetListLoaded, this), e.on(y.BUFFER_APPENDED, this.onBufferAppended, this), e.on(y.BUFFER_FLUSHED, this.onBufferFlushed, this), e.on(y.BUFFERED_TO_END, this.onBufferedToEnd, this), e.on(y.MEDIA_ENDED, this.onMediaEnded, this), e.on(y.ERROR, this.onError, this), e.on(y.DESTROYING, this.onDestroying, this));
+    e && (e.on(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.LEVEL_UPDATED, this.onLevelUpdated, this), e.on(v.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.on(v.AUDIO_TRACK_UPDATED, this.onAudioTrackUpdated, this), e.on(v.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.on(v.SUBTITLE_TRACK_UPDATED, this.onSubtitleTrackUpdated, this), e.on(v.EVENT_CUE_ENTER, this.onInterstitialCueEnter, this), e.on(v.ASSET_LIST_LOADED, this.onAssetListLoaded, this), e.on(v.BUFFER_APPENDED, this.onBufferAppended, this), e.on(v.BUFFER_FLUSHED, this.onBufferFlushed, this), e.on(v.BUFFERED_TO_END, this.onBufferedToEnd, this), e.on(v.MEDIA_ENDED, this.onMediaEnded, this), e.on(v.ERROR, this.onError, this), e.on(v.DESTROYING, this.onDestroying, this));
   }
   unregisterListeners() {
     const e = this.hls;
-    e && (e.off(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.LEVEL_UPDATED, this.onLevelUpdated, this), e.off(y.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.off(y.AUDIO_TRACK_UPDATED, this.onAudioTrackUpdated, this), e.off(y.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.off(y.SUBTITLE_TRACK_UPDATED, this.onSubtitleTrackUpdated, this), e.off(y.EVENT_CUE_ENTER, this.onInterstitialCueEnter, this), e.off(y.ASSET_LIST_LOADED, this.onAssetListLoaded, this), e.off(y.BUFFER_CODECS, this.onBufferCodecs, this), e.off(y.BUFFER_APPENDED, this.onBufferAppended, this), e.off(y.BUFFER_FLUSHED, this.onBufferFlushed, this), e.off(y.BUFFERED_TO_END, this.onBufferedToEnd, this), e.off(y.MEDIA_ENDED, this.onMediaEnded, this), e.off(y.ERROR, this.onError, this), e.off(y.DESTROYING, this.onDestroying, this));
+    e && (e.off(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.LEVEL_UPDATED, this.onLevelUpdated, this), e.off(v.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.off(v.AUDIO_TRACK_UPDATED, this.onAudioTrackUpdated, this), e.off(v.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.off(v.SUBTITLE_TRACK_UPDATED, this.onSubtitleTrackUpdated, this), e.off(v.EVENT_CUE_ENTER, this.onInterstitialCueEnter, this), e.off(v.ASSET_LIST_LOADED, this.onAssetListLoaded, this), e.off(v.BUFFER_CODECS, this.onBufferCodecs, this), e.off(v.BUFFER_APPENDED, this.onBufferAppended, this), e.off(v.BUFFER_FLUSHED, this.onBufferFlushed, this), e.off(v.BUFFERED_TO_END, this.onBufferedToEnd, this), e.off(v.MEDIA_ENDED, this.onMediaEnded, this), e.off(v.ERROR, this.onError, this), e.off(v.DESTROYING, this.onDestroying, this));
   }
   startLoad() {
     this.resumeBuffering();
@@ -16270,14 +16270,14 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       return null;
     if (this.manager)
       return this.manager;
-    const e = this, t = () => e.bufferingItem || e.waitingItem, i = (u) => u && e.getAssetPlayer(u.identifier), n = (u, f, p, g, v) => {
+    const e = this, t = () => e.bufferingItem || e.waitingItem, i = (u) => u && e.getAssetPlayer(u.identifier), n = (u, f, p, g, y) => {
       if (u) {
         let m = u[f].start;
         const _ = u.event;
         if (_) {
           if (f === "playout" || _.timelineOccupancy !== fn.Point) {
             const b = i(p);
-            b?.interstitial === _ && (m += b.assetItem.startOffset + b[v]);
+            b?.interstitial === _ && (m += b.assetItem.startOffset + b[y]);
           }
         } else {
           const b = g === "bufferedPos" ? a() : e[g];
@@ -16290,7 +16290,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       var p;
       if (u !== 0 && f !== "primary" && (p = e.schedule) != null && p.length) {
         var g;
-        const v = e.schedule.findItemIndexAtTime(u), m = (g = e.schedule.items) == null ? void 0 : g[v];
+        const y = e.schedule.findItemIndexAtTime(u), m = (g = e.schedule.items) == null ? void 0 : g[y];
         if (m) {
           const _ = m[f].start - m.start;
           return u + _;
@@ -16305,8 +16305,8 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       return (f = e.primaryDetails) != null && f.live ? e.primaryDetails.edge : ((p = e.schedule) == null ? void 0 : p.durations[u]) || 0;
     }, c = (u, f) => {
       var p, g;
-      const v = e.effectivePlayingItem;
-      if (v != null && (p = v.event) != null && p.restrictions.skip || !e.schedule)
+      const y = e.effectivePlayingItem;
+      if (y != null && (p = y.event) != null && p.restrictions.skip || !e.schedule)
         return;
       e.log(`seek to ${u} "${f}"`);
       const m = e.effectivePlayingItem, _ = e.schedule.findItemIndexAtTime(u, f), b = (g = e.schedule.items) == null ? void 0 : g[_], x = e.getBufferingPlayer(), E = x?.interstitial, T = E?.appendInPlace, k = m && e.itemsMatch(m, b);
@@ -16553,10 +16553,10 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
         r = this.detachedData, this.log(`using detachedData: MediaSource ${ue(r)}`);
       else if (!this.detachedData || a.media === t) {
         const g = this.playerQueue;
-        g.length > 1 && g.forEach((v) => {
-          if (o && v.interstitial.appendInPlace !== c) {
-            const m = v.interstitial;
-            this.clearInterstitial(v.interstitial, null), m.appendInPlace = !1, m.appendInPlace && this.warn(`Could not change append strategy for queued assets ${m}`);
+        g.length > 1 && g.forEach((y) => {
+          if (o && y.interstitial.appendInPlace !== c) {
+            const m = y.interstitial;
+            this.clearInterstitial(y.interstitial, null), m.appendInPlace = !1, m.appendInPlace && this.warn(`Could not change append strategy for queued assets ${m}`);
           }
         }), this.hls.detachMedia(), this.detachedData = {
           media: t
@@ -16661,7 +16661,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       if (p && f && (!this.eventItemsMatch(a, r) || t !== void 0 && f !== d.assetList[t].identifier)) {
         var c;
         const g = d.findAssetIndex(u);
-        if (this.log(`INTERSTITIAL_ASSET_ENDED ${g + 1}/${d.assetList.length} ${Mt(u)}`), this.endedAsset = u, this.playingAsset = null, this.hls.trigger(y.INTERSTITIAL_ASSET_ENDED, {
+        if (this.log(`INTERSTITIAL_ASSET_ENDED ${g + 1}/${d.assetList.length} ${Mt(u)}`), this.endedAsset = u, this.playingAsset = null, this.hls.trigger(v.INTERSTITIAL_ASSET_ENDED, {
           asset: u,
           assetListIndex: g,
           event: d,
@@ -16675,7 +16675,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
         }
         this.retreiveMediaSource(f, r), p.media && !((c = this.detachedData) != null && c.mediaSource) && p.detachMedia();
       }
-      if (!this.eventItemsMatch(a, r) && (this.endedItem = a, this.playingItem = null, this.log(`INTERSTITIAL_ENDED ${d} ${We(a)}`), d.hasPlayed = !0, this.hls.trigger(y.INTERSTITIAL_ENDED, {
+      if (!this.eventItemsMatch(a, r) && (this.endedItem = a, this.playingItem = null, this.log(`INTERSTITIAL_ENDED ${d} ${We(a)}`), d.hasPlayed = !0, this.hls.trigger(v.INTERSTITIAL_ENDED, {
         event: d,
         schedule: n.slice(0),
         scheduleIndex: e
@@ -16684,8 +16684,8 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
         this.updateSchedule();
         const g = (l = this.schedule) == null ? void 0 : l.items;
         if (r && g) {
-          const v = this.findItemIndex(r);
-          this.advanceSchedule(v, g, t, a, o);
+          const y = this.findItemIndex(r);
+          this.advanceSchedule(y, g, t, a, o);
         }
         return;
       }
@@ -16715,7 +16715,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       const u = this.waitingItem;
       this.assetsBuffered(o, c) || this.setBufferingItem(o);
       let f = this.preloadAssets(d, i);
-      if (this.eventItemsMatch(o, u || n) || (this.waitingItem = o, this.log(`INTERSTITIAL_STARTED ${We(o)} ${d.appendInPlace ? "append in place" : ""}`), this.hls.trigger(y.INTERSTITIAL_STARTED, {
+      if (this.eventItemsMatch(o, u || n) || (this.waitingItem = o, this.log(`INTERSTITIAL_STARTED ${We(o)} ${d.appendInPlace ? "append in place" : ""}`), this.hls.trigger(v.INTERSTITIAL_STARTED, {
         event: d,
         schedule: t.slice(0),
         scheduleIndex: e
@@ -16762,7 +16762,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
     if (!i)
       return;
     const a = (r = this.schedule) == null ? void 0 : r.items;
-    a && (this.log(`INTERSTITIALS_PRIMARY_RESUMED ${We(e)}`), this.hls.trigger(y.INTERSTITIALS_PRIMARY_RESUMED, {
+    a && (this.log(`INTERSTITIALS_PRIMARY_RESUMED ${We(e)}`), this.hls.trigger(v.INTERSTITIALS_PRIMARY_RESUMED, {
       schedule: a.slice(0),
       scheduleIndex: t
     }), this.checkBuffer());
@@ -16798,7 +16798,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
   // HLS.js event callbacks
   onManifestLoading() {
     var e;
-    this.stopLoad(), (e = this.schedule) == null || e.reset(), this.emptyPlayerQueue(), this.clearScheduleState(), this.shouldPlay = !1, this.bufferedPos = this.timelinePos = -1, this.mediaSelection = this.altSelection = this.manager = this.requiredTracks = null, this.hls.off(y.BUFFER_CODECS, this.onBufferCodecs, this), this.hls.on(y.BUFFER_CODECS, this.onBufferCodecs, this);
+    this.stopLoad(), (e = this.schedule) == null || e.reset(), this.emptyPlayerQueue(), this.clearScheduleState(), this.shouldPlay = !1, this.bufferedPos = this.timelinePos = -1, this.mediaSelection = this.altSelection = this.manager = this.requiredTracks = null, this.hls.off(v.BUFFER_CODECS, this.onBufferCodecs, this), this.hls.on(v.BUFFER_CODECS, this.onBufferCodecs, this);
   }
   onLevelUpdated(e, t) {
     if (t.level === -1 || !this.schedule)
@@ -16983,7 +16983,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
           });
         } else
           this.hls.resumeBuffering(), this.playerQueue.forEach((l) => l.pauseBuffering());
-      this.hls.trigger(y.INTERSTITIALS_BUFFERED_TO_BOUNDARY, {
+      this.hls.trigger(v.INTERSTITIALS_BUFFERED_TO_BOUNDARY, {
         events: r.slice(0),
         schedule: n.slice(0),
         bufferingIndex: this.findItemIndex(e),
@@ -17054,7 +17054,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
     if (!t)
       return;
     this.log(`Removing front buffer starting at ${e}`), Object.keys(t).forEach((n) => {
-      this.hls.trigger(y.BUFFER_FLUSHING, {
+      this.hls.trigger(v.BUFFER_FLUSHING, {
         startOffset: e,
         endOffset: 1 / 0,
         type: n
@@ -17130,9 +17130,9 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
     p != null && p.sessionId && p.contentId && (f.cmcd = le({}, p, {
       contentId: ri(t.uri)
     })), this.getAssetPlayer(u) && this.warn(`Duplicate date range identifier ${e} and asset ${u}`);
-    const g = new vg(this.HlsPlayerClass, f, e, t);
+    const g = new yg(this.HlsPlayerClass, f, e, t);
     this.playerQueue.push(g), e.assetList[i] = t;
-    let v = !0;
+    let y = !0;
     const m = (E) => {
       if (E.live) {
         var T;
@@ -17146,22 +17146,22 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
         return;
       }
       const k = E.edge - E.fragmentStart, S = t.duration;
-      (v || S === null || k > S) && (v = !1, this.log(`Interstitial asset "${u}" duration change ${S} > ${k}`), t.duration = k, this.updateSchedule());
+      (y || S === null || k > S) && (y = !1, this.log(`Interstitial asset "${u}" duration change ${S} > ${k}`), t.duration = k, this.updateSchedule());
     };
-    g.on(y.LEVEL_UPDATED, (E, {
+    g.on(v.LEVEL_UPDATED, (E, {
       details: T
-    }) => m(T)), g.on(y.LEVEL_PTS_UPDATED, (E, {
+    }) => m(T)), g.on(v.LEVEL_PTS_UPDATED, (E, {
       details: T
-    }) => m(T)), g.on(y.EVENT_CUE_ENTER, () => this.onInterstitialCueEnter());
+    }) => m(T)), g.on(v.EVENT_CUE_ENTER, () => this.onInterstitialCueEnter());
     const _ = (E, T) => {
       const k = this.getAssetPlayer(u);
       if (k && T.tracks) {
-        k.off(y.BUFFER_CODECS, _), k.tracks = T.tracks;
+        k.off(v.BUFFER_CODECS, _), k.tracks = T.tracks;
         const S = this.primaryMedia;
         this.bufferingAsset === k.assetItem && S && !k.media && this.bufferAssetPlayer(k, S);
       }
     };
-    g.on(y.BUFFER_CODECS, _);
+    g.on(v.BUFFER_CODECS, _);
     const b = () => {
       var E;
       const T = this.getAssetPlayer(u);
@@ -17170,7 +17170,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       const k = this.schedule.findEventIndex(e.identifier), S = (E = this.schedule.items) == null ? void 0 : E[k];
       this.isInterstitial(S) && this.advanceAssetBuffering(S, t);
     };
-    g.on(y.BUFFERED_TO_END, b);
+    g.on(v.BUFFERED_TO_END, b);
     const x = (E) => () => {
       if (!this.getAssetPlayer(u) || !this.schedule)
         return;
@@ -17178,7 +17178,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       const k = this.schedule.findEventIndex(e.identifier);
       this.advanceAfterAssetEnded(e, k, E);
     };
-    return g.once(y.MEDIA_ENDED, x(i)), g.once(y.PLAYOUT_LIMIT_REACHED, x(1 / 0)), g.on(y.ERROR, (E, T) => {
+    return g.once(v.MEDIA_ENDED, x(i)), g.once(v.PLAYOUT_LIMIT_REACHED, x(1 / 0)), g.on(v.ERROR, (E, T) => {
       if (!this.schedule)
         return;
       const k = this.getAssetPlayer(u);
@@ -17191,7 +17191,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
         return;
       }
       this.handleAssetItemError(T, e, this.schedule.findEventIndex(e.identifier), i, `Asset player error ${T.error} ${e}`);
-    }), g.on(y.DESTROYING, () => {
+    }), g.on(v.DESTROYING, () => {
       if (!this.getAssetPlayer(u) || !this.schedule)
         return;
       const T = new Error(`Asset player destroyed unexpectedly ${u}`), k = {
@@ -17201,7 +17201,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
         error: T
       };
       this.handleAssetItemError(k, e, this.schedule.findEventIndex(e.identifier), i, T.message);
-    }), this.log(`INTERSTITIAL_ASSET_PLAYER_CREATED ${Mt(t)}`), this.hls.trigger(y.INTERSTITIAL_ASSET_PLAYER_CREATED, {
+    }), this.log(`INTERSTITIAL_ASSET_PLAYER_CREATED ${Mt(t)}`), this.hls.trigger(v.INTERSTITIAL_ASSET_PLAYER_CREATED, {
       asset: t,
       assetListIndex: i,
       event: e,
@@ -17243,7 +17243,7 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       assetItem: o,
       assetId: c
     } = e, l = a.assetList.length, d = this.playingAsset;
-    this.endedAsset = null, this.playingAsset = o, (!d || d.identifier !== c) && (d && (this.clearAssetPlayer(d.identifier, i[n]), delete d.error), this.log(`INTERSTITIAL_ASSET_STARTED ${t + 1}/${l} ${Mt(o)}`), this.hls.trigger(y.INTERSTITIAL_ASSET_STARTED, {
+    this.endedAsset = null, this.playingAsset = o, (!d || d.identifier !== c) && (d && (this.clearAssetPlayer(d.identifier, i[n]), delete d.error), this.log(`INTERSTITIAL_ASSET_STARTED ${t + 1}/${l} ${Mt(o)}`), this.hls.trigger(v.INTERSTITIAL_ASSET_STARTED, {
       asset: o,
       assetListIndex: t,
       event: a,
@@ -17324,14 +17324,14 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       scheduleIndex: i,
       player: l
     });
-    if (this.hls.trigger(y.INTERSTITIAL_ASSET_ERROR, u), !e.fatal)
+    if (this.hls.trigger(v.INTERSTITIAL_ASSET_ERROR, u), !e.fatal)
       return;
     const f = this.playingAsset, p = this.bufferingAsset, g = new Error(r);
-    if (a && (this.clearAssetPlayer(o, null), a.error = g), !t.assetList.some((v) => !v.error))
+    if (a && (this.clearAssetPlayer(o, null), a.error = g), !t.assetList.some((y) => !y.error))
       t.error = g;
     else
-      for (let v = n; v < t.assetList.length; v++)
-        this.resetAssetPlayer(t.assetList[v].identifier);
+      for (let y = n; y < t.assetList.length; y++)
+        this.resetAssetPlayer(t.assetList[y].identifier);
     this.updateSchedule(!0), t.error ? this.primaryFallback(t) : f && f.identifier === o ? this.advanceAfterAssetEnded(t, i, n) : p && p.identifier === o && this.isInterstitial(this.bufferingItem) && this.advanceAssetBuffering(this.bufferingItem, p);
   }
   primaryFallback(e) {
@@ -17358,28 +17358,28 @@ Schedule: ${c.map((v) => We(v))} pos: ${this.timelinePos}`), d.length && this.lo
       return;
     const c = r.timelineStart, l = r.duration;
     let d = 0;
-    o.forEach((v, m) => {
-      const _ = parseFloat(v.DURATION);
-      this.createAsset(r, m, d, c + d, _, v.URI), d += _;
+    o.forEach((y, m) => {
+      const _ = parseFloat(y.DURATION);
+      this.createAsset(r, m, d, c + d, _, y.URI), d += _;
     }), r.duration = d, this.log(`Loaded asset-list with duration: ${d} (was: ${l}) ${r}`);
     const u = this.waitingItem, f = u?.event.identifier === a;
     this.updateSchedule();
     const p = (n = this.bufferingItem) == null ? void 0 : n.event;
     if (f) {
       var g;
-      const v = this.schedule.findEventIndex(a), m = (g = this.schedule.items) == null ? void 0 : g[v];
+      const y = this.schedule.findEventIndex(a), m = (g = this.schedule.items) == null ? void 0 : g[y];
       if (m) {
-        if (!this.playingItem && this.timelinePos > m.end && this.schedule.findItemIndexAtTime(this.timelinePos) !== v) {
+        if (!this.playingItem && this.timelinePos > m.end && this.schedule.findItemIndexAtTime(this.timelinePos) !== y) {
           r.error = new Error(`Interstitial ${o.length ? "no longer within playback range" : "asset-list is empty"} ${this.timelinePos} ${r}`), this.log(r.error.message), this.updateSchedule(!0), this.primaryFallback(r);
           return;
         }
         this.setBufferingItem(m);
       }
-      this.setSchedulePosition(v);
+      this.setSchedulePosition(y);
     } else if (p?.identifier === a) {
-      const v = r.assetList[0];
-      if (v) {
-        const m = this.getAssetPlayer(v.identifier);
+      const y = r.assetList[0];
+      if (y) {
+        const m = this.getAssetPlayer(y.identifier);
         if (p.appendInPlace) {
           const _ = this.primaryMedia;
           m && _ && this.bufferAssetPlayer(m, _);
@@ -17422,14 +17422,14 @@ class xg extends Qs {
     const {
       hls: e
     } = this;
-    e.on(y.LEVEL_LOADED, this.onLevelLoaded, this), e.on(y.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.on(y.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.on(y.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.on(y.SUBTITLE_FRAG_PROCESSED, this.onSubtitleFragProcessed, this), e.on(y.BUFFER_FLUSHING, this.onBufferFlushing, this);
+    e.on(v.LEVEL_LOADED, this.onLevelLoaded, this), e.on(v.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.on(v.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.on(v.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.on(v.SUBTITLE_FRAG_PROCESSED, this.onSubtitleFragProcessed, this), e.on(v.BUFFER_FLUSHING, this.onBufferFlushing, this);
   }
   unregisterListeners() {
     super.unregisterListeners();
     const {
       hls: e
     } = this;
-    e.off(y.LEVEL_LOADED, this.onLevelLoaded, this), e.off(y.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.off(y.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.off(y.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.off(y.SUBTITLE_FRAG_PROCESSED, this.onSubtitleFragProcessed, this), e.off(y.BUFFER_FLUSHING, this.onBufferFlushing, this);
+    e.off(v.LEVEL_LOADED, this.onLevelLoaded, this), e.off(v.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.off(v.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.off(v.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.off(v.SUBTITLE_FRAG_PROCESSED, this.onSubtitleFragProcessed, this), e.off(v.BUFFER_FLUSHING, this.onBufferFlushing, this);
   }
   startLoad(e, t) {
     this.stopLoad(), this.state = O.IDLE, this.setInterval(Ha), this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
@@ -17448,7 +17448,7 @@ class xg extends Qs {
       frag: i,
       success: n
     } = t;
-    if (this.fragContextChanged(i) || (ye(i) && (this.fragPrevious = i), this.state = O.IDLE), !n)
+    if (this.fragContextChanged(i) || (ve(i) && (this.fragPrevious = i), this.state = O.IDLE), !n)
       return;
     const r = this.tracksBuffered[this.currentTrackId];
     if (!r)
@@ -17552,7 +17552,7 @@ class xg extends Qs {
       }
       u && !this.startFragRequested && this.setStartPosition(u, l);
     }
-    c.details = a, this.levelLastLoaded = c, o === n && (this.hls.trigger(y.SUBTITLE_TRACK_UPDATED, {
+    c.details = a, this.levelLastLoaded = c, o === n && (this.hls.trigger(v.SUBTITLE_TRACK_UPDATED, {
       details: a,
       id: o,
       groupId: t.groupId
@@ -17566,7 +17566,7 @@ class xg extends Qs {
     if (!this.fragContextChanged(t) && i && i.byteLength > 0 && n != null && n.key && n.iv && $t(n.method)) {
       const a = performance.now();
       this.decrypter.decrypt(new Uint8Array(i), n.key.buffer, n.iv.buffer, qs(n.method)).catch((o) => {
-        throw r.trigger(y.ERROR, {
+        throw r.trigger(v.ERROR, {
           type: q.MEDIA_ERROR,
           details: R.FRAG_DECRYPT_ERROR,
           fatal: !1,
@@ -17576,7 +17576,7 @@ class xg extends Qs {
         }), o;
       }).then((o) => {
         const c = performance.now();
-        r.trigger(y.FRAG_DECRYPTED, {
+        r.trigger(v.FRAG_DECRYPTED, {
           frag: t,
           payload: o,
           stats: {
@@ -17611,10 +17611,10 @@ class xg extends Qs {
         return;
       const u = l.fragments, f = u.length, p = l.edge;
       let g = null;
-      const v = this.fragPrevious;
+      const y = this.fragPrevious;
       if (o < p) {
         const b = n.maxFragLookUpTolerance, x = o > p - b ? 0 : b;
-        g = It(v, u, Math.max(u[0].start, o), x), !g && v && v.start < u[0].start && (g = u[0]);
+        g = It(y, u, Math.max(u[0].start, o), x), !g && y && y.start < u[0].start && (g = u[0]);
       } else
         g = u[f - 1];
       if (g = this.filterReplacedPrimary(g, i.details), !g)
@@ -17627,7 +17627,7 @@ class xg extends Qs {
     }
   }
   loadFragment(e, t, i) {
-    ye(e) ? super.loadFragment(e, t, i) : this._loadInitSegment(e, t);
+    ve(e) ? super.loadFragment(e, t, i) : this._loadInitSegment(e, t);
   }
   get mediaBufferTimeRanges() {
     return new Eg(this.tracksBuffered[this.currentTrackId] || []);
@@ -18422,7 +18422,7 @@ var cr = (function() {
       enumerable: !0
     };
     d.hasBeenReset = !1;
-    let f = "", p = !1, g = o, v = c, m = l, _ = null, b = "", x = !0, E = "auto", T = "start", k = 50, S = "middle", L = 50, I = "middle";
+    let f = "", p = !1, g = o, y = c, m = l, _ = null, b = "", x = !0, E = "auto", T = "start", k = 50, S = "middle", L = 50, I = "middle";
     Object.defineProperty(d, "id", r({}, u, {
       get: function() {
         return f;
@@ -18448,12 +18448,12 @@ var cr = (function() {
       }
     })), Object.defineProperty(d, "endTime", r({}, u, {
       get: function() {
-        return v;
+        return y;
       },
       set: function(A) {
         if (typeof A != "number")
           throw new TypeError("End time must be set to a number.");
-        v = A, this.hasBeenReset = !0;
+        y = A, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(d, "text", r({}, u, {
       get: function() {
@@ -18634,9 +18634,9 @@ function Fg(s, e, t) {
       let g;
       switch (f) {
         case "region":
-          for (let v = t.length - 1; v >= 0; v--)
-            if (t[v].id === p) {
-              l.set(f, t[v].region);
+          for (let y = t.length - 1; y >= 0; y--)
+            if (t[y].id === p) {
+              l.set(f, t[y].region);
               break;
             }
           break;
@@ -18806,7 +18806,7 @@ function Gg(s, e, t, i, n, r, a) {
   const o = new Ng(), c = Ve(new Uint8Array(s)).trim().replace($g, `
 `).split(`
 `), l = [], d = e ? Yf(e.baseTime, e.timescale) : 0;
-  let u = "00:00.000", f = 0, p = 0, g, v = !0;
+  let u = "00:00.000", f = 0, p = 0, g, y = !0;
   o.oncue = function(m) {
     const _ = t[i];
     let b = t.ccOffset;
@@ -18831,9 +18831,9 @@ function Gg(s, e, t, i, n, r, a) {
     }
     r(l);
   }, c.forEach((m) => {
-    if (v)
+    if (y)
       if (Gn(m, "X-TIMESTAMP-MAP=")) {
-        v = !1, m.slice(16).split(",").forEach((_) => {
+        y = !1, m.slice(16).split(",").forEach((_) => {
           Gn(_, "LOCAL:") ? u = _.slice(6) : Gn(_, "MPEGTS:") && (f = parseInt(_.slice(7)));
         });
         try {
@@ -18842,7 +18842,7 @@ function Gg(s, e, t, i, n, r, a) {
           g = _;
         }
         return;
-      } else m === "" && (v = !1);
+      } else m === "" && (y = !1);
     o.parse(m + `
 `);
   }), o.flush();
@@ -18882,15 +18882,15 @@ function Kg(s, e) {
     if (!f || !u.hasAttribute("begin"))
       return null;
     const p = zn(u.getAttribute("begin"), a), g = zn(u.getAttribute("dur"), a);
-    let v = zn(u.getAttribute("end"), a);
+    let y = zn(u.getAttribute("end"), a);
     if (p === null)
       throw qa(u);
-    if (v === null) {
+    if (y === null) {
       if (g === null)
         throw qa(u);
-      v = p + g;
+      y = p + g;
     }
-    const m = new cr(p - e, v - e, f);
+    const m = new cr(p - e, y - e, f);
     m.id = dr(m.startTime, m.endTime, m.text);
     const _ = l[u.getAttribute("region")], b = c[u.getAttribute("style")], x = Hg(_, b, c), {
       textAlign: E
@@ -19006,13 +19006,13 @@ class Yg {
         label: this.config.captionsTextTrack4Label,
         languageCode: this.config.captionsTextTrack4LanguageCode
       }
-    }, e.on(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.MANIFEST_LOADED, this.onManifestLoaded, this), e.on(y.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.on(y.FRAG_LOADING, this.onFragLoading, this), e.on(y.FRAG_LOADED, this.onFragLoaded, this), e.on(y.FRAG_PARSING_USERDATA, this.onFragParsingUserdata, this), e.on(y.FRAG_DECRYPTED, this.onFragDecrypted, this), e.on(y.INIT_PTS_FOUND, this.onInitPtsFound, this), e.on(y.SUBTITLE_TRACKS_CLEARED, this.onSubtitleTracksCleared, this), e.on(y.BUFFER_FLUSHING, this.onBufferFlushing, this);
+    }, e.on(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.MANIFEST_LOADED, this.onManifestLoaded, this), e.on(v.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.on(v.FRAG_LOADING, this.onFragLoading, this), e.on(v.FRAG_LOADED, this.onFragLoaded, this), e.on(v.FRAG_PARSING_USERDATA, this.onFragParsingUserdata, this), e.on(v.FRAG_DECRYPTED, this.onFragDecrypted, this), e.on(v.INIT_PTS_FOUND, this.onInitPtsFound, this), e.on(v.SUBTITLE_TRACKS_CLEARED, this.onSubtitleTracksCleared, this), e.on(v.BUFFER_FLUSHING, this.onBufferFlushing, this);
   }
   destroy() {
     const {
       hls: e
     } = this;
-    e.off(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.MANIFEST_LOADED, this.onManifestLoaded, this), e.off(y.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.off(y.FRAG_LOADING, this.onFragLoading, this), e.off(y.FRAG_LOADED, this.onFragLoaded, this), e.off(y.FRAG_PARSING_USERDATA, this.onFragParsingUserdata, this), e.off(y.FRAG_DECRYPTED, this.onFragDecrypted, this), e.off(y.INIT_PTS_FOUND, this.onInitPtsFound, this), e.off(y.SUBTITLE_TRACKS_CLEARED, this.onSubtitleTracksCleared, this), e.off(y.BUFFER_FLUSHING, this.onBufferFlushing, this), this.hls = this.config = this.media = null, this.cea608Parser1 = this.cea608Parser2 = void 0;
+    e.off(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.MANIFEST_LOADED, this.onManifestLoaded, this), e.off(v.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.off(v.FRAG_LOADING, this.onFragLoading, this), e.off(v.FRAG_LOADED, this.onFragLoaded, this), e.off(v.FRAG_PARSING_USERDATA, this.onFragParsingUserdata, this), e.off(v.FRAG_DECRYPTED, this.onFragDecrypted, this), e.off(v.INIT_PTS_FOUND, this.onInitPtsFound, this), e.off(v.SUBTITLE_TRACKS_CLEARED, this.onSubtitleTracksCleared, this), e.off(v.BUFFER_FLUSHING, this.onBufferFlushing, this), this.hls = this.config = this.media = null, this.cea608Parser1 = this.cea608Parser2 = void 0;
   }
   initCea608Parsers() {
     const e = new Di(this, "textTrack1"), t = new Di(this, "textTrack2"), i = new Di(this, "textTrack3"), n = new Di(this, "textTrack4");
@@ -19030,7 +19030,7 @@ class Yg {
       this.Cues.newCue(o, t, i, n);
     } else {
       const o = this.Cues.newCue(null, t, i, n);
-      this.hls.trigger(y.CUES_PARSED, {
+      this.hls.trigger(v.CUES_PARSED, {
         type: "captions",
         cues: o,
         track: e
@@ -19053,7 +19053,7 @@ class Yg {
       timescale: r,
       trackId: a
     }), o.length && (this.unparsedVttFrags = [], o.forEach((c) => {
-      this.initPTS[c.frag.cc] ? this.onFragLoaded(y.FRAG_LOADED, c) : this.hls.trigger(y.SUBTITLE_FRAG_PROCESSED, {
+      this.initPTS[c.frag.cc] ? this.onFragLoaded(v.FRAG_LOADED, c) : this.hls.trigger(v.SUBTITLE_FRAG_PROCESSED, {
         success: !1,
         frag: c.frag,
         error: new Error("Subtitle discontinuity domain does not match main")
@@ -19110,7 +19110,7 @@ class Yg {
       default: t.media ? !!t.media.default : !1,
       closedCaptions: t.media
     };
-    this.nonNativeCaptionsTracks[e] = n, this.hls.trigger(y.NON_NATIVE_TEXT_TRACKS_FOUND, {
+    this.nonNativeCaptionsTracks[e] = n, this.hls.trigger(v.NON_NATIVE_TEXT_TRACKS_FOUND, {
       tracks: [n]
     });
   }
@@ -19185,7 +19185,7 @@ class Yg {
           default: o.default,
           subtitleTrack: o
         }));
-        this.hls.trigger(y.NON_NATIVE_TEXT_TRACKS_FOUND, {
+        this.hls.trigger(v.NON_NATIVE_TEXT_TRACKS_FOUND, {
           tracks: a
         });
       }
@@ -19235,7 +19235,7 @@ class Yg {
           }, this.prevCC = i.cc), o && o.textCodec === Vn ? this._parseIMSC1(i, n) : this._parseVTTs(t);
         }
       } else
-        this.hls.trigger(y.SUBTITLE_FRAG_PROCESSED, {
+        this.hls.trigger(v.SUBTITLE_FRAG_PROCESSED, {
           success: !1,
           frag: i,
           error: new Error("Empty subtitle payload")
@@ -19244,12 +19244,12 @@ class Yg {
   _parseIMSC1(e, t) {
     const i = this.hls;
     Ya(t, this.initPTS[e.cc], (n) => {
-      this._appendCues(n, e.level), i.trigger(y.SUBTITLE_FRAG_PROCESSED, {
+      this._appendCues(n, e.level), i.trigger(v.SUBTITLE_FRAG_PROCESSED, {
         success: !0,
         frag: e
       });
     }, (n) => {
-      i.logger.log(`Failed to parse IMSC1: ${n}`), i.trigger(y.SUBTITLE_FRAG_PROCESSED, {
+      i.logger.log(`Failed to parse IMSC1: ${n}`), i.trigger(v.SUBTITLE_FRAG_PROCESSED, {
         success: !1,
         frag: e,
         error: n
@@ -19271,13 +19271,13 @@ class Yg {
     }
     const c = this.hls, l = (t = i.initSegment) != null && t.data ? Ke(i.initSegment.data, new Uint8Array(n)).buffer : n;
     Gg(l, this.initPTS[i.cc], this.vttCCs, i.cc, i.start, (d) => {
-      this._appendCues(d, i.level), c.trigger(y.SUBTITLE_FRAG_PROCESSED, {
+      this._appendCues(d, i.level), c.trigger(v.SUBTITLE_FRAG_PROCESSED, {
         success: !0,
         frag: i
       });
     }, (d) => {
       const u = d.message === "Missing initPTS for VTT MPEGTS";
-      u ? a.push(e) : this._fallbackToIMSC1(i, n), c.logger.log(`Failed to parse VTT cue: ${d}`), !(u && o > i.cc) && c.trigger(y.SUBTITLE_FRAG_PROCESSED, {
+      u ? a.push(e) : this._fallbackToIMSC1(i, n), c.logger.log(`Failed to parse VTT cue: ${d}`), !(u && o > i.cc) && c.trigger(v.SUBTITLE_FRAG_PROCESSED, {
         success: !1,
         frag: i,
         error: d
@@ -19304,7 +19304,7 @@ class Yg {
       if (!n)
         return;
       const r = n.default ? "default" : "subtitles" + t;
-      i.trigger(y.CUES_PARSED, {
+      i.trigger(v.CUES_PARSED, {
         type: "subtitles",
         cues: e,
         track: r
@@ -19315,7 +19315,7 @@ class Yg {
     const {
       frag: i
     } = t;
-    i.type === j.SUBTITLE && this.onFragLoaded(y.FRAG_LOADED, t);
+    i.type === j.SUBTITLE && this.onFragLoaded(v.FRAG_LOADED, t);
   }
   onSubtitleTracksCleared() {
     this.tracks = [], this.captionsTracks = {};
@@ -19404,8 +19404,8 @@ const qg = /\s/, Xg = {
     for (let f = 0; f < i.rows.length; f++)
       if (r = i.rows[f], o = !0, c = 0, l = "", !r.isEmpty()) {
         var u;
-        for (let v = 0; v < r.chars.length; v++)
-          qg.test(r.chars[v].uchar) && o ? c++ : (l += r.chars[v].uchar, o = !1);
+        for (let y = 0; y < r.chars.length; y++)
+          qg.test(r.chars[y].uchar) && o ? c++ : (l += r.chars[y].uchar, o = !1);
         r.cueStartTime = e, e === t && (t += 1e-4), c >= 16 ? c-- : c++;
         const p = kc(l.trim()), g = dr(e, t, p);
         s != null && (u = s.cues) != null && u.getCueById(g) || (a = new d(e, t, p), a.id = g, a.line = f + 1, a.align = "left", a.position = 10 + Math.min(80, Math.floor(c * 8 / 32) * 10), n.push(a));
@@ -19458,10 +19458,10 @@ class Za {
         this.callbacks && (this.abortInternal(), this.callbacks.onTimeout(n, e, this.response));
       }, l - (p - n.loading.start)), !u.ok) {
         const {
-          status: v,
+          status: y,
           statusText: m
         } = u;
-        throw new nm(m || "fetch, bad network response", v, u);
+        throw new nm(m || "fetch, bad network response", y, u);
       }
       n.loading.first = p, n.total = tm(u.headers) || n.total;
       const g = (f = this.callbacks) == null ? void 0 : f.onProgress;
@@ -19472,8 +19472,8 @@ class Za {
       if (!g)
         throw new Error("loader destroyed");
       self.clearTimeout(this.requestTimeout), n.loading.end = Math.max(self.performance.now(), n.loading.first);
-      const v = u[o];
-      v && (n.loaded = n.total = v);
+      const y = u[o];
+      y && (n.loaded = n.total = y);
       const m = {
         url: g.url,
         data: u,
@@ -19621,8 +19621,8 @@ class Pc {
         if (g != null) {
           var a, o;
           i.loading.end = Math.max(self.performance.now(), i.loading.first);
-          const v = t.responseType === "arraybuffer" ? g.byteLength : g.length;
-          i.loaded = i.total = v, i.bwEstimate = i.total * 8e3 / (i.loading.end - i.loading.first);
+          const y = t.responseType === "arraybuffer" ? g.byteLength : g.length;
+          i.loaded = i.total = y, i.bwEstimate = i.total * 8e3 / (i.loading.end - i.loading.first);
           const m = (a = this.callbacks) == null ? void 0 : a.onProgress;
           m && m(i, e, g, t);
           const _ = {
@@ -19785,7 +19785,7 @@ const rm = {
   // used by eme-controller
   licenseResponseCallback: void 0,
   // used by eme-controller
-  abrController: vh,
+  abrController: yh,
   bufferController: lp,
   capLevelController: ar,
   errorController: Eh,
@@ -20053,7 +20053,7 @@ class fm extends Il {
     }, this.onMediaEnded = () => {
       if (this.hls) {
         var i;
-        this.ended = ((i = this.media) == null ? void 0 : i.currentTime) || 1, this.hls.trigger(y.MEDIA_ENDED, {
+        this.ended = ((i = this.media) == null ? void 0 : i.currentTime) || 1, this.hls.trigger(v.MEDIA_ENDED, {
           stalled: !1
         });
       }
@@ -20063,13 +20063,13 @@ class fm extends Il {
     const {
       hls: e
     } = this;
-    e && (e.on(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(y.BUFFER_APPENDED, this.onBufferAppended, this));
+    e && (e.on(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(v.BUFFER_APPENDED, this.onBufferAppended, this));
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e && (e.off(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(y.BUFFER_APPENDED, this.onBufferAppended, this));
+    e && (e.off(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(v.BUFFER_APPENDED, this.onBufferAppended, this));
   }
   destroy() {
     super.destroy(), this.unregisterListeners(), this.media = this.hls = this.fragmentTracker = null, this.mediaSource = void 0;
@@ -20125,7 +20125,7 @@ class fm extends Il {
       return;
     }
     if (d) {
-      this.nudgeRetry = 0, this.stallResolved(e), !this.ended && a.ended && this.hls && (this.ended = e || 1, this.hls.trigger(y.MEDIA_ENDED, {
+      this.nudgeRetry = 0, this.stallResolved(e), !this.ended && a.ended && this.hls && (this.ended = e || 1, this.hls.trigger(v.MEDIA_ENDED, {
         stalled: !1
       }));
       return;
@@ -20151,22 +20151,22 @@ class fm extends Il {
         return;
       }
     }
-    const v = r.detectStallWithCurrentTimeMs, m = self.performance.now(), _ = this.waiting;
+    const y = r.detectStallWithCurrentTimeMs, m = self.performance.now(), _ = this.waiting;
     let b = this.stalled;
     if (b === null)
-      if (_ > 0 && m - _ < v)
+      if (_ > 0 && m - _ < y)
         b = this.stalled = _;
       else {
         this.stalled = m;
         return;
       }
     const x = m - b;
-    if (!o && (x >= v || _) && this.hls) {
+    if (!o && (x >= y || _) && this.hls) {
       var E;
       if (((E = this.mediaSource) == null ? void 0 : E.readyState) === "ended" && !(g != null && g.live) && Math.abs(e - (g?.edge || 0)) < 1) {
         if (this.ended)
           return;
-        this.ended = e || 1, this.hls.trigger(y.MEDIA_ENDED, {
+        this.ended = e || 1, this.hls.trigger(v.MEDIA_ENDED, {
           stalled: !0
         });
         return;
@@ -20181,7 +20181,7 @@ class fm extends Il {
     const t = this.stalled;
     if (t && this.hls && (this.stalled = null, this.stallReported)) {
       const i = self.performance.now() - t;
-      this.log(`playback not stuck anymore @${e}, after ${Math.round(i)}ms`), this.stallReported = !1, this.waiting = 0, this.hls.trigger(y.STALL_RESOLVED, {});
+      this.log(`playback not stuck anymore @${e}, after ${Math.round(i)}ms`), this.stallReported = !1, this.waiting = 0, this.hls.trigger(v.STALL_RESOLVED, {});
     }
   }
   nudgeOnVideoHole(e, t) {
@@ -20200,7 +20200,7 @@ class fm extends Il {
             let f = Ci(e, this.fragmentTracker);
             f && "fragment" in f ? f = f.fragment : f || (f = void 0);
             const p = te.bufferInfo(this.media, e, 0);
-            this.hls.trigger(y.ERROR, {
+            this.hls.trigger(v.ERROR, {
               type: q.MEDIA_ERROR,
               details: R.BUFFER_SEEK_OVER_HOLE,
               fatal: !1,
@@ -20259,7 +20259,7 @@ class fm extends Il {
     if (!n && r !== null && i && t) {
       this.stallReported = !0;
       const a = new Error(`Playback stalling at @${i.currentTime} due to low buffer (${ue(e)})`);
-      this.warn(a.message), t.trigger(y.ERROR, {
+      this.warn(a.message), t.trigger(v.ERROR, {
         type: q.MEDIA_ERROR,
         details: R.BUFFER_STALLED_ERROR,
         fatal: !1,
@@ -20292,8 +20292,8 @@ class fm extends Il {
         if (f > r.maxBufferHole) {
           let g = !1;
           if (a === 0) {
-            const v = i.getAppendedFrag(0, j.MAIN);
-            v && c < v.end && (g = !0);
+            const y = i.getAppendedFrag(0, j.MAIN);
+            y && c < y.end && (g = !0);
           }
           if (!g && e) {
             var l;
@@ -20315,7 +20315,7 @@ class fm extends Il {
         }
         const p = Math.max(c + um, a + dm);
         if (this.warn(`skipping hole, adjusting currentTime from ${a} to ${p}`), this.moved = !0, n.currentTime = p, !(e != null && e.gap)) {
-          const g = new Error(`fragment loaded with buffer holes, seeking from ${a} to ${p}`), v = {
+          const g = new Error(`fragment loaded with buffer holes, seeking from ${a} to ${p}`), y = {
             type: q.MEDIA_ERROR,
             details: R.BUFFER_SEEK_OVER_HOLE,
             fatal: !1,
@@ -20324,7 +20324,7 @@ class fm extends Il {
             buffer: o.len,
             bufferInfo: o
           };
-          e && ("fragment" in e ? v.part = e : v.frag = e), this.hls.trigger(y.ERROR, v);
+          e && ("fragment" in e ? y.part = e : y.frag = e), this.hls.trigger(v.ERROR, y);
         }
         return p;
       }
@@ -20346,7 +20346,7 @@ class fm extends Il {
     const a = i.currentTime;
     if (this.nudgeRetry++, n < r.nudgeMaxRetry) {
       const o = a + (n + 1) * r.nudgeOffset, c = new Error(`Nudging 'currentTime' from ${a} to ${o}`);
-      this.warn(c.message), i.currentTime = o, t.trigger(y.ERROR, {
+      this.warn(c.message), i.currentTime = o, t.trigger(v.ERROR, {
         type: q.MEDIA_ERROR,
         details: R.BUFFER_NUDGE_ON_STALL,
         error: c,
@@ -20356,7 +20356,7 @@ class fm extends Il {
       });
     } else {
       const o = new Error(`Playhead still not moving while enough data buffered @${a} after ${r.nudgeMaxRetry} nudges`);
-      this.error(o.message), t.trigger(y.ERROR, {
+      this.error(o.message), t.trigger(v.ERROR, {
         type: q.MEDIA_ERROR,
         details: R.BUFFER_STALLED_ERROR,
         error: o,
@@ -20417,7 +20417,7 @@ const Pi = (() => {
 class gm {
   constructor(e) {
     this.hls = void 0, this.id3Track = null, this.media = null, this.dateRangeCuesAppended = {}, this.removeCues = !0, this.assetCue = void 0, this.onEventCueEnter = () => {
-      this.hls && this.hls.trigger(y.EVENT_CUE_ENTER, {});
+      this.hls && this.hls.trigger(v.EVENT_CUE_ENTER, {});
     }, this.hls = e, this._registerListeners();
   }
   destroy() {
@@ -20427,13 +20427,13 @@ class gm {
     const {
       hls: e
     } = this;
-    e && (e.on(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.FRAG_PARSING_METADATA, this.onFragParsingMetadata, this), e.on(y.BUFFER_FLUSHING, this.onBufferFlushing, this), e.on(y.LEVEL_UPDATED, this.onLevelUpdated, this), e.on(y.LEVEL_PTS_UPDATED, this.onLevelPtsUpdated, this));
+    e && (e.on(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.on(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.FRAG_PARSING_METADATA, this.onFragParsingMetadata, this), e.on(v.BUFFER_FLUSHING, this.onBufferFlushing, this), e.on(v.LEVEL_UPDATED, this.onLevelUpdated, this), e.on(v.LEVEL_PTS_UPDATED, this.onLevelPtsUpdated, this));
   }
   _unregisterListeners() {
     const {
       hls: e
     } = this;
-    e && (e.off(y.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.FRAG_PARSING_METADATA, this.onFragParsingMetadata, this), e.off(y.BUFFER_FLUSHING, this.onBufferFlushing, this), e.off(y.LEVEL_UPDATED, this.onLevelUpdated, this), e.off(y.LEVEL_PTS_UPDATED, this.onLevelPtsUpdated, this));
+    e && (e.off(v.MEDIA_ATTACHING, this.onMediaAttaching, this), e.off(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.FRAG_PARSING_METADATA, this.onFragParsingMetadata, this), e.off(v.BUFFER_FLUSHING, this.onBufferFlushing, this), e.off(v.LEVEL_UPDATED, this.onLevelUpdated, this), e.off(v.LEVEL_PTS_UPDATED, this.onLevelPtsUpdated, this));
   }
   // Add ID3 metatadata text track.
   onMediaAttaching(e, t) {
@@ -20491,8 +20491,8 @@ class gm {
           const g = l[p];
           if (!Xl(g)) {
             this.updateId3CueEnds(d, c);
-            const v = Wn(a, d, u, g, c);
-            v && this.id3Track.addCue(v);
+            const y = Wn(a, d, u, g, c);
+            y && this.id3Track.addCue(y);
           }
         }
       }
@@ -20550,11 +20550,11 @@ class gm {
     const o = Ts();
     if (i && n && !a) {
       const {
-        fragmentStart: v,
+        fragmentStart: y,
         fragmentEnd: m
       } = e;
       let _ = this.assetCue;
-      _ ? (_.startTime = v, _.endTime = m) : o && (_ = this.assetCue = Wn(o, v, m, {
+      _ ? (_.startTime = y, _.endTime = m) : o && (_ = this.assetCue = Wn(o, y, m, {
         assetPlayerId: this.hls.config.assetPlayerId
       }, "hlsjs.interstitial.asset"), _ && (_.id = i, this.id3Track || (this.id3Track = this.createTrack(this.media)), this.id3Track.addCue(_), _.addEventListener("enter", this.onEventCueEnter)));
     }
@@ -20569,10 +20569,10 @@ class gm {
     if (c && t) {
       var f;
       if ((f = c.cues) != null && f.length) {
-        const v = Object.keys(u).filter((m) => !d.includes(m));
-        for (let m = v.length; m--; ) {
+        const y = Object.keys(u).filter((m) => !d.includes(m));
+        for (let m = y.length; m--; ) {
           var p;
-          const _ = v[m], b = (p = u[_]) == null ? void 0 : p.cues;
+          const _ = y[m], b = (p = u[_]) == null ? void 0 : p.cues;
           delete u[_], b && Object.keys(b).forEach((x) => {
             const E = b[x];
             if (E) {
@@ -20590,8 +20590,8 @@ class gm {
     const g = e.fragments[e.fragments.length - 1];
     if (!(d.length === 0 || !W(g?.programDateTime))) {
       this.id3Track || (this.id3Track = this.createTrack(this.media));
-      for (let v = 0; v < d.length; v++) {
-        const m = d[v], _ = l[m], b = _.startTime, x = u[m], E = x?.cues || {};
+      for (let y = 0; y < d.length; y++) {
+        const m = d[y], _ = l[m], b = _.startTime, x = u[m], E = x?.cues || {};
         let T = x?.durationKnown || !1, k = Pi;
         const {
           duration: S,
@@ -20740,13 +20740,13 @@ class mm {
     const {
       hls: e
     } = this;
-    e && (e.on(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.LEVEL_UPDATED, this.onLevelUpdated, this), e.on(y.ERROR, this.onError, this));
+    e && (e.on(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.on(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.LEVEL_UPDATED, this.onLevelUpdated, this), e.on(v.ERROR, this.onError, this));
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e && (e.off(y.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(y.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.LEVEL_UPDATED, this.onLevelUpdated, this), e.off(y.ERROR, this.onError, this));
+    e && (e.off(v.MEDIA_ATTACHED, this.onMediaAttached, this), e.off(v.MEDIA_DETACHING, this.onMediaDetaching, this), e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.LEVEL_UPDATED, this.onLevelUpdated, this), e.off(v.ERROR, this.onError, this));
   }
   onMediaAttached(e, t) {
     this.media = t.media, this.media.addEventListener("timeupdate", this.onTimeupdate);
@@ -20779,7 +20779,7 @@ class mm {
     return e === null ? null : e - this.currentTime;
   }
 }
-class vm extends rr {
+class ym extends rr {
   constructor(e, t) {
     super(e, "level-controller"), this._levels = [], this._firstLevel = -1, this._maxAutoLevel = -1, this._startLevel = void 0, this.currentLevel = null, this.currentLevelIndex = -1, this.manualLevelIndex = -1, this.steering = void 0, this.onParsedComplete = void 0, this.steering = t, this._registerListeners();
   }
@@ -20787,13 +20787,13 @@ class vm extends rr {
     const {
       hls: e
     } = this;
-    e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.MANIFEST_LOADED, this.onManifestLoaded, this), e.on(y.LEVEL_LOADED, this.onLevelLoaded, this), e.on(y.LEVELS_UPDATED, this.onLevelsUpdated, this), e.on(y.FRAG_BUFFERED, this.onFragBuffered, this), e.on(y.ERROR, this.onError, this);
+    e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.MANIFEST_LOADED, this.onManifestLoaded, this), e.on(v.LEVEL_LOADED, this.onLevelLoaded, this), e.on(v.LEVELS_UPDATED, this.onLevelsUpdated, this), e.on(v.FRAG_BUFFERED, this.onFragBuffered, this), e.on(v.ERROR, this.onError, this);
   }
   _unregisterListeners() {
     const {
       hls: e
     } = this;
-    e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.MANIFEST_LOADED, this.onManifestLoaded, this), e.off(y.LEVEL_LOADED, this.onLevelLoaded, this), e.off(y.LEVELS_UPDATED, this.onLevelsUpdated, this), e.off(y.FRAG_BUFFERED, this.onFragBuffered, this), e.off(y.ERROR, this.onError, this);
+    e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.MANIFEST_LOADED, this.onManifestLoaded, this), e.off(v.LEVEL_LOADED, this.onLevelLoaded, this), e.off(v.LEVELS_UPDATED, this.onLevelsUpdated, this), e.off(v.FRAG_BUFFERED, this.onFragBuffered, this), e.off(v.ERROR, this.onError, this);
   }
   destroy() {
     this._unregisterListeners(), this.steering = null, this.resetLevels(), super.destroy();
@@ -20821,10 +20821,10 @@ class vm extends rr {
       f && (d.audioCodec = f = sn(f, i) || void 0), p && (p = d.videoCodec = Zu(p));
       const {
         width: g,
-        height: v,
+        height: y,
         unknownCodecs: m
       } = d, _ = m?.length || 0;
-      if (o || (o = !!(g && v)), c || (c = !!p), l || (l = !!f), _ || f && !this.isAudioSupported(f) || p && !this.isVideoSupported(p)) {
+      if (o || (o = !!(g && y)), c || (c = !!p), l || (l = !!f), _ || f && !this.isAudioSupported(f) || p && !this.isVideoSupported(p)) {
         this.log(`Some or all CODECS not supported "${u.CODECS}"`);
         return;
       }
@@ -20854,7 +20854,7 @@ class vm extends rr {
     const t = new hi(e), i = e.supplemental;
     if (i != null && i.videoCodec && !this.isVideoSupported(i.videoCodec)) {
       const n = new Error(`SUPPLEMENTAL-CODECS not supported "${i.videoCodec}"`);
-      this.log(n.message), t.supportedResult = yl(n, []);
+      this.log(n.message), t.supportedResult = vl(n, []);
     }
     return t;
   }
@@ -20879,7 +20879,7 @@ class vm extends rr {
           let b = "no level with compatible codecs found in manifest", x = b;
           t.levels.length && (x = `one or more CODECS in variant not supported: ${ue(t.levels.map((T) => T.attrs.CODECS).filter((T, k, S) => S.indexOf(T) === k))}`, this.warn(x), b += ` (${x})`);
           const E = new Error(b);
-          this.hls.trigger(y.ERROR, {
+          this.hls.trigger(v.ERROR, {
             type: q.MEDIA_ERROR,
             details: R.MANIFEST_INCOMPATIBLE_CODECS_ERROR,
             fatal: !0,
@@ -20934,7 +20934,7 @@ class vm extends rr {
         }
         break;
       }
-    const g = r && !n, v = this.hls.config, m = !!(v.audioStreamController && v.audioTrackController), _ = {
+    const g = r && !n, y = this.hls.config, m = !!(y.audioStreamController && y.audioTrackController), _ = {
       levels: l,
       audioTracks: o,
       subtitleTracks: c,
@@ -20946,7 +20946,7 @@ class vm extends rr {
       video: n,
       altAudio: m && !g && o.some((b) => !!b.url)
     };
-    d.end = performance.now(), this.hls.trigger(y.MANIFEST_PARSED, _);
+    d.end = performance.now(), this.hls.trigger(v.MANIFEST_PARSED, _);
   }
   get levels() {
     return this._levels.length === 0 ? null : this._levels;
@@ -20963,7 +20963,7 @@ class vm extends rr {
       return;
     if (e < 0 || e >= t.length) {
       const d = new Error("invalid level idx"), u = e < 0;
-      if (this.hls.trigger(y.ERROR, {
+      if (this.hls.trigger(v.ERROR, {
         type: q.OTHER_ERROR,
         details: R.LEVEL_SWITCH_ERROR,
         level: e,
@@ -21004,7 +21004,7 @@ class vm extends rr {
       audioGroupIds: a.audioGroupIds,
       textGroupIds: a.textGroupIds
     };
-    this.hls.trigger(y.LEVEL_SWITCHING, c);
+    this.hls.trigger(v.LEVEL_SWITCHING, c);
     const l = a.details;
     if (!l || l.live) {
       const d = this.switchParams(a.uri, n?.details, l);
@@ -21087,7 +21087,7 @@ class vm extends rr {
   loadingPlaylist(e, t) {
     super.loadingPlaylist(e, t);
     const i = this.getUrlWithDirectives(e.uri, t), n = this.currentLevelIndex, r = e.attrs["PATHWAY-ID"], a = e.details, o = a?.age;
-    this.log(`Loading level index ${n}${t?.msn !== void 0 ? " at sn " + t.msn + " part " + t.part : ""}${r ? " Pathway " + r : ""}${o && a.live ? " age " + o.toFixed(1) + (a.type && " " + a.type || "") : ""} ${i}`), this.hls.trigger(y.LEVEL_LOADING, {
+    this.log(`Loading level index ${n}${t?.msn !== void 0 ? " at sn " + t.msn + " part " + t.part : ""}${r ? " Pathway " + r : ""}${o && a.live ? " age " + o.toFixed(1) + (a.type && " " + a.type || "") : ""} ${i}`), this.hls.trigger(v.LEVEL_LOADING, {
       url: i,
       level: n,
       levelInfo: e,
@@ -21110,7 +21110,7 @@ class vm extends rr {
     const i = this._levels.filter((r, a) => a !== e ? !0 : (this.steering && this.steering.removeLevel(r), r === this.currentLevel && (this.currentLevel = null, this.currentLevelIndex = -1, r.details && r.details.fragments.forEach((o) => o.level = -1)), !1));
     Bl(i), this._levels = i, this.currentLevelIndex > -1 && (t = this.currentLevel) != null && t.details && (this.currentLevelIndex = this.currentLevel.details.fragments[0].level), this.manualLevelIndex > -1 && (this.manualLevelIndex = this.currentLevelIndex);
     const n = i.length - 1;
-    this._firstLevel = Math.min(this._firstLevel, n), this._startLevel && (this._startLevel = Math.min(this._startLevel, n)), this.hls.trigger(y.LEVELS_UPDATED, {
+    this._firstLevel = Math.min(this._firstLevel, n), this._startLevel && (this._startLevel = Math.min(this._startLevel, n)), this.hls.trigger(v.LEVELS_UPDATED, {
       levels: i
     });
   }
@@ -21125,7 +21125,7 @@ class vm extends rr {
       maxAutoLevel: t,
       maxHdcpLevel: i
     } = this.hls;
-    this._maxAutoLevel !== t && (this._maxAutoLevel = t, this.hls.trigger(y.MAX_AUTO_LEVEL_UPDATED, {
+    this._maxAutoLevel !== t && (this._maxAutoLevel = t, this.hls.trigger(v.MAX_AUTO_LEVEL_UPDATED, {
       autoLevelCapping: e,
       levels: this.levels,
       maxAutoLevel: t,
@@ -21150,7 +21150,7 @@ function Oc() {
   const e = Mc();
   return !e || e.prototype && typeof e.prototype.appendBuffer == "function" && typeof e.prototype.remove == "function";
 }
-function ym() {
+function vm() {
   if (!Oc())
     return !1;
   const s = _t();
@@ -21183,14 +21183,14 @@ class xm extends Qs {
     const {
       hls: e
     } = this;
-    e.on(y.MANIFEST_PARSED, this.onManifestParsed, this), e.on(y.LEVEL_LOADING, this.onLevelLoading, this), e.on(y.LEVEL_LOADED, this.onLevelLoaded, this), e.on(y.FRAG_LOAD_EMERGENCY_ABORTED, this.onFragLoadEmergencyAborted, this), e.on(y.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.on(y.AUDIO_TRACK_SWITCHED, this.onAudioTrackSwitched, this), e.on(y.BUFFER_CREATED, this.onBufferCreated, this), e.on(y.BUFFER_FLUSHED, this.onBufferFlushed, this), e.on(y.LEVELS_UPDATED, this.onLevelsUpdated, this), e.on(y.FRAG_BUFFERED, this.onFragBuffered, this);
+    e.on(v.MANIFEST_PARSED, this.onManifestParsed, this), e.on(v.LEVEL_LOADING, this.onLevelLoading, this), e.on(v.LEVEL_LOADED, this.onLevelLoaded, this), e.on(v.FRAG_LOAD_EMERGENCY_ABORTED, this.onFragLoadEmergencyAborted, this), e.on(v.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.on(v.AUDIO_TRACK_SWITCHED, this.onAudioTrackSwitched, this), e.on(v.BUFFER_CREATED, this.onBufferCreated, this), e.on(v.BUFFER_FLUSHED, this.onBufferFlushed, this), e.on(v.LEVELS_UPDATED, this.onLevelsUpdated, this), e.on(v.FRAG_BUFFERED, this.onFragBuffered, this);
   }
   unregisterListeners() {
     super.unregisterListeners();
     const {
       hls: e
     } = this;
-    e.off(y.MANIFEST_PARSED, this.onManifestParsed, this), e.off(y.LEVEL_LOADED, this.onLevelLoaded, this), e.off(y.FRAG_LOAD_EMERGENCY_ABORTED, this.onFragLoadEmergencyAborted, this), e.off(y.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.off(y.AUDIO_TRACK_SWITCHED, this.onAudioTrackSwitched, this), e.off(y.BUFFER_CREATED, this.onBufferCreated, this), e.off(y.BUFFER_FLUSHED, this.onBufferFlushed, this), e.off(y.LEVELS_UPDATED, this.onLevelsUpdated, this), e.off(y.FRAG_BUFFERED, this.onFragBuffered, this);
+    e.off(v.MANIFEST_PARSED, this.onManifestParsed, this), e.off(v.LEVEL_LOADED, this.onLevelLoaded, this), e.off(v.FRAG_LOAD_EMERGENCY_ABORTED, this.onFragLoadEmergencyAborted, this), e.off(v.AUDIO_TRACK_SWITCHING, this.onAudioTrackSwitching, this), e.off(v.AUDIO_TRACK_SWITCHED, this.onAudioTrackSwitched, this), e.off(v.BUFFER_CREATED, this.onBufferCreated, this), e.off(v.BUFFER_FLUSHED, this.onBufferFlushed, this), e.off(v.LEVELS_UPDATED, this.onLevelsUpdated, this), e.off(v.FRAG_BUFFERED, this.onFragBuffered, this);
   }
   onHandlerDestroying() {
     this.onMediaPlaying = this.onMediaSeeked = null, this.unregisterListeners(), super.onHandlerDestroying();
@@ -21257,8 +21257,8 @@ class xm extends Qs {
       return;
     const c = this.getLevelDetails();
     if (c && this._streamEnded(o, c)) {
-      const v = {};
-      this.altAudio === 2 && (v.type = "video"), this.hls.trigger(y.BUFFER_EOS, v), this.state = O.ENDED;
+      const y = {};
+      this.altAudio === 2 && (y.type = "video"), this.hls.trigger(v.BUFFER_EOS, y), this.state = O.ENDED;
       return;
     }
     if (!this.buffering)
@@ -21275,7 +21275,7 @@ class xm extends Qs {
     this.backtrackFragment && this.backtrackFragment.start > o.end && (this.backtrackFragment = null);
     const f = this.backtrackFragment ? this.backtrackFragment.start : o.end;
     let p = this.getNextFragment(f, l);
-    if (this.couldBacktrack && !this.fragPrevious && p && ye(p) && this.fragmentTracker.getState(p) !== Te.OK) {
+    if (this.couldBacktrack && !this.fragPrevious && p && ve(p) && this.fragmentTracker.getState(p) !== Te.OK) {
       var g;
       const m = ((g = this.backtrackFragment) != null ? g : p).sn - l.startSN, _ = l.fragments[m - 1];
       _ && p.cc === _.cc && (p = _, this.fragmentTracker.removeFragment(_));
@@ -21291,7 +21291,7 @@ class xm extends Qs {
   }
   loadFragment(e, t, i) {
     const n = this.fragmentTracker.getState(e);
-    n === Te.NOT_LOADED || n === Te.PARTIAL ? ye(e) ? this.bitrateTest ? (this.log(`Fragment ${e.sn} of level ${e.level} is being downloaded to test bitrate and will not be buffered`), this._loadBitrateTestFrag(e, t)) : super.loadFragment(e, t, i) : this._loadInitSegment(e, t) : this.clearTrackerIfNeeded(e);
+    n === Te.NOT_LOADED || n === Te.PARTIAL ? ve(e) ? this.bitrateTest ? (this.log(`Fragment ${e.sn} of level ${e.level} is being downloaded to test bitrate and will not be buffered`), this._loadBitrateTestFrag(e, t)) : super.loadFragment(e, t, i) : this._loadInitSegment(e, t) : this.clearTrackerIfNeeded(e);
   }
   getBufferedFrag(e) {
     return this.fragmentTracker.getBufferedFrag(e, j.MAIN);
@@ -21376,7 +21376,7 @@ class xm extends Qs {
     i && (Fe(i, "playing", this.onMediaPlaying), Fe(i, "seeked", this.onMediaSeeked)), this.videoBuffer = null, this.fragPlaying = null, super.onMediaDetaching(e, t), !t.transferMedia && (this._hasEnoughToStart = !1);
   }
   onManifestLoading() {
-    super.onManifestLoading(), this.log("Trigger BUFFER_RESET"), this.hls.trigger(y.BUFFER_RESET, void 0), this.couldBacktrack = !1, this.fragLastKbps = 0, this.fragPlaying = this.backtrackFragment = null, this.altAudio = 0, this.audioOnly = !1;
+    super.onManifestLoading(), this.log("Trigger BUFFER_RESET"), this.hls.trigger(v.BUFFER_RESET, void 0), this.couldBacktrack = !1, this.fragLastKbps = 0, this.fragPlaying = this.backtrackFragment = null, this.altAudio = 0, this.audioOnly = !1;
   }
   onManifestParsed(e, t) {
     let i = !1, n = !1;
@@ -21415,7 +21415,7 @@ class xm extends Qs {
         return;
       u = this.alignPlaylists(o, l.details, (f = this.levelLastLoaded) == null ? void 0 : f.details);
     }
-    if (l.details = o, this.levelLastLoaded = l, r || this.setStartPosition(o, u), this.hls.trigger(y.LEVEL_UPDATED, {
+    if (l.details = o, this.levelLastLoaded = l, r || this.setStartPosition(o, u), this.hls.trigger(v.LEVEL_UPDATED, {
       details: o,
       level: a
     }), this.state === O.WAITING_LEVEL) {
@@ -21477,7 +21477,7 @@ class xm extends Qs {
       this.warn(`Dropping fragment ${i.sn} of level ${i.level} after level details were reset`), this.fragmentTracker.removeFragment(i);
       return;
     }
-    const l = o.videoCodec, d = c.PTSKnown || !c.live, u = (t = i.initSegment) == null ? void 0 : t.data, f = this._getAudioCodec(o), p = this.transmuxer = this.transmuxer || new oc(this.hls, j.MAIN, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)), g = n ? n.index : -1, v = g !== -1, m = new js(i.level, i.sn, i.stats.chunkCount, r.byteLength, g, v), _ = this.initPTS[i.cc];
+    const l = o.videoCodec, d = c.PTSKnown || !c.live, u = (t = i.initSegment) == null ? void 0 : t.data, f = this._getAudioCodec(o), p = this.transmuxer = this.transmuxer || new oc(this.hls, j.MAIN, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)), g = n ? n.index : -1, y = g !== -1, m = new js(i.level, i.sn, i.stats.chunkCount, r.byteLength, g, y), _ = this.initPTS[i.cc];
     p.push(r, u, f, l, i, n, c.totalduration, d, m, _);
   }
   onAudioTrackSwitching(e, t) {
@@ -21491,16 +21491,16 @@ class xm extends Qs {
         a && (this.log("Switching to main audio track, cancel main fragment load"), a.abortRequests(), this.fragmentTracker.removeFragment(a)), this.resetTransmuxer(), this.resetLoadingState();
       } else this.audioOnly && this.resetTransmuxer();
       if (n) {
-        this.altAudio = 0, this.fragmentTracker.removeAllFragments(), i.once(y.BUFFER_FLUSHED, () => {
-          this.hls && this.hls.trigger(y.AUDIO_TRACK_SWITCHED, t);
-        }), i.trigger(y.BUFFER_FLUSHING, {
+        this.altAudio = 0, this.fragmentTracker.removeAllFragments(), i.once(v.BUFFER_FLUSHED, () => {
+          this.hls && this.hls.trigger(v.AUDIO_TRACK_SWITCHED, t);
+        }), i.trigger(v.BUFFER_FLUSHING, {
           startOffset: 0,
           endOffset: Number.POSITIVE_INFINITY,
           type: null
         });
         return;
       }
-      i.trigger(y.AUDIO_TRACK_SWITCHED, t);
+      i.trigger(v.AUDIO_TRACK_SWITCHED, t);
     }
   }
   onAudioTrackSwitched(e, t) {
@@ -21537,7 +21537,7 @@ class xm extends Qs {
         return;
       }
       const o = n ? n.stats : i.stats;
-      this.fragLastKbps = Math.round(8 * o.total / (o.buffering.end - o.loading.first)), ye(i) && (this.fragPrevious = i), this.fragBufferedComplete(i, n);
+      this.fragLastKbps = Math.round(8 * o.total / (o.buffering.end - o.loading.first)), ve(i) && (this.fragPrevious = i), this.fragBufferedComplete(i, n);
     }
     const a = this.media;
     a && (!this._hasEnoughToStart && te.getBuffered(a).length && (this._hasEnoughToStart = !0, this.seekToStartPos()), r && this.tick());
@@ -21634,7 +21634,7 @@ class xm extends Qs {
         return;
       t.fragmentError = 0, this.state = O.IDLE, this.startFragRequested = !1, this.bitrateTest = !1;
       const a = r.stats;
-      a.parsing.start = a.parsing.end = a.buffering.start = a.buffering.end = self.performance.now(), n.trigger(y.FRAG_LOADED, i), r.bitrateTest = !1;
+      a.parsing.start = a.parsing.end = a.buffering.start = a.buffering.end = self.performance.now(), n.trigger(v.FRAG_LOADED, i), r.bitrateTest = !1;
     }).catch((i) => {
       this.state === O.STOPPED || this.state === O.ERROR || (this.warn(i), this.resetFragmentLoading(e));
     });
@@ -21661,7 +21661,7 @@ class xm extends Qs {
       initSegment: p
     } = n, {
       details: g
-    } = l, v = this.altAudio ? void 0 : n.audio;
+    } = l, y = this.altAudio ? void 0 : n.audio;
     if (this.fragContextChanged(o)) {
       this.fragmentTracker.removeFragment(o);
       return;
@@ -21672,7 +21672,7 @@ class xm extends Qs {
         const E = o.initSegment || o;
         if (this.unhandledEncryptionError(p, o))
           return;
-        this._bufferInitSegment(l, m, E, r), i.trigger(y.FRAG_PARSING_INIT_SEGMENT, {
+        this._bufferInitSegment(l, m, E, r), i.trigger(v.FRAG_PARSING_INIT_SEGMENT, {
           frag: E,
           id: t,
           tracks: m
@@ -21685,7 +21685,7 @@ class xm extends Qs {
           baseTime: _,
           timescale: b,
           trackId: E
-        }, i.trigger(y.INIT_PTS_FOUND, {
+        }, i.trigger(v.INIT_PTS_FOUND, {
           frag: o,
           id: t,
           initPTS: _,
@@ -21695,7 +21695,7 @@ class xm extends Qs {
       }
     }
     if (d && g) {
-      v && d.type === "audiovideo" && this.logMuxedErr(o);
+      y && d.type === "audiovideo" && this.logMuxedErr(o);
       const m = g.fragments[o.sn - 1 - g.startSN], _ = o.sn === g.startSN, b = !m || o.cc > m.cc;
       if (n.independent !== !1) {
         const {
@@ -21727,19 +21727,19 @@ class xm extends Qs {
         return;
       }
     }
-    if (v) {
+    if (y) {
       const {
         startPTS: m,
         endPTS: _,
         startDTS: b,
         endDTS: x
-      } = v;
+      } = y;
       c && (c.elementaryStreams[ce.AUDIO] = {
         startPTS: m,
         endPTS: _,
         startDTS: b,
         endDTS: x
-      }), o.setElementaryStreamInfo(ce.AUDIO, m, _, b, x), this.bufferFragmentData(v, o, c, r);
+      }), o.setElementaryStreamInfo(ce.AUDIO, m, _, b, x), this.bufferFragmentData(y, o, c, r);
     }
     if (g && f != null && f.samples.length) {
       const m = {
@@ -21748,7 +21748,7 @@ class xm extends Qs {
         details: g,
         samples: f.samples
       };
-      i.trigger(y.FRAG_PARSING_METADATA, m);
+      i.trigger(v.FRAG_PARSING_METADATA, m);
     }
     if (g && u) {
       const m = {
@@ -21757,11 +21757,11 @@ class xm extends Qs {
         details: g,
         samples: u.samples
       };
-      i.trigger(y.FRAG_PARSING_USERDATA, m);
+      i.trigger(v.FRAG_PARSING_USERDATA, m);
     }
   }
   logMuxedErr(e) {
-    this.warn(`${ye(e) ? "Media" : "Init"} segment with muxed audiovideo where only video expected: ${e.url}`);
+    this.warn(`${ve(e) ? "Media" : "Init"} segment with muxed audiovideo where only video expected: ${e.url}`);
   }
   _bufferInitSegment(e, t, i, n) {
     if (this.state !== O.PARSING)
@@ -21805,11 +21805,11 @@ class xm extends Qs {
     o && (this.log(`Init audiovideo buffer, container:${o.container}, codecs[level/parsed]=[${e.codecs}/${o.codec}]`), delete t.video, delete t.audio);
     const c = Object.keys(t);
     if (c.length) {
-      if (this.hls.trigger(y.BUFFER_CODECS, t), !this.hls)
+      if (this.hls.trigger(v.BUFFER_CODECS, t), !this.hls)
         return;
       c.forEach((l) => {
         const u = t[l].initSegment;
-        u != null && u.byteLength && this.hls.trigger(y.BUFFER_APPENDING, {
+        u != null && u.byteLength && this.hls.trigger(v.BUFFER_APPENDING, {
           type: l,
           data: u,
           frag: i,
@@ -21843,9 +21843,9 @@ class xm extends Qs {
       if (te.isBuffered(e, i) ? t = this.getAppendedFrag(i) : te.isBuffered(e, i + 0.1) && (t = this.getAppendedFrag(i + 0.1)), t) {
         this.backtrackFragment = null;
         const n = this.fragPlaying, r = t.level;
-        (!n || t.sn !== n.sn || n.level !== r) && (this.fragPlaying = t, this.hls.trigger(y.FRAG_CHANGED, {
+        (!n || t.sn !== n.sn || n.level !== r) && (this.fragPlaying = t, this.hls.trigger(v.FRAG_CHANGED, {
           frag: t
-        }), (!n || n.level !== r) && this.hls.trigger(y.LEVEL_SWITCHED, {
+        }), (!n || n.level !== r) && this.hls.trigger(v.LEVEL_SWITCHED, {
           level: r
         }));
       }
@@ -21934,7 +21934,7 @@ class Em extends ze {
       if (t.length)
         for (let n = 0, r = t.length; n < r; n++) {
           const a = t[n];
-          if (e.cc <= a.cc && (!ye(e) || !ye(a) || e.sn < a.sn) || !i && n == r - 1)
+          if (e.cc <= a.cc && (!ve(e) || !ve(a) || e.sn < a.sn) || !i && n == r - 1)
             return this.emeController.selectKeySystemFormat(a).then((o) => {
               if (!this.emeController)
                 return;
@@ -22016,10 +22016,10 @@ class Em extends ze {
         const a = Uu(t.initSegment.data);
         if (a.length) {
           let o = a[0];
-          o.some((c) => c !== 0) ? (this.log(`Using keyId found in init segment ${we(o)}`), vt.setKeyIdForUri(e.decryptdata.uri, o)) : (o = vt.addKeyIdForUri(e.decryptdata.uri), this.log(`Generating keyId to patch media ${we(o)}`)), e.decryptdata.keyId = o;
+          o.some((c) => c !== 0) ? (this.log(`Using keyId found in init segment ${we(o)}`), yt.setKeyIdForUri(e.decryptdata.uri, o)) : (o = yt.addKeyIdForUri(e.decryptdata.uri), this.log(`Generating keyId to patch media ${we(o)}`)), e.decryptdata.keyId = o;
         }
       }
-      if (!e.decryptdata.keyId && !ye(t))
+      if (!e.decryptdata.keyId && !ve(t))
         return Promise.resolve(i);
       const r = this.emeController.loadKey(i);
       return (e.keyLoadPromise = r.then((a) => (e.mediaKeySessionContext = a, i))).catch((a) => {
@@ -22043,19 +22043,19 @@ class Em extends ze {
         retryDelay: 0,
         maxRetryDelay: 0
       }, u = {
-        onSuccess: (f, p, g, v) => {
+        onSuccess: (f, p, g, y) => {
           const {
             frag: m,
             keyInfo: _
           } = g, b = Yn(_.decryptdata);
           if (!m.decryptdata || _ !== this.keyIdToKeyInfo[b])
-            return o(this.createKeyLoadError(m, R.KEY_LOAD_ERROR, new Error("after key load, decryptdata unset or changed"), v));
+            return o(this.createKeyLoadError(m, R.KEY_LOAD_ERROR, new Error("after key load, decryptdata unset or changed"), y));
           _.decryptdata.key = m.decryptdata.key = new Uint8Array(f.data), m.keyLoader = null, _.loader = null, a({
             frag: m,
             keyInfo: _
           });
         },
-        onError: (f, p, g, v) => {
+        onError: (f, p, g, y) => {
           this.resetLoader(p), o(this.createKeyLoadError(t, R.KEY_LOAD_ERROR, new Error(`HTTP Error ${f.code} loading key ${f.text}`), g, ae({
             url: c.url,
             data: void 0
@@ -22120,13 +22120,13 @@ class Tm {
     const {
       hls: e
     } = this;
-    e.on(y.MANIFEST_LOADING, this.onManifestLoading, this), e.on(y.LEVEL_LOADING, this.onLevelLoading, this), e.on(y.AUDIO_TRACK_LOADING, this.onAudioTrackLoading, this), e.on(y.SUBTITLE_TRACK_LOADING, this.onSubtitleTrackLoading, this), e.on(y.LEVELS_UPDATED, this.onLevelsUpdated, this);
+    e.on(v.MANIFEST_LOADING, this.onManifestLoading, this), e.on(v.LEVEL_LOADING, this.onLevelLoading, this), e.on(v.AUDIO_TRACK_LOADING, this.onAudioTrackLoading, this), e.on(v.SUBTITLE_TRACK_LOADING, this.onSubtitleTrackLoading, this), e.on(v.LEVELS_UPDATED, this.onLevelsUpdated, this);
   }
   unregisterListeners() {
     const {
       hls: e
     } = this;
-    e.off(y.MANIFEST_LOADING, this.onManifestLoading, this), e.off(y.LEVEL_LOADING, this.onLevelLoading, this), e.off(y.AUDIO_TRACK_LOADING, this.onAudioTrackLoading, this), e.off(y.SUBTITLE_TRACK_LOADING, this.onSubtitleTrackLoading, this), e.off(y.LEVELS_UPDATED, this.onLevelsUpdated, this);
+    e.off(v.MANIFEST_LOADING, this.onManifestLoading, this), e.off(v.LEVEL_LOADING, this.onLevelLoading, this), e.off(v.AUDIO_TRACK_LOADING, this.onAudioTrackLoading, this), e.off(v.SUBTITLE_TRACK_LOADING, this.onSubtitleTrackLoading, this), e.off(v.LEVELS_UPDATED, this.onLevelsUpdated, this);
   }
   /**
    * Returns defaults or configured loader-type overloads (pLoader and loader config params)
@@ -22328,11 +22328,11 @@ class Tm {
       }
     });
     const {
-      AUDIO: v = [],
+      AUDIO: y = [],
       SUBTITLES: m,
       "CLOSED-CAPTIONS": _
     } = tt.parseMasterPlaylistMedia(a, o, c);
-    v.length && !v.some((x) => !x.url) && d[0].audioCodec && !d[0].attrs.AUDIO && (this.hls.logger.log("[playlist-loader]: audio codec signaled in quality level, but no embedded audio track signaled, create one"), v.unshift({
+    y.length && !y.some((x) => !x.url) && d[0].audioCodec && !d[0].attrs.AUDIO && (this.hls.logger.log("[playlist-loader]: audio codec signaled in quality level, but no embedded audio track signaled, create one"), y.unshift({
       type: "main",
       name: "main",
       groupId: "main",
@@ -22343,9 +22343,9 @@ class Tm {
       attrs: new he({}),
       bitrate: 0,
       url: ""
-    })), r.trigger(y.MANIFEST_LOADED, {
+    })), r.trigger(v.MANIFEST_LOADED, {
       levels: d,
-      audioTracks: v,
+      audioTracks: y,
       subtitles: m,
       captions: _,
       contentSteering: l,
@@ -22372,7 +22372,7 @@ class Tm {
         name: "",
         url: d
       };
-      p.requestScheduled = t.loading.start + Fl(p, 0), a.trigger(y.MANIFEST_LOADED, {
+      p.requestScheduled = t.loading.start + Fl(p, 0), a.trigger(v.MANIFEST_LOADED, {
         levels: [g],
         audioTracks: [],
         url: d,
@@ -22388,7 +22388,7 @@ class Tm {
     t.parsing.end = performance.now(), i.levelDetails = p, this.handlePlaylistLoaded(p, e, t, i, n, r);
   }
   handleManifestParsingError(e, t, i, n, r) {
-    this.hls.trigger(y.ERROR, {
+    this.hls.trigger(v.ERROR, {
       type: q.NETWORK_ERROR,
       details: R.MANIFEST_PARSING_ERROR,
       fatal: t.type === se.MANIFEST,
@@ -22442,7 +22442,7 @@ class Tm {
         data: void 0
       }, n);
     }
-    this.hls.trigger(y.ERROR, u);
+    this.hls.trigger(v.ERROR, u);
   }
   handlePlaylistLoaded(e, t, i, n, r, a) {
     const o = this.hls, {
@@ -22452,12 +22452,12 @@ class Tm {
       id: u,
       groupId: f,
       deliveryDirectives: p
-    } = n, g = jn(t, n), v = io(n);
-    let m = typeof n.level == "number" && v === j.MAIN ? l : void 0;
+    } = n, g = jn(t, n), y = io(n);
+    let m = typeof n.level == "number" && y === j.MAIN ? l : void 0;
     const _ = e.playlistParsingError;
     if (_) {
       if (this.hls.logger.warn(`${_} ${e.url}`), !o.config.ignorePlaylistParsingErrors) {
-        o.trigger(y.ERROR, {
+        o.trigger(v.ERROR, {
           type: q.NETWORK_ERROR,
           details: R.LEVEL_PARSING_ERROR,
           fatal: !1,
@@ -22467,7 +22467,7 @@ class Tm {
           response: t,
           context: n,
           level: m,
-          parent: v,
+          parent: y,
           networkDetails: r,
           stats: i
         });
@@ -22477,7 +22477,7 @@ class Tm {
     }
     if (!e.fragments.length) {
       const b = e.playlistParsingError = new Error("No Segments found in Playlist");
-      o.trigger(y.ERROR, {
+      o.trigger(v.ERROR, {
         type: q.NETWORK_ERROR,
         details: R.LEVEL_EMPTY_ERROR,
         fatal: !1,
@@ -22487,7 +22487,7 @@ class Tm {
         response: t,
         context: n,
         level: m,
-        parent: v,
+        parent: y,
         networkDetails: r,
         stats: i
       });
@@ -22504,7 +22504,7 @@ class Tm {
             b > -1 && (m = b);
           }
         }
-        o.trigger(y.LEVEL_LOADED, {
+        o.trigger(v.LEVEL_LOADED, {
           details: e,
           levelInfo: d || o.levels[0],
           level: m || 0,
@@ -22516,7 +22516,7 @@ class Tm {
         });
         break;
       case se.AUDIO_TRACK:
-        o.trigger(y.AUDIO_TRACK_LOADED, {
+        o.trigger(v.AUDIO_TRACK_LOADED, {
           details: e,
           track: d,
           id: u || 0,
@@ -22527,7 +22527,7 @@ class Tm {
         });
         break;
       case se.SUBTITLE_TRACK:
-        o.trigger(y.SUBTITLE_TRACK_LOADED, {
+        o.trigger(v.SUBTITLE_TRACK_LOADED, {
           details: e,
           track: d,
           id: u || 0,
@@ -22557,7 +22557,7 @@ class je {
    * Check if MediaSource Extensions are available and isTypeSupported checks pass for any baseline codecs.
    */
   static isSupported() {
-    return ym();
+    return vm();
   }
   /**
    * Get the MediaSource global used for MSE playback (ManagedMediaSource, MediaSource, or WebKitMediaSource).
@@ -22566,7 +22566,7 @@ class je {
     return _t();
   }
   static get Events() {
-    return y;
+    return v;
   }
   static get MetadataSchema() {
     return Ge;
@@ -22603,18 +22603,18 @@ class je {
       capLevelController: a,
       errorController: o,
       fpsController: c
-    } = i, l = new o(this), d = this.abrController = new n(this), u = new Th(this), f = i.interstitialsController, p = f ? this.interstitialsController = new f(this, je) : null, g = this.bufferController = new r(this, u), v = this.capLevelController = new a(this), m = new c(this), _ = new Tm(this), b = i.contentSteeringController, x = b ? new b(this) : null, E = this.levelController = new vm(this, x), T = new gm(this), k = new Em(this.config, this.logger), S = this.streamController = new xm(this, u, k), L = this.gapController = new fm(this, u);
-    v.setStreamController(S), m.setStreamController(S);
+    } = i, l = new o(this), d = this.abrController = new n(this), u = new Th(this), f = i.interstitialsController, p = f ? this.interstitialsController = new f(this, je) : null, g = this.bufferController = new r(this, u), y = this.capLevelController = new a(this), m = new c(this), _ = new Tm(this), b = i.contentSteeringController, x = b ? new b(this) : null, E = this.levelController = new ym(this, x), T = new gm(this), k = new Em(this.config, this.logger), S = this.streamController = new xm(this, u, k), L = this.gapController = new fm(this, u);
+    y.setStreamController(S), m.setStreamController(S);
     const I = [_, E, S];
     p && I.splice(1, 0, p), x && I.splice(1, 0, x), this.networkControllers = I;
-    const A = [d, g, L, v, m, T, u];
+    const A = [d, g, L, y, m, T, u];
     this.audioTrackController = this.createController(i.audioTrackController, I);
     const P = i.audioStreamController;
     P && I.push(this.audioStreamController = new P(this, u, k)), this.subtitleTrackController = this.createController(i.subtitleTrackController, I);
     const B = i.subtitleStreamController;
     B && I.push(this.subtititleStreamController = new B(this, u, k)), this.createController(i.timelineController, A), k.emeController = this.emeController = this.createController(i.emeController, A), this.cmcdController = this.createController(i.cmcdController, A), this.latencyController = this.createController(mm, A), this.coreComponents = A, I.push(l);
     const K = l.onErrorOut;
-    typeof K == "function" && this.on(y.ERROR, K, l), this.on(y.MANIFEST_LOADED, _.onManifestLoaded, _);
+    typeof K == "function" && this.on(v.ERROR, K, l), this.on(v.MANIFEST_LOADED, _.onManifestLoaded, _);
   }
   createController(e, t) {
     if (e) {
@@ -22650,8 +22650,8 @@ class je {
     } catch (i) {
       if (this.logger.error("An internal error happened while handling event " + e + '. Error message: "' + i.message + '". Here is a stacktrace:', i), !this.triggeringException) {
         this.triggeringException = !0;
-        const n = e === y.ERROR;
-        this.trigger(y.ERROR, {
+        const n = e === v.ERROR;
+        this.trigger(v.ERROR, {
           type: q.OTHER_ERROR,
           details: R.INTERNAL_EXCEPTION,
           fatal: n,
@@ -22669,7 +22669,7 @@ class je {
    * Dispose of the instance
    */
   destroy() {
-    this.logger.log("destroy"), this.trigger(y.DESTROYING, void 0), this.detachMedia(), this.removeAllListeners(), this._autoLevelCapping = -1, this._url = null, this.networkControllers.forEach((t) => t.destroy()), this.networkControllers.length = 0, this.coreComponents.forEach((t) => t.destroy()), this.coreComponents.length = 0;
+    this.logger.log("destroy"), this.trigger(v.DESTROYING, void 0), this.detachMedia(), this.removeAllListeners(), this._autoLevelCapping = -1, this._url = null, this.networkControllers.forEach((t) => t.destroy()), this.networkControllers.length = 0, this.coreComponents.forEach((t) => t.destroy()), this.coreComponents.length = 0;
     const e = this.config;
     e.xhrSetup = e.fetchSetup = void 0, this.userConfig = null;
   }
@@ -22679,7 +22679,7 @@ class je {
   attachMedia(e) {
     if (!e || "media" in e && !e.media) {
       const r = new Error(`attachMedia failed: invalid argument (${e})`);
-      this.trigger(y.ERROR, {
+      this.trigger(v.ERROR, {
         type: q.OTHER_ERROR,
         details: R.ATTACH_MEDIA_ERROR,
         fatal: !0,
@@ -22691,13 +22691,13 @@ class je {
     const t = "media" in e, i = t ? e.media : e, n = t ? e : {
       media: i
     };
-    this._media = i, this.trigger(y.MEDIA_ATTACHING, n);
+    this._media = i, this.trigger(v.MEDIA_ATTACHING, n);
   }
   /**
    * Detach Hls.js from the media
    */
   detachMedia() {
-    this.logger.log("detachMedia"), this.trigger(y.MEDIA_DETACHING, {}), this._media = null;
+    this.logger.log("detachMedia"), this.trigger(v.MEDIA_DETACHING, {}), this._media = null;
   }
   /**
    * Detach HTMLMediaElement, MediaSource, and SourceBuffers without reset, for attaching to another instance
@@ -22705,7 +22705,7 @@ class je {
   transferMedia() {
     this._media = null;
     const e = this.bufferController.transferMedia();
-    return this.trigger(y.MEDIA_DETACHING, {
+    return this.trigger(v.MEDIA_DETACHING, {
       transferMedia: e
     }), e;
   }
@@ -22717,7 +22717,7 @@ class je {
     const t = this.media, i = this._url, n = this._url = Gs.buildAbsoluteURL(self.location.href, e, {
       alwaysNormalize: !0
     });
-    this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.logger.log(`loadSource:${n}`), t && i && (i !== n || this.bufferController.hasSourceTypes()) && (this.detachMedia(), this.attachMedia(t)), this.trigger(y.MANIFEST_LOADING, {
+    this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.logger.log(`loadSource:${n}`), t && i && (i !== n || this.bufferController.hasSourceTypes()) && (this.detachMedia(), this.attachMedia(t)), this.trigger(v.MANIFEST_LOADING, {
       url: e
     });
   }
@@ -23250,15 +23250,22 @@ je.defaultConfig = void 0;
 function Sm(s, e) {
   return e.startsWith("http") ? e : (s.hassUrl?.("") ?? "").replace(/\/$/, "") + e;
 }
-function Am(s, e) {
-  if (!e.endsWith("_snapshot")) return e;
-  const t = e.replace(/_snapshot$/, ""), i = [`${t}_live_view`, `${t}_live`, `${t}_stream`, t], n = Object.keys(s.states).filter(
-    (r) => r.startsWith("camera.") && r.startsWith(t.replace(/^camera\./, "camera.")) && r !== e
-  );
-  console.log("[Nido] camera siblings for", e, ":", n);
-  for (const r of i)
-    if (s.states[r])
-      return console.log("[Nido] using", r, "for stream"), r;
+async function Am(s, e) {
+  try {
+    const t = await s.callWS({
+      type: "config/entity_registry/list"
+    }), i = t.find((a) => a.entity_id === e);
+    if (!i?.device_id) return e;
+    const n = t.filter(
+      (a) => a && typeof a.entity_id == "string" && a.device_id === i.device_id && a.entity_id.startsWith("camera.") && a.entity_id !== e && !a.disabled_by && s.states[a.entity_id]
+    );
+    console.log("[Nido] camera siblings on same device:", n.map((a) => a.entity_id));
+    const r = n.find((a) => a.entity_id.includes("live_view")) || n.find((a) => a.entity_id.includes("live")) || n.find((a) => a.entity_id.includes("stream")) || n[0];
+    if (r)
+      return console.log("[Nido] using", r.entity_id, "for stream"), r.entity_id;
+  } catch (t) {
+    console.warn("[Nido] entity_registry lookup failed:", t);
+  }
   return e;
 }
 function Im({ hass: s, entityId: e, title: t, onClose: i }) {
@@ -23273,19 +23280,21 @@ function Im({ hass: s, entityId: e, title: t, onClose: i }) {
     const u = n.current;
     async function f() {
       try {
-        const p = Am(s, e), g = await s.callWS({
+        const p = await Am(s, e);
+        if (l) return;
+        const g = await s.callWS({
           type: "camera/stream",
           entity_id: p
         });
         if (l || !u) return;
-        const v = Sm(s, g.url);
-        u.canPlayType("application/vnd.apple.mpegurl") ? (u.src = v, u.addEventListener("loadedmetadata", () => c(!1), { once: !0 }), u.addEventListener("error", () => a("Erreur de lecture"), { once: !0 })) : je.isSupported() ? (d = new je({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: !0 }), d.attachMedia(u), d.loadSource(v), d.on(je.Events.MANIFEST_PARSED, () => c(!1)), d.on(je.Events.ERROR, (m, _) => {
+        const y = Sm(s, g.url);
+        u.canPlayType("application/vnd.apple.mpegurl") ? (u.src = y, u.addEventListener("loadedmetadata", () => c(!1), { once: !0 }), u.addEventListener("error", () => a("Erreur de lecture"), { once: !0 })) : je.isSupported() ? (d = new je({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: !0 }), d.attachMedia(u), d.loadSource(y), d.on(je.Events.MANIFEST_PARSED, () => c(!1)), d.on(je.Events.ERROR, (m, _) => {
           _.fatal && a("Erreur de stream");
         })) : a("Lecteur non supporté");
       } catch (p) {
         if (l) return;
-        const g = p, v = g?.message || g?.code || String(p);
-        console.error("[Nido] camera/stream failed:", p), a(`Live indisponible : ${v}`);
+        const g = p, y = g?.message || g?.code || String(p);
+        console.error("[Nido] camera/stream failed:", p), a(`Live indisponible : ${y}`);
       }
     }
     return f(), () => {
@@ -23303,7 +23312,7 @@ function Im({ hass: s, entityId: e, title: t, onClose: i }) {
             class: "nido-camera-panel__close",
             onClick: i,
             "aria-label": "Fermer",
-            children: /* @__PURE__ */ h(yt, { size: 20 })
+            children: /* @__PURE__ */ h(vt, { size: 20 })
           }
         )
       ] }),
@@ -23428,8 +23437,8 @@ function Nc({ hass: s, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
     } finally {
       setTimeout(() => u(null), 50);
     }
-  }, v = ["n-card", n ? `breathe-${i}` : ""].filter(Boolean).join(" ");
-  return /* @__PURE__ */ h("div", { class: v, "data-on": n ? "true" : "false", children: [
+  }, y = ["n-card", n ? `breathe-${i}` : ""].filter(Boolean).join(" ");
+  return /* @__PURE__ */ h("div", { class: y, "data-on": n ? "true" : "false", children: [
     /* @__PURE__ */ h("div", { class: "n-card__head", children: [
       /* @__PURE__ */ h("div", { class: `n-icon-bubble ${n ? "n-fan-spin" : ""}`, children: /* @__PURE__ */ h(Bs, { size: 20 }) }),
       /* @__PURE__ */ h(
@@ -23610,13 +23619,13 @@ function Cm({ hass: s, weatherEntityId: e, onClose: t }) {
       _ = !0;
     };
   }, [s, e]), !o) return null;
-  const u = ai(o.state), f = o.attributes.temperature_unit || "°C", p = l?.state, g = p === "Rouge" ? "#ff4d4f" : p === "Orange" ? "#faad14" : p === "Jaune" ? "#fadb14" : null, v = l?.attributes ? Object.entries(l.attributes).filter(([_, b]) => b === p && _ !== "friendly_name" && _ !== "icon").map(([_]) => _).join(", ") : "", m = v ? `Vigilance ${p} : ${v}` : `Vigilance ${p}`;
+  const u = ai(o.state), f = o.attributes.temperature_unit || "°C", p = l?.state, g = p === "Rouge" ? "#ff4d4f" : p === "Orange" ? "#faad14" : p === "Jaune" ? "#fadb14" : null, y = l?.attributes ? Object.entries(l.attributes).filter(([_, b]) => b === p && _ !== "friendly_name" && _ !== "icon").map(([_]) => _).join(", ") : "", m = y ? `Vigilance ${p} : ${y}` : `Vigilance ${p}`;
   return /* @__PURE__ */ h("div", { class: "nido-weather-panel", children: [
     /* @__PURE__ */ h("div", { class: "nido-weather-panel__backdrop", onClick: t }),
     /* @__PURE__ */ h("div", { class: "nido-weather-panel__content", children: [
       /* @__PURE__ */ h("header", { class: "nido-weather-panel__header", children: [
         /* @__PURE__ */ h("h2", { children: "Météo Détaillée" }),
-        /* @__PURE__ */ h("button", { type: "button", class: "nido-weather-panel__close", onClick: t, "aria-label": "Fermer", children: /* @__PURE__ */ h(yt, { size: 20 }) })
+        /* @__PURE__ */ h("button", { type: "button", class: "nido-weather-panel__close", onClick: t, "aria-label": "Fermer", children: /* @__PURE__ */ h(vt, { size: 20 }) })
       ] }),
       /* @__PURE__ */ h("div", { class: "nido-weather-panel__scroll", children: [
         /* @__PURE__ */ h("div", { class: "nido-wp-current", children: [
@@ -23788,7 +23797,7 @@ function Fm({ hass: s, notifications: e, onClose: t }) {
             class: "nido-notification-panel__close",
             onClick: t,
             "aria-label": "Fermer",
-            children: /* @__PURE__ */ h(yt, { size: 20 })
+            children: /* @__PURE__ */ h(vt, { size: 20 })
           }
         )
       ] }),
@@ -23813,7 +23822,7 @@ function Fm({ hass: s, notifications: e, onClose: t }) {
               class: "nido-notification-item__dismiss",
               onClick: () => i(r.id),
               "aria-label": "Supprimer",
-              children: /* @__PURE__ */ h(yt, { size: 14 })
+              children: /* @__PURE__ */ h(vt, { size: 14 })
             }
           )
         ] }, r.id);
@@ -23835,7 +23844,7 @@ function $m({ hass: s, entity: e, roomName: t }) {
     }
   };
   return /* @__PURE__ */ h("div", { class: `nido-lights-row ${i ? "is-pending" : ""}`, children: [
-    /* @__PURE__ */ h("div", { class: "nido-lights-row__icon", children: /* @__PURE__ */ h(vi, { size: 18 }) }),
+    /* @__PURE__ */ h("div", { class: "nido-lights-row__icon", children: /* @__PURE__ */ h(yi, { size: 18 }) }),
     /* @__PURE__ */ h("div", { class: "nido-lights-row__body", children: [
       /* @__PURE__ */ h("div", { class: "nido-lights-row__name", children: e.friendly_name }),
       t && /* @__PURE__ */ h("div", { class: "nido-lights-row__room", children: t })
@@ -23886,7 +23895,7 @@ function Bm({ hass: s, lights: e, areas: t, onClose: i }) {
             class: "nido-notification-panel__close",
             onClick: i,
             "aria-label": "Fermer",
-            children: /* @__PURE__ */ h(yt, { size: 20 })
+            children: /* @__PURE__ */ h(vt, { size: 20 })
           }
         )
       ] }),
@@ -23941,9 +23950,9 @@ function Gm({ hass: s, onClose: e, topicBase: t = "shopping" }) {
       f(G);
     }
   }, []);
-  const v = Ee(u), m = Ee(p);
+  const y = Ee(u), m = Ee(p);
   Se(() => {
-    v.current = u, localStorage.setItem(qn, u);
+    y.current = u, localStorage.setItem(qn, u);
   }, [u]), Se(() => {
     m.current = p, localStorage.setItem(ro, String(p));
   }, [p]);
@@ -24100,7 +24109,7 @@ function Gm({ hass: s, onClose: e, topicBase: t = "shopping" }) {
     D.pointerType === "touch" && (D.width > 40 || D.height > 40) || o.current === null && (o.current = D.pointerId, i.current?.setPointerCapture(D.pointerId), a.current = {
       id: d.current + "-" + Date.now(),
       by: d.current,
-      color: v.current,
+      color: y.current,
       size: m.current,
       points: [I(D)],
       t: Date.now()
@@ -24140,7 +24149,7 @@ function Gm({ hass: s, onClose: e, topicBase: t = "shopping" }) {
             class: "nido-shopping-panel__close",
             onClick: e,
             "aria-label": "Fermer",
-            children: /* @__PURE__ */ h(yt, { size: 20 })
+            children: /* @__PURE__ */ h(vt, { size: 20 })
           }
         )
       ] }),
@@ -24284,15 +24293,15 @@ function zm({ hass: s, calendarEntities: e, onClose: t }) {
     console.log(`[CalendarPanel] Fetching events from ${u} to ${f}`);
     const p = async (g) => {
       try {
-        const v = await s.callWS({
+        const y = await s.callWS({
           type: "calendar/events",
           entity_id: g,
           start_date_time: u,
           end_date_time: f
         });
-        return { entity_id: g, events: v };
-      } catch (v) {
-        if (v?.code === "unknown_command") {
+        return { entity_id: g, events: y };
+      } catch (y) {
+        if (y?.code === "unknown_command") {
           console.warn(`[CalendarPanel] WS command unknown, trying service call for ${g}`);
           try {
             const m = await s.callWS({
@@ -24311,15 +24320,15 @@ function zm({ hass: s, calendarEntities: e, onClose: t }) {
             return console.error(`[CalendarPanel] Service call failed for ${g}:`, m), { entity_id: g, events: [] };
           }
         }
-        return console.error(`[CalendarPanel] Error for ${g}:`, v), { entity_id: g, events: [] };
+        return console.error(`[CalendarPanel] Error for ${g}:`, y), { entity_id: g, events: [] };
       }
     };
     Promise.all(e.map((g) => p(g.entity_id))).then((g) => {
-      const v = {};
+      const y = {};
       for (const _ of g)
-        v[_.entity_id] = _.events;
-      console.log("[CalendarPanel] Combined response:", v);
-      const m = Vm(v, r);
+        y[_.entity_id] = _.events;
+      console.log("[CalendarPanel] Combined response:", y);
+      const m = Vm(y, r);
       console.log("[CalendarPanel] Parsed events:", m), n(m);
     });
   }, []);
@@ -24341,7 +24350,7 @@ function zm({ hass: s, calendarEntities: e, onClose: t }) {
             class: "nido-notification-panel__close",
             onClick: t,
             "aria-label": "Fermer",
-            children: /* @__PURE__ */ h(yt, { size: 20 })
+            children: /* @__PURE__ */ h(vt, { size: 20 })
           }
         )
       ] }),
@@ -24387,7 +24396,7 @@ function Ym(s, e) {
   return s === 0 ? "Aujourd'hui" : s === 1 ? "Demain" : `${Wm[e.getDay()]} ${e.getDate()}`;
 }
 function Hc({ hass: s, entity: e, roomLabel: t, hero: i = !1, calendarEntities: n }) {
-  const [r, a] = X(!1), c = [...n].sort((g, v) => g.entity_id.localeCompare(v.entity_id)).map((g) => g.entity_id).indexOf(e.entity_id), l = Vc(c >= 0 ? c : 0), d = /* @__PURE__ */ new Date(), u = Km(e.state.attributes, d), f = u ? (() => {
+  const [r, a] = X(!1), c = [...n].sort((g, y) => g.entity_id.localeCompare(y.entity_id)).map((g) => g.entity_id).indexOf(e.entity_id), l = Vc(c >= 0 ? c : 0), d = /* @__PURE__ */ new Date(), u = Km(e.state.attributes, d), f = u ? (() => {
     const g = new Date(d);
     return g.setDate(d.getDate() + u.dayOffset), g;
   })() : null, p = ["n-card", i ? "n-card--accent-muted" : "n-card--default", "nido-cal-widget"].join(" ");
@@ -24439,7 +24448,7 @@ function zc({
     if (o) return 0;
     const A = Number(a);
     return Number.isFinite(A) ? Math.max(0, Math.round(A)) : 0;
-  }, [a, o]), d = Math.max(0, Math.min(1, l / t)), u = 100, f = 100, p = 86, [g, v] = Xn(0, u, f, p), [m, _] = Xn(1, u, f, p), [b, x] = Xn(d, u, f, p), E = `M ${g.toFixed(2)} ${v.toFixed(2)} A ${p} ${p} 0 0 1 ${m.toFixed(2)} ${_.toFixed(2)}`, T = d > 0.5 ? 1 : 0, k = d > 0 ? `M ${g.toFixed(2)} ${v.toFixed(2)} A ${p} ${p} 0 ${T} 1 ${b.toFixed(2)} ${x.toFixed(2)}` : "", S = l >= 5e3 ? "Pic" : l >= 2e3 ? "Soutenu" : "Sobre", L = ["n-card", "n-card--accent", "breathe-1", "n-power-gauge"].join(" "), I = typeof i == "function";
+  }, [a, o]), d = Math.max(0, Math.min(1, l / t)), u = 100, f = 100, p = 86, [g, y] = Xn(0, u, f, p), [m, _] = Xn(1, u, f, p), [b, x] = Xn(d, u, f, p), E = `M ${g.toFixed(2)} ${y.toFixed(2)} A ${p} ${p} 0 0 1 ${m.toFixed(2)} ${_.toFixed(2)}`, T = d > 0.5 ? 1 : 0, k = d > 0 ? `M ${g.toFixed(2)} ${y.toFixed(2)} A ${p} ${p} 0 ${T} 1 ${b.toFixed(2)} ${x.toFixed(2)}` : "", S = l >= 5e3 ? "Pic" : l >= 2e3 ? "Soutenu" : "Sobre", L = ["n-card", "n-card--accent", "breathe-1", "n-power-gauge"].join(" "), I = typeof i == "function";
   return /* @__PURE__ */ h(
     "div",
     {
@@ -24518,9 +24527,9 @@ function zc({
                     "line",
                     {
                       x1: g,
-                      y1: v + 8,
+                      y1: y + 8,
                       x2: g,
-                      y2: v + 14,
+                      y2: y + 14,
                       stroke: "rgba(255,255,255,0.4)",
                       "stroke-width": "1"
                     }
@@ -24678,7 +24687,7 @@ function uo(s, e, t, i, n) {
   for (let l = 0; l < a.length - 1; l += 1) {
     const d = a[l], u = a[l + 1], f = Math.max(d.t, e), p = Math.min(u.t, t);
     if (p <= f) continue;
-    const g = (d.v + u.v) / 2, v = (p - f) / 36e5, m = g * v / 1e3, _ = Math.floor((f - e) / n);
+    const g = (d.v + u.v) / 2, y = (p - f) / 36e5, m = g * y / 1e3, _ = Math.floor((f - e) / n);
     _ >= 0 && _ < i && (r[_] += m);
   }
   const o = a[a.length - 1];
@@ -24847,7 +24856,7 @@ function n0({
     if (!l) return null;
     const S = Number(l.state);
     return Number.isFinite(S) ? S : null;
-  }, [l]), u = l?.attributes.unit_of_measurement ?? "kWh", f = i?.buckets ?? new Array(Jt[o].bucketCount).fill(0), p = o === "day" && d !== null ? d : i?.total ?? 0, g = o === "day" && d !== null ? u : "kWh", v = i?.available ?? !1, m = i?.nowIndex ?? -1, _ = f.filter((S) => S > 0), b = _.length > 0 ? _.reduce((S, L) => S + L, 0) / _.length : 0, x = Math.max(...f, b) * 1.1 || 1, E = Math.max(...f), T = o === "day" ? "Consommation · Aujourd'hui" : o === "week" ? "Consommation · 7 derniers jours" : "Consommation · 30 derniers jours", k = o === "day" ? `moyenne · ${b.toFixed(2)} kWh` : o === "week" ? `moyenne · ${b.toFixed(1)} kWh / jour` : `moyenne · ${b.toFixed(1)} kWh / jour`;
+  }, [l]), u = l?.attributes.unit_of_measurement ?? "kWh", f = i?.buckets ?? new Array(Jt[o].bucketCount).fill(0), p = o === "day" && d !== null ? d : i?.total ?? 0, g = o === "day" && d !== null ? u : "kWh", y = i?.available ?? !1, m = i?.nowIndex ?? -1, _ = f.filter((S) => S > 0), b = _.length > 0 ? _.reduce((S, L) => S + L, 0) / _.length : 0, x = Math.max(...f, b) * 1.1 || 1, E = Math.max(...f), T = o === "day" ? "Consommation · Aujourd'hui" : o === "week" ? "Consommation · 7 derniers jours" : "Consommation · 30 derniers jours", k = o === "day" ? `moyenne · ${b.toFixed(2)} kWh` : o === "week" ? `moyenne · ${b.toFixed(1)} kWh / jour` : `moyenne · ${b.toFixed(1)} kWh / jour`;
   return /* @__PURE__ */ h("div", { class: "n-card n-hourly", children: [
     /* @__PURE__ */ h("div", { class: "n-hourly__head", children: [
       /* @__PURE__ */ h("div", { children: [
@@ -24870,7 +24879,7 @@ function n0({
         S
       )) })
     ] }),
-    r ? /* @__PURE__ */ h("div", { class: "n-muted n-hourly__loading", children: "Chargement de l'historique…" }) : v ? /* @__PURE__ */ h(Ie, { children: [
+    r ? /* @__PURE__ */ h("div", { class: "n-muted n-hourly__loading", children: "Chargement de l'historique…" }) : y ? /* @__PURE__ */ h(Ie, { children: [
       /* @__PURE__ */ h("div", { class: "n-bars", children: [
         b > 0 && /* @__PURE__ */ h("div", { class: "n-bars__avg", style: { bottom: `${b / x * 100}%` }, children: /* @__PURE__ */ h("span", { class: "n-bars__avg-label", children: k }) }),
         /* @__PURE__ */ h("div", { class: "n-bars__grid", children: f.map((S, L) => {
@@ -24969,7 +24978,7 @@ function l0({ hass: s, entities: e, exposed: t, areas: i, onBack: n }) {
     if (!u) return null;
     const T = Number(u.state);
     return Number.isFinite(T) ? T : null;
-  }, [u]), p = u?.attributes.unit_of_measurement ?? "kWh", g = s.states[r0], v = re(() => {
+  }, [u]), p = u?.attributes.unit_of_measurement ?? "kWh", g = s.states[r0], y = re(() => {
     if (!g) return null;
     const T = Number(g.state);
     return Number.isFinite(T) ? T : null;
@@ -25044,8 +25053,8 @@ function l0({ hass: s, entities: e, exposed: t, areas: i, onBack: n }) {
           Fi,
           {
             label: "Coût",
-            value: v !== null ? v.toFixed(2).replace(".", ",") : "—",
-            unit: v !== null ? m : ""
+            value: y !== null ? y.toFixed(2).replace(".", ",") : "—",
+            unit: y !== null ? m : ""
           }
         ),
         /* @__PURE__ */ h(Qn, {}),
@@ -25290,7 +25299,7 @@ function g0({
   onReorderFavorites: l,
   onReorderRooms: d
 }) {
-  const u = s.user?.name ?? "vous", f = /* @__PURE__ */ new Date(), p = f.getHours(), { greeting: g, sub: v } = d0(p), m = `${String(p).padStart(2, "0")}:${String(f.getMinutes()).padStart(2, "0")}`, _ = f.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (U) => U.toUpperCase()), b = re(() => new Set(n), [n]), x = re(
+  const u = s.user?.name ?? "vous", f = /* @__PURE__ */ new Date(), p = f.getHours(), { greeting: g, sub: y } = d0(p), m = `${String(p).padStart(2, "0")}:${String(f.getMinutes()).padStart(2, "0")}`, _ = f.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (U) => U.toUpperCase()), b = re(() => new Set(n), [n]), x = re(
     () => t.filter((U) => b.has(U.entity_id) && c0.has(U.domain)),
     [t, b]
   ), E = re(
@@ -25316,13 +25325,13 @@ function g0({
     }
     F.some((me) => !U.has(me.id)) && Om(), $.current = new Set(F.map((me) => me.id));
   }, [F]);
-  const G = re(() => vd(), [P]), M = re(() => {
+  const G = re(() => yd(), [P]), M = re(() => {
     if (F.length === 0) return !1;
     if (!G) return !0;
     const U = F[F.length - 1];
     return new Date(U.timestamp) > new Date(G);
   }, [F, G]), N = () => {
-    B(!0), yd((/* @__PURE__ */ new Date()).toISOString());
+    B(!0), vd((/* @__PURE__ */ new Date()).toISOString());
   }, H = re(() => Object.values(s.states).filter(
     (U) => U.entity_id.startsWith("person.") && U.state === "home" && U.attributes.entity_picture
   ), [s.states]), Q = (U) => {
@@ -25407,7 +25416,7 @@ function g0({
               onClick: () => z(!0),
               "aria-label": `${k} lumière${k > 1 ? "s" : ""} allumée${k > 1 ? "s" : ""}`,
               children: /* @__PURE__ */ h("div", { class: "nido-lights-pill", children: [
-                /* @__PURE__ */ h(vi, { size: 16 }),
+                /* @__PURE__ */ h(yi, { size: 16 }),
                 /* @__PURE__ */ h("span", { class: "nido-lights-pill__count", children: k }),
                 /* @__PURE__ */ h("span", { class: "nido-lights-pill__label", children: k === 1 ? "lumière" : "lumières" })
               ] })
@@ -25473,7 +25482,7 @@ function g0({
             /* @__PURE__ */ h("span", { class: "nido-home-pill__text", children: "À la maison" })
           ] })
         ] }),
-        /* @__PURE__ */ h("p", { class: "nido-hero__sub", style: { marginTop: "24px" }, children: v })
+        /* @__PURE__ */ h("p", { class: "nido-hero__sub", style: { marginTop: "24px" }, children: y })
       ] }),
       ur ? /* @__PURE__ */ h(Ie, { children: [
         Wt,
@@ -25589,7 +25598,7 @@ function m0(s, e, t, i, n, r = !1) {
       return null;
   }
 }
-function v0({
+function y0({
   hass: s,
   area: e,
   entities: t,
@@ -25618,7 +25627,7 @@ function v0({
   }, [l]), [f, p] = X("all"), g = re(
     () => f === "all" ? l : l.filter((b) => b.domain === f),
     [l, f]
-  ), v = ss(
+  ), y = ss(
     g,
     (b) => b.entity_id,
     (b) => {
@@ -25724,9 +25733,9 @@ function v0({
     /* @__PURE__ */ h(
       "div",
       {
-        class: `nido-room-detail__grid ${v.isDragging ? "is-dragging" : ""}`,
+        class: `nido-room-detail__grid ${y.isDragging ? "is-dragging" : ""}`,
         ref: (b) => {
-          v.containerRef.current = b;
+          y.containerRef.current = b;
         },
         children: g.map((b, x) => {
           const E = x % 4 + 1, T = x === 0;
@@ -25735,7 +25744,7 @@ function v0({
             {
               class: "nido-drag-item",
               "data-hero": T ? "true" : "false",
-              ...v.itemPropsFor(b.entity_id),
+              ...y.itemPropsFor(b.entity_id),
               children: m0(b, s, e.name, E, d, T)
             },
             b.entity_id
@@ -25758,7 +25767,7 @@ function po() {
   return /* @__PURE__ */ h("div", { class: "nido-room-detail__stat-sep", "aria-hidden": "true" });
 }
 const Ni = 5, ei = {
-  light: { label: "Lumières", Icon: vi },
+  light: { label: "Lumières", Icon: yi },
   switch: { label: "Prises & switches", Icon: Ms },
   cover: { label: "Volets & stores", Icon: Ps },
   climate: { label: "Thermostats", Icon: mt },
@@ -25780,7 +25789,7 @@ const Ni = 5, ei = {
   sauge: { name: "Sauge", desc: "Organique scandinave", swatches: ["#ebe7d8", "#6a7a3a", "#1a1d10"] },
   cosy: { name: "Cosy", desc: "Salon feutré", swatches: ["#f0eadd", "#b06030", "#1c1208"] }
 };
-function y0(s) {
+function v0(s) {
   const {
     hass: e,
     entities: t,
@@ -25794,7 +25803,7 @@ function y0(s) {
     onApplyTheme: d,
     onClose: u,
     onDone: f
-  } = s, [p, g] = X(0), [v, m] = X(n), [_, b] = X(r), [x, E] = X(new Set(a)), [T, k] = X(new Set(o)), [S, L] = X(
+  } = s, [p, g] = X(0), [y, m] = X(n), [_, b] = X(r), [x, E] = X(new Set(a)), [T, k] = X(new Set(o)), [S, L] = X(
     new Set(c)
   ), [I, A] = X(null), [P, B] = X(null);
   Se(() => {
@@ -25832,15 +25841,15 @@ function y0(s) {
     });
   }, V = () => {
     const M = Array.from(x), N = Array.from(T).filter((Q) => x.has(Q)), H = Array.from(S);
-    Mr(v, _), Rr(M), ns(N), Dr(H), Pr(), f({
+    Mr(y, _), Rr(M), ns(N), Dr(H), Pr(), f({
       exposed: M,
       favorites: N,
-      theme: v,
+      theme: y,
       mode: _,
       excludedUsers: H
     });
   }, G = () => {
-    Mr(v, _), Rr(Array.from(x)), ns(Array.from(T).filter((M) => x.has(M))), Dr(Array.from(S)), Pr(), u();
+    Mr(y, _), Rr(Array.from(x)), ns(Array.from(T).filter((M) => x.has(M))), Dr(Array.from(S)), Pr(), u();
   };
   return /* @__PURE__ */ h("div", { class: "n-ob", role: "dialog", "aria-modal": "true", "aria-label": "Configuration de Nido", children: /* @__PURE__ */ h("div", { class: "n-ob__shell", children: [
     /* @__PURE__ */ h("header", { class: "n-ob__header", children: [
@@ -25870,7 +25879,7 @@ function y0(s) {
           isReturning: l,
           exposedCount: x.size,
           favCount: T.size,
-          themeLabel: Ss[v].name,
+          themeLabel: Ss[y].name,
           modeLabel: _ === "light" ? "Clair" : "Sombre",
           allowedUsersCount: I ? I.filter((M) => !S.has(M.id)).length : null
         }
@@ -25889,7 +25898,7 @@ function y0(s) {
       p === 3 && /* @__PURE__ */ h(
         E0,
         {
-          theme: v,
+          theme: y,
           mode: _,
           onPick: D,
           userName: e.user?.name ?? "vous"
@@ -25931,7 +25940,7 @@ function y0(s) {
   ] }) });
 }
 const mo = [
-  vi,
+  yi,
   Ps,
   Ms,
   mt,
@@ -26096,7 +26105,7 @@ function x0(s) {
     for (const _ of e)
       go.includes(_.domain) && (m.has(_.domain) || m.set(_.domain, []), m.get(_.domain).push(_));
     return Array.from(m.entries()).sort((_, b) => b[1].length - _[1].length);
-  }, [e]), [o, c] = X(a[0]?.[0] ?? "light"), [l, d] = X(""), u = a.find(([m]) => m === o) ?? a[0], f = t.size, p = e.filter((m) => go.includes(m.domain)).length, g = l.trim().toLowerCase(), v = u ? g ? u[1].filter(
+  }, [e]), [o, c] = X(a[0]?.[0] ?? "light"), [l, d] = X(""), u = a.find(([m]) => m === o) ?? a[0], f = t.size, p = e.filter((m) => go.includes(m.domain)).length, g = l.trim().toLowerCase(), y = u ? g ? u[1].filter(
     (m) => (m.friendly_name ?? "").toLowerCase().includes(g) || m.entity_id.toLowerCase().includes(g)
   ) : u[1] : [];
   return /* @__PURE__ */ h("div", { class: "n-ob-step n-ob-step--entities", children: [
@@ -26146,7 +26155,7 @@ function x0(s) {
             {
               type: "button",
               class: "n-pill-btn n-pill-btn--ghost",
-              onClick: () => v.forEach((m) => !t.has(m.entity_id) && n(m.entity_id)),
+              onClick: () => y.forEach((m) => !t.has(m.entity_id) && n(m.entity_id)),
               children: "Tout exposer"
             }
           ),
@@ -26155,7 +26164,7 @@ function x0(s) {
             {
               type: "button",
               class: "n-pill-btn n-pill-btn--ghost",
-              onClick: () => v.forEach((m) => t.has(m.entity_id) && n(m.entity_id)),
+              onClick: () => y.forEach((m) => t.has(m.entity_id) && n(m.entity_id)),
               children: "Tout retirer"
             }
           )
@@ -26181,17 +26190,17 @@ function x0(s) {
             class: "n-ob-ent__search-clear",
             onClick: () => d(""),
             "aria-label": "Effacer la recherche",
-            children: /* @__PURE__ */ h(yt, { size: 12 })
+            children: /* @__PURE__ */ h(vt, { size: 12 })
           }
         )
       ] }),
       /* @__PURE__ */ h("div", { class: "n-ob-ent__grid", children: [
-        v.length === 0 && /* @__PURE__ */ h("div", { class: "n-ob-ent__empty", children: [
+        y.length === 0 && /* @__PURE__ */ h("div", { class: "n-ob-ent__empty", children: [
           "Aucune entité ne correspond à « ",
           l,
           " »"
         ] }),
-        v.map((m) => {
+        y.map((m) => {
           const _ = t.has(m.entity_id), b = i.has(m.entity_id), x = ei[m.domain].Icon;
           return /* @__PURE__ */ h(
             "div",
@@ -26403,7 +26412,7 @@ const S0 = [
   "device_registry_updated"
 ];
 function A0({ hass: s, host: e }) {
-  const [t, i] = X(null), [n, r] = X(null), [a, o] = X(null), [c, l] = X(null), d = re(() => Oo(), []), [u, f] = X(() => dd()), [p, g] = X(() => ud()), [v, m] = X(() => hd()), [_, b] = X(() => fd()), [x, E] = X(
+  const [t, i] = X(null), [n, r] = X(null), [a, o] = X(null), [c, l] = X(null), d = re(() => Oo(), []), [u, f] = X(() => dd()), [p, g] = X(() => ud()), [y, m] = X(() => hd()), [_, b] = X(() => fd()), [x, E] = X(
     () => gd()
   ), [T, k] = X(() => !Cr()), [S, L] = X({ kind: "dashboard" }), I = (G) => {
     f(G), ns(G);
@@ -26462,7 +26471,7 @@ function A0({ hass: s, host: e }) {
     ] });
   if (!t || !n || !a)
     return /* @__PURE__ */ h("div", { class: "nido-loading", children: "Chargement des pièces et entités…" });
-  if (!!s.user && v.includes(s.user.id))
+  if (!!s.user && y.includes(s.user.id))
     return /* @__PURE__ */ h("div", { class: "nido-shell", children: /* @__PURE__ */ h("div", { class: "nido-dashboard nido-denied", children: [
       /* @__PURE__ */ h("h1", { class: "n-ob__h1", children: [
         "Nido n'est pas pour ",
@@ -26503,7 +26512,7 @@ function A0({ hass: s, host: e }) {
         onReorderRooms: A
       }
     ) : /* @__PURE__ */ h(
-      v0,
+      y0,
       {
         hass: s,
         area: F,
@@ -26514,7 +26523,7 @@ function A0({ hass: s, host: e }) {
       }
     ),
     T && /* @__PURE__ */ h(
-      y0,
+      v0,
       {
         hass: s,
         entities: K,
@@ -26523,7 +26532,7 @@ function A0({ hass: s, host: e }) {
         initialMode: d.mode,
         initialExposed: p,
         initialFavorites: u,
-        initialExcludedUsers: v,
+        initialExcludedUsers: y,
         isReturning: Cr(),
         onApplyTheme: z,
         onClose: () => k(!1),
@@ -26534,15 +26543,15 @@ function A0({ hass: s, host: e }) {
     )
   ] });
 }
-const I0 = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.006);filter:brightness(1.015)}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe 5.5s var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe 6.2s var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe 4.8s var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe 7s var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', L0 = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}.nido-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.nido-topbar__brand{display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:.85}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-card__head{padding-top:14px}.n-card--camera .n-binary-state{padding-bottom:16px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin 2.4s linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.nido-topbar__actions{display:flex;align-items:center;gap:12px}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active{transform:scale(.96)}.nido-lights-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-pill__label{font-size:12px;opacity:.8}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:10px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__room{font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:140px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--ink-1);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}.nido-room-card__meta{display:flex;gap:10px;font-family:var(--font-sans);font-size:12px;opacity:.65;align-items:center}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__stats{margin-top:10px;display:flex;gap:12px}.nido-room-card__stat{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.02em;color:inherit;opacity:.85}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:8px;overflow:hidden}.n-ob__shell{padding:16px;border-radius:var(--r-xl);min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__actions>.nido-bell-btn,.nido-topbar__actions>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar__actions{flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:8px}.nido-weather-pill-btn,.nido-topbar__actions>.nido-weather-pill,.nido-lights-pill-btn{flex:0 0 100%;display:flex;justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:32px}.nido-energy-summary{display:grid;grid-template-columns:minmax(320px,480px);gap:16px}@media(max-width:720px){.nido-energy-summary{grid-template-columns:1fr}}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}', vo = "https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
-let yo = !1;
+const I0 = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.006);filter:brightness(1.015)}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe 5.5s var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe 6.2s var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe 4.8s var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe 7s var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', L0 = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}.nido-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.nido-topbar__brand{display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:.85}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-card__head{padding-top:14px}.n-card--camera .n-binary-state{padding-bottom:16px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin 2.4s linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.nido-topbar__actions{display:flex;align-items:center;gap:12px}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active{transform:scale(.96)}.nido-lights-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-pill__label{font-size:12px;opacity:.8}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:10px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__room{font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:140px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--ink-1);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}.nido-room-card__meta{display:flex;gap:10px;font-family:var(--font-sans);font-size:12px;opacity:.65;align-items:center}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__stats{margin-top:10px;display:flex;gap:12px}.nido-room-card__stat{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.02em;color:inherit;opacity:.85}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:8px;overflow:hidden}.n-ob__shell{padding:16px;border-radius:var(--r-xl);min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__actions>.nido-bell-btn,.nido-topbar__actions>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar__actions{flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:8px}.nido-weather-pill-btn,.nido-topbar__actions>.nido-weather-pill,.nido-lights-pill-btn{flex:0 0 100%;display:flex;justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:32px}.nido-energy-summary{display:grid;grid-template-columns:minmax(320px,480px);gap:16px}@media(max-width:720px){.nido-energy-summary{grid-template-columns:1fr}}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}', yo = "https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
+let vo = !1;
 function k0() {
-  if (yo || typeof document > "u") return;
-  if (!document.head.querySelector(`link[href="${vo}"]`)) {
+  if (vo || typeof document > "u") return;
+  if (!document.head.querySelector(`link[href="${yo}"]`)) {
     const e = document.createElement("link");
-    e.rel = "stylesheet", e.href = vo, document.head.appendChild(e);
+    e.rel = "stylesheet", e.href = yo, document.head.appendChild(e);
   }
-  yo = !0;
+  vo = !0;
 }
 class w0 extends HTMLElement {
   constructor() {
