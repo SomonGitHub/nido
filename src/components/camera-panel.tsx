@@ -20,19 +20,41 @@ function resolveUrl(hass: HassObject, path: string): string {
   return base.replace(/\/$/, "") + path;
 }
 
-function pickStreamEntity(hass: HassObject, entityId: string): string {
-  if (!entityId.endsWith("_snapshot")) return entityId;
-  const base = entityId.replace(/_snapshot$/, "");
-  const candidates = [`${base}_live_view`, `${base}_live`, `${base}_stream`, base];
-  const siblings = Object.keys(hass.states).filter(
-    (id) => id.startsWith("camera.") && id.startsWith(base.replace(/^camera\./, "camera.")) && id !== entityId,
-  );
-  console.log("[Nido] camera siblings for", entityId, ":", siblings);
-  for (const c of candidates) {
-    if (hass.states[c]) {
-      console.log("[Nido] using", c, "for stream");
-      return c;
+interface RegistryEntry {
+  entity_id: string;
+  device_id: string | null;
+  disabled_by: string | null;
+}
+
+async function pickStreamEntity(hass: HassObject, entityId: string): Promise<string> {
+  try {
+    const registry = await hass.callWS<RegistryEntry[]>({
+      type: "config/entity_registry/list",
+    });
+    const me = registry.find((e) => e.entity_id === entityId);
+    if (!me?.device_id) return entityId;
+    const siblings = registry.filter(
+      (e) =>
+        e &&
+        typeof e.entity_id === "string" &&
+        e.device_id === me.device_id &&
+        e.entity_id.startsWith("camera.") &&
+        e.entity_id !== entityId &&
+        !e.disabled_by &&
+        hass.states[e.entity_id],
+    );
+    console.log("[Nido] camera siblings on same device:", siblings.map((s) => s.entity_id));
+    const live =
+      siblings.find((e) => e.entity_id.includes("live_view")) ||
+      siblings.find((e) => e.entity_id.includes("live")) ||
+      siblings.find((e) => e.entity_id.includes("stream")) ||
+      siblings[0];
+    if (live) {
+      console.log("[Nido] using", live.entity_id, "for stream");
+      return live.entity_id;
     }
+  } catch (e) {
+    console.warn("[Nido] entity_registry lookup failed:", e);
   }
   return entityId;
 }
@@ -57,7 +79,8 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
 
     async function start() {
       try {
-        const streamEntity = pickStreamEntity(hass, entityId);
+        const streamEntity = await pickStreamEntity(hass, entityId);
+        if (cancelled) return;
         const res = await hass.callWS<StreamResponse>({
           type: "camera/stream",
           entity_id: streamEntity,
