@@ -20,6 +20,14 @@ function resolveUrl(hass: HassObject, path: string): string {
   return base.replace(/\/$/, "") + path;
 }
 
+function pickStreamEntity(hass: HassObject, entityId: string): string {
+  if (entityId.endsWith("_snapshot")) {
+    const live = entityId.replace(/_snapshot$/, "_live_view");
+    if (hass.states[live]) return live;
+  }
+  return entityId;
+}
+
 export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [error, setError] = useState<string | null>(null);
@@ -40,9 +48,10 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
 
     async function start() {
       try {
+        const streamEntity = pickStreamEntity(hass, entityId);
         const res = await hass.callWS<StreamResponse>({
           type: "camera/stream",
-          entity_id: entityId,
+          entity_id: streamEntity,
         });
         if (cancelled || !video) return;
         const url = resolveUrl(hass, res.url);
