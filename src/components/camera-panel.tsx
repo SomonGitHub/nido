@@ -63,7 +63,11 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
           setError("Lecteur non supporté");
         }
       } catch (e) {
-        if (!cancelled) setError("Impossible de démarrer le live");
+        if (cancelled) return;
+        const err = e as { message?: string; code?: string };
+        const msg = err?.message || err?.code || String(e);
+        console.error("[Nido] camera/stream failed:", e);
+        setError(`Live indisponible : ${msg}`);
       }
     }
     start();
