@@ -8,6 +8,7 @@ const KEYS = {
   theme: "nido.theme",
   mode: "nido.mode",
   lastNotificationRead: "nido.lastNotificationRead",
+  cameraLiveMap: "nido.cameraLiveMap",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -130,4 +131,30 @@ export function loadLastNotificationRead(): string | null {
 
 export function saveLastNotificationRead(isoString: string): void {
   safeStorage()?.setItem(KEYS.lastNotificationRead, isoString);
+}
+
+export function loadCameraLiveMap(): Record<string, string> {
+  const s = safeStorage();
+  if (!s) return {};
+  const raw = s.getItem(KEYS.cameraLiveMap);
+  if (!raw) return {};
+  try {
+    const parsed = JSON.parse(raw);
+    if (typeof parsed !== "object" || parsed === null) return {};
+    const out: Record<string, string> = {};
+    for (const [k, v] of Object.entries(parsed as Record<string, unknown>)) {
+      if (typeof v === "string") out[k] = v;
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+export function saveCameraLiveMapping(snapshotEntityId: string, liveEntityId: string): void {
+  const s = safeStorage();
+  if (!s) return;
+  const map = loadCameraLiveMap();
+  map[snapshotEntityId] = liveEntityId;
+  s.setItem(KEYS.cameraLiveMap, JSON.stringify(map));
 }

@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import Hls from "hls.js";
 import type { HassObject } from "../types";
 import { IconX } from "../icons";
+import { loadCameraLiveMap, saveCameraLiveMapping } from "../core/storage";
 
 interface CameraPanelProps {
   hass: HassObject;
@@ -14,25 +15,25 @@ interface StreamResponse {
   url: string;
 }
 
-function resolveUrl(hass: HassObject, path: string): string {
-  if (path.startsWith("http")) return path;
-  const base = (hass as { hassUrl?: (p?: string) => string }).hassUrl?.("") ?? "";
-  return base.replace(/\/$/, "") + path;
-}
-
 interface RegistryEntry {
   entity_id: string;
   device_id: string | null;
   disabled_by: string | null;
 }
 
-async function pickStreamEntity(hass: HassObject, entityId: string): Promise<string> {
+function resolveUrl(hass: HassObject, path: string): string {
+  if (path.startsWith("http")) return path;
+  const base = (hass as { hassUrl?: (p?: string) => string }).hassUrl?.("") ?? "";
+  return base.replace(/\/$/, "") + path;
+}
+
+async function autoPickStreamEntity(hass: HassObject, entityId: string): Promise<string | null> {
   try {
     const registry = await hass.callWS<RegistryEntry[]>({
       type: "config/entity_registry/list",
     });
-    const me = registry.find((e) => e.entity_id === entityId);
-    if (!me?.device_id) return entityId;
+    const me = registry.find((e) => e && e.entity_id === entityId);
+    if (!me?.device_id) return null;
     const siblings = registry.filter(
       (e) =>
         e &&
@@ -43,26 +44,31 @@ async function pickStreamEntity(hass: HassObject, entityId: string): Promise<str
         !e.disabled_by &&
         hass.states[e.entity_id],
     );
-    console.log("[Nido] camera siblings on same device:", siblings.map((s) => s.entity_id));
     const live =
       siblings.find((e) => e.entity_id.includes("live_view")) ||
       siblings.find((e) => e.entity_id.includes("live")) ||
       siblings.find((e) => e.entity_id.includes("stream")) ||
       siblings[0];
-    if (live) {
-      console.log("[Nido] using", live.entity_id, "for stream");
-      return live.entity_id;
-    }
+    return live?.entity_id ?? null;
   } catch (e) {
     console.warn("[Nido] entity_registry lookup failed:", e);
+    return null;
   }
-  return entityId;
 }
 
 export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [streamEntity, setStreamEntity] = useState<string | null>(null);
+  const [needsPicker, setNeedsPicker] = useState(false);
+  const [pickerSelection, setPickerSelection] = useState<string>("");
+
+  const cameraOptions = useMemo(() => {
+    return Object.keys(hass.states)
+      .filter((id) => id.startsWith("camera.") && id !== entityId)
+      .sort();
+  }, [hass.states, entityId]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -74,16 +80,41 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
 
   useEffect(() => {
     let cancelled = false;
+
+    async function resolve() {
+      const saved = loadCameraLiveMap()[entityId];
+      if (saved && hass.states[saved]) {
+        if (!cancelled) setStreamEntity(saved);
+        return;
+      }
+      const auto = await autoPickStreamEntity(hass, entityId);
+      if (cancelled) return;
+      if (auto) {
+        setStreamEntity(auto);
+      } else {
+        setStreamEntity(entityId);
+      }
+    }
+    resolve();
+    return () => {
+      cancelled = true;
+    };
+  }, [hass, entityId]);
+
+  useEffect(() => {
+    if (!streamEntity) return;
+    let cancelled = false;
     let hls: Hls | null = null;
     const video = videoRef.current;
+    setError(null);
+    setLoading(true);
+    setNeedsPicker(false);
 
     async function start() {
       try {
-        const streamEntity = await pickStreamEntity(hass, entityId);
-        if (cancelled) return;
         const res = await hass.callWS<StreamResponse>({
           type: "camera/stream",
-          entity_id: streamEntity,
+          entity_id: streamEntity!,
         });
         if (cancelled || !video) return;
         const url = resolveUrl(hass, res.url);
@@ -109,6 +140,8 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
         const msg = err?.message || err?.code || String(e);
         console.error("[Nido] camera/stream failed:", e);
         setError(`Live indisponible : ${msg}`);
+        setNeedsPicker(true);
+        setLoading(false);
       }
     }
     start();
@@ -122,7 +155,13 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
         video.load();
       }
     };
-  }, [hass, entityId]);
+  }, [hass, streamEntity]);
+
+  function handlePickerSubmit() {
+    if (!pickerSelection) return;
+    saveCameraLiveMapping(entityId, pickerSelection);
+    setStreamEntity(pickerSelection);
+  }
 
   return (
     <div class="nido-camera-panel" onClick={onClose}>
@@ -151,8 +190,40 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
           {loading && !error && (
             <div class="nido-camera-panel__overlay">Chargement du live…</div>
           )}
-          {error && <div class="nido-camera-panel__overlay nido-camera-panel__overlay--error">{error}</div>}
+          {error && !needsPicker && (
+            <div class="nido-camera-panel__overlay nido-camera-panel__overlay--error">{error}</div>
+          )}
         </div>
+        {needsPicker && (
+          <div class="nido-camera-panel__picker">
+            <p class="nido-camera-panel__picker-msg">{error}</p>
+            <p class="nido-camera-panel__picker-hint">
+              Sélectionne l'entité caméra à utiliser pour le live de cette card :
+            </p>
+            <div class="nido-camera-panel__picker-row">
+              <select
+                class="nido-camera-panel__picker-select"
+                value={pickerSelection}
+                onChange={(e) => setPickerSelection((e.target as HTMLSelectElement).value)}
+              >
+                <option value="">— Choisir une entité —</option>
+                {cameraOptions.map((id) => (
+                  <option value={id}>
+                    {hass.states[id]?.attributes?.friendly_name ?? id} ({id})
+                  </option>
+                ))}
+              </select>
+              <button
+                type="button"
+                class="nido-camera-panel__picker-save"
+                disabled={!pickerSelection}
+                onClick={handlePickerSubmit}
+              >
+                Sauvegarder & lancer
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
