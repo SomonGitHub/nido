@@ -23271,8 +23271,10 @@ function Am({ hass: s, entityId: e, title: t, onClose: i }) {
         u.canPlayType("application/vnd.apple.mpegurl") ? (u.src = g, u.addEventListener("loadedmetadata", () => c(!1), { once: !0 }), u.addEventListener("error", () => a("Erreur de lecture"), { once: !0 })) : je.isSupported() ? (d = new je({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: !0 }), d.attachMedia(u), d.loadSource(g), d.on(je.Events.MANIFEST_PARSED, () => c(!1)), d.on(je.Events.ERROR, (v, m) => {
           m.fatal && a("Erreur de stream");
         })) : a("Lecteur non supporté");
-      } catch {
-        l || a("Impossible de démarrer le live");
+      } catch (p) {
+        if (l) return;
+        const g = p, v = g?.message || g?.code || String(p);
+        console.error("[Nido] camera/stream failed:", p), a(`Live indisponible : ${v}`);
       }
     }
     return f(), () => {
