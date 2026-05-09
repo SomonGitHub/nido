@@ -23355,7 +23355,7 @@ function wm({ hass: s, entityId: e, title: t, onClose: i }) {
     return b(), () => {
       y = !0;
     };
-  }, [s, e]), xe(() => {
+  }, [s != null, e]), xe(() => {
     if (!l) return;
     let y = !1, b = null, x = null;
     const E = n.current;
@@ -23416,7 +23416,7 @@ function wm({ hass: s, entityId: e, title: t, onClose: i }) {
       }
       E && (E.pause(), E.removeAttribute("src"), E.srcObject = null, E.load());
     };
-  }, [s, l]);
+  }, [s != null, l]);
   function m() {
     p && (bd(e, p), d(p));
   }
