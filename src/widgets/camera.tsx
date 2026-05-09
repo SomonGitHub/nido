@@ -16,28 +16,43 @@ const STATE_LABEL: Record<string, string> = {
   unavailable: "Indisponible",
 };
 
-function pickPictureUrl(entity: ResolvedEntity, hass: HassObject): string | null {
+function hassBase(hass: HassObject): string {
+  const base = (hass as { hassUrl?: (path?: string) => string }).hassUrl?.("") ?? "";
+  return base.replace(/\/$/, "");
+}
+
+function pickSnapshotUrl(entity: ResolvedEntity, hass: HassObject): string | null {
+  const token = entity.state.attributes.access_token as string | undefined;
+  if (token) {
+    return `${hassBase(hass)}/api/camera_proxy/${entity.entity_id}?token=${token}`;
+  }
   const ent = entity.state.attributes.entity_picture as string | undefined;
   if (!ent) return null;
   if (ent.startsWith("http")) return ent;
-  const base = (hass as { hassUrl?: (path?: string) => string }).hassUrl?.("");
-  if (base) return base.replace(/\/$/, "") + ent;
-  return ent;
+  return `${hassBase(hass)}${ent}`;
 }
+
+const REFRESH_MS = 10_000;
 
 export function CameraWidget({ hass, entity, roomLabel }: CameraWidgetProps) {
   const state = entity.state.state;
   const unavailable = state === "unavailable";
   const isLive = state === "recording" || state === "streaming";
-  const [bust, setBust] = useState(0);
+  const [bust, setBust] = useState(() => Date.now());
   const [imgError, setImgError] = useState(false);
 
-  const baseUrl = pickPictureUrl(entity, hass);
-  const url = baseUrl ? `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}t=${bust}` : null;
+  const baseUrl = pickSnapshotUrl(entity, hass);
+  const url = baseUrl ? `${baseUrl}${baseUrl.includes("?") ? "&" : "?"}_=${bust}` : null;
 
   useEffect(() => {
     setImgError(false);
-  }, [baseUrl]);
+  }, [baseUrl, bust]);
+
+  useEffect(() => {
+    if (unavailable || !baseUrl) return;
+    const id = window.setInterval(() => setBust(Date.now()), REFRESH_MS);
+    return () => window.clearInterval(id);
+  }, [unavailable, baseUrl]);
 
   return (
     <div class="n-card n-card--camera" data-on={isLive ? "true" : "false"}>
