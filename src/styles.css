@@ -3272,6 +3272,16 @@
   line-height: 1.4;
 }
 
+.nido-notification-item__image {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  margin-top: 10px;
+  background: var(--bg-inset);
+}
+
 .nido-notification-item__dismiss {
   position: absolute;
   top: 8px;

@@ -8,6 +8,19 @@ export interface NidoNotification {
   message: string;
   type: "info" | "warning" | "success";
   timestamp: string;
+  image?: string;
+}
+
+function hassBase(hass: HassObject): string {
+  const base = (hass as { hassUrl?: (path?: string) => string }).hassUrl?.("") ?? "";
+  return base.replace(/\/$/, "");
+}
+
+function resolveImageUrl(image: string | undefined, hass: HassObject): string | null {
+  if (!image) return null;
+  if (/^https?:\/\//i.test(image)) return image;
+  if (image.startsWith("/")) return `${hassBase(hass)}${image}`;
+  return image;
 }
 
 interface NotificationPanelProps {
@@ -101,6 +114,8 @@ export function NotificationPanel({ hass, notifications, onClose }: Notification
                 const date = new Date(n.timestamp);
                 const timeStr = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
+                const imageUrl = resolveImageUrl(n.image, hass);
+
                 return (
                   <div key={n.id} class={`nido-notification-item ${colorClass}`}>
                     <div class="nido-notification-item__icon">
@@ -112,6 +127,15 @@ export function NotificationPanel({ hass, notifications, onClose }: Notification
                         <span class="nido-notification-item__time">{timeStr}</span>
                       </div>
                       <p class="nido-notification-item__message">{n.message}</p>
+                      {imageUrl && (
+                        <img
+                          class="nido-notification-item__image"
+                          src={imageUrl}
+                          alt=""
+                          loading="lazy"
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                        />
+                      )}
                     </div>
                     <button
                       type="button"
