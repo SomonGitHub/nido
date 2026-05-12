@@ -2,6 +2,7 @@ import { useState, useEffect } from "preact/hooks";
 import type { HassObject, HassEntity } from "../types";
 import { IconAlertTriangle, IconUmbrella, IconSunHigh, IconX } from "../icons";
 import { describeCondition } from "../widgets/weather";
+import { useOverlay } from "../core/use-overlay";
 
 interface WeatherPanelProps {
   hass: HassObject;
@@ -47,6 +48,7 @@ function parseMeteoFranceSensors(hass: HassObject, weatherEntityId: string) {
 }
 
 export function WeatherPanel({ hass, weatherEntityId, onClose }: WeatherPanelProps) {
+  const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const [daily, setDaily] = useState<ForecastItem[]>([]);
   const [hourly, setHourly] = useState<ForecastItem[]>([]);
 
@@ -120,7 +122,13 @@ export function WeatherPanel({ hass, weatherEntityId, onClose }: WeatherPanelPro
   return (
     <div class="nido-weather-panel">
       <div class="nido-weather-panel__backdrop" onClick={onClose} />
-      <div class="nido-weather-panel__content">
+      <div
+        ref={overlayRef}
+        class="nido-weather-panel__content"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Météo détaillée"
+      >
         <header class="nido-weather-panel__header">
           <h2>Météo Détaillée</h2>
           <button type="button" class="nido-weather-panel__close" onClick={onClose} aria-label="Fermer">

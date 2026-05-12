@@ -3,6 +3,7 @@ import Hls from "hls.js";
 import type { HassObject } from "../types";
 import { IconX } from "../icons";
 import { loadCameraLiveMap, saveCameraLiveMapping } from "../core/storage";
+import { useOverlay } from "../core/use-overlay";
 
 interface CameraPanelProps {
   hass: HassObject;
@@ -180,13 +181,7 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
       .sort();
   }, [hass.states, entityId]);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  const overlayRef = useOverlay<HTMLDivElement>(onClose);
 
   useEffect(() => {
     let cancelled = false;
@@ -314,7 +309,14 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
   return (
     <div class="nido-camera-panel" onClick={onClose}>
       <div class="nido-camera-panel__backdrop" />
-      <div class="nido-camera-panel__content" onClick={(e) => e.stopPropagation()}>
+      <div
+        ref={overlayRef}
+        class="nido-camera-panel__content"
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div class="nido-camera-panel__header">
           <h2>{title}</h2>
           <button

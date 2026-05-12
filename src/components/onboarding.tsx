@@ -3,6 +3,7 @@ import type { JSX } from "preact";
 import type { ResolvedEntity } from "../core/entities";
 import type { Area } from "../core/areas";
 import type { HassObject } from "../types";
+import { useOverlay } from "../core/use-overlay";
 import {
   THEMES,
   type ThemeName,
@@ -125,6 +126,7 @@ export function Onboarding(props: OnboardingProps) {
     onDone,
   } = props;
 
+  const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const [step, setStep] = useState<0 | 1 | 2 | 3 | 4>(0);
   const [theme, setTheme] = useState<ThemeName>(initialTheme);
   const [mode, setMode] = useState<ThemeMode>(initialMode);
@@ -232,7 +234,7 @@ export function Onboarding(props: OnboardingProps) {
   };
 
   return (
-    <div class="n-ob" role="dialog" aria-modal="true" aria-label="Configuration de Nido">
+    <div ref={overlayRef} class="n-ob" role="dialog" aria-modal="true" aria-label="Configuration de Nido">
       <div class="n-ob__shell">
         <header class="n-ob__header">
           <div class="n-ob__brand">

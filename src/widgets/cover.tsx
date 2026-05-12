@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { ResolvedEntity } from "../core/entities";
-import { IconBlind } from "../icons";
+import { IconBlind, IconChevronUp, IconChevronDown, IconStop } from "../icons";
 
 interface CoverWidgetProps {
   hass: HassObject;
@@ -79,14 +79,33 @@ export function CoverWidget({ hass, entity, roomLabel, hero = false }: CoverWidg
             style={{ '--val': `${pos}%` } as any}
             onInput={(e) => setPosition(Number((e.target as HTMLInputElement).value))}
           />
-          <div style={{ marginTop: '12px', display: 'flex', justifyContent: 'flex-end' }}>
+          <div class="n-cover__actions">
             <button
               type="button"
               class="n-pill-btn"
-              style={{ fontSize: '12px', padding: '6px 12px' }}
-              onClick={() => setPosition(pos !== 0 ? 0 : 100)}
+              aria-label="Monter"
+              title="Monter"
+              onClick={() => hass.callService("cover", "open_cover", { entity_id: entity.entity_id })}
             >
-              {pos !== 0 ? "Fermer" : "Ouvrir"}
+              <IconChevronUp size={18} />
+            </button>
+            <button
+              type="button"
+              class="n-pill-btn"
+              aria-label="Stop"
+              title="Stop"
+              onClick={() => hass.callService("cover", "stop_cover", { entity_id: entity.entity_id })}
+            >
+              <IconStop size={18} />
+            </button>
+            <button
+              type="button"
+              class="n-pill-btn"
+              aria-label="Descendre"
+              title="Descendre"
+              onClick={() => hass.callService("cover", "close_cover", { entity_id: entity.entity_id })}
+            >
+              <IconChevronDown size={18} />
             </button>
           </div>
         </div>

@@ -63,6 +63,24 @@ export const IconChevronRight = (p: P) => (
   </Icon>
 );
 
+export const IconChevronUp = (p: P) => (
+  <Icon {...p}>
+    <path d="m6 15 6-6 6 6" />
+  </Icon>
+);
+
+export const IconChevronDown = (p: P) => (
+  <Icon {...p}>
+    <path d="m6 9 6 6 6-6" />
+  </Icon>
+);
+
+export const IconStop = (p: P) => (
+  <Icon {...p}>
+    <rect x="6" y="6" width="12" height="12" rx="1.5" />
+  </Icon>
+);
+
 export const IconBlind = (p: P) => (
   <Icon {...p}>
     <rect x="4" y="3" width="16" height="2" rx="1" />

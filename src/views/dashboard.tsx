@@ -8,29 +8,16 @@ import {
   type ResolvedEntity,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
-import { LightWidget } from "../widgets/light";
-import { CoverWidget } from "../widgets/cover";
-import { SwitchWidget } from "../widgets/switch";
-import { BinarySensorWidget } from "../widgets/binary-sensor";
-import { ClimateWidget } from "../widgets/climate";
-import { LockWidget } from "../widgets/lock";
-import { VacuumWidget } from "../widgets/vacuum";
-import { SensorWidget } from "../widgets/sensor";
-import { MediaPlayerWidget } from "../widgets/media-player";
-import { AlarmWidget } from "../widgets/alarm";
-import { CameraWidget } from "../widgets/camera";
-import { FanWidget } from "../widgets/fan";
-import { SceneScriptWidget } from "../widgets/scene-script";
-import { WeatherWidget, WeatherPill } from "../widgets/weather";
+import { WeatherPill } from "../widgets/weather";
 import { WeatherPanel } from "../components/weather-panel";
 import { IconSettings, IconChevronRight, IconBell, IconLightOn, IconNotebook } from "../icons";
 import { pickAreaIcon } from "./shared";
+import { renderWidget, SUPPORTED_DOMAINS } from "./render-widget";
 import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
 import { playNotificationSound } from "../core/notification-sound";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 import { LightsPanel } from "../components/lights-panel";
 import { ShoppingPanel } from "../components/shopping-panel";
-import { CalendarWidget } from "../widgets/calendar";
 import { PowerGaugeWidget } from "../widgets/power-gauge";
 import { POWER_ENTITY_ID } from "./energy";
 
@@ -48,79 +35,11 @@ interface DashboardProps {
   onReorderRooms: (ids: string[]) => void;
 }
 
-const SUPPORTED_DOMAINS = new Set([
-  "light",
-  "cover",
-  "switch",
-  "binary_sensor",
-  "climate",
-  "lock",
-  "vacuum",
-  "sensor",
-  "media_player",
-  "alarm_control_panel",
-  "camera",
-  "fan",
-  "scene",
-  "script",
-  "weather",
-  "calendar",
-]);
-
 function greetingFor(hour: number): { greeting: string; sub: string } {
   if (hour >= 5 && hour < 12) return { greeting: "Bonjour", sub: "La maison se réveille doucement" };
   if (hour >= 12 && hour < 18) return { greeting: "Bel après-midi", sub: "Tout va bien à la maison" };
   if (hour >= 18 && hour < 22) return { greeting: "Bonsoir", sub: "Tout le monde est rentré" };
   return { greeting: "Bonne nuit", sub: "La maison veille sur vous" };
-}
-
-interface RenderCtx {
-  hass: HassObject;
-  areaName: string;
-  hero: boolean;
-  variant: 1 | 2 | 3 | 4;
-  calendarEntities: ResolvedEntity[];
-}
-
-function renderWidget(entity: ResolvedEntity, ctx: RenderCtx) {
-  const common = { hass: ctx.hass, entity, roomLabel: ctx.areaName };
-  switch (entity.domain) {
-    case "light":
-      return (
-        <LightWidget key={entity.entity_id} {...common} hero={ctx.hero} breatheVariant={ctx.variant} />
-      );
-    case "cover":
-      return <CoverWidget key={entity.entity_id} {...common} hero={ctx.hero} />;
-    case "switch":
-      return <SwitchWidget key={entity.entity_id} {...common} hero={ctx.hero} breatheVariant={ctx.variant} />;
-    case "binary_sensor":
-      return <BinarySensorWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} hero={ctx.hero} />;
-    case "climate":
-      return <ClimateWidget key={entity.entity_id} {...common} hero={ctx.hero} breatheVariant={ctx.variant} />;
-    case "lock":
-      return <LockWidget key={entity.entity_id} {...common} />;
-    case "vacuum":
-      return <VacuumWidget key={entity.entity_id} {...common} breatheVariant={ctx.variant} />;
-    case "sensor":
-      return <SensorWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} />;
-    case "media_player":
-      return <MediaPlayerWidget key={entity.entity_id} {...common} hero={ctx.hero} breatheVariant={ctx.variant} />;
-    case "alarm_control_panel":
-      return <AlarmWidget key={entity.entity_id} {...common} />;
-    case "camera":
-      return <CameraWidget key={entity.entity_id} {...common} />;
-    case "fan":
-      return <FanWidget key={entity.entity_id} {...common} breatheVariant={ctx.variant} />;
-    case "scene":
-    case "script":
-      return <SceneScriptWidget key={entity.entity_id} {...common} />;
-    case "weather":
-      return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={ctx.areaName} />;
-    case "calendar":
-      return <CalendarWidget key={entity.entity_id} hass={ctx.hass} entity={entity} roomLabel={ctx.areaName} hero={ctx.hero} calendarEntities={ctx.calendarEntities} />;
-    default:
-      return null;
-  }
 }
 
 interface PersonPresence {

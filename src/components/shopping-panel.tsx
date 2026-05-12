@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "preact/hooks";
 import type { HassObject } from "../types";
 import { IconX } from "../icons";
+import { useOverlay } from "../core/use-overlay";
 
 interface ShoppingPanelProps {
   hass: HassObject;
@@ -39,6 +40,7 @@ function smoothPath(ctx: CanvasRenderingContext2D, points: [number, number][], s
 }
 
 export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: ShoppingPanelProps) {
+  const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
@@ -310,7 +312,13 @@ export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: Shoppin
   return (
     <div class="nido-shopping-panel">
       <div class="nido-shopping-panel__backdrop" onClick={onClose} />
-      <div class="nido-shopping-panel__content">
+      <div
+        ref={overlayRef}
+        class="nido-shopping-panel__content"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Bloc note"
+      >
         <header class="nido-shopping-panel__header">
           <h2>Bloc note</h2>
           <button

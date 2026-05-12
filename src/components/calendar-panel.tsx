@@ -7,6 +7,7 @@ import {
   parseHassEvents,
   type CalendarEvent,
 } from "../core/calendar-events";
+import { useOverlay } from "../core/use-overlay";
 
 interface CalendarPanelProps {
   hass: HassObject;
@@ -17,6 +18,7 @@ interface CalendarPanelProps {
 const DAY_FR = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
 
 export function CalendarPanel({ hass, calendarEntities, onClose }: CalendarPanelProps) {
+  const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const [events, setEvents] = useState<CalendarEvent[] | null>(null);
   const today = new Date();
 
@@ -106,7 +108,13 @@ export function CalendarPanel({ hass, calendarEntities, onClose }: CalendarPanel
   return (
     <div class="nido-notification-panel">
       <div class="nido-notification-panel__backdrop" onClick={onClose} />
-      <div class="nido-notification-panel__content">
+      <div
+        ref={overlayRef}
+        class="nido-notification-panel__content"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Agenda"
+      >
 
         <header class="nido-notification-panel__header">
           <div class="nido-lights-panel__title">

@@ -7,23 +7,9 @@ import {
   type ResolvedEntity,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
-import { LightWidget } from "../widgets/light";
-import { CoverWidget } from "../widgets/cover";
-import { SwitchWidget } from "../widgets/switch";
-import { BinarySensorWidget } from "../widgets/binary-sensor";
-import { ClimateWidget } from "../widgets/climate";
-import { LockWidget } from "../widgets/lock";
-import { VacuumWidget } from "../widgets/vacuum";
-import { SensorWidget } from "../widgets/sensor";
-import { MediaPlayerWidget } from "../widgets/media-player";
-import { AlarmWidget } from "../widgets/alarm";
-import { CameraWidget } from "../widgets/camera";
-import { FanWidget } from "../widgets/fan";
-import { SceneScriptWidget } from "../widgets/scene-script";
-import { WeatherWidget } from "../widgets/weather";
-import { CalendarWidget } from "../widgets/calendar";
 import { IconChevronLeft, IconMore } from "../icons";
 import { pickAreaIcon, DOMAIN_LABEL } from "./shared";
+import { renderWidget } from "./render-widget";
 
 interface RoomDetailProps {
   hass: HassObject;
@@ -32,45 +18,6 @@ interface RoomDetailProps {
   entitiesOrder: string[];
   onBack: () => void;
   onReorderEntities: (ids: string[]) => void;
-}
-
-function renderWidget(entity: ResolvedEntity, hass: HassObject, areaName: string, variant: 1 | 2 | 3 | 4, calendarEntities: ResolvedEntity[], hero = false) {
-  const common = { hass, entity, roomLabel: areaName };
-  switch (entity.domain) {
-    case "light":
-      return <LightWidget key={entity.entity_id} {...common} hero={hero} breatheVariant={variant} />;
-    case "cover":
-      return <CoverWidget key={entity.entity_id} {...common} hero={hero} />;
-    case "switch":
-      return <SwitchWidget key={entity.entity_id} {...common} hero={hero} breatheVariant={variant} />;
-    case "binary_sensor":
-      return <BinarySensorWidget key={entity.entity_id} entity={entity} roomLabel={areaName} hero={hero} />;
-    case "climate":
-      return <ClimateWidget key={entity.entity_id} {...common} hero={hero} breatheVariant={variant} />;
-    case "lock":
-      return <LockWidget key={entity.entity_id} {...common} />;
-    case "vacuum":
-      return <VacuumWidget key={entity.entity_id} {...common} breatheVariant={variant} />;
-    case "sensor":
-      return <SensorWidget key={entity.entity_id} entity={entity} roomLabel={areaName} />;
-    case "media_player":
-      return <MediaPlayerWidget key={entity.entity_id} {...common} breatheVariant={variant} />;
-    case "alarm_control_panel":
-      return <AlarmWidget key={entity.entity_id} {...common} />;
-    case "camera":
-      return <CameraWidget key={entity.entity_id} {...common} />;
-    case "fan":
-      return <FanWidget key={entity.entity_id} {...common} breatheVariant={variant} />;
-    case "scene":
-    case "script":
-      return <SceneScriptWidget key={entity.entity_id} {...common} />;
-    case "weather":
-      return <WeatherWidget key={entity.entity_id} entity={entity} roomLabel={areaName} />;
-    case "calendar":
-      return <CalendarWidget key={entity.entity_id} hass={hass} entity={entity} roomLabel={areaName} calendarEntities={calendarEntities} />;
-    default:
-      return null;
-  }
 }
 
 export function RoomDetail({
@@ -245,7 +192,7 @@ export function RoomDetail({
                 data-hero={isHero ? "true" : "false"}
                 {...drag.itemPropsFor(e.entity_id)}
               >
-                {renderWidget(e, hass, area.name, variant, calendarEntities, isHero)}
+                {renderWidget(e, { hass, areaName: area.name, hero: isHero, variant, calendarEntities })}
               </div>
             );
           })}

@@ -1,5 +1,6 @@
 import { IconBell, IconX, IconInfo, IconAlertTriangle, IconSuccess } from "../icons";
 import type { HassObject } from "../types";
+import { useOverlay } from "../core/use-overlay";
 
 export interface NidoNotification {
   id: string;
@@ -16,6 +17,7 @@ interface NotificationPanelProps {
 }
 
 export function NotificationPanel({ hass, notifications, onClose }: NotificationPanelProps) {
+  const overlayRef = useOverlay<HTMLDivElement>(onClose);
 
   // Fonction de suppression améliorée avec gestion d'erreur
   const dismissNotification = async (id: string) => {
@@ -52,7 +54,13 @@ export function NotificationPanel({ hass, notifications, onClose }: Notification
   return (
     <div class="nido-notification-panel">
       <div class="nido-notification-panel__backdrop" onClick={onClose} />
-      <div class="nido-notification-panel__content">
+      <div
+        ref={overlayRef}
+        class="nido-notification-panel__content"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Notifications"
+      >
         <header class="nido-notification-panel__header">
           <div class="nido-notification-panel__title-group">
             <h2>Notifications</h2>

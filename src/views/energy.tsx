@@ -9,8 +9,8 @@ import { Hourly24hWidget } from "../widgets/hourly-24h";
 import { Top5ConsumersWidget } from "../widgets/top-consumers";
 
 export const POWER_ENTITY_ID = "sensor.consommation_electrique_sinsts";
-export const DAILY_KWH_ENTITY_ID = "sensor.conso_daily";
-export const DAILY_COST_ENTITY_ID = "sensor.conso";
+export const DAILY_KWH_ENTITY_ID = "sensor.conso";
+export const DAILY_COST_ENTITY_ID = "sensor.conso_daily";
 export const PRICE_KWH_ENTITY_ID = "select.conso_hebdomadaire_2_en_eur";
 const SUBSCRIBED_KVA = 9;
 
@@ -172,7 +172,11 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
                 <h2 class="is-accent">Maintenant</h2>
               </div>
               <div class="nido-energy__live-grid">
-                <PowerGaugeWidget hass={hass} powerEntityId={POWER_ENTITY_ID} />
+                <PowerGaugeWidget
+                  hass={hass}
+                  powerEntityId={POWER_ENTITY_ID}
+                  max={SUBSCRIBED_KVA * 1000}
+                />
                 <SubscriptionGuardWidget
                   currentPower={currentPower}
                   subscribedKva={SUBSCRIBED_KVA}

@@ -3,6 +3,7 @@ import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
 import type { ResolvedEntity } from "../core/entities";
 import { IconLightOn, IconX } from "../icons";
+import { useOverlay } from "../core/use-overlay";
 
 interface LightsPanelProps {
   hass: HassObject;
@@ -61,6 +62,7 @@ function LightRow({ hass, entity, roomName }: LightRowProps) {
 }
 
 export function LightsPanel({ hass, lights, areas, onClose }: LightsPanelProps) {
+  const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const [pendingAll, setPendingAll] = useState(false);
   const areaMap = new Map(areas.map((a) => [a.area_id, a.name]));
 
@@ -80,7 +82,13 @@ export function LightsPanel({ hass, lights, areas, onClose }: LightsPanelProps) 
   return (
     <div class="nido-lights-panel">
       <div class="nido-notification-panel__backdrop" onClick={onClose} />
-      <div class="nido-notification-panel__content">
+      <div
+        ref={overlayRef}
+        class="nido-notification-panel__content"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Lumières allumées"
+      >
         <header class="nido-notification-panel__header">
           <div class="nido-lights-panel__title">
             <span>Lumières allumées</span>

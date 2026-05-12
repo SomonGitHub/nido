@@ -636,6 +636,17 @@
   color: var(--accent-ink);
 }
 
+.n-cover__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.n-cover__actions .n-pill-btn {
+  flex: 1 1 0;
+  padding: 8px 0;
+  min-width: 0;
+}
+
 /* Sensor — large readout */
 .n-sensor__readout {
   display: flex;
