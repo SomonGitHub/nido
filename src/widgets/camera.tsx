@@ -10,13 +10,6 @@ interface CameraWidgetProps {
   roomLabel?: string;
 }
 
-const STATE_LABEL: Record<string, string> = {
-  recording: "Enregistre",
-  streaming: "En direct",
-  idle: "En veille",
-  unavailable: "Indisponible",
-};
-
 function hassBase(hass: HassObject): string {
   const base = (hass as { hassUrl?: (path?: string) => string }).hassUrl?.("") ?? "";
   return base.replace(/\/$/, "");
@@ -84,23 +77,8 @@ export function CameraWidget({ hass, entity, roomLabel }: CameraWidgetProps) {
         {!unavailable && <span class="n-camera__play" aria-hidden="true">▶</span>}
       </button>
 
-      <div class="n-card__head n-card__head--inline">
-        <div class="n-icon-bubble">
-          <IconCamera size={18} />
-        </div>
-        <button
-          type="button"
-          class="n-pill-btn"
-          disabled={unavailable || !url}
-          onClick={() => { setBust(Date.now()); setImgError(false); }}
-        >
-          Rafraîchir
-        </button>
-      </div>
-
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}
       <div class="n-title n-title--sm">{entity.friendly_name}</div>
-      <div class="n-binary-state">{STATE_LABEL[state] ?? state}</div>
 
       {showLive && (
         <CameraPanel

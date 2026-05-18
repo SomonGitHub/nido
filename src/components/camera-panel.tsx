@@ -28,6 +28,13 @@ function resolveUrl(hass: HassObject, path: string): string {
   return base.replace(/\/$/, "") + path;
 }
 
+function buildMjpegUrl(hass: HassObject, entityId: string): string | null {
+  const token = hass.states[entityId]?.attributes?.access_token as string | undefined;
+  if (!token) return null;
+  const base = (hass as { hassUrl?: (p?: string) => string }).hassUrl?.("") ?? "";
+  return `${base.replace(/\/$/, "")}/api/camera_proxy_stream/${entityId}?token=${token}`;
+}
+
 interface WebRTCSession {
   pc: RTCPeerConnection;
   unsubscribe: () => void;
@@ -174,6 +181,7 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
   const [streamEntity, setStreamEntity] = useState<string | null>(null);
   const [needsPicker, setNeedsPicker] = useState(false);
   const [pickerSelection, setPickerSelection] = useState<string>("");
+  const [mjpegUrl, setMjpegUrl] = useState<string | null>(null);
 
   const cameraOptions = useMemo(() => {
     return Object.keys(hass.states)
@@ -216,6 +224,15 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
     setError(null);
     setLoading(true);
     setNeedsPicker(false);
+    setMjpegUrl(null);
+
+    function tryMjpeg(): boolean {
+      const url = buildMjpegUrl(hass, streamEntity!);
+      if (!url) return false;
+      setMjpegUrl(url);
+      setLoading(false);
+      return true;
+    }
 
     async function tryHls(): Promise<void> {
       const res = await hass.callWS<StreamResponse>({
@@ -264,7 +281,8 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
             return;
           } catch (rtcErr) {
             if (cancelled) return;
-            console.error("[Nido] WebRTC also failed:", rtcErr);
+            console.warn("[Nido] WebRTC failed, trying MJPEG:", rtcErr);
+            if (tryMjpeg()) return;
             const err = rtcErr as { message?: string; code?: string };
             const msg = err?.message || err?.code || String(rtcErr);
             setError(`Live indisponible : ${msg}`);
@@ -273,6 +291,8 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
             return;
           }
         }
+        console.warn("[Nido] HLS failed, trying MJPEG:", hlsErr);
+        if (tryMjpeg()) return;
         const err = hlsErr as { message?: string; code?: string };
         const msg = err?.message || err?.code || String(hlsErr);
         console.error("[Nido] camera/stream failed:", hlsErr);
@@ -329,14 +349,27 @@ export function CameraPanel({ hass, entityId, title, onClose }: CameraPanelProps
           </button>
         </div>
         <div class="nido-camera-panel__body">
-          <video
-            ref={videoRef}
-            class="nido-camera-panel__video"
-            autoplay
-            playsInline
-            muted
-            controls
-          />
+          {mjpegUrl ? (
+            <img
+              class="nido-camera-panel__video"
+              src={mjpegUrl}
+              alt={title}
+              onError={() => {
+                setMjpegUrl(null);
+                setError("Live indisponible : flux MJPEG injoignable");
+                setNeedsPicker(true);
+              }}
+            />
+          ) : (
+            <video
+              ref={videoRef}
+              class="nido-camera-panel__video"
+              autoplay
+              playsInline
+              muted
+              controls
+            />
+          )}
           {loading && !error && (
             <div class="nido-camera-panel__overlay">Chargement du live…</div>
           )}

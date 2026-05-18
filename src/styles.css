@@ -1279,6 +1279,78 @@
   letter-spacing: 0.04em;
 }
 
+/* Calendar widget — agenda layout (3 events) */
+.nido-cal-widget--agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nido-cal-widget__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cal-color, var(--ink-3));
+}
+.nido-cal-widget__head .n-eyebrow {
+  color: var(--ink-3);
+}
+.nido-cal-widget__placeholder {
+  padding-left: 12px;
+  border-left: 2px solid color-mix(in srgb, var(--cal-color, var(--ink-3)) 35%, transparent);
+}
+.nido-cal-widget__agenda {
+  list-style: none;
+  margin: 0;
+  padding: 2px 0 2px 12px;
+  border-left: 2px solid var(--cal-color, var(--ink-3));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nido-cal-widget__agenda-row {
+  display: grid;
+  grid-template-columns: 48px auto 1fr;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-1);
+  line-height: 1.25;
+}
+.nido-cal-widget__agenda-day {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--cal-color, var(--ink-3));
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nido-cal-widget__agenda-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.nido-cal-widget__agenda-title {
+  color: var(--ink-1);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.n-card[data-hero="true"] .nido-cal-widget__agenda {
+  gap: 10px;
+}
+.n-card[data-hero="true"] .nido-cal-widget__agenda-row {
+  font-size: 14px;
+  grid-template-columns: 46px auto 1fr;
+}
+.n-card[data-hero="true"] .nido-cal-widget__agenda-day,
+.n-card[data-hero="true"] .nido-cal-widget__agenda-time {
+  font-size: 11px;
+}
+
 /* ── Calendar panel ── */
 .nido-cal-panel__legend {
   display: flex;

@@ -219,7 +219,7 @@
           refresh();
         },
         callWS: async (msg) => {
-          if (msg.type === "calendar/get_events") {
+          if (msg.type === "calendar/events" || msg.type === "calendar/get_events") {
             const today = new Date();
             const dt = (offset, time) => {
               const d = new Date(today); d.setDate(d.getDate() + offset);
@@ -247,6 +247,9 @@
                 { summary: "Call client Nexus",      start: { dateTime: dt(5,"15:30") }, end: { dateTime: dt(5,"16:30") } },
               ]},
             };
+            if (msg.type === "calendar/events" && msg.entity_id) {
+              return allEvents[msg.entity_id]?.events ?? [];
+            }
             const result = {};
             for (const id of (msg.entity_ids || [])) { if (allEvents[id]) result[id] = allEvents[id]; }
             return result;
