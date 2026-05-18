@@ -1,0 +1,88 @@
+blueprint:
+  name: Nido — Envoyer une notification
+  description: >
+    Pousse une notification dans le panneau Nido (sensor.nido_notifications).
+    Peut optionnellement joindre un snapshot de caméra qui sera affiché dans
+    la notification.
+  domain: script
+  input:
+    title:
+      name: Titre
+      description: Titre court de la notification.
+      selector:
+        text: {}
+    message:
+      name: Message
+      description: Corps du message.
+      selector:
+        text:
+          multiline: true
+    type:
+      name: Type
+      description: Niveau (couleur + icône dans Nido).
+      default: info
+      selector:
+        select:
+          options:
+            - label: Info
+              value: info
+            - label: Avertissement
+              value: warning
+            - label: Succès
+              value: success
+    camera_entity:
+      name: Caméra (optionnel)
+      description: Caméra dont un snapshot sera joint. Laisser vide sinon.
+      default: ""
+      selector:
+        entity:
+          filter:
+            - domain: camera
+    image_url:
+      name: Image (optionnel)
+      description: >
+        URL ou chemin d'une image existante (ex. /local/foo.jpg ou
+        https://…). Ignoré si une caméra est sélectionnée.
+      default: ""
+      selector:
+        text: {}
+
+mode: parallel
+max: 10
+
+variables:
+  in_title: !input title
+  in_message: !input message
+  in_type: !input type
+  in_camera: !input camera_entity
+  in_image: !input image_url
+  notif_id: "{{ now().timestamp() | int }}-{{ range(1000, 9999) | random }}"
+
+sequence:
+  - alias: Capturer le snapshot si une caméra est fournie
+    if:
+      - condition: template
+        value_template: "{{ in_camera | default('') | length > 0 }}"
+    then:
+      - service: camera.snapshot
+        target:
+          entity_id: "{{ in_camera }}"
+        data:
+          filename: "/config/www/nido-snapshots/{{ notif_id }}.jpg"
+
+  - alias: Pousser la notification vers Nido
+    event: nido_notification_event
+    event_data:
+      action: add
+      notification:
+        id: "{{ notif_id }}"
+        title: "{{ in_title }}"
+        message: "{{ in_message }}"
+        type: "{{ in_type }}"
+        timestamp: "{{ now().isoformat() }}"
+        image: >-
+          {% if in_camera | default('') | length > 0 %}
+          /local/nido-snapshots/{{ notif_id }}.jpg
+          {% else %}
+          {{ in_image }}
+          {% endif %}

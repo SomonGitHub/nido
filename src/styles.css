@@ -828,8 +828,8 @@
   padding-left: 18px;
   padding-right: 18px;
 }
-.n-card--camera .n-card__head { padding-top: 14px; }
-.n-card--camera .n-binary-state { padding-bottom: 16px; }
+.n-card--camera .n-eyebrow { padding-top: 14px; }
+.n-card--camera .n-title { padding-bottom: 9px; }
 .n-card__head--inline { margin-bottom: 0; }
 .n-camera__frame {
   position: relative;
@@ -3804,17 +3804,33 @@
 }
 
 .nido-room--energy {
+  margin-top: 0;
+}
+.nido-energy-row {
   margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.nido-energy-row > section {
+  margin-top: 0;
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .nido-energy-row {
+    grid-template-columns: 1fr;
+  }
 }
 .nido-energy-summary {
   display: grid;
-  grid-template-columns: minmax(320px, 480px);
+  grid-template-columns: 1fr;
   gap: 16px;
 }
-@media (max-width: 720px) {
-  .nido-energy-summary {
-    grid-template-columns: 1fr;
-  }
+.nido-kids-summary {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 /* ─── Power gauge widget ─── */
@@ -4251,4 +4267,375 @@
 .n-top-consumers__empty {
   padding: 24px 0;
   text-align: center;
+}
+
+/* ─── Kids card ─── */
+.n-kids-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.n-kids-card__deco {
+  position: absolute;
+  top: -20px;
+  right: -40px;
+  opacity: 0.18;
+  color: var(--accent-ink);
+  pointer-events: none;
+}
+.n-kids-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+.n-kids-card__head-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.n-kids-card__head-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.n-kids-card__star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--accent-ink);
+}
+.n-kids-card__empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+.n-kids-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+.n-kids-card__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.n-kids-card__avatar {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+.n-kids-card__crown {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  font-size: 14px;
+  color: #f6c451;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.n-kids-card__row-body {
+  flex: 1;
+  min-width: 0;
+}
+.n-kids-card__row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.n-kids-card__name {
+  font-weight: 600;
+  color: var(--accent-ink);
+  font-size: 14px;
+}
+.n-kids-card__total {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--accent-ink);
+  line-height: 1;
+}
+.n-kids-card__total-unit {
+  font-weight: 500;
+  font-size: 11px;
+  margin-left: 3px;
+  opacity: 0.7;
+}
+.n-kids-card__bar {
+  margin-top: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+.n-kids-card__bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+  min-width: 6px;
+}
+.n-kids-card__last {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--accent-ink);
+  opacity: 0.65;
+}
+
+/* ─── Kids panel (modal) ─── */
+.nido-kids-panel {
+  display: flex;
+  flex-direction: column;
+}
+.nido-kids-panel__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nido-kids-panel__body {
+  padding: 20px 24px 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+.nido-kids-panel__empty {
+  padding: 32px 0;
+  text-align: center;
+}
+.nido-kids-panel__tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+.nido-kids-panel__tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-inset);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--ink-2);
+  flex: 0 0 auto;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.nido-kids-panel__tab.is-active {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.nido-kids-panel__tab-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  font-size: 12px;
+}
+.nido-kids-panel__tab-name {
+  font-weight: 600;
+}
+.nido-kids-panel__tab-pts {
+  font-size: 11px;
+  opacity: 0.75;
+  font-weight: 600;
+}
+.nido-kids-panel__tasks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nido-kids-panel__task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--r-lg);
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+}
+.nido-kids-panel__task-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.nido-kids-panel__task-emoji {
+  font-size: 22px;
+  flex: 0 0 auto;
+}
+.nido-kids-panel__task-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.nido-kids-panel__task-label {
+  font-weight: 600;
+  color: var(--ink-1);
+  font-size: 14px;
+}
+.nido-kids-panel__task-label-static {
+  flex: 1;
+  font-weight: 500;
+  color: var(--ink-1);
+}
+.nido-kids-panel__task-pts {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.nido-kids-panel__task-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nido-kids-panel__task-count {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink-1);
+}
+.nido-kids-panel__btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
+}
+.nido-kids-panel__btn:hover:not(:disabled) {
+  background: var(--bg-inset);
+}
+.nido-kids-panel__btn:active:not(:disabled) {
+  transform: scale(0.94);
+}
+.nido-kids-panel__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.nido-kids-panel__btn--plus {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.nido-kids-panel__btn--plus:hover:not(:disabled) {
+  background: var(--accent);
+  filter: brightness(1.05);
+}
+.nido-kids-panel__btn--danger {
+  color: var(--danger, #c45d3f);
+}
+.nido-kids-panel__config {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.nido-kids-panel__section h3 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.nido-kids-panel__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nido-kids-panel__list-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.nido-kids-panel__input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.nido-kids-panel__input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.nido-kids-panel__add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.nido-kids-panel__points-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.nido-kids-panel__task-points-edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

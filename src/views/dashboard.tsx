@@ -20,6 +20,9 @@ import { LightsPanel } from "../components/lights-panel";
 import { ShoppingPanel } from "../components/shopping-panel";
 import { PowerGaugeWidget } from "../widgets/power-gauge";
 import { POWER_ENTITY_ID } from "./energy";
+import { KidsCard } from "../widgets/kids-card";
+import { KidsPanel } from "../components/kids-panel";
+import { loadKidsData, saveKidsData, type KidsData } from "../core/kids-points";
 
 interface DashboardProps {
   hass: HassObject;
@@ -239,6 +242,13 @@ export function Dashboard({
   const [showNotifications, setShowNotifications] = useState(false);
   const [showLightsPanel, setShowLightsPanel] = useState(false);
   const [showShoppingPanel, setShowShoppingPanel] = useState(false);
+  const [showKidsPanel, setShowKidsPanel] = useState(false);
+  const [kidsData, setKidsData] = useState<KidsData>(() => loadKidsData());
+
+  const updateKidsData = (next: KidsData) => {
+    setKidsData(next);
+    saveKidsData(next);
+  };
 
   const notifications = useMemo(() => {
     const sensor = hass.states["sensor.nido_notifications"];
@@ -466,20 +476,33 @@ export function Dashboard({
           <>
             {favoritesSection}
 
-            {showEnergy && (
-              <section class="nido-room nido-room--energy" key="__energy">
+            <div class="nido-energy-row">
+              {showEnergy && (
+                <section class="nido-room nido-room--energy" key="__energy">
+                  <div class="nido-section-title">
+                    <h2>Consommation en direct</h2>
+                  </div>
+                  <div class="nido-energy-summary">
+                    <PowerGaugeWidget
+                      hass={hass}
+                      powerEntityId={POWER_ENTITY_ID}
+                      onOpen={onOpenEnergy}
+                    />
+                  </div>
+                </section>
+              )}
+              <section class="nido-room nido-room--kids" key="__kids">
                 <div class="nido-section-title">
-                  <h2>Consommation en direct</h2>
+                  <h2>Enfants</h2>
                 </div>
-                <div class="nido-energy-summary">
-                  <PowerGaugeWidget
-                    hass={hass}
-                    powerEntityId={POWER_ENTITY_ID}
-                    onOpen={onOpenEnergy}
+                <div class="nido-kids-summary">
+                  <KidsCard
+                    data={kidsData}
+                    onOpen={() => setShowKidsPanel(true)}
                   />
                 </div>
               </section>
-            )}
+            </div>
 
             {populatedAreas.length > 0 && (
               <section class="nido-rooms-section">
@@ -549,6 +572,14 @@ export function Dashboard({
         <ShoppingPanel
           hass={hass}
           onClose={() => setShowShoppingPanel(false)}
+        />
+      )}
+
+      {showKidsPanel && (
+        <KidsPanel
+          data={kidsData}
+          onChange={updateKidsData}
+          onClose={() => setShowKidsPanel(false)}
         />
       )}
     </div>

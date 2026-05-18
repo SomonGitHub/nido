@@ -77,7 +77,7 @@ export function CalendarWidget({ hass, entity, roomLabel, hero = false, calendar
     const start = new Date(today);
     start.setHours(0, 0, 0, 0);
     const end = new Date(start);
-    end.setDate(end.getDate() + 14);
+    end.setDate(end.getDate() + 30);
 
     fetchCalendarEvents(hass, entity.entity_id, start, end).then((raw) => {
       if (cancelled) return;
