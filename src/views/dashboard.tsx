@@ -494,6 +494,7 @@ export function Dashboard({
                   <KidsCard
                     data={kidsData}
                     onOpen={() => setShowKidsPanel(true)}
+                    onChange={updateKidsData}
                   />
                 </div>
               </section>

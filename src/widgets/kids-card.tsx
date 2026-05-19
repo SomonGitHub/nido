@@ -1,10 +1,16 @@
 import { useMemo } from "preact/hooks";
-import { IconSettings, IconArrowUpRight } from "../icons";
-import { totalPoints, type KidsData } from "../core/kids-points";
+import { IconSettings, IconArrowUpRight, IconX } from "../icons";
+import {
+  totalPoints,
+  getActivePrivilege,
+  endPrivilege,
+  type KidsData,
+} from "../core/kids-points";
 
 interface KidsCardProps {
   data: KidsData;
   onOpen: () => void;
+  onChange?: (next: KidsData) => void;
 }
 
 function initials(name: string): string {
@@ -12,13 +18,14 @@ function initials(name: string): string {
   return parts.slice(0, 2).map((p) => p[0]?.toUpperCase() ?? "").join("");
 }
 
-export function KidsCard({ data, onOpen }: KidsCardProps) {
+export function KidsCard({ data, onOpen, onChange }: KidsCardProps) {
   const ranked = useMemo(() => {
     return data.kids
       .map((k) => ({
         kid: k,
         total: totalPoints(data, k.id),
         last: data.lastWeek[k.id] ?? 0,
+        activeInfo: getActivePrivilege(data, k.id),
       }))
       .sort((a, b) => b.total - a.total);
   }, [data]);
@@ -55,7 +62,7 @@ export function KidsCard({ data, onOpen }: KidsCardProps) {
 
       <div class="n-kids-card__head">
         <div class="n-kids-card__head-text">
-          <div class="n-eyebrow">Tableau de la semaine</div>
+          <div class="n-eyebrow">Tableau de points</div>
           <div class="n-title">Points enfants</div>
         </div>
         <div class="n-kids-card__head-actions">
@@ -83,7 +90,7 @@ export function KidsCard({ data, onOpen }: KidsCardProps) {
         </div>
       ) : (
         <ul class="n-kids-card__list">
-          {ranked.map(({ kid, total, last }, i) => {
+          {ranked.map(({ kid, total, last, activeInfo }, i) => {
             const pct = total > 0 ? Math.min(100, (total / maxTotal) * 100) : 0;
             return (
               <li class="n-kids-card__row" key={kid.id}>
@@ -111,8 +118,38 @@ export function KidsCard({ data, onOpen }: KidsCardProps) {
                       style={{ width: `${pct}%`, background: kid.color }}
                     />
                   </div>
-                  {last > 0 && (
-                    <div class="n-kids-card__last">Semaine dernière : {last} pts</div>
+                  {activeInfo && (
+                    <div
+                      class="n-kids-card__privilege"
+                      data-no-drag="true"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span class="n-kids-card__privilege-emoji" aria-hidden="true">
+                        {activeInfo.privilege.emoji ?? "🎁"}
+                      </span>
+                      <span class="n-kids-card__privilege-label">
+                        {activeInfo.privilege.label}
+                      </span>
+                      {onChange && (
+                        <button
+                          type="button"
+                          class="n-kids-card__privilege-end"
+                          aria-label="Terminer le privilège"
+                          title="Terminer le privilège"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onChange(endPrivilege(data, kid.id));
+                          }}
+                        >
+                          <IconX size={12} />
+                        </button>
+                      )}
+                    </div>
+                  )}
+                  {!activeInfo && last > 0 && (
+                    <div class="n-kids-card__last">
+                      Avant le privilège précédent : {last} pts
+                    </div>
                   )}
                 </div>
               </li>

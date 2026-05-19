@@ -4413,6 +4413,48 @@
   color: var(--accent-ink);
   opacity: 0.65;
 }
+.n-kids-card__privilege {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 600;
+  max-width: 100%;
+}
+.n-kids-card__privilege-emoji {
+  font-size: 14px;
+  line-height: 1;
+}
+.n-kids-card__privilege-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.n-kids-card__privilege-end {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.15);
+  color: var(--accent-ink);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.n-kids-card__privilege-end:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
 
 /* ─── Kids panel (modal) ─── */
 .nido-kids-panel {
@@ -4644,6 +4686,23 @@
   opacity: 0.85;
 }
 
+.nido-kids-panel__group-title {
+  margin: 4px 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+.nido-kids-panel__group-title:not(:first-of-type),
+.nido-kids-panel__tiles + .nido-kids-panel__group-title {
+  margin-top: 18px;
+}
+.nido-kids-panel__group-title--neg {
+  color: var(--kids-bad);
+}
 .nido-kids-panel__tiles {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -4829,6 +4888,102 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.nido-kids-panel__threshold-input {
+  width: 56px;
+  padding: 4px 6px;
+  border: 1px solid var(--bg-inset);
+  border-radius: 8px;
+  background: var(--bg-1);
+  color: var(--ink-1);
+  font-weight: 600;
+  text-align: center;
+  font-size: 13px;
+}
+.nido-kids-panel__threshold-input:focus {
+  outline: none;
+  border-color: var(--kids-accent);
+}
+.nido-kids-panel__threshold-input::-webkit-outer-spin-button,
+.nido-kids-panel__threshold-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.nido-kids-panel__threshold-input { -moz-appearance: textfield; }
+
+.nido-kids-panel__emoji-input {
+  width: 48px;
+  text-align: center;
+  font-size: 18px;
+  flex: 0 0 auto;
+}
+
+.nido-kids-panel__privilege {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--bg-inset);
+  border: 1px solid color-mix(in srgb, var(--kids-accent) 30%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nido-kids-panel__privilege--active {
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--kids-accent) 20%, var(--bg-inset)),
+    color-mix(in srgb, var(--kids-accent-2) 20%, var(--bg-inset)));
+  border-color: var(--kids-accent);
+}
+.nido-kids-panel__privilege-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nido-kids-panel__privilege-emoji {
+  font-size: 28px;
+  flex: 0 0 auto;
+}
+.nido-kids-panel__privilege-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.nido-kids-panel__privilege-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  font-weight: 700;
+}
+.nido-kids-panel__privilege-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink-1);
+}
+.nido-kids-panel__privilege-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+.nido-kids-panel__privilege-choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-inset);
+  color: var(--ink-1);
+  cursor: pointer;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+}
+.nido-kids-panel__privilege-choice:hover {
+  border-color: var(--kids-accent);
+  background: color-mix(in srgb, var(--kids-accent) 8%, var(--bg-card));
 }
 
 @keyframes nido-kids-wiggle {

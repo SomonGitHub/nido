@@ -3,6 +3,7 @@ import { IconX, IconPlus, IconMinus, IconSettings } from "../icons";
 import { useOverlay } from "../core/use-overlay";
 import {
   type KidsData,
+  type MedalThresholds,
   totalPoints,
   incrementTask,
   addKid,
@@ -12,9 +13,19 @@ import {
   addTask,
   removeTask,
   updateTaskPoints,
+  updateMedalThreshold,
   medalFor,
   nextMedal,
+  buildMedals,
+  DEFAULT_MEDAL_THRESHOLDS,
   KID_EMOJI_CHOICES,
+  isAtMaxMedal,
+  getActivePrivilege,
+  assignPrivilege,
+  endPrivilege,
+  addPrivilege,
+  removePrivilege,
+  renamePrivilege,
 } from "../core/kids-points";
 
 interface KidsPanelProps {
@@ -38,11 +49,23 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
   const [newTaskPoints, setNewTaskPoints] = useState(2);
   const [emojiPickerFor, setEmojiPickerFor] = useState<string | null>(null);
   const [popTaskId, setPopTaskId] = useState<string | null>(null);
+  const [privilegePickerFor, setPrivilegePickerFor] = useState<string | null>(null);
+  const [newPrivilegeLabel, setNewPrivilegeLabel] = useState("");
+  const [newPrivilegeEmoji, setNewPrivilegeEmoji] = useState("🎁");
 
   const selectedKid = data.kids.find((k) => k.id === selectedKidId) ?? data.kids[0];
+  const sortedTasks = [...data.tasks].sort((a, b) => {
+    const aNeg = a.points < 0 ? 1 : 0;
+    const bNeg = b.points < 0 ? 1 : 0;
+    if (aNeg !== bNeg) return aNeg - bNeg;
+    return a.label.localeCompare(b.label, "fr", { sensitivity: "base" });
+  });
+  const positiveTasks = sortedTasks.filter((t) => t.points >= 0);
+  const negativeTasks = sortedTasks.filter((t) => t.points < 0);
+  const thresholds = data.medalThresholds ?? DEFAULT_MEDAL_THRESHOLDS;
   const total = selectedKid ? totalPoints(data, selectedKid.id) : 0;
-  const medal = medalFor(total);
-  const next = nextMedal(total);
+  const medal = medalFor(total, thresholds);
+  const next = nextMedal(total, thresholds);
   const progress = next
     ? Math.min(100, Math.max(0, ((total - medal.min) / (next.min - medal.min)) * 100))
     : 100;
@@ -158,33 +181,161 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
                       </div>
                     </div>
 
-                    <div class="nido-kids-panel__tiles">
-                      {data.tasks.map((task) => {
-                        const count =
-                          data.completed[selectedKid.id]?.[task.id] ?? 0;
-                        const isNeg = task.points < 0;
+                    {(() => {
+                      const activeInfo = getActivePrivilege(data, selectedKid.id);
+                      const reachedMax = isAtMaxMedal(total, thresholds);
+                      if (activeInfo) {
                         return (
-                          <TaskTile
-                            key={task.id}
-                            emoji={task.emoji ?? (isNeg ? "⚠️" : "✨")}
-                            label={task.label}
-                            points={task.points}
-                            count={count}
-                            isPopping={popTaskId === task.id}
-                            onIncrement={() => {
-                              onChange(incrementTask(data, selectedKid.id, task.id, 1));
-                              setPopTaskId(task.id);
-                              window.setTimeout(() => setPopTaskId(null), 400);
-                            }}
-                            onDecrement={() => {
-                              if (count > 0) {
-                                onChange(incrementTask(data, selectedKid.id, task.id, -1));
-                              }
-                            }}
-                          />
+                          <div class="nido-kids-panel__privilege nido-kids-panel__privilege--active">
+                            <div class="nido-kids-panel__privilege-head">
+                              <span class="nido-kids-panel__privilege-emoji" aria-hidden="true">
+                                {activeInfo.privilege.emoji ?? "🎁"}
+                              </span>
+                              <div class="nido-kids-panel__privilege-meta">
+                                <span class="nido-kids-panel__privilege-eyebrow">
+                                  Privilège en cours
+                                </span>
+                                <span class="nido-kids-panel__privilege-label">
+                                  {activeInfo.privilege.label}
+                                </span>
+                              </div>
+                              <button
+                                type="button"
+                                class="n-pill-btn n-pill-btn--ghost"
+                                onClick={() => onChange(endPrivilege(data, selectedKid.id))}
+                              >
+                                Terminer
+                              </button>
+                            </div>
+                          </div>
                         );
-                      })}
-                    </div>
+                      }
+                      if (!reachedMax) return null;
+                      if (data.privileges.length === 0) {
+                        return (
+                          <div class="nido-kids-panel__privilege">
+                            <p class="n-muted">
+                              🏆 Médaille maximale ! Ajoute des privilèges dans <strong>Configurer</strong>.
+                            </p>
+                          </div>
+                        );
+                      }
+                      const isPicking = privilegePickerFor === selectedKid.id;
+                      return (
+                        <div class="nido-kids-panel__privilege">
+                          {!isPicking ? (
+                            <div class="nido-kids-panel__privilege-head">
+                              <span class="nido-kids-panel__privilege-emoji" aria-hidden="true">🏆</span>
+                              <div class="nido-kids-panel__privilege-meta">
+                                <span class="nido-kids-panel__privilege-eyebrow">
+                                  Bravo !
+                                </span>
+                                <span class="nido-kids-panel__privilege-label">
+                                  Tu peux choisir un privilège
+                                </span>
+                              </div>
+                              <button
+                                type="button"
+                                class="n-pill-btn"
+                                onClick={() => setPrivilegePickerFor(selectedKid.id)}
+                              >
+                                Choisir
+                              </button>
+                            </div>
+                          ) : (
+                            <>
+                              <div class="nido-kids-panel__privilege-eyebrow">
+                                Choisis ton privilège
+                              </div>
+                              <div class="nido-kids-panel__privilege-choices">
+                                {data.privileges.map((p) => (
+                                  <button
+                                    key={p.id}
+                                    type="button"
+                                    class="nido-kids-panel__privilege-choice"
+                                    onClick={() => {
+                                      onChange(assignPrivilege(data, selectedKid.id, p.id));
+                                      setPrivilegePickerFor(null);
+                                    }}
+                                  >
+                                    <span aria-hidden="true">{p.emoji ?? "🎁"}</span>
+                                    <span>{p.label}</span>
+                                  </button>
+                                ))}
+                              </div>
+                              <button
+                                type="button"
+                                class="n-pill-btn n-pill-btn--ghost"
+                                onClick={() => setPrivilegePickerFor(null)}
+                              >
+                                Annuler
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      );
+                    })()}
+
+                    {positiveTasks.length > 0 && (
+                      <>
+                        <h4 class="nido-kids-panel__group-title">
+                          <span aria-hidden="true">✨</span> Bonnes actions
+                        </h4>
+                        <div class="nido-kids-panel__tiles">
+                          {positiveTasks.map((task) => (
+                            <TaskTile
+                              key={task.id}
+                              emoji={task.emoji ?? "✨"}
+                              label={task.label}
+                              points={task.points}
+                              count={data.completed[selectedKid.id]?.[task.id] ?? 0}
+                              isPopping={popTaskId === task.id}
+                              onIncrement={() => {
+                                onChange(incrementTask(data, selectedKid.id, task.id, 1));
+                                setPopTaskId(task.id);
+                                window.setTimeout(() => setPopTaskId(null), 400);
+                              }}
+                              onDecrement={() => {
+                                const c = data.completed[selectedKid.id]?.[task.id] ?? 0;
+                                if (c > 0) {
+                                  onChange(incrementTask(data, selectedKid.id, task.id, -1));
+                                }
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
+                    {negativeTasks.length > 0 && (
+                      <>
+                        <h4 class="nido-kids-panel__group-title nido-kids-panel__group-title--neg">
+                          <span aria-hidden="true">⚠️</span> Bêtises
+                        </h4>
+                        <div class="nido-kids-panel__tiles">
+                          {negativeTasks.map((task) => (
+                            <TaskTile
+                              key={task.id}
+                              emoji={task.emoji ?? "⚠️"}
+                              label={task.label}
+                              points={task.points}
+                              count={data.completed[selectedKid.id]?.[task.id] ?? 0}
+                              isPopping={popTaskId === task.id}
+                              onIncrement={() => {
+                                onChange(incrementTask(data, selectedKid.id, task.id, 1));
+                                setPopTaskId(task.id);
+                                window.setTimeout(() => setPopTaskId(null), 400);
+                              }}
+                              onDecrement={() => {
+                                const c = data.completed[selectedKid.id]?.[task.id] ?? 0;
+                                if (c > 0) {
+                                  onChange(incrementTask(data, selectedKid.id, task.id, -1));
+                                }
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
                     <p class="nido-kids-panel__hint">
                       Tape pour valider · Appui long pour retirer
                     </p>
@@ -287,7 +438,7 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
               <section class="nido-kids-panel__section">
                 <h3>Tâches</h3>
                 <ul class="nido-kids-panel__list">
-                  {data.tasks.map((task) => (
+                  {sortedTasks.map((task) => (
                     <li class="nido-kids-panel__list-row" key={task.id}>
                       <span class="nido-kids-panel__task-emoji">
                         {task.emoji ?? (task.points < 0 ? "⚠️" : "✨")}
@@ -384,6 +535,173 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
                         onChange(addTask(data, newTaskLabel, newTaskPoints));
                         setNewTaskLabel("");
                         setNewTaskPoints(2);
+                      }
+                    }}
+                  >
+                    <IconPlus size={14} />
+                    <span>Ajouter</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="nido-kids-panel__section">
+                <h3>Médailles</h3>
+                <p class="nido-kids-panel__hint">
+                  Points nécessaires pour passer à la médaille suivante.
+                </p>
+                <ul class="nido-kids-panel__list">
+                  {buildMedals(thresholds).map((m) => {
+                    const editableKey: keyof MedalThresholds | null =
+                      m.key === "silver" || m.key === "gold" || m.key === "platinum"
+                        ? m.key
+                        : null;
+                    return (
+                      <li class="nido-kids-panel__list-row" key={m.key}>
+                        <span class="nido-kids-panel__task-emoji">{m.emoji}</span>
+                        <span class="nido-kids-panel__task-label-static">{m.label}</span>
+                        {editableKey ? (
+                          <div class="nido-kids-panel__task-points-edit">
+                            <button
+                              type="button"
+                              class="nido-kids-panel__btn"
+                              onClick={() =>
+                                onChange(
+                                  updateMedalThreshold(
+                                    data,
+                                    editableKey,
+                                    thresholds[editableKey] - 1,
+                                  ),
+                                )
+                              }
+                              aria-label="Diminuer le seuil"
+                            >
+                              <IconMinus size={14} />
+                            </button>
+                            <input
+                              type="number"
+                              class="nido-kids-panel__threshold-input"
+                              min={1}
+                              value={thresholds[editableKey]}
+                              onChange={(e) => {
+                                const v = Number((e.target as HTMLInputElement).value);
+                                if (Number.isFinite(v)) {
+                                  onChange(updateMedalThreshold(data, editableKey, v));
+                                }
+                              }}
+                            />
+                            <span class="nido-kids-panel__task-pts">pts</span>
+                            <button
+                              type="button"
+                              class="nido-kids-panel__btn"
+                              onClick={() =>
+                                onChange(
+                                  updateMedalThreshold(
+                                    data,
+                                    editableKey,
+                                    thresholds[editableKey] + 1,
+                                  ),
+                                )
+                              }
+                              aria-label="Augmenter le seuil"
+                            >
+                              <IconPlus size={14} />
+                            </button>
+                          </div>
+                        ) : (
+                          <span class="nido-kids-panel__task-pts">
+                            à partir de {m.min} pts
+                          </span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
+
+              <section class="nido-kids-panel__section">
+                <h3>Privilèges</h3>
+                <p class="nido-kids-panel__hint">
+                  Récompenses débloquées à la médaille maximale.
+                </p>
+                <ul class="nido-kids-panel__list">
+                  {data.privileges.map((p) => (
+                    <li class="nido-kids-panel__list-row" key={p.id}>
+                      <input
+                        type="text"
+                        class="nido-kids-panel__input nido-kids-panel__emoji-input"
+                        maxLength={4}
+                        value={p.emoji ?? "🎁"}
+                        onChange={(e) =>
+                          onChange(
+                            renamePrivilege(
+                              data,
+                              p.id,
+                              p.label,
+                              (e.target as HTMLInputElement).value,
+                            ),
+                          )
+                        }
+                      />
+                      <input
+                        type="text"
+                        class="nido-kids-panel__input"
+                        value={p.label}
+                        onChange={(e) =>
+                          onChange(
+                            renamePrivilege(
+                              data,
+                              p.id,
+                              (e.target as HTMLInputElement).value,
+                              p.emoji,
+                            ),
+                          )
+                        }
+                      />
+                      <button
+                        type="button"
+                        class="nido-kids-panel__btn nido-kids-panel__btn--danger"
+                        onClick={() => onChange(removePrivilege(data, p.id))}
+                        aria-label="Supprimer"
+                      >
+                        <IconX size={14} />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                <div class="nido-kids-panel__add">
+                  <input
+                    type="text"
+                    class="nido-kids-panel__input nido-kids-panel__emoji-input"
+                    maxLength={4}
+                    value={newPrivilegeEmoji}
+                    onInput={(e) =>
+                      setNewPrivilegeEmoji((e.target as HTMLInputElement).value)
+                    }
+                  />
+                  <input
+                    type="text"
+                    class="nido-kids-panel__input"
+                    placeholder="Nouveau privilège"
+                    value={newPrivilegeLabel}
+                    onInput={(e) =>
+                      setNewPrivilegeLabel((e.target as HTMLInputElement).value)
+                    }
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && newPrivilegeLabel.trim()) {
+                        onChange(addPrivilege(data, newPrivilegeLabel, newPrivilegeEmoji));
+                        setNewPrivilegeLabel("");
+                        setNewPrivilegeEmoji("🎁");
+                      }
+                    }}
+                  />
+                  <button
+                    type="button"
+                    class="n-pill-btn"
+                    onClick={() => {
+                      if (newPrivilegeLabel.trim()) {
+                        onChange(addPrivilege(data, newPrivilegeLabel, newPrivilegeEmoji));
+                        setNewPrivilegeLabel("");
+                        setNewPrivilegeEmoji("🎁");
                       }
                     }}
                   >

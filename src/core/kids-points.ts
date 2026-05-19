@@ -14,12 +14,46 @@ export interface KidsTask {
   emoji?: string;
 }
 
+export interface MedalThresholds {
+  silver: number;
+  gold: number;
+  platinum: number;
+}
+
+export const DEFAULT_MEDAL_THRESHOLDS: MedalThresholds = {
+  silver: 10,
+  gold: 25,
+  platinum: 50,
+};
+
+export interface Privilege {
+  id: string;
+  label: string;
+  emoji?: string;
+}
+
+export interface ActivePrivilege {
+  privilegeId: string;
+  startedAt: string;
+}
+
+export const DEFAULT_PRIVILEGES: Privilege[] = [
+  { id: "screen_time", label: "1h d'écran en plus", emoji: "🎬" },
+  { id: "ice_cream", label: "Une glace", emoji: "🍦" },
+  { id: "late_bed", label: "Se coucher plus tard", emoji: "🛏️" },
+  { id: "pick_game", label: "Choisir le jeu du soir", emoji: "🎮" },
+  { id: "pick_meal", label: "Choisir le repas", emoji: "🍕" },
+];
+
 export interface KidsData {
   kids: Kid[];
   tasks: KidsTask[];
   weekStart: string;
   completed: Record<string, Record<string, number>>;
   lastWeek: Record<string, number>;
+  medalThresholds: MedalThresholds;
+  privileges: Privilege[];
+  activePrivileges: Record<string, ActivePrivilege>;
   updatedAt: string;
 }
 
@@ -43,25 +77,29 @@ export interface Medal {
   next: number | null;
 }
 
-const MEDALS: Medal[] = [
-  { key: "bronze", label: "Bronze", emoji: "🥉", min: 0, next: 10 },
-  { key: "silver", label: "Argent", emoji: "🥈", min: 10, next: 25 },
-  { key: "gold", label: "Or", emoji: "🥇", min: 25, next: 50 },
-  { key: "platinum", label: "Platine", emoji: "💎", min: 50, next: null },
-];
+export function buildMedals(thresholds: MedalThresholds = DEFAULT_MEDAL_THRESHOLDS): Medal[] {
+  return [
+    { key: "bronze", label: "Bronze", emoji: "🥉", min: 0, next: thresholds.silver },
+    { key: "silver", label: "Argent", emoji: "🥈", min: thresholds.silver, next: thresholds.gold },
+    { key: "gold", label: "Or", emoji: "🥇", min: thresholds.gold, next: thresholds.platinum },
+    { key: "platinum", label: "Platine", emoji: "💎", min: thresholds.platinum, next: null },
+  ];
+}
 
-export function medalFor(points: number): Medal {
-  let current = MEDALS[0];
-  for (const m of MEDALS) {
+export function medalFor(points: number, thresholds: MedalThresholds = DEFAULT_MEDAL_THRESHOLDS): Medal {
+  const medals = buildMedals(thresholds);
+  let current = medals[0];
+  for (const m of medals) {
     if (points >= m.min) current = m;
   }
   return current;
 }
 
-export function nextMedal(points: number): Medal | null {
-  const current = medalFor(points);
+export function nextMedal(points: number, thresholds: MedalThresholds = DEFAULT_MEDAL_THRESHOLDS): Medal | null {
+  const medals = buildMedals(thresholds);
+  const current = medalFor(points, thresholds);
   if (current.next === null) return null;
-  return MEDALS.find((m) => m.min === current.next) ?? null;
+  return medals.find((m) => m.min === current.next) ?? null;
 }
 
 function safeStorage(): Storage | null {
@@ -98,8 +136,46 @@ function emptyData(): KidsData {
     weekStart: getCurrentWeekStart(),
     completed: {},
     lastWeek: {},
+    medalThresholds: { ...DEFAULT_MEDAL_THRESHOLDS },
+    privileges: DEFAULT_PRIVILEGES.slice(),
+    activePrivileges: {},
     updatedAt: new Date(0).toISOString(),
   };
+}
+
+function sanitizePrivileges(raw: unknown): Privilege[] {
+  if (!Array.isArray(raw)) return DEFAULT_PRIVILEGES.slice();
+  const out: Privilege[] = [];
+  for (const p of raw) {
+    if (!p || typeof p !== "object") continue;
+    const obj = p as Partial<Privilege>;
+    if (typeof obj.id !== "string" || typeof obj.label !== "string") continue;
+    out.push({ id: obj.id, label: obj.label, emoji: typeof obj.emoji === "string" ? obj.emoji : undefined });
+  }
+  return out;
+}
+
+function sanitizeActivePrivileges(raw: unknown): Record<string, ActivePrivilege> {
+  if (!raw || typeof raw !== "object") return {};
+  const out: Record<string, ActivePrivilege> = {};
+  for (const [kidId, val] of Object.entries(raw as Record<string, unknown>)) {
+    if (!val || typeof val !== "object") continue;
+    const obj = val as Partial<ActivePrivilege>;
+    if (typeof obj.privilegeId !== "string") continue;
+    out[kidId] = {
+      privilegeId: obj.privilegeId,
+      startedAt: typeof obj.startedAt === "string" ? obj.startedAt : new Date().toISOString(),
+    };
+  }
+  return out;
+}
+
+function sanitizeThresholds(raw: unknown): MedalThresholds {
+  const t = (raw && typeof raw === "object" ? raw : {}) as Partial<MedalThresholds>;
+  const silver = Number.isFinite(t.silver) ? Math.max(1, Math.round(t.silver as number)) : DEFAULT_MEDAL_THRESHOLDS.silver;
+  const gold = Number.isFinite(t.gold) ? Math.max(silver + 1, Math.round(t.gold as number)) : Math.max(silver + 1, DEFAULT_MEDAL_THRESHOLDS.gold);
+  const platinum = Number.isFinite(t.platinum) ? Math.max(gold + 1, Math.round(t.platinum as number)) : Math.max(gold + 1, DEFAULT_MEDAL_THRESHOLDS.platinum);
+  return { silver, gold, platinum };
 }
 
 export function withTimestamp(data: KidsData): KidsData {
@@ -117,33 +193,21 @@ function totalForKid(data: KidsData, kidId: string): number {
   return total;
 }
 
-function rolloverIfNeeded(data: KidsData): KidsData {
-  const current = getCurrentWeekStart();
-  if (data.weekStart === current) return data;
-  const lastWeek: Record<string, number> = {};
-  for (const kid of data.kids) {
-    lastWeek[kid.id] = totalForKid(data, kid.id);
-  }
-  return {
-    ...data,
-    weekStart: current,
-    completed: {},
-    lastWeek,
-  };
-}
-
 export function parseKidsData(raw: unknown): KidsData | null {
   if (!raw || typeof raw !== "object") return null;
   const parsed = raw as Partial<KidsData>;
   if (!Array.isArray(parsed.kids) || !Array.isArray(parsed.tasks)) return null;
-  return rolloverIfNeeded({
+  return {
     kids: parsed.kids as Kid[],
     tasks: parsed.tasks.length > 0 ? (parsed.tasks as KidsTask[]) : DEFAULT_TASKS.slice(),
     weekStart: typeof parsed.weekStart === "string" ? parsed.weekStart : getCurrentWeekStart(),
     completed: parsed.completed && typeof parsed.completed === "object" ? parsed.completed : {},
     lastWeek: parsed.lastWeek && typeof parsed.lastWeek === "object" ? parsed.lastWeek : {},
+    medalThresholds: sanitizeThresholds(parsed.medalThresholds),
+    privileges: sanitizePrivileges(parsed.privileges),
+    activePrivileges: sanitizeActivePrivileges(parsed.activePrivileges),
     updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : new Date(0).toISOString(),
-  });
+  };
 }
 
 export function loadKidsData(): KidsData {
@@ -203,11 +267,14 @@ export function removeKid(data: KidsData, kidId: string): KidsData {
   delete completed[kidId];
   const lastWeek = { ...data.lastWeek };
   delete lastWeek[kidId];
+  const activePrivileges = { ...data.activePrivileges };
+  delete activePrivileges[kidId];
   return {
     ...data,
     kids: data.kids.filter((k) => k.id !== kidId),
     completed,
     lastWeek,
+    activePrivileges,
   };
 }
 
@@ -248,6 +315,25 @@ export function removeTask(data: KidsData, taskId: string): KidsData {
   };
 }
 
+export function updateMedalThreshold(
+  data: KidsData,
+  key: keyof MedalThresholds,
+  value: number,
+): KidsData {
+  const current = data.medalThresholds ?? DEFAULT_MEDAL_THRESHOLDS;
+  const next: MedalThresholds = { ...current, [key]: Math.max(1, Math.round(value)) };
+  if (key === "silver") {
+    if (next.gold <= next.silver) next.gold = next.silver + 1;
+    if (next.platinum <= next.gold) next.platinum = next.gold + 1;
+  } else if (key === "gold") {
+    if (next.gold <= next.silver) next.gold = next.silver + 1;
+    if (next.platinum <= next.gold) next.platinum = next.gold + 1;
+  } else if (key === "platinum") {
+    if (next.platinum <= next.gold) next.platinum = next.gold + 1;
+  }
+  return { ...data, medalThresholds: next };
+}
+
 export function updateTaskPoints(data: KidsData, taskId: string, points: number): KidsData {
   return {
     ...data,
@@ -256,5 +342,85 @@ export function updateTaskPoints(data: KidsData, taskId: string, points: number)
       const next = clampPoints(points === 0 ? (t.points > 0 ? -1 : 1) : points);
       return { ...t, points: next };
     }),
+  };
+}
+
+export function isAtMaxMedal(points: number, thresholds: MedalThresholds = DEFAULT_MEDAL_THRESHOLDS): boolean {
+  return points >= thresholds.platinum;
+}
+
+export function getActivePrivilege(
+  data: KidsData,
+  kidId: string,
+): { active: ActivePrivilege; privilege: Privilege } | null {
+  const active = data.activePrivileges?.[kidId];
+  if (!active) return null;
+  const privilege = data.privileges.find((p) => p.id === active.privilegeId);
+  if (!privilege) return null;
+  return { active, privilege };
+}
+
+export function assignPrivilege(data: KidsData, kidId: string, privilegeId: string): KidsData {
+  if (!data.privileges.some((p) => p.id === privilegeId)) return data;
+  const completedTotal = totalForKid(data, kidId);
+  const completed = { ...data.completed };
+  delete completed[kidId];
+  return {
+    ...data,
+    completed,
+    lastWeek: { ...data.lastWeek, [kidId]: completedTotal },
+    activePrivileges: {
+      ...data.activePrivileges,
+      [kidId]: { privilegeId, startedAt: new Date().toISOString() },
+    },
+  };
+}
+
+export function endPrivilege(data: KidsData, kidId: string): KidsData {
+  if (!data.activePrivileges?.[kidId]) return data;
+  const next = { ...data.activePrivileges };
+  delete next[kidId];
+  return { ...data, activePrivileges: next };
+}
+
+export function addPrivilege(data: KidsData, label: string, emoji?: string): KidsData {
+  const trimmed = label.trim();
+  if (!trimmed) return data;
+  const id = "priv_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+  const privilege: Privilege = {
+    id,
+    label: trimmed,
+    emoji: emoji?.trim() || "🎁",
+  };
+  return { ...data, privileges: [...data.privileges, privilege] };
+}
+
+export function removePrivilege(data: KidsData, privilegeId: string): KidsData {
+  const activePrivileges = { ...data.activePrivileges };
+  for (const [kidId, active] of Object.entries(activePrivileges)) {
+    if (active.privilegeId === privilegeId) delete activePrivileges[kidId];
+  }
+  return {
+    ...data,
+    privileges: data.privileges.filter((p) => p.id !== privilegeId),
+    activePrivileges,
+  };
+}
+
+export function renamePrivilege(
+  data: KidsData,
+  privilegeId: string,
+  label: string,
+  emoji?: string,
+): KidsData {
+  const trimmed = label.trim();
+  if (!trimmed) return data;
+  return {
+    ...data,
+    privileges: data.privileges.map((p) =>
+      p.id === privilegeId
+        ? { ...p, label: trimmed, emoji: emoji !== undefined ? (emoji.trim() || p.emoji) : p.emoji }
+        : p,
+    ),
   };
 }
