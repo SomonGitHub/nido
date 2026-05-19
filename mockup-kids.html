@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr" data-mode="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nido — Mockup Tableau des enfants (kid-friendly)</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFF7EC;
+    --surface: #FFFFFF;
+    --surface-2: #FFF1DA;
+    --text: #2A2018;
+    --text-soft: #6B5A4A;
+    --border: #F0E0C8;
+    --accent: #FF8A3D;
+    --accent-2: #FFD166;
+    --good: #6FCF97;
+    --bad: #F4736B;
+    --shadow: 0 8px 24px rgba(255, 138, 61, .12), 0 2px 6px rgba(0,0,0,.04);
+    --shadow-pop: 0 12px 32px rgba(255, 138, 61, .25);
+
+    --c1: #FFB4A2; /* corail */
+    --c2: #B8E0D2; /* menthe */
+    --c3: #C7B8EA; /* lavande */
+    --c4: #FFE08A; /* soleil */
+    --c5: #9DD3F8; /* ciel */
+    --c6: #F8A8C9; /* rose */
+  }
+  [data-mode="dark"] {
+    --bg: #1A1410;
+    --surface: #261E18;
+    --surface-2: #2F2620;
+    --text: #FFF1DA;
+    --text-soft: #C9B59F;
+    --border: #3A2E25;
+    --shadow: 0 8px 24px rgba(0,0,0,.4), 0 2px 6px rgba(0,0,0,.3);
+    --shadow-pop: 0 12px 32px rgba(255, 138, 61, .4);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    min-height: 100vh;
+  }
+  body {
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255,209,102,.25), transparent 50%),
+      radial-gradient(circle at 80% 90%, rgba(184,224,210,.3), transparent 50%),
+      var(--bg);
+  }
+  .toolbar {
+    position: fixed; top: 12px; right: 12px; z-index: 100;
+    display: flex; gap: 8px;
+    background: var(--surface);
+    padding: 8px 12px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    font-size: 13px;
+  }
+  .toolbar button {
+    border: none; background: transparent; color: var(--text);
+    cursor: pointer; padding: 4px 10px; border-radius: 999px;
+    font: inherit;
+  }
+  .toolbar button.is-active { background: var(--accent); color: #fff; }
+
+  /* === PANEL === */
+  .panel {
+    max-width: 880px;
+    margin: 32px auto;
+    background: var(--surface);
+    border-radius: 32px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    font-family: "Baloo 2", "Inter", sans-serif;
+  }
+  .panel__header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 28px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+    position: relative;
+  }
+  .panel__header::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 10% 80%, rgba(255,255,255,.2) 0 14px, transparent 15px),
+      radial-gradient(circle at 92% 20%, rgba(255,255,255,.18) 0 10px, transparent 11px),
+      radial-gradient(circle at 50% 110%, rgba(255,255,255,.15) 0 18px, transparent 19px);
+    pointer-events: none;
+  }
+  .panel__header h2 {
+    margin: 0; font-size: 26px; font-weight: 800;
+    display: flex; align-items: center; gap: 10px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.08);
+  }
+  .panel__header h2 .star { animation: spin 6s linear infinite; display: inline-block; }
+  .panel__header-actions { display: flex; gap: 8px; position: relative; z-index: 1; }
+  .iconbtn {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: none; cursor: pointer;
+    background: rgba(255,255,255,.25);
+    color: #fff; font-size: 18px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform .15s, background .15s;
+  }
+  .iconbtn:hover { transform: scale(1.08); background: rgba(255,255,255,.4); }
+
+  .panel__body { padding: 24px 28px 32px; }
+
+  /* === Kid tabs (avatars XXL) === */
+  .kid-tabs {
+    display: flex; gap: 14px; margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .kid-tab {
+    flex: 1 1 200px;
+    min-width: 180px;
+    background: var(--surface-2);
+    border: 3px solid transparent;
+    border-radius: 24px;
+    padding: 14px 18px;
+    display: flex; align-items: center; gap: 14px;
+    cursor: pointer;
+    transition: transform .18s cubic-bezier(.34, 1.56, .64, 1), border-color .18s, box-shadow .18s;
+    font: inherit; color: var(--text);
+    text-align: left;
+    position: relative;
+  }
+  .kid-tab:hover { transform: translateY(-2px); }
+  .kid-tab.is-active {
+    border-color: var(--kid-color, var(--accent));
+    background: var(--surface);
+    box-shadow: var(--shadow-pop);
+    transform: translateY(-2px);
+  }
+  .kid-tab.is-active .kid-tab__avatar { animation: wiggle 1.4s ease-in-out infinite; }
+  .kid-tab__avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--kid-color, var(--c1));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 38px;
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,.08), 0 4px 0 rgba(0,0,0,.06);
+    flex-shrink: 0;
+  }
+  .kid-tab__meta { flex: 1; min-width: 0; }
+  .kid-tab__name { font-size: 18px; font-weight: 700; line-height: 1.1; }
+  .kid-tab__pts {
+    font-size: 20px; font-weight: 800;
+    color: var(--accent); display: flex; align-items: baseline; gap: 4px;
+  }
+  .kid-tab__pts small { font-size: 13px; font-weight: 600; color: var(--text-soft); }
+
+  /* === Score panel === */
+  .score-card {
+    background: linear-gradient(135deg, var(--c4), var(--c2));
+    border-radius: 28px;
+    padding: 22px 24px;
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+    color: #2A2018;
+  }
+  [data-mode="dark"] .score-card { color: #2A2018; }
+  .score-card__row { display: flex; align-items: center; gap: 18px; }
+  .score-card__big {
+    font-size: 56px; font-weight: 800; line-height: 1;
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .score-card__big .unit { font-size: 22px; font-weight: 700; }
+  .score-card__big .star-icon { font-size: 38px; animation: bounce 1.6s ease-in-out infinite; }
+  .score-card__badge {
+    margin-left: auto;
+    background: rgba(255,255,255,.55);
+    border-radius: 18px;
+    padding: 8px 14px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex; align-items: center; gap: 6px;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,.06);
+  }
+  .score-card__progress {
+    margin-top: 14px;
+    background: rgba(255,255,255,.45);
+    border-radius: 999px;
+    height: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .score-card__progress-bar {
+    background: linear-gradient(90deg, var(--accent), var(--bad));
+    height: 100%;
+    border-radius: 999px;
+    transition: width .5s cubic-bezier(.34, 1.56, .64, 1);
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,.1);
+  }
+  .score-card__progress-label {
+    margin-top: 6px; font-size: 13px; font-weight: 600; opacity: .8;
+  }
+
+  /* === Task tiles === */
+  .tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 14px;
+  }
+  .task-tile {
+    background: var(--surface-2);
+    border: none;
+    border-radius: 22px;
+    padding: 16px 12px 12px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform .12s cubic-bezier(.34, 1.56, .64, 1), box-shadow .15s;
+    font: inherit; color: var(--text);
+    user-select: none;
+    box-shadow: 0 3px 0 rgba(0,0,0,.06);
+    overflow: visible;
+  }
+  .task-tile:hover { transform: translateY(-3px); box-shadow: 0 6px 0 rgba(0,0,0,.06); }
+  .task-tile:active { transform: translateY(1px) scale(.97); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+  .task-tile.is-pop { animation: pop .4s cubic-bezier(.34, 1.56, .64, 1); }
+  .task-tile.is-negative { background: #FCE6E5; }
+  [data-mode="dark"] .task-tile.is-negative { background: #3B2422; }
+  .task-tile__emoji {
+    font-size: 44px;
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+    transition: transform .2s;
+  }
+  .task-tile:hover .task-tile__emoji { transform: scale(1.1) rotate(-3deg); }
+  .task-tile__label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text);
+    min-height: 34px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .task-tile__pts {
+    position: absolute;
+    top: 8px; right: 8px;
+    background: var(--good);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 999px;
+    box-shadow: 0 2px 0 rgba(0,0,0,.1);
+  }
+  .task-tile.is-negative .task-tile__pts { background: var(--bad); }
+  .task-tile__count {
+    position: absolute;
+    top: 8px; left: 8px;
+    background: var(--accent);
+    color: #fff;
+    min-width: 26px; height: 26px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 0 rgba(0,0,0,.1);
+    transform: scale(0);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+  }
+  .task-tile__count.is-visible { transform: scale(1); }
+
+  /* Confetti */
+  .confetti {
+    position: absolute; left: 50%; top: 40%;
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    animation: confetti-burst .8s ease-out forwards;
+  }
+
+  /* Hint */
+  .hint {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--text-soft);
+    text-align: center;
+    font-family: "Inter", sans-serif;
+  }
+
+  /* === Animations === */
+  @keyframes wiggle {
+    0%,100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes spin {
+    from { transform: rotate(0); } to { transform: rotate(360deg); }
+  }
+  @keyframes pop {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.12); box-shadow: 0 12px 28px rgba(255, 138, 61, .35); }
+    100% { transform: scale(1); }
+  }
+  @keyframes confetti-burst {
+    0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+    100% { transform: translate(var(--cx), var(--cy)) rotate(var(--cr)); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .001ms !important;
+    }
+  }
+
+  .legend {
+    max-width: 880px;
+    margin: 0 auto 32px;
+    padding: 16px 28px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+  .legend strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btn-light" class="is-active">☀ Clair</button>
+  <button id="btn-dark">🌙 Sombre</button>
+</div>
+
+<div class="panel">
+  <header class="panel__header">
+    <h2><span class="star">⭐</span> Tableau des enfants</h2>
+    <div class="panel__header-actions">
+      <button class="iconbtn" title="Configurer">⚙️</button>
+      <button class="iconbtn" title="Fermer">✕</button>
+    </div>
+  </header>
+
+  <div class="panel__body">
+
+    <!-- Kid tabs -->
+    <div class="kid-tabs" id="kid-tabs">
+      <button class="kid-tab is-active" data-kid="lou" style="--kid-color: #FFB4A2">
+        <span class="kid-tab__avatar" style="background: #FFB4A2">🦊</span>
+        <div class="kid-tab__meta">
+          <div class="kid-tab__name">Lou</div>
+          <div class="kid-tab__pts">14 <small>pts</small></div>
+        </div>
+      </button>
+      <button class="kid-tab" data-kid="mia" style="--kid-color: #C7B8EA">
+        <span class="kid-tab__avatar" style="background: #C7B8EA">🦄</span>
+        <div class="kid-tab__meta">
+          <div class="kid-tab__name">Mia</div>
+          <div class="kid-tab__pts">21 <small>pts</small></div>
+        </div>
+      </button>
+      <button class="kid-tab" data-kid="tom" style="--kid-color: #9DD3F8">
+        <span class="kid-tab__avatar" style="background: #9DD3F8">🦖</span>
+        <div class="kid-tab__meta">
+          <div class="kid-tab__name">Tom</div>
+          <div class="kid-tab__pts">7 <small>pts</small></div>
+        </div>
+      </button>
+    </div>
+
+    <!-- Score card -->
+    <div class="score-card">
+      <div class="score-card__row">
+        <div class="score-card__big">
+          <span class="star-icon">⭐</span>
+          <span id="score-num">14</span>
+          <span class="unit">pts</span>
+        </div>
+        <div class="score-card__badge">🥈 Argent</div>
+      </div>
+      <div class="score-card__progress">
+        <div class="score-card__progress-bar" style="width: 28%"></div>
+      </div>
+      <div class="score-card__progress-label">Plus que <strong>6 pts</strong> pour la médaille d'Or 🥇</div>
+    </div>
+
+    <!-- Task tiles -->
+    <div class="tasks-grid" id="tasks-grid">
+      <button class="task-tile" data-pts="3">
+        <span class="task-tile__pts">+3</span>
+        <span class="task-tile__count">0</span>
+        <span class="task-tile__emoji">🧸</span>
+        <span class="task-tile__label">Ranger sa chambre</span>
+      </button>
+      <button class="task-tile" data-pts="1">
+        <span class="task-tile__pts">+1</span>
+        <span class="task-tile__count">0</span>
+        <span class="task-tile__emoji">🛏️</span>
+        <span class="task-tile__label">Faire son lit</span>
+      </button>
+      <button class="task-tile" data-pts="2">
+        <span class="task-tile__pts">+2</span>
+        <span class="task-tile__count">0</span>
+        <span class="task-tile__emoji">🍽️</span>
+        <span class="task-tile__label">Mettre la table</span>
+      </button>
+      <button class="task-tile" data-pts="2">
+        <span class="task-tile__pts">+2</span>
+        <span class="task-tile__count">0</span>
+        <span class="task-tile__emoji">🧹</span>
+        <span class="task-tile__label">Débarrasser</span>
+      </button>
+      <button class="task-tile" data-pts="3">
+        <span class="task-tile__pts">+3</span>
+        <span class="task-tile__count">0</span>
+        <span class="task-tile__emoji">📚</span>
+        <span class="task-tile__label">Faire ses devoirs</span>
+      </button>
+      <button class="task-tile" data-pts="1">
+        <span class="task-tile__pts">+1</span>
+        <span class="task-tile__count">0</span>
+        <span class="task-tile__emoji">🪥</span>
+        <span class="task-tile__label">Brosser les dents</span>
+      </button>
+      <button class="task-tile is-negative" data-pts="-2">
+        <span class="task-tile__pts">-2</span>
+        <span class="task-tile__count">0</span>
+        <span class="task-tile__emoji">😠</span>
+        <span class="task-tile__label">Crise / Bêtise</span>
+      </button>
+      <button class="task-tile" data-pts="2">
+        <span class="task-tile__pts">+2</span>
+        <span class="task-tile__count">0</span>
+        <span class="task-tile__emoji">🐶</span>
+        <span class="task-tile__label">Promener le chien</span>
+      </button>
+    </div>
+
+    <p class="hint">Tape sur une tuile pour valider une fois · Appui long pour retirer une fois</p>
+  </div>
+</div>
+
+<div class="legend">
+  <p><strong>Pistes à valider :</strong></p>
+  <ul>
+    <li>Avatars emoji XXL animés (wiggle quand actif) au lieu d'initiales — plus engageant et personnalisable par enfant.</li>
+    <li>Score card façon jeu : gros chiffre, étoile rebondissante, médaille (Bronze 0–10 / Argent 10–25 / Or 25+), barre de progression vers le palier suivant.</li>
+    <li>Tâches en tuiles carrées avec gros emoji centré, pastille de points en haut à droite, badge compteur en haut à gauche qui apparaît dès la 1ʳᵉ validation.</li>
+    <li>Feedback haptique visuel : « pop » de la tuile + 6 particules de confetti à chaque tap positif.</li>
+    <li>Tâches négatives en tuile rose et pastille rouge — fortement différenciées.</li>
+    <li>Interaction simplifiée : tap = +1, appui long (600 ms) = -1. Plus de boutons +/− visibles, gain de densité.</li>
+    <li>Police <em>Baloo 2</em> arrondie, scopée au panneau (n'affecte pas le reste de Nido). Coins 22–32px, ombres colorées douces.</li>
+    <li>Compatible dark mode (toggle en haut à droite pour tester) et <code>prefers-reduced-motion</code>.</li>
+  </ul>
+</div>
+
+<script>
+  // Theme toggle
+  const html = document.documentElement;
+  document.getElementById("btn-light").onclick = () => {
+    html.dataset.mode = "light";
+    document.getElementById("btn-light").classList.add("is-active");
+    document.getElementById("btn-dark").classList.remove("is-active");
+  };
+  document.getElementById("btn-dark").onclick = () => {
+    html.dataset.mode = "dark";
+    document.getElementById("btn-dark").classList.add("is-active");
+    document.getElementById("btn-light").classList.remove("is-active");
+  };
+
+  // Kid selection (cosmetic)
+  const kidScores = { lou: 14, mia: 21, tom: 7 };
+  const kidColors = { lou: "#FFB4A2", mia: "#C7B8EA", tom: "#9DD3F8" };
+  document.querySelectorAll(".kid-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".kid-tab").forEach(t => t.classList.remove("is-active"));
+      tab.classList.add("is-active");
+      const k = tab.dataset.kid;
+      document.getElementById("score-num").textContent = kidScores[k];
+      // reset counts on switch (mockup behavior)
+      document.querySelectorAll(".task-tile__count").forEach(c => {
+        c.textContent = "0"; c.classList.remove("is-visible");
+      });
+    });
+  });
+
+  // Tap = +1, long-press = -1
+  const scoreEl = document.getElementById("score-num");
+  let pressTimer = null;
+  let longPressed = false;
+
+  document.querySelectorAll(".task-tile").forEach(tile => {
+    const countEl = tile.querySelector(".task-tile__count");
+    const pts = parseInt(tile.dataset.pts, 10);
+
+    tile.addEventListener("pointerdown", () => {
+      longPressed = false;
+      pressTimer = setTimeout(() => {
+        longPressed = true;
+        decrement(tile, countEl, pts);
+      }, 600);
+    });
+    tile.addEventListener("pointerup", () => {
+      clearTimeout(pressTimer);
+      if (!longPressed) increment(tile, countEl, pts);
+    });
+    tile.addEventListener("pointerleave", () => clearTimeout(pressTimer));
+    tile.addEventListener("pointercancel", () => clearTimeout(pressTimer));
+  });
+
+  function increment(tile, countEl, pts) {
+    const cur = parseInt(countEl.textContent, 10) || 0;
+    countEl.textContent = cur + 1;
+    countEl.classList.add("is-visible");
+    tile.classList.remove("is-pop");
+    void tile.offsetWidth;
+    tile.classList.add("is-pop");
+    bumpScore(pts);
+    if (pts > 0) burstConfetti(tile);
+  }
+  function decrement(tile, countEl, pts) {
+    const cur = parseInt(countEl.textContent, 10) || 0;
+    if (cur <= 0) return;
+    countEl.textContent = cur - 1;
+    if (cur - 1 === 0) countEl.classList.remove("is-visible");
+    bumpScore(-pts);
+  }
+  function bumpScore(delta) {
+    const cur = parseInt(scoreEl.textContent, 10) || 0;
+    scoreEl.textContent = cur + delta;
+  }
+  function burstConfetti(tile) {
+    const colors = ["#FF8A3D", "#FFD166", "#6FCF97", "#9DD3F8", "#F8A8C9", "#C7B8EA"];
+    for (let i = 0; i < 6; i++) {
+      const c = document.createElement("span");
+      c.className = "confetti";
+      c.style.background = colors[i % colors.length];
+      const angle = (Math.PI * 2 * i) / 6 + Math.random() * .6;
+      const dist = 60 + Math.random() * 30;
+      c.style.setProperty("--cx", Math.cos(angle) * dist + "px");
+      c.style.setProperty("--cy", Math.sin(angle) * dist + "px");
+      c.style.setProperty("--cr", Math.random() * 360 + "deg");
+      tile.appendChild(c);
+      setTimeout(() => c.remove(), 900);
+    }
+  }
+</script>
+
+</body>
+</html>

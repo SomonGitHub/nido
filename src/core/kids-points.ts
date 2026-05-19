@@ -32,7 +32,37 @@ export const DEFAULT_TASKS: KidsTask[] = [
   { id: "brush_teeth", label: "Se brosser les dents", points: 1, emoji: "🪥" },
 ];
 
-const KID_COLORS = ["#E89B3C", "#7BA77A", "#C45D3F", "#6E8AB8", "#B07AB0", "#D4A03B"];
+const KID_COLORS = ["#FFB4A2", "#B8E0D2", "#C7B8EA", "#FFE08A", "#9DD3F8", "#F8A8C9"];
+const KID_EMOJIS = ["🦊", "🦄", "🦖", "🐼", "🐱", "🐸", "🐶", "🐯", "🦁", "🐨", "🐰", "🐵"];
+
+export interface Medal {
+  key: "bronze" | "silver" | "gold" | "platinum";
+  label: string;
+  emoji: string;
+  min: number;
+  next: number | null;
+}
+
+const MEDALS: Medal[] = [
+  { key: "bronze", label: "Bronze", emoji: "🥉", min: 0, next: 10 },
+  { key: "silver", label: "Argent", emoji: "🥈", min: 10, next: 25 },
+  { key: "gold", label: "Or", emoji: "🥇", min: 25, next: 50 },
+  { key: "platinum", label: "Platine", emoji: "💎", min: 50, next: null },
+];
+
+export function medalFor(points: number): Medal {
+  let current = MEDALS[0];
+  for (const m of MEDALS) {
+    if (points >= m.min) current = m;
+  }
+  return current;
+}
+
+export function nextMedal(points: number): Medal | null {
+  const current = medalFor(points);
+  if (current.next === null) return null;
+  return MEDALS.find((m) => m.min === current.next) ?? null;
+}
 
 function safeStorage(): Storage | null {
   try {
@@ -54,6 +84,12 @@ export function getCurrentWeekStart(date = new Date()): string {
 export function pickKidColor(index: number): string {
   return KID_COLORS[index % KID_COLORS.length];
 }
+
+export function pickKidEmoji(index: number): string {
+  return KID_EMOJIS[index % KID_EMOJIS.length];
+}
+
+export const KID_EMOJI_CHOICES = KID_EMOJIS;
 
 function emptyData(): KidsData {
   return {
@@ -146,8 +182,20 @@ export function addKid(data: KidsData, name: string): KidsData {
   const trimmed = name.trim();
   if (!trimmed) return data;
   const id = "kid_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
-  const kid: Kid = { id, name: trimmed, color: pickKidColor(data.kids.length) };
+  const kid: Kid = {
+    id,
+    name: trimmed,
+    color: pickKidColor(data.kids.length),
+    emoji: pickKidEmoji(data.kids.length),
+  };
   return { ...data, kids: [...data.kids, kid] };
+}
+
+export function setKidEmoji(data: KidsData, kidId: string, emoji: string): KidsData {
+  return {
+    ...data,
+    kids: data.kids.map((k) => (k.id === kidId ? { ...k, emoji } : k)),
+  };
 }
 
 export function removeKid(data: KidsData, kidId: string): KidsData {
