@@ -20,6 +20,7 @@ export interface KidsData {
   weekStart: string;
   completed: Record<string, Record<string, number>>;
   lastWeek: Record<string, number>;
+  updatedAt: string;
 }
 
 export const DEFAULT_TASKS: KidsTask[] = [
@@ -61,7 +62,12 @@ function emptyData(): KidsData {
     weekStart: getCurrentWeekStart(),
     completed: {},
     lastWeek: {},
+    updatedAt: new Date(0).toISOString(),
   };
+}
+
+export function withTimestamp(data: KidsData): KidsData {
+  return { ...data, updatedAt: new Date().toISOString() };
 }
 
 function totalForKid(data: KidsData, kidId: string): number {
@@ -90,21 +96,27 @@ function rolloverIfNeeded(data: KidsData): KidsData {
   };
 }
 
+export function parseKidsData(raw: unknown): KidsData | null {
+  if (!raw || typeof raw !== "object") return null;
+  const parsed = raw as Partial<KidsData>;
+  if (!Array.isArray(parsed.kids) || !Array.isArray(parsed.tasks)) return null;
+  return rolloverIfNeeded({
+    kids: parsed.kids as Kid[],
+    tasks: parsed.tasks.length > 0 ? (parsed.tasks as KidsTask[]) : DEFAULT_TASKS.slice(),
+    weekStart: typeof parsed.weekStart === "string" ? parsed.weekStart : getCurrentWeekStart(),
+    completed: parsed.completed && typeof parsed.completed === "object" ? parsed.completed : {},
+    lastWeek: parsed.lastWeek && typeof parsed.lastWeek === "object" ? parsed.lastWeek : {},
+    updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : new Date(0).toISOString(),
+  });
+}
+
 export function loadKidsData(): KidsData {
   const s = safeStorage();
   if (!s) return emptyData();
   const raw = s.getItem(KEY);
   if (!raw) return emptyData();
   try {
-    const parsed = JSON.parse(raw) as Partial<KidsData>;
-    const data: KidsData = {
-      kids: Array.isArray(parsed.kids) ? parsed.kids : [],
-      tasks: Array.isArray(parsed.tasks) && parsed.tasks.length > 0 ? parsed.tasks : DEFAULT_TASKS.slice(),
-      weekStart: typeof parsed.weekStart === "string" ? parsed.weekStart : getCurrentWeekStart(),
-      completed: parsed.completed && typeof parsed.completed === "object" ? parsed.completed : {},
-      lastWeek: parsed.lastWeek && typeof parsed.lastWeek === "object" ? parsed.lastWeek : {},
-    };
-    return rolloverIfNeeded(data);
+    return parseKidsData(JSON.parse(raw)) ?? emptyData();
   } catch {
     return emptyData();
   }

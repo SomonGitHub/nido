@@ -22,7 +22,7 @@ import { PowerGaugeWidget } from "../widgets/power-gauge";
 import { POWER_ENTITY_ID } from "./energy";
 import { KidsCard } from "../widgets/kids-card";
 import { KidsPanel } from "../components/kids-panel";
-import { loadKidsData, saveKidsData, type KidsData } from "../core/kids-points";
+import { useKidsSync } from "../core/kids-sync";
 
 interface DashboardProps {
   hass: HassObject;
@@ -243,12 +243,7 @@ export function Dashboard({
   const [showLightsPanel, setShowLightsPanel] = useState(false);
   const [showShoppingPanel, setShowShoppingPanel] = useState(false);
   const [showKidsPanel, setShowKidsPanel] = useState(false);
-  const [kidsData, setKidsData] = useState<KidsData>(() => loadKidsData());
-
-  const updateKidsData = (next: KidsData) => {
-    setKidsData(next);
-    saveKidsData(next);
-  };
+  const [kidsData, updateKidsData] = useKidsSync(hass);
 
   const notifications = useMemo(() => {
     const sensor = hass.states["sensor.nido_notifications"];
