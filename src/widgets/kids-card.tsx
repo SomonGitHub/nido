@@ -1,5 +1,5 @@
 import { useMemo } from "preact/hooks";
-import { IconSettings, IconArrowUpRight, IconStar } from "../icons";
+import { IconSettings, IconArrowUpRight } from "../icons";
 import { totalPoints, type KidsData } from "../core/kids-points";
 
 interface KidsCardProps {
@@ -23,7 +23,7 @@ export function KidsCard({ data, onOpen }: KidsCardProps) {
       .sort((a, b) => b.total - a.total);
   }, [data]);
 
-  const maxTotal = ranked.reduce((m, r) => Math.max(m, r.total), 0);
+  const maxTotal = ranked.reduce((m, r) => Math.max(m, r.total), 1);
   const isEmpty = ranked.length === 0;
 
   return (
@@ -59,9 +59,6 @@ export function KidsCard({ data, onOpen }: KidsCardProps) {
           <div class="n-title">Points enfants</div>
         </div>
         <div class="n-kids-card__head-actions">
-          <span class="n-kids-card__star" aria-hidden="true">
-            <IconStar size={14} />
-          </span>
           <span class="n-power-gauge__open" aria-hidden="true">
             <IconArrowUpRight size={14} />
           </span>
@@ -87,7 +84,7 @@ export function KidsCard({ data, onOpen }: KidsCardProps) {
       ) : (
         <ul class="n-kids-card__list">
           {ranked.map(({ kid, total, last }, i) => {
-            const pct = maxTotal > 0 ? (total / maxTotal) * 100 : 0;
+            const pct = total > 0 ? Math.min(100, (total / maxTotal) * 100) : 0;
             return (
               <li class="n-kids-card__row" key={kid.id}>
                 <span
@@ -103,7 +100,7 @@ export function KidsCard({ data, onOpen }: KidsCardProps) {
                 <div class="n-kids-card__row-body">
                   <div class="n-kids-card__row-head">
                     <span class="n-kids-card__name">{kid.name}</span>
-                    <span class="n-kids-card__total">
+                    <span class={`n-kids-card__total ${total < 0 ? "is-negative" : ""}`}>
                       {total}
                       <span class="n-kids-card__total-unit">pts</span>
                     </span>

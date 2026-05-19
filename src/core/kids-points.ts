@@ -160,11 +160,18 @@ export function renameKid(data: KidsData, kidId: string, name: string): KidsData
   };
 }
 
+function clampPoints(points: number): number {
+  const p = Math.max(-10, Math.min(10, Math.round(points)));
+  return p === 0 ? 1 : p;
+}
+
 export function addTask(data: KidsData, label: string, points: number): KidsData {
   const trimmed = label.trim();
   if (!trimmed) return data;
   const id = "task_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
-  const task: KidsTask = { id, label: trimmed, points: Math.max(1, Math.min(10, points)) };
+  const value = clampPoints(points);
+  const emoji = value < 0 ? "⚠️" : undefined;
+  const task: KidsTask = { id, label: trimmed, points: value, emoji };
   return { ...data, tasks: [...data.tasks, task] };
 }
 
@@ -184,8 +191,10 @@ export function removeTask(data: KidsData, taskId: string): KidsData {
 export function updateTaskPoints(data: KidsData, taskId: string, points: number): KidsData {
   return {
     ...data,
-    tasks: data.tasks.map((t) =>
-      t.id === taskId ? { ...t, points: Math.max(1, Math.min(10, points)) } : t,
-    ),
+    tasks: data.tasks.map((t) => {
+      if (t.id !== taskId) return t;
+      const next = clampPoints(points === 0 ? (t.points > 0 ? -1 : 1) : points);
+      return { ...t, points: next };
+    }),
   };
 }

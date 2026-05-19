@@ -1,5 +1,5 @@
 import { useState } from "preact/hooks";
-import { IconX, IconPlus, IconMinus, IconCheck, IconSettings } from "../icons";
+import { IconX, IconPlus, IconMinus, IconSettings } from "../icons";
 import { useOverlay } from "../core/use-overlay";
 import {
   type KidsData,
@@ -48,16 +48,9 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
           <div class="nido-kids-panel__header-actions">
             <button
               type="button"
-              class={`n-pill-btn ${mode === "play" ? "" : "n-pill-btn--ghost"}`}
-              onClick={() => setMode("play")}
-            >
-              <IconCheck size={14} />
-              <span>Cocher</span>
-            </button>
-            <button
-              type="button"
               class={`n-pill-btn ${mode === "config" ? "" : "n-pill-btn--ghost"}`}
-              onClick={() => setMode("config")}
+              onClick={() => setMode(mode === "config" ? "play" : "config")}
+              aria-pressed={mode === "config"}
             >
               <IconSettings size={14} />
               <span>Configurer</span>
@@ -116,14 +109,17 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
                         <li class="nido-kids-panel__task" key={task.id}>
                           <div class="nido-kids-panel__task-info">
                             <span class="nido-kids-panel__task-emoji">
-                              {task.emoji ?? "✨"}
+                              {task.emoji ?? (task.points < 0 ? "⚠️" : "✨")}
                             </span>
                             <div class="nido-kids-panel__task-text">
                               <span class="nido-kids-panel__task-label">
                                 {task.label}
                               </span>
-                              <span class="nido-kids-panel__task-pts">
-                                +{task.points} pts
+                              <span
+                                class={`nido-kids-panel__task-pts ${task.points < 0 ? "is-negative" : ""}`}
+                              >
+                                {task.points > 0 ? "+" : ""}
+                                {task.points} pts
                               </span>
                             </div>
                           </div>
@@ -240,7 +236,7 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
                   {data.tasks.map((task) => (
                     <li class="nido-kids-panel__list-row" key={task.id}>
                       <span class="nido-kids-panel__task-emoji">
-                        {task.emoji ?? "✨"}
+                        {task.emoji ?? (task.points < 0 ? "⚠️" : "✨")}
                       </span>
                       <span class="nido-kids-panel__task-label-static">
                         {task.label}
@@ -249,27 +245,28 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
                         <button
                           type="button"
                           class="nido-kids-panel__btn"
-                          onClick={() =>
-                            onChange(
-                              updateTaskPoints(data, task.id, task.points - 1),
-                            )
-                          }
-                          disabled={task.points <= 1}
+                          onClick={() => {
+                            const next = task.points === 1 ? -1 : task.points - 1;
+                            onChange(updateTaskPoints(data, task.id, next));
+                          }}
+                          disabled={task.points <= -10}
                           aria-label="Moins de points"
                         >
                           <IconMinus size={14} />
                         </button>
-                        <span class="nido-kids-panel__task-pts">
+                        <span
+                          class={`nido-kids-panel__task-pts ${task.points < 0 ? "is-negative" : ""}`}
+                        >
+                          {task.points > 0 ? "+" : ""}
                           {task.points} pts
                         </span>
                         <button
                           type="button"
                           class="nido-kids-panel__btn"
-                          onClick={() =>
-                            onChange(
-                              updateTaskPoints(data, task.id, task.points + 1),
-                            )
-                          }
+                          onClick={() => {
+                            const next = task.points === -1 ? 1 : task.points + 1;
+                            onChange(updateTaskPoints(data, task.id, next));
+                          }}
                           disabled={task.points >= 10}
                           aria-label="Plus de points"
                         >
@@ -301,16 +298,25 @@ export function KidsPanel({ data, onChange, onClose }: KidsPanelProps) {
                     <button
                       type="button"
                       class="nido-kids-panel__btn"
-                      onClick={() => setNewTaskPoints(Math.max(1, newTaskPoints - 1))}
+                      onClick={() => {
+                        const next = newTaskPoints === 1 ? -1 : newTaskPoints - 1;
+                        setNewTaskPoints(Math.max(-10, next));
+                      }}
                       aria-label="Moins"
                     >
                       <IconMinus size={14} />
                     </button>
-                    <span>{newTaskPoints} pts</span>
+                    <span class={newTaskPoints < 0 ? "is-negative" : ""}>
+                      {newTaskPoints > 0 ? "+" : ""}
+                      {newTaskPoints} pts
+                    </span>
                     <button
                       type="button"
                       class="nido-kids-panel__btn"
-                      onClick={() => setNewTaskPoints(Math.min(10, newTaskPoints + 1))}
+                      onClick={() => {
+                        const next = newTaskPoints === -1 ? 1 : newTaskPoints + 1;
+                        setNewTaskPoints(Math.min(10, next));
+                      }}
                       aria-label="Plus"
                     >
                       <IconPlus size={14} />
