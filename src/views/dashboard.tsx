@@ -411,7 +411,8 @@ export function Dashboard({
             <div class="nido-topbar__clock">{timeStr}</div>
             <span>nido</span>
           </div>
-          <div class="nido-topbar__actions">
+
+          <div class="nido-topbar__weather">
             {weatherEntity && (
               hasMeteoFrance ? (
                 <button
@@ -426,6 +427,9 @@ export function Dashboard({
                 <WeatherPill entity={weatherEntity} />
               )
             )}
+          </div>
+
+          <div class="nido-topbar__utility">
             {lightEntities.length > 0 && (
               <button
                 type="button"
@@ -452,6 +456,9 @@ export function Dashboard({
                 </div>
               </button>
             )}
+          </div>
+
+          <div class="nido-topbar__icons">
             <button
               type="button"
               class="nido-bell-btn"

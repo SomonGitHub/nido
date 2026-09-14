@@ -7,6 +7,9 @@ const pkg = JSON.parse(readFileSync(resolve(__dirname, "package.json"), "utf-8")
 
 export default defineConfig({
   plugins: [preact()],
+  server: {
+    port: Number(process.env.PORT) || 5173,
+  },
   define: {
     __NIDO_VERSION__: JSON.stringify(pkg.version),
   },

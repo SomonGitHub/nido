@@ -70,18 +70,39 @@
   }
 }
 
-/* Header */
+/* Header — grid so weather/icons/utility groups can be rearranged per breakpoint
+   without touching DOM order (see mobile layout below). */
 .nido-topbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-areas: "brand . weather utility icons";
   align-items: center;
-  justify-content: space-between;
+  column-gap: 12px;
   margin-bottom: 28px;
 }
 .nido-topbar__brand {
+  grid-area: brand;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+}
+.nido-topbar__weather {
+  grid-area: weather;
+  display: flex;
+  align-items: center;
+}
+.nido-topbar__utility {
+  grid-area: utility;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nido-topbar__icons {
+  grid-area: icons;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .nido-topbar__clock {
   font-family: var(--font-mono);
@@ -1049,12 +1070,6 @@
   .n-fan-spin svg { animation: none; }
 }
 
-/* Topbar actions */
-.nido-topbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
 .n-pill-btn--ghost {
   background: transparent;
   color: var(--ink-2);
@@ -3453,8 +3468,8 @@
 
 /* Topbar : les 3 boutons icônes (bloc note, notifications, settings) doivent
    avoir des dimensions identiques. .n-pill-btn--ghost hérite flex:1 → override. */
-.nido-topbar__actions > .nido-bell-btn,
-.nido-topbar__actions > .n-pill-btn--ghost {
+.nido-topbar__icons > .nido-bell-btn,
+.nido-topbar__icons > .n-pill-btn--ghost {
   flex: 0 0 auto;
   width: 44px;
   height: 32px;
@@ -3465,21 +3480,21 @@
   justify-content: center;
 }
 
-/* Responsive Topbar Actions */
+/* Responsive Topbar : météo en haut à gauche (au-dessus de l'heure/nido),
+   bloc note/notif/réglages en haut à droite, lumières/volets en dessous à droite. */
 @media (max-width: 768px) {
-  .nido-topbar__actions {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 8px;
+  .nido-topbar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "weather icons"
+      "brand utility";
+    row-gap: 12px;
   }
-  .nido-weather-pill-btn,
-  .nido-topbar__actions > .nido-weather-pill,
-  .nido-lights-pill-btn,
-  .nido-covers-pill-btn {
-    flex: 0 0 100%;
-    display: flex;
+  .nido-topbar__weather {
+    justify-content: flex-start;
+  }
+  .nido-topbar__icons,
+  .nido-topbar__utility {
     justify-content: flex-end;
   }
 }
