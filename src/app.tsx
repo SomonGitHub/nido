@@ -26,6 +26,8 @@ import { Dashboard } from "./views/dashboard";
 import { RoomDetail } from "./views/room-detail";
 import { EnergyPage, POWER_ENTITY_ID } from "./views/energy";
 import { Onboarding } from "./components/onboarding";
+import { CompactDashboard } from "./views/compact";
+import { useCompactLayout } from "./core/use-compact-layout";
 
 interface PanelHost {
   applyTheme?: (theme: string, mode: string) => void;
@@ -60,6 +62,7 @@ export function App({ hass, host }: AppProps) {
   const [view, setView] = useState<
     { kind: "dashboard" } | { kind: "room"; areaId: string } | { kind: "energy" }
   >({ kind: "dashboard" });
+  const compact = useCompactLayout();
 
   const reorderFavorites = (ids: string[]) => {
     setFavorites(ids);
@@ -183,7 +186,16 @@ export function App({ hass, host }: AppProps) {
 
   return (
     <>
-      {view.kind === "energy" ? (
+      {compact && (view.kind === "dashboard" || !currentArea) ? (
+        <CompactDashboard
+          hass={hass}
+          areas={areas}
+          entities={entities}
+          favorites={favorites}
+          exposed={exposed}
+          roomsOrder={roomsOrder}
+        />
+      ) : view.kind === "energy" ? (
         <EnergyPage
           hass={hass}
           entities={entities}

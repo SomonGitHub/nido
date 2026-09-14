@@ -38,7 +38,7 @@ interface DashboardProps {
   onReorderRooms: (ids: string[]) => void;
 }
 
-function greetingFor(hour: number): { greeting: string; sub: string } {
+export function greetingFor(hour: number): { greeting: string; sub: string } {
   if (hour >= 5 && hour < 12) return { greeting: "Bonjour", sub: "La maison se réveille doucement" };
   if (hour >= 12 && hour < 18) return { greeting: "Bel après-midi", sub: "Tout va bien à la maison" };
   if (hour >= 18 && hour < 22) return { greeting: "Bonsoir", sub: "Tout le monde est rentré" };

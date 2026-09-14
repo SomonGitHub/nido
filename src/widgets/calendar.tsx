@@ -23,7 +23,7 @@ function formatDay(dayOffset: number, date: Date): string {
   return `${DAY_LABELS[date.getDay()].toUpperCase()} ${date.getDate()}`;
 }
 
-async function fetchCalendarEvents(
+export async function fetchCalendarEvents(
   hass: HassObject,
   entityId: string,
   start: Date,
