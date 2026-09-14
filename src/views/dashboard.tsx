@@ -10,13 +10,14 @@ import {
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
 import { WeatherPill } from "../widgets/weather";
 import { WeatherPanel } from "../components/weather-panel";
-import { IconSettings, IconChevronRight, IconBell, IconLightOn, IconNotebook } from "../icons";
+import { IconSettings, IconChevronRight, IconBell, IconLightOn, IconBlind, IconNotebook } from "../icons";
 import { pickAreaIcon } from "./shared";
 import { renderWidget, SUPPORTED_DOMAINS } from "./render-widget";
 import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
 import { playNotificationSound } from "../core/notification-sound";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 import { LightsPanel } from "../components/lights-panel";
+import { CoversPanel } from "../components/covers-panel";
 import { ShoppingPanel } from "../components/shopping-panel";
 import { PowerGaugeWidget } from "../widgets/power-gauge";
 import { POWER_ENTITY_ID } from "./energy";
@@ -221,11 +222,39 @@ export function Dashboard({
     [exposedEntities],
   );
 
-  const lightsOnEntities = useMemo(
-    () => exposedEntities.filter((e) => e.domain === "light" && isEntityActive(e)),
+  const lightEntities = useMemo(
+    () => exposedEntities.filter((e) => e.domain === "light"),
     [exposedEntities],
   );
-  const lightsOn = lightsOnEntities.length;
+  const sortedLights = useMemo(
+    () =>
+      [...lightEntities].sort((a, b) => {
+        const activeDiff = Number(isEntityActive(b)) - Number(isEntityActive(a));
+        return activeDiff !== 0 ? activeDiff : a.friendly_name.localeCompare(b.friendly_name);
+      }),
+    [lightEntities],
+  );
+  const lightsOn = useMemo(
+    () => lightEntities.filter(isEntityActive).length,
+    [lightEntities],
+  );
+
+  const coverEntities = useMemo(
+    () => exposedEntities.filter((e) => e.domain === "cover"),
+    [exposedEntities],
+  );
+  const sortedCovers = useMemo(
+    () =>
+      [...coverEntities].sort((a, b) => {
+        const activeDiff = Number(isEntityActive(b)) - Number(isEntityActive(a));
+        return activeDiff !== 0 ? activeDiff : a.friendly_name.localeCompare(b.friendly_name);
+      }),
+    [coverEntities],
+  );
+  const coversOpen = useMemo(
+    () => coverEntities.filter(isEntityActive).length,
+    [coverEntities],
+  );
 
   const calendarEntities = useMemo(
     () => exposedEntities.filter((e) => e.domain === "calendar"),
@@ -243,6 +272,7 @@ export function Dashboard({
   const [showWeatherPanel, setShowWeatherPanel] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showLightsPanel, setShowLightsPanel] = useState(false);
+  const [showCoversPanel, setShowCoversPanel] = useState(false);
   const [showShoppingPanel, setShowShoppingPanel] = useState(false);
   const [showKidsPanel, setShowKidsPanel] = useState(false);
   const [kidsData, updateKidsData] = useKidsSync(hass);
@@ -396,7 +426,7 @@ export function Dashboard({
                 <WeatherPill entity={weatherEntity} />
               )
             )}
-            {lightsOn > 0 && (
+            {lightEntities.length > 0 && (
               <button
                 type="button"
                 class="nido-lights-pill-btn"
@@ -406,9 +436,19 @@ export function Dashboard({
                 <div class="nido-lights-pill">
                   <IconLightOn size={16} />
                   <span class="nido-lights-pill__count">{lightsOn}</span>
-                  <span class="nido-lights-pill__label">
-                    {lightsOn === 1 ? "lumière" : "lumières"}
-                  </span>
+                </div>
+              </button>
+            )}
+            {coverEntities.length > 0 && (
+              <button
+                type="button"
+                class="nido-covers-pill-btn"
+                onClick={() => setShowCoversPanel(true)}
+                aria-label={`${coversOpen} volet${coversOpen > 1 ? "s" : ""} ouvert${coversOpen > 1 ? "s" : ""}`}
+              >
+                <div class="nido-covers-pill">
+                  <IconBlind size={16} />
+                  <span class="nido-covers-pill__count">{coversOpen}</span>
                 </div>
               </button>
             )}
@@ -564,9 +604,18 @@ export function Dashboard({
       {showLightsPanel && (
         <LightsPanel
           hass={hass}
-          lights={lightsOnEntities}
+          lights={sortedLights}
           areas={areas}
           onClose={() => setShowLightsPanel(false)}
+        />
+      )}
+
+      {showCoversPanel && (
+        <CoversPanel
+          hass={hass}
+          covers={sortedCovers}
+          areas={areas}
+          onClose={() => setShowCoversPanel(false)}
         />
       )}
 

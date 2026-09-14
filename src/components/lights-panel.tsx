@@ -2,7 +2,7 @@ import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
 import type { ResolvedEntity } from "../core/entities";
-import { IconLightOn, IconX } from "../icons";
+import { IconLight, IconLightOn, IconX } from "../icons";
 import { useOverlay } from "../core/use-overlay";
 
 interface LightsPanelProps {
@@ -26,12 +26,13 @@ interface LightRowProps {
 
 function LightRow({ hass, entity, roomName }: LightRowProps) {
   const [pending, setPending] = useState(false);
+  const isOn = entity.state.state === "on";
   const pct = brightnessPct(entity);
 
-  const turnOff = async () => {
+  const toggle = async () => {
     setPending(true);
     try {
-      await hass.callService("light", "turn_off", { entity_id: entity.entity_id });
+      await hass.callService("light", "toggle", { entity_id: entity.entity_id });
     } finally {
       setPending(false);
     }
@@ -40,20 +41,20 @@ function LightRow({ hass, entity, roomName }: LightRowProps) {
   return (
     <div class={`nido-lights-row ${pending ? "is-pending" : ""}`}>
       <div class="nido-lights-row__icon">
-        <IconLightOn size={18} />
+        {isOn ? <IconLightOn size={18} /> : <IconLight size={18} />}
       </div>
       <div class="nido-lights-row__body">
         <div class="nido-lights-row__name">{entity.friendly_name}</div>
         {roomName && <div class="nido-lights-row__room">{roomName}</div>}
       </div>
-      <div class="nido-lights-row__pct">{pct}%</div>
+      {isOn && <div class="nido-lights-row__pct">{pct}%</div>}
       <button
         type="button"
         class="n-toggle"
         role="switch"
-        aria-checked={true}
+        aria-checked={isOn}
         disabled={pending}
-        onClick={turnOff}
+        onClick={toggle}
       >
         <span class="n-toggle__thumb" />
       </button>
@@ -65,12 +66,13 @@ export function LightsPanel({ hass, lights, areas, onClose }: LightsPanelProps) 
   const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const [pendingAll, setPendingAll] = useState(false);
   const areaMap = new Map(areas.map((a) => [a.area_id, a.name]));
+  const lightsOn = lights.filter((e) => e.state.state === "on");
 
   const turnOffAll = async () => {
     setPendingAll(true);
     try {
       await Promise.all(
-        lights.map((e) =>
+        lightsOn.map((e) =>
           hass.callService("light", "turn_off", { entity_id: e.entity_id }),
         ),
       );
@@ -87,12 +89,12 @@ export function LightsPanel({ hass, lights, areas, onClose }: LightsPanelProps) 
         class="nido-notification-panel__content"
         role="dialog"
         aria-modal="true"
-        aria-label="Lumières allumées"
+        aria-label="Lumières"
       >
         <header class="nido-notification-panel__header">
           <div class="nido-lights-panel__title">
-            <span>Lumières allumées</span>
-            <span class="nido-lights-panel__count">{lights.length}</span>
+            <span>Lumières</span>
+            <span class="nido-lights-panel__count">{lightsOn.length}</span>
           </div>
           <button
             type="button"
@@ -117,7 +119,7 @@ export function LightsPanel({ hass, lights, areas, onClose }: LightsPanelProps) 
           </div>
         </div>
 
-        {lights.length > 1 && (
+        {lightsOn.length > 1 && (
           <div class="nido-lights-panel__footer">
             <button
               type="button"

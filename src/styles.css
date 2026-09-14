@@ -57,6 +57,19 @@
 }
 .nido-dashboard > * { position: relative; }
 
+/* Full-bleed sur petit écran : la shell crème doit toucher les bords,
+   sinon on perd de l'espace utile en marges + coins arrondis inutiles. */
+@media (max-width: 600px) {
+  .nido-shell {
+    padding: 0;
+  }
+  .nido-dashboard {
+    border-radius: 0;
+    padding: 20px 16px;
+    min-height: 100vh;
+  }
+}
+
 /* Header */
 .nido-topbar {
   display: flex;
@@ -1088,8 +1101,9 @@
   color: var(--ink-3);
 }
 
-/* Lights pill (topbar) */
-.nido-lights-pill-btn {
+/* Lights / covers pill (topbar) */
+.nido-lights-pill-btn,
+.nido-covers-pill-btn {
   background: none;
   border: none;
   padding: 0;
@@ -1097,28 +1111,28 @@
   display: inline-flex;
   transition: transform 200ms;
 }
-.nido-lights-pill-btn:hover { transform: scale(1.04); }
-.nido-lights-pill-btn:active { transform: scale(0.96); }
+.nido-lights-pill-btn:hover,
+.nido-covers-pill-btn:hover { transform: scale(1.04); }
+.nido-lights-pill-btn:active,
+.nido-covers-pill-btn:active { transform: scale(0.96); }
 
-.nido-lights-pill {
+.nido-lights-pill,
+.nido-covers-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px 8px 10px;
+  padding: 8px 10px;
   background: var(--accent-soft);
   border-radius: var(--r-pill);
   font-family: var(--font-sans);
   color: var(--accent-deep);
 }
-.nido-lights-pill__count {
+.nido-lights-pill__count,
+.nido-covers-pill__count {
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.01em;
-}
-.nido-lights-pill__label {
-  font-size: 12px;
-  opacity: 0.8;
 }
 
 /* Lights panel */
@@ -1213,9 +1227,29 @@
   flex-shrink: 0;
 }
 
+.nido-covers-row__actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.nido-covers-row__actions .n-pill-btn {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
 .nido-lights-panel__footer {
   padding: 16px 32px 24px;
   border-top: 1px solid var(--ink-4);
+}
+.nido-covers-panel__footer {
+  display: flex;
+  gap: 10px;
+}
+.nido-covers-panel__footer .nido-lights-panel__all-off {
+  width: auto;
+  flex: 1;
 }
 .nido-lights-panel__all-off {
   width: 100%;
@@ -2732,15 +2766,15 @@
   .n-ob-ent__grid { grid-template-columns: 1fr; }
 }
 
-/* Mobile (≤ 600px) */
+/* Mobile (≤ 600px) : plein écran, sans marge perdue autour de la shell */
 @media (max-width: 600px) {
   .n-ob {
-    padding: 8px;
+    padding: 0;
     overflow: hidden;
   }
   .n-ob__shell {
     padding: 16px;
-    border-radius: var(--r-xl);
+    border-radius: 0;
     min-height: 0;
     height: 100%;
   }
@@ -3442,7 +3476,8 @@
   }
   .nido-weather-pill-btn,
   .nido-topbar__actions > .nido-weather-pill,
-  .nido-lights-pill-btn {
+  .nido-lights-pill-btn,
+  .nido-covers-pill-btn {
     flex: 0 0 100%;
     display: flex;
     justify-content: flex-end;
