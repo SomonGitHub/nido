@@ -139,6 +139,11 @@
   font-weight: 400;
   color: var(--accent);
 }
+@media (max-width: 600px) {
+  .nido-hero h1 {
+    font-size: 30px;
+  }
+}
 .nido-hero__sub {
   margin: 12px 0 0;
   font-size: 15px;
