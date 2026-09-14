@@ -154,6 +154,73 @@ export interface RoomStats {
   illuminance?: RoomStat;
 }
 
+export type RoomAlertKind = "window" | "door" | "moisture" | "smoke" | "gas";
+
+export interface RoomAlert {
+  kind: RoomAlertKind;
+  label: string;
+}
+
+export interface RoomSummary {
+  lightsOn: number;
+  coversOpen: number;
+  mediaPlaying: boolean;
+  alerts: RoomAlert[];
+  lightIds: string[];
+  coverIds: string[];
+}
+
+const ALERT_CLASSES: Record<string, RoomAlert> = {
+  window: { kind: "window", label: "Fenêtre ouverte" },
+  door: { kind: "door", label: "Porte ouverte" },
+  garage_door: { kind: "door", label: "Garage ouvert" },
+  moisture: { kind: "moisture", label: "Fuite d'eau" },
+  smoke: { kind: "smoke", label: "Fumée détectée" },
+  gas: { kind: "gas", label: "Gaz détecté" },
+  carbon_monoxide: { kind: "gas", label: "CO détecté" },
+};
+
+export function summarizeRoom(entities: ResolvedEntity[]): RoomSummary {
+  const summary: RoomSummary = {
+    lightsOn: 0,
+    coversOpen: 0,
+    mediaPlaying: false,
+    alerts: [],
+    lightIds: [],
+    coverIds: [],
+  };
+  const seenAlerts = new Set<string>();
+
+  for (const e of entities) {
+    const active = isEntityActive(e);
+    switch (e.domain) {
+      case "light":
+        summary.lightIds.push(e.entity_id);
+        if (active) summary.lightsOn++;
+        break;
+      case "cover":
+        summary.coverIds.push(e.entity_id);
+        if (active) summary.coversOpen++;
+        break;
+      case "media_player":
+        if (active) summary.mediaPlaying = true;
+        break;
+      case "binary_sensor": {
+        if (!active) break;
+        const dc = e.state.attributes.device_class as string | undefined;
+        const alert = dc ? ALERT_CLASSES[dc] : undefined;
+        if (alert && !seenAlerts.has(alert.label)) {
+          seenAlerts.add(alert.label);
+          summary.alerts.push(alert);
+        }
+        break;
+      }
+    }
+  }
+
+  return summary;
+}
+
 export function extractRoomStats(entities: ResolvedEntity[]): RoomStats {
   const stats: RoomStats = {};
   for (const e of entities) {

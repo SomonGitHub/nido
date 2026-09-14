@@ -44,6 +44,8 @@ nido-dashboard/                # = racine du repo HACS
                                #   extractRoomStats(es) : temp/humidity/illuminance par pièce
       storage.ts               # localStorage (clés nido.*) : favorites, exposed,
                                #   excludedUsers, roomsOrder, roomEntitiesOrder, theme, mode
+      use-room-layout.ts       # hook useRoomLayout() : "phone" | "touch" | "desktop"
+                               #   matchMedia, pilote la mise en page des cartes pièce
       drag-reorder.ts          # hook useDragReorder<T> + applyOrder<T>
                                #   pointer events, threshold 6px clic-vs-drag,
                                #   skip drag sur INPUT/BUTTON/role=switch
@@ -86,6 +88,27 @@ L'utilisateur configure Nido via **l'onboarding** (= aussi le panneau Settings, 
 - `nido.lastNotificationRead` — ISO date, dernière lecture des notifications
 
 Drag-and-drop natif sur les 3 (Pointer Events). Sur `RoomDetail` filtré, le reorder calcule un `newFull` qui préserve la position des items hors filtre.
+
+## Cartes pièce — trois mises en page
+
+`useRoomLayout()` choisit la mise en page, `RoomCard` rend deux arbres JSX et le reste
+est piloté par les classes `nido-room-card--{phone,touch,desktop}` / `nido-rooms-grid--*` :
+
+| Layout | Condition | Rendu |
+|---|---|---|
+| `phone` | `(max-width: 599px)` | ligne de liste 96 px, 1 colonne, mesures + puces sur une rangée |
+| `touch` | `(pointer: coarse) and (min-width: 600px)` | carte 210 px+, mesures libellées, actions rapides, cibles 44 px |
+| `desktop` | sinon | carte 170 px, mesures avec icônes, pas d'actions |
+
+Le test est le **pointeur**, pas la largeur : une tablette murale en paysage fait 1280 px
+et passerait pour un desktop. La vue Echo Show (`useCompactLayout`) est indépendante et
+prioritaire — elle remplace tout le dashboard.
+
+Contenu commun : puces d'état (`summarizeRoom` → lumières allumées, volets ouverts, média
+en lecture, alertes binary_sensor window/door/moisture/smoke/gas) + bandeau température /
+humidité / luminosité (`extractRoomStats`). Les actions rapides appellent `light.turn_on|off`
+et `cover.open|close_cover` sur les entités **exposées** de la pièce, avec `stopPropagation`
+pour ne pas déclencher l'ouverture de la pièce.
 
 ## Routing (sans router)
 

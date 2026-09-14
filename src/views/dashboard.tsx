@@ -1,16 +1,36 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import type { JSX } from "preact";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
 import {
   groupByArea,
   isEntityActive,
   extractRoomStats,
+  summarizeRoom,
   type ResolvedEntity,
+  type RoomAlertKind,
+  type RoomStats,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
+import { useRoomLayout, type RoomLayout } from "../core/use-room-layout";
 import { WeatherPill } from "../widgets/weather";
 import { WeatherPanel } from "../components/weather-panel";
-import { IconSettings, IconChevronRight, IconBell, IconLightOn, IconBlind, IconNotebook } from "../icons";
+import {
+  IconSettings,
+  IconChevronRight,
+  IconBell,
+  IconLightOn,
+  IconBlind,
+  IconNotebook,
+  IconMusic,
+  IconWindow,
+  IconDoor,
+  IconWater,
+  IconSmoke,
+  IconThermostat,
+  IconHumidity,
+  IconSun,
+} from "../icons";
 import { pickAreaIcon } from "./shared";
 import { renderWidget, SUPPORTED_DOMAINS } from "./render-widget";
 import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
@@ -87,101 +107,281 @@ function detectRoomPresence(
 }
 
 interface RoomCardProps {
+  hass: HassObject;
   area: Area;
   entities: ResolvedEntity[];
   accent?: boolean;
+  layout: RoomLayout;
   onOpen: () => void;
   dragProps: Record<string, unknown>;
   presence?: PersonPresence[];
 }
 
-function RoomCard({ area, entities, accent = false, onOpen, dragProps, presence }: RoomCardProps) {
+const ALERT_ICON: Record<RoomAlertKind, (p: { size?: number }) => JSX.Element> = {
+  window: IconWindow,
+  door: IconDoor,
+  moisture: IconWater,
+  smoke: IconSmoke,
+  gas: IconSmoke,
+};
+
+const ALERT_SHORT: Record<RoomAlertKind, string> = {
+  window: "Fenêtre",
+  door: "Porte",
+  moisture: "Fuite",
+  smoke: "Fumée",
+  gas: "Gaz",
+};
+
+interface BandItem {
+  key: string;
+  Icon: (p: { size?: number }) => JSX.Element;
+  label: string;
+  value: string;
+  unit: string;
+}
+
+function roomBandItems(stats: RoomStats): BandItem[] {
+  const items: BandItem[] = [];
+  if (stats.temperature) {
+    items.push({
+      key: "temperature",
+      Icon: IconThermostat,
+      label: "Temp.",
+      value: stats.temperature.value,
+      unit: stats.temperature.unit || "°",
+    });
+  }
+  if (stats.humidity) {
+    items.push({
+      key: "humidity",
+      Icon: IconHumidity,
+      label: "Humid.",
+      value: Math.round(parseFloat(stats.humidity.value)).toString(),
+      unit: stats.humidity.unit || "%",
+    });
+  }
+  if (stats.illuminance) {
+    items.push({
+      key: "illuminance",
+      Icon: IconSun,
+      label: "Lumino.",
+      value: Math.round(parseFloat(stats.illuminance.value)).toString(),
+      unit: stats.illuminance.unit || "lx",
+    });
+  }
+  return items;
+}
+
+function RoomCard({
+  hass,
+  area,
+  entities,
+  accent = false,
+  layout,
+  onOpen,
+  dragProps,
+  presence,
+}: RoomCardProps) {
   const Icon = pickAreaIcon(area.name);
-  const devices = entities.filter(
-    (e) => e.domain !== "sensor" && e.domain !== "binary_sensor",
-  ).length;
-  const active = entities.filter(isEntityActive).length;
   const stats = extractRoomStats(entities);
+  const summary = summarizeRoom(entities);
+  const band = roomBandItems(stats);
+  const idle =
+    summary.lightsOn === 0 &&
+    summary.coversOpen === 0 &&
+    !summary.mediaPlaying &&
+    summary.alerts.length === 0;
+  const phone = layout === "phone";
+
+  const runAction = (e: Event, domain: string, service: string, ids: string[]) => {
+    e.stopPropagation();
+    if (ids.length === 0) return;
+    void hass.callService(domain, service, { entity_id: ids });
+  };
+
+  const cardClass = [
+    "nido-room-card",
+    `nido-room-card--${layout}`,
+    accent ? "nido-room-card--accent" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const deco = accent ? (
+    <svg class="nido-room-card__deco" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(244,237,226,0.08)" />
+      <circle cx="60" cy="60" r="32" fill="none" stroke="rgba(244,237,226,0.08)" />
+    </svg>
+  ) : null;
+
+  const presenceEl =
+    presence && presence.length > 0 ? (
+      <div class="nido-room-card__presence">
+        {presence.map((p) =>
+          p.picture ? (
+            <img key={p.name} class="nido-room-card__avatar" src={p.picture} alt={p.name} />
+          ) : (
+            <span key={p.name} class="nido-room-card__avatar nido-room-card__avatar--initial">
+              {p.name[0].toUpperCase()}
+            </span>
+          ),
+        )}
+      </div>
+    ) : null;
+
+  const chipsEl = (
+    <div class="nido-room-card__chips">
+      {summary.lightsOn > 0 && (
+        <span class="nido-room-card__chip nido-room-card__chip--on">
+          <IconLightOn size={13} />
+          {summary.lightsOn}
+        </span>
+      )}
+      {summary.coversOpen > 0 && (
+        <span class="nido-room-card__chip">
+          <IconBlind size={13} />
+          {summary.coversOpen}
+        </span>
+      )}
+      {summary.mediaPlaying && (
+        <span class="nido-room-card__chip nido-room-card__chip--on">
+          <IconMusic size={13} />
+          {!phone && "En lecture"}
+        </span>
+      )}
+      {summary.alerts.map((a) => {
+        const AIcon = ALERT_ICON[a.kind];
+        return (
+          <span key={a.label} class="nido-room-card__chip nido-room-card__chip--alert">
+            <AIcon size={13} />
+            {phone ? ALERT_SHORT[a.kind] : a.label}
+          </span>
+        );
+      })}
+      {idle && <span class="nido-room-card__chip nido-room-card__chip--idle">Tout éteint</span>}
+    </div>
+  );
+
+  const bandEl =
+    band.length > 0 ? (
+      <div class="nido-room-card__band">
+        {band.map(({ key, Icon: StatIcon, label, value, unit }) => (
+          <span key={key} class="nido-room-card__band-item">
+            <span class="nido-room-card__band-icon">
+              <StatIcon size={14} />
+            </span>
+            <span class="nido-room-card__band-label">{label}</span>
+            <span class="nido-room-card__band-value">
+              {value}
+              <span class="nido-room-card__band-unit">{unit}</span>
+            </span>
+          </span>
+        ))}
+      </div>
+    ) : null;
+
+  const actionsEl =
+    layout === "touch" && (summary.lightIds.length > 0 || summary.coverIds.length > 0) ? (
+      <div class="nido-room-card__actions" data-no-drag>
+        {summary.lightIds.length > 0 && (
+          <button
+            type="button"
+            class={`n-pill-btn${summary.lightsOn === 0 ? " is-idle" : ""}`}
+            onClick={(e) =>
+              runAction(
+                e,
+                "light",
+                summary.lightsOn > 0 ? "turn_off" : "turn_on",
+                summary.lightIds,
+              )
+            }
+          >
+            <IconLightOn size={16} />
+            {summary.lightsOn > 0 ? "Éteindre" : "Allumer"}
+          </button>
+        )}
+        {summary.coverIds.length > 0 && (
+          <button
+            type="button"
+            class="n-icon-btn"
+            aria-label={summary.coversOpen > 0 ? "Fermer les volets" : "Ouvrir les volets"}
+            onClick={(e) =>
+              runAction(
+                e,
+                "cover",
+                summary.coversOpen > 0 ? "close_cover" : "open_cover",
+                summary.coverIds,
+              )
+            }
+          >
+            <IconBlind size={18} />
+          </button>
+        )}
+      </div>
+    ) : null;
+
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onOpen();
+    }
+  };
+
+  if (phone) {
+    return (
+      <div
+        role="button"
+        tabIndex={0}
+        class={cardClass}
+        onClick={onOpen}
+        onKeyDown={onKeyDown}
+        {...dragProps}
+      >
+        {deco}
+        <div class="nido-room-card__row">
+          <span class="nido-room-card__icon">
+            <Icon size={19} />
+          </span>
+          <span class="nido-room-card__name">{area.name}</span>
+          {presenceEl}
+          <span class="nido-room-card__chev">
+            <IconChevronRight size={16} />
+          </span>
+        </div>
+        <div class="nido-room-card__line">
+          {bandEl}
+          {chipsEl}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
       role="button"
       tabIndex={0}
-      class={`nido-room-card ${accent ? "nido-room-card--accent" : ""}`}
+      class={cardClass}
       onClick={onOpen}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onOpen();
-        }
-      }}
+      onKeyDown={onKeyDown}
       {...dragProps}
     >
-      {accent && (
-        <svg class="nido-room-card__deco" viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(244,237,226,0.08)" />
-          <circle cx="60" cy="60" r="32" fill="none" stroke="rgba(244,237,226,0.08)" />
-        </svg>
-      )}
+      {deco}
       <div class="nido-room-card__body">
         <div class="nido-room-card__head">
           <span class="nido-room-card__icon">
             <Icon size={20} />
           </span>
           <div class="nido-room-card__head-right">
-            {presence && presence.length > 0 && (
-              <div class="nido-room-card__presence">
-                {presence.map((p) =>
-                  p.picture ? (
-                    <img
-                      key={p.name}
-                      class="nido-room-card__avatar"
-                      src={p.picture}
-                      alt={p.name}
-                    />
-                  ) : (
-                    <span key={p.name} class="nido-room-card__avatar nido-room-card__avatar--initial">
-                      {p.name[0].toUpperCase()}
-                    </span>
-                  )
-                )}
-              </div>
-            )}
+            {presenceEl}
             <IconChevronRight size={16} />
           </div>
         </div>
         <div class="nido-room-card__foot">
           <div class="nido-room-card__name">{area.name}</div>
-          <div class="nido-room-card__meta">
-            <span>
-              {devices} appareil{devices > 1 ? "s" : ""}
-            </span>
-            {active > 0 && (
-              <>
-                <span class="nido-room-card__sep">•</span>
-                <span class="nido-room-card__active">
-                  <span class="nido-room-card__dot" />
-                  {active} actif{active > 1 ? "s" : ""}
-                </span>
-              </>
-            )}
-          </div>
-          {(stats.temperature || stats.humidity) && (
-            <div class="nido-room-card__stats">
-              {stats.temperature && (
-                <span class="nido-room-card__stat">
-                  {stats.temperature.value}
-                  {stats.temperature.unit || "°"}
-                </span>
-              )}
-              {stats.humidity && (
-                <span class="nido-room-card__stat">
-                  {Math.round(parseFloat(stats.humidity.value))}
-                  {stats.humidity.unit || "%"}
-                </span>
-              )}
-            </div>
-          )}
+          {chipsEl}
+          {bandEl}
+          {actionsEl}
         </div>
       </div>
     </div>
@@ -328,6 +528,7 @@ export function Dashboard({
 
   const byArea = useMemo(() => groupByArea(exposedEntities), [exposedEntities]);
   const roomPresence = useMemo(() => detectRoomPresence(hass, areas), [hass.states, areas]);
+  const roomLayout = useRoomLayout();
 
   const favoriteEntities = useMemo(() => {
     const byId = new Map(exposedEntities.map((e) => [e.entity_id, e]));
@@ -559,7 +760,7 @@ export function Dashboard({
                   <h2>Pièces</h2>
                 </div>
                 <div
-                  class={`nido-rooms-grid ${roomsDrag.isDragging ? "is-dragging" : ""}`}
+                  class={`nido-rooms-grid nido-rooms-grid--${roomLayout} ${roomsDrag.isDragging ? "is-dragging" : ""}`}
                   ref={(el) => {
                     roomsDrag.containerRef.current = el;
                   }}
@@ -567,9 +768,11 @@ export function Dashboard({
                   {populatedAreas.map((a, i) => (
                     <RoomCard
                       key={a.area_id}
+                      hass={hass}
                       area={a}
                       entities={byArea.get(a.area_id) ?? []}
                       accent={i === 0}
+                      layout={roomLayout}
                       onOpen={() => onOpenRoom(a.area_id)}
                       dragProps={roomsDrag.itemPropsFor(a.area_id)}
                       presence={roomPresence.get(a.area_id)}

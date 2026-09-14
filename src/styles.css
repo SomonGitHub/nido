@@ -1626,6 +1626,13 @@
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
 }
+.nido-rooms-grid--phone {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.nido-rooms-grid--touch {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
 
 /* Room card */
 .nido-room-card {
@@ -1639,7 +1646,7 @@
   border: none;
   border-radius: var(--r-lg);
   padding: 20px;
-  min-height: 140px;
+  min-height: 170px;
   cursor: pointer;
   overflow: hidden;
   font-family: var(--font-sans);
@@ -1647,7 +1654,7 @@
 }
 .nido-room-card:hover { transform: translateY(-2px); }
 .nido-room-card--accent {
-  background: var(--ink-1);
+  background: var(--hero-dark);
   color: var(--hero-dark-ink, var(--bg-shell));
 }
 .nido-room-card__deco {
@@ -1721,15 +1728,7 @@
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin-bottom: 6px;
-}
-.nido-room-card__meta {
-  display: flex;
-  gap: 10px;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  opacity: 0.65;
-  align-items: center;
+  margin-bottom: 8px;
 }
 .nido-room-card__sep { opacity: 0.4; }
 .nido-room-card__active {
@@ -1743,19 +1742,171 @@
   border-radius: 50%;
   background: var(--accent);
 }
-.nido-room-card__stats {
-  margin-top: 10px;
+
+/* Puces d'état : ce qui est réellement allumé, ou l'alerte en cours */
+.nido-room-card__chips {
   display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.nido-room-card__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding: 0 9px;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+}
+.nido-room-card--accent .nido-room-card__chip {
+  background: rgba(244, 237, 226, 0.12);
+}
+.nido-room-card__chip--on {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent-deep);
+}
+.nido-room-card--accent .nido-room-card__chip--on {
+  background: color-mix(in srgb, var(--accent) 34%, transparent);
+  color: var(--hero-dark-ink);
+}
+.nido-room-card__chip--alert {
+  background: color-mix(in srgb, var(--danger) 16%, transparent);
+  color: var(--danger);
+}
+.nido-room-card__chip--idle { opacity: 0.55; }
+
+/* Bandeau de mesures — icônes sur desktop/téléphone, libellés sur tactile */
+.nido-room-card__band {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid color-mix(in srgb, var(--ink-4) 55%, transparent);
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+.nido-room-card--accent .nido-room-card__band {
+  border-top-color: rgba(244, 237, 226, 0.16);
+}
+.nido-room-card__band-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+.nido-room-card__band-icon { display: flex; opacity: 0.65; }
+.nido-room-card__band-label { display: none; }
+.nido-room-card__band-unit { margin-left: 1px; }
+
+.nido-room-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+.nido-room-card__actions .n-pill-btn.is-idle { opacity: 0.55; }
+.nido-room-card--accent .nido-room-card__actions .n-pill-btn,
+.nido-room-card--accent .nido-room-card__actions .n-icon-btn {
+  background: rgba(244, 237, 226, 0.14);
+  color: var(--hero-dark-ink);
+}
+
+/* Tactile (tablette) : mesures libellées, cibles à 44 px */
+.nido-room-card--touch { min-height: 210px; }
+.nido-room-card--touch .nido-room-card__icon { width: 44px; height: 44px; }
+.nido-room-card--touch .nido-room-card__name { font-size: 19px; }
+.nido-room-card--touch .nido-room-card__band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink-4) 55%, transparent);
+  opacity: 1;
+}
+.nido-room-card--accent.nido-room-card--touch .nido-room-card__band {
+  border-bottom-color: rgba(244, 237, 226, 0.16);
+}
+.nido-room-card--touch .nido-room-card__band-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+.nido-room-card--touch .nido-room-card__band-icon { display: none; }
+.nido-room-card--touch .nido-room-card__band-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+.nido-room-card--touch .nido-room-card__band-value {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-top: 5px;
+}
+.nido-room-card--touch .nido-room-card__band-unit {
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+.nido-room-card--touch .n-pill-btn { height: 44px; font-size: 13px; }
+.nido-room-card--touch .n-icon-btn { width: 44px; height: 44px; }
+
+/* Téléphone : une ligne de liste, mesures et état sur la même rangée */
+.nido-room-card--phone {
+  min-height: 96px;
+  padding: 16px;
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nido-room-card--phone .nido-room-card__deco { display: none; }
+.nido-room-card__row {
+  position: relative;
+  display: flex;
+  align-items: center;
   gap: 12px;
 }
-.nido-room-card__stat {
-  font-family: var(--font-display);
-  font-size: 14px;
+.nido-room-card--phone .nido-room-card__icon { width: 36px; height: 36px; }
+.nido-room-card--phone .nido-room-card__name {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+  font-size: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nido-room-card__chev { display: flex; opacity: 0.45; flex-shrink: 0; }
+.nido-room-card__line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.nido-room-card--phone .nido-room-card__band {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: inherit;
   opacity: 0.85;
 }
+.nido-room-card--phone .nido-room-card__chips { flex-wrap: nowrap; flex-shrink: 0; }
 
 /* ─── Room detail page ─── */
 .nido-room-detail__header {
