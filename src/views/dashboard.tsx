@@ -31,6 +31,7 @@ interface DashboardProps {
   favorites: string[];
   exposed: string[];
   roomsOrder: string[];
+  kidsEnabled: boolean;
   onConfigure: () => void;
   onOpenRoom: (areaId: string) => void;
   onOpenEnergy?: () => void;
@@ -193,6 +194,7 @@ export function Dashboard({
   favorites,
   exposed,
   roomsOrder,
+  kidsEnabled,
   onConfigure,
   onOpenRoom,
   onOpenEnergy,
@@ -471,6 +473,7 @@ export function Dashboard({
           <>
             {favoritesSection}
 
+            {(showEnergy || kidsEnabled) && (
             <div class="nido-energy-row">
               {showEnergy && (
                 <section class="nido-room nido-room--energy" key="__energy">
@@ -486,19 +489,22 @@ export function Dashboard({
                   </div>
                 </section>
               )}
-              <section class="nido-room nido-room--kids" key="__kids">
-                <div class="nido-section-title">
-                  <h2>Enfants</h2>
-                </div>
-                <div class="nido-kids-summary">
-                  <KidsCard
-                    data={kidsData}
-                    onOpen={() => setShowKidsPanel(true)}
-                    onChange={updateKidsData}
-                  />
-                </div>
-              </section>
+              {kidsEnabled && (
+                <section class="nido-room nido-room--kids" key="__kids">
+                  <div class="nido-section-title">
+                    <h2>Enfants</h2>
+                  </div>
+                  <div class="nido-kids-summary">
+                    <KidsCard
+                      data={kidsData}
+                      onOpen={() => setShowKidsPanel(true)}
+                      onChange={updateKidsData}
+                    />
+                  </div>
+                </section>
+              )}
             </div>
+            )}
 
             {populatedAreas.length > 0 && (
               <section class="nido-rooms-section">

@@ -12,6 +12,7 @@ import {
   saveFavorites,
   saveExposed,
   saveExcludedUsers,
+  saveKidsEnabled,
   setOnboarded,
 } from "../core/storage";
 import {
@@ -98,6 +99,7 @@ interface OnboardingProps {
   initialExposed: string[];
   initialFavorites: string[];
   initialExcludedUsers: string[];
+  initialKidsEnabled: boolean;
   isReturning: boolean;
   onApplyTheme: (theme: ThemeName, mode: ThemeMode) => void;
   onClose: () => void;
@@ -107,6 +109,7 @@ interface OnboardingProps {
     theme: ThemeName;
     mode: ThemeMode;
     excludedUsers: string[];
+    kidsEnabled: boolean;
   }) => void;
 }
 
@@ -120,6 +123,7 @@ export function Onboarding(props: OnboardingProps) {
     initialExposed,
     initialFavorites,
     initialExcludedUsers,
+    initialKidsEnabled,
     isReturning,
     onApplyTheme,
     onClose,
@@ -135,6 +139,7 @@ export function Onboarding(props: OnboardingProps) {
   const [excludedUsers, setExcludedUsers] = useState<Set<string>>(
     new Set(initialExcludedUsers),
   );
+  const [kidsEnabled, setKidsEnabled] = useState<boolean>(initialKidsEnabled);
   const [users, setUsers] = useState<HassUser[] | null>(null);
   const [usersError, setUsersError] = useState<string | null>(null);
 
@@ -214,6 +219,7 @@ export function Onboarding(props: OnboardingProps) {
     saveExposed(exposedArr);
     saveFavorites(favsArr);
     saveExcludedUsers(excludedArr);
+    saveKidsEnabled(kidsEnabled);
     setOnboarded(true);
     onDone({
       exposed: exposedArr,
@@ -221,6 +227,7 @@ export function Onboarding(props: OnboardingProps) {
       theme,
       mode,
       excludedUsers: excludedArr,
+      kidsEnabled,
     });
   };
 
@@ -229,6 +236,7 @@ export function Onboarding(props: OnboardingProps) {
     saveExposed(Array.from(exposed));
     saveFavorites(Array.from(favs).filter((id) => exposed.has(id)));
     saveExcludedUsers(Array.from(excludedUsers));
+    saveKidsEnabled(kidsEnabled);
     setOnboarded(true);
     onClose();
   };
@@ -287,6 +295,8 @@ export function Onboarding(props: OnboardingProps) {
               mode={mode}
               onPick={applyTheme}
               userName={hass.user?.name ?? "vous"}
+              kidsEnabled={kidsEnabled}
+              onToggleKidsEnabled={() => setKidsEnabled((v) => !v)}
             />
           )}
           {step === 4 && (
@@ -701,8 +711,10 @@ function StepTheme(props: {
   mode: ThemeMode;
   userName: string;
   onPick: (theme: ThemeName, mode: ThemeMode) => void;
+  kidsEnabled: boolean;
+  onToggleKidsEnabled: () => void;
 }) {
-  const { theme, mode, userName, onPick } = props;
+  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled } = props;
   const active = THEME_DETAILS[theme];
 
   return (
@@ -759,6 +771,29 @@ function StepTheme(props: {
             onClick={() => onPick(theme, "dark")}
           >
             <IconMoon size={14} /> Sombre
+          </button>
+        </div>
+
+        <div class="n-ob-family__row" style={{ marginTop: 24 }} onClick={onToggleKidsEnabled}>
+          <span class="n-ob-family__avatar" aria-hidden="true">
+            <IconUser size={18} />
+          </span>
+          <div class="n-ob-family__info">
+            <div class="n-ob-family__name">Enfants</div>
+            <div class="n-ob-family__role">Points & récompenses sur le tableau de bord</div>
+          </div>
+          <button
+            type="button"
+            class="n-toggle"
+            role="switch"
+            aria-checked={kidsEnabled}
+            aria-label={kidsEnabled ? "Désactiver le module Enfants" : "Activer le module Enfants"}
+            onClick={(ev) => {
+              ev.stopPropagation();
+              onToggleKidsEnabled();
+            }}
+          >
+            <span class="n-toggle__thumb" />
           </button>
         </div>
       </div>

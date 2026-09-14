@@ -5193,6 +5193,17 @@
   margin-top: auto;
   position: relative;
 }
+.nido-compact-rail__bell-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-card);
+  pointer-events: none;
+}
 
 /* Content */
 .nido-compact-content {

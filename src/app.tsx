@@ -13,6 +13,7 @@ import {
   loadExcludedUsers,
   loadExposed,
   loadFavorites,
+  loadKidsEnabled,
   loadRoomEntitiesOrder,
   loadRoomsOrder,
   loadTheme,
@@ -54,6 +55,7 @@ export function App({ hass, host }: AppProps) {
   const [favorites, setFavorites] = useState<string[]>(() => loadFavorites());
   const [exposed, setExposed] = useState<string[]>(() => loadExposed());
   const [excludedUsers, setExcludedUsers] = useState<string[]>(() => loadExcludedUsers());
+  const [kidsEnabled, setKidsEnabled] = useState<boolean>(() => loadKidsEnabled());
   const [roomsOrder, setRoomsOrder] = useState<string[]>(() => loadRoomsOrder());
   const [roomEntitiesOrder, setRoomEntitiesOrder] = useState<Record<string, string[]>>(
     () => loadRoomEntitiesOrder(),
@@ -211,6 +213,7 @@ export function App({ hass, host }: AppProps) {
           favorites={favorites}
           exposed={exposed}
           roomsOrder={roomsOrder}
+          kidsEnabled={kidsEnabled}
           onConfigure={() => setShowOnboarding(true)}
           onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
           onOpenEnergy={
@@ -239,6 +242,7 @@ export function App({ hass, host }: AppProps) {
           initialExposed={exposed}
           initialFavorites={favorites}
           initialExcludedUsers={excludedUsers}
+          initialKidsEnabled={kidsEnabled}
           isReturning={isOnboarded()}
           onApplyTheme={applyTheme}
           onClose={() => setShowOnboarding(false)}
@@ -246,6 +250,7 @@ export function App({ hass, host }: AppProps) {
             setExposed(state.exposed);
             setFavorites(state.favorites);
             setExcludedUsers(state.excludedUsers);
+            setKidsEnabled(state.kidsEnabled);
             setShowOnboarding(false);
           }}
         />

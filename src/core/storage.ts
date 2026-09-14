@@ -9,6 +9,7 @@ const KEYS = {
   mode: "nido.mode",
   lastNotificationRead: "nido.lastNotificationRead",
   cameraLiveMap: "nido.cameraLiveMap",
+  kidsEnabled: "nido.kidsEnabled",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -157,4 +158,13 @@ export function saveCameraLiveMapping(snapshotEntityId: string, liveEntityId: st
   const map = loadCameraLiveMap();
   map[snapshotEntityId] = liveEntityId;
   s.setItem(KEYS.cameraLiveMap, JSON.stringify(map));
+}
+
+export function loadKidsEnabled(): boolean {
+  const raw = safeStorage()?.getItem(KEYS.kidsEnabled);
+  return raw === null || raw === undefined ? true : raw === "1";
+}
+
+export function saveKidsEnabled(value: boolean): void {
+  safeStorage()?.setItem(KEYS.kidsEnabled, value ? "1" : "0");
 }

@@ -83,11 +83,11 @@ export function CoverWidget({ hass, entity, roomLabel, hero = false }: CoverWidg
             <button
               type="button"
               class="n-pill-btn"
-              aria-label="Monter"
-              title="Monter"
-              onClick={() => hass.callService("cover", "open_cover", { entity_id: entity.entity_id })}
+              aria-label="Descendre"
+              title="Descendre"
+              onClick={() => hass.callService("cover", "close_cover", { entity_id: entity.entity_id })}
             >
-              <IconChevronUp size={18} />
+              <IconChevronDown size={18} />
             </button>
             <button
               type="button"
@@ -101,11 +101,11 @@ export function CoverWidget({ hass, entity, roomLabel, hero = false }: CoverWidg
             <button
               type="button"
               class="n-pill-btn"
-              aria-label="Descendre"
-              title="Descendre"
-              onClick={() => hass.callService("cover", "close_cover", { entity_id: entity.entity_id })}
+              aria-label="Monter"
+              title="Monter"
+              onClick={() => hass.callService("cover", "open_cover", { entity_id: entity.entity_id })}
             >
-              <IconChevronDown size={18} />
+              <IconChevronUp size={18} />
             </button>
           </div>
         </div>

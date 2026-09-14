@@ -4,6 +4,7 @@ import type { ResolvedEntity } from "../core/entities";
 import { IconCalendar } from "../icons";
 import { CalendarPanel } from "../components/calendar-panel";
 import { getCalendarColor, parseHassEvents, type CalendarEvent } from "../core/calendar-events";
+import { useMidnightTick } from "../core/use-midnight-tick";
 
 interface CalendarWidgetProps {
   hass: HassObject;
@@ -66,6 +67,7 @@ export async function fetchCalendarEvents(
 export function CalendarWidget({ hass, entity, roomLabel, hero = false, calendarEntities }: CalendarWidgetProps) {
   const [showPanel, setShowPanel] = useState(false);
   const [events, setEvents] = useState<CalendarEvent[] | null>(null);
+  const midnightTick = useMidnightTick();
 
   const sortedIds = [...calendarEntities].sort((a, b) => a.entity_id.localeCompare(b.entity_id)).map((e) => e.entity_id);
   const colorIndex = sortedIds.indexOf(entity.entity_id);
@@ -86,7 +88,7 @@ export function CalendarWidget({ hass, entity, roomLabel, hero = false, calendar
     });
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hass != null, entity.entity_id]);
+  }, [hass != null, entity.entity_id, midnightTick]);
 
   const limit = hero ? HERO_MAX_EVENTS : MAX_EVENTS;
   const visible = (events ?? []).slice(0, limit);

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "preact/hooks";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { JSX } from "preact";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
@@ -11,6 +11,10 @@ import { DAILY_KWH_ENTITY_ID } from "./energy";
 import { fetchCalendarEvents } from "../widgets/calendar";
 import { describeCondition } from "../widgets/weather";
 import { parseHassEvents, type CalendarEvent } from "../core/calendar-events";
+import { useMidnightTick } from "../core/use-midnight-tick";
+import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
+import { playNotificationSound } from "../core/notification-sound";
+import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 import {
   IconHome,
   IconLightOn,
@@ -52,6 +56,7 @@ function useNextEvent(
 ): CalendarEvent | null | undefined {
   const [next, setNext] = useState<CalendarEvent | null | undefined>(undefined);
   const ids = calendarEntities.map((e) => e.entity_id).join(",");
+  const midnightTick = useMidnightTick();
 
   useEffect(() => {
     if (calendarEntities.length === 0) {
@@ -89,7 +94,7 @@ function useNextEvent(
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hass != null, ids]);
+  }, [hass != null, ids, midnightTick]);
 
   return next;
 }
@@ -119,11 +124,47 @@ export function CompactDashboard({
 }: CompactDashboardProps) {
   const [view, setView] = useState<CompactView>("glance");
   const [, forceTick] = useState(0);
+  const [showNotifications, setShowNotifications] = useState(false);
 
   useEffect(() => {
     const id = setInterval(() => forceTick((t) => t + 1), 30000);
     return () => clearInterval(id);
   }, []);
+
+  const notifications = useMemo(() => {
+    const sensor = hass.states["sensor.nido_notifications"];
+    if (!sensor || !sensor.attributes.notifications) return [];
+    return sensor.attributes.notifications as NidoNotification[];
+  }, [hass.states["sensor.nido_notifications"]]);
+
+  const knownNotifIdsRef = useRef<Set<string>>(new Set(notifications.map((n) => n.id)));
+  const isFirstNotifSyncRef = useRef(true);
+
+  useEffect(() => {
+    const known = knownNotifIdsRef.current;
+    if (isFirstNotifSyncRef.current) {
+      isFirstNotifSyncRef.current = false;
+      knownNotifIdsRef.current = new Set(notifications.map((n) => n.id));
+      return;
+    }
+    const hasNew = notifications.some((n) => !known.has(n.id));
+    if (hasNew) playNotificationSound();
+    knownNotifIdsRef.current = new Set(notifications.map((n) => n.id));
+  }, [notifications]);
+
+  const lastRead = useMemo(() => loadLastNotificationRead(), [showNotifications]);
+
+  const hasNewNotifications = useMemo(() => {
+    if (notifications.length === 0) return false;
+    if (!lastRead) return true;
+    const latest = notifications[notifications.length - 1];
+    return new Date(latest.timestamp) > new Date(lastRead);
+  }, [notifications, lastRead]);
+
+  const handleOpenNotifications = () => {
+    setShowNotifications(true);
+    saveLastNotificationRead(new Date().toISOString());
+  };
 
   const now = new Date();
   const hour = now.getHours();
@@ -219,7 +260,12 @@ export function CompactDashboard({
   return (
     <div class="nido-compact">
       <div class="nido-compact__shell">
-        <CompactRail view={view} setView={setView} />
+        <CompactRail
+          view={view}
+          setView={setView}
+          hasNewNotifications={hasNewNotifications}
+          onOpenNotifications={handleOpenNotifications}
+        />
         <div class="nido-compact-content">
           {view === "glance" && (
             <CompactGlance
@@ -263,6 +309,13 @@ export function CompactDashboard({
           )}
         </div>
       </div>
+      {showNotifications && (
+        <NotificationPanel
+          hass={hass}
+          notifications={notifications}
+          onClose={() => setShowNotifications(false)}
+        />
+      )}
     </div>
   );
 }
@@ -271,9 +324,13 @@ export function CompactDashboard({
 function CompactRail({
   view,
   setView,
+  hasNewNotifications,
+  onOpenNotifications,
 }: {
   view: CompactView;
   setView: (v: CompactView) => void;
+  hasNewNotifications: boolean;
+  onOpenNotifications: () => void;
 }) {
   const items: { id: CompactView; label: string; Icon: (p: { size?: number }) => JSX.Element }[] = [
     { id: "glance", label: "Accueil", Icon: IconHome },
@@ -301,9 +358,15 @@ function CompactRail({
         </button>
       ))}
       <div class="nido-compact-rail__bell">
-        <button type="button" class="nido-compact-rail__btn" aria-label="Notifications">
+        <button
+          type="button"
+          class="nido-compact-rail__btn"
+          aria-label="Notifications"
+          onClick={onOpenNotifications}
+        >
           <IconBell size={19} />
         </button>
+        {hasNewNotifications && <span class="nido-compact-rail__bell-dot" />}
       </div>
     </div>
   );
