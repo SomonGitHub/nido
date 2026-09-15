@@ -28,6 +28,8 @@
         "switch.salon_lampe_deco": { entity_id: "switch.salon_lampe_deco",  state: "off", attributes: { friendly_name: "Lampe déco" },                          last_changed: now, last_updated: now },
 
         "binary_sensor.porte_entree": { entity_id: "binary_sensor.porte_entree", state: "off", attributes: { friendly_name: "Porte d'entrée", device_class: "door" },     last_changed: now, last_updated: now },
+        "binary_sensor.fenetre_salon": { entity_id: "binary_sensor.fenetre_salon", state: "on", attributes: { friendly_name: "Fenêtre salon", device_class: "window" },   last_changed: now, last_updated: now },
+        "binary_sensor.fenetre_chambre": { entity_id: "binary_sensor.fenetre_chambre", state: "off", attributes: { friendly_name: "Fenêtre chambre", device_class: "window" }, last_changed: now, last_updated: now },
         "binary_sensor.salon_motion": { entity_id: "binary_sensor.salon_motion", state: "on",  attributes: { friendly_name: "Mouvement salon", device_class: "motion" },  last_changed: now, last_updated: now },
         "binary_sensor.fumee_cuisine":{ entity_id: "binary_sensor.fumee_cuisine",state: "off", attributes: { friendly_name: "Détecteur fumée", device_class: "smoke" },   last_changed: now, last_updated: now },
         "binary_sensor.fuite_sdb":    { entity_id: "binary_sensor.fuite_sdb",    state: "on",  attributes: { friendly_name: "Détecteur eau",   device_class: "moisture" },last_changed: now, last_updated: now },
@@ -100,6 +102,8 @@
         mk("switch.cuisine_cafetiere", "cuisine"),
         mk("switch.salon_lampe_deco", "salon"),
         mk("binary_sensor.porte_entree", "entree"),
+        mk("binary_sensor.fenetre_salon", "salon"),
+        mk("binary_sensor.fenetre_chambre", "chambre"),
         mk("binary_sensor.salon_motion", "salon"),
         mk("binary_sensor.fumee_cuisine", "cuisine"),
         mk("binary_sensor.fuite_sdb", "sdb"),

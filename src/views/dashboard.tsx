@@ -38,6 +38,7 @@ import { playNotificationSound } from "../core/notification-sound";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 import { LightsPanel } from "../components/lights-panel";
 import { CoversPanel } from "../components/covers-panel";
+import { OpeningsPanel } from "../components/openings-panel";
 import { ShoppingPanel } from "../components/shopping-panel";
 import { PowerGaugeWidget } from "../widgets/power-gauge";
 import { POWER_ENTITY_ID } from "./energy";
@@ -116,6 +117,8 @@ interface RoomCardProps {
   dragProps: Record<string, unknown>;
   presence?: PersonPresence[];
 }
+
+const OPENING_DEVICE_CLASSES = new Set(["door", "garage_door", "window"]);
 
 const ALERT_ICON: Record<RoomAlertKind, (p: { size?: number }) => JSX.Element> = {
   window: IconWindow,
@@ -456,6 +459,28 @@ export function Dashboard({
     [coverEntities],
   );
 
+  const openingEntities = useMemo(
+    () =>
+      exposedEntities.filter(
+        (e) =>
+          e.domain === "binary_sensor" &&
+          OPENING_DEVICE_CLASSES.has(e.state.attributes.device_class as string),
+      ),
+    [exposedEntities],
+  );
+  const sortedOpenings = useMemo(
+    () =>
+      [...openingEntities].sort((a, b) => {
+        const activeDiff = Number(isEntityActive(b)) - Number(isEntityActive(a));
+        return activeDiff !== 0 ? activeDiff : a.friendly_name.localeCompare(b.friendly_name);
+      }),
+    [openingEntities],
+  );
+  const openingsOpen = useMemo(
+    () => openingEntities.filter(isEntityActive).length,
+    [openingEntities],
+  );
+
   const calendarEntities = useMemo(
     () => exposedEntities.filter((e) => e.domain === "calendar"),
     [exposedEntities],
@@ -473,6 +498,7 @@ export function Dashboard({
   const [showNotifications, setShowNotifications] = useState(false);
   const [showLightsPanel, setShowLightsPanel] = useState(false);
   const [showCoversPanel, setShowCoversPanel] = useState(false);
+  const [showOpeningsPanel, setShowOpeningsPanel] = useState(false);
   const [showShoppingPanel, setShowShoppingPanel] = useState(false);
   const [showKidsPanel, setShowKidsPanel] = useState(false);
   const [kidsData, updateKidsData] = useKidsSync(hass);
@@ -657,6 +683,19 @@ export function Dashboard({
                 </div>
               </button>
             )}
+            {openingEntities.length > 0 && (
+              <button
+                type="button"
+                class="nido-covers-pill-btn"
+                onClick={() => setShowOpeningsPanel(true)}
+                aria-label={`${openingsOpen} ouvrant${openingsOpen > 1 ? "s" : ""} ouvert${openingsOpen > 1 ? "s" : ""}`}
+              >
+                <div class="nido-covers-pill">
+                  <IconWindow size={16} />
+                  <span class="nido-covers-pill__count">{openingsOpen}</span>
+                </div>
+              </button>
+            )}
           </div>
 
           <div class="nido-topbar__icons">
@@ -826,6 +865,14 @@ export function Dashboard({
           covers={sortedCovers}
           areas={areas}
           onClose={() => setShowCoversPanel(false)}
+        />
+      )}
+
+      {showOpeningsPanel && (
+        <OpeningsPanel
+          openings={sortedOpenings}
+          areas={areas}
+          onClose={() => setShowOpeningsPanel(false)}
         />
       )}
 
