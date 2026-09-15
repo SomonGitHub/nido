@@ -221,6 +221,50 @@ export function summarizeRoom(entities: ResolvedEntity[]): RoomSummary {
   return summary;
 }
 
+const NO_ROOM_LABEL = "Autres";
+
+function roomNameOf(e: ResolvedEntity, areaMap: Map<string, string>): string {
+  return e.area_id ? (areaMap.get(e.area_id) ?? NO_ROOM_LABEL) : NO_ROOM_LABEL;
+}
+
+export function sortByRoomThenName(
+  entities: ResolvedEntity[],
+  areaMap: Map<string, string>,
+): ResolvedEntity[] {
+  return [...entities].sort((a, b) => {
+    const roomA = roomNameOf(a, areaMap);
+    const roomB = roomNameOf(b, areaMap);
+    if (roomA === NO_ROOM_LABEL && roomB !== NO_ROOM_LABEL) return 1;
+    if (roomB === NO_ROOM_LABEL && roomA !== NO_ROOM_LABEL) return -1;
+    const roomDiff = roomA.localeCompare(roomB);
+    return roomDiff !== 0 ? roomDiff : a.friendly_name.localeCompare(b.friendly_name);
+  });
+}
+
+export interface EntityRoomGroup {
+  room: string;
+  items: ResolvedEntity[];
+}
+
+/** Clusters consecutive entities sharing a room; expects a list already
+ *  sorted with sortByRoomThenName so same-room entities are adjacent. */
+export function groupByRoomName(
+  entities: ResolvedEntity[],
+  areaMap: Map<string, string>,
+): EntityRoomGroup[] {
+  const groups: EntityRoomGroup[] = [];
+  for (const e of entities) {
+    const room = roomNameOf(e, areaMap);
+    const last = groups[groups.length - 1];
+    if (last && last.room === room) {
+      last.items.push(e);
+    } else {
+      groups.push({ room, items: [e] });
+    }
+  }
+  return groups;
+}
+
 export function extractRoomStats(entities: ResolvedEntity[]): RoomStats {
   const stats: RoomStats = {};
   for (const e of entities) {

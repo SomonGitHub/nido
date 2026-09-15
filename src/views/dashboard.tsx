@@ -7,6 +7,7 @@ import {
   isEntityActive,
   extractRoomStats,
   summarizeRoom,
+  sortByRoomThenName,
   type ResolvedEntity,
   type RoomAlertKind,
   type RoomStats,
@@ -425,17 +426,18 @@ export function Dashboard({
     [exposedEntities],
   );
 
+  const areaNameById = useMemo(
+    () => new Map(areas.map((a) => [a.area_id, a.name])),
+    [areas],
+  );
+
   const lightEntities = useMemo(
     () => exposedEntities.filter((e) => e.domain === "light"),
     [exposedEntities],
   );
   const sortedLights = useMemo(
-    () =>
-      [...lightEntities].sort((a, b) => {
-        const activeDiff = Number(isEntityActive(b)) - Number(isEntityActive(a));
-        return activeDiff !== 0 ? activeDiff : a.friendly_name.localeCompare(b.friendly_name);
-      }),
-    [lightEntities],
+    () => sortByRoomThenName(lightEntities, areaNameById),
+    [lightEntities, areaNameById],
   );
   const lightsOn = useMemo(
     () => lightEntities.filter(isEntityActive).length,
@@ -447,12 +449,8 @@ export function Dashboard({
     [exposedEntities],
   );
   const sortedCovers = useMemo(
-    () =>
-      [...coverEntities].sort((a, b) => {
-        const activeDiff = Number(isEntityActive(b)) - Number(isEntityActive(a));
-        return activeDiff !== 0 ? activeDiff : a.friendly_name.localeCompare(b.friendly_name);
-      }),
-    [coverEntities],
+    () => sortByRoomThenName(coverEntities, areaNameById),
+    [coverEntities, areaNameById],
   );
   const coversOpen = useMemo(
     () => coverEntities.filter(isEntityActive).length,
@@ -469,12 +467,8 @@ export function Dashboard({
     [exposedEntities],
   );
   const sortedOpenings = useMemo(
-    () =>
-      [...openingEntities].sort((a, b) => {
-        const activeDiff = Number(isEntityActive(b)) - Number(isEntityActive(a));
-        return activeDiff !== 0 ? activeDiff : a.friendly_name.localeCompare(b.friendly_name);
-      }),
-    [openingEntities],
+    () => sortByRoomThenName(openingEntities, areaNameById),
+    [openingEntities, areaNameById],
   );
   const openingsOpen = useMemo(
     () => openingEntities.filter(isEntityActive).length,

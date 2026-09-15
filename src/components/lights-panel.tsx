@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
-import type { ResolvedEntity } from "../core/entities";
+import { groupByRoomName, type ResolvedEntity } from "../core/entities";
 import { IconLight, IconLightOn, IconX } from "../icons";
 import { useOverlay } from "../core/use-overlay";
 
@@ -21,10 +21,9 @@ function brightnessPct(entity: ResolvedEntity): number {
 interface LightRowProps {
   hass: HassObject;
   entity: ResolvedEntity;
-  roomName: string;
 }
 
-function LightRow({ hass, entity, roomName }: LightRowProps) {
+function LightRow({ hass, entity }: LightRowProps) {
   const [pending, setPending] = useState(false);
   const isOn = entity.state.state === "on";
   const pct = brightnessPct(entity);
@@ -45,7 +44,6 @@ function LightRow({ hass, entity, roomName }: LightRowProps) {
       </div>
       <div class="nido-lights-row__body">
         <div class="nido-lights-row__name">{entity.friendly_name}</div>
-        {roomName && <div class="nido-lights-row__room">{roomName}</div>}
       </div>
       {isOn && <div class="nido-lights-row__pct">{pct}%</div>}
       <button
@@ -66,6 +64,7 @@ export function LightsPanel({ hass, lights, areas, onClose }: LightsPanelProps) 
   const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const [pendingAll, setPendingAll] = useState(false);
   const areaMap = new Map(areas.map((a) => [a.area_id, a.name]));
+  const groups = groupByRoomName(lights, areaMap);
   const lightsOn = lights.filter((e) => e.state.state === "on");
 
   const turnOffAll = async () => {
@@ -108,13 +107,13 @@ export function LightsPanel({ hass, lights, areas, onClose }: LightsPanelProps) 
 
         <div class="nido-notification-panel__scroll">
           <div class="nido-lights-list">
-            {lights.map((e) => (
-              <LightRow
-                key={e.entity_id}
-                hass={hass}
-                entity={e}
-                roomName={e.area_id ? (areaMap.get(e.area_id) ?? "") : ""}
-              />
+            {groups.map((g) => (
+              <div class="nido-lights-group" key={g.room}>
+                <div class="nido-lights-group__title">{g.room}</div>
+                {g.items.map((e) => (
+                  <LightRow key={e.entity_id} hass={hass} entity={e} />
+                ))}
+              </div>
             ))}
           </div>
         </div>

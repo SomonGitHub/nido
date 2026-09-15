@@ -1,6 +1,6 @@
 import type { JSX } from "preact";
 import type { Area } from "../core/areas";
-import type { ResolvedEntity } from "../core/entities";
+import { groupByRoomName, type ResolvedEntity } from "../core/entities";
 import { IconWindow, IconDoor, IconX } from "../icons";
 import { useOverlay } from "../core/use-overlay";
 
@@ -18,10 +18,9 @@ const ICON_BY_CLASS: Record<string, (p: { size?: number }) => JSX.Element> = {
 
 interface OpeningRowProps {
   entity: ResolvedEntity;
-  roomName: string;
 }
 
-function OpeningRow({ entity, roomName }: OpeningRowProps) {
+function OpeningRow({ entity }: OpeningRowProps) {
   const isOpen = entity.state.state === "on";
   const deviceClass = (entity.state.attributes.device_class as string | undefined) ?? "";
   const Icon = ICON_BY_CLASS[deviceClass] ?? IconWindow;
@@ -33,7 +32,6 @@ function OpeningRow({ entity, roomName }: OpeningRowProps) {
       </div>
       <div class="nido-lights-row__body">
         <div class="nido-lights-row__name">{entity.friendly_name}</div>
-        {roomName && <div class="nido-lights-row__room">{roomName}</div>}
       </div>
       <div class={`nido-openings-row__status ${isOpen ? "is-open" : ""}`}>
         {isOpen ? "Ouverte" : "Fermée"}
@@ -45,6 +43,7 @@ function OpeningRow({ entity, roomName }: OpeningRowProps) {
 export function OpeningsPanel({ openings, areas, onClose }: OpeningsPanelProps) {
   const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const areaMap = new Map(areas.map((a) => [a.area_id, a.name]));
+  const groups = groupByRoomName(openings, areaMap);
   const openingsOpen = openings.filter((e) => e.state.state === "on");
 
   return (
@@ -74,12 +73,13 @@ export function OpeningsPanel({ openings, areas, onClose }: OpeningsPanelProps) 
 
         <div class="nido-notification-panel__scroll">
           <div class="nido-lights-list">
-            {openings.map((e) => (
-              <OpeningRow
-                key={e.entity_id}
-                entity={e}
-                roomName={e.area_id ? (areaMap.get(e.area_id) ?? "") : ""}
-              />
+            {groups.map((g) => (
+              <div class="nido-lights-group" key={g.room}>
+                <div class="nido-lights-group__title">{g.room}</div>
+                {g.items.map((e) => (
+                  <OpeningRow key={e.entity_id} entity={e} />
+                ))}
+              </div>
             ))}
           </div>
         </div>

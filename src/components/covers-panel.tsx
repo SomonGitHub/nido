@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
-import type { ResolvedEntity } from "../core/entities";
+import { groupByRoomName, type ResolvedEntity } from "../core/entities";
 import { IconBlind, IconChevronUp, IconChevronDown, IconStop, IconX } from "../icons";
 import { useOverlay } from "../core/use-overlay";
 
@@ -23,10 +23,9 @@ function coverPosition(entity: ResolvedEntity): number {
 interface CoverRowProps {
   hass: HassObject;
   entity: ResolvedEntity;
-  roomName: string;
 }
 
-function CoverRow({ hass, entity, roomName }: CoverRowProps) {
+function CoverRow({ hass, entity }: CoverRowProps) {
   const [pending, setPending] = useState(false);
   const pos = coverPosition(entity);
 
@@ -46,7 +45,6 @@ function CoverRow({ hass, entity, roomName }: CoverRowProps) {
       </div>
       <div class="nido-lights-row__body">
         <div class="nido-lights-row__name">{entity.friendly_name}</div>
-        {roomName && <div class="nido-lights-row__room">{roomName}</div>}
       </div>
       <div class="nido-lights-row__pct">{pos}%</div>
       <div class="nido-covers-row__actions">
@@ -89,6 +87,7 @@ export function CoversPanel({ hass, covers, areas, onClose }: CoversPanelProps) 
   const overlayRef = useOverlay<HTMLDivElement>(onClose);
   const [pendingAll, setPendingAll] = useState(false);
   const areaMap = new Map(areas.map((a) => [a.area_id, a.name]));
+  const groups = groupByRoomName(covers, areaMap);
   const coversOpen = covers.filter((e) => coverPosition(e) > 0);
 
   const callAll = async (service: string) => {
@@ -129,13 +128,13 @@ export function CoversPanel({ hass, covers, areas, onClose }: CoversPanelProps) 
 
         <div class="nido-notification-panel__scroll">
           <div class="nido-lights-list">
-            {covers.map((e) => (
-              <CoverRow
-                key={e.entity_id}
-                hass={hass}
-                entity={e}
-                roomName={e.area_id ? (areaMap.get(e.area_id) ?? "") : ""}
-              />
+            {groups.map((g) => (
+              <div class="nido-lights-group" key={g.room}>
+                <div class="nido-lights-group__title">{g.room}</div>
+                {g.items.map((e) => (
+                  <CoverRow key={e.entity_id} hass={hass} entity={e} />
+                ))}
+              </div>
             ))}
           </div>
         </div>
