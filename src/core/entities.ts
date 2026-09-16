@@ -154,6 +154,39 @@ export interface RoomStats {
   illuminance?: RoomStat;
 }
 
+export type RoomOccupancyKind = "presence" | "motion";
+
+export interface RoomOccupancy {
+  kind: RoomOccupancyKind;
+  label: string;
+}
+
+const OCCUPANCY_CLASSES: Record<string, RoomOccupancyKind> = {
+  occupancy: "presence",
+  presence: "presence",
+  motion: "motion",
+};
+
+const OCCUPANCY_LABEL: Record<RoomOccupancyKind, string> = {
+  presence: "Présence détectée",
+  motion: "Mouvement détecté",
+};
+
+/** Occupation de la pièce vue par les capteurs (≠ personnes localisées) :
+ *  presence/occupancy l'emporte sur motion, plus fiable et moins volatil. */
+export function detectOccupancy(entities: ResolvedEntity[]): RoomOccupancy | null {
+  let fallback: RoomOccupancyKind | null = null;
+  for (const e of entities) {
+    if (e.domain !== "binary_sensor" || e.state.state !== "on") continue;
+    const dc = e.state.attributes.device_class as string | undefined;
+    const kind = dc ? OCCUPANCY_CLASSES[dc] : undefined;
+    if (!kind) continue;
+    if (kind === "presence") return { kind, label: OCCUPANCY_LABEL.presence };
+    fallback = kind;
+  }
+  return fallback ? { kind: fallback, label: OCCUPANCY_LABEL[fallback] } : null;
+}
+
 export type RoomAlertKind = "window" | "door" | "moisture" | "smoke" | "gas";
 
 export interface RoomAlert {

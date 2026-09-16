@@ -8,9 +8,12 @@ import {
   extractRoomStats,
   summarizeRoom,
   sortByRoomThenName,
+  detectOccupancy,
   type ResolvedEntity,
   type RoomAlertKind,
   type RoomStats,
+  type RoomOccupancy,
+  type RoomOccupancyKind,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
 import { useRoomLayout, type RoomLayout } from "../core/use-room-layout";
@@ -31,6 +34,7 @@ import {
   IconThermostat,
   IconHumidity,
   IconSun,
+  IconSensor,
 } from "../icons";
 import { pickAreaIcon } from "./shared";
 import { renderWidget, SUPPORTED_DOMAINS } from "./render-widget";
@@ -117,6 +121,7 @@ interface RoomCardProps {
   onOpen: () => void;
   dragProps: Record<string, unknown>;
   presence?: PersonPresence[];
+  occupancy?: RoomOccupancy | null;
 }
 
 const OPENING_DEVICE_CLASSES = new Set(["door", "garage_door", "window"]);
@@ -127,6 +132,11 @@ const ALERT_ICON: Record<RoomAlertKind, (p: { size?: number }) => JSX.Element> =
   moisture: IconWater,
   smoke: IconSmoke,
   gas: IconSmoke,
+};
+
+const OCCUPANCY_SHORT: Record<RoomOccupancyKind, string> = {
+  presence: "Présence",
+  motion: "Mouvement",
 };
 
 const ALERT_SHORT: Record<RoomAlertKind, string> = {
@@ -186,6 +196,7 @@ function RoomCard({
   onOpen,
   dragProps,
   presence,
+  occupancy,
 }: RoomCardProps) {
   const Icon = pickAreaIcon(area.name);
   const stats = extractRoomStats(entities);
@@ -204,10 +215,18 @@ function RoomCard({
     void hass.callService(domain, service, { entity_id: ids });
   };
 
+  const occupancyEl = occupancy ? (
+    <span
+      class={`nido-room-card__occupancy nido-room-card__occupancy--${occupancy.kind}`}
+      title={occupancy.label}
+    />
+  ) : null;
+
   const cardClass = [
     "nido-room-card",
     `nido-room-card--${layout}`,
     accent ? "nido-room-card--accent" : "",
+    occupancy ? "nido-room-card--occupied" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -236,6 +255,15 @@ function RoomCard({
 
   const chipsEl = (
     <div class="nido-room-card__chips">
+      {occupancy && (
+        <span
+          class="nido-room-card__chip nido-room-card__chip--presence"
+          title={occupancy.label}
+        >
+          <IconSensor size={13} />
+          {OCCUPANCY_SHORT[occupancy.kind]}
+        </span>
+      )}
       {summary.lightsOn > 0 && (
         <span class="nido-room-card__chip nido-room-card__chip--on">
           <IconLightOn size={13} />
@@ -346,6 +374,7 @@ function RoomCard({
         <div class="nido-room-card__row">
           <span class="nido-room-card__icon">
             <Icon size={19} />
+            {occupancyEl}
           </span>
           <span class="nido-room-card__name">{area.name}</span>
           {presenceEl}
@@ -375,6 +404,7 @@ function RoomCard({
         <div class="nido-room-card__head">
           <span class="nido-room-card__icon">
             <Icon size={20} />
+            {occupancyEl}
           </span>
           <div class="nido-room-card__head-right">
             {presenceEl}
@@ -548,6 +578,15 @@ export function Dashboard({
 
   const byArea = useMemo(() => groupByArea(exposedEntities), [exposedEntities]);
   const roomPresence = useMemo(() => detectRoomPresence(hass, areas), [hass.states, areas]);
+  const roomOccupancy = useMemo(() => {
+    const map = new Map<string, RoomOccupancy>();
+    for (const [areaId, list] of groupByArea(entities)) {
+      if (!areaId) continue;
+      const occ = detectOccupancy(list);
+      if (occ) map.set(areaId, occ);
+    }
+    return map;
+  }, [entities]);
   const roomLayout = useRoomLayout();
 
   const favoriteEntities = useMemo(() => {
@@ -809,6 +848,7 @@ export function Dashboard({
                       onOpen={() => onOpenRoom(a.area_id)}
                       dragProps={roomsDrag.itemPropsFor(a.area_id)}
                       presence={roomPresence.get(a.area_id)}
+                      occupancy={roomOccupancy.get(a.area_id) ?? null}
                     />
                   ))}
                 </div>

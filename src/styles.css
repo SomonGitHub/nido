@@ -1757,6 +1757,39 @@
   background: rgba(244, 237, 226, 0.12);
   color: var(--hero-dark-ink, var(--bg-shell));
 }
+.nido-room-card__icon { position: relative; }
+
+/* Présence détectée : pastille pulsée sur l'icône de la pièce */
+.nido-room-card__occupancy {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 11px;
+  height: 11px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-card);
+}
+.nido-room-card--accent .nido-room-card__occupancy { border-color: var(--hero-dark); }
+.nido-room-card__occupancy--motion { opacity: 0.85; }
+.nido-room-card__occupancy::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  animation: nido-occupancy-pulse 2.6s var(--ease-out) infinite;
+}
+@keyframes nido-occupancy-pulse {
+  0%   { transform: scale(0.85); opacity: 0.75; }
+  60%  { transform: scale(2.1); opacity: 0; }
+  100% { transform: scale(2.1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nido-room-card__occupancy::after { animation: none; opacity: 0.35; }
+}
+
 .nido-room-card__head svg { opacity: 0.5; }
 .nido-room-card__foot { margin-top: auto; }
 .nido-room-card__name {
@@ -1806,6 +1839,14 @@
   color: var(--accent-deep);
 }
 .nido-room-card--accent .nido-room-card__chip--on {
+  background: color-mix(in srgb, var(--accent) 34%, transparent);
+  color: var(--hero-dark-ink);
+}
+.nido-room-card__chip--presence {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent-deep);
+}
+.nido-room-card--accent .nido-room-card__chip--presence {
   background: color-mix(in srgb, var(--accent) 34%, transparent);
   color: var(--hero-dark-ink);
 }
