@@ -5993,3 +5993,166 @@
   position: relative;
   overflow: hidden;
 }
+
+/* Alarm — popup de saisie du code de désarmement */
+.nido-alarm-code {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.nido-alarm-code__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: fade-in 0.2s ease-out;
+}
+.nido-alarm-code__content {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: var(--bg-shell);
+  border-radius: var(--r-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fade-in 0.25s ease-out;
+}
+.nido-alarm-code__content:focus { outline: none; }
+.nido-alarm-code__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.nido-alarm-code__title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.nido-alarm-code__title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-1);
+}
+.nido-alarm-code__subtitle {
+  font-size: 12px;
+  color: var(--ink-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nido-alarm-code__close {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--bg-inset);
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 150ms, color 150ms;
+}
+.nido-alarm-code__close:hover {
+  background: var(--ink-4);
+  color: var(--ink-1);
+}
+.nido-alarm-code__display {
+  height: 48px;
+  border-radius: var(--r-md, 12px);
+  background: var(--bg-inset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nido-alarm-code__placeholder {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.nido-alarm-code__dots {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nido-alarm-code__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ink-1);
+}
+.nido-alarm-code__input {
+  height: 48px;
+  border-radius: var(--r-md, 12px);
+  border: 1px solid var(--ink-4);
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  padding: 0 14px;
+  letter-spacing: 0.15em;
+}
+.nido-alarm-code__input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.nido-alarm-code__error {
+  font-size: 12px;
+  color: var(--danger, #d9534f);
+  text-align: center;
+}
+.nido-alarm-code__pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.nido-alarm-code__key {
+  height: 52px;
+  border: 0;
+  border-radius: var(--r-md, 12px);
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 150ms;
+}
+.nido-alarm-code__key:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 20%, var(--bg-inset));
+}
+.nido-alarm-code__key--aux {
+  font-size: 16px;
+  color: var(--ink-2);
+}
+.nido-alarm-code__key:disabled { opacity: 0.4; cursor: not-allowed; }
+.nido-alarm-code__submit {
+  height: 44px;
+  border: 0;
+  border-radius: var(--r-md, 12px);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 150ms;
+}
+.nido-alarm-code__submit:disabled { opacity: 0.45; cursor: not-allowed; }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
