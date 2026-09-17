@@ -196,16 +196,10 @@ export function detectOccupancy(entities: ResolvedEntity[]): RoomOccupancy | nul
   return fallback ? { kind: fallback, label: OCCUPANCY_LABEL[fallback] } : null;
 }
 
-export type RoomActivityKind = "presence" | "motion" | "quiet";
-
-export interface RoomActivity {
-  kind: RoomActivityKind;
-  minutes: number;
-}
-
 const ACTIVITY_CLASSES = new Set(["motion", "occupancy", "presence"]);
-/** Domaines dont un changement d'état traduit une action humaine. `sensor` en
- *  est exclu : une température qui dérive de 0,1 °C n'est pas de l'activité. */
+const OPENING_CLASSES = new Set(["door", "window", "garage_door"]);
+/** Domaines dont un changement d'état marque un événement dans la pièce.
+ *  `sensor` en est exclu : une température qui dérive de 0,1 °C n'en est pas un. */
 const QUIET_DOMAINS = new Set([
   "light",
   "cover",
@@ -215,21 +209,17 @@ const QUIET_DOMAINS = new Set([
   "lock",
   "vacuum",
 ]);
-const OPENING_CLASSES = new Set(["door", "window", "garage_door"]);
 /** Au-delà d'une journée, « calme depuis 6 j » n'apprend plus rien. */
 const ACTIVITY_MAX_MIN = 1440;
 
-/** Dernier signe de vie de la pièce. Lit `last_changed`, donc exact et
- *  gratuit : aucune requête d'historique.
+/** Minutes écoulées depuis le dernier événement de la pièce, ou `null` si
+ *  rien d'exploitable dans les dernières 24 h. Lit `last_changed`, donc exact
+ *  et gratuit : aucune requête d'historique.
  *
- *  Les capteurs de présence comptent quel que soit leur état — à `on` leur
- *  `last_changed` dit depuis quand la présence dure, à `off` depuis quand
- *  elle a cessé. Un capteur actuellement déclenché prime, puis un capteur
- *  retombé, puis le dernier appareil manipulé (le moins précis). */
-export function lastActivity(entities: ResolvedEntity[], now: Date): RoomActivity | null {
-  let presence: number | null = null;
-  let motion: number | null = null;
-  let quiet: number | null = null;
+ *  Les capteurs de présence en font partie — la carte n'affiche « Calme » que
+ *  s'ils sont tous retombés, et leur `last_changed` dit alors depuis quand. */
+export function lastActivity(entities: ResolvedEntity[], now: Date): number | null {
+  let last: number | null = null;
 
   for (const e of entities) {
     const t = new Date(e.state.last_changed).getTime();
@@ -238,25 +228,14 @@ export function lastActivity(entities: ResolvedEntity[], now: Date): RoomActivit
     if (minutes < 0) continue;
 
     const dc = e.state.attributes.device_class as string | undefined;
-    const isBinary = e.domain === "binary_sensor" && !!dc;
-    const isActivitySensor = isBinary && ACTIVITY_CLASSES.has(dc);
-    const isOpening = isBinary && OPENING_CLASSES.has(dc);
+    const isTrackedBinary =
+      e.domain === "binary_sensor" && !!dc && (ACTIVITY_CLASSES.has(dc) || OPENING_CLASSES.has(dc));
+    if (!QUIET_DOMAINS.has(e.domain) && !isTrackedBinary) continue;
 
-    if (isActivitySensor) {
-      if (e.state.state === "on") {
-        if (presence === null || minutes < presence) presence = minutes;
-      } else if (motion === null || minutes < motion) {
-        motion = minutes;
-      }
-    } else if (QUIET_DOMAINS.has(e.domain) || isOpening) {
-      if (quiet === null || minutes < quiet) quiet = minutes;
-    }
+    if (last === null || minutes < last) last = minutes;
   }
 
-  if (presence !== null && presence <= ACTIVITY_MAX_MIN) return { kind: "presence", minutes: presence };
-  if (motion !== null && motion <= ACTIVITY_MAX_MIN) return { kind: "motion", minutes: motion };
-  if (quiet !== null && quiet <= ACTIVITY_MAX_MIN) return { kind: "quiet", minutes: quiet };
-  return null;
+  return last !== null && last <= ACTIVITY_MAX_MIN ? last : null;
 }
 
 export type RoomAlertKind = "window" | "door" | "moisture" | "smoke" | "gas";

@@ -15,7 +15,6 @@ import {
   type RoomStats,
   type RoomOccupancy,
   type RoomOccupancyKind,
-  type RoomActivity,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
 import { useRoomLayout, type RoomLayout } from "../core/use-room-layout";
@@ -136,7 +135,8 @@ interface RoomCardProps {
   dragProps: Record<string, unknown>;
   presence?: PersonPresence[];
   occupancy?: RoomOccupancy | null;
-  activity?: RoomActivity | null;
+  /** Minutes depuis le dernier événement de la pièce. */
+  activity?: number | null;
 }
 
 const OPENING_DEVICE_CLASSES = new Set(["door", "garage_door", "window"]);
@@ -148,20 +148,6 @@ const ALERT_ICON: Record<RoomAlertKind, (p: { size?: number }) => JSX.Element> =
   smoke: IconSmoke,
   gas: IconSmoke,
 };
-
-function activityLabel(a: RoomActivity): string {
-  if (a.kind === "presence") return `Présence depuis ${durationLabel(a.minutes)}`;
-  if (a.kind === "motion") return `Mouvement il y a ${durationLabel(a.minutes)}`;
-  return `Calme depuis ${durationLabel(a.minutes)}`;
-}
-
-/** Sur téléphone la puce est seule sur sa ligne : l'icône suffit à dire
- *  « présence » ou « mouvement », mais une durée nue ne dit pas de quoi
- *  elle parle. */
-function activityShort(a: RoomActivity): string {
-  if (a.kind === "quiet") return `Calme ${durationLabel(a.minutes)}`;
-  return durationLabel(a.minutes);
-}
 
 const OCCUPANCY_SHORT: Record<RoomOccupancyKind, string> = {
   presence: "Présence",
@@ -235,10 +221,14 @@ function RoomCard({
     `${summary.lightsOn}|${summary.coversOpen}|${summary.mediaPlaying}|${summary.alerts.length}|${occupancy?.kind ?? ""}`,
   );
   const band = roomBandItems(stats);
-  /* Un volet ouvert est un état, pas une activité : il n'empêche plus la
-     pièce d'être considérée au repos. Sa puce reste affichée à part. */
+  /* Pièce au repos : rien d'allumé, personne de détecté, rien en lecture,
+     aucune alerte. Un volet ouvert est un état, pas une activité — il
+     n'entre pas dans le calcul et garde sa puce à part. */
   const idle =
-    summary.lightsOn === 0 && !summary.mediaPlaying && summary.alerts.length === 0;
+    summary.lightsOn === 0 &&
+    !occupancy &&
+    !summary.mediaPlaying &&
+    summary.alerts.length === 0;
   const phone = layout === "phone";
   const activity = idle ? (activityProp ?? null) : null;
 
@@ -301,7 +291,7 @@ function RoomCard({
 
   const chipsEl = (
     <div class="nido-room-card__chips">
-      {occupancy && activity?.kind !== "presence" && (
+      {occupancy && (
         <span
           class="nido-room-card__chip nido-room-card__chip--presence"
           title={occupancy.label}
@@ -333,17 +323,12 @@ function RoomCard({
         );
       })}
       {idle &&
-        (activity ? (
+        (activity !== null ? (
           <span
-            class={`nido-room-card__chip ${
-              activity.kind === "presence"
-                ? "nido-room-card__chip--presence"
-                : "nido-room-card__chip--idle"
-            }`}
-            title={activityLabel(activity)}
+            class="nido-room-card__chip nido-room-card__chip--idle"
+            title={`Calme depuis ${durationLabel(activity)}`}
           >
-            {activity.kind !== "quiet" && <IconSensor size={13} />}
-            {phone ? activityShort(activity) : activityLabel(activity)}
+            {phone ? "Calme" : "Calme depuis"} {durationLabel(activity)}
           </span>
         ) : (
           <span class="nido-room-card__chip nido-room-card__chip--idle">Tout éteint</span>
@@ -658,11 +643,11 @@ export function Dashboard({
     return map;
   }, [byArea]);
   const roomActivity = useMemo(() => {
-    const map = new Map<string, RoomActivity>();
+    const map = new Map<string, number>();
     for (const [areaId, list] of byArea) {
       if (!areaId) continue;
-      const act = lastActivity(list, now);
-      if (act) map.set(areaId, act);
+      const minutes = lastActivity(list, now);
+      if (minutes !== null) map.set(areaId, minutes);
     }
     return map;
   }, [byArea, now]);

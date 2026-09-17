@@ -128,14 +128,10 @@ export function RoomDetail({
                     </span>
                   </>
                 ) : (
-                  activity && (
+                  activity !== null && (
                     <>
                       <span class="nido-room-card__sep">•</span>
-                      <span>
-                        {activity.kind === "motion"
-                          ? `mouvement il y a ${durationLabel(activity.minutes)}`
-                          : `calme depuis ${durationLabel(activity.minutes)}`}
-                      </span>
+                      <span>calme depuis {durationLabel(activity)}</span>
                     </>
                   )
                 )}
