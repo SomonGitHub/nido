@@ -196,7 +196,7 @@ export function detectOccupancy(entities: ResolvedEntity[]): RoomOccupancy | nul
   return fallback ? { kind: fallback, label: OCCUPANCY_LABEL[fallback] } : null;
 }
 
-export type RoomActivityKind = "motion" | "quiet";
+export type RoomActivityKind = "presence" | "motion" | "quiet";
 
 export interface RoomActivity {
   kind: RoomActivityKind;
@@ -219,10 +219,15 @@ const OPENING_CLASSES = new Set(["door", "window", "garage_door"]);
 /** Au-delà d'une journée, « calme depuis 6 j » n'apprend plus rien. */
 const ACTIVITY_MAX_MIN = 1440;
 
-/** Depuis combien de temps la pièce est au repos. Lit `last_changed`, donc
- *  exact et gratuit : aucune requête d'historique. Un capteur de mouvement
- *  retombé l'emporte sur le dernier appareil manipulé, plus précis. */
+/** Dernier signe de vie de la pièce. Lit `last_changed`, donc exact et
+ *  gratuit : aucune requête d'historique.
+ *
+ *  Les capteurs de présence comptent quel que soit leur état — à `on` leur
+ *  `last_changed` dit depuis quand la présence dure, à `off` depuis quand
+ *  elle a cessé. Un capteur actuellement déclenché prime, puis un capteur
+ *  retombé, puis le dernier appareil manipulé (le moins précis). */
 export function lastActivity(entities: ResolvedEntity[], now: Date): RoomActivity | null {
+  let presence: number | null = null;
   let motion: number | null = null;
   let quiet: number | null = null;
 
@@ -233,18 +238,22 @@ export function lastActivity(entities: ResolvedEntity[], now: Date): RoomActivit
     if (minutes < 0) continue;
 
     const dc = e.state.attributes.device_class as string | undefined;
-    const isActivitySensor =
-      e.domain === "binary_sensor" && !!dc && ACTIVITY_CLASSES.has(dc) && e.state.state === "off";
-
-    const isOpening = e.domain === "binary_sensor" && !!dc && OPENING_CLASSES.has(dc);
+    const isBinary = e.domain === "binary_sensor" && !!dc;
+    const isActivitySensor = isBinary && ACTIVITY_CLASSES.has(dc);
+    const isOpening = isBinary && OPENING_CLASSES.has(dc);
 
     if (isActivitySensor) {
-      if (motion === null || minutes < motion) motion = minutes;
+      if (e.state.state === "on") {
+        if (presence === null || minutes < presence) presence = minutes;
+      } else if (motion === null || minutes < motion) {
+        motion = minutes;
+      }
     } else if (QUIET_DOMAINS.has(e.domain) || isOpening) {
       if (quiet === null || minutes < quiet) quiet = minutes;
     }
   }
 
+  if (presence !== null && presence <= ACTIVITY_MAX_MIN) return { kind: "presence", minutes: presence };
   if (motion !== null && motion <= ACTIVITY_MAX_MIN) return { kind: "motion", minutes: motion };
   if (quiet !== null && quiet <= ACTIVITY_MAX_MIN) return { kind: "quiet", minutes: quiet };
   return null;

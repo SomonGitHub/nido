@@ -150,15 +150,17 @@ const ALERT_ICON: Record<RoomAlertKind, (p: { size?: number }) => JSX.Element> =
 };
 
 function activityLabel(a: RoomActivity): string {
-  return a.kind === "motion"
-    ? `Mouvement il y a ${durationLabel(a.minutes)}`
-    : `Calme depuis ${durationLabel(a.minutes)}`;
+  if (a.kind === "presence") return `Présence depuis ${durationLabel(a.minutes)}`;
+  if (a.kind === "motion") return `Mouvement il y a ${durationLabel(a.minutes)}`;
+  return `Calme depuis ${durationLabel(a.minutes)}`;
 }
 
 /** Sur téléphone la puce est seule sur sa ligne : l'icône suffit à dire
- *  « mouvement », mais une durée nue ne dit pas de quoi elle parle. */
+ *  « présence » ou « mouvement », mais une durée nue ne dit pas de quoi
+ *  elle parle. */
 function activityShort(a: RoomActivity): string {
-  return a.kind === "motion" ? durationLabel(a.minutes) : `Calme ${durationLabel(a.minutes)}`;
+  if (a.kind === "quiet") return `Calme ${durationLabel(a.minutes)}`;
+  return durationLabel(a.minutes);
 }
 
 const OCCUPANCY_SHORT: Record<RoomOccupancyKind, string> = {
@@ -233,13 +235,12 @@ function RoomCard({
     `${summary.lightsOn}|${summary.coversOpen}|${summary.mediaPlaying}|${summary.alerts.length}|${occupancy?.kind ?? ""}`,
   );
   const band = roomBandItems(stats);
+  /* Un volet ouvert est un état, pas une activité : il n'empêche plus la
+     pièce d'être considérée au repos. Sa puce reste affichée à part. */
   const idle =
-    summary.lightsOn === 0 &&
-    summary.coversOpen === 0 &&
-    !summary.mediaPlaying &&
-    summary.alerts.length === 0;
+    summary.lightsOn === 0 && !summary.mediaPlaying && summary.alerts.length === 0;
   const phone = layout === "phone";
-  const activity = idle && !occupancy ? (activityProp ?? null) : null;
+  const activity = idle ? (activityProp ?? null) : null;
 
   const runAction = (e: Event, domain: string, service: string, ids: string[]) => {
     e.stopPropagation();
@@ -300,7 +301,7 @@ function RoomCard({
 
   const chipsEl = (
     <div class="nido-room-card__chips">
-      {occupancy && (
+      {occupancy && activity?.kind !== "presence" && (
         <span
           class="nido-room-card__chip nido-room-card__chip--presence"
           title={occupancy.label}
@@ -334,10 +335,14 @@ function RoomCard({
       {idle &&
         (activity ? (
           <span
-            class="nido-room-card__chip nido-room-card__chip--idle"
+            class={`nido-room-card__chip ${
+              activity.kind === "presence"
+                ? "nido-room-card__chip--presence"
+                : "nido-room-card__chip--idle"
+            }`}
             title={activityLabel(activity)}
           >
-            {activity.kind === "motion" && <IconSensor size={13} />}
+            {activity.kind !== "quiet" && <IconSensor size={13} />}
             {phone ? activityShort(activity) : activityLabel(activity)}
           </span>
         ) : (
