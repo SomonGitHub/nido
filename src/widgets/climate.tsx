@@ -1,6 +1,7 @@
 import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { ResolvedEntity } from "../core/entities";
+import { breatheVars, glowVars, paceVars } from "../core/vitals";
 import { IconThermostat, IconFlame, IconSnowflake, IconMinus, IconPlus } from "../icons";
 import type { JSX } from "preact";
 
@@ -69,8 +70,24 @@ export function ClimateWidget({
   const accentClass = hero ? (isActive ? "n-card--accent" : "n-card--accent-muted") : "";
   const cardClass = ["n-card", accentClass, isActive ? `breathe-${breatheVariant}` : ""].filter(Boolean).join(" ");
 
+  /* Effort = distance à la consigne. Au-delà de 3 °C l'appareil chauffe ou
+     refroidit à fond ; à l'équilibre il ne fait plus que maintenir. */
+  const gap =
+    typeof current === "number" && typeof targetAttr === "number"
+      ? Math.abs(targetAttr - current)
+      : 0;
+  const effort = Math.min(1, gap / 3);
+  const vitals = isActive
+    ? { ...breatheVars(effort), ...paceVars(effort), ...glowVars(effort) }
+    : undefined;
+
   return (
-    <div class={cardClass} data-hero={hero ? "true" : "false"} data-on={isActive ? "true" : "false"}>
+    <div
+      class={cardClass}
+      style={vitals as any}
+      data-hero={hero ? "true" : "false"}
+      data-on={isActive ? "true" : "false"}
+    >
       {isActive && <div class="n-light__glow" aria-hidden="true" />}
 
       <div class="n-card__head">

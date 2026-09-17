@@ -2,6 +2,7 @@ import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { ResolvedEntity } from "../core/entities";
 import { IconFan } from "../icons";
+import { breatheVars, spinVars } from "../core/vitals";
 
 interface FanWidgetProps {
   hass: HassObject;
@@ -43,8 +44,10 @@ export function FanWidget({ hass, entity, roomLabel, breatheVariant = 2 }: FanWi
 
   const cardClass = ["n-card", isOn ? `breathe-${breatheVariant}` : ""].filter(Boolean).join(" ");
 
+  const vitals = isOn ? { ...breatheVars(pct / 100), ...spinVars(pct) } : undefined;
+
   return (
-    <div class={cardClass} data-on={isOn ? "true" : "false"}>
+    <div class={cardClass} style={vitals as any} data-on={isOn ? "true" : "false"}>
       <div class="n-card__head">
         <div class={`n-icon-bubble ${isOn ? "n-fan-spin" : ""}`}>
           <IconFan size={20} />

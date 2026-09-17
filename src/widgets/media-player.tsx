@@ -1,6 +1,7 @@
 import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { ResolvedEntity } from "../core/entities";
+import { breatheVars, glowVars } from "../core/vitals";
 import {
   IconMusic,
   IconPlay,
@@ -69,8 +70,17 @@ export function MediaPlayerWidget({
   const accentClass = hero ? (isPlaying ? "n-card--accent" : "n-card--accent-muted") : "";
   const cardClass = ["n-card", accentClass, isPlaying ? `breathe-${breatheVariant}` : ""].filter(Boolean).join(" ");
 
+  const vitals = isPlaying
+    ? { ...breatheVars(currentVolume), ...glowVars(currentVolume) }
+    : undefined;
+
   return (
-    <div class={cardClass} data-hero={hero ? "true" : "false"} data-on={isPlaying ? "true" : "false"}>
+    <div
+      class={cardClass}
+      style={vitals as any}
+      data-hero={hero ? "true" : "false"}
+      data-on={isPlaying ? "true" : "false"}
+    >
       {picture && (
         <div class="n-media__bg" aria-hidden="true">
           <img src={picture} alt="" />

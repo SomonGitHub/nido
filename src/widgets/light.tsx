@@ -2,6 +2,7 @@ import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { ResolvedEntity } from "../core/entities";
 import { IconLightOn } from "../icons";
+import { breatheVars, glowVars } from "../core/vitals";
 
 interface LightWidgetProps {
   hass: HassObject;
@@ -68,8 +69,15 @@ export function LightWidget({
     .filter(Boolean)
     .join(" ");
 
+  const vitals = isOn ? { ...breatheVars(pct / 100), ...glowVars(pct / 100) } : undefined;
+
   return (
-    <div class={cardClass} data-hero={hero ? "true" : "false"} data-on={isOn ? "true" : "false"}>
+    <div
+      class={cardClass}
+      style={vitals as any}
+      data-hero={hero ? "true" : "false"}
+      data-on={isOn ? "true" : "false"}
+    >
       {isOn && <div class="n-light__glow glow-pulse-1" aria-hidden="true" />}
 
       <div class="n-card__head">

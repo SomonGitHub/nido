@@ -4,17 +4,23 @@ import type { Area } from "../core/areas";
 import {
   isEntityActive,
   extractRoomStats,
+  lastActivity,
   type ResolvedEntity,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
 import { IconChevronLeft, IconMore } from "../icons";
-import { pickAreaIcon, DOMAIN_LABEL } from "./shared";
+import { pickAreaIcon, DOMAIN_LABEL, DragItem } from "./shared";
 import { renderWidget } from "./render-widget";
+import { useMinuteTick } from "../core/use-minute-tick";
+import { durationLabel } from "../core/time-ago";
 
 interface RoomDetailProps {
   hass: HassObject;
   area: Area;
   entities: ResolvedEntity[];
+  /** Toutes les entités de la pièce, exposées ou non : sert aux signaux de
+   *  pièce (activité), comme l'occupation sur le dashboard. */
+  allRoomEntities: ResolvedEntity[];
   entitiesOrder: string[];
   onBack: () => void;
   onReorderEntities: (ids: string[]) => void;
@@ -24,12 +30,14 @@ export function RoomDetail({
   hass,
   area,
   entities,
+  allRoomEntities,
   entitiesOrder,
   onBack,
   onReorderEntities,
 }: RoomDetailProps) {
   const Icon = pickAreaIcon(area.name);
   const stats = extractRoomStats(entities);
+  const now = useMinuteTick();
 
   const orderedEntities = useMemo(
     () => applyOrder(entities, entitiesOrder, (e) => e.entity_id),
@@ -84,6 +92,7 @@ export function RoomDetail({
     (e) => e.domain !== "sensor" && e.domain !== "binary_sensor",
   ).length;
   const active = visibleEntities.filter(isEntityActive).length;
+  const activity = active === 0 ? lastActivity(allRoomEntities, now) : null;
 
   return (
     <div class="nido-shell">
@@ -114,7 +123,7 @@ export function RoomDetail({
                 <span>
                   {devices} appareil{devices > 1 ? "s" : ""}
                 </span>
-                {active > 0 && (
+                {active > 0 ? (
                   <>
                     <span class="nido-room-card__sep">•</span>
                     <span class="nido-room-card__active">
@@ -122,6 +131,17 @@ export function RoomDetail({
                       {active} actif{active > 1 ? "s" : ""}
                     </span>
                   </>
+                ) : (
+                  activity && (
+                    <>
+                      <span class="nido-room-card__sep">•</span>
+                      <span>
+                        {activity.kind === "motion"
+                          ? `mouvement il y a ${durationLabel(activity.minutes)}`
+                          : `calme depuis ${durationLabel(activity.minutes)}`}
+                      </span>
+                    </>
+                  )
                 )}
               </div>
               <h1 class="nido-room-detail__title">{area.name}</h1>
@@ -186,14 +206,14 @@ export function RoomDetail({
             const variant = ((i % 4) + 1) as 1 | 2 | 3 | 4;
             const isHero = i === 0;
             return (
-              <div
+              <DragItem
                 key={e.entity_id}
-                class="nido-drag-item"
-                data-hero={isHero ? "true" : "false"}
-                {...drag.itemPropsFor(e.entity_id)}
+                signature={`${e.state.state}|${e.state.last_changed}`}
+                hero={isHero}
+                dragProps={drag.itemPropsFor(e.entity_id)}
               >
                 {renderWidget(e, { hass, areaName: area.name, hero: isHero, variant, calendarEntities })}
-              </div>
+              </DragItem>
             );
           })}
         </div>

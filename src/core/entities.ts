@@ -196,6 +196,60 @@ export function detectOccupancy(entities: ResolvedEntity[]): RoomOccupancy | nul
   return fallback ? { kind: fallback, label: OCCUPANCY_LABEL[fallback] } : null;
 }
 
+export type RoomActivityKind = "motion" | "quiet";
+
+export interface RoomActivity {
+  kind: RoomActivityKind;
+  minutes: number;
+}
+
+const ACTIVITY_CLASSES = new Set(["motion", "occupancy", "presence"]);
+/** Domaines dont un changement d'état traduit une action humaine. `sensor` en
+ *  est exclu : une température qui dérive de 0,1 °C n'est pas de l'activité. */
+const QUIET_DOMAINS = new Set([
+  "light",
+  "cover",
+  "media_player",
+  "switch",
+  "fan",
+  "lock",
+  "vacuum",
+]);
+const OPENING_CLASSES = new Set(["door", "window", "garage_door"]);
+/** Au-delà d'une journée, « calme depuis 6 j » n'apprend plus rien. */
+const ACTIVITY_MAX_MIN = 1440;
+
+/** Depuis combien de temps la pièce est au repos. Lit `last_changed`, donc
+ *  exact et gratuit : aucune requête d'historique. Un capteur de mouvement
+ *  retombé l'emporte sur le dernier appareil manipulé, plus précis. */
+export function lastActivity(entities: ResolvedEntity[], now: Date): RoomActivity | null {
+  let motion: number | null = null;
+  let quiet: number | null = null;
+
+  for (const e of entities) {
+    const t = new Date(e.state.last_changed).getTime();
+    if (Number.isNaN(t)) continue;
+    const minutes = Math.floor((now.getTime() - t) / 60_000);
+    if (minutes < 0) continue;
+
+    const dc = e.state.attributes.device_class as string | undefined;
+    const isActivitySensor =
+      e.domain === "binary_sensor" && !!dc && ACTIVITY_CLASSES.has(dc) && e.state.state === "off";
+
+    const isOpening = e.domain === "binary_sensor" && !!dc && OPENING_CLASSES.has(dc);
+
+    if (isActivitySensor) {
+      if (motion === null || minutes < motion) motion = minutes;
+    } else if (QUIET_DOMAINS.has(e.domain) || isOpening) {
+      if (quiet === null || minutes < quiet) quiet = minutes;
+    }
+  }
+
+  if (motion !== null && motion <= ACTIVITY_MAX_MIN) return { kind: "motion", minutes: motion };
+  if (quiet !== null && quiet <= ACTIVITY_MAX_MIN) return { kind: "quiet", minutes: quiet };
+  return null;
+}
+
 export type RoomAlertKind = "window" | "door" | "moisture" | "smoke" | "gas";
 
 export interface RoomAlert {

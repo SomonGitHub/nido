@@ -1,4 +1,5 @@
-import type { JSX } from "preact";
+import type { ComponentChildren, JSX } from "preact";
+import { useStateFlash } from "../core/use-state-flash";
 import {
   IconCouch,
   IconBed,
@@ -94,3 +95,29 @@ export const DOMAIN_ICON: Record<string, IconCmp> = {
   weather: IconCloudSun,
   calendar: IconCalendar,
 };
+
+/** Enveloppe de carte draggable, commune au dashboard et au détail de pièce.
+ *  Porte `data-flash` le temps d'accuser réception d'un changement d'état. */
+export function DragItem({
+  signature,
+  hero,
+  dragProps,
+  children,
+}: {
+  signature: string;
+  hero: boolean;
+  dragProps: Record<string, unknown>;
+  children: ComponentChildren;
+}) {
+  const flash = useStateFlash(signature);
+  return (
+    <div
+      class="nido-drag-item"
+      data-hero={hero ? "true" : "false"}
+      data-flash={flash ? "true" : undefined}
+      {...dragProps}
+    >
+      {children}
+    </div>
+  );
+}

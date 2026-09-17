@@ -150,6 +150,65 @@
   color: var(--ink-2);
 }
 
+/* Hero digest — faits réels tirés de l'état courant */
+.nido-hero__digest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 10px;
+  font-size: 15px;
+  color: var(--ink-2);
+  min-height: 20px;
+}
+.nido-hero__fact {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  animation: nido-fact-in 420ms var(--ease-out) both;
+}
+.nido-hero__fact-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  transform: translateY(-4px);
+}
+.nido-hero__fact[data-tone="alert"] .nido-hero__fact-text {
+  color: var(--danger);
+  font-weight: 600;
+}
+.nido-hero__fact[data-tone="notice"] .nido-hero__fact-text {
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+.nido-hero__fact[data-tone="active"] .nido-hero__fact-text {
+  color: var(--ink-1);
+}
+.nido-hero__fact-room {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+@keyframes nido-fact-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* En colonne sous 600px : un séparateur qui retombe en début de ligne
+   après un retour à la ligne se lit comme une puce orpheline. */
+@media (max-width: 600px) {
+  .nido-hero__digest {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px 0;
+  }
+  .nido-hero__fact-sep { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nido-hero__fact { animation: none; }
+}
+
 /* Section titles */
 .nido-section-title {
   display: flex;
@@ -430,16 +489,19 @@
 }
 
 /* Glow halo when on */
+/* Taille et opacité portent la donnée (l'intensité de la lampe), pas
+   seulement l'animation : le halo reste parlant en reduced-motion. */
 .n-light__glow {
   position: absolute;
   top: -40px;
   right: -40px;
-  width: 140px;
-  height: 140px;
+  width: var(--glow-size, 140px);
+  height: var(--glow-size, 140px);
   border-radius: 50%;
   background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
   pointer-events: none;
-  opacity: 0.85;
+  opacity: var(--glow-base, 0.85);
+  transition: width 400ms var(--ease-out), height 400ms var(--ease-out), opacity 400ms var(--ease-out);
 }
 .n-card--accent .n-light__glow {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
@@ -1068,7 +1130,7 @@
   to   { transform: rotate(360deg); }
 }
 .n-fan-spin svg {
-  animation: n-fan-spin 2.4s linear infinite;
+  animation: n-fan-spin var(--fan-speed, 2.4s) linear infinite;
   transform-origin: 50% 50%;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1618,6 +1680,31 @@
   transition: transform 220ms var(--ease-out), opacity 220ms;
 }
 .nido-drag-item > * { flex: 1 1 auto; min-width: 0; }
+
+/* Accusé de réception d'un changement d'état : anneau court, une seule passe.
+   Sur ::after pour ne toucher ni le fond ni l'ombre propres à chaque carte. */
+.nido-drag-item[data-flash="true"]::after,
+.nido-room-card[data-flash="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-lg);
+  pointer-events: none;
+  z-index: 3;
+  animation: nido-state-flash 900ms var(--ease-out) forwards;
+}
+.nido-room-card[data-flash="true"]::after {
+  border-radius: inherit;
+}
+@keyframes nido-state-flash {
+  0%   { box-shadow: inset 0 0 0 2px var(--accent); opacity: 0; }
+  20%  { opacity: 0.9; }
+  100% { box-shadow: inset 0 0 0 2px var(--accent); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nido-drag-item[data-flash="true"]::after,
+  .nido-room-card[data-flash="true"]::after { animation: none; content: none; }
+}
 .nido-room__grid.is-dragging,
 .nido-rooms-grid.is-dragging,
 .nido-room-detail__grid.is-dragging {

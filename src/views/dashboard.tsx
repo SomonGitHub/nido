@@ -9,11 +9,13 @@ import {
   summarizeRoom,
   sortByRoomThenName,
   detectOccupancy,
+  lastActivity,
   type ResolvedEntity,
   type RoomAlertKind,
   type RoomStats,
   type RoomOccupancy,
   type RoomOccupancyKind,
+  type RoomActivity,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
 import { useRoomLayout, type RoomLayout } from "../core/use-room-layout";
@@ -36,7 +38,7 @@ import {
   IconSun,
   IconSensor,
 } from "../icons";
-import { pickAreaIcon } from "./shared";
+import { pickAreaIcon, DragItem } from "./shared";
 import { renderWidget, SUPPORTED_DOMAINS } from "./render-widget";
 import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
 import { playNotificationSound } from "../core/notification-sound";
@@ -50,6 +52,10 @@ import { POWER_ENTITY_ID } from "./energy";
 import { KidsCard } from "../widgets/kids-card";
 import { KidsPanel } from "../components/kids-panel";
 import { useKidsSync } from "../core/kids-sync";
+import { useMinuteTick } from "../core/use-minute-tick";
+import { useStateFlash } from "../core/use-state-flash";
+import { buildDigest } from "../core/home-digest";
+import { durationLabel } from "../core/time-ago";
 
 interface DashboardProps {
   hass: HassObject;
@@ -122,6 +128,7 @@ interface RoomCardProps {
   dragProps: Record<string, unknown>;
   presence?: PersonPresence[];
   occupancy?: RoomOccupancy | null;
+  activity?: RoomActivity | null;
 }
 
 const OPENING_DEVICE_CLASSES = new Set(["door", "garage_door", "window"]);
@@ -133,6 +140,18 @@ const ALERT_ICON: Record<RoomAlertKind, (p: { size?: number }) => JSX.Element> =
   smoke: IconSmoke,
   gas: IconSmoke,
 };
+
+function activityLabel(a: RoomActivity): string {
+  return a.kind === "motion"
+    ? `Mouvement il y a ${durationLabel(a.minutes)}`
+    : `Calme depuis ${durationLabel(a.minutes)}`;
+}
+
+/** Sur téléphone la puce est seule sur sa ligne : l'icône suffit à dire
+ *  « mouvement », mais une durée nue ne dit pas de quoi elle parle. */
+function activityShort(a: RoomActivity): string {
+  return a.kind === "motion" ? durationLabel(a.minutes) : `Calme ${durationLabel(a.minutes)}`;
+}
 
 const OCCUPANCY_SHORT: Record<RoomOccupancyKind, string> = {
   presence: "Présence",
@@ -197,10 +216,14 @@ function RoomCard({
   dragProps,
   presence,
   occupancy,
+  activity: activityProp,
 }: RoomCardProps) {
   const Icon = pickAreaIcon(area.name);
   const stats = extractRoomStats(entities);
   const summary = summarizeRoom(entities);
+  const flash = useStateFlash(
+    `${summary.lightsOn}|${summary.coversOpen}|${summary.mediaPlaying}|${summary.alerts.length}|${occupancy?.kind ?? ""}`,
+  );
   const band = roomBandItems(stats);
   const idle =
     summary.lightsOn === 0 &&
@@ -208,6 +231,7 @@ function RoomCard({
     !summary.mediaPlaying &&
     summary.alerts.length === 0;
   const phone = layout === "phone";
+  const activity = idle && !occupancy ? (activityProp ?? null) : null;
 
   const runAction = (e: Event, domain: string, service: string, ids: string[]) => {
     e.stopPropagation();
@@ -293,7 +317,18 @@ function RoomCard({
           </span>
         );
       })}
-      {idle && <span class="nido-room-card__chip nido-room-card__chip--idle">Tout éteint</span>}
+      {idle &&
+        (activity ? (
+          <span
+            class="nido-room-card__chip nido-room-card__chip--idle"
+            title={activityLabel(activity)}
+          >
+            {activity.kind === "motion" && <IconSensor size={13} />}
+            {phone ? activityShort(activity) : activityLabel(activity)}
+          </span>
+        ) : (
+          <span class="nido-room-card__chip nido-room-card__chip--idle">Tout éteint</span>
+        ))}
     </div>
   );
 
@@ -368,6 +403,7 @@ function RoomCard({
         role="button"
         tabIndex={0}
         class={cardClass}
+        data-flash={flash ? "true" : undefined}
         onClick={onOpen}
         onKeyDown={onKeyDown}
         {...dragProps}
@@ -397,6 +433,7 @@ function RoomCard({
       role="button"
       tabIndex={0}
       class={cardClass}
+      data-flash={flash ? "true" : undefined}
       onClick={onOpen}
       onKeyDown={onKeyDown}
       {...dragProps}
@@ -440,7 +477,7 @@ export function Dashboard({
 }: DashboardProps) {
   const userName = hass.user?.name ?? "vous";
 
-  const now = new Date();
+  const now = useMinuteTick();
   const hour = now.getHours();
   const { greeting, sub } = greetingFor(hour);
   const timeStr = `${String(hour).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
@@ -510,6 +547,11 @@ export function Dashboard({
   const calendarEntities = useMemo(
     () => exposedEntities.filter((e) => e.domain === "calendar"),
     [exposedEntities],
+  );
+
+  const digest = useMemo(
+    () => buildDigest({ hass, entities: exposedEntities, areaNameById, now }),
+    [hass.states, exposedEntities, areaNameById, now],
   );
 
   const hasMeteoFrance = useMemo(() => {
@@ -589,6 +631,18 @@ export function Dashboard({
     }
     return map;
   }, [entities]);
+  /* Comme l'occupation : calculé sur toutes les entités de la pièce, pas
+     seulement les exposées — un capteur de mouvement renseigne la pièce
+     même quand l'utilisateur ne l'a pas mis dans son dashboard. */
+  const roomActivity = useMemo(() => {
+    const map = new Map<string, RoomActivity>();
+    for (const [areaId, list] of groupByArea(entities)) {
+      if (!areaId) continue;
+      const act = lastActivity(list, now);
+      if (act) map.set(areaId, act);
+    }
+    return map;
+  }, [entities, now]);
   const roomLayout = useRoomLayout();
 
   const favoriteEntities = useMemo(() => {
@@ -640,11 +694,11 @@ export function Dashboard({
             const isHero = activeCounter === 1;
             const variant = (((activeCounter - 1) % 4) + 1) as 1 | 2 | 3 | 4;
             return (
-              <div
+              <DragItem
                 key={e.entity_id}
-                class="nido-drag-item"
-                data-hero={isHero ? "true" : "false"}
-                {...favDrag.itemPropsFor(e.entity_id)}
+                signature={`${e.state.state}|${e.state.last_changed}`}
+                hero={isHero}
+                dragProps={favDrag.itemPropsFor(e.entity_id)}
               >
                 {renderWidget(e, {
                   hass,
@@ -653,7 +707,7 @@ export function Dashboard({
                   variant,
                   calendarEntities,
                 })}
-              </div>
+              </DragItem>
             );
           })}
         </div>
@@ -788,7 +842,19 @@ export function Dashboard({
               </div>
             )}
           </div>
-          <p class="nido-hero__sub" style={{ marginTop: '24px' }}>{sub}</p>
+          {digest.length > 0 ? (
+            <div class="nido-hero__digest" style={{ marginTop: '24px' }} aria-live="polite">
+              {digest.map((fact, i) => (
+                <span key={fact.id} class="nido-hero__fact" data-tone={fact.tone}>
+                  {i > 0 && <span class="nido-hero__fact-sep" aria-hidden="true" />}
+                  <span class="nido-hero__fact-text">{fact.text}</span>
+                  {fact.room && <span class="nido-hero__fact-room">{fact.room}</span>}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <p class="nido-hero__sub" style={{ marginTop: '24px' }}>{sub}</p>
+          )}
         </section>
 
         {hasContent ? (
@@ -851,6 +917,7 @@ export function Dashboard({
                       dragProps={roomsDrag.itemPropsFor(a.area_id)}
                       presence={roomPresence.get(a.area_id)}
                       occupancy={roomOccupancy.get(a.area_id) ?? null}
+                      activity={roomActivity.get(a.area_id) ?? null}
                     />
                   ))}
                 </div>

@@ -15,6 +15,11 @@
       import "./src/nido-panel.ts";
 
       const now = new Date().toISOString();
+      const inMinutes = (m) => {
+        const d = new Date(Date.now() + m * 60000);
+        const p = (n) => String(n).padStart(2, "0");
+        return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:00`;
+      };
       const states = {
         "light.salon_principal":     { entity_id: "light.salon_principal",     state: "on",  attributes: { friendly_name: "Plafond salon", brightness: 200 }, last_changed: now, last_updated: now },
         "light.salon_lampadaire":    { entity_id: "light.salon_lampadaire",    state: "off", attributes: { friendly_name: "Lampadaire salon" },                last_changed: now, last_updated: now },
@@ -69,9 +74,9 @@
         "person.simon": { entity_id: "person.simon", state: "home", attributes: { friendly_name: "Simon", entity_picture: "https://picsum.photos/seed/simon/128/128" }, last_changed: now, last_updated: now },
         "person.anna": { entity_id: "person.anna", state: "not_home", attributes: { friendly_name: "Anna", entity_picture: "https://picsum.photos/seed/anna/128/128" }, last_changed: now, last_updated: now },
 
-        "calendar.famille": { entity_id: "calendar.famille", state: "off", attributes: { friendly_name: "Famille", message: "Conservatoire", all_day: false, start_time: "2026-05-04 17:30:00", end_time: "2026-05-04 19:00:00", location: "", description: "" }, last_changed: now, last_updated: now },
-        "calendar.simon":   { entity_id: "calendar.simon",   state: "off", attributes: { friendly_name: "Simon",   message: "Sport",          all_day: false, start_time: "2026-05-04 19:00:00", end_time: "2026-05-04 20:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
-        "calendar.travail": { entity_id: "calendar.travail", state: "off", attributes: { friendly_name: "Travail", message: "Stand-up",        all_day: false, start_time: "2026-05-04 09:00:00", end_time: "2026-05-04 09:30:00", location: "", description: "" }, last_changed: now, last_updated: now },
+        "calendar.famille": { entity_id: "calendar.famille", state: "off", attributes: { friendly_name: "Famille", message: "Conservatoire", all_day: false, start_time: inMinutes(40), end_time: inMinutes(130), location: "", description: "" }, last_changed: now, last_updated: now },
+        "calendar.simon":   { entity_id: "calendar.simon",   state: "off", attributes: { friendly_name: "Simon",   message: "Sport",          all_day: false, start_time: inMinutes(230), end_time: inMinutes(320), location: "", description: "" }, last_changed: now, last_updated: now },
+        "calendar.travail": { entity_id: "calendar.travail", state: "off", attributes: { friendly_name: "Travail", message: "Stand-up",        all_day: false, start_time: inMinutes(1080), end_time: inMinutes(1110), location: "", description: "" }, last_changed: now, last_updated: now },
 
         "sensor.consommation_electrique_sinsts":    { entity_id: "sensor.consommation_electrique_sinsts",    state: "3260", attributes: { friendly_name: "Compteur Linky (VA)",     device_class: "apparent_power", unit_of_measurement: "VA", state_class: "measurement" }, last_changed: now, last_updated: now },
         "sensor.conso":                             { entity_id: "sensor.conso",                             state: "8.4",  attributes: { friendly_name: "Conso jour kWh",          device_class: "energy",   unit_of_measurement: "kWh", state_class: "total_increasing" }, last_changed: now, last_updated: now },

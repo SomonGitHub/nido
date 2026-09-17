@@ -142,23 +142,29 @@
 }
 
 /* Animations */
+/* Amplitude et vitesse pilotées par le widget : une carte respire d'autant
+   plus fort que l'appareil travaille. Les valeurs par défaut restent le
+   comportement décoratif, pour les cartes sans donnée scalaire à exposer. */
 @keyframes nido-breathe {
   0%, 100% { transform: scale(1); filter: brightness(1); }
-  50% { transform: scale(1.006); filter: brightness(1.015); }
+  50% {
+    transform: scale(var(--breathe-scale, 1.01));
+    filter: brightness(var(--breathe-bright, 1.04));
+  }
 }
 @keyframes nido-glow {
   0%, 100% { opacity: var(--glow-base, 0.85); transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.08); }
+  50% { opacity: var(--glow-peak, 1); transform: scale(var(--glow-max, 1.08)); }
 }
 @keyframes nido-stagger-in {
   from { opacity: 0; transform: translateY(16px) scale(0.96); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.breathe-1 { animation: nido-breathe 5.5s var(--ease-in-out) infinite; }
-.breathe-2 { animation: nido-breathe 6.2s var(--ease-in-out) infinite; animation-delay: -1.4s; }
-.breathe-3 { animation: nido-breathe 4.8s var(--ease-in-out) infinite; animation-delay: -2.7s; }
-.breathe-4 { animation: nido-breathe 7s var(--ease-in-out) infinite; animation-delay: -3.1s; }
+.breathe-1 { animation: nido-breathe var(--breathe-speed, 5.5s) var(--ease-in-out) infinite; }
+.breathe-2 { animation: nido-breathe var(--breathe-speed, 6.2s) var(--ease-in-out) infinite; animation-delay: -1.4s; }
+.breathe-3 { animation: nido-breathe var(--breathe-speed, 4.8s) var(--ease-in-out) infinite; animation-delay: -2.7s; }
+.breathe-4 { animation: nido-breathe var(--breathe-speed, 7s) var(--ease-in-out) infinite; animation-delay: -3.1s; }
 .glow-pulse-1 { animation: nido-glow 4.2s var(--ease-in-out) infinite; }
 .glow-pulse-2 { animation: nido-glow 5.8s var(--ease-in-out) infinite; animation-delay: -2s; }
 
