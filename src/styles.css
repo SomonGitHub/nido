@@ -2071,6 +2071,22 @@
   opacity: 0.85;
 }
 .nido-room-card--phone .nido-room-card__chips { flex-wrap: nowrap; flex-shrink: 0; }
+/* Ancrage bas-droite de la puce volet : `margin-left: auto` sur le groupe de
+   puces pousse l'ensemble à droite même quand le bandeau de mesures est
+   absent, et la puce volet ferme la ligne. */
+.nido-room-card--phone .nido-room-card__line { justify-content: flex-start; }
+.nido-room-card--phone .nido-room-card__band {
+  min-width: 0;
+  overflow: hidden;
+}
+.nido-room-card--phone .nido-room-card__chips { margin-left: auto; }
+.nido-room-card--phone .nido-room-card__chip--cover {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.nido-room-card--phone .nido-room-card__chips + .nido-room-card__chip--cover {
+  margin-left: 6px;
+}
 
 /* ─── Room detail page ─── */
 .nido-room-detail__header {

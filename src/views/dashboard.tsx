@@ -79,6 +79,7 @@ export function greetingFor(hour: number): { greeting: string; sub: string } {
   return { greeting: "Bonne nuit", sub: "La maison veille sur vous" };
 }
 
+/** Porteur d'un téléphone localisé dans une pièce. */
 interface PersonPresence {
   name: string;
   picture?: string;
@@ -88,15 +89,22 @@ function areaToMqttKey(name: string): string {
   return name.replace(/[^\x00-\x7F]/g, "_").toLowerCase();
 }
 
+/** Localisation du **téléphone** par pièce (≠ la personne, qui peut l'avoir
+ *  laissé sur un plan de travail) : un `sensor` dont l'état vaut le nom d'une
+ *  pièce, suffixé par le prénom du porteur. Restreint aux entités ajoutées,
+ *  comme tout signal de présence — et ça évite au passage qu'un capteur
+ *  quelconque valant « salon » fasse apparaître un avatar. */
 function detectRoomPresence(
   hass: HassObject,
   areas: Area[],
+  exposedEntities: ResolvedEntity[],
 ): Map<string, PersonPresence[]> {
   const areaKeyMap = new Map(areas.map((a) => [areaToMqttKey(a.name), a.area_id]));
   const byArea = new Map<string, Map<string, PersonPresence>>();
 
-  for (const entity of Object.values(hass.states)) {
-    if (!entity.entity_id.startsWith("sensor.")) continue;
+  for (const resolved of exposedEntities) {
+    if (resolved.domain !== "sensor") continue;
+    const entity = resolved.state;
     const stateKey = entity.state.toLowerCase();
     const areaId = areaKeyMap.get(stateKey);
     if (!areaId) continue;
@@ -277,6 +285,19 @@ function RoomCard({
       </div>
     ) : null;
 
+  /* Sur téléphone la puce volet sort du groupe et s'ancre à droite de la
+     ligne : les cartes s'empilent, et une position stable se lit en
+     diagonale — sinon elle glisse selon la présence du bandeau de mesures. */
+  const coverChipEl =
+    summary.coversOpen > 0 ? (
+      <span class="nido-room-card__chip nido-room-card__chip--cover">
+        <IconBlind size={13} />
+        {summary.coversOpen === 1
+          ? `${Math.round(summary.coverPositions[0])} %`
+          : summary.coversOpen}
+      </span>
+    ) : null;
+
   const chipsEl = (
     <div class="nido-room-card__chips">
       {occupancy && (
@@ -294,14 +315,7 @@ function RoomCard({
           {summary.lightsOn}
         </span>
       )}
-      {summary.coversOpen > 0 && (
-        <span class="nido-room-card__chip">
-          <IconBlind size={13} />
-          {summary.coversOpen === 1
-            ? `${Math.round(summary.coverPositions[0])} %`
-            : summary.coversOpen}
-        </span>
-      )}
+      {!phone && coverChipEl}
       {summary.mediaPlaying && (
         <span class="nido-room-card__chip nido-room-card__chip--on">
           <IconMusic size={13} />
@@ -423,6 +437,7 @@ function RoomCard({
         <div class="nido-room-card__line">
           {bandEl}
           {chipsEl}
+          {coverChipEl}
         </div>
       </div>
     );
@@ -621,28 +636,31 @@ export function Dashboard({
   };
 
   const byArea = useMemo(() => groupByArea(exposedEntities), [exposedEntities]);
-  const roomPresence = useMemo(() => detectRoomPresence(hass, areas), [hass.states, areas]);
+  const roomPresence = useMemo(
+    () => detectRoomPresence(hass, areas, exposedEntities),
+    [hass.states, areas, exposedEntities],
+  );
+  /* Occupation et activité se lisent sur `byArea`, donc sur les seules
+     entités exposées : Nido ne signale jamais un capteur que l'utilisateur
+     n'a pas ajouté, même quand Home Assistant le connaît. */
   const roomOccupancy = useMemo(() => {
     const map = new Map<string, RoomOccupancy>();
-    for (const [areaId, list] of groupByArea(entities)) {
+    for (const [areaId, list] of byArea) {
       if (!areaId) continue;
       const occ = detectOccupancy(list);
       if (occ) map.set(areaId, occ);
     }
     return map;
-  }, [entities]);
-  /* Comme l'occupation : calculé sur toutes les entités de la pièce, pas
-     seulement les exposées — un capteur de mouvement renseigne la pièce
-     même quand l'utilisateur ne l'a pas mis dans son dashboard. */
+  }, [byArea]);
   const roomActivity = useMemo(() => {
     const map = new Map<string, RoomActivity>();
-    for (const [areaId, list] of groupByArea(entities)) {
+    for (const [areaId, list] of byArea) {
       if (!areaId) continue;
       const act = lastActivity(list, now);
       if (act) map.set(areaId, act);
     }
     return map;
-  }, [entities, now]);
+  }, [byArea, now]);
   const roomLayout = useRoomLayout();
 
   const favoriteEntities = useMemo(() => {

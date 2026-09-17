@@ -1,19 +1,19 @@
-var zn, _e, Tl, Lt, la, kl, wl, rs, hn, ki, Al, _r, Gs, Vs, wn = {}, An = [], fu = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, Hn = Array.isArray;
-function kt(n, e) {
+var Kn, _e, Sl, Rt, oa, Tl, kl, ss, hn, ki, wl, mr, Us, Gs, kn = {}, wn = [], fu = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, zn = Array.isArray;
+function wt(n, e) {
   for (var t in e) n[t] = e[t];
   return n;
 }
-function vr(n) {
+function _r(n) {
   n && n.parentNode && n.parentNode.removeChild(n);
 }
-function Il(n, e, t) {
+function Al(n, e, t) {
   var i, s, r, a = {};
   for (r in e) r == "key" ? i = e[r] : r == "ref" ? s = e[r] : a[r] = e[r];
-  if (arguments.length > 2 && (a.children = arguments.length > 3 ? zn.call(arguments, 2) : t), typeof n == "function" && n.defaultProps != null) for (r in n.defaultProps) a[r] === void 0 && (a[r] = n.defaultProps[r]);
+  if (arguments.length > 2 && (a.children = arguments.length > 3 ? Kn.call(arguments, 2) : t), typeof n == "function" && n.defaultProps != null) for (r in n.defaultProps) a[r] === void 0 && (a[r] = n.defaultProps[r]);
   return fn(n, a, i, s, null);
 }
 function fn(n, e, t, i, s) {
-  var r = { type: n, props: e, key: t, ref: i, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: s ?? ++Tl, __i: -1, __u: 0 };
+  var r = { type: n, props: e, key: t, ref: i, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: s ?? ++Sl, __i: -1, __u: 0 };
   return s == null && _e.vnode != null && _e.vnode(r), r;
 }
 function he(n) {
@@ -29,40 +29,40 @@ function pi(n, e) {
 }
 function pu(n) {
   if (n.__P && n.__d) {
-    var e = n.__v, t = e.__e, i = [], s = [], r = kt({}, e);
-    r.__v = e.__v + 1, _e.vnode && _e.vnode(r), yr(n.__P, r, e, n.__n, n.__P.namespaceURI, 32 & e.__u ? [t] : null, i, t ?? pi(e), !!(32 & e.__u), s), r.__v = e.__v, r.__.__k[r.__i] = r, Cl(i, r, s), e.__e = e.__ = null, r.__e != t && Ll(r);
+    var e = n.__v, t = e.__e, i = [], s = [], r = wt({}, e);
+    r.__v = e.__v + 1, _e.vnode && _e.vnode(r), vr(n.__P, r, e, n.__n, n.__P.namespaceURI, 32 & e.__u ? [t] : null, i, t ?? pi(e), !!(32 & e.__u), s), r.__v = e.__v, r.__.__k[r.__i] = r, Dl(i, r, s), e.__e = e.__ = null, r.__e != t && Il(r);
   }
 }
-function Ll(n) {
+function Il(n) {
   if ((n = n.__) != null && n.__c != null) return n.__e = n.__c.base = null, n.__k.some(function(e) {
     if (e != null && e.__e != null) return n.__e = n.__c.base = e.__e;
-  }), Ll(n);
+  }), Il(n);
 }
-function ca(n) {
-  (!n.__d && (n.__d = !0) && Lt.push(n) && !In.__r++ || la != _e.debounceRendering) && ((la = _e.debounceRendering) || kl)(In);
+function la(n) {
+  (!n.__d && (n.__d = !0) && Rt.push(n) && !An.__r++ || oa != _e.debounceRendering) && ((oa = _e.debounceRendering) || Tl)(An);
 }
-function In() {
+function An() {
   try {
-    for (var n, e = 1; Lt.length; ) Lt.length > e && Lt.sort(wl), n = Lt.shift(), e = Lt.length, pu(n);
+    for (var n, e = 1; Rt.length; ) Rt.length > e && Rt.sort(kl), n = Rt.shift(), e = Rt.length, pu(n);
   } finally {
-    Lt.length = In.__r = 0;
+    Rt.length = An.__r = 0;
   }
 }
-function Rl(n, e, t, i, s, r, a, o, d, c, u) {
-  var h, f, p, g, _, m, v, b = i && i.__k || An, x = e.length;
-  for (d = gu(t, e, b, d, x), h = 0; h < x; h++) (p = t.__k[h]) != null && (f = p.__i != -1 && b[p.__i] || wn, p.__i = h, m = yr(n, p, f, s, r, a, o, d, c, u), g = p.__e, p.ref && f.ref != p.ref && (f.ref && br(f.ref, null, p), u.push(p.ref, p.__c || g, p)), _ == null && g != null && (_ = g), (v = !!(4 & p.__u)) || f.__k === p.__k ? (d = Dl(p, d, n, v), v && f.__e && (f.__e = null)) : typeof p.type == "function" && m !== void 0 ? d = m : g && (d = g.nextSibling), p.__u &= -7);
+function Ll(n, e, t, i, s, r, a, o, d, c, u) {
+  var h, f, p, g, _, m, v, b = i && i.__k || wn, x = e.length;
+  for (d = gu(t, e, b, d, x), h = 0; h < x; h++) (p = t.__k[h]) != null && (f = p.__i != -1 && b[p.__i] || kn, p.__i = h, m = vr(n, p, f, s, r, a, o, d, c, u), g = p.__e, p.ref && f.ref != p.ref && (f.ref && yr(f.ref, null, p), u.push(p.ref, p.__c || g, p)), _ == null && g != null && (_ = g), (v = !!(4 & p.__u)) || f.__k === p.__k ? (d = Rl(p, d, n, v), v && f.__e && (f.__e = null)) : typeof p.type == "function" && m !== void 0 ? d = m : g && (d = g.nextSibling), p.__u &= -7);
   return t.__e = _, d;
 }
 function gu(n, e, t, i, s) {
   var r, a, o, d, c, u = t.length, h = u, f = 0;
-  for (n.__k = new Array(s), r = 0; r < s; r++) (a = e[r]) != null && typeof a != "boolean" && typeof a != "function" ? (typeof a == "string" || typeof a == "number" || typeof a == "bigint" || a.constructor == String ? a = n.__k[r] = fn(null, a, null, null, null) : Hn(a) ? a = n.__k[r] = fn(he, { children: a }, null, null, null) : a.constructor === void 0 && a.__b > 0 ? a = n.__k[r] = fn(a.type, a.props, a.key, a.ref ? a.ref : null, a.__v) : n.__k[r] = a, d = r + f, a.__ = n, a.__b = n.__b + 1, o = null, (c = a.__i = mu(a, t, d, h)) != -1 && (h--, (o = t[c]) && (o.__u |= 2)), o == null || o.__v == null ? (c == -1 && (s > u ? f-- : s < u && f++), typeof a.type != "function" && (a.__u |= 4)) : c != d && (c == d - 1 ? f-- : c == d + 1 ? f++ : (c > d ? f-- : f++, a.__u |= 4))) : n.__k[r] = null;
-  if (h) for (r = 0; r < u; r++) (o = t[r]) != null && (2 & o.__u) == 0 && (o.__e == i && (i = pi(o)), Ml(o, o));
+  for (n.__k = new Array(s), r = 0; r < s; r++) (a = e[r]) != null && typeof a != "boolean" && typeof a != "function" ? (typeof a == "string" || typeof a == "number" || typeof a == "bigint" || a.constructor == String ? a = n.__k[r] = fn(null, a, null, null, null) : zn(a) ? a = n.__k[r] = fn(he, { children: a }, null, null, null) : a.constructor === void 0 && a.__b > 0 ? a = n.__k[r] = fn(a.type, a.props, a.key, a.ref ? a.ref : null, a.__v) : n.__k[r] = a, d = r + f, a.__ = n, a.__b = n.__b + 1, o = null, (c = a.__i = mu(a, t, d, h)) != -1 && (h--, (o = t[c]) && (o.__u |= 2)), o == null || o.__v == null ? (c == -1 && (s > u ? f-- : s < u && f++), typeof a.type != "function" && (a.__u |= 4)) : c != d && (c == d - 1 ? f-- : c == d + 1 ? f++ : (c > d ? f-- : f++, a.__u |= 4))) : n.__k[r] = null;
+  if (h) for (r = 0; r < u; r++) (o = t[r]) != null && (2 & o.__u) == 0 && (o.__e == i && (i = pi(o)), Pl(o, o));
   return i;
 }
-function Dl(n, e, t, i) {
+function Rl(n, e, t, i) {
   var s, r;
   if (typeof n.type == "function") {
-    for (s = n.__k, r = 0; s && r < s.length; r++) s[r] && (s[r].__ = n, e = Dl(s[r], e, t, i));
+    for (s = n.__k, r = 0; s && r < s.length; r++) s[r] && (s[r].__ = n, e = Rl(s[r], e, t, i));
     return e;
   }
   n.__e != e && (i && (e && n.type && !e.parentNode && (e = pi(n)), t.insertBefore(n.__e, e || null)), e = n.__e);
@@ -79,17 +79,17 @@ function mu(n, e, t, i) {
   }
   return -1;
 }
-function da(n, e, t) {
+function ca(n, e, t) {
   e[0] == "-" ? n.setProperty(e, t ?? "") : n[e] = t == null ? "" : typeof t != "number" || fu.test(e) ? t : t + "px";
 }
 function Vi(n, e, t, i, s) {
   var r, a;
   e: if (e == "style") if (typeof t == "string") n.style.cssText = t;
   else {
-    if (typeof i == "string" && (n.style.cssText = i = ""), i) for (e in i) t && e in t || da(n.style, e, "");
-    if (t) for (e in t) i && t[e] == i[e] || da(n.style, e, t[e]);
+    if (typeof i == "string" && (n.style.cssText = i = ""), i) for (e in i) t && e in t || ca(n.style, e, "");
+    if (t) for (e in t) i && t[e] == i[e] || ca(n.style, e, t[e]);
   }
-  else if (e[0] == "o" && e[1] == "n") r = e != (e = e.replace(Al, "$1")), a = e.toLowerCase(), e = a in n || e == "onFocusOut" || e == "onFocusIn" ? a.slice(2) : e.slice(2), n.l || (n.l = {}), n.l[e + r] = t, t ? i ? t[ki] = i[ki] : (t[ki] = _r, n.addEventListener(e, r ? Vs : Gs, r)) : n.removeEventListener(e, r ? Vs : Gs, r);
+  else if (e[0] == "o" && e[1] == "n") r = e != (e = e.replace(wl, "$1")), a = e.toLowerCase(), e = a in n || e == "onFocusOut" || e == "onFocusIn" ? a.slice(2) : e.slice(2), n.l || (n.l = {}), n.l[e + r] = t, t ? i ? t[ki] = i[ki] : (t[ki] = mr, n.addEventListener(e, r ? Gs : Us, r)) : n.removeEventListener(e, r ? Gs : Us, r);
   else {
     if (s == "http://www.w3.org/2000/svg") e = e.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
     else if (e != "width" && e != "height" && e != "href" && e != "list" && e != "form" && e != "tabIndex" && e != "download" && e != "rowSpan" && e != "colSpan" && e != "role" && e != "popover" && e in n) try {
@@ -100,57 +100,57 @@ function Vi(n, e, t, i, s) {
     typeof t == "function" || (t == null || t === !1 && e[4] != "-" ? n.removeAttribute(e) : n.setAttribute(e, e == "popover" && t == 1 ? "" : t));
   }
 }
-function ua(n) {
+function da(n) {
   return function(e) {
     if (this.l) {
       var t = this.l[e.type + n];
-      if (e[hn] == null) e[hn] = _r++;
+      if (e[hn] == null) e[hn] = mr++;
       else if (e[hn] < t[ki]) return;
       return t(_e.event ? _e.event(e) : e);
     }
   };
 }
-function yr(n, e, t, i, s, r, a, o, d, c) {
-  var u, h, f, p, g, _, m, v, b, x, E, S, w, T, k, I = e.type;
+function vr(n, e, t, i, s, r, a, o, d, c) {
+  var u, h, f, p, g, _, m, v, b, x, E, S, A, T, k, I = e.type;
   if (e.constructor !== void 0) return null;
   128 & t.__u && (d = !!(32 & t.__u), r = [o = e.__e = t.__e]), (u = _e.__b) && u(e);
   e: if (typeof I == "function") try {
-    if (v = e.props, b = I.prototype && I.prototype.render, x = (u = I.contextType) && i[u.__c], E = u ? x ? x.props.value : u.__ : i, t.__c ? m = (h = e.__c = t.__c).__ = h.__E : (b ? e.__c = h = new I(v, E) : (e.__c = h = new pn(v, E), h.constructor = I, h.render = vu), x && x.sub(h), h.state || (h.state = {}), h.__n = i, f = h.__d = !0, h.__h = [], h._sb = []), b && h.__s == null && (h.__s = h.state), b && I.getDerivedStateFromProps != null && (h.__s == h.state && (h.__s = kt({}, h.__s)), kt(h.__s, I.getDerivedStateFromProps(v, h.__s))), p = h.props, g = h.state, h.__v = e, f) b && I.getDerivedStateFromProps == null && h.componentWillMount != null && h.componentWillMount(), b && h.componentDidMount != null && h.__h.push(h.componentDidMount);
+    if (v = e.props, b = I.prototype && I.prototype.render, x = (u = I.contextType) && i[u.__c], E = u ? x ? x.props.value : u.__ : i, t.__c ? m = (h = e.__c = t.__c).__ = h.__E : (b ? e.__c = h = new I(v, E) : (e.__c = h = new pn(v, E), h.constructor = I, h.render = vu), x && x.sub(h), h.state || (h.state = {}), h.__n = i, f = h.__d = !0, h.__h = [], h._sb = []), b && h.__s == null && (h.__s = h.state), b && I.getDerivedStateFromProps != null && (h.__s == h.state && (h.__s = wt({}, h.__s)), wt(h.__s, I.getDerivedStateFromProps(v, h.__s))), p = h.props, g = h.state, h.__v = e, f) b && I.getDerivedStateFromProps == null && h.componentWillMount != null && h.componentWillMount(), b && h.componentDidMount != null && h.__h.push(h.componentDidMount);
     else {
       if (b && I.getDerivedStateFromProps == null && v !== p && h.componentWillReceiveProps != null && h.componentWillReceiveProps(v, E), e.__v == t.__v || !h.__e && h.shouldComponentUpdate != null && h.shouldComponentUpdate(v, h.__s, E) === !1) {
-        e.__v != t.__v && (h.props = v, h.state = h.__s, h.__d = !1), e.__e = t.__e, e.__k = t.__k, e.__k.some(function(A) {
-          A && (A.__ = e);
-        }), An.push.apply(h.__h, h._sb), h._sb = [], h.__h.length && a.push(h);
+        e.__v != t.__v && (h.props = v, h.state = h.__s, h.__d = !1), e.__e = t.__e, e.__k = t.__k, e.__k.some(function(w) {
+          w && (w.__ = e);
+        }), wn.push.apply(h.__h, h._sb), h._sb = [], h.__h.length && a.push(h);
         break e;
       }
       h.componentWillUpdate != null && h.componentWillUpdate(v, h.__s, E), b && h.componentDidUpdate != null && h.__h.push(function() {
         h.componentDidUpdate(p, g, _);
       });
     }
-    if (h.context = E, h.props = v, h.__P = n, h.__e = !1, S = _e.__r, w = 0, b) h.state = h.__s, h.__d = !1, S && S(e), u = h.render(h.props, h.state, h.context), An.push.apply(h.__h, h._sb), h._sb = [];
+    if (h.context = E, h.props = v, h.__P = n, h.__e = !1, S = _e.__r, A = 0, b) h.state = h.__s, h.__d = !1, S && S(e), u = h.render(h.props, h.state, h.context), wn.push.apply(h.__h, h._sb), h._sb = [];
     else do
       h.__d = !1, S && S(e), u = h.render(h.props, h.state, h.context), h.state = h.__s;
-    while (h.__d && ++w < 25);
-    h.state = h.__s, h.getChildContext != null && (i = kt(kt({}, i), h.getChildContext())), b && !f && h.getSnapshotBeforeUpdate != null && (_ = h.getSnapshotBeforeUpdate(p, g)), T = u != null && u.type === he && u.key == null ? Pl(u.props.children) : u, o = Rl(n, Hn(T) ? T : [T], e, t, i, s, r, a, o, d, c), h.base = e.__e, e.__u &= -161, h.__h.length && a.push(h), m && (h.__E = h.__ = null);
-  } catch (A) {
-    if (e.__v = null, d || r != null) if (A.then) {
+    while (h.__d && ++A < 25);
+    h.state = h.__s, h.getChildContext != null && (i = wt(wt({}, i), h.getChildContext())), b && !f && h.getSnapshotBeforeUpdate != null && (_ = h.getSnapshotBeforeUpdate(p, g)), T = u != null && u.type === he && u.key == null ? Cl(u.props.children) : u, o = Ll(n, zn(T) ? T : [T], e, t, i, s, r, a, o, d, c), h.base = e.__e, e.__u &= -161, h.__h.length && a.push(h), m && (h.__E = h.__ = null);
+  } catch (w) {
+    if (e.__v = null, d || r != null) if (w.then) {
       for (e.__u |= d ? 160 : 128; o && o.nodeType == 8 && o.nextSibling; ) o = o.nextSibling;
       r[r.indexOf(o)] = null, e.__e = o;
     } else {
-      for (k = r.length; k--; ) vr(r[k]);
-      Ks(e);
+      for (k = r.length; k--; ) _r(r[k]);
+      Vs(e);
     }
-    else e.__e = t.__e, e.__k = t.__k, A.then || Ks(e);
-    _e.__e(A, e, t);
+    else e.__e = t.__e, e.__k = t.__k, w.then || Vs(e);
+    _e.__e(w, e, t);
   }
   else r == null && e.__v == t.__v ? (e.__k = t.__k, e.__e = t.__e) : o = e.__e = _u(t.__e, e, t, i, s, r, a, d, c);
   return (u = _e.diffed) && u(e), 128 & e.__u ? void 0 : o;
 }
-function Ks(n) {
-  n && (n.__c && (n.__c.__e = !0), n.__k && n.__k.some(Ks));
+function Vs(n) {
+  n && (n.__c && (n.__c.__e = !0), n.__k && n.__k.some(Vs));
 }
-function Cl(n, e, t) {
-  for (var i = 0; i < t.length; i++) br(t[i], t[++i], t[++i]);
+function Dl(n, e, t) {
+  for (var i = 0; i < t.length; i++) yr(t[i], t[++i], t[++i]);
   _e.__c && _e.__c(e, n), n.some(function(s) {
     try {
       n = s.__h, s.__h = [], n.some(function(r) {
@@ -161,11 +161,11 @@ function Cl(n, e, t) {
     }
   });
 }
-function Pl(n) {
-  return typeof n != "object" || n == null || n.__b > 0 ? n : Hn(n) ? n.map(Pl) : kt({}, n);
+function Cl(n) {
+  return typeof n != "object" || n == null || n.__b > 0 ? n : zn(n) ? n.map(Cl) : wt({}, n);
 }
 function _u(n, e, t, i, s, r, a, o, d) {
-  var c, u, h, f, p, g, _, m = t.props || wn, v = e.props, b = e.type;
+  var c, u, h, f, p, g, _, m = t.props || kn, v = e.props, b = e.type;
   if (b == "svg" ? s = "http://www.w3.org/2000/svg" : b == "math" ? s = "http://www.w3.org/1998/Math/MathML" : s || (s = "http://www.w3.org/1999/xhtml"), r != null) {
     for (c = 0; c < r.length; c++) if ((p = r[c]) && "setAttribute" in p == !!b && (b ? p.localName == b : p.nodeType == 3)) {
       n = p, r[c] = null;
@@ -178,16 +178,16 @@ function _u(n, e, t, i, s, r, a, o, d) {
   }
   if (b == null) m === v || o && n.data == v || (n.data = v);
   else {
-    if (r = r && zn.call(n.childNodes), !o && r != null) for (m = {}, c = 0; c < n.attributes.length; c++) m[(p = n.attributes[c]).name] = p.value;
+    if (r = r && Kn.call(n.childNodes), !o && r != null) for (m = {}, c = 0; c < n.attributes.length; c++) m[(p = n.attributes[c]).name] = p.value;
     for (c in m) p = m[c], c == "dangerouslySetInnerHTML" ? h = p : c == "children" || c in v || c == "value" && "defaultValue" in v || c == "checked" && "defaultChecked" in v || Vi(n, c, null, p, s);
     for (c in v) p = v[c], c == "children" ? f = p : c == "dangerouslySetInnerHTML" ? u = p : c == "value" ? g = p : c == "checked" ? _ = p : o && typeof p != "function" || m[c] === p || Vi(n, c, p, m[c], s);
     if (u) o || h && (u.__html == h.__html || u.__html == n.innerHTML) || (n.innerHTML = u.__html), e.__k = [];
-    else if (h && (n.innerHTML = ""), Rl(e.type == "template" ? n.content : n, Hn(f) ? f : [f], e, t, i, b == "foreignObject" ? "http://www.w3.org/1999/xhtml" : s, r, a, r ? r[0] : t.__k && pi(t, 0), o, d), r != null) for (c = r.length; c--; ) vr(r[c]);
+    else if (h && (n.innerHTML = ""), Ll(e.type == "template" ? n.content : n, zn(f) ? f : [f], e, t, i, b == "foreignObject" ? "http://www.w3.org/1999/xhtml" : s, r, a, r ? r[0] : t.__k && pi(t, 0), o, d), r != null) for (c = r.length; c--; ) _r(r[c]);
     o || (c = "value", b == "progress" && g == null ? n.removeAttribute("value") : g != null && (g !== n[c] || b == "progress" && !g || b == "option" && g != m[c]) && Vi(n, c, g, m[c], s), c = "checked", _ != null && _ != n[c] && Vi(n, c, _, m[c], s));
   }
   return n;
 }
-function br(n, e, t) {
+function yr(n, e, t) {
   try {
     if (typeof n == "function") {
       var i = typeof n.__u == "function";
@@ -197,9 +197,9 @@ function br(n, e, t) {
     _e.__e(s, t);
   }
 }
-function Ml(n, e, t) {
+function Pl(n, e, t) {
   var i, s;
-  if (_e.unmount && _e.unmount(n), (i = n.ref) && (i.current && i.current != n.__e || br(i, null, e)), (i = n.__c) != null) {
+  if (_e.unmount && _e.unmount(n), (i = n.ref) && (i.current && i.current != n.__e || yr(i, null, e)), (i = n.__c) != null) {
     if (i.componentWillUnmount) try {
       i.componentWillUnmount();
     } catch (r) {
@@ -207,31 +207,31 @@ function Ml(n, e, t) {
     }
     i.base = i.__P = null;
   }
-  if (i = n.__k) for (s = 0; s < i.length; s++) i[s] && Ml(i[s], e, t || typeof n.type != "function");
-  t || vr(n.__e), n.__c = n.__ = n.__e = void 0;
+  if (i = n.__k) for (s = 0; s < i.length; s++) i[s] && Pl(i[s], e, t || typeof n.type != "function");
+  t || _r(n.__e), n.__c = n.__ = n.__e = void 0;
 }
 function vu(n, e, t) {
   return this.constructor(n, t);
 }
-function ha(n, e, t) {
+function ua(n, e, t) {
   var i, s, r, a;
-  e == document && (e = document.documentElement), _e.__ && _e.__(n, e), s = (i = !1) ? null : e.__k, r = [], a = [], yr(e, n = e.__k = Il(he, null, [n]), s || wn, wn, e.namespaceURI, s ? null : e.firstChild ? zn.call(e.childNodes) : null, r, s ? s.__e : e.firstChild, i, a), Cl(r, n, a);
+  e == document && (e = document.documentElement), _e.__ && _e.__(n, e), s = (i = !1) ? null : e.__k, r = [], a = [], vr(e, n = e.__k = Al(he, null, [n]), s || kn, kn, e.namespaceURI, s ? null : e.firstChild ? Kn.call(e.childNodes) : null, r, s ? s.__e : e.firstChild, i, a), Dl(r, n, a);
 }
-zn = An.slice, _e = { __e: function(n, e, t, i) {
+Kn = wn.slice, _e = { __e: function(n, e, t, i) {
   for (var s, r, a; e = e.__; ) if ((s = e.__c) && !s.__) try {
     if ((r = s.constructor) && r.getDerivedStateFromError != null && (s.setState(r.getDerivedStateFromError(n)), a = s.__d), s.componentDidCatch != null && (s.componentDidCatch(n, i || {}), a = s.__d), a) return s.__E = s;
   } catch (o) {
     n = o;
   }
   throw n;
-} }, Tl = 0, pn.prototype.setState = function(n, e) {
+} }, Sl = 0, pn.prototype.setState = function(n, e) {
   var t;
-  t = this.__s != null && this.__s != this.state ? this.__s : this.__s = kt({}, this.state), typeof n == "function" && (n = n(kt({}, t), this.props)), n && kt(t, n), n != null && this.__v && (e && this._sb.push(e), ca(this));
+  t = this.__s != null && this.__s != this.state ? this.__s : this.__s = wt({}, this.state), typeof n == "function" && (n = n(wt({}, t), this.props)), n && wt(t, n), n != null && this.__v && (e && this._sb.push(e), la(this));
 }, pn.prototype.forceUpdate = function(n) {
-  this.__v && (this.__e = !0, n && this.__h.push(n), ca(this));
-}, pn.prototype.render = he, Lt = [], kl = typeof Promise == "function" ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, wl = function(n, e) {
+  this.__v && (this.__e = !0, n && this.__h.push(n), la(this));
+}, pn.prototype.render = he, Rt = [], Tl = typeof Promise == "function" ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, kl = function(n, e) {
   return n.__v.__b - e.__v.__b;
-}, In.__r = 0, rs = Math.random().toString(8), hn = "__d" + rs, ki = "__a" + rs, Al = /(PointerCapture)$|Capture$/i, _r = 0, Gs = ua(!1), Vs = ua(!0);
+}, An.__r = 0, ss = Math.random().toString(8), hn = "__d" + ss, ki = "__a" + ss, wl = /(PointerCapture)$|Capture$/i, mr = 0, Us = da(!1), Gs = da(!0);
 var yu = 0;
 function l(n, e, t, i, s, r) {
   e || (e = {});
@@ -241,18 +241,18 @@ function l(n, e, t, i, s, r) {
   if (typeof n == "function" && (a = n.defaultProps)) for (o in a) d[o] === void 0 && (d[o] = a[o]);
   return _e.vnode && _e.vnode(c), c;
 }
-var Li, ke, as, fa, Ri = 0, Ol = [], Ae = _e, pa = Ae.__b, ga = Ae.__r, ma = Ae.diffed, _a = Ae.__c, va = Ae.unmount, ya = Ae.__;
-function xr(n, e) {
+var Li, ke, rs, ha, Ri = 0, Ml = [], Ae = _e, fa = Ae.__b, pa = Ae.__r, ga = Ae.diffed, ma = Ae.__c, _a = Ae.unmount, va = Ae.__;
+function br(n, e) {
   Ae.__h && Ae.__h(ke, n, Ri || e), Ri = 0;
   var t = ke.__H || (ke.__H = { __: [], __h: [] });
   return n >= t.__.length && t.__.push({}), t.__[n];
 }
-function V(n) {
-  return Ri = 1, bu(Nl, n);
+function G(n) {
+  return Ri = 1, bu(Fl, n);
 }
 function bu(n, e, t) {
-  var i = xr(Li++, 2);
-  if (i.t = n, !i.__c && (i.__ = [Nl(void 0, e), function(o) {
+  var i = br(Li++, 2);
+  if (i.t = n, !i.__c && (i.__ = [Fl(void 0, e), function(o) {
     var d = i.__N ? i.__N[0] : i.__[0], c = i.t(d, o);
     d !== c && (i.__N = [c, i.__[1]], i.__c.setState({}));
   }], i.__c = ke, !ke.__f)) {
@@ -285,63 +285,63 @@ function bu(n, e, t) {
   return i.__N || i.__;
 }
 function de(n, e) {
-  var t = xr(Li++, 3);
-  !Ae.__s && Fl(t.__H, e) && (t.__ = n, t.u = e, ke.__H.__h.push(t));
+  var t = br(Li++, 3);
+  !Ae.__s && Ol(t.__H, e) && (t.__ = n, t.u = e, ke.__H.__h.push(t));
 }
 function ue(n) {
-  return Ri = 5, X(function() {
+  return Ri = 5, Q(function() {
     return { current: n };
   }, []);
 }
-function X(n, e) {
-  var t = xr(Li++, 7);
-  return Fl(t.__H, e) && (t.__ = n(), t.__H = e, t.__h = n), t.__;
+function Q(n, e) {
+  var t = br(Li++, 7);
+  return Ol(t.__H, e) && (t.__ = n(), t.__H = e, t.__h = n), t.__;
 }
 function Ce(n, e) {
-  return Ri = 8, X(function() {
+  return Ri = 8, Q(function() {
     return n;
   }, e);
 }
 function xu() {
-  for (var n; n = Ol.shift(); ) {
+  for (var n; n = Ml.shift(); ) {
     var e = n.__H;
     if (n.__P && e) try {
-      e.__h.some(gn), e.__h.some(zs), e.__h = [];
+      e.__h.some(gn), e.__h.some(Ks), e.__h = [];
     } catch (t) {
       e.__h = [], Ae.__e(t, n.__v);
     }
   }
 }
 Ae.__b = function(n) {
-  ke = null, pa && pa(n);
+  ke = null, fa && fa(n);
 }, Ae.__ = function(n, e) {
-  n && e.__k && e.__k.__m && (n.__m = e.__k.__m), ya && ya(n, e);
+  n && e.__k && e.__k.__m && (n.__m = e.__k.__m), va && va(n, e);
 }, Ae.__r = function(n) {
-  ga && ga(n), Li = 0;
+  pa && pa(n), Li = 0;
   var e = (ke = n.__c).__H;
-  e && (as === ke ? (e.__h = [], ke.__h = [], e.__.some(function(t) {
+  e && (rs === ke ? (e.__h = [], ke.__h = [], e.__.some(function(t) {
     t.__N && (t.__ = t.__N), t.u = t.__N = void 0;
-  })) : (e.__h.some(gn), e.__h.some(zs), e.__h = [], Li = 0)), as = ke;
+  })) : (e.__h.some(gn), e.__h.some(Ks), e.__h = [], Li = 0)), rs = ke;
 }, Ae.diffed = function(n) {
-  ma && ma(n);
+  ga && ga(n);
   var e = n.__c;
-  e && e.__H && (e.__H.__h.length && (Ol.push(e) !== 1 && fa === Ae.requestAnimationFrame || ((fa = Ae.requestAnimationFrame) || Eu)(xu)), e.__H.__.some(function(t) {
+  e && e.__H && (e.__H.__h.length && (Ml.push(e) !== 1 && ha === Ae.requestAnimationFrame || ((ha = Ae.requestAnimationFrame) || Eu)(xu)), e.__H.__.some(function(t) {
     t.u && (t.__H = t.u), t.u = void 0;
-  })), as = ke = null;
+  })), rs = ke = null;
 }, Ae.__c = function(n, e) {
   e.some(function(t) {
     try {
       t.__h.some(gn), t.__h = t.__h.filter(function(i) {
-        return !i.__ || zs(i);
+        return !i.__ || Ks(i);
       });
     } catch (i) {
       e.some(function(s) {
         s.__h && (s.__h = []);
       }), e = [], Ae.__e(i, t.__v);
     }
-  }), _a && _a(n, e);
+  }), ma && ma(n, e);
 }, Ae.unmount = function(n) {
-  va && va(n);
+  _a && _a(n);
   var e, t = n.__c;
   t && t.__H && (t.__H.__.some(function(i) {
     try {
@@ -351,27 +351,27 @@ Ae.__b = function(n) {
     }
   }), t.__H = void 0, e && Ae.__e(e, t.__v));
 };
-var ba = typeof requestAnimationFrame == "function";
+var ya = typeof requestAnimationFrame == "function";
 function Eu(n) {
   var e, t = function() {
-    clearTimeout(i), ba && cancelAnimationFrame(e), setTimeout(n);
+    clearTimeout(i), ya && cancelAnimationFrame(e), setTimeout(n);
   }, i = setTimeout(t, 35);
-  ba && (e = requestAnimationFrame(t));
+  ya && (e = requestAnimationFrame(t));
 }
 function gn(n) {
   var e = ke, t = n.__c;
   typeof t == "function" && (n.__c = void 0, t()), ke = e;
 }
-function zs(n) {
+function Ks(n) {
   var e = ke;
   n.__c = n.__(), ke = e;
 }
-function Fl(n, e) {
+function Ol(n, e) {
   return !n || n.length !== e.length || e.some(function(t, i) {
     return t !== n[i];
   });
 }
-function Nl(n, e) {
+function Fl(n, e) {
   return typeof e == "function" ? e(n) : e;
 }
 async function Su(n) {
@@ -406,7 +406,7 @@ function Au(n, e, t) {
   }
   return r;
 }
-function mn(n) {
+function Nl(n) {
   const e = /* @__PURE__ */ new Map();
   for (const t of n) {
     const i = e.get(t.area_id) ?? [];
@@ -414,7 +414,7 @@ function mn(n) {
   }
   return e;
 }
-function Er(n) {
+function xr(n) {
   const e = n.state.attributes.current_position;
   return typeof e == "number" ? e : n.state.state === "open" ? 100 : n.state.state === "closed" ? 0 : 50;
 }
@@ -451,7 +451,7 @@ const Iu = {
   occupancy: "presence",
   presence: "presence",
   motion: "motion"
-}, xa = {
+}, ba = {
   presence: "Présence détectée",
   motion: "Mouvement détecté"
 };
@@ -461,11 +461,11 @@ function Lu(n) {
     if (t.domain !== "binary_sensor" || t.state.state !== "on") continue;
     const i = t.state.attributes.device_class, s = i ? Iu[i] : void 0;
     if (s) {
-      if (s === "presence") return { kind: s, label: xa.presence };
+      if (s === "presence") return { kind: s, label: ba.presence };
       e = s;
     }
   }
-  return e ? { kind: e, label: xa[e] } : null;
+  return e ? { kind: e, label: ba[e] } : null;
 }
 const Ru = /* @__PURE__ */ new Set(["motion", "occupancy", "presence"]), Du = /* @__PURE__ */ new Set([
   "light",
@@ -475,7 +475,7 @@ const Ru = /* @__PURE__ */ new Set(["motion", "occupancy", "presence"]), Du = /*
   "fan",
   "lock",
   "vacuum"
-]), Cu = /* @__PURE__ */ new Set(["door", "window", "garage_door"]), Ea = 1440;
+]), Cu = /* @__PURE__ */ new Set(["door", "window", "garage_door"]), xa = 1440;
 function $l(n, e) {
   let t = null, i = null;
   for (const s of n) {
@@ -486,7 +486,7 @@ function $l(n, e) {
     const o = s.state.attributes.device_class, d = s.domain === "binary_sensor" && !!o && Ru.has(o) && s.state.state === "off", c = s.domain === "binary_sensor" && !!o && Cu.has(o);
     d ? (t === null || a < t) && (t = a) : (Du.has(s.domain) || c) && (i === null || a < i) && (i = a);
   }
-  return t !== null && t <= Ea ? { kind: "motion", minutes: t } : i !== null && i <= Ea ? { kind: "quiet", minutes: i } : null;
+  return t !== null && t <= xa ? { kind: "motion", minutes: t } : i !== null && i <= xa ? { kind: "quiet", minutes: i } : null;
 }
 const Pu = {
   window: { kind: "window", label: "Fenêtre ouverte" },
@@ -514,7 +514,7 @@ function Mu(n) {
         e.lightIds.push(i.entity_id), s && e.lightsOn++;
         break;
       case "cover":
-        e.coverIds.push(i.entity_id), s && (e.coversOpen++, e.coverPositions.push(Er(i)));
+        e.coverIds.push(i.entity_id), s && (e.coversOpen++, e.coverPositions.push(xr(i)));
         break;
       case "media_player":
         s && (e.mediaPlaying = !0);
@@ -530,22 +530,22 @@ function Mu(n) {
   return e;
 }
 const li = "Autres";
-function Hs(n, e) {
+function zs(n, e) {
   return n.area_id ? e.get(n.area_id) ?? li : li;
 }
-function os(n, e) {
+function as(n, e) {
   return [...n].sort((t, i) => {
-    const s = Hs(t, e), r = Hs(i, e);
+    const s = zs(t, e), r = zs(i, e);
     if (s === li && r !== li) return 1;
     if (r === li && s !== li) return -1;
     const a = s.localeCompare(r);
     return a !== 0 ? a : t.friendly_name.localeCompare(i.friendly_name);
   });
 }
-function Sr(n, e) {
+function Er(n, e) {
   const t = [];
   for (const i of n) {
-    const s = Hs(i, e), r = t[t.length - 1];
+    const s = zs(i, e), r = t[t.length - 1];
     r && r.room === s ? r.items.push(i) : t.push({ room: s, items: [i] });
   }
   return t;
@@ -591,11 +591,11 @@ function Fu() {
     return [];
   }
 }
-function js(n) {
+function Hs(n) {
   const e = $e();
   e && e.setItem(Ee.favorites, JSON.stringify(n));
 }
-function Tr(n) {
+function Sr(n) {
   const e = $e();
   if (!e) return [];
   const t = e.getItem(n);
@@ -607,11 +607,11 @@ function Tr(n) {
     return [];
   }
 }
-function kr(n, e) {
+function Tr(n, e) {
   const t = $e();
   t && t.setItem(n, JSON.stringify(e));
 }
-const Nu = () => Tr(Ee.exposed), Sa = (n) => kr(Ee.exposed, n), $u = () => Tr(Ee.excludedUsers), Ta = (n) => kr(Ee.excludedUsers, n), Bu = () => Tr(Ee.roomsOrder), Uu = (n) => kr(Ee.roomsOrder, n);
+const Nu = () => Sr(Ee.exposed), Ea = (n) => Tr(Ee.exposed, n), $u = () => Sr(Ee.excludedUsers), Sa = (n) => Tr(Ee.excludedUsers, n), Bu = () => Sr(Ee.roomsOrder), Uu = (n) => Tr(Ee.roomsOrder, n);
 function Gu() {
   const n = $e();
   if (!n) return {};
@@ -632,10 +632,10 @@ function Vu(n) {
   const e = $e();
   e && e.setItem(Ee.roomEntitiesOrder, JSON.stringify(n));
 }
-function ka() {
+function Ta() {
   return $e()?.getItem(Ee.onboarded) === "1";
 }
-function wa(n) {
+function ka(n) {
   const e = $e();
   e && e.setItem(Ee.onboarded, "1");
 }
@@ -646,7 +646,7 @@ function Gl() {
     mode: Ou.includes(t) ? t : "light"
   };
 }
-function Aa(n, e) {
+function wa(n, e) {
   const t = $e();
   t && (t.setItem(Ee.theme, n), t.setItem(Ee.mode, e));
 }
@@ -682,7 +682,7 @@ function zu() {
   const n = $e()?.getItem(Ee.kidsEnabled);
   return n == null ? !0 : n === "1";
 }
-function Ia(n) {
+function Aa(n) {
   $e()?.setItem(Ee.kidsEnabled, n ? "1" : "0");
 }
 const Hu = 6, ju = 20;
@@ -699,7 +699,7 @@ function Wu(n, e) {
   }
   return !1;
 }
-function wr(n, e, t) {
+function kr(n, e, t) {
   if (e.length === 0) return n;
   const i = new Map(n.map((a) => [t(a), a])), s = /* @__PURE__ */ new Set(), r = [];
   for (const a of e) {
@@ -712,8 +712,8 @@ function wr(n, e, t) {
   }
   return r;
 }
-function Ws(n, e, t) {
-  const [i, s] = V({ draggingId: null, overId: null }), r = ue(null), a = ue(null), o = ue(n);
+function js(n, e, t) {
+  const [i, s] = G({ draggingId: null, overId: null }), r = ue(null), a = ue(null), o = ue(n);
   o.current = n;
   const d = ue(t);
   d.current = t;
@@ -764,9 +764,9 @@ function Ws(n, e, t) {
       window.addEventListener("click", m, { capture: !0, once: !0 }), s((v) => {
         const { draggingId: b, overId: x } = v;
         if (b && x && b !== x) {
-          const E = o.current, S = c.current, w = E.findIndex((k) => S(k) === b), T = E.findIndex((k) => S(k) === x);
-          if (w >= 0 && T >= 0) {
-            const k = [...E], [I] = k.splice(w, 1);
+          const E = o.current, S = c.current, A = E.findIndex((k) => S(k) === b), T = E.findIndex((k) => S(k) === x);
+          if (A >= 0 && T >= 0) {
+            const k = [...E], [I] = k.splice(A, 1);
             k.splice(T, 0, I), d.current(k);
           }
         }
@@ -808,14 +808,14 @@ function Ws(n, e, t) {
   };
 }
 const Hl = "(max-width: 599px)", jl = "(pointer: coarse) and (min-width: 600px)";
-function La() {
+function Ia() {
   return typeof window > "u" || !window.matchMedia ? "desktop" : window.matchMedia(Hl).matches ? "phone" : window.matchMedia(jl).matches ? "touch" : "desktop";
 }
 function Yu() {
-  const [n, e] = V(La);
+  const [n, e] = G(Ia);
   return de(() => {
     if (!window.matchMedia) return;
-    const t = [window.matchMedia(Hl), window.matchMedia(jl)], i = () => e(La());
+    const t = [window.matchMedia(Hl), window.matchMedia(jl)], i = () => e(Ia());
     for (const s of t) s.addEventListener("change", i);
     return i(), () => {
       for (const s of t) s.removeEventListener("change", i);
@@ -840,23 +840,23 @@ const W = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
   /* @__PURE__ */ l("path", { d: "M9 18h6" }),
   /* @__PURE__ */ l("path", { d: "M10 21h4" }),
   /* @__PURE__ */ l("path", { d: "M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z" })
-] }), ft = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), pt = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M9 18h6" }),
   /* @__PURE__ */ l("path", { d: "M10 21h4" }),
   /* @__PURE__ */ l("path", { d: "M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z" }),
   /* @__PURE__ */ l("path", { d: "M12 1v1M3 5l.5.5M21 5l-.5.5M19 11h1M4 11h1", "stroke-width": "1.2" })
-] }), Ar = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), wr = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M6 9a6 6 0 1 1 12 0c0 4 1.5 5.5 2 6H4c.5-.5 2-2 2-6Z" }),
   /* @__PURE__ */ l("path", { d: "M10 19a2 2 0 0 0 4 0" })
-] }), Ir = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Ar = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "3" }),
   /* @__PURE__ */ l("path", { d: "M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z" })
-] }), Ys = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m9 6 6 6-6 6" }) }), Wl = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m6 15 6-6 6 6" }) }), Yl = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m6 9 6 6 6-6" }) }), ql = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("rect", { x: "6", y: "6", width: "12", height: "12", rx: "1.5" }) }), Pt = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Ws = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m9 6 6 6-6 6" }) }), Wl = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m6 15 6-6 6 6" }) }), Yl = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m6 9 6 6 6-6" }) }), ql = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("rect", { x: "6", y: "6", width: "12", height: "12", rx: "1.5" }) }), Mt = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "4", y: "3", width: "16", height: "2", rx: "1" }),
   /* @__PURE__ */ l("path", { d: "M5 7h14M5 11h14M5 15h14" }),
   /* @__PURE__ */ l("path", { d: "M12 19v2" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "22", r: "1" })
-] }), jn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Hn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M9 8V4M15 8V4" }),
   /* @__PURE__ */ l("path", { d: "M6 8h12v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" }),
   /* @__PURE__ */ l("path", { d: "M12 16v5" })
@@ -864,14 +864,14 @@ const W = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
   /* @__PURE__ */ l("path", { d: "M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17" }),
   /* @__PURE__ */ l("path", { d: "M3 21h18" }),
   /* @__PURE__ */ l("circle", { cx: "15", cy: "13", r: "0.6", fill: "currentColor" })
-] }), Ln = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), In = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "9" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "4", "stroke-dasharray": "1 2" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "0.8", fill: "currentColor" })
 ] }), Xl = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11Z" }),
   /* @__PURE__ */ l("path", { d: "M9 14a3 3 0 0 0 3 3", "stroke-width": "1.2" })
-] }), wt = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), At = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "3" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "7", "stroke-dasharray": "2 3" }),
   /* @__PURE__ */ l("path", { d: "M12 2v2M12 20v2M2 12h2M20 12h2" })
@@ -881,45 +881,45 @@ const W = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
 ] }), Ql = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11Z" }) }), Bi = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "4", y: "4", width: "16", height: "16", rx: "1" }),
   /* @__PURE__ */ l("path", { d: "M12 4v16M4 12h16" })
-] }), Mt = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }) }), Wn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Ot = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }) }), jn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "5", y: "11", width: "14", height: "10", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M8 11V7a4 4 0 0 1 8 0v4" })
 ] }), Xu = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "5", y: "11", width: "14", height: "10", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M8 11V7a4 4 0 0 1 7.5-2" })
-] }), Yn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Wn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "8" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "3" }),
   /* @__PURE__ */ l("path", { d: "M12 5v3" })
 ] }), Qu = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3c1 3-2 4-2 7a4 4 0 0 0 8 0c0-1-.5-2-1-3 0 2-1 3-2 3 1-3-1-5-3-7Z" }) }), Zu = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 2v20M4 6l16 12M4 18 20 6" }),
   /* @__PURE__ */ l("path", { d: "M9 4l3 2 3-2M9 20l3-2 3 2", "stroke-width": "1.2" })
-] }), _n = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M5 12h14" }) }), Vt = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 5v14M5 12h14" }) }), Ot = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M7 5v14l12-7Z" }) }), Lr = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), mn = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M5 12h14" }) }), Kt = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 5v14M5 12h14" }) }), Ft = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M7 5v14l12-7Z" }) }), Ir = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "m3 12 9-8 9 8" }),
   /* @__PURE__ */ l("path", { d: "M5 10v10h14V10" })
 ] }), Zl = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "8", width: "16", height: "8", rx: "1.5" }),
   /* @__PURE__ */ l("path", { d: "M21 11v2" })
-] }), zt = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m13 2-9 12h7l-2 8 9-12h-7l2-8Z" }) }), qn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Ht = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m13 2-9 12h7l-2 8 9-12h-7l2-8Z" }) }), Yn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "4" }),
   /* @__PURE__ */ l("path", { d: "M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5" })
-] }), Jl = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M7 18a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 9.5 4.5 4.5 0 0 1 17 18H7Z" }) }), Rr = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Jl = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M7 18a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 9.5 4.5 4.5 0 0 1 17 18H7Z" }) }), Lr = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "8", cy: "8", r: "3" }),
   /* @__PURE__ */ l("path", { d: "M8 2v1.5M8 12.5V14M2 8h1.5M12.5 8H14M3.5 3.5l1 1M11.5 3.5l-1 1" }),
   /* @__PURE__ */ l("path", { d: "M11 18a3.5 3.5 0 0 1-.7-6.93A5 5 0 0 1 19.6 11.5 3.8 3.8 0 0 1 19 18H11Z" })
-] }), Ra = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), La = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" }),
   /* @__PURE__ */ l("path", { d: "M9 18v2M13 18v3M17 18v2" })
-] }), ls = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), os = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" }),
   /* @__PURE__ */ l("path", { d: "M8 19h.01M12 19h.01M16 19h.01M10 22h.01M14 22h.01" })
-] }), cs = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), ls = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" }),
   /* @__PURE__ */ l("path", { d: "m12 17-2 4h3l-1 3" })
 ] }), Ju = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 13a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 4.5 4.5 4.5 0 0 1 17 13H7Z" }),
   /* @__PURE__ */ l("path", { d: "M5 17h14M3 21h18" })
-] }), Da = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Ra = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M3 8h12a3 3 0 1 0-3-3" }),
   /* @__PURE__ */ l("path", { d: "M3 13h17a3 3 0 1 1-3 3" }),
   /* @__PURE__ */ l("path", { d: "M3 18h9" })
@@ -953,26 +953,26 @@ const W = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
 ] }), oh = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }),
   /* @__PURE__ */ l("path", { d: "M14 9a3 3 0 1 0 0 6 3 3 0 0 1-3-3 3 3 0 0 1 3-3Z" })
-] }), Xn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), qn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "3.5" })
-] }), Qn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Xn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "1.5" }),
   /* @__PURE__ */ l("path", { d: "M12 10.5c0-3 1-6 4-6 2 0 3 1.5 3 3 0 2-1.5 3-3 3" }),
   /* @__PURE__ */ l("path", { d: "M13.5 12c3 0 6 1 6 4 0 2-1.5 3-3 3-2 0-3-1.5-3-3" }),
   /* @__PURE__ */ l("path", { d: "M12 13.5c0 3-1 6-4 6-2 0-3-1.5-3-3 0-2 1.5-3 3-3" }),
   /* @__PURE__ */ l("path", { d: "M10.5 12c-3 0-6-1-6-4 0-2 1.5-3 3-3 2 0 3 1.5 3 3" })
-] }), Zn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Qn = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3v4M12 17v4M3 12h4M17 12h4" }),
   /* @__PURE__ */ l("path", { d: "m6 6 2 2M16 16l2 2M6 18l2-2M16 8l2-2" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "2" })
-] }), Ca = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M5 12h14M13 6l6 6-6 6" }) }), Dr = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Da = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M5 12h14M13 6l6 6-6 6" }) }), Rr = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 17 17 7" }),
   /* @__PURE__ */ l("path", { d: "M8 7h9v9" })
 ] }), lh = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M19 12H5M11 6l-6 6 6 6" }) }), ch = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m5 12 5 5 9-11" }) }), dh = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), uh = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "11", cy: "11", r: "7" }),
   /* @__PURE__ */ l("path", { d: "m20 20-3.5-3.5" })
-] }), Ne = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M6 6l12 12M18 6 6 18" }) }), hh = (n) => /* @__PURE__ */ l(W, { ...n, fill: "currentColor", children: /* @__PURE__ */ l("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), Cr = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M20 14a8 8 0 1 1-9.5-9.5A6 6 0 0 0 20 14Z" }) }), fh = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Ne = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M6 6l12 12M18 6 6 18" }) }), hh = (n) => /* @__PURE__ */ l(W, { ...n, fill: "currentColor", children: /* @__PURE__ */ l("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), Dr = (n) => /* @__PURE__ */ l(W, { ...n, children: /* @__PURE__ */ l("path", { d: "M20 14a8 8 0 1 1-9.5-9.5A6 6 0 0 0 20 14Z" }) }), fh = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }),
   /* @__PURE__ */ l("path", { d: "m9 12 2 2 4-4" })
 ] }), tc = (n) => /* @__PURE__ */ l(W, { ...n, children: [
@@ -1073,7 +1073,7 @@ const W = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
 ] }), Ph = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "10" }),
   /* @__PURE__ */ l("path", { d: "m9 12 2 2 4-4" })
-] }), Pr = (n) => /* @__PURE__ */ l(W, { ...n, children: [
+] }), Cr = (n) => /* @__PURE__ */ l(W, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "4", width: "18", height: "18", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M16 2v4M8 2v4M3 10h18" })
 ] }), Mh = (n) => /* @__PURE__ */ l(W, { ...n, children: [
@@ -1084,23 +1084,23 @@ const W = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
   /* @__PURE__ */ l("path", { d: "M9 7h6M9 11h6M9 15h4" }),
   /* @__PURE__ */ l("path", { d: "M5 7h2M5 11h2M5 15h2" })
 ] }), Fh = {
-  "clear-night": { label: "Nuit claire", Icon: Cr },
+  "clear-night": { label: "Nuit claire", Icon: Dr },
   cloudy: { label: "Nuageux", Icon: Jl },
-  exceptional: { label: "Conditions extrêmes", Icon: cs },
+  exceptional: { label: "Conditions extrêmes", Icon: ls },
   fog: { label: "Brouillard", Icon: Ju },
-  hail: { label: "Grêle", Icon: ls },
-  lightning: { label: "Orage", Icon: cs },
-  "lightning-rainy": { label: "Orage pluvieux", Icon: cs },
-  partlycloudy: { label: "Éclaircies", Icon: Rr },
-  pouring: { label: "Pluie battante", Icon: Ra },
-  rainy: { label: "Pluvieux", Icon: Ra },
-  snowy: { label: "Neigeux", Icon: ls },
-  "snowy-rainy": { label: "Neige et pluie", Icon: ls },
-  sunny: { label: "Ensoleillé", Icon: qn },
-  windy: { label: "Venteux", Icon: Da },
-  "windy-variant": { label: "Venteux", Icon: Da }
+  hail: { label: "Grêle", Icon: os },
+  lightning: { label: "Orage", Icon: ls },
+  "lightning-rainy": { label: "Orage pluvieux", Icon: ls },
+  partlycloudy: { label: "Éclaircies", Icon: Lr },
+  pouring: { label: "Pluie battante", Icon: La },
+  rainy: { label: "Pluvieux", Icon: La },
+  snowy: { label: "Neigeux", Icon: os },
+  "snowy-rainy": { label: "Neige et pluie", Icon: os },
+  sunny: { label: "Ensoleillé", Icon: Yn },
+  windy: { label: "Venteux", Icon: Ra },
+  "windy-variant": { label: "Venteux", Icon: Ra }
 };
-function Ht(n) {
+function jt(n) {
   return Fh[n] ?? { label: n || "—", Icon: Jl };
 }
 function rc(n, e) {
@@ -1109,7 +1109,7 @@ function rc(n, e) {
   return Number.isFinite(t) ? `${n}${e}` : "—";
 }
 function Nh({ entity: n, roomLabel: e }) {
-  const t = n.state.state === "unavailable" || n.state.state === "unknown", { label: i, Icon: s } = Ht(n.state.state), r = n.state.attributes.temperature_unit ?? "°", a = rc(n.state.attributes.temperature, r), o = n.state.attributes.humidity;
+  const t = n.state.state === "unavailable" || n.state.state === "unknown", { label: i, Icon: s } = jt(n.state.state), r = n.state.attributes.temperature_unit ?? "°", a = rc(n.state.attributes.temperature, r), o = n.state.attributes.humidity;
   return /* @__PURE__ */ l("div", { class: "n-card n-card--compact n-weather", "data-status": t ? "indisponible" : "off", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: /* @__PURE__ */ l("div", { class: "n-icon-bubble n-weather__icon", children: /* @__PURE__ */ l(s, { size: 20 }) }) }),
     e && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: e }),
@@ -1127,9 +1127,9 @@ function Nh({ entity: n, roomLabel: e }) {
     ] })
   ] });
 }
-function Pa({ entity: n }) {
+function Ca({ entity: n }) {
   if (n.state.state === "unavailable" || n.state.state === "unknown") return null;
-  const { label: e, Icon: t } = Ht(n.state.state), i = n.state.attributes.temperature_unit ?? "°", s = rc(n.state.attributes.temperature, i);
+  const { label: e, Icon: t } = jt(n.state.state), i = n.state.attributes.temperature_unit ?? "°", s = rc(n.state.attributes.temperature, i);
   return /* @__PURE__ */ l("div", { class: "nido-weather-pill", title: n.friendly_name, children: [
     /* @__PURE__ */ l("span", { class: "nido-weather-pill__icon", children: /* @__PURE__ */ l(t, { size: 18 }) }),
     /* @__PURE__ */ l("span", { class: "nido-weather-pill__temp", children: s }),
@@ -1164,7 +1164,7 @@ function $h(n, e) {
   return { nextRain: s, weatherAlert: r, uvIndex: a };
 }
 function Bh({ hass: n, weatherEntityId: e, onClose: t }) {
-  const i = st(t), [s, r] = V([]), [a, o] = V([]), d = n.states[e], { nextRain: c, weatherAlert: u, uvIndex: h } = $h(n, e);
+  const i = st(t), [s, r] = G([]), [a, o] = G([]), d = n.states[e], { nextRain: c, weatherAlert: u, uvIndex: h } = $h(n, e);
   if (de(() => {
     let b = !1;
     async function x() {
@@ -1183,12 +1183,12 @@ function Bh({ hass: n, weatherEntityId: e, onClose: t }) {
           } catch (k) {
             return console.warn(`Failed to fetch ${T} forecast:`, k), [];
           }
-        }, [S, w] = await Promise.all([
+        }, [S, A] = await Promise.all([
           E("daily"),
           E("hourly")
         ]);
         if (b) return;
-        r(S), o(w);
+        r(S), o(A);
       } catch (E) {
         console.error("Failed to fetch weather forecasts", E);
       }
@@ -1197,7 +1197,7 @@ function Bh({ hass: n, weatherEntityId: e, onClose: t }) {
       b = !0;
     };
   }, [n, e]), !d) return null;
-  const f = Ht(d.state), p = d.attributes.temperature_unit || "°C", g = u?.state, _ = g === "Rouge" ? "#ff4d4f" : g === "Orange" ? "#faad14" : g === "Jaune" ? "#fadb14" : null, m = u?.attributes ? Object.entries(u.attributes).filter(([b, x]) => x === g && b !== "friendly_name" && b !== "icon").map(([b]) => b).join(", ") : "", v = m ? `Vigilance ${g} : ${m}` : `Vigilance ${g}`;
+  const f = jt(d.state), p = d.attributes.temperature_unit || "°C", g = u?.state, _ = g === "Rouge" ? "#ff4d4f" : g === "Orange" ? "#faad14" : g === "Jaune" ? "#fadb14" : null, m = u?.attributes ? Object.entries(u.attributes).filter(([b, x]) => x === g && b !== "friendly_name" && b !== "icon").map(([b]) => b).join(", ") : "", v = m ? `Vigilance ${g} : ${m}` : `Vigilance ${g}`;
   return /* @__PURE__ */ l("div", { class: "nido-weather-panel", children: [
     /* @__PURE__ */ l("div", { class: "nido-weather-panel__backdrop", onClick: t }),
     /* @__PURE__ */ l(
@@ -1247,7 +1247,7 @@ function Bh({ hass: n, weatherEntityId: e, onClose: t }) {
             a.length > 0 && /* @__PURE__ */ l("div", { class: "nido-wp-section", children: [
               /* @__PURE__ */ l("h3", { children: "Prochaines heures" }),
               /* @__PURE__ */ l("div", { class: "nido-wp-hourly", children: a.slice(0, 24).map((b, x) => {
-                const E = Ht(b.condition), S = new Date(b.datetime);
+                const E = jt(b.condition), S = new Date(b.datetime);
                 return /* @__PURE__ */ l("div", { class: "nido-wp-hour", children: [
                   /* @__PURE__ */ l("span", { class: "nido-wp-hour-time", children: [
                     S.getHours(),
@@ -1268,9 +1268,9 @@ function Bh({ hass: n, weatherEntityId: e, onClose: t }) {
             s.length > 0 && /* @__PURE__ */ l("div", { class: "nido-wp-section", children: [
               /* @__PURE__ */ l("h3", { children: "Prévisions (5 jours)" }),
               /* @__PURE__ */ l("div", { class: "nido-wp-daily", children: s.slice(0, 5).map((b, x) => {
-                const E = Ht(b.condition), S = new Date(b.datetime), w = new Intl.DateTimeFormat("fr-FR", { weekday: "long" }).format(S);
+                const E = jt(b.condition), S = new Date(b.datetime), A = new Intl.DateTimeFormat("fr-FR", { weekday: "long" }).format(S);
                 return /* @__PURE__ */ l("div", { class: "nido-wp-day", children: [
-                  /* @__PURE__ */ l("span", { class: "nido-wp-day-name", children: x === 0 ? "Aujourd'hui" : w }),
+                  /* @__PURE__ */ l("span", { class: "nido-wp-day-name", children: x === 0 ? "Aujourd'hui" : A }),
                   /* @__PURE__ */ l(E.Icon, { size: 24 }),
                   /* @__PURE__ */ l("div", { class: "nido-wp-day-temps", children: [
                     /* @__PURE__ */ l("span", { class: "nido-wp-day-min", children: [
@@ -1294,7 +1294,7 @@ function Bh({ hass: n, weatherEntityId: e, onClose: t }) {
 }
 const Uh = 900;
 function ac(n) {
-  const e = ue(n), [t, i] = V(!1);
+  const e = ue(n), [t, i] = G(!1);
   return de(() => {
     if (e.current === n) return;
     e.current = n, i(!0);
@@ -1304,7 +1304,7 @@ function ac(n) {
 }
 function oc(n) {
   const e = n.toLowerCase();
-  return /(salle ?[àa] ?manger|dining)/.test(e) ? Ah : /(salon|séjour|sejour|living)/.test(e) ? gh : /(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(e) ? Lh : /(chambre|bedroom)/.test(e) ? mh : /(cuisine|kitchen)/.test(e) ? _h : /(wc|toilette|water ?closet)/.test(e) ? bh : /(salle ?de ?bain|sdb|bath|douche|shower)/.test(e) ? vh : /(buanderie|lingerie|laundry|cellier)/.test(e) ? xh : /(garage|carport|atelier)/.test(e) ? Eh : /(jardin|ext[ée]rieur|dehors|garden|outdoor)/.test(e) ? kh : /(terrasse|balcon|patio|v[ée]randa)/.test(e) ? Ih : /(cave|sous-? ?sol|basement)/.test(e) ? wh : /(escalier|stairs?|mont[ée]e)/.test(e) ? Th : /(bureau|office|study)/.test(e) ? Sh : /(entrée|entree|hall|couloir|palier|d[ée]gagement)/.test(e) ? yh : Lr;
+  return /(salle ?[àa] ?manger|dining)/.test(e) ? Ah : /(salon|séjour|sejour|living)/.test(e) ? gh : /(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(e) ? Lh : /(chambre|bedroom)/.test(e) ? mh : /(cuisine|kitchen)/.test(e) ? _h : /(wc|toilette|water ?closet)/.test(e) ? bh : /(salle ?de ?bain|sdb|bath|douche|shower)/.test(e) ? vh : /(buanderie|lingerie|laundry|cellier)/.test(e) ? xh : /(garage|carport|atelier)/.test(e) ? Eh : /(jardin|ext[ée]rieur|dehors|garden|outdoor)/.test(e) ? kh : /(terrasse|balcon|patio|v[ée]randa)/.test(e) ? Ih : /(cave|sous-? ?sol|basement)/.test(e) ? wh : /(escalier|stairs?|mont[ée]e)/.test(e) ? Th : /(bureau|office|study)/.test(e) ? Sh : /(entrée|entree|hall|couloir|palier|d[ée]gagement)/.test(e) ? yh : Ir;
 }
 const Gh = {
   light: "Lumières",
@@ -1324,22 +1324,22 @@ const Gh = {
   weather: "Météo",
   calendar: "Calendriers"
 }, Vh = {
-  light: ft,
-  switch: jn,
-  cover: Pt,
-  binary_sensor: Mt,
+  light: pt,
+  switch: Hn,
+  cover: Mt,
+  binary_sensor: Ot,
   climate: nt,
-  lock: Wn,
-  vacuum: Yn,
-  sensor: wt,
+  lock: jn,
+  vacuum: Wn,
+  sensor: At,
   media_player: Ui,
-  alarm_control_panel: Mt,
-  camera: Xn,
-  fan: Qn,
-  scene: Zn,
-  script: Ot,
-  weather: Rr,
-  calendar: Pr
+  alarm_control_panel: Ot,
+  camera: qn,
+  fan: Xn,
+  scene: Qn,
+  script: Ft,
+  weather: Lr,
+  calendar: Cr
 };
 function lc({
   signature: n,
@@ -1359,20 +1359,20 @@ function lc({
     }
   );
 }
-const Jn = (n) => Math.min(1, Math.max(0, n));
-function es(n) {
-  const e = Jn(n);
+const Zn = (n) => Math.min(1, Math.max(0, n));
+function Jn(n) {
+  const e = Zn(n);
   return {
     "--breathe-scale": (1 + 6e-3 + 0.012 * e).toFixed(4),
     "--breathe-bright": (1 + 0.02 + 0.045 * e).toFixed(3)
   };
 }
 function Kh(n, e = 7, t = 2.8) {
-  const i = Jn(n);
+  const i = Zn(n);
   return { "--breathe-speed": `${(e - (e - t) * i).toFixed(2)}s` };
 }
-function Mr(n) {
-  const e = Jn(n), t = 0.25 + 0.6 * e;
+function Pr(n) {
+  const e = Zn(n), t = 0.25 + 0.6 * e;
   return {
     "--glow-size": `${Math.round(90 + 95 * e)}px`,
     "--glow-base": t.toFixed(2),
@@ -1381,7 +1381,7 @@ function Mr(n) {
   };
 }
 function zh(n) {
-  return { "--fan-speed": `${(3.4 - 2.6 * Jn(n / 100)).toFixed(2)}s` };
+  return { "--fan-speed": `${(3.4 - 2.6 * Zn(n / 100)).toFixed(2)}s` };
 }
 function Hh(n) {
   const e = n.attributes.brightness;
@@ -1394,7 +1394,7 @@ function jh({
   breatheVariant: i = 1,
   roomLabel: s
 }) {
-  const r = e.state.state === "on", a = e.state.state === "unavailable", [o, d] = V(!1), [c, u] = V(null), h = c ?? Hh(e.state), f = async () => {
+  const r = e.state.state === "on", a = e.state.state === "unavailable", [o, d] = G(!1), [c, u] = G(null), h = c ?? Hh(e.state), f = async () => {
     if (!a) {
       d(!0);
       try {
@@ -1418,7 +1418,7 @@ function jh({
     t ? r ? "n-card--accent" : "n-card--accent-muted" : "n-card--default",
     r ? `breathe-${i}` : "",
     o ? "is-pending" : ""
-  ].filter(Boolean).join(" "), m = r ? { ...es(h / 100), ...Mr(h / 100) } : void 0;
+  ].filter(Boolean).join(" "), m = r ? { ...Jn(h / 100), ...Pr(h / 100) } : void 0;
   return /* @__PURE__ */ l(
     "div",
     {
@@ -1429,7 +1429,7 @@ function jh({
       children: [
         r && /* @__PURE__ */ l("div", { class: "n-light__glow glow-pulse-1", "aria-hidden": "true" }),
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(ft, { size: 20 }) }),
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(pt, { size: 20 }) }),
           /* @__PURE__ */ l(
             "button",
             {
@@ -1478,7 +1478,7 @@ function Wh(n) {
   return typeof e == "number" ? e : n.state === "open" ? 100 : n.state === "closed" ? 0 : 50;
 }
 function Yh({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
-  const s = e.state.state === "unavailable", [r, a] = V(null), o = r ?? Wh(e.state), d = o > 0, c = async (f) => {
+  const s = e.state.state === "unavailable", [r, a] = G(null), o = r ?? Wh(e.state), d = o > 0, c = async (f) => {
     a(f);
     try {
       await n.callService("cover", "set_cover_position", {
@@ -1491,7 +1491,7 @@ function Yh({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
   }, h = ["n-card", i ? d ? "n-card--accent" : "n-card--accent-muted" : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ l("div", { class: "n-cover-glow-wrap", "data-active": d ? "true" : "false", children: /* @__PURE__ */ l("div", { class: h, "data-hero": i ? "true" : "false", "data-on": d ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-      /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Pt, { size: 20 }) }),
+      /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Mt, { size: 20 }) }),
       /* @__PURE__ */ l("div", { class: "n-blinds", children: [0, 1, 2, 3, 4, 5].map((f) => /* @__PURE__ */ l(
         "span",
         {
@@ -1570,7 +1570,7 @@ function qh({
   breatheVariant: i = 2,
   hero: s = !1
 }) {
-  const r = e.state.state === "on", a = e.state.state === "unavailable", [o, d] = V(!1), c = e.state.attributes.current_power_w, u = async () => {
+  const r = e.state.state === "on", a = e.state.state === "unavailable", [o, d] = G(!1), c = e.state.attributes.current_power_w, u = async () => {
     if (!a) {
       d(!0);
       try {
@@ -1582,7 +1582,7 @@ function qh({
   }, f = ["n-card", s ? r ? "n-card--accent" : "n-card--accent-muted" : "", r ? `breathe-${i}` : "", o ? "is-pending" : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ l("div", { class: f, "data-hero": s ? "true" : "false", "data-on": r ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-      /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(jn, { size: 18 }) }),
+      /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Hn, { size: 18 }) }),
       /* @__PURE__ */ l(
         "button",
         {
@@ -1609,12 +1609,12 @@ const Xh = {
   door: Di,
   garage_door: Di,
   window: Bi,
-  smoke: Ln,
-  gas: Ln,
+  smoke: In,
+  gas: In,
   moisture: Xl,
-  motion: wt,
-  occupancy: wt,
-  presence: wt
+  motion: At,
+  occupancy: At,
+  presence: At
 }, Qh = {
   door: { on: "Ouverte", off: "Fermée" },
   garage_door: { on: "Ouverte", off: "Fermée" },
@@ -1627,7 +1627,7 @@ const Xh = {
   presence: { on: "Présence", off: "Vide" }
 }, Zh = /* @__PURE__ */ new Set(["smoke", "gas", "moisture"]), Jh = /* @__PURE__ */ new Set(["door", "garage_door", "window"]);
 function ef({ entity: n, roomLabel: e, hero: t = !1 }) {
-  const i = n.state.attributes.device_class ?? "", s = n.state.state === "on", r = n.state.state === "unavailable", a = Xh[i] ?? Mt, o = Qh[i] ?? { on: "Actif", off: "Inactif" }, d = Zh.has(i), c = Jh.has(i), u = r ? "indisponible" : s ? "on" : "off", f = ["n-card", t ? s ? "n-card--accent" : "n-card--accent-muted" : "n-card--compact"].filter(Boolean).join(" "), p = /* @__PURE__ */ l("div", { class: f, "data-hero": t ? "true" : "false", "data-status": u, "data-alert": d ? "true" : "false", children: [
+  const i = n.state.attributes.device_class ?? "", s = n.state.state === "on", r = n.state.state === "unavailable", a = Xh[i] ?? Ot, o = Qh[i] ?? { on: "Actif", off: "Inactif" }, d = Zh.has(i), c = Jh.has(i), u = r ? "indisponible" : s ? "on" : "off", f = ["n-card", t ? s ? "n-card--accent" : "n-card--accent-muted" : "n-card--compact"].filter(Boolean).join(" "), p = /* @__PURE__ */ l("div", { class: f, "data-hero": t ? "true" : "false", "data-status": u, "data-alert": d ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
       /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(a, { size: t ? 22 : 18 }) }),
       /* @__PURE__ */ l("span", { class: "n-dot", "aria-hidden": "true" })
@@ -1661,7 +1661,7 @@ function sf({
   breatheVariant: i = 2,
   hero: s = !1
 }) {
-  const r = e.state.state === "unavailable", a = e.state.state, o = a !== "off" && !r, d = e.state.attributes.current_temperature, c = e.state.attributes.temperature, u = e.state.attributes.min_temp ?? 7, h = e.state.attributes.max_temp ?? 35, f = e.state.attributes.target_temp_step ?? 0.5, [p, g] = V(null), _ = p ?? c ?? d ?? 20, m = async (T) => {
+  const r = e.state.state === "unavailable", a = e.state.state, o = a !== "off" && !r, d = e.state.attributes.current_temperature, c = e.state.attributes.temperature, u = e.state.attributes.min_temp ?? 7, h = e.state.attributes.max_temp ?? 35, f = e.state.attributes.target_temp_step ?? 0.5, [p, g] = G(null), _ = p ?? c ?? d ?? 20, m = async (T) => {
     const k = Math.min(h, Math.max(u, T));
     g(k);
     try {
@@ -1672,12 +1672,12 @@ function sf({
     } finally {
       setTimeout(() => g(null), 50);
     }
-  }, v = nf[a] ?? nt, x = ["n-card", s ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${i}` : ""].filter(Boolean).join(" "), E = typeof d == "number" && typeof c == "number" ? Math.abs(c - d) : 0, S = Math.min(1, E / 3), w = o ? { ...es(S), ...Kh(S), ...Mr(S) } : void 0;
+  }, v = nf[a] ?? nt, x = ["n-card", s ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${i}` : ""].filter(Boolean).join(" "), E = typeof d == "number" && typeof c == "number" ? Math.abs(c - d) : 0, S = Math.min(1, E / 3), A = o ? { ...Jn(S), ...Kh(S), ...Pr(S) } : void 0;
   return /* @__PURE__ */ l(
     "div",
     {
       class: x,
-      style: w,
+      style: A,
       "data-hero": s ? "true" : "false",
       "data-on": o ? "true" : "false",
       children: [
@@ -1709,7 +1709,7 @@ function sf({
                 "aria-label": "Diminuer",
                 onClick: () => m(_ - f),
                 disabled: _ - f < u,
-                children: /* @__PURE__ */ l(_n, { size: 16 })
+                children: /* @__PURE__ */ l(mn, { size: 16 })
               }
             ),
             /* @__PURE__ */ l(
@@ -1720,7 +1720,7 @@ function sf({
                 "aria-label": "Augmenter",
                 onClick: () => m(_ + f),
                 disabled: _ + f > h,
-                children: /* @__PURE__ */ l(Vt, { size: 16 })
+                children: /* @__PURE__ */ l(Kt, { size: 16 })
               }
             )
           ] })
@@ -1731,7 +1731,7 @@ function sf({
   );
 }
 function rf({ hass: n, entity: e, roomLabel: t }) {
-  const i = e.state.state, s = i === "unavailable", r = i === "locked", a = i === "jammed", o = i === "locking" || i === "unlocking", [d, c] = V(!1), u = async () => {
+  const i = e.state.state, s = i === "unavailable", r = i === "locked", a = i === "jammed", o = i === "locking" || i === "unlocking", [d, c] = G(!1), u = async () => {
     if (!(s || o || d)) {
       c(!0);
       try {
@@ -1751,7 +1751,7 @@ function rf({ hass: n, entity: e, roomLabel: t }) {
       "data-alert": a ? "true" : "false",
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(r ? Wn : Xu, { size: 20 }) }),
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(r ? jn : Xu, { size: 20 }) }),
           /* @__PURE__ */ l(
             "button",
             {
@@ -1786,7 +1786,7 @@ function of({
   roomLabel: t,
   breatheVariant: i = 3
 }) {
-  const s = e.state.state, r = s === "unavailable", a = s === "cleaning" || s === "returning", o = s === "error", d = e.state.attributes.battery_level, [c, u] = V(!1), h = async (p) => {
+  const s = e.state.state, r = s === "unavailable", a = s === "cleaning" || s === "returning", o = s === "error", d = e.state.attributes.battery_level, [c, u] = G(!1), h = async (p) => {
     if (!(r || c)) {
       u(!0);
       try {
@@ -1804,7 +1804,7 @@ function of({
       "data-alert": o ? "true" : "false",
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Yn, { size: 20 }) }),
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Wn, { size: 20 }) }),
           typeof d == "number" && /* @__PURE__ */ l("span", { class: "n-battery", children: [
             /* @__PURE__ */ l(Zl, { size: 14 }),
             /* @__PURE__ */ l("span", { children: [
@@ -1825,7 +1825,7 @@ function of({
               disabled: c || a,
               onClick: () => h("start"),
               children: [
-                /* @__PURE__ */ l(Ot, { size: 14 }),
+                /* @__PURE__ */ l(Ft, { size: 14 }),
                 /* @__PURE__ */ l("span", { children: "Lancer" })
               ]
             }
@@ -1838,7 +1838,7 @@ function of({
               disabled: c || s === "docked",
               onClick: () => h("return_to_base"),
               children: [
-                /* @__PURE__ */ l(Lr, { size: 14 }),
+                /* @__PURE__ */ l(Ir, { size: 14 }),
                 /* @__PURE__ */ l("span", { children: "Base" })
               ]
             }
@@ -1851,11 +1851,11 @@ function of({
 const lf = {
   temperature: nt,
   humidity: Ql,
-  power: zt,
-  energy: zt,
-  current: zt,
-  voltage: zt,
-  illuminance: qn,
+  power: Ht,
+  energy: Ht,
+  current: Ht,
+  voltage: Ht,
+  illuminance: Yn,
   pressure: eh,
   battery: Zl
 };
@@ -1893,19 +1893,19 @@ function hf({
   hero: i = !1,
   breatheVariant: s = 4
 }) {
-  const r = e.state.state, a = r === "unavailable", o = r === "playing", d = r === "off" || r === "standby", c = e.state.attributes.media_title, u = e.state.attributes.media_artist, h = e.state.attributes.app_name, f = e.state.attributes.volume_level, p = e.state.attributes.entity_picture, [g, _] = V(null), m = g ?? f ?? 0, v = async (w, T = {}) => {
-    a || await n.callService("media_player", w, {
+  const r = e.state.state, a = r === "unavailable", o = r === "playing", d = r === "off" || r === "standby", c = e.state.attributes.media_title, u = e.state.attributes.media_artist, h = e.state.attributes.app_name, f = e.state.attributes.volume_level, p = e.state.attributes.entity_picture, [g, _] = G(null), m = g ?? f ?? 0, v = async (A, T = {}) => {
+    a || await n.callService("media_player", A, {
       entity_id: e.entity_id,
       ...T
     });
-  }, b = async (w) => {
-    _(w);
+  }, b = async (A) => {
+    _(A);
     try {
-      await v("volume_set", { volume_level: w });
+      await v("volume_set", { volume_level: A });
     } finally {
       setTimeout(() => _(null), 50);
     }
-  }, E = ["n-card", i ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${s}` : ""].filter(Boolean).join(" "), S = o ? { ...es(m), ...Mr(m) } : void 0;
+  }, E = ["n-card", i ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${s}` : ""].filter(Boolean).join(" "), S = o ? { ...Jn(m), ...Pr(m) } : void 0;
   return /* @__PURE__ */ l(
     "div",
     {
@@ -1931,8 +1931,8 @@ function hf({
               class: "n-icon-btn",
               style: { width: "36px", height: "36px", background: "transparent" },
               "aria-label": "Allumer / Éteindre",
-              onClick: (w) => {
-                w.stopPropagation(), v("toggle");
+              onClick: (A) => {
+                A.stopPropagation(), v("toggle");
               },
               children: /* @__PURE__ */ l(Mh, { size: 18 })
             }
@@ -1964,7 +1964,7 @@ function hf({
                 class: "n-icon-btn n-icon-btn--primary",
                 "aria-label": o ? "Pause" : "Lecture",
                 onClick: () => v("media_play_pause"),
-                children: o ? /* @__PURE__ */ l(ec, { size: i ? 24 : 18 }) : /* @__PURE__ */ l(Ot, { size: i ? 24 : 18 })
+                children: o ? /* @__PURE__ */ l(ec, { size: i ? 24 : 18 }) : /* @__PURE__ */ l(Ft, { size: i ? 24 : 18 })
               }
             ),
             /* @__PURE__ */ l(
@@ -1990,7 +1990,7 @@ function hf({
                 step: 0.05,
                 value: m,
                 style: { "--val": `${m * 100}%` },
-                onInput: (w) => b(Number(w.target.value))
+                onInput: (A) => b(Number(A.target.value))
               }
             )
           ] })
@@ -2009,7 +2009,7 @@ function gf({
   onSubmit: s,
   onClose: r
 }) {
-  const a = st(r), o = ue(null), [d, c] = V("");
+  const a = st(r), o = ue(null), [d, c] = G("");
   de(() => {
     i && c("");
   }, [i]), de(() => {
@@ -2036,7 +2036,7 @@ function gf({
         children: [
           /* @__PURE__ */ l("header", { class: "nido-alarm-code__header", children: [
             /* @__PURE__ */ l("div", { class: "nido-alarm-code__title-group", children: [
-              /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Mt, { size: 18 }) }),
+              /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Ot, { size: 18 }) }),
               /* @__PURE__ */ l("div", { children: [
                 /* @__PURE__ */ l("div", { class: "nido-alarm-code__title", children: "Code de désarmement" }),
                 /* @__PURE__ */ l("div", { class: "nido-alarm-code__subtitle", children: n })
@@ -2152,11 +2152,11 @@ function yf(n) {
   return typeof e == "string" && e.trim() ? e.trim() : null;
 }
 function bf({ hass: n, entity: e, roomLabel: t }) {
-  const i = e.state.state, s = i === "unavailable", r = i === "triggered", a = i.startsWith("armed_"), o = i === "pending" || i === "arming" || i === "disarming", [d, c] = V(!1), u = e.state.attributes.code_format, h = u === "number" || u === "text" ? u : null, [f, p] = V(!1), [g, _] = V(null), [m, v] = V(!1), b = async (w) => {
+  const i = e.state.state, s = i === "unavailable", r = i === "triggered", a = i.startsWith("armed_"), o = i === "pending" || i === "arming" || i === "disarming", [d, c] = G(!1), u = e.state.attributes.code_format, h = u === "number" || u === "text" ? u : null, [f, p] = G(!1), [g, _] = G(null), [m, v] = G(!1), b = async (A) => {
     if (!(s || d)) {
       c(!0);
       try {
-        await n.callService("alarm_control_panel", w, { entity_id: e.entity_id });
+        await n.callService("alarm_control_panel", A, { entity_id: e.entity_id });
       } finally {
         c(!1);
       }
@@ -2169,12 +2169,12 @@ function bf({ hass: n, entity: e, roomLabel: t }) {
       }
       b("alarm_disarm");
     }
-  }, E = async (w) => {
+  }, E = async (A) => {
     _(null), v(!0);
     try {
       await n.callService("alarm_control_panel", "alarm_disarm", {
         entity_id: e.entity_id,
-        code: w
+        code: A
       });
     } catch (T) {
       v(!1);
@@ -2188,10 +2188,10 @@ function bf({ hass: n, entity: e, roomLabel: t }) {
       v(!1), _(null), p(!1);
       return;
     }
-    const w = window.setTimeout(() => {
+    const A = window.setTimeout(() => {
       v(!1), _("Code incorrect.");
     }, vf);
-    return () => window.clearTimeout(w);
+    return () => window.clearTimeout(A);
   }, [m, i]);
   const S = () => {
     p(!1), v(!1), _(null);
@@ -2204,18 +2204,18 @@ function bf({ hass: n, entity: e, roomLabel: t }) {
       "data-alert": r ? "true" : "false",
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Mt, { size: 20 }) }),
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Ot, { size: 20 }) }),
           /* @__PURE__ */ l("span", { class: "n-eyebrow", children: mf[i] ?? i })
         ] }),
         t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
         /* @__PURE__ */ l("div", { class: "n-title", children: e.friendly_name }),
         !s && /* @__PURE__ */ l("div", { class: "n-alarm__modes", children: [
-          _f.map(({ id: w, service: T, label: k, Icon: I }) => /* @__PURE__ */ l(
+          _f.map(({ id: A, service: T, label: k, Icon: I }) => /* @__PURE__ */ l(
             "button",
             {
               type: "button",
               class: "n-mode-btn",
-              "data-active": i === w ? "true" : "false",
+              "data-active": i === A ? "true" : "false",
               disabled: d || o,
               onClick: () => b(T),
               children: [
@@ -2223,7 +2223,7 @@ function bf({ hass: n, entity: e, roomLabel: t }) {
                 /* @__PURE__ */ l("span", { children: k })
               ]
             },
-            w
+            A
           )),
           /* @__PURE__ */ l(
             "button",
@@ -2251,14 +2251,14 @@ function bf({ hass: n, entity: e, roomLabel: t }) {
     }
   );
 }
-const Y = Number.isFinite || function(n) {
+const X = Number.isFinite || function(n) {
   return typeof n == "number" && isFinite(n);
 }, xf = Number.isSafeInteger || function(n) {
   return typeof n == "number" && Math.abs(n) <= Ef;
 }, Ef = Number.MAX_SAFE_INTEGER || 9007199254740991;
 let J = /* @__PURE__ */ (function(n) {
   return n.NETWORK_ERROR = "networkError", n.MEDIA_ERROR = "mediaError", n.KEY_SYSTEM_ERROR = "keySystemError", n.MUX_ERROR = "muxError", n.OTHER_ERROR = "otherError", n;
-})({}), P = /* @__PURE__ */ (function(n) {
+})({}), C = /* @__PURE__ */ (function(n) {
   return n.KEY_SYSTEM_NO_KEYS = "keySystemNoKeys", n.KEY_SYSTEM_NO_ACCESS = "keySystemNoAccess", n.KEY_SYSTEM_NO_SESSION = "keySystemNoSession", n.KEY_SYSTEM_NO_CONFIGURED_LICENSE = "keySystemNoConfiguredLicense", n.KEY_SYSTEM_LICENSE_REQUEST_FAILED = "keySystemLicenseRequestFailed", n.KEY_SYSTEM_SERVER_CERTIFICATE_REQUEST_FAILED = "keySystemServerCertificateRequestFailed", n.KEY_SYSTEM_SERVER_CERTIFICATE_UPDATE_FAILED = "keySystemServerCertificateUpdateFailed", n.KEY_SYSTEM_SESSION_UPDATE_FAILED = "keySystemSessionUpdateFailed", n.KEY_SYSTEM_STATUS_OUTPUT_RESTRICTED = "keySystemStatusOutputRestricted", n.KEY_SYSTEM_STATUS_INTERNAL_ERROR = "keySystemStatusInternalError", n.KEY_SYSTEM_DESTROY_MEDIA_KEYS_ERROR = "keySystemDestroyMediaKeysError", n.KEY_SYSTEM_DESTROY_CLOSE_SESSION_ERROR = "keySystemDestroyCloseSessionError", n.KEY_SYSTEM_DESTROY_REMOVE_SESSION_ERROR = "keySystemDestroyRemoveSessionError", n.MANIFEST_LOAD_ERROR = "manifestLoadError", n.MANIFEST_LOAD_TIMEOUT = "manifestLoadTimeOut", n.MANIFEST_PARSING_ERROR = "manifestParsingError", n.MANIFEST_INCOMPATIBLE_CODECS_ERROR = "manifestIncompatibleCodecsError", n.LEVEL_EMPTY_ERROR = "levelEmptyError", n.LEVEL_LOAD_ERROR = "levelLoadError", n.LEVEL_LOAD_TIMEOUT = "levelLoadTimeOut", n.LEVEL_PARSING_ERROR = "levelParsingError", n.LEVEL_SWITCH_ERROR = "levelSwitchError", n.AUDIO_TRACK_LOAD_ERROR = "audioTrackLoadError", n.AUDIO_TRACK_LOAD_TIMEOUT = "audioTrackLoadTimeOut", n.SUBTITLE_LOAD_ERROR = "subtitleTrackLoadError", n.SUBTITLE_TRACK_LOAD_TIMEOUT = "subtitleTrackLoadTimeOut", n.FRAG_LOAD_ERROR = "fragLoadError", n.FRAG_LOAD_TIMEOUT = "fragLoadTimeOut", n.FRAG_DECRYPT_ERROR = "fragDecryptError", n.FRAG_PARSING_ERROR = "fragParsingError", n.FRAG_GAP = "fragGap", n.REMUX_ALLOC_ERROR = "remuxAllocError", n.KEY_LOAD_ERROR = "keyLoadError", n.KEY_LOAD_TIMEOUT = "keyLoadTimeOut", n.BUFFER_ADD_CODEC_ERROR = "bufferAddCodecError", n.BUFFER_INCOMPATIBLE_CODECS_ERROR = "bufferIncompatibleCodecsError", n.BUFFER_APPEND_ERROR = "bufferAppendError", n.BUFFER_APPENDING_ERROR = "bufferAppendingError", n.BUFFER_STALLED_ERROR = "bufferStalledError", n.BUFFER_FULL_ERROR = "bufferFullError", n.BUFFER_SEEK_OVER_HOLE = "bufferSeekOverHole", n.BUFFER_NUDGE_ON_STALL = "bufferNudgeOnStall", n.ASSET_LIST_LOAD_ERROR = "assetListLoadError", n.ASSET_LIST_LOAD_TIMEOUT = "assetListLoadTimeout", n.ASSET_LIST_PARSING_ERROR = "assetListParsingError", n.INTERSTITIAL_ASSET_ITEM_ERROR = "interstitialAssetItemError", n.INTERNAL_EXCEPTION = "internalException", n.INTERNAL_ABORTED = "aborted", n.ATTACH_MEDIA_ERROR = "attachMediaError", n.UNKNOWN = "unknown", n;
 })({}), y = /* @__PURE__ */ (function(n) {
   return n.MEDIA_ATTACHING = "hlsMediaAttaching", n.MEDIA_ATTACHED = "hlsMediaAttached", n.MEDIA_DETACHING = "hlsMediaDetaching", n.MEDIA_DETACHED = "hlsMediaDetached", n.MEDIA_ENDED = "hlsMediaEnded", n.STALL_RESOLVED = "hlsStallResolved", n.BUFFER_RESET = "hlsBufferReset", n.BUFFER_CODECS = "hlsBufferCodecs", n.BUFFER_CREATED = "hlsBufferCreated", n.BUFFER_APPENDING = "hlsBufferAppending", n.BUFFER_APPENDED = "hlsBufferAppended", n.BUFFER_EOS = "hlsBufferEos", n.BUFFERED_TO_END = "hlsBufferedToEnd", n.BUFFER_FLUSHING = "hlsBufferFlushing", n.BUFFER_FLUSHED = "hlsBufferFlushed", n.MANIFEST_LOADING = "hlsManifestLoading", n.MANIFEST_LOADED = "hlsManifestLoaded", n.MANIFEST_PARSED = "hlsManifestParsed", n.LEVEL_SWITCHING = "hlsLevelSwitching", n.LEVEL_SWITCHED = "hlsLevelSwitched", n.LEVEL_LOADING = "hlsLevelLoading", n.LEVEL_LOADED = "hlsLevelLoaded", n.LEVEL_UPDATED = "hlsLevelUpdated", n.LEVEL_PTS_UPDATED = "hlsLevelPtsUpdated", n.LEVELS_UPDATED = "hlsLevelsUpdated", n.AUDIO_TRACKS_UPDATED = "hlsAudioTracksUpdated", n.AUDIO_TRACK_SWITCHING = "hlsAudioTrackSwitching", n.AUDIO_TRACK_SWITCHED = "hlsAudioTrackSwitched", n.AUDIO_TRACK_LOADING = "hlsAudioTrackLoading", n.AUDIO_TRACK_LOADED = "hlsAudioTrackLoaded", n.AUDIO_TRACK_UPDATED = "hlsAudioTrackUpdated", n.SUBTITLE_TRACKS_UPDATED = "hlsSubtitleTracksUpdated", n.SUBTITLE_TRACKS_CLEARED = "hlsSubtitleTracksCleared", n.SUBTITLE_TRACK_SWITCH = "hlsSubtitleTrackSwitch", n.SUBTITLE_TRACK_LOADING = "hlsSubtitleTrackLoading", n.SUBTITLE_TRACK_LOADED = "hlsSubtitleTrackLoaded", n.SUBTITLE_TRACK_UPDATED = "hlsSubtitleTrackUpdated", n.SUBTITLE_FRAG_PROCESSED = "hlsSubtitleFragProcessed", n.CUES_PARSED = "hlsCuesParsed", n.NON_NATIVE_TEXT_TRACKS_FOUND = "hlsNonNativeTextTracksFound", n.INIT_PTS_FOUND = "hlsInitPtsFound", n.FRAG_LOADING = "hlsFragLoading", n.FRAG_LOAD_EMERGENCY_ABORTED = "hlsFragLoadEmergencyAborted", n.FRAG_LOADED = "hlsFragLoaded", n.FRAG_DECRYPTED = "hlsFragDecrypted", n.FRAG_PARSING_INIT_SEGMENT = "hlsFragParsingInitSegment", n.FRAG_PARSING_USERDATA = "hlsFragParsingUserdata", n.FRAG_PARSING_METADATA = "hlsFragParsingMetadata", n.FRAG_PARSED = "hlsFragParsed", n.FRAG_BUFFERED = "hlsFragBuffered", n.FRAG_CHANGED = "hlsFragChanged", n.FPS_DROP = "hlsFpsDrop", n.FPS_DROP_LEVEL_CAPPING = "hlsFpsDropLevelCapping", n.MAX_AUTO_LEVEL_UPDATED = "hlsMaxAutoLevelUpdated", n.ERROR = "hlsError", n.DESTROYING = "hlsDestroying", n.KEY_LOADING = "hlsKeyLoading", n.KEY_LOADED = "hlsKeyLoaded", n.LIVE_BACK_BUFFER_REACHED = "hlsLiveBackBufferReached", n.BACK_BUFFER_REACHED = "hlsBackBufferReached", n.STEERING_MANIFEST_LOADED = "hlsSteeringManifestLoaded", n.ASSET_LIST_LOADING = "hlsAssetListLoading", n.ASSET_LIST_LOADED = "hlsAssetListLoaded", n.INTERSTITIALS_UPDATED = "hlsInterstitialsUpdated", n.INTERSTITIALS_BUFFERED_TO_BOUNDARY = "hlsInterstitialsBufferedToBoundary", n.INTERSTITIAL_ASSET_PLAYER_CREATED = "hlsInterstitialAssetPlayerCreated", n.INTERSTITIAL_STARTED = "hlsInterstitialStarted", n.INTERSTITIAL_ASSET_STARTED = "hlsInterstitialAssetStarted", n.INTERSTITIAL_ASSET_ENDED = "hlsInterstitialAssetEnded", n.INTERSTITIAL_ASSET_ERROR = "hlsInterstitialAssetError", n.INTERSTITIAL_ENDED = "hlsInterstitialEnded", n.INTERSTITIALS_PRIMARY_RESUMED = "hlsInterstitialsPrimaryResumed", n.PLAYOUT_LIMIT_REACHED = "hlsPlayoutLimitReached", n.EVENT_CUE_ENTER = "hlsEventCueEnter", n;
@@ -2268,7 +2268,7 @@ var oe = {
   LEVEL: "level",
   AUDIO_TRACK: "audioTrack",
   SUBTITLE_TRACK: "subtitleTrack"
-}, Q = {
+}, Z = {
   MAIN: "main",
   AUDIO: "audio",
   SUBTITLE: "subtitle"
@@ -2347,7 +2347,7 @@ function ge() {
     return n;
   }, ge.apply(null, arguments);
 }
-function Ma(n, e) {
+function Pa(n, e) {
   var t = Object.keys(n);
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(n);
@@ -2360,9 +2360,9 @@ function Ma(n, e) {
 function fe(n) {
   for (var e = 1; e < arguments.length; e++) {
     var t = arguments[e] != null ? arguments[e] : {};
-    e % 2 ? Ma(Object(t), !0).forEach(function(i) {
+    e % 2 ? Pa(Object(t), !0).forEach(function(i) {
       Tf(n, i, t[i]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(n, Object.getOwnPropertyDescriptors(t)) : Ma(Object(t)).forEach(function(i) {
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(n, Object.getOwnPropertyDescriptors(t)) : Pa(Object(t)).forEach(function(i) {
       Object.defineProperty(n, i, Object.getOwnPropertyDescriptor(t, i));
     });
   }
@@ -2386,31 +2386,31 @@ class Qe {
   constructor(e, t) {
     this.trace = void 0, this.debug = void 0, this.log = void 0, this.warn = void 0, this.info = void 0, this.error = void 0;
     const i = `[${e}]:`;
-    this.trace = Rt, this.debug = t.debug.bind(null, i), this.log = t.log.bind(null, i), this.warn = t.warn.bind(null, i), this.info = t.info.bind(null, i), this.error = t.error.bind(null, i);
+    this.trace = Dt, this.debug = t.debug.bind(null, i), this.log = t.log.bind(null, i), this.warn = t.warn.bind(null, i), this.info = t.info.bind(null, i), this.error = t.error.bind(null, i);
   }
 }
-const Rt = function() {
+const Dt = function() {
 }, Af = {
-  trace: Rt,
-  debug: Rt,
-  log: Rt,
-  warn: Rt,
-  info: Rt,
-  error: Rt
+  trace: Dt,
+  debug: Dt,
+  log: Dt,
+  warn: Dt,
+  info: Dt,
+  error: Dt
 };
-function qs() {
+function Ys() {
   return ge({}, Af);
 }
 function If(n, e) {
   const t = self.console[n];
-  return t ? t.bind(self.console, `${e ? "[" + e + "] " : ""}[${n}] >`) : Rt;
+  return t ? t.bind(self.console, `${e ? "[" + e + "] " : ""}[${n}] >`) : Dt;
 }
-function Oa(n, e, t) {
+function Ma(n, e, t) {
   return e[n] ? e[n].bind(e) : If(n, t);
 }
-const Xs = qs();
+const qs = Ys();
 function Lf(n, e, t) {
-  const i = qs();
+  const i = Ys();
   if (typeof console == "object" && n === !0 || typeof n == "object") {
     const s = [
       // Remove out from list here to hard-disable a log-level
@@ -2422,22 +2422,22 @@ function Lf(n, e, t) {
       "error"
     ];
     s.forEach((r) => {
-      i[r] = Oa(r, n, t);
+      i[r] = Ma(r, n, t);
     });
     try {
       i.log(`Debug logs enabled for "${e}" in hls.js version 1.6.16`);
     } catch {
-      return qs();
+      return Ys();
     }
     s.forEach((r) => {
-      Xs[r] = Oa(r, n);
+      qs[r] = Ma(r, n);
     });
   } else
-    ge(Xs, i);
+    ge(qs, i);
   return i;
 }
-const pe = Xs;
-function Ft(n = !0) {
+const pe = qs;
+function Nt(n = !0) {
   return typeof self > "u" ? void 0 : (n || !self.MediaSource) && self.ManagedMediaSource || self.MediaSource || self.WebKitMediaSource;
 }
 function Rf(n) {
@@ -2499,9 +2499,9 @@ function dc(n) {
 function Df(n) {
   return n && n.__esModule && Object.prototype.hasOwnProperty.call(n, "default") ? n.default : n;
 }
-var ds = { exports: {} }, Fa;
+var cs = { exports: {} }, Oa;
 function Cf() {
-  return Fa || (Fa = 1, (function(n, e) {
+  return Oa || (Oa = 1, (function(n, e) {
     (function(t) {
       var i = /^(?=((?:[a-zA-Z0-9+\-.]+:)?))\1(?=((?:\/\/[^\/?#]*)?))\2(?=((?:(?:[^?#\/]*\/)*[^;?#\/]*)?))\3((?:;[^?#]*)?)(\?[^#]*)?(#[^]*)?$/, s = /^(?=([^\/?#]*))\1([^]*)$/, r = /(?:\/|^)\.(?=\/)/g, a = /(?:\/|^)\.\.\/(?!\.\.\/)[^\/]*(?=\/)/g, o = {
         // If opts.alwaysNormalize is true then the path will always be normalized even when it starts with / or //
@@ -2575,10 +2575,10 @@ function Cf() {
       };
       n.exports = o;
     })();
-  })(ds)), ds.exports;
+  })(cs)), cs.exports;
 }
-var Or = Cf();
-class Fr {
+var Mr = Cf();
+class Or {
   constructor() {
     this.aborted = !1, this.loaded = 0, this.retry = 0, this.total = 0, this.chunkCount = 0, this.bwEstimate = 0, this.loading = {
       start: 0,
@@ -2640,13 +2640,13 @@ class uc {
     return this._streams !== null;
   }
   get stats() {
-    return this._stats === null && (this._stats = new Fr()), this._stats;
+    return this._stats === null && (this._stats = new Or()), this._stats;
   }
   set stats(e) {
     this._stats = e;
   }
   get url() {
-    return !this._url && this.baseurl && this.relurl && (this._url = Or.buildAbsoluteURL(this.baseurl, this.relurl, {
+    return !this._url && this.baseurl && this.relurl && (this._url = Mr.buildAbsoluteURL(this.baseurl, this.relurl, {
       alwaysNormalize: !0
     })), this._url || "";
   }
@@ -2663,7 +2663,7 @@ class uc {
 function we(n) {
   return n.sn !== "initSegment";
 }
-class us extends uc {
+class ds extends uc {
   constructor(e, t) {
     super(t), this._decryptdata = null, this._programDateTime = null, this._ref = null, this._bitrate = void 0, this.rawProgramDateTime = null, this.tagList = [], this.duration = 0, this.sn = 0, this.levelkeys = void 0, this.type = void 0, this.loader = null, this.keyLoader = null, this.level = -1, this.cc = 0, this.startPTS = void 0, this.endPTS = void 0, this.startDTS = void 0, this.endDTS = void 0, this.start = 0, this.playlistOffset = 0, this.deltaPTS = void 0, this.maxStartPTS = void 0, this.minEndPTS = void 0, this.data = void 0, this.bitrateTest = !1, this.title = null, this.initSegment = null, this.endList = void 0, this.gap = void 0, this.urlId = 0, this.type = e;
   }
@@ -2675,7 +2675,7 @@ class us extends uc {
     }
     if (this.byteRange.length) {
       const e = this.byteRange[0], t = this.byteRange[1];
-      if (Y(e) && Y(t))
+      if (X(e) && X(t))
         return t - e;
     }
     return null;
@@ -2710,7 +2710,7 @@ class us extends uc {
   get endProgramDateTime() {
     if (this.programDateTime === null)
       return null;
-    const e = Y(this.duration) ? this.duration : 0;
+    const e = X(this.duration) ? this.duration : 0;
     return this.programDateTime + e * 1e3;
   }
   get encrypted() {
@@ -2729,7 +2729,7 @@ class us extends uc {
     return this._programDateTime === null && this.rawProgramDateTime && (this.programDateTime = Date.parse(this.rawProgramDateTime)), this._programDateTime;
   }
   set programDateTime(e) {
-    if (!Y(e)) {
+    if (!X(e)) {
       this._programDateTime = this.rawProgramDateTime = null;
       return;
     }
@@ -2812,7 +2812,7 @@ function Mf(n, e) {
   const t = hc(n, e);
   t && (t.enumerable = !0, Object.defineProperty(n, e, t));
 }
-const Na = Math.pow(2, 32) - 1, Of = [].push, fc = {
+const Fa = Math.pow(2, 32) - 1, Of = [].push, fc = {
   video: 1,
   audio: 2,
   id3: 3,
@@ -2829,7 +2829,7 @@ function ne(n, e) {
   const t = gc(n, e);
   return t < 0 ? 4294967296 + t : t;
 }
-function $a(n, e) {
+function Na(n, e) {
   let t = ne(n, e);
   return t *= Math.pow(2, 32), t += ne(n, e + 4), t;
 }
@@ -2846,7 +2846,7 @@ function Ff(n) {
   }
   return !1;
 }
-function ae(n, e) {
+function re(n, e) {
   const t = [];
   if (!e.length)
     return t;
@@ -2857,7 +2857,7 @@ function ae(n, e) {
       if (e.length === 1)
         t.push(n.subarray(s + 8, o));
       else {
-        const d = ae(n.subarray(s + 8, o), e.slice(1));
+        const d = re(n.subarray(s + 8, o), e.slice(1));
         d.length && Of.apply(t, d);
       }
     s = o;
@@ -2870,7 +2870,7 @@ function Nf(n) {
   const s = ne(n, i);
   i += 4;
   let r = 0, a = 0;
-  t === 0 ? (r = ne(n, i), a = ne(n, i + 4), i += 8) : (r = $a(n, i), a = $a(n, i + 8), i += 16), i += 2;
+  t === 0 ? (r = ne(n, i), a = ne(n, i + 4), i += 8) : (r = Na(n, i), a = Na(n, i + 8), i += 16), i += 2;
   let o = n.length + a;
   const d = pc(n, i);
   i += 2;
@@ -2902,20 +2902,20 @@ function Nf(n) {
   };
 }
 function mc(n) {
-  const e = [], t = ae(n, ["moov", "trak"]);
+  const e = [], t = re(n, ["moov", "trak"]);
   for (let s = 0; s < t.length; s++) {
-    const r = t[s], a = ae(r, ["tkhd"])[0];
+    const r = t[s], a = re(r, ["tkhd"])[0];
     if (a) {
       let o = a[0];
-      const d = ne(a, o === 0 ? 12 : 20), c = ae(r, ["mdia", "mdhd"])[0];
+      const d = ne(a, o === 0 ? 12 : 20), c = re(r, ["mdia", "mdhd"])[0];
       if (c) {
         o = c[0];
-        const u = ne(c, o === 0 ? 12 : 20), h = ae(r, ["mdia", "hdlr"])[0];
+        const u = ne(c, o === 0 ? 12 : 20), h = re(r, ["mdia", "hdlr"])[0];
         if (h) {
           const f = Le(h.subarray(8, 12)), p = {
             soun: me.AUDIO,
             vide: me.VIDEO
-          }[f], g = ae(r, ["mdia", "minf", "stbl", "stsd"])[0], _ = $f(g);
+          }[f], g = re(r, ["mdia", "minf", "stbl", "stsd"])[0], _ = $f(g);
           p ? (e[d] = {
             timescale: u,
             type: p,
@@ -2932,7 +2932,7 @@ function mc(n) {
       }
     }
   }
-  return ae(n, ["moov", "mvex", "trex"]).forEach((s) => {
+  return re(n, ["moov", "mvex", "trex"]).forEach((s) => {
     const r = ne(s, 4), a = e[r];
     a && (a.default = {
       duration: ne(s, 12),
@@ -2945,13 +2945,13 @@ function $f(n) {
   let s = i, r;
   const a = i === "enca" || i === "encv";
   if (a) {
-    const c = ae(e, [i])[0].subarray(i === "enca" ? 28 : 78);
-    ae(c, ["sinf"]).forEach((h) => {
-      const f = ae(h, ["schm"])[0];
+    const c = re(e, [i])[0].subarray(i === "enca" ? 28 : 78);
+    re(c, ["sinf"]).forEach((h) => {
+      const f = re(h, ["schm"])[0];
       if (f) {
         const p = Le(f.subarray(4, 8));
         if (p === "cbcs" || p === "cenc") {
-          const g = ae(h, ["frma"])[0];
+          const g = re(h, ["frma"])[0];
           g && (s = Le(g));
         }
       }
@@ -2963,21 +2963,21 @@ function $f(n) {
     case "avc2":
     case "avc3":
     case "avc4": {
-      const d = ae(t, ["avcC"])[0];
+      const d = re(t, ["avcC"])[0];
       d && d.length > 3 && (s += "." + zi(d[1]) + zi(d[2]) + zi(d[3]), r = Ki(o === "avc1" ? "dva1" : "dvav", t));
       break;
     }
     case "mp4a": {
-      const d = ae(e, [i])[0], c = ae(d.subarray(28), ["esds"])[0];
+      const d = re(e, [i])[0], c = re(d.subarray(28), ["esds"])[0];
       if (c && c.length > 7) {
         let u = 4;
         if (c[u++] !== 3)
           break;
-        u = hs(c, u), u += 2;
+        u = us(c, u), u += 2;
         const h = c[u++];
         if (h & 128 && (u += 2), h & 64 && (u += c[u++]), c[u++] !== 4)
           break;
-        u = hs(c, u);
+        u = us(c, u);
         const f = c[u++];
         if (f === 64)
           s += "." + zi(f);
@@ -2985,7 +2985,7 @@ function $f(n) {
           break;
         if (u += 12, c[u++] !== 5)
           break;
-        u = hs(c, u);
+        u = us(c, u);
         const p = c[u++];
         let g = (p & 248) >> 3;
         g === 31 && (g += 1 + ((p & 7) << 3) + ((c[u] & 224) >> 5)), s += "." + g;
@@ -2994,7 +2994,7 @@ function $f(n) {
     }
     case "hvc1":
     case "hev1": {
-      const d = ae(t, ["hvcC"])[0];
+      const d = re(t, ["hvcC"])[0];
       if (d && d.length > 12) {
         const c = d[1], u = ["", "A", "B", "C"][c >> 6], h = c & 31, f = ne(d, 2), p = (c & 32) >> 5 ? "H" : "L", g = d[12], _ = d.subarray(6, 12);
         s += "." + u + h, s += "." + Bf(f).toString(16).toUpperCase(), s += "." + p + g;
@@ -3017,18 +3017,18 @@ function $f(n) {
       break;
     }
     case "vp09": {
-      const d = ae(t, ["vpcC"])[0];
+      const d = re(t, ["vpcC"])[0];
       if (d && d.length > 6) {
         const c = d[4], u = d[5], h = d[6] >> 4 & 15;
-        s += "." + ot(c) + "." + ot(u) + "." + ot(h);
+        s += "." + lt(c) + "." + lt(u) + "." + lt(h);
       }
       break;
     }
     case "av01": {
-      const d = ae(t, ["av1C"])[0];
+      const d = re(t, ["av1C"])[0];
       if (d && d.length > 2) {
         const c = d[1] >>> 5, u = d[1] & 31, h = d[2] >>> 7 ? "H" : "M", f = (d[2] & 64) >> 6, p = (d[2] & 32) >> 5, g = c === 2 && f ? p ? 12 : 10 : f ? 10 : 8, _ = (d[2] & 16) >> 4, m = (d[2] & 8) >> 3, v = (d[2] & 4) >> 2, b = d[2] & 3;
-        s += "." + c + "." + ot(u) + h + "." + ot(g) + "." + _ + "." + m + v + b + "." + ot(1) + "." + ot(1) + "." + ot(1) + "." + 0, r = Ki("dav1", t);
+        s += "." + c + "." + lt(u) + h + "." + lt(g) + "." + _ + "." + m + v + b + "." + lt(1) + "." + lt(1) + "." + lt(1) + "." + 0, r = Ki("dav1", t);
       }
       break;
     }
@@ -3040,10 +3040,10 @@ function $f(n) {
   };
 }
 function Ki(n, e) {
-  const t = ae(e, ["dvvC"]), i = t.length ? t[0] : ae(e, ["dvcC"])[0];
+  const t = re(e, ["dvvC"]), i = t.length ? t[0] : re(e, ["dvcC"])[0];
   if (i) {
     const s = i[2] >> 1 & 127, r = i[2] << 5 & 32 | i[3] >> 3 & 31;
-    return n + "." + ot(s) + "." + ot(r);
+    return n + "." + lt(s) + "." + lt(r);
   }
 }
 function Bf(n) {
@@ -3052,7 +3052,7 @@ function Bf(n) {
     e |= (n >> t & 1) << 31 - t;
   return e >>> 0;
 }
-function hs(n, e) {
+function us(n, e) {
   const t = e + 5;
   for (; n[e++] & 128 && e < t; )
     ;
@@ -3061,7 +3061,7 @@ function hs(n, e) {
 function zi(n) {
   return ("0" + n.toString(16).toUpperCase()).slice(-2);
 }
-function ot(n) {
+function lt(n) {
   return (n < 10 ? "0" : "") + n;
 }
 function Uf(n, e) {
@@ -3078,15 +3078,15 @@ function Gf(n) {
   return _c(n, (t) => e.push(t.subarray(8, 24))), e;
 }
 function _c(n, e) {
-  ae(n, ["moov", "trak"]).forEach((i) => {
-    const s = ae(i, ["mdia", "minf", "stbl", "stsd"])[0];
+  re(n, ["moov", "trak"]).forEach((i) => {
+    const s = re(i, ["mdia", "minf", "stbl", "stsd"])[0];
     if (!s) return;
     const r = s.subarray(8);
-    let a = ae(r, ["enca"]);
+    let a = re(r, ["enca"]);
     const o = a.length > 0;
-    o || (a = ae(r, ["encv"])), a.forEach((d) => {
+    o || (a = re(r, ["encv"])), a.forEach((d) => {
       const c = o ? d.subarray(28) : d.subarray(78);
-      ae(c, ["sinf"]).forEach((h) => {
+      re(c, ["sinf"]).forEach((h) => {
         const f = vc(h);
         f && e(f, o);
       });
@@ -3094,20 +3094,20 @@ function _c(n, e) {
   });
 }
 function vc(n) {
-  const e = ae(n, ["schm"])[0];
+  const e = re(n, ["schm"])[0];
   if (e) {
     const t = Le(e.subarray(4, 8));
     if (t === "cbcs" || t === "cenc") {
-      const i = ae(n, ["schi", "tenc"])[0];
+      const i = re(n, ["schi", "tenc"])[0];
       if (i)
         return i;
     }
   }
 }
 function Vf(n, e, t) {
-  const i = {}, s = ae(n, ["moof", "traf"]);
+  const i = {}, s = re(n, ["moof", "traf"]);
   for (let r = 0; r < s.length; r++) {
-    const a = s[r], o = ae(a, ["tfhd"])[0], d = ne(o, 4), c = e[d];
+    const a = s[r], o = re(a, ["tfhd"])[0], d = ne(o, 4), c = e[d];
     if (!c)
       continue;
     i[d] || (i[d] = {
@@ -3117,31 +3117,31 @@ function Vf(n, e, t) {
       timescale: c.timescale,
       type: c.type
     });
-    const u = i[d], h = ae(a, ["tfdt"])[0];
+    const u = i[d], h = re(a, ["tfdt"])[0];
     if (h) {
       const x = h[0];
       let E = ne(h, 4);
-      x === 1 && (E === Na ? t.warn("[mp4-demuxer]: Ignoring assumed invalid signed 64-bit track fragment decode time") : (E *= Na + 1, E += ne(h, 8))), Y(E) && (!Y(u.start) || E < u.start) && (u.start = E);
+      x === 1 && (E === Fa ? t.warn("[mp4-demuxer]: Ignoring assumed invalid signed 64-bit track fragment decode time") : (E *= Fa + 1, E += ne(h, 8))), X(E) && (!X(u.start) || E < u.start) && (u.start = E);
     }
     const f = c.default, p = ne(o, 0) | f?.flags;
     let g = f?.duration || 0;
     p & 8 && (p & 2 ? g = ne(o, 12) : g = ne(o, 8));
-    const _ = ae(a, ["trun"]);
+    const _ = re(a, ["trun"]);
     let m = u.start || 0, v = 0, b = g;
     for (let x = 0; x < _.length; x++) {
-      const E = _[x], S = ne(E, 4), w = u.sampleCount;
+      const E = _[x], S = ne(E, 4), A = u.sampleCount;
       u.sampleCount += S;
-      const T = E[3] & 1, k = E[3] & 4, I = E[2] & 1, A = E[2] & 2, C = E[2] & 4, M = E[2] & 8;
+      const T = E[3] & 1, k = E[3] & 4, I = E[2] & 1, w = E[2] & 2, M = E[2] & 4, P = E[2] & 8;
       let B = 8, H = S;
-      for (T && (B += 4), k && S && (!(E[B + 1] & 1) && u.keyFrameIndex === void 0 && (u.keyFrameIndex = w), B += 4, I ? (b = ne(E, B), B += 4) : b = g, A && (B += 4), M && (B += 4), m += b, v += b, H--); H--; )
-        I ? (b = ne(E, B), B += 4) : b = g, A && (B += 4), C && (E[B + 1] & 1 || u.keyFrameIndex === void 0 && (u.keyFrameIndex = u.sampleCount - (H + 1), u.keyFrameStart = m), B += 4), M && (B += 4), m += b, v += b;
+      for (T && (B += 4), k && S && (!(E[B + 1] & 1) && u.keyFrameIndex === void 0 && (u.keyFrameIndex = A), B += 4, I ? (b = ne(E, B), B += 4) : b = g, w && (B += 4), P && (B += 4), m += b, v += b, H--); H--; )
+        I ? (b = ne(E, B), B += 4) : b = g, w && (B += 4), M && (E[B + 1] & 1 || u.keyFrameIndex === void 0 && (u.keyFrameIndex = u.sampleCount - (H + 1), u.keyFrameStart = m), B += 4), P && (B += 4), m += b, v += b;
       !v && g && (v += g * S);
     }
     u.duration += v;
   }
   if (!Object.keys(i).some((r) => i[r].duration)) {
     let r = 1 / 0, a = 0;
-    const o = ae(n, ["sidx"]);
+    const o = re(n, ["sidx"]);
     for (let d = 0; d < o.length; d++) {
       const c = Nf(o[d]);
       if (c != null && c.references) {
@@ -3150,7 +3150,7 @@ function Vf(n, e, t) {
         a = Math.max(a, u + c.earliestPresentationTime / c.timescale);
       }
     }
-    a && Y(a) && Object.keys(i).forEach((d) => {
+    a && X(a) && Object.keys(i).forEach((d) => {
       i[d].duration || (i[d].duration = a * i[d].timescale - i[d].start);
     });
   }
@@ -3160,7 +3160,7 @@ function Kf(n) {
   const e = {
     valid: null,
     remainder: null
-  }, t = ae(n, ["moof"]);
+  }, t = re(n, ["moof"]);
   if (t.length < 2)
     return e.remainder = n, e;
   const i = t[t.length - 1];
@@ -3170,47 +3170,47 @@ function Xe(n, e) {
   const t = new Uint8Array(n.length + e.length);
   return t.set(n), t.set(e, n.length), t;
 }
-function Ba(n, e) {
+function $a(n, e) {
   const t = [], i = e.samples, s = e.timescale, r = e.id;
   let a = !1;
-  return ae(i, ["moof"]).map((d) => {
+  return re(i, ["moof"]).map((d) => {
     const c = d.byteOffset - 8;
-    ae(d, ["traf"]).map((h) => {
-      const f = ae(h, ["tfdt"]).map((p) => {
+    re(d, ["traf"]).map((h) => {
+      const f = re(h, ["tfdt"]).map((p) => {
         const g = p[0];
         let _ = ne(p, 4);
         return g === 1 && (_ *= Math.pow(2, 32), _ += ne(p, 8)), _ / s;
       })[0];
-      return f !== void 0 && (n = f), ae(h, ["tfhd"]).map((p) => {
+      return f !== void 0 && (n = f), re(h, ["tfhd"]).map((p) => {
         const g = ne(p, 4), _ = ne(p, 0) & 16777215, m = (_ & 1) !== 0, v = (_ & 2) !== 0, b = (_ & 8) !== 0;
         let x = 0;
         const E = (_ & 16) !== 0;
         let S = 0;
-        const w = (_ & 32) !== 0;
+        const A = (_ & 32) !== 0;
         let T = 8;
-        g === r && (m && (T += 8), v && (T += 4), b && (x = ne(p, T), T += 4), E && (S = ne(p, T), T += 4), w && (T += 4), e.type === "video" && (a = ts(e.codec)), ae(h, ["trun"]).map((k) => {
-          const I = k[0], A = ne(k, 0) & 16777215, C = (A & 1) !== 0;
-          let M = 0;
-          const B = (A & 4) !== 0, H = (A & 256) !== 0;
+        g === r && (m && (T += 8), v && (T += 4), b && (x = ne(p, T), T += 4), E && (S = ne(p, T), T += 4), A && (T += 4), e.type === "video" && (a = es(e.codec)), re(h, ["trun"]).map((k) => {
+          const I = k[0], w = ne(k, 0) & 16777215, M = (w & 1) !== 0;
+          let P = 0;
+          const B = (w & 4) !== 0, H = (w & 256) !== 0;
           let U = 0;
-          const R = (A & 512) !== 0;
+          const R = (w & 512) !== 0;
           let N = 0;
-          const L = (A & 1024) !== 0, O = (A & 2048) !== 0;
-          let G = 0;
+          const L = (w & 1024) !== 0, O = (w & 2048) !== 0;
+          let V = 0;
           const $ = ne(k, 4);
           let K = 8;
-          C && (M = ne(k, K), K += 4), B && (K += 4);
-          let ie = M + c;
-          for (let q = 0; q < $; q++) {
-            if (H ? (U = ne(k, K), K += 4) : U = x, R ? (N = ne(k, K), K += 4) : N = S, L && (K += 4), O && (I === 0 ? G = ne(k, K) : G = gc(k, K), K += 4), e.type === me.VIDEO) {
+          M && (P = ne(k, K), K += 4), B && (K += 4);
+          let Y = P + c;
+          for (let ie = 0; ie < $; ie++) {
+            if (H ? (U = ne(k, K), K += 4) : U = x, R ? (N = ne(k, K), K += 4) : N = S, L && (K += 4), O && (I === 0 ? V = ne(k, K) : V = gc(k, K), K += 4), e.type === me.VIDEO) {
               let j = 0;
               for (; j < N; ) {
-                const Z = ne(i, ie);
-                if (ie += 4, zf(a, i[ie])) {
-                  const ee = i.subarray(ie, ie + Z);
-                  Nr(ee, a ? 2 : 1, n + G / s, t);
+                const q = ne(i, Y);
+                if (Y += 4, zf(a, i[Y])) {
+                  const te = i.subarray(Y, Y + q);
+                  Fr(te, a ? 2 : 1, n + V / s, t);
                 }
-                ie += Z, j += Z + 4;
+                Y += q, j += q + 4;
               }
             }
             n += U / s;
@@ -3220,7 +3220,7 @@ function Ba(n, e) {
     });
   }), t;
 }
-function ts(n) {
+function es(n) {
   if (!n)
     return !1;
   const e = n.substring(0, 4);
@@ -3234,7 +3234,7 @@ function zf(n, e) {
   } else
     return (e & 31) === 6;
 }
-function Nr(n, e, t, i) {
+function Fr(n, e, t, i) {
   const s = yc(n);
   let r = 0;
   r += e;
@@ -3526,39 +3526,39 @@ const bc = () => /\(Windows.+Firefox\//i.test(navigator.userAgent), gi = {
     wvtt: 1
   }
 };
-function $r(n, e) {
+function Nr(n, e) {
   const t = gi[e];
   return !!t && !!t[n.slice(0, 4)];
 }
 function Ci(n, e, t = !0) {
-  return !n.split(",").some((i) => !Br(i, e, t));
+  return !n.split(",").some((i) => !$r(i, e, t));
 }
-function Br(n, e, t = !0) {
+function $r(n, e, t = !0) {
   var i;
-  const s = Ft(t);
+  const s = Nt(t);
   return (i = s?.isTypeSupported(Pi(n, e))) != null ? i : !1;
 }
 function Pi(n, e) {
   return `${e}/mp4;codecs=${n}`;
 }
-function Ua(n) {
+function Ba(n) {
   if (n) {
     const e = n.substring(0, 4);
     return gi.video[e];
   }
   return 2;
 }
-function Rn(n) {
+function Ln(n) {
   const e = bc();
   return n.split(",").reduce((t, i) => {
-    const r = e && ts(i) ? 9 : gi.video[i];
+    const r = e && es(i) ? 9 : gi.video[i];
     return r ? (r * 2 + t) / (t ? 3 : 2) : (gi.audio[i] + t) / (t ? 2 : 1);
   }, 0);
 }
-const fs = {};
+const hs = {};
 function Xf(n, e = !0) {
-  if (fs[n])
-    return fs[n];
+  if (hs[n])
+    return hs[n];
   const t = {
     // Idealy fLaC and Opus would be first (spec-compliant) but
     // some browsers will report that fLaC is supported then fail.
@@ -3571,15 +3571,15 @@ function Xf(n, e = !0) {
   }[n];
   for (let s = 0; s < t.length; s++) {
     var i;
-    if (Br(t[s], "audio", e))
-      return fs[n] = t[s], t[s];
-    if (t[s] === "mp3" && (i = Ft(e)) != null && i.isTypeSupported("audio/mpeg"))
+    if ($r(t[s], "audio", e))
+      return hs[n] = t[s], t[s];
+    if (t[s] === "mp3" && (i = Nt(e)) != null && i.isTypeSupported("audio/mpeg"))
       return "";
   }
   return n;
 }
 const Qf = /flac|opus|mp4a\.40\.34/i;
-function Dn(n, e = !0) {
+function Rn(n, e = !0) {
   return n.replace(Qf, (t) => Xf(t.toLowerCase(), e));
 }
 function Zf(n, e) {
@@ -3587,12 +3587,12 @@ function Zf(n, e) {
   if (n) {
     const i = n.split(",");
     for (let s = 0; s < i.length; s++)
-      $r(i[s], "video") || t.push(i[s]);
+      Nr(i[s], "video") || t.push(i[s]);
   }
   return e && t.push(e), t.join(",");
 }
-function vn(n, e) {
-  if (n && (n.length > 4 || ["ac-3", "ec-3", "alac", "fLaC", "Opus"].indexOf(n) !== -1) && (Ga(n, "audio") || Ga(n, "video")))
+function _n(n, e) {
+  if (n && (n.length > 4 || ["ac-3", "ec-3", "alac", "fLaC", "Opus"].indexOf(n) !== -1) && (Ua(n, "audio") || Ua(n, "video")))
     return n;
   if (e) {
     const t = e.split(",");
@@ -3607,8 +3607,8 @@ function vn(n, e) {
   }
   return e || n;
 }
-function Ga(n, e) {
-  return $r(n, e) && Br(n, e);
+function Ua(n, e) {
+  return Nr(n, e) && $r(n, e);
 }
 function Jf(n) {
   const e = n.split(",");
@@ -3627,8 +3627,8 @@ function ep(n) {
   }
   return n;
 }
-function Va(n) {
-  const e = Ft(n) || {
+function Ga(n) {
+  const e = Nt(n) || {
     isTypeSupported: () => !1
   };
   return {
@@ -3637,7 +3637,7 @@ function Va(n) {
     ac3: e.isTypeSupported('audio/mp4; codecs="ac-3"')
   };
 }
-function Qs(n) {
+function Xs(n) {
   return n.replace(/^.+codecs=["']?([^"']+).*$/, "$1");
 }
 const tp = {
@@ -3685,7 +3685,7 @@ function np(n, e, t, i, s, r) {
       return !0;
     }
   return a !== void 0 && // Force media capabilities check for HEVC to avoid failure on Windows
-  (a.split(",").some((f) => ts(f)) || n.width > 1920 && n.height > 1088 || n.height > 1920 && n.width > 1088 || n.frameRate > Math.max(i, 30) || n.videoRange !== "SDR" && n.videoRange !== t || n.bitrate > Math.max(s, 8e6)) || !!h && Y(u) && Object.keys(h).some((f) => parseInt(f) > u);
+  (a.split(",").some((f) => es(f)) || n.width > 1920 && n.height > 1088 || n.height > 1920 && n.width > 1088 || n.frameRate > Math.max(i, 30) || n.videoRange !== "SDR" && n.videoRange !== t || n.bitrate > Math.max(s, 8e6)) || !!h && X(u) && Object.keys(h).some((f) => parseInt(f) > u);
 }
 function Sc(n, e, t, i = {}) {
   const s = n.videoCodec;
@@ -3705,7 +3705,7 @@ function Sc(n, e, t, i = {}) {
   }
   if (s) {
     const u = navigator.userAgent;
-    if (s.split(",").some((h) => ts(h)) && bc())
+    if (s.split(",").some((h) => es(h)) && bc())
       return Promise.resolve(Ec(new Error(`Overriding Windows Firefox HEVC MediaCapabilities result based on user-agent string: (${u})`), r));
   }
   return Promise.all(r.map((u) => {
@@ -3773,37 +3773,37 @@ function op(n) {
     video: i
   } = n;
   if (i) {
-    const s = Qs(i.contentType);
+    const s = Xs(i.contentType);
     e += `${s}_r${i.height}x${i.width}f${Math.ceil(i.framerate)}${i.transferFunction || "sd"}_${Math.ceil(i.bitrate / 1e5)}`;
   }
   if (t) {
-    const s = Qs(t.contentType);
+    const s = Xs(t.contentType);
     e += `${i ? "_" : ""}${s}_c${t.channels}`;
   }
   return e;
 }
-const Zs = ["NONE", "TYPE-0", "TYPE-1", null];
+const Qs = ["NONE", "TYPE-0", "TYPE-1", null];
 function lp(n) {
-  return Zs.indexOf(n) > -1;
+  return Qs.indexOf(n) > -1;
 }
-const Cn = ["SDR", "PQ", "HLG"];
+const Dn = ["SDR", "PQ", "HLG"];
 function cp(n) {
-  return !!n && Cn.indexOf(n) > -1;
+  return !!n && Dn.indexOf(n) > -1;
 }
-var yn = {
+var vn = {
   No: "",
   Yes: "YES",
   v2: "v2"
 };
-function Ka(n) {
+function Va(n) {
   const {
     canSkipUntil: e,
     canSkipDateRanges: t,
     age: i
   } = n, s = i < e / 2;
-  return e && s ? t ? yn.v2 : yn.Yes : yn.No;
+  return e && s ? t ? vn.v2 : vn.Yes : vn.No;
 }
-class za {
+class Ka {
   constructor(e, t, i) {
     this.msn = void 0, this.part = void 0, this.skip = void 0, this.msn = e, this.part = t, this.skip = i;
   }
@@ -3847,10 +3847,10 @@ class Mi {
     return this.url[0] || "";
   }
   hasAudioGroup(e) {
-    return Ha(this._audioGroups, e);
+    return za(this._audioGroups, e);
   }
   hasSubtitleGroup(e) {
-    return Ha(this._subtitleGroups, e);
+    return za(this._subtitleGroups, e);
   }
   get audioGroups() {
     return this._audioGroups;
@@ -3892,7 +3892,7 @@ class Mi {
   addFallback() {
   }
 }
-function Ha(n, e) {
+function za(n, e) {
   return !e || !n ? !1 : n.indexOf(e) !== -1;
 }
 function dp() {
@@ -3906,7 +3906,7 @@ function dp() {
 function up(n, e) {
   let t = !1, i = [];
   if (n && (t = n !== "SDR", i = [n]), e) {
-    i = e.allowedVideoRanges || Cn.slice(0);
+    i = e.allowedVideoRanges || Dn.slice(0);
     const s = i.join("") !== "SDR" && !e.videoCodec;
     t = e.preferHDR !== void 0 ? e.preferHDR : s && dp(), t || (i = ["SDR"]);
   }
@@ -3935,41 +3935,41 @@ function fp(n, e, t, i, s) {
   } = up(e, s);
   for (let k = r.length; k--; ) {
     const I = n[r[k]];
-    u || (u = I.channels[2] > 0), f = Math.min(f, I.minHeight), p = Math.min(p, I.minFramerate), g = Math.min(g, I.minBitrate), x.filter((C) => I.videoRanges[C] > 0).length > 0 && (h = !0);
+    u || (u = I.channels[2] > 0), f = Math.min(f, I.minHeight), p = Math.min(p, I.minFramerate), g = Math.min(g, I.minBitrate), x.filter((M) => I.videoRanges[M] > 0).length > 0 && (h = !0);
   }
-  f = Y(f) ? f : 0, p = Y(p) ? p : 0;
+  f = X(f) ? f : 0, p = X(p) ? p : 0;
   const E = Math.max(1080, f), S = Math.max(30, p);
-  g = Y(g) ? g : t, t = Math.max(g, t), h || (e = void 0);
-  const w = r.length > 1;
+  g = X(g) ? g : t, t = Math.max(g, t), h || (e = void 0);
+  const A = r.length > 1;
   return {
     codecSet: r.reduce((k, I) => {
-      const A = n[I];
+      const w = n[I];
       if (I === k)
         return k;
-      if (v = h ? x.filter((C) => A.videoRanges[C] > 0) : [], w) {
-        if (A.minBitrate > t)
-          return rt(I, `min bitrate of ${A.minBitrate} > current estimate of ${t}`), k;
-        if (!A.hasDefaultAudio)
-          return rt(I, "no renditions with default or auto-select sound found"), k;
+      if (v = h ? x.filter((M) => w.videoRanges[M] > 0) : [], A) {
+        if (w.minBitrate > t)
+          return at(I, `min bitrate of ${w.minBitrate} > current estimate of ${t}`), k;
+        if (!w.hasDefaultAudio)
+          return at(I, "no renditions with default or auto-select sound found"), k;
         if (o && I.indexOf(o.substring(0, 4)) % 5 !== 0)
-          return rt(I, `audio codec preference "${o}" not found`), k;
+          return at(I, `audio codec preference "${o}" not found`), k;
         if (a && !c) {
-          if (!A.channels[a])
-            return rt(I, `no renditions with ${a} channel sound found (channels options: ${Object.keys(A.channels)})`), k;
-        } else if ((!o || c) && u && A.channels[2] === 0)
-          return rt(I, "no renditions with stereo sound found"), k;
-        if (A.minHeight > E)
-          return rt(I, `min resolution of ${A.minHeight} > maximum of ${E}`), k;
-        if (A.minFramerate > S)
-          return rt(I, `min framerate of ${A.minFramerate} > maximum of ${S}`), k;
-        if (!v.some((C) => A.videoRanges[C] > 0))
-          return rt(I, `no variants with VIDEO-RANGE of ${ve(v)} found`), k;
+          if (!w.channels[a])
+            return at(I, `no renditions with ${a} channel sound found (channels options: ${Object.keys(w.channels)})`), k;
+        } else if ((!o || c) && u && w.channels[2] === 0)
+          return at(I, "no renditions with stereo sound found"), k;
+        if (w.minHeight > E)
+          return at(I, `min resolution of ${w.minHeight} > maximum of ${E}`), k;
+        if (w.minFramerate > S)
+          return at(I, `min framerate of ${w.minFramerate} > maximum of ${S}`), k;
+        if (!v.some((M) => w.videoRanges[M] > 0))
+          return at(I, `no variants with VIDEO-RANGE of ${ve(v)} found`), k;
         if (d && I.indexOf(d.substring(0, 4)) % 5 !== 0)
-          return rt(I, `video codec preference "${d}" not found`), k;
-        if (A.maxScore < m)
-          return rt(I, `max score of ${A.maxScore} < selected max of ${m}`), k;
+          return at(I, `video codec preference "${d}" not found`), k;
+        if (w.maxScore < m)
+          return at(I, `max score of ${w.maxScore} < selected max of ${m}`), k;
       }
-      return k && (Rn(I) >= Rn(k) || A.fragmentError > n[k].fragmentError) ? k : (_ = A.minIndex, m = A.maxScore, I);
+      return k && (Ln(I) >= Ln(k) || w.fragmentError > n[k].fragmentError) ? k : (_ = w.minIndex, m = w.maxScore, I);
     }, void 0),
     videoRanges: v,
     preferHDR: b,
@@ -3978,7 +3978,7 @@ function fp(n, e, t, i, s) {
     minIndex: _
   };
 }
-function rt(n, e) {
+function at(n, e) {
   pe.log(`[abr] start candidates with "${n}" ignored because ${e}`);
 }
 function kc(n) {
@@ -4032,7 +4032,7 @@ function pp(n, e, t, i) {
     }), s;
   }, {});
 }
-function ja(n) {
+function Ha(n) {
   if (!n)
     return n;
   const {
@@ -4050,7 +4050,7 @@ function ja(n) {
     audioCodec: r
   };
 }
-function dt(n, e, t) {
+function ut(n, e, t) {
   if ("attrs" in n) {
     const i = e.indexOf(n);
     if (i !== -1)
@@ -4058,12 +4058,12 @@ function dt(n, e, t) {
   }
   for (let i = 0; i < e.length; i++) {
     const s = e[i];
-    if (jt(n, s, t))
+    if (Wt(n, s, t))
       return i;
   }
   return -1;
 }
-function jt(n, e, t) {
+function Wt(n, e, t) {
   const {
     groupId: i,
     name: s,
@@ -4080,7 +4080,7 @@ function mp(n, e = "") {
   const t = n.split(","), i = e.split(",");
   return t.length === i.length && !t.some((s) => i.indexOf(s) === -1);
 }
-function Kt(n, e) {
+function zt(n, e) {
   const {
     audioCodec: t,
     channels: i
@@ -4093,18 +4093,18 @@ function _p(n, e, t, i, s) {
     return (f[_] || (f[_] = [])).push(g), f;
   }, {})[r.uri];
   o.length > 1 && (i = Math.max.apply(Math, o));
-  const d = r.videoRange, c = r.frameRate, u = r.codecSet.substring(0, 4), h = Wa(e, i, (f) => {
+  const d = r.videoRange, c = r.frameRate, u = r.codecSet.substring(0, 4), h = ja(e, i, (f) => {
     if (f.videoRange !== d || f.frameRate !== c || f.codecSet.substring(0, 4) !== u)
       return !1;
     const p = f.audioGroups, g = t.filter((_) => !p || p.indexOf(_.groupId) !== -1);
-    return dt(n, g, s) > -1;
+    return ut(n, g, s) > -1;
   });
-  return h > -1 ? h : Wa(e, i, (f) => {
+  return h > -1 ? h : ja(e, i, (f) => {
     const p = f.audioGroups, g = t.filter((_) => !p || p.indexOf(_.groupId) !== -1);
-    return dt(n, g, s) > -1;
+    return ut(n, g, s) > -1;
   });
 }
-function Wa(n, e, t) {
+function ja(n, e, t) {
   for (let i = e; i > -1; i--)
     if (t(n[i]))
       return i;
@@ -4113,7 +4113,7 @@ function Wa(n, e, t) {
       return i;
   return -1;
 }
-function Pn(n, e) {
+function Cn(n, e) {
   var t;
   return !!n && n !== ((t = e.loadLevelObj) == null ? void 0 : t.uri);
 }
@@ -4147,46 +4147,46 @@ class vp extends Qe {
       const x = this.bwEstimator.getEstimateTTFB(), E = Math.abs(d.playbackRate);
       if (f <= Math.max(x, 1e3 * (h / (E * 2))))
         return;
-      const S = b ? b.len / E : 0, w = u.loading.first ? u.loading.first - u.loading.start : -1, T = u.loaded && w > -1, k = this.getBwEstimate(), I = a.levels, A = I[g], C = Math.max(u.loaded, Math.round(h * (s.bitrate || A.averageBitrate) / 8));
-      let M = T ? f - w : f;
-      M < 1 && T && (M = Math.min(f, u.loaded * 8 / k));
-      const B = T ? u.loaded * 1e3 / M : 0, H = x / 1e3, U = B ? (C - u.loaded) / B : C * 8 / k + H;
+      const S = b ? b.len / E : 0, A = u.loading.first ? u.loading.first - u.loading.start : -1, T = u.loaded && A > -1, k = this.getBwEstimate(), I = a.levels, w = I[g], M = Math.max(u.loaded, Math.round(h * (s.bitrate || w.averageBitrate) / 8));
+      let P = T ? f - A : f;
+      P < 1 && T && (P = Math.min(f, u.loaded * 8 / k));
+      const B = T ? u.loaded * 1e3 / P : 0, H = x / 1e3, U = B ? (M - u.loaded) / B : M * 8 / k + H;
       if (U <= S)
         return;
       const R = B ? B * 8 : k, N = ((i = t?.details || this.hls.latestLevelDetails) == null ? void 0 : i.live) === !0, L = this.hls.config.abrBandWidthUpFactor;
-      let O = Number.POSITIVE_INFINITY, G;
-      for (G = g - 1; G > p; G--) {
-        const q = I[G].maxBitrate, j = !I[G].details || N;
-        if (O = this.getTimeToLoadFrag(H, R, h * q, j), O < Math.min(S, h + H))
+      let O = Number.POSITIVE_INFINITY, V;
+      for (V = g - 1; V > p; V--) {
+        const ie = I[V].maxBitrate, j = !I[V].details || N;
+        if (O = this.getTimeToLoadFrag(H, R, h * ie, j), O < Math.min(S, h + H))
           break;
       }
       if (O >= U || O > h * 10)
         return;
-      T ? this.bwEstimator.sample(f - Math.min(x, w), u.loaded) : this.bwEstimator.sampleTTFB(f);
-      const $ = I[G].maxBitrate;
+      T ? this.bwEstimator.sample(f - Math.min(x, A), u.loaded) : this.bwEstimator.sampleTTFB(f);
+      const $ = I[V].maxBitrate;
       this.getBwEstimate() * L > $ && this.resetEstimator($);
-      const K = this.findBestLevel($, p, G, 0, S, 1, 1);
-      K > -1 && (G = K), this.warn(`Fragment ${s.sn}${r ? " part " + r.index : ""} of level ${g} is loading too slowly;
+      const K = this.findBestLevel($, p, V, 0, S, 1, 1);
+      K > -1 && (V = K), this.warn(`Fragment ${s.sn}${r ? " part " + r.index : ""} of level ${g} is loading too slowly;
       Fragment duration: ${s.duration.toFixed(3)}
       Time to underbuffer: ${S.toFixed(3)} s
       Estimated load time for current fragment: ${U.toFixed(3)} s
       Estimated load time for down switch fragment: ${O.toFixed(3)} s
-      TTFB estimate: ${w | 0} ms
-      Current BW estimate: ${Y(k) ? k | 0 : "Unknown"} bps
+      TTFB estimate: ${A | 0} ms
+      Current BW estimate: ${X(k) ? k | 0 : "Unknown"} bps
       New BW estimate: ${this.getBwEstimate() | 0} bps
-      Switching to level ${G} @ ${$ | 0} bps`), a.nextLoadLevel = a.nextAutoLevel = G, this.clearTimer();
-      const ie = () => {
-        if (this.clearTimer(), this.fragCurrent === s && this.hls.loadLevel === G && G > 0) {
-          const q = this.getStarvationDelay();
-          if (this.warn(`Aborting inflight request ${G > 0 ? "and switching down" : ""}
+      Switching to level ${V} @ ${$ | 0} bps`), a.nextLoadLevel = a.nextAutoLevel = V, this.clearTimer();
+      const Y = () => {
+        if (this.clearTimer(), this.fragCurrent === s && this.hls.loadLevel === V && V > 0) {
+          const ie = this.getStarvationDelay();
+          if (this.warn(`Aborting inflight request ${V > 0 ? "and switching down" : ""}
       Fragment duration: ${s.duration.toFixed(3)} s
-      Time to underbuffer: ${q.toFixed(3)} s`), s.abortRequests(), this.fragCurrent = this.partCurrent = null, G > p) {
-            let j = this.findBestLevel(this.hls.levels[p].bitrate, p, G, 0, q, 1, 1);
+      Time to underbuffer: ${ie.toFixed(3)} s`), s.abortRequests(), this.fragCurrent = this.partCurrent = null, V > p) {
+            let j = this.findBestLevel(this.hls.levels[p].bitrate, p, V, 0, ie, 1, 1);
             j === -1 && (j = p), this.hls.nextLoadLevel = this.hls.nextAutoLevel = j, this.resetEstimator(this.hls.levels[j].bitrate);
           }
         }
       };
-      m || U > O * 2 ? ie() : this.timer = self.setInterval(ie, O * 1e3), a.trigger(y.FRAG_LOAD_EMERGENCY_ABORTED, {
+      m || U > O * 2 ? Y() : this.timer = self.setInterval(Y, O * 1e3), a.trigger(y.FRAG_LOAD_EMERGENCY_ABORTED, {
         frag: s,
         part: r,
         stats: u
@@ -4240,11 +4240,11 @@ class vp extends Qe {
   onError(e, t) {
     if (!t.fatal)
       switch (t.details) {
-        case P.BUFFER_ADD_CODEC_ERROR:
-        case P.BUFFER_APPEND_ERROR:
+        case C.BUFFER_ADD_CODEC_ERROR:
+        case C.BUFFER_APPEND_ERROR:
           this.lastLoadedFragLevel = -1, this.firstSelection = -1;
           break;
-        case P.FRAG_LOAD_TIMEOUT: {
+        case C.FRAG_LOAD_TIMEOUT: {
           const i = t.frag, {
             fragCurrent: s,
             partCurrent: r
@@ -4269,14 +4269,14 @@ class vp extends Qe {
     const i = this.hls.config, {
       loading: s
     } = t.stats, r = s.end - s.first;
-    Y(r) && (this.lastLevelLoadSec = r / 1e3), t.details.live ? this.bwEstimator.update(i.abrEwmaSlowLive, i.abrEwmaFastLive) : this.bwEstimator.update(i.abrEwmaSlowVoD, i.abrEwmaFastVoD), this.timer > -1 && this._abandonRulesCheck(t.levelInfo);
+    X(r) && (this.lastLevelLoadSec = r / 1e3), t.details.live ? this.bwEstimator.update(i.abrEwmaSlowLive, i.abrEwmaFastLive) : this.bwEstimator.update(i.abrEwmaSlowVoD, i.abrEwmaFastVoD), this.timer > -1 && this._abandonRulesCheck(t.levelInfo);
   }
   onFragLoaded(e, {
     frag: t,
     part: i
   }) {
     const s = i ? i.stats : t.stats;
-    if (t.type === Q.MAIN && this.bwEstimator.sampleTTFB(s.loading.first - s.loading.start), !this.ignoreFragment(t)) {
+    if (t.type === Z.MAIN && this.bwEstimator.sampleTTFB(s.loading.first - s.loading.start), !this.ignoreFragment(t)) {
       if (this.clearTimer(), t.level === this._nextAutoLevel && (this._nextAutoLevel = -1), this.firstSelection = -1, this.hls.config.abrMaxWithRealBitrate) {
         const r = i ? i.duration : t.duration, a = this.hls.levels[t.level], o = (a.loaded ? a.loaded.bytes : 0) + s.loaded, d = (a.loaded ? a.loaded.duration : 0) + r;
         a.loaded = {
@@ -4307,7 +4307,7 @@ class vp extends Qe {
     this.bwEstimator.sample(a, r.loaded), r.bwEstimate = this.getBwEstimate(), i.bitrateTest ? this.bitrateTestDelay = a / 1e3 : this.bitrateTestDelay = 0;
   }
   ignoreFragment(e) {
-    return e.type !== Q.MAIN || e.sn === "initSegment";
+    return e.type !== Z.MAIN || e.sn === "initSegment";
   }
   clearTimer() {
     this.timer > -1 && (self.clearInterval(this.timer), this.timer = -1);
@@ -4395,27 +4395,27 @@ class vp extends Qe {
     if (g.length === 1)
       return 0;
     const b = g[h], x = !!((d = this.hls.latestLevelDetails) != null && d.live), E = m === -1 || u === -1;
-    let S, w = "SDR", T = b?.frameRate || 0;
+    let S, A = "SDR", T = b?.frameRate || 0;
     const {
       audioPreference: k,
       videoPreference: I
-    } = v, A = this.audioTracksByGroup || (this.audioTracksByGroup = kc(_));
-    let C = -1;
+    } = v, w = this.audioTracksByGroup || (this.audioTracksByGroup = kc(_));
+    let M = -1;
     if (E) {
       if (this.firstSelection !== -1)
         return this.firstSelection;
-      const R = this.codecTiers || (this.codecTiers = pp(g, A, t, i)), N = fp(R, w, e, k, I), {
+      const R = this.codecTiers || (this.codecTiers = pp(g, w, t, i)), N = fp(R, A, e, k, I), {
         codecSet: L,
         videoRanges: O,
-        minFramerate: G,
+        minFramerate: V,
         minBitrate: $,
         minIndex: K,
-        preferHDR: ie
+        preferHDR: Y
       } = N;
-      C = K, S = L, w = ie ? O[O.length - 1] : O[0], T = G, e = Math.max(e, $), this.log(`picked start tier ${ve(N)}`);
+      M = K, S = L, A = Y ? O[O.length - 1] : O[0], T = V, e = Math.max(e, $), this.log(`picked start tier ${ve(N)}`);
     } else
-      S = b?.codecSet, w = b?.videoRange;
-    const M = p ? p.duration : f ? f.duration : 0, B = this.bwEstimator.getEstimateTTFB() / 1e3, H = [];
+      S = b?.codecSet, A = b?.videoRange;
+    const P = p ? p.duration : f ? f.duration : 0, B = this.bwEstimator.getEstimateTTFB() / 1e3, H = [];
     for (let R = i; R >= t; R--) {
       var U;
       const N = g[R], L = R > h;
@@ -4423,34 +4423,34 @@ class vp extends Qe {
         continue;
       if (v.useMediaCapabilities && !N.supportedResult && !N.supportedPromise) {
         const j = navigator.mediaCapabilities;
-        typeof j?.decodingInfo == "function" && np(N, A, w, T, e, k) ? (N.supportedPromise = Sc(N, A, j, this.supportedCache), N.supportedPromise.then((Z) => {
+        typeof j?.decodingInfo == "function" && np(N, w, A, T, e, k) ? (N.supportedPromise = Sc(N, w, j, this.supportedCache), N.supportedPromise.then((q) => {
           if (!this.hls)
             return;
-          N.supportedResult = Z;
-          const ee = this.hls.levels, re = ee.indexOf(N);
-          Z.error ? this.warn(`MediaCapabilities decodingInfo error: "${Z.error}" for level ${re} ${ve(Z)}`) : Z.supported ? Z.decodingInfoResults.some((Se) => Se.smooth === !1 || Se.powerEfficient === !1) && this.log(`MediaCapabilities decodingInfo for level ${re} not smooth or powerEfficient: ${ve(Z)}`) : (this.warn(`Unsupported MediaCapabilities decodingInfo result for level ${re} ${ve(Z)}`), re > -1 && ee.length > 1 && (this.log(`Removing unsupported level ${re}`), this.hls.removeLevel(re), this.hls.loadLevel === -1 && (this.hls.nextLoadLevel = 0)));
-        }).catch((Z) => {
-          this.warn(`Error handling MediaCapabilities decodingInfo: ${Z}`);
+          N.supportedResult = q;
+          const te = this.hls.levels, ae = te.indexOf(N);
+          q.error ? this.warn(`MediaCapabilities decodingInfo error: "${q.error}" for level ${ae} ${ve(q)}`) : q.supported ? q.decodingInfoResults.some((Se) => Se.smooth === !1 || Se.powerEfficient === !1) && this.log(`MediaCapabilities decodingInfo for level ${ae} not smooth or powerEfficient: ${ve(q)}`) : (this.warn(`Unsupported MediaCapabilities decodingInfo result for level ${ae} ${ve(q)}`), ae > -1 && te.length > 1 && (this.log(`Removing unsupported level ${ae}`), this.hls.removeLevel(ae), this.hls.loadLevel === -1 && (this.hls.nextLoadLevel = 0)));
+        }).catch((q) => {
+          this.warn(`Error handling MediaCapabilities decodingInfo: ${q}`);
         })) : N.supportedResult = xc;
       }
-      if ((S && N.codecSet !== S || w && N.videoRange !== w || L && T > N.frameRate || !L && T > 0 && T < N.frameRate || (U = N.supportedResult) != null && (U = U.decodingInfoResults) != null && U.some((j) => j.smooth === !1)) && (!E || R !== C)) {
+      if ((S && N.codecSet !== S || A && N.videoRange !== A || L && T > N.frameRate || !L && T > 0 && T < N.frameRate || (U = N.supportedResult) != null && (U = U.decodingInfoResults) != null && U.some((j) => j.smooth === !1)) && (!E || R !== M)) {
         H.push(R);
         continue;
       }
-      const O = N.details, G = (p ? O?.partTarget : O?.averagetargetduration) || M;
+      const O = N.details, V = (p ? O?.partTarget : O?.averagetargetduration) || P;
       let $;
       L ? $ = o * e : $ = a * e;
-      const K = M && s >= M * 2 && r === 0 ? N.averageBitrate : N.maxBitrate, ie = this.getTimeToLoadFrag(B, $, K * G, O === void 0);
+      const K = P && s >= P * 2 && r === 0 ? N.averageBitrate : N.maxBitrate, Y = this.getTimeToLoadFrag(B, $, K * V, O === void 0);
       if (
         // if adjusted bw is greater than level bitrate AND
         $ >= K && // no level change, or new level has no error history
         (R === u || N.loadError === 0 && N.fragmentError === 0) && // fragment fetchDuration unknown OR live stream OR fragment fetchDuration less than max allowed fetch duration, then this level matches
         // we don't account for max Fetch Duration for live streams, this is to avoid switching down when near the edge of live sliding window ...
         // special case to support startLevel = -1 (bitrateTest) on live streams : in that case we should not exit loop so that findBestLevel will return -1
-        (ie <= B || !Y(ie) || x && !this.bitrateTestDelay || ie < c)
+        (Y <= B || !X(Y) || x && !this.bitrateTestDelay || Y < c)
       ) {
         const j = this.forcedAutoLevel;
-        return R !== m && (j === -1 || j !== m) && (H.length && this.trace(`Skipped level(s) ${H.join(",")} of ${i} max with CODECS and VIDEO-RANGE:"${g[H[0]].codecs}" ${g[H[0]].videoRange}; not compatible with "${S}" ${w}`), this.info(`switch candidate:${h}->${R} adjustedbw(${Math.round($)})-bitrate=${Math.round($ - K)} ttfb:${B.toFixed(1)} avgDuration:${G.toFixed(1)} maxFetchDuration:${c.toFixed(1)} fetchDuration:${ie.toFixed(1)} firstSelection:${E} codecSet:${N.codecSet} videoRange:${N.videoRange} hls.loadLevel:${m}`)), E && (this.firstSelection = R), R;
+        return R !== m && (j === -1 || j !== m) && (H.length && this.trace(`Skipped level(s) ${H.join(",")} of ${i} max with CODECS and VIDEO-RANGE:"${g[H[0]].codecs}" ${g[H[0]].videoRange}; not compatible with "${S}" ${A}`), this.info(`switch candidate:${h}->${R} adjustedbw(${Math.round($)})-bitrate=${Math.round($ - K)} ttfb:${B.toFixed(1)} avgDuration:${V.toFixed(1)} maxFetchDuration:${c.toFixed(1)} fetchDuration:${Y.toFixed(1)} firstSelection:${E} codecSet:${N.codecSet} videoRange:${N.videoRange} hls.loadLevel:${m}`)), E && (this.firstSelection = R), R;
       }
     }
     return -1;
@@ -4499,7 +4499,7 @@ const wc = {
   }
 };
 function yp(n, e, t) {
-  if (e === null || !Array.isArray(n) || !n.length || !Y(e))
+  if (e === null || !Array.isArray(n) || !n.length || !X(e))
     return null;
   const i = n[0].programDateTime;
   if (e < (i || 0))
@@ -4514,16 +4514,16 @@ function yp(n, e, t) {
   }
   return null;
 }
-function Wt(n, e, t = 0, i = 0, s = 5e-3) {
+function Yt(n, e, t = 0, i = 0, s = 5e-3) {
   let r = null;
   if (n) {
     r = e[1 + n.sn - e[0].sn] || null;
     const o = n.endDTS - t;
     o > 0 && o < 15e-7 && (t += 15e-7), r && n.level !== r.level && r.end <= n.end && (r = e[2 + n.sn - e[0].sn] || null);
   } else t === 0 && e[0].start === 0 && (r = e[0]);
-  if (r && ((!n || n.level === r.level) && Ya(t, i, r) === 0 || bp(r, n, Math.min(s, i))))
+  if (r && ((!n || n.level === r.level) && Wa(t, i, r) === 0 || bp(r, n, Math.min(s, i))))
     return r;
-  const a = wc.search(e, Ya.bind(null, t, i));
+  const a = wc.search(e, Wa.bind(null, t, i));
   return a && (a !== n || !r) ? a : r;
 }
 function bp(n, e, t) {
@@ -4533,7 +4533,7 @@ function bp(n, e, t) {
   }
   return !1;
 }
-function Ya(n = 0, e = 0, t) {
+function Wa(n = 0, e = 0, t) {
   if (t.start <= n && t.start + t.duration > n)
     return 0;
   const i = Math.min(e, t.duration + (t.deltaPTS ? t.deltaPTS : 0));
@@ -4555,12 +4555,12 @@ function Ac(n, e, t) {
   }
   return null;
 }
-function Mn(n) {
+function Pn(n) {
   switch (n.details) {
-    case P.FRAG_LOAD_TIMEOUT:
-    case P.KEY_LOAD_TIMEOUT:
-    case P.LEVEL_LOAD_TIMEOUT:
-    case P.MANIFEST_LOAD_TIMEOUT:
+    case C.FRAG_LOAD_TIMEOUT:
+    case C.KEY_LOAD_TIMEOUT:
+    case C.LEVEL_LOAD_TIMEOUT:
+    case C.MANIFEST_LOAD_TIMEOUT:
       return !0;
   }
   return !1;
@@ -4571,30 +4571,30 @@ function Ic(n) {
 function Lc(n) {
   return Ic(n) && !!n.frag && !n.frag.decryptdata;
 }
-function qa(n, e) {
-  const t = Mn(e);
+function Ya(n, e) {
+  const t = Pn(e);
   return n.default[`${t ? "timeout" : "error"}Retry`];
 }
-function Ur(n, e) {
+function Br(n, e) {
   const t = n.backoff === "linear" ? 1 : Math.pow(2, e);
   return Math.min(t * n.retryDelayMs, n.maxRetryDelayMs);
 }
-function Xa(n) {
+function qa(n) {
   return fe(fe({}, n), {
     errorRetry: null,
     timeoutRetry: null
   });
 }
-function On(n, e, t, i) {
+function Mn(n, e, t, i) {
   if (!n)
     return !1;
   const s = i?.code, r = e < n.maxNumRetry && (Ep(s) || !!t);
   return n.shouldRetry ? n.shouldRetry(n, e, t, i, r) : r;
 }
 function Ep(n) {
-  return Js(n) || !!n && (n < 400 || n > 499);
+  return Zs(n) || !!n && (n < 400 || n > 499);
 }
-function Js(n) {
+function Zs(n) {
   return n === 0 && navigator.onLine === !1;
 }
 var Pe = {
@@ -4629,7 +4629,7 @@ class Sp extends Qe {
     this.playlistError = 0;
   }
   getVariantLevelIndex(e) {
-    return e?.type === Q.MAIN ? e.level : this.getVariantIndex();
+    return e?.type === Z.MAIN ? e.level : this.getVariantIndex();
   }
   getVariantIndex() {
     var e;
@@ -4662,39 +4662,39 @@ class Sp extends Qe {
       return;
     const s = this.hls, r = t.context;
     switch (t.details) {
-      case P.FRAG_LOAD_ERROR:
-      case P.FRAG_LOAD_TIMEOUT:
-      case P.KEY_LOAD_ERROR:
-      case P.KEY_LOAD_TIMEOUT:
+      case C.FRAG_LOAD_ERROR:
+      case C.FRAG_LOAD_TIMEOUT:
+      case C.KEY_LOAD_ERROR:
+      case C.KEY_LOAD_TIMEOUT:
         t.errorAction = this.getFragRetryOrSwitchAction(t);
         return;
-      case P.FRAG_PARSING_ERROR:
+      case C.FRAG_PARSING_ERROR:
         if ((i = t.frag) != null && i.gap) {
           t.errorAction = di();
           return;
         }
       // falls through
-      case P.FRAG_GAP:
-      case P.FRAG_DECRYPT_ERROR: {
+      case C.FRAG_GAP:
+      case C.FRAG_DECRYPT_ERROR: {
         t.errorAction = this.getFragRetryOrSwitchAction(t), t.errorAction.action = Pe.SendAlternateToPenaltyBox;
         return;
       }
-      case P.LEVEL_EMPTY_ERROR:
-      case P.LEVEL_PARSING_ERROR:
+      case C.LEVEL_EMPTY_ERROR:
+      case C.LEVEL_PARSING_ERROR:
         {
           var a;
-          const d = t.parent === Q.MAIN ? t.level : s.loadLevel;
-          t.details === P.LEVEL_EMPTY_ERROR && ((a = t.context) != null && (a = a.levelDetails) != null && a.live) ? t.errorAction = this.getPlaylistRetryOrSwitchAction(t, d) : (t.levelRetry = !1, t.errorAction = this.getLevelSwitchAction(t, d));
+          const d = t.parent === Z.MAIN ? t.level : s.loadLevel;
+          t.details === C.LEVEL_EMPTY_ERROR && ((a = t.context) != null && (a = a.levelDetails) != null && a.live) ? t.errorAction = this.getPlaylistRetryOrSwitchAction(t, d) : (t.levelRetry = !1, t.errorAction = this.getLevelSwitchAction(t, d));
         }
         return;
-      case P.LEVEL_LOAD_ERROR:
-      case P.LEVEL_LOAD_TIMEOUT:
+      case C.LEVEL_LOAD_ERROR:
+      case C.LEVEL_LOAD_TIMEOUT:
         typeof r?.level == "number" && (t.errorAction = this.getPlaylistRetryOrSwitchAction(t, r.level));
         return;
-      case P.AUDIO_TRACK_LOAD_ERROR:
-      case P.AUDIO_TRACK_LOAD_TIMEOUT:
-      case P.SUBTITLE_LOAD_ERROR:
-      case P.SUBTITLE_TRACK_LOAD_TIMEOUT:
+      case C.AUDIO_TRACK_LOAD_ERROR:
+      case C.AUDIO_TRACK_LOAD_TIMEOUT:
+      case C.SUBTITLE_LOAD_ERROR:
+      case C.SUBTITLE_TRACK_LOAD_TIMEOUT:
         if (r) {
           const d = s.loadLevelObj;
           if (d && (r.type === oe.AUDIO_TRACK && d.hasAudioGroup(r.groupId) || r.type === oe.SUBTITLE_TRACK && d.hasSubtitleGroup(r.groupId))) {
@@ -4703,43 +4703,43 @@ class Sp extends Qe {
           }
         }
         return;
-      case P.KEY_SYSTEM_STATUS_OUTPUT_RESTRICTED:
+      case C.KEY_SYSTEM_STATUS_OUTPUT_RESTRICTED:
         t.errorAction = {
           action: Pe.SendAlternateToPenaltyBox,
           flags: He.MoveAllAlternatesMatchingHDCP
         };
         return;
-      case P.KEY_SYSTEM_SESSION_UPDATE_FAILED:
-      case P.KEY_SYSTEM_STATUS_INTERNAL_ERROR:
-      case P.KEY_SYSTEM_NO_SESSION:
+      case C.KEY_SYSTEM_SESSION_UPDATE_FAILED:
+      case C.KEY_SYSTEM_STATUS_INTERNAL_ERROR:
+      case C.KEY_SYSTEM_NO_SESSION:
         t.errorAction = {
           action: Pe.SendAlternateToPenaltyBox,
           flags: He.MoveAllAlternatesMatchingKey
         };
         return;
-      case P.BUFFER_ADD_CODEC_ERROR:
-      case P.REMUX_ALLOC_ERROR:
-      case P.BUFFER_APPEND_ERROR:
+      case C.BUFFER_ADD_CODEC_ERROR:
+      case C.REMUX_ALLOC_ERROR:
+      case C.BUFFER_APPEND_ERROR:
         if (!t.errorAction) {
           var o;
           t.errorAction = this.getLevelSwitchAction(t, (o = t.level) != null ? o : s.loadLevel);
         }
         return;
-      case P.INTERNAL_EXCEPTION:
-      case P.BUFFER_APPENDING_ERROR:
-      case P.BUFFER_FULL_ERROR:
-      case P.LEVEL_SWITCH_ERROR:
-      case P.BUFFER_STALLED_ERROR:
-      case P.BUFFER_SEEK_OVER_HOLE:
-      case P.BUFFER_NUDGE_ON_STALL:
+      case C.INTERNAL_EXCEPTION:
+      case C.BUFFER_APPENDING_ERROR:
+      case C.BUFFER_FULL_ERROR:
+      case C.LEVEL_SWITCH_ERROR:
+      case C.BUFFER_STALLED_ERROR:
+      case C.BUFFER_SEEK_OVER_HOLE:
+      case C.BUFFER_NUDGE_ON_STALL:
         t.errorAction = di();
         return;
     }
     t.type === J.KEY_SYSTEM_ERROR && (t.levelRetry = !1, t.errorAction = di());
   }
   getPlaylistRetryOrSwitchAction(e, t) {
-    const i = this.hls, s = qa(i.config.playlistLoadPolicy, e), r = this.playlistError++;
-    if (On(s, r, Mn(e), e.response))
+    const i = this.hls, s = Ya(i.config.playlistLoadPolicy, e), r = this.playlistError++;
+    if (Mn(s, r, Pn(e), e.response))
       return {
         action: Pe.RetryRequest,
         flags: He.None,
@@ -4753,8 +4753,8 @@ class Sp extends Qe {
     const t = this.hls, i = this.getVariantLevelIndex(e.frag), s = t.levels[i], {
       fragLoadPolicy: r,
       keyLoadPolicy: a
-    } = t.config, o = qa(Ic(e) ? a : r, e), d = t.levels.reduce((u, h) => u + h.fragmentError, 0);
-    if (s && (e.details !== P.FRAG_GAP && s.fragmentError++, !Lc(e) && On(o, d, Mn(e), e.response)))
+    } = t.config, o = Ya(Ic(e) ? a : r, e), d = t.levels.reduce((u, h) => u + h.fragmentError, 0);
+    if (s && (e.details !== C.FRAG_GAP && s.fragmentError++, !Lc(e) && Mn(o, d, Pn(e), e.response)))
       return {
         action: Pe.RetryRequest,
         flags: He.None,
@@ -4771,7 +4771,7 @@ class Sp extends Qe {
     if (s) {
       var r, a;
       const c = e.details;
-      s.loadError++, c === P.BUFFER_APPEND_ERROR && s.fragmentError++;
+      s.loadError++, c === C.BUFFER_APPEND_ERROR && s.fragmentError++;
       let u = -1;
       const {
         levels: h,
@@ -4780,31 +4780,31 @@ class Sp extends Qe {
         maxAutoLevel: g
       } = i;
       !i.autoLevelEnabled && !i.config.preserveManualLevelOnError && (i.loadLevel = -1);
-      const _ = (r = e.frag) == null ? void 0 : r.type, v = (_ === Q.AUDIO && c === P.FRAG_PARSING_ERROR || e.sourceBufferName === "audio" && (c === P.BUFFER_ADD_CODEC_ERROR || c === P.BUFFER_APPEND_ERROR)) && h.some(({
-        audioCodec: w
-      }) => s.audioCodec !== w), x = e.sourceBufferName === "video" && (c === P.BUFFER_ADD_CODEC_ERROR || c === P.BUFFER_APPEND_ERROR) && h.some(({
-        codecSet: w,
+      const _ = (r = e.frag) == null ? void 0 : r.type, v = (_ === Z.AUDIO && c === C.FRAG_PARSING_ERROR || e.sourceBufferName === "audio" && (c === C.BUFFER_ADD_CODEC_ERROR || c === C.BUFFER_APPEND_ERROR)) && h.some(({
+        audioCodec: A
+      }) => s.audioCodec !== A), x = e.sourceBufferName === "video" && (c === C.BUFFER_ADD_CODEC_ERROR || c === C.BUFFER_APPEND_ERROR) && h.some(({
+        codecSet: A,
         audioCodec: T
-      }) => s.codecSet !== w && s.audioCodec === T), {
+      }) => s.codecSet !== A && s.audioCodec === T), {
         type: E,
         groupId: S
       } = (a = e.context) != null ? a : {};
-      for (let w = h.length; w--; ) {
-        const T = (w + f) % h.length;
+      for (let A = h.length; A--; ) {
+        const T = (A + f) % h.length;
         if (T !== f && T >= p && T <= g && h[T].loadError === 0) {
           var o, d;
           const k = h[T];
-          if (c === P.FRAG_GAP && _ === Q.MAIN && e.frag) {
+          if (c === C.FRAG_GAP && _ === Z.MAIN && e.frag) {
             const I = h[T].details;
             if (I) {
-              const A = Wt(e.frag, I.fragments, e.frag.start);
-              if (A != null && A.gap)
+              const w = Yt(e.frag, I.fragments, e.frag.start);
+              if (w != null && w.gap)
                 continue;
             }
           } else {
             if (E === oe.AUDIO_TRACK && k.hasAudioGroup(S) || E === oe.SUBTITLE_TRACK && k.hasSubtitleGroup(S))
               continue;
-            if (_ === Q.AUDIO && (o = s.audioGroups) != null && o.some((I) => k.hasAudioGroup(I)) || _ === Q.SUBTITLE && (d = s.subtitleGroups) != null && d.some((I) => k.hasSubtitleGroup(I)) || v && s.audioCodec === k.audioCodec || x && s.codecSet === k.codecSet || !v && s.codecSet !== k.codecSet)
+            if (_ === Z.AUDIO && (o = s.audioGroups) != null && o.some((I) => k.hasAudioGroup(I)) || _ === Z.SUBTITLE && (d = s.subtitleGroups) != null && d.some((I) => k.hasSubtitleGroup(I)) || v && s.audioCodec === k.audioCodec || x && s.codecSet === k.codecSet || !v && s.codecSet !== k.codecSet)
               continue;
           }
           u = T;
@@ -4829,7 +4829,7 @@ class Sp extends Qe {
       case Pe.DoNothing:
         break;
       case Pe.SendAlternateToPenaltyBox:
-        this.sendAlternateToPenaltyBox(t), !t.errorAction.resolved && t.details !== P.FRAG_GAP ? t.fatal = !0 : /MediaSource readyState: ended/.test(t.error.message) && (this.warn(`MediaSource ended after "${t.sourceBufferName}" sourceBuffer append error. Attempting to recover from media error.`), this.hls.recoverMediaError());
+        this.sendAlternateToPenaltyBox(t), !t.errorAction.resolved && t.details !== C.FRAG_GAP ? t.fatal = !0 : /MediaSource readyState: ended/.test(t.error.message) && (this.warn(`MediaSource ended after "${t.sourceBufferName}" sourceBuffer append error. Attempting to recover from media error.`), this.hls.recoverMediaError());
         break;
     }
     if (t.fatal) {
@@ -4853,7 +4853,7 @@ class Sp extends Qe {
         if (i.hdcpLevel = u, u === "NONE")
           this.warn("HDCP policy resticted output with HDCP-LEVEL=NONE");
         else if (u) {
-          t.maxHdcpLevel = Zs[Zs.indexOf(u) - 1], i.resolved = !0, this.warn(`Restricting playback to HDCP-LEVEL of "${t.maxHdcpLevel}" or lower`);
+          t.maxHdcpLevel = Qs[Qs.indexOf(u) - 1], i.resolved = !0, this.warn(`Restricting playback to HDCP-LEVEL of "${t.maxHdcpLevel}" or lower`);
           break;
         }
       }
@@ -4870,7 +4870,7 @@ class Sp extends Qe {
           const h = e.frag;
           if (this.hls.levels.length < u)
             i.resolved = !0;
-          else if (h && h.type !== Q.MAIN) {
+          else if (h && h.type !== Z.MAIN) {
             const f = h.decryptdata;
             f && !d.matches(f) && (i.resolved = !0);
           }
@@ -4881,8 +4881,8 @@ class Sp extends Qe {
     i.resolved || this.switchLevel(e, r);
   }
   switchLevel(e, t) {
-    if (t !== void 0 && e.errorAction && (this.warn(`switching to level ${t} after ${e.details}`), this.hls.nextAutoLevel = t, e.errorAction.resolved = !0, this.hls.nextLoadLevel = this.hls.nextAutoLevel, e.details === P.BUFFER_ADD_CODEC_ERROR && e.mimeType && e.sourceBufferName !== "audiovideo")) {
-      const i = Qs(e.mimeType), s = this.hls.levels;
+    if (t !== void 0 && e.errorAction && (this.warn(`switching to level ${t} after ${e.details}`), this.hls.nextAutoLevel = t, e.errorAction.resolved = !0, this.hls.nextLoadLevel = this.hls.nextAutoLevel, e.details === C.BUFFER_ADD_CODEC_ERROR && e.mimeType && e.sourceBufferName !== "audiovideo")) {
+      const i = Xs(e.mimeType), s = this.hls.levels;
       for (let r = s.length; r--; )
         s[r][`${e.sourceBufferName}Codec`] === i && (this.log(`Removing level ${r} for ${e.details} ("${i}" not supported)`), this.hls.removeLevel(r));
     }
@@ -5015,7 +5015,7 @@ class Tp {
   }
   removeParts(e, t) {
     const i = this.activePartLists[t];
-    i && (this.activePartLists[t] = Qa(i, (s) => s.fragment.sn >= e));
+    i && (this.activePartLists[t] = Xa(i, (s) => s.fragment.sn >= e));
   }
   fragBuffered(e, t) {
     const i = ii(e);
@@ -5156,7 +5156,7 @@ class Tp {
     const i = this.activePartLists[e.type];
     if (i) {
       const s = e.sn;
-      this.activePartLists[e.type] = Qa(i, (r) => r.fragment.sn !== s);
+      this.activePartLists[e.type] = Xa(i, (r) => r.fragment.sn !== s);
     }
     delete this.fragments[t], e.endList && delete this.endListFragments[e.type];
   }
@@ -5174,13 +5174,13 @@ function Hi(n) {
 function ii(n) {
   return `${n.type}_${n.level}_${n.sn}`;
 }
-function Qa(n, e) {
+function Xa(n, e) {
   return n.filter((t) => {
     const i = e(t);
     return i || t.clearElementaryStreamInfo(), i;
   });
 }
-var Nt = {
+var $t = {
   cbc: 0,
   ctr: 1
 };
@@ -5190,12 +5190,12 @@ class kp {
   }
   decrypt(e, t) {
     switch (this.aesMode) {
-      case Nt.cbc:
+      case $t.cbc:
         return this.subtle.decrypt({
           name: "AES-CBC",
           iv: this.aesIV
         }, t, e);
-      case Nt.ctr:
+      case $t.ctr:
         return this.subtle.decrypt(
           {
             name: "AES-CTR",
@@ -5272,12 +5272,12 @@ class Ap {
     const s = this.keySize + 6, r = this.invKeySchedule, a = this.invSBox, o = this.invSubMix, d = o[0], c = o[1], u = o[2], h = o[3], f = this.uint8ArrayToUint32Array_(i);
     let p = f[0], g = f[1], _ = f[2], m = f[3];
     const v = new Int32Array(e), b = new Int32Array(v.length);
-    let x, E, S, w, T, k, I, A, C, M, B, H, U, R;
+    let x, E, S, A, T, k, I, w, M, P, B, H, U, R;
     const N = this.networkToHostOrderSwap;
     for (; t < v.length; ) {
-      for (C = N(v[t]), M = N(v[t + 1]), B = N(v[t + 2]), H = N(v[t + 3]), T = C ^ r[0], k = H ^ r[1], I = B ^ r[2], A = M ^ r[3], U = 4, R = 1; R < s; R++)
-        x = d[T >>> 24] ^ c[k >> 16 & 255] ^ u[I >> 8 & 255] ^ h[A & 255] ^ r[U], E = d[k >>> 24] ^ c[I >> 16 & 255] ^ u[A >> 8 & 255] ^ h[T & 255] ^ r[U + 1], S = d[I >>> 24] ^ c[A >> 16 & 255] ^ u[T >> 8 & 255] ^ h[k & 255] ^ r[U + 2], w = d[A >>> 24] ^ c[T >> 16 & 255] ^ u[k >> 8 & 255] ^ h[I & 255] ^ r[U + 3], T = x, k = E, I = S, A = w, U = U + 4;
-      x = a[T >>> 24] << 24 ^ a[k >> 16 & 255] << 16 ^ a[I >> 8 & 255] << 8 ^ a[A & 255] ^ r[U], E = a[k >>> 24] << 24 ^ a[I >> 16 & 255] << 16 ^ a[A >> 8 & 255] << 8 ^ a[T & 255] ^ r[U + 1], S = a[I >>> 24] << 24 ^ a[A >> 16 & 255] << 16 ^ a[T >> 8 & 255] << 8 ^ a[k & 255] ^ r[U + 2], w = a[A >>> 24] << 24 ^ a[T >> 16 & 255] << 16 ^ a[k >> 8 & 255] << 8 ^ a[I & 255] ^ r[U + 3], b[t] = N(x ^ p), b[t + 1] = N(w ^ g), b[t + 2] = N(S ^ _), b[t + 3] = N(E ^ m), p = C, g = M, _ = B, m = H, t = t + 4;
+      for (M = N(v[t]), P = N(v[t + 1]), B = N(v[t + 2]), H = N(v[t + 3]), T = M ^ r[0], k = H ^ r[1], I = B ^ r[2], w = P ^ r[3], U = 4, R = 1; R < s; R++)
+        x = d[T >>> 24] ^ c[k >> 16 & 255] ^ u[I >> 8 & 255] ^ h[w & 255] ^ r[U], E = d[k >>> 24] ^ c[I >> 16 & 255] ^ u[w >> 8 & 255] ^ h[T & 255] ^ r[U + 1], S = d[I >>> 24] ^ c[w >> 16 & 255] ^ u[T >> 8 & 255] ^ h[k & 255] ^ r[U + 2], A = d[w >>> 24] ^ c[T >> 16 & 255] ^ u[k >> 8 & 255] ^ h[I & 255] ^ r[U + 3], T = x, k = E, I = S, w = A, U = U + 4;
+      x = a[T >>> 24] << 24 ^ a[k >> 16 & 255] << 16 ^ a[I >> 8 & 255] << 8 ^ a[w & 255] ^ r[U], E = a[k >>> 24] << 24 ^ a[I >> 16 & 255] << 16 ^ a[w >> 8 & 255] << 8 ^ a[T & 255] ^ r[U + 1], S = a[I >>> 24] << 24 ^ a[w >> 16 & 255] << 16 ^ a[T >> 8 & 255] << 8 ^ a[k & 255] ^ r[U + 2], A = a[w >>> 24] << 24 ^ a[T >> 16 & 255] << 16 ^ a[k >> 8 & 255] << 8 ^ a[I & 255] ^ r[U + 3], b[t] = N(x ^ p), b[t + 1] = N(A ^ g), b[t + 2] = N(S ^ _), b[t + 3] = N(E ^ m), p = M, g = P, _ = B, m = H, t = t + 4;
     }
     return b.buffer;
   }
@@ -5295,16 +5295,16 @@ class Ip {
 }
 function Lp(n) {
   switch (n) {
-    case Nt.cbc:
+    case $t.cbc:
       return "AES-CBC";
-    case Nt.ctr:
+    case $t.ctr:
       return "AES-CTR";
     default:
       throw new Error(`[FastAESKey] invalid aes mode ${n}`);
   }
 }
 const Rp = 16;
-class Gr {
+class Ur {
   constructor(e, {
     removePKCS7Padding: t = !0
   } = {}) {
@@ -5351,7 +5351,7 @@ class Gr {
       currentResult: a,
       remainderData: o
     } = this;
-    if (s !== Nt.cbc || t.byteLength !== 16)
+    if (s !== $t.cbc || t.byteLength !== 16)
       return pe.warn("SoftwareDecrypt: can only handle AES-128-CBC"), null;
     this.logOnce("JS AES decrypt"), o && (e = Xe(o, e), this.remainderData = null);
     const d = this.getValidChunk(e);
@@ -5390,7 +5390,7 @@ class Gr {
     this.logEnabled && (pe.log(`[decrypter]: ${e}`), this.logEnabled = !1);
   }
 }
-const Za = Math.pow(2, 17);
+const Qa = Math.pow(2, 17);
 class Dp {
   constructor(e) {
     this.config = void 0, this.loader = null, this.partLoadTimeout = -1, this.config = e;
@@ -5404,9 +5404,9 @@ class Dp {
   load(e, t) {
     const i = e.url;
     if (!i)
-      return Promise.reject(new St({
+      return Promise.reject(new Tt({
         type: J.NETWORK_ERROR,
-        details: P.FRAG_LOAD_ERROR,
+        details: C.FRAG_LOAD_ERROR,
         fatal: !1,
         frag: e,
         error: new Error(`Fragment does not have a ${i ? "part list" : "url"}`),
@@ -5417,19 +5417,19 @@ class Dp {
     return new Promise((o, d) => {
       if (this.loader && this.loader.destroy(), e.gap)
         if (e.tagList.some((g) => g[0] === "GAP")) {
-          d(eo(e));
+          d(Ja(e));
           return;
         } else
           e.gap = !1;
-      const c = this.loader = r ? new r(s) : new a(s), u = Ja(e);
+      const c = this.loader = r ? new r(s) : new a(s), u = Za(e);
       e.loader = c;
-      const h = Xa(s.fragLoadPolicy.default), f = {
+      const h = qa(s.fragLoadPolicy.default), f = {
         loadPolicy: h,
         timeout: h.maxLoadTimeMs,
         maxRetry: 0,
         retryDelay: 0,
         maxRetryDelay: 0,
-        highWaterMark: e.sn === "initSegment" ? 1 / 0 : Za
+        highWaterMark: e.sn === "initSegment" ? 1 / 0 : Qa
       };
       e.stats = c.stats;
       const p = {
@@ -5444,9 +5444,9 @@ class Dp {
           });
         },
         onError: (g, _, m, v) => {
-          this.resetLoader(e, c), d(new St({
+          this.resetLoader(e, c), d(new Tt({
             type: J.NETWORK_ERROR,
-            details: P.FRAG_LOAD_ERROR,
+            details: C.FRAG_LOAD_ERROR,
             fatal: !1,
             frag: e,
             response: fe({
@@ -5459,9 +5459,9 @@ class Dp {
           }));
         },
         onAbort: (g, _, m) => {
-          this.resetLoader(e, c), d(new St({
+          this.resetLoader(e, c), d(new Tt({
             type: J.NETWORK_ERROR,
-            details: P.INTERNAL_ABORTED,
+            details: C.INTERNAL_ABORTED,
             fatal: !1,
             frag: e,
             error: new Error("Aborted"),
@@ -5470,9 +5470,9 @@ class Dp {
           }));
         },
         onTimeout: (g, _, m) => {
-          this.resetLoader(e, c), d(new St({
+          this.resetLoader(e, c), d(new Tt({
             type: J.NETWORK_ERROR,
-            details: P.FRAG_LOAD_TIMEOUT,
+            details: C.FRAG_LOAD_TIMEOUT,
             fatal: !1,
             frag: e,
             error: new Error(`Timeout after ${f.timeout}ms`),
@@ -5494,18 +5494,18 @@ class Dp {
     const s = this.config, r = s.fLoader, a = s.loader;
     return new Promise((o, d) => {
       if (this.loader && this.loader.destroy(), e.gap || t.gap) {
-        d(eo(e, t));
+        d(Ja(e, t));
         return;
       }
-      const c = this.loader = r ? new r(s) : new a(s), u = Ja(e, t);
+      const c = this.loader = r ? new r(s) : new a(s), u = Za(e, t);
       e.loader = c;
-      const h = Xa(s.fragLoadPolicy.default), f = {
+      const h = qa(s.fragLoadPolicy.default), f = {
         loadPolicy: h,
         timeout: h.maxLoadTimeMs,
         maxRetry: 0,
         retryDelay: 0,
         maxRetryDelay: 0,
-        highWaterMark: Za
+        highWaterMark: Qa
       };
       t.stats = c.stats, c.load(u, f, {
         onSuccess: (p, g, _, m) => {
@@ -5519,9 +5519,9 @@ class Dp {
           i(v), o(v);
         },
         onError: (p, g, _, m) => {
-          this.resetLoader(e, c), d(new St({
+          this.resetLoader(e, c), d(new Tt({
             type: J.NETWORK_ERROR,
-            details: P.FRAG_LOAD_ERROR,
+            details: C.FRAG_LOAD_ERROR,
             fatal: !1,
             frag: e,
             part: t,
@@ -5535,9 +5535,9 @@ class Dp {
           }));
         },
         onAbort: (p, g, _) => {
-          e.stats.aborted = t.stats.aborted, this.resetLoader(e, c), d(new St({
+          e.stats.aborted = t.stats.aborted, this.resetLoader(e, c), d(new Tt({
             type: J.NETWORK_ERROR,
-            details: P.INTERNAL_ABORTED,
+            details: C.INTERNAL_ABORTED,
             fatal: !1,
             frag: e,
             part: t,
@@ -5547,9 +5547,9 @@ class Dp {
           }));
         },
         onTimeout: (p, g, _) => {
-          this.resetLoader(e, c), d(new St({
+          this.resetLoader(e, c), d(new Tt({
             type: J.NETWORK_ERROR,
-            details: P.FRAG_LOAD_TIMEOUT,
+            details: C.FRAG_LOAD_TIMEOUT,
             fatal: !1,
             frag: e,
             part: t,
@@ -5575,7 +5575,7 @@ class Dp {
     e.loader = null, this.loader === t && (self.clearTimeout(this.partLoadTimeout), this.loader = null), t.destroy();
   }
 }
-function Ja(n, e = null) {
+function Za(n, e = null) {
   const t = e || n, i = {
     frag: n,
     part: e,
@@ -5585,7 +5585,7 @@ function Ja(n, e = null) {
     rangeStart: 0,
     rangeEnd: 0
   }, s = t.byteRangeStartOffset, r = t.byteRangeEndOffset;
-  if (Y(s) && Y(r)) {
+  if (X(s) && X(r)) {
     var a;
     let o = s, d = r;
     if (n.sn === "initSegment" && Cp((a = n.decryptdata) == null ? void 0 : a.method)) {
@@ -5596,21 +5596,21 @@ function Ja(n, e = null) {
   }
   return i;
 }
-function eo(n, e) {
+function Ja(n, e) {
   const t = new Error(`GAP ${n.gap ? "tag" : "attribute"} found`), i = {
     type: J.MEDIA_ERROR,
-    details: P.FRAG_GAP,
+    details: C.FRAG_GAP,
     fatal: !1,
     frag: n,
     error: t,
     networkDetails: null
   };
-  return e && (i.part = e), (e || n).stats.aborted = !0, new St(i);
+  return e && (i.part = e), (e || n).stats.aborted = !0, new Tt(i);
 }
 function Cp(n) {
   return n === "AES-128" || n === "AES-256";
 }
-class St extends Error {
+class Tt extends Error {
   constructor(e) {
     super(e.error.message), this.data = void 0, this.data = e;
   }
@@ -5670,7 +5670,7 @@ class Rc extends Qe {
   doTick() {
   }
 }
-class Vr {
+class Gr {
   constructor(e, t, i, s = 0, r = -1, a = !1) {
     this.level = void 0, this.sn = void 0, this.part = void 0, this.id = void 0, this.size = void 0, this.partial = void 0, this.transmuxing = ji(), this.buffering = {
       audio: ji(),
@@ -5687,7 +5687,7 @@ function ji() {
     end: 0
   };
 }
-const to = {
+const eo = {
   length: 0,
   start: () => 0,
   end: () => 0
@@ -5774,17 +5774,17 @@ class se {
    */
   static getBuffered(e) {
     try {
-      return e.buffered || to;
+      return e.buffered || eo;
     } catch (t) {
-      return pe.log("failed to get media.buffered", t), to;
+      return pe.log("failed to get media.buffered", t), eo;
     }
   }
 }
 const Dc = /\{\$([a-zA-Z0-9-_]+)\}/g;
-function io(n) {
+function to(n) {
   return Dc.test(n);
 }
-function er(n, e) {
+function Js(n, e) {
   if (n.variableList !== null || n.hasVariableRefs) {
     const t = n.variableList;
     return e.replace(Dc, (i) => {
@@ -5794,7 +5794,7 @@ function er(n, e) {
   }
   return e;
 }
-function no(n, e, t) {
+function io(n, e, t) {
   let i = n.variableList;
   i || (n.variableList = i = {});
   let s, r;
@@ -5821,7 +5821,7 @@ function Pp(n, e, t) {
   } else
     n.playlistParsingError || (n.playlistParsingError = new Error(`EXT-X-DEFINE IMPORT attribute not found in Multivariant Playlist: "${i}"`));
 }
-const Mp = /^(\d+)x(\d+)$/, so = /(.+?)=(".*?"|.*?)(?:,|$)/g;
+const Mp = /^(\d+)x(\d+)$/, no = /(.+?)=(".*?"|.*?)(?:,|$)/g;
 class ye {
   constructor(e, t) {
     typeof e == "string" && (e = ye.parseAttrList(e, t)), ge(this, e);
@@ -5876,7 +5876,7 @@ class ye {
   static parseAttrList(e, t) {
     let i;
     const s = {};
-    for (so.lastIndex = 0; (i = so.exec(e)) !== null; ) {
+    for (no.lastIndex = 0; (i = no.exec(e)) !== null; ) {
       const a = i[1].trim();
       let o = i[2];
       const d = o.indexOf('"') === 0 && o.lastIndexOf('"') === o.length - 1;
@@ -5892,7 +5892,7 @@ class ye {
             c = !0;
         }
       if (t && (d || c))
-        o = er(t, o);
+        o = Js(t, o);
       else if (!c && !d)
         switch (a) {
           case "CLOSED-CAPTIONS":
@@ -5959,7 +5959,7 @@ class Cc {
     }
     if (this.attr = e, t ? (this._startDate = t._startDate, this._cue = t._cue, this._endDate = t._endDate, this._dateAtEnd = t._dateAtEnd) : this._startDate = new Date(e["START-DATE"]), "END-DATE" in this.attr) {
       const r = t?.endDate || new Date(this.attr["END-DATE"]);
-      Y(r.getTime()) && (this._endDate = r);
+      X(r.getTime()) && (this._endDate = r);
     }
   }
   get id() {
@@ -5995,7 +5995,7 @@ class Cc {
   get duration() {
     if ("DURATION" in this.attr) {
       const e = this.attr.decimalFloatingPoint("DURATION");
-      if (Y(e))
+      if (X(e))
         return e;
     } else if (this._endDate)
       return (this._endDate.getTime() - this._startDate.getTime()) / 1e3;
@@ -6011,7 +6011,7 @@ class Cc {
     return this.class === Op;
   }
   get isValid() {
-    return !!this.id && !this._badValueForSameId && Y(this.startDate.getTime()) && (this.duration === null || this.duration >= 0) && (!this.endOnNext || !!this.class) && (!this.attr.CUE || !this.cue.pre && !this.cue.post || this.cue.pre !== this.cue.post) && (!this.isInterstitial || "X-ASSET-URI" in this.attr || "X-ASSET-LIST" in this.attr);
+    return !!this.id && !this._badValueForSameId && X(this.startDate.getTime()) && (this.duration === null || this.duration >= 0) && (!this.endOnNext || !!this.class) && (!this.attr.CUE || !this.cue.pre && !this.cue.post || this.cue.pre !== this.cue.post) && (!this.isInterstitial || "X-ASSET-URI" in this.attr || "X-ASSET-LIST" in this.attr);
   }
 }
 const $p = 10;
@@ -6034,7 +6034,7 @@ class Bp {
     });
   }
   get hasProgramDateTime() {
-    return this.fragments.length ? Y(this.fragments[this.fragments.length - 1].programDateTime) : !1;
+    return this.fragments.length ? X(this.fragments[this.fragments.length - 1].programDateTime) : !1;
   }
   get levelTargetDuration() {
     return this.averagetargetduration || this.targetduration || $p;
@@ -6088,34 +6088,34 @@ class Bp {
     return !1;
   }
 }
-function Fn(n, e) {
+function On(n, e) {
   return n.length === e.length ? !n.some((t, i) => t !== e[i]) : !1;
 }
-function ro(n, e) {
-  return !n && !e ? !0 : !n || !e ? !1 : Fn(n, e);
+function so(n, e) {
+  return !n && !e ? !0 : !n || !e ? !1 : On(n, e);
 }
 function ui(n) {
   return n === "AES-128" || n === "AES-256" || n === "AES-256-CTR";
 }
-function Kr(n) {
+function Vr(n) {
   switch (n) {
     case "AES-128":
     case "AES-256":
-      return Nt.cbc;
+      return $t.cbc;
     case "AES-256-CTR":
-      return Nt.ctr;
+      return $t.ctr;
     default:
       throw new Error(`invalid full segment method ${n}`);
   }
 }
-function zr(n) {
+function Kr(n) {
   return Uint8Array.from(atob(n), (e) => e.charCodeAt(0));
 }
-function tr(n) {
+function er(n) {
   return Uint8Array.from(unescape(encodeURIComponent(n)), (e) => e.charCodeAt(0));
 }
 function Up(n) {
-  const e = tr(n).subarray(0, 16), t = new Uint8Array(16);
+  const e = er(n).subarray(0, 16), t = new Uint8Array(16);
   return t.set(e, 16 - e.length), t;
 }
 function Pc(n) {
@@ -6132,12 +6132,12 @@ function Mc(n) {
     const i = e[1].split(";"), s = i[i.length - 1].split(",");
     if (s.length === 2) {
       const r = s[0] === "base64", a = s[1];
-      r ? (i.splice(-1, 1), t = zr(a)) : t = Up(a);
+      r ? (i.splice(-1, 1), t = Kr(a)) : t = Up(a);
     }
   }
   return t;
 }
-const Nn = typeof self < "u" ? self : void 0;
+const Fn = typeof self < "u" ? self : void 0;
 var be = {
   CLEARKEY: "org.w3.clearkey",
   FAIRPLAY: "com.apple.fps",
@@ -6149,7 +6149,7 @@ var be = {
   PLAYREADY: "com.microsoft.playready",
   WIDEVINE: "urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed"
 };
-function bn(n) {
+function yn(n) {
   switch (n) {
     case Oe.FAIRPLAY:
       return be.FAIRPLAY;
@@ -6161,7 +6161,7 @@ function bn(n) {
       return be.CLEARKEY;
   }
 }
-function ps(n) {
+function fs(n) {
   switch (n) {
     case be.FAIRPLAY:
       return Oe.FAIRPLAY;
@@ -6181,7 +6181,7 @@ function Ei(n) {
   return !i[be.WIDEVINE] && t && i.push(be.WIDEVINE), i;
 }
 const Oc = (function(n) {
-  return Nn != null && (n = Nn.navigator) != null && n.requestMediaKeySystemAccess ? self.navigator.requestMediaKeySystemAccess.bind(self.navigator) : null;
+  return Fn != null && (n = Fn.navigator) != null && n.requestMediaKeySystemAccess ? self.navigator.requestMediaKeySystemAccess.bind(self.navigator) : null;
 })();
 function Gp(n, e, t, i) {
   let s;
@@ -6228,14 +6228,14 @@ function Fc(n) {
   if (a) {
     const o = a.childNodes[0] ? a.childNodes[0].nodeValue : a.getAttribute("VALUE");
     if (o) {
-      const d = zr(o).subarray(0, 16);
+      const d = Kr(o).subarray(0, 16);
       return Pc(d), d;
     }
   }
   return null;
 }
 let ni = {};
-class Ct {
+class Pt {
   static clearKeyUriToKeyIdMap() {
     ni = {};
   }
@@ -6250,7 +6250,7 @@ class Ct {
     this.uri = void 0, this.method = void 0, this.keyFormat = void 0, this.keyFormatVersions = void 0, this.encrypted = void 0, this.isCommonEncryption = void 0, this.iv = null, this.key = null, this.keyId = null, this.pssh = null, this.method = e, this.uri = t, this.keyFormat = i, this.keyFormatVersions = s, this.iv = r, this.encrypted = e ? e !== "NONE" : !1, this.isCommonEncryption = this.encrypted && !ui(e), a != null && a.startsWith("0x") && (this.keyId = new Uint8Array(dc(a)));
   }
   matches(e) {
-    return e.uri === this.uri && e.method === this.method && e.encrypted === this.encrypted && e.keyFormat === this.keyFormat && Fn(e.keyFormatVersions, this.keyFormatVersions) && ro(e.iv, this.iv) && ro(e.keyId, this.keyId);
+    return e.uri === this.uri && e.method === this.method && e.encrypted === this.encrypted && e.keyFormat === this.keyFormat && On(e.keyFormatVersions, this.keyFormatVersions) && so(e.iv, this.iv) && so(e.keyId, this.keyId);
   }
   isSupported() {
     if (this.method) {
@@ -6273,11 +6273,11 @@ class Ct {
       return null;
     if (ui(this.method)) {
       let r = this.iv;
-      return r || (typeof e != "number" && (pe.warn(`missing IV for initialization segment with method="${this.method}" - compliance issue`), e = 0), r = Hp(e)), new Ct(this.method, this.uri, "identity", this.keyFormatVersions, r);
+      return r || (typeof e != "number" && (pe.warn(`missing IV for initialization segment with method="${this.method}" - compliance issue`), e = 0), r = Hp(e)), new Pt(this.method, this.uri, "identity", this.keyFormatVersions, r);
     }
     if (this.keyId) {
       const r = ni[this.uri];
-      if (r && !Fn(this.keyId, r) && Ct.setKeyIdForUri(this.uri, this.keyId), this.pssh)
+      if (r && !On(this.keyId, r) && Pt.setKeyIdForUri(this.uri, this.keyId), this.pssh)
         return this;
     }
     const i = Mc(this.uri);
@@ -6292,7 +6292,7 @@ class Ct {
               this.keyId = (s = a.kids) != null && s.length ? a.kids[0] : null;
             }
           }
-          this.keyId || (this.keyId = ao(t));
+          this.keyId || (this.keyId = ro(t));
           break;
         case Oe.PLAYREADY: {
           const r = new Uint8Array([154, 4, 240, 121, 152, 64, 66, 134, 171, 146, 230, 91, 224, 136, 95, 149]);
@@ -6311,7 +6311,7 @@ class Ct {
       }
     if (!this.keyId || this.keyId.byteLength !== 16) {
       let r;
-      r = zp(t), r || (r = ao(t), r || (r = ni[this.uri])), r && (this.keyId = r, Ct.setKeyIdForUri(this.uri, r));
+      r = zp(t), r || (r = ro(t), r || (r = ni[this.uri])), r && (this.keyId = r, Pt.setKeyIdForUri(this.uri, r));
     }
     return this;
   }
@@ -6320,7 +6320,7 @@ function zp(n) {
   const e = n?.[Oe.WIDEVINE];
   return e ? e.keyId : null;
 }
-function ao(n) {
+function ro(n) {
   const e = n?.[Oe.PLAYREADY];
   if (e) {
     const t = Mc(e.uri);
@@ -6335,7 +6335,7 @@ function Hp(n) {
     e[t] = n >> 8 * (15 - t) & 255;
   return e;
 }
-const oo = /#EXT-X-STREAM-INF:([^\r\n]*)(?:[\r\n](?:#[^\r\n]*)?)*([^\r\n]+)|#EXT-X-(SESSION-DATA|SESSION-KEY|DEFINE|CONTENT-STEERING|START):([^\r\n]*)[\r\n]+/g, lo = /#EXT-X-MEDIA:(.*)/g, jp = /^#EXT(?:INF|-X-TARGETDURATION):/m, gs = new RegExp([
+const ao = /#EXT-X-STREAM-INF:([^\r\n]*)(?:[\r\n](?:#[^\r\n]*)?)*([^\r\n]+)|#EXT-X-(SESSION-DATA|SESSION-KEY|DEFINE|CONTENT-STEERING|START):([^\r\n]*)[\r\n]+/g, oo = /#EXT-X-MEDIA:(.*)/g, jp = /^#EXT(?:INF|-X-TARGETDURATION):/m, ps = new RegExp([
   /#EXTINF:\s*(\d*(?:\.\d+)?)(?:,(.*)\s+)?/.source,
   // duration (#EXTINF:<duration>,<title>), group 1 => duration, group 2 => title
   /(?!#) *(\S[^\r\n]*)/.source,
@@ -6343,7 +6343,7 @@ const oo = /#EXT-X-STREAM-INF:([^\r\n]*)(?:[\r\n](?:#[^\r\n]*)?)*([^\r\n]+)|#EXT
   /#.*/.source
   // All other non-segment oriented tags will match with all groups empty
 ].join("|"), "g"), Wp = new RegExp([/#EXT-X-(PROGRAM-DATE-TIME|BYTERANGE|DATERANGE|DEFINE|KEY|MAP|PART|PART-INF|PLAYLIST-TYPE|PRELOAD-HINT|RENDITION-REPORT|SERVER-CONTROL|SKIP|START):(.+)/.source, /#EXT-X-(BITRATE|DISCONTINUITY-SEQUENCE|MEDIA-SEQUENCE|TARGETDURATION|VERSION): *(\d+)/.source, /#EXT-X-(DISCONTINUITY|ENDLIST|GAP|INDEPENDENT-SEGMENTS)/.source, /(#)([^:]*):(.*)/.source, /(#)(.*)(?:.*)\r?\n?/.source].join("|"));
-class ut {
+class ht {
   static findGroup(e, t) {
     for (let i = 0; i < e.length; i++) {
       const s = e[i];
@@ -6352,7 +6352,7 @@ class ut {
     }
   }
   static resolve(e, t) {
-    return Or.buildAbsoluteURL(t, e, {
+    return Mr.buildAbsoluteURL(t, e, {
       alwaysNormalize: !0
     });
   }
@@ -6360,7 +6360,7 @@ class ut {
     return jp.test(e);
   }
   static parseMasterPlaylist(e, t) {
-    const i = io(e), s = {
+    const i = to(e), s = {
       contentSteering: null,
       levels: [],
       playlistParsingError: null,
@@ -6370,21 +6370,21 @@ class ut {
       variableList: null,
       hasVariableRefs: i
     }, r = [];
-    if (oo.lastIndex = 0, !e.startsWith("#EXTM3U"))
+    if (ao.lastIndex = 0, !e.startsWith("#EXTM3U"))
       return s.playlistParsingError = new Error("no EXTM3U delimiter"), s;
     let a;
-    for (; (a = oo.exec(e)) != null; )
+    for (; (a = ao.exec(e)) != null; )
       if (a[1]) {
         var o;
-        const c = new ye(a[1], s), u = er(s, a[2]), h = {
+        const c = new ye(a[1], s), u = Js(s, a[2]), h = {
           attrs: c,
           bitrate: c.decimalInteger("BANDWIDTH") || c.decimalInteger("AVERAGE-BANDWIDTH"),
           name: c.NAME,
-          url: ut.resolve(u, t)
+          url: ht.resolve(u, t)
         }, f = c.decimalResolution("RESOLUTION");
-        f && (h.width = f.width, h.height = f.height), ho(c.CODECS, h);
+        f && (h.width = f.width, h.height = f.height), uo(c.CODECS, h);
         const p = c["SUPPLEMENTAL-CODECS"];
-        p && (h.supplemental = {}, ho(p, h.supplemental)), (o = h.unknownCodecs) != null && o.length || r.push(h), s.levels.push(h);
+        p && (h.supplemental = {}, uo(p, h.supplemental)), (o = h.unknownCodecs) != null && o.length || r.push(h), s.levels.push(h);
       } else if (a[3]) {
         const c = a[3], u = a[4];
         switch (c) {
@@ -6394,27 +6394,27 @@ class ut {
             break;
           }
           case "SESSION-KEY": {
-            const h = co(u, t, s);
+            const h = lo(u, t, s);
             h.encrypted && h.isSupported() ? (s.sessionKeys === null && (s.sessionKeys = []), s.sessionKeys.push(h)) : pe.warn(`[Keys] Ignoring invalid EXT-X-SESSION-KEY tag: "${u}"`);
             break;
           }
           case "DEFINE": {
             {
               const h = new ye(u, s);
-              no(s, h, t);
+              io(s, h, t);
             }
             break;
           }
           case "CONTENT-STEERING": {
             const h = new ye(u, s);
             s.contentSteering = {
-              uri: ut.resolve(h["SERVER-URI"], t),
+              uri: ht.resolve(h["SERVER-URI"], t),
               pathwayId: h["PATHWAY-ID"] || "."
             };
             break;
           }
           case "START": {
-            s.startTimeOffset = uo(u);
+            s.startTimeOffset = co(u);
             break;
           }
         }
@@ -6436,7 +6436,7 @@ class ut {
       "CLOSED-CAPTIONS": []
     };
     let d = 0;
-    for (lo.lastIndex = 0; (s = lo.exec(e)) !== null; ) {
+    for (oo.lastIndex = 0; (s = oo.exec(e)) !== null; ) {
       const c = new ye(s[1], i), u = c.TYPE;
       if (u) {
         const h = o[u], f = r[u] || [];
@@ -6452,11 +6452,11 @@ class ut {
           autoselect: c.bool("AUTOSELECT"),
           forced: c.bool("FORCED"),
           lang: p,
-          url: c.URI ? ut.resolve(c.URI, t) : ""
+          url: c.URI ? ht.resolve(c.URI, t) : ""
         };
         if (g && (b.assocLang = g), _ && (b.channels = _), m && (b.characteristics = m), v && (b.instreamId = v), h != null && h.length) {
-          const x = ut.findGroup(h, b.groupId) || h[0];
-          fo(b, x, "audioCodec"), fo(b, x, "textCodec");
+          const x = ht.findGroup(h, b.groupId) || h[0];
+          ho(b, x, "audioCodec"), ho(b, x, "textCodec");
         }
         f.push(b);
       }
@@ -6468,21 +6468,21 @@ class ut {
     const d = {
       url: t
     }, c = new Bp(t), u = c.fragments, h = [];
-    let f = null, p = 0, g = 0, _ = 0, m = 0, v = 0, b = null, x = new us(s, d), E, S, w, T = -1, k = !1, I = null, A;
-    if (gs.lastIndex = 0, c.m3u8 = e, c.hasVariableRefs = io(e), ((o = gs.exec(e)) == null ? void 0 : o[0]) !== "#EXTM3U")
+    let f = null, p = 0, g = 0, _ = 0, m = 0, v = 0, b = null, x = new ds(s, d), E, S, A, T = -1, k = !1, I = null, w;
+    if (ps.lastIndex = 0, c.m3u8 = e, c.hasVariableRefs = to(e), ((o = ps.exec(e)) == null ? void 0 : o[0]) !== "#EXTM3U")
       return c.playlistParsingError = new Error("Missing format identifier #EXTM3U"), c;
-    for (; (E = gs.exec(e)) !== null; ) {
-      k && (k = !1, x = new us(s, d), x.playlistOffset = _, x.setStart(_), x.sn = p, x.cc = m, v && (x.bitrate = v), x.level = i, f && (x.initSegment = f, f.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime, f.rawProgramDateTime = null), I && (x.setByteRange(I), I = null)));
+    for (; (E = ps.exec(e)) !== null; ) {
+      k && (k = !1, x = new ds(s, d), x.playlistOffset = _, x.setStart(_), x.sn = p, x.cc = m, v && (x.bitrate = v), x.level = i, f && (x.initSegment = f, f.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime, f.rawProgramDateTime = null), I && (x.setByteRange(I), I = null)));
       const H = E[1];
       if (H) {
         x.duration = parseFloat(H);
         const U = (" " + E[2]).slice(1);
         x.title = U || null, x.tagList.push(U ? ["INF", H, U] : ["INF", H]);
       } else if (E[3]) {
-        if (Y(x.duration)) {
-          x.playlistOffset = _, x.setStart(_), w && go(x, w, c), x.sn = p, x.level = i, x.cc = m, u.push(x);
+        if (X(x.duration)) {
+          x.playlistOffset = _, x.setStart(_), A && po(x, A, c), x.sn = p, x.level = i, x.cc = m, u.push(x);
           const U = (" " + E[3]).slice(1);
-          x.relurl = er(c, U), ir(x, b, h), b = x, _ += x.duration, p++, g = 0, k = !0;
+          x.relurl = Js(c, U), tr(x, b, h), b = x, _ += x.duration, p++, g = 0, k = !0;
         }
       } else {
         if (E = E[0].match(Wp), !E) {
@@ -6500,34 +6500,34 @@ class ut {
             x.rawProgramDateTime = R, x.tagList.push(["PROGRAM-DATE-TIME", R]), T === -1 && (T = u.length);
             break;
           case "PLAYLIST-TYPE":
-            c.type && bt(c, U, E), c.type = R.toUpperCase();
+            c.type && xt(c, U, E), c.type = R.toUpperCase();
             break;
           case "MEDIA-SEQUENCE":
-            c.startSN !== 0 ? bt(c, U, E) : u.length > 0 && mo(c, U, E), p = c.startSN = parseInt(R);
+            c.startSN !== 0 ? xt(c, U, E) : u.length > 0 && go(c, U, E), p = c.startSN = parseInt(R);
             break;
           case "SKIP": {
-            c.skippedSegments && bt(c, U, E);
+            c.skippedSegments && xt(c, U, E);
             const L = new ye(R, c), O = L.decimalInteger("SKIPPED-SEGMENTS");
-            if (Y(O)) {
+            if (X(O)) {
               c.skippedSegments += O;
               for (let $ = O; $--; )
                 u.push(null);
               p += O;
             }
-            const G = L.enumeratedString("RECENTLY-REMOVED-DATERANGES");
-            G && (c.recentlyRemovedDateranges = (c.recentlyRemovedDateranges || []).concat(G.split("	")));
+            const V = L.enumeratedString("RECENTLY-REMOVED-DATERANGES");
+            V && (c.recentlyRemovedDateranges = (c.recentlyRemovedDateranges || []).concat(V.split("	")));
             break;
           }
           case "TARGETDURATION":
-            c.targetduration !== 0 && bt(c, U, E), c.targetduration = Math.max(parseInt(R), 1);
+            c.targetduration !== 0 && xt(c, U, E), c.targetduration = Math.max(parseInt(R), 1);
             break;
           case "VERSION":
-            c.version !== null && bt(c, U, E), c.version = parseInt(R);
+            c.version !== null && xt(c, U, E), c.version = parseInt(R);
             break;
           case "INDEPENDENT-SEGMENTS":
             break;
           case "ENDLIST":
-            c.live || bt(c, U, E), c.live = !1;
+            c.live || xt(c, U, E), c.live = !1;
             break;
           case "#":
             (R || N) && x.tagList.push(N ? [R, N] : [R]);
@@ -6539,7 +6539,7 @@ class ut {
             x.gap = !0, x.tagList.push([U]);
             break;
           case "BITRATE":
-            x.tagList.push([U, R]), v = parseInt(R) * 1e3, Y(v) ? x.bitrate = v : v = 0;
+            x.tagList.push([U, R]), v = parseInt(R) * 1e3, X(v) ? x.bitrate = v : v = 0;
             break;
           case "DATERANGE": {
             const L = new ye(R, c), O = new Cc(L, c.dateRanges[L.ID], c.dateRangeTagCount);
@@ -6549,53 +6549,53 @@ class ut {
           case "DEFINE": {
             {
               const L = new ye(R, c);
-              "IMPORT" in L ? Pp(c, L, a) : no(c, L, t);
+              "IMPORT" in L ? Pp(c, L, a) : io(c, L, t);
             }
             break;
           }
           case "DISCONTINUITY-SEQUENCE":
-            c.startCC !== 0 ? bt(c, U, E) : u.length > 0 && mo(c, U, E), c.startCC = m = parseInt(R);
+            c.startCC !== 0 ? xt(c, U, E) : u.length > 0 && go(c, U, E), c.startCC = m = parseInt(R);
             break;
           case "KEY": {
-            const L = co(R, t, c);
+            const L = lo(R, t, c);
             if (L.isSupported()) {
               if (L.method === "NONE") {
-                w = void 0;
+                A = void 0;
                 break;
               }
-              w || (w = {});
-              const O = w[L.keyFormat];
-              O != null && O.matches(L) || (O && (w = ge({}, w)), w[L.keyFormat] = L);
+              A || (A = {});
+              const O = A[L.keyFormat];
+              O != null && O.matches(L) || (O && (A = ge({}, A)), A[L.keyFormat] = L);
             } else
               pe.warn(`[Keys] Ignoring unsupported EXT-X-KEY tag: "${R}"`);
             break;
           }
           case "START":
-            c.startTimeOffset = uo(R);
+            c.startTimeOffset = co(R);
             break;
           case "MAP": {
             const L = new ye(R, c);
             if (x.duration) {
-              const O = new us(s, d);
-              po(O, L, i, w), f = O, x.initSegment = f, f.rawProgramDateTime && !x.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime);
+              const O = new ds(s, d);
+              fo(O, L, i, A), f = O, x.initSegment = f, f.rawProgramDateTime && !x.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime);
             } else {
               const O = x.byteRangeEndOffset;
               if (O) {
-                const G = x.byteRangeStartOffset;
-                I = `${O - G}@${G}`;
+                const V = x.byteRangeStartOffset;
+                I = `${O - V}@${V}`;
               } else
                 I = null;
-              po(x, L, i, w), f = x, k = !0;
+              fo(x, L, i, A), f = x, k = !0;
             }
             f.cc = m;
             break;
           }
           case "SERVER-CONTROL": {
-            A && bt(c, U, E), A = new ye(R), c.canBlockReload = A.bool("CAN-BLOCK-RELOAD"), c.canSkipUntil = A.optionalFloat("CAN-SKIP-UNTIL", 0), c.canSkipDateRanges = c.canSkipUntil > 0 && A.bool("CAN-SKIP-DATERANGES"), c.partHoldBack = A.optionalFloat("PART-HOLD-BACK", 0), c.holdBack = A.optionalFloat("HOLD-BACK", 0);
+            w && xt(c, U, E), w = new ye(R), c.canBlockReload = w.bool("CAN-BLOCK-RELOAD"), c.canSkipUntil = w.optionalFloat("CAN-SKIP-UNTIL", 0), c.canSkipDateRanges = c.canSkipUntil > 0 && w.bool("CAN-SKIP-DATERANGES"), c.partHoldBack = w.optionalFloat("PART-HOLD-BACK", 0), c.holdBack = w.optionalFloat("HOLD-BACK", 0);
             break;
           }
           case "PART-INF": {
-            c.partTarget && bt(c, U, E);
+            c.partTarget && xt(c, U, E);
             const L = new ye(R);
             c.partTarget = L.decimalFloatingPoint("PART-TARGET");
             break;
@@ -6603,7 +6603,7 @@ class ut {
           case "PART": {
             let L = c.partList;
             L || (L = c.partList = []);
-            const O = g > 0 ? L[L.length - 1] : void 0, G = g++, $ = new ye(R, c), K = new Pf($, x, d, G, O);
+            const O = g > 0 ? L[L.length - 1] : void 0, V = g++, $ = new ye(R, c), K = new Pf($, x, d, V, O);
             L.push(K), x.duration += K.duration;
             break;
           }
@@ -6623,14 +6623,14 @@ class ut {
         }
       }
     }
-    b && !b.relurl ? (u.pop(), _ -= b.duration, c.partList && (c.fragmentHint = b)) : c.partList && (ir(x, b, h), x.cc = m, c.fragmentHint = x, w && go(x, w, c)), c.targetduration || (c.playlistParsingError = new Error("Missing Target Duration"));
-    const C = u.length, M = u[0], B = u[C - 1];
-    if (_ += c.skippedSegments * c.targetduration, _ > 0 && C && B) {
-      c.averagetargetduration = _ / C;
+    b && !b.relurl ? (u.pop(), _ -= b.duration, c.partList && (c.fragmentHint = b)) : c.partList && (tr(x, b, h), x.cc = m, c.fragmentHint = x, A && po(x, A, c)), c.targetduration || (c.playlistParsingError = new Error("Missing Target Duration"));
+    const M = u.length, P = u[0], B = u[M - 1];
+    if (_ += c.skippedSegments * c.targetduration, _ > 0 && M && B) {
+      c.averagetargetduration = _ / M;
       const H = B.sn;
-      c.endSN = H !== "initSegment" ? H : 0, c.live || (B.endList = !0), T > 0 && (qp(u, T), M && h.unshift(M));
+      c.endSN = H !== "initSegment" ? H : 0, c.live || (B.endList = !0), T > 0 && (qp(u, T), P && h.unshift(P));
     }
-    return c.fragmentHint && (_ += c.fragmentHint.duration), c.totalduration = _, h.length && c.dateRangeTagCount && M && Nc(h, c), c.endCC = m, c;
+    return c.fragmentHint && (_ += c.fragmentHint.duration), c.totalduration = _, h.length && c.dateRangeTagCount && P && Nc(h, c), c.endCC = m, c;
   }
 }
 function Nc(n, e) {
@@ -6683,25 +6683,25 @@ function Yp(n, e, t, i, s) {
   }
   return -1;
 }
-function co(n, e, t) {
+function lo(n, e, t) {
   var i, s;
   const r = new ye(n, t), a = (i = r.METHOD) != null ? i : "", o = r.URI, d = r.hexadecimalInteger("IV"), c = r.KEYFORMATVERSIONS, u = (s = r.KEYFORMAT) != null ? s : "identity";
   o && r.IV && !d && pe.error(`Invalid IV: ${r.IV}`);
-  const h = o ? ut.resolve(o, e) : "", f = (c || "1").split("/").map(Number).filter(Number.isFinite);
-  return new Ct(a, h, u, f, d, r.KEYID);
+  const h = o ? ht.resolve(o, e) : "", f = (c || "1").split("/").map(Number).filter(Number.isFinite);
+  return new Pt(a, h, u, f, d, r.KEYID);
 }
-function uo(n) {
+function co(n) {
   const t = new ye(n).decimalFloatingPoint("TIME-OFFSET");
-  return Y(t) ? t : null;
+  return X(t) ? t : null;
 }
-function ho(n, e) {
+function uo(n, e) {
   let t = (n || "").split(/[ ,]+/).filter((i) => i);
   ["video", "audio", "text"].forEach((i) => {
-    const s = t.filter((r) => $r(r, i));
+    const s = t.filter((r) => Nr(r, i));
     s.length && (e[`${i}Codec`] = s.map((r) => r.split("/")[0]).join(","), t = t.filter((r) => s.indexOf(r) === -1));
   }), e.unknownCodecs = t;
 }
-function fo(n, e, t) {
+function ho(n, e, t) {
   const i = e[t];
   i && (n[t] = i);
 }
@@ -6714,28 +6714,28 @@ function qp(n, e) {
     s.programDateTime = t.programDateTime - s.duration * 1e3, t = s;
   }
 }
-function ir(n, e, t) {
+function tr(n, e, t) {
   n.rawProgramDateTime ? t.push(n) : e != null && e.programDateTime && (n.programDateTime = e.endProgramDateTime);
 }
-function po(n, e, t, i) {
+function fo(n, e, t, i) {
   n.relurl = e.URI, e.BYTERANGE && n.setByteRange(e.BYTERANGE), n.level = t, n.sn = "initSegment", i && (n.levelkeys = i), n.initSegment = null;
 }
-function go(n, e, t) {
+function po(n, e, t) {
   n.levelkeys = e;
   const {
     encryptedFragments: i
   } = t;
   (!i.length || i[i.length - 1].levelkeys !== e) && Object.keys(e).some((s) => e[s].isCommonEncryption) && i.push(n);
 }
-function bt(n, e, t) {
+function xt(n, e, t) {
   n.playlistParsingError = new Error(`#EXT-X-${e} must not appear more than once (${t[0]})`);
 }
-function mo(n, e, t) {
+function go(n, e, t) {
   n.playlistParsingError = new Error(`#EXT-X-${e} must appear before the first Media Segment (${t[0]})`);
 }
-function ms(n, e) {
+function gs(n, e) {
   const t = e.startPTS;
-  if (Y(t)) {
+  if (X(t)) {
     let i = 0, s;
     e.sn > n.sn ? (i = t - n.start, s = n) : (i = n.start - t, s = e), s.duration !== i && s.setDuration(i);
   } else e.sn > n.sn ? n.cc === e.cc && n.minEndPTS ? e.setStart(n.start + (n.minEndPTS - n.start)) : e.setStart(n.start + n.duration) : e.setStart(Math.max(n.start - e.duration, 0));
@@ -6744,9 +6744,9 @@ function $c(n, e, t, i, s, r, a) {
   i - t <= 0 && (a.warn("Fragment should have a positive duration", e), i = t + e.duration, r = s + e.duration);
   let d = t, c = i;
   const u = e.startPTS, h = e.endPTS;
-  if (Y(u)) {
+  if (X(u)) {
     const v = Math.abs(u - t);
-    n && v > n.totalduration ? a.warn(`media timestamps and playlist times differ by ${v}s for level ${e.level} ${n.url}`) : Y(e.deltaPTS) ? e.deltaPTS = Math.max(v, e.deltaPTS) : e.deltaPTS = v, d = Math.max(t, u), t = Math.min(t, u), s = e.startDTS !== void 0 ? Math.min(s, e.startDTS) : s, c = Math.min(i, h), i = Math.max(i, h), r = e.endDTS !== void 0 ? Math.max(r, e.endDTS) : r;
+    n && v > n.totalduration ? a.warn(`media timestamps and playlist times differ by ${v}s for level ${e.level} ${n.url}`) : X(e.deltaPTS) ? e.deltaPTS = Math.max(v, e.deltaPTS) : e.deltaPTS = v, d = Math.max(t, u), t = Math.min(t, u), s = e.startDTS !== void 0 ? Math.min(s, e.startDTS) : s, c = Math.min(i, h), i = Math.max(i, h), r = e.endDTS !== void 0 ? Math.max(r, e.endDTS) : r;
   }
   const f = t - e.start;
   e.start !== 0 && e.setStart(t), e.setDuration(i - e.start), e.startPTS = t, e.maxStartPTS = d, e.startDTS = s, e.endPTS = i, e.minEndPTS = c, e.endDTS = r;
@@ -6756,10 +6756,10 @@ function $c(n, e, t, i, s, r, a) {
   let g;
   const _ = p - n.startSN, m = n.fragments;
   for (m[_] = e, g = _; g > 0; g--)
-    ms(m[g], m[g - 1]);
+    gs(m[g], m[g - 1]);
   for (g = _; g < m.length - 1; g++)
-    ms(m[g], m[g + 1]);
-  return n.fragmentHint && ms(m[m.length - 1], n.fragmentHint), n.PTSKnown = n.alignedSliding = !0, f;
+    gs(m[g], m[g + 1]);
+  return n.fragmentHint && gs(m[m.length - 1], n.fragmentHint), n.PTSKnown = n.alignedSliding = !0, f;
 }
 function Xp(n, e, t) {
   if (n === e)
@@ -6782,7 +6782,7 @@ function Xp(n, e, t) {
         p[_].cc += g;
       e.endCC = p[p.length - 1].cc;
     }
-    Y(u.startPTS) && Y(u.endPTS) && (h.setStart(h.startPTS = u.startPTS), h.startDTS = u.startDTS, h.maxStartPTS = u.maxStartPTS, h.endPTS = u.endPTS, h.endDTS = u.endDTS, h.minEndPTS = u.minEndPTS, h.setDuration(u.endPTS - u.startPTS), h.duration && (r = h), e.PTSKnown = e.alignedSliding = !0), u.hasStreams && (h.elementaryStreams = u.elementaryStreams), h.loader = u.loader, u.hasStats && (h.stats = u.stats), u.initSegment && (h.initSegment = u.initSegment, i = u.initSegment);
+    X(u.startPTS) && X(u.endPTS) && (h.setStart(h.startPTS = u.startPTS), h.startDTS = u.startDTS, h.maxStartPTS = u.maxStartPTS, h.endPTS = u.endPTS, h.endDTS = u.endDTS, h.minEndPTS = u.minEndPTS, h.setDuration(u.endPTS - u.startPTS), h.duration && (r = h), e.PTSKnown = e.alignedSliding = !0), u.hasStreams && (h.elementaryStreams = u.elementaryStreams), h.loader = u.loader, u.hasStats && (h.stats = u.stats), u.initSegment && (h.initSegment = u.initSegment, i = u.initSegment);
   });
   const a = e.fragments, o = e.fragmentHint ? a.concat(e.fragmentHint) : a;
   if (i && o.forEach((u) => {
@@ -6799,7 +6799,7 @@ function Xp(n, e, t) {
       const u = n.fragments.filter((h) => h.rawProgramDateTime);
       if (n.hasProgramDateTime && !e.hasProgramDateTime)
         for (let h = 1; h < o.length; h++)
-          o[h].programDateTime === null && ir(o[h], o[h - 1], u);
+          o[h].programDateTime === null && tr(o[h], o[h - 1], u);
       Nc(u, e);
     }
     e.endCC = a[a.length - 1].cc;
@@ -6852,16 +6852,16 @@ function Jp(n, e, t) {
       t(u, h, c, o);
       const f = u.relurl, p = h.relurl;
       if (f && eg(f, p)) {
-        e.playlistParsingError = _o(`media sequence mismatch ${h.sn}:`, n, e, u, h);
+        e.playlistParsingError = mo(`media sequence mismatch ${h.sn}:`, n, e, u, h);
         return;
       } else if (u.cc !== h.cc) {
-        e.playlistParsingError = _o(`discontinuity sequence mismatch (${u.cc}!=${h.cc})`, n, e, u, h);
+        e.playlistParsingError = mo(`discontinuity sequence mismatch (${u.cc}!=${h.cc})`, n, e, u, h);
         return;
       }
     }
   }
 }
-function _o(n, e, t, i, s) {
+function mo(n, e, t, i, s) {
   return new Error(`${n} ${s.url}
 Playlist starting @${e.startSN}
 ${e.m3u8}
@@ -6882,9 +6882,9 @@ function Bc(n, e, t = !0) {
     a = n.fragmentStart;
   else
     return;
-  nr(e, a);
+  ir(e, a);
 }
-function nr(n, e) {
+function ir(n, e) {
   if (e) {
     const t = n.fragments;
     for (let i = n.skippedSegments; i < t.length; i++)
@@ -6910,7 +6910,7 @@ function Gc(n, e, t) {
   let i = n.fragments[e - n.startSN];
   return i || (i = n.fragmentHint, i && i.sn === e) ? i : e < n.startSN && t && t.sn === e ? t : null;
 }
-function vo(n, e, t) {
+function _o(n, e, t) {
   return n ? Vc(n.partList, e, t) : null;
 }
 function Vc(n, e, t) {
@@ -6931,9 +6931,9 @@ function Kc(n) {
   });
 }
 function eg(n, e) {
-  return n !== e && e ? yo(n) !== yo(e) : !1;
+  return n !== e && e ? vo(n) !== vo(e) : !1;
 }
-function yo(n) {
+function vo(n) {
   return n.replace(/\?[^?]*$/, "");
 }
 function wi(n, e) {
@@ -6947,18 +6947,18 @@ function wi(n, e) {
 function tg(n, e) {
   return !!(n && e.startCC < n.endCC && e.endCC > n.startCC);
 }
-function bo(n, e) {
+function yo(n, e) {
   const t = n.start + e;
   n.startPTS = t, n.setStart(t), n.endPTS = t + n.duration;
 }
 function zc(n, e) {
   const t = e.fragments;
   for (let i = 0, s = t.length; i < s; i++)
-    bo(t[i], n);
-  e.fragmentHint && bo(e.fragmentHint, n), e.alignedSliding = !0;
+    yo(t[i], n);
+  e.fragmentHint && yo(e.fragmentHint, n), e.alignedSliding = !0;
 }
 function ig(n, e) {
-  n && (Hc(e, n), e.alignedSliding || $n(e, n), !e.alignedSliding && !e.skippedSegments && Bc(n, e, !1));
+  n && (Hc(e, n), e.alignedSliding || Nn(e, n), !e.alignedSliding && !e.skippedSegments && Bc(n, e, !1));
 }
 function Hc(n, e) {
   if (!tg(e, n))
@@ -6970,7 +6970,7 @@ function Hc(n, e) {
   const r = i.start - s.start;
   zc(r, n);
 }
-function $n(n, e) {
+function Nn(n, e) {
   if (!n.hasProgramDateTime || !e.hasProgramDateTime)
     return;
   const t = n.fragments, i = e.fragments;
@@ -7013,7 +7013,7 @@ const ng = {
   WAITING_INIT_PTS: "WAITING_INIT_PTS",
   WAITING_LEVEL: "WAITING_LEVEL"
 };
-class Hr extends Rc {
+class zr extends Rc {
   constructor(e, t, i, s, r) {
     super(s, e.logger), this.hls = void 0, this.fragPrevious = null, this.fragCurrent = null, this.fragmentTracker = void 0, this.transmuxer = null, this._state = F.STOPPED, this.playlistType = void 0, this.media = null, this.mediaBuffer = null, this.config = void 0, this.bitrateTest = !1, this.lastCurrentTime = 0, this.nextLoadPosition = 0, this.startPosition = 0, this.startTimeOffset = null, this.retryDate = 0, this.levels = null, this.fragmentLoader = void 0, this.keyLoader = void 0, this.levelLastLoaded = null, this.startFragRequested = !1, this.decrypter = void 0, this.initPTS = [], this.buffering = !0, this.loadingParts = !1, this.loopSn = void 0, this.onMediaSeeking = () => {
       const {
@@ -7023,7 +7023,7 @@ class Hr extends Rc {
         mediaBuffer: c,
         state: u
       } = this, h = d ? d.currentTime : 0, f = se.bufferInfo(c || d, h, a.maxBufferHole), p = !f.len;
-      if (this.log(`Media seeking to ${Y(h) ? h.toFixed(3) : h}, state: ${u}, ${p ? "out of" : "in"} buffer`), this.state === F.ENDED)
+      if (this.log(`Media seeking to ${X(h) ? h.toFixed(3) : h}, state: ${u}, ${p ? "out of" : "in"} buffer`), this.state === F.ENDED)
         this.resetLoadingState();
       else if (o) {
         const g = a.maxFragLookUpTolerance, _ = o.start - g, m = o.start + o.duration + g;
@@ -7043,7 +7043,7 @@ class Hr extends Rc {
       this.hls.hasEnoughToStart || (this.log(`Setting ${p ? "startPosition" : "nextLoadPosition"} to ${h} for seek without enough to start`), this.nextLoadPosition = h, p && (this.startPosition = h)), p && this.state === F.IDLE && this.tickImmediate();
     }, this.onMediaEnded = () => {
       this.log("setting startPosition to 0 because media ended"), this.startPosition = this.lastCurrentTime = 0;
-    }, this.playlistType = r, this.hls = e, this.fragmentLoader = new Dp(e.config), this.keyLoader = i, this.fragmentTracker = t, this.config = e.config, this.decrypter = new Gr(e.config);
+    }, this.playlistType = r, this.hls = e, this.fragmentLoader = new Dp(e.config), this.keyLoader = i, this.fragmentTracker = t, this.config = e.config, this.decrypter = new Ur(e.config);
   }
   registerListeners() {
     const {
@@ -7235,10 +7235,10 @@ class Hr extends Rc {
       } = i, o = r.decryptdata;
       if (a && a.byteLength > 0 && o != null && o.key && o.iv && ui(o.method)) {
         const d = self.performance.now();
-        return this.decrypter.decrypt(new Uint8Array(a), o.key.buffer, o.iv.buffer, Kr(o.method)).catch((c) => {
+        return this.decrypter.decrypt(new Uint8Array(a), o.key.buffer, o.iv.buffer, Vr(o.method)).catch((c) => {
           throw s.trigger(y.ERROR, {
             type: J.MEDIA_ERROR,
-            details: P.FRAG_DECRYPT_ERROR,
+            details: C.FRAG_DECRYPT_ERROR,
             fatal: !1,
             error: c,
             reason: c.message,
@@ -7277,7 +7277,7 @@ class Hr extends Rc {
       const a = this.media, o = new Error(`Encrypted track with no key in ${this.fragInfo(t)} (media ${a ? "attached mediaKeys: " + a.mediaKeys : "detached"})`);
       return this.warn(o.message), !a || a.mediaKeys ? !1 : (this.hls.trigger(y.ERROR, {
         type: J.KEY_SYSTEM_ERROR,
-        details: P.KEY_SYSTEM_NO_KEYS,
+        details: C.KEY_SYSTEM_NO_KEYS,
         fatal: !1,
         error: o,
         frag: t
@@ -7295,7 +7295,7 @@ class Hr extends Rc {
     const i = this.mediaBuffer ? this.mediaBuffer : this.media;
     if (this.log(`Buffered ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)} > buffer:${i ? ng.toString(se.getBuffered(i)) : "(detached)"})`), we(e)) {
       var s;
-      if (e.type !== Q.SUBTITLE) {
+      if (e.type !== Z.SUBTITLE) {
         const a = e.elementaryStreams;
         if (!Object.keys(a).some((o) => !!a[o])) {
           this.state = F.IDLE;
@@ -7317,7 +7317,7 @@ class Hr extends Rc {
       frag: i,
       part: s,
       partsLoaded: r
-    } = e, a = !r || r.length === 0 || r.some((d) => !d), o = new Vr(i.level, i.sn, i.stats.chunkCount + 1, 0, s ? s.index : -1, !a);
+    } = e, a = !r || r.length === 0 || r.some((d) => !d), o = new Gr(i.level, i.sn, i.stats.chunkCount + 1, 0, s ? s.index : -1, !a);
     t.flush(o);
   }
   _handleFragmentLoadProgress(e) {
@@ -7366,8 +7366,8 @@ class Hr extends Rc {
       this.log(`LL-Part loading OFF after next part miss @${i.toFixed(2)} Check buffer at sn: ${e.sn} loaded parts: ${(c = a.partList) == null ? void 0 : c.filter((f) => f.loaded).map((f) => `[${f.start}-${f.end}]`)}`), this.loadingParts = !1;
     } else if (!e.url)
       return Promise.resolve(null);
-    this.log(`Loading ${e.type} sn: ${e.sn} of ${this.fragInfo(e, !1)}) cc: ${e.cc} ${"[" + a.startSN + "-" + a.endSN + "]"}, target: ${parseFloat(i.toFixed(3))}`), Y(e.sn) && !this.bitrateTest && (this.nextLoadPosition = e.start + e.duration), this.state = F.FRAG_LOADING;
-    const u = this.config.progressive && e.type !== Q.SUBTITLE;
+    this.log(`Loading ${e.type} sn: ${e.sn} of ${this.fragInfo(e, !1)}) cc: ${e.cc} ${"[" + a.startSN + "-" + a.endSN + "]"}, target: ${parseFloat(i.toFixed(3))}`), X(e.sn) && !this.bitrateTest && (this.nextLoadPosition = e.start + e.duration), this.state = F.FRAG_LOADING;
+    const u = this.config.progressive && e.type !== Z.SUBTITLE;
     let h;
     return u && o ? h = o.then((f) => !f || this.fragContextChanged(f.frag) ? null : this.fragmentLoader.load(e, s)).catch((f) => this.handleFragLoadError(f)) : h = Promise.all([this.fragmentLoader.load(e, u ? s : void 0), o]).then(([f]) => (!u && s && s(f), f)).catch((f) => this.handleFragLoadError(f)), this.hls.trigger(y.FRAG_LOADING, {
       frag: e,
@@ -7382,7 +7382,7 @@ class Hr extends Rc {
           d[h.index] = f;
           const p = f.part;
           this.hls.trigger(y.FRAG_LOADED, f);
-          const g = vo(i.details, e.sn, h.index + 1) || Vc(c, e.sn, h.index + 1);
+          const g = _o(i.details, e.sn, h.index + 1) || Vc(c, e.sn, h.index + 1);
           if (g)
             u(g);
           else
@@ -7399,11 +7399,11 @@ class Hr extends Rc {
   handleFragLoadError(e) {
     if ("data" in e) {
       const t = e.data;
-      t.frag && t.details === P.INTERNAL_ABORTED ? this.handleFragLoadAborted(t.frag, t.part) : t.frag && t.type === J.KEY_SYSTEM_ERROR ? (t.frag.abortRequests(), this.resetStartWhenNotLoaded(), this.resetFragmentLoading(t.frag)) : this.hls.trigger(y.ERROR, t);
+      t.frag && t.details === C.INTERNAL_ABORTED ? this.handleFragLoadAborted(t.frag, t.part) : t.frag && t.type === J.KEY_SYSTEM_ERROR ? (t.frag.abortRequests(), this.resetStartWhenNotLoaded(), this.resetFragmentLoading(t.frag)) : this.hls.trigger(y.ERROR, t);
     } else
       this.hls.trigger(y.ERROR, {
         type: J.OTHER_ERROR,
-        details: P.INTERNAL_EXCEPTION,
+        details: C.INTERNAL_EXCEPTION,
         err: e,
         error: e,
         fatal: !0
@@ -7432,7 +7432,7 @@ class Hr extends Rc {
       if (e.partList) {
         var i;
         const r = e.partList[0];
-        if (r.fragment.type === Q.SUBTITLE)
+        if (r.fragment.type === Z.SUBTITLE)
           return !1;
         const a = r.end + (((i = e.fragmentHint) == null ? void 0 : i.duration) || 0);
         if (t >= a) {
@@ -7455,7 +7455,7 @@ class Hr extends Rc {
     } = e;
     if (!(t != null && t[s]))
       return this.warn(`Levels object was unset while buffering fragment ${r} of ${this.playlistLabel()} ${s}. The current chunk will not be buffered.`), null;
-    const o = t[s], d = o.details, c = a > -1 ? vo(d, r, a) : null, u = c ? c.fragment : Gc(d, r, i);
+    const o = t[s], d = o.details, c = a > -1 ? _o(d, r, a) : null, u = c ? c.fragment : Gc(d, r, i);
     return u ? (i && i !== u && (u.stats = i.stats), {
       frag: u,
       part: c,
@@ -7501,7 +7501,7 @@ class Hr extends Rc {
   getFwdBufferInfo(e, t) {
     var i;
     const s = this.getLoadPosition();
-    if (!Y(s))
+    if (!X(s))
       return null;
     const a = this.lastCurrentTime > s || (i = this.media) != null && i.paused ? 0 : this.config.maxBufferHole;
     return this.getFwdBufferInfoAtPos(e, s, t, a);
@@ -7542,7 +7542,7 @@ class Hr extends Rc {
     const i = this.config, s = Math.max(Math.min(e - t, i.maxBufferLength), t), r = Math.max(e - t * 3, i.maxMaxBufferLength / 2, s);
     return r >= s ? (i.maxMaxBufferLength = r, this.warn(`Reduce max buffer length to ${r}s`), !0) : !1;
   }
-  getAppendedFrag(e, t = Q.MAIN) {
+  getAppendedFrag(e, t = Z.MAIN) {
     const i = this.fragmentTracker ? this.fragmentTracker.getAppendedFrag(e, t) : null;
     return i && "fragment" in i ? i.fragment : i;
   }
@@ -7595,7 +7595,7 @@ class Hr extends Rc {
     return this.loopSn = void 0, a;
   }
   get primaryPrefetch() {
-    if (xo(this.config)) {
+    if (bo(this.config)) {
       var e;
       if ((e = this.hls.interstitialsManager) == null || (e = e.playingItem) == null ? void 0 : e.event)
         return !0;
@@ -7605,7 +7605,7 @@ class Hr extends Rc {
   filterReplacedPrimary(e, t) {
     if (!e)
       return e;
-    if (xo(this.config) && e.type !== Q.SUBTITLE) {
+    if (bo(this.config) && e.type !== Z.SUBTITLE) {
       const i = this.hls.interstitialsManager, s = i?.bufferingItem;
       if (s) {
         const a = s.event;
@@ -7695,7 +7695,7 @@ class Hr extends Rc {
     if (e < t) {
       var p;
       const _ = e < this.lastCurrentTime || e > t - c || (p = this.media) != null && p.paused || !this.startFragRequested ? 0 : c;
-      f = Wt(r, a, e, _);
+      f = Yt(r, a, e, _);
     } else
       f = a[a.length - 1];
     if (f) {
@@ -7711,7 +7711,7 @@ class Hr extends Rc {
     const s = e.fragments.length;
     if (!s)
       return this.warn("No fragments in live playlist"), 0;
-    const r = e.fragmentStart, a = !t, o = e.alignedSliding && Y(r);
+    const r = e.fragmentStart, a = !t, o = e.alignedSliding && X(r);
     if (a || !o && !r) {
       ig(i, e);
       const d = e.fragmentStart;
@@ -7728,7 +7728,7 @@ class Hr extends Rc {
     const s = this.timelineOffset;
     if (i === -1) {
       const r = this.startTimeOffset !== null, a = r ? this.startTimeOffset : e.startTimeOffset;
-      a !== null && Y(a) ? (i = t + a, a < 0 && (i += e.edge), i = Math.min(Math.max(t, i), t + e.totalduration), this.log(`Setting startPosition to ${i} for start time offset ${a} found in ${r ? "multivariant" : "media"} playlist`), this.startPosition = i) : e.live ? (i = this.hls.liveSyncPosition || t, this.log(`Setting startPosition to -1 to start at live edge ${i}`), this.startPosition = -1) : (this.log("setting startPosition to 0 by default"), this.startPosition = i = 0), this.lastCurrentTime = i + s;
+      a !== null && X(a) ? (i = t + a, a < 0 && (i += e.edge), i = Math.min(Math.max(t, i), t + e.totalduration), this.log(`Setting startPosition to ${i} for start time offset ${a} found in ${r ? "multivariant" : "media"} playlist`), this.startPosition = i) : e.live ? (i = this.hls.liveSyncPosition || t, this.log(`Setting startPosition to -1 to start at live edge ${i}`), this.startPosition = -1) : (this.log("setting startPosition to 0 by default"), this.startPosition = i = 0), this.lastCurrentTime = i + s;
     }
     this.nextLoadPosition = i + s;
   }
@@ -7760,7 +7760,7 @@ class Hr extends Rc {
       this.warn(`Frag load error must match current frag to retry ${s.url} > ${(r = this.fragCurrent) == null ? void 0 : r.url}`);
       return;
     }
-    const a = t.details === P.FRAG_GAP;
+    const a = t.details === C.FRAG_GAP;
     a && this.fragmentTracker.fragBuffered(s, !0);
     const o = t.errorAction;
     if (!o) {
@@ -7777,7 +7777,7 @@ class Hr extends Rc {
       this.resetFragmentErrors(e), this.treatAsGap(s), o.resolved = !0;
     else if ((p || g) && u < h.maxNumRetry) {
       var m;
-      const v = Js((m = t.response) == null ? void 0 : m.code), b = Ur(h, u);
+      const v = Zs((m = t.response) == null ? void 0 : m.code), b = Br(h, u);
       if (this.resetStartWhenNotLoaded(), this.retryDate = self.performance.now() + b, this.state = F.FRAG_LOADING_WAITING_RETRY, o.resolved = !0, v) {
         this.log("Waiting for connection (offline)"), this.retryDate = 1 / 0, t.reason = "offline";
         return;
@@ -7795,7 +7795,7 @@ class Hr extends Rc {
   }
   checkRetryDate() {
     const e = self.performance.now(), t = this.retryDate, i = t === 1 / 0;
-    (!t || e >= t || i && !Js(0)) && (i && this.log("Connection restored (online)"), this.resetStartWhenNotLoaded(), this.state = F.IDLE);
+    (!t || e >= t || i && !Zs(0)) && (i && this.log("Connection restored (online)"), this.resetStartWhenNotLoaded(), this.state = F.IDLE);
   }
   reduceLengthAndFlushBuffer(e) {
     if (this.state === F.PARSING || this.state === F.PARSED) {
@@ -7807,7 +7807,7 @@ class Hr extends Rc {
     return !1;
   }
   resetFragmentErrors(e) {
-    e === Q.AUDIO && (this.fragCurrent = null), this.hls.hasEnoughToStart || (this.startFragRequested = !1), this.state !== F.STOPPED && (this.state = F.IDLE);
+    e === Z.AUDIO && (this.fragCurrent = null), this.hls.hasEnoughToStart || (this.startFragRequested = !1), this.state !== F.STOPPED && (this.state = F.IDLE);
   }
   afterBufferFlushed(e, t, i) {
     if (!e)
@@ -7862,7 +7862,7 @@ class Hr extends Rc {
         const c = new Error(`Found no media in fragment ${e.sn} of ${this.playlistLabel()} ${e.level} resetting transmuxer to fallback to playlist timing`);
         if (this.warn(c.message), this.hls.trigger(y.ERROR, {
           type: J.MEDIA_ERROR,
-          details: P.FRAG_PARSING_ERROR,
+          details: C.FRAG_PARSING_ERROR,
           fatal: !1,
           error: c,
           frag: e,
@@ -7878,7 +7878,7 @@ class Hr extends Rc {
     });
   }
   playlistLabel() {
-    return this.playlistType === Q.MAIN ? "level" : "track";
+    return this.playlistType === Z.MAIN ? "level" : "track";
   }
   fragInfo(e, t = !0, i) {
     var s, r;
@@ -7902,7 +7902,7 @@ class Hr extends Rc {
     return this._state;
   }
 }
-function xo(n) {
+function bo(n) {
   return !!n.interstitialsController && n.enableInterstitialPlayback !== !1;
 }
 class jc {
@@ -7936,9 +7936,9 @@ function sg(n, e) {
   }
   return t;
 }
-var _s = { exports: {} }, Eo;
+var ms = { exports: {} }, xo;
 function rg() {
-  return Eo || (Eo = 1, (function(n) {
+  return xo || (xo = 1, (function(n) {
     var e = Object.prototype.hasOwnProperty, t = "~";
     function i() {
     }
@@ -8041,9 +8041,9 @@ function rg() {
       var u;
       return c ? (u = t ? t + c : c, this._events[u] && a(this, u)) : (this._events = new i(), this._eventsCount = 0), this;
     }, o.prototype.off = o.prototype.removeListener, o.prototype.addListener = o.prototype.on, o.prefixed = t, o.EventEmitter = o, n.exports = o;
-  })(_s)), _s.exports;
+  })(ms)), ms.exports;
 }
-var ag = rg(), jr = /* @__PURE__ */ Df(ag);
+var ag = rg(), Hr = /* @__PURE__ */ Df(ag);
 const Oi = "1.6.16", mi = {};
 function og() {
   return typeof __HLS_WORKER_BUNDLE__ == "function";
@@ -8085,19 +8085,19 @@ function dg(n) {
 function Wc(n, e) {
   return e + 10 <= n.length && n[e] === 51 && n[e + 1] === 68 && n[e + 2] === 73 && n[e + 3] < 255 && n[e + 4] < 255 && n[e + 6] < 128 && n[e + 7] < 128 && n[e + 8] < 128 && n[e + 9] < 128;
 }
-function Wr(n, e) {
+function jr(n, e) {
   return e + 10 <= n.length && n[e] === 73 && n[e + 1] === 68 && n[e + 2] === 51 && n[e + 3] < 255 && n[e + 4] < 255 && n[e + 6] < 128 && n[e + 7] < 128 && n[e + 8] < 128 && n[e + 9] < 128;
 }
-function is(n, e) {
+function ts(n, e) {
   let t = 0;
   return t = (n[e] & 127) << 21, t |= (n[e + 1] & 127) << 14, t |= (n[e + 2] & 127) << 7, t |= n[e + 3] & 127, t;
 }
 function Fi(n, e) {
   const t = e;
   let i = 0;
-  for (; Wr(n, e); ) {
+  for (; jr(n, e); ) {
     i += 10;
-    const s = is(n, e + 6);
+    const s = ts(n, e + 6);
     i += s, Wc(n, e + 10) && (i += 10), e += i;
   }
   if (i > 0)
@@ -8109,7 +8109,7 @@ function ug(n, e, t, i) {
     const p = new Error(`invalid ADTS sampling index:${a}`);
     n.emit(y.ERROR, y.ERROR, {
       type: J.MEDIA_ERROR,
-      details: P.FRAG_PARSING_ERROR,
+      details: C.FRAG_PARSING_ERROR,
       fatal: !0,
       error: p,
       reason: p.message
@@ -8135,28 +8135,28 @@ function Yc(n, e) {
 function qc(n, e) {
   return n[e + 1] & 1 ? 7 : 9;
 }
-function Yr(n, e) {
+function Wr(n, e) {
   return (n[e + 3] & 3) << 11 | n[e + 4] << 3 | (n[e + 5] & 224) >>> 5;
 }
 function hg(n, e) {
   return e + 5 < n.length;
 }
-function Bn(n, e) {
+function $n(n, e) {
   return e + 1 < n.length && Yc(n, e);
 }
 function fg(n, e) {
-  return hg(n, e) && Yc(n, e) && Yr(n, e) <= n.length - e;
+  return hg(n, e) && Yc(n, e) && Wr(n, e) <= n.length - e;
 }
 function pg(n, e) {
-  if (Bn(n, e)) {
+  if ($n(n, e)) {
     const t = qc(n, e);
     if (e + t >= n.length)
       return !1;
-    const i = Yr(n, e);
+    const i = Wr(n, e);
     if (i <= t)
       return !1;
     const s = e + i;
-    return s === n.length || Bn(n, s);
+    return s === n.length || $n(n, s);
   }
   return !1;
 }
@@ -8174,7 +8174,7 @@ function Qc(n) {
 function gg(n, e) {
   const t = qc(n, e);
   if (e + t <= n.length) {
-    const i = Yr(n, e) - t;
+    const i = Wr(n, e) - t;
     if (i > 0)
       return {
         headerLength: t,
@@ -8212,12 +8212,12 @@ function Zc(n, e, t, i, s) {
   };
 }
 function mg(n, e) {
-  return Wr(n, e) && is(n, e + 6) + 10 <= n.length - e;
+  return jr(n, e) && ts(n, e + 6) + 10 <= n.length - e;
 }
 function _g(n) {
   return n instanceof ArrayBuffer ? n : n.byteOffset == 0 && n.byteLength == n.buffer.byteLength ? n.buffer : new Uint8Array(n).buffer;
 }
-function vs(n, e = 0, t = 1 / 0) {
+function _s(n, e = 0, t = 1 / 0) {
   return vg(n, e, t, Uint8Array);
 }
 function vg(n, e, t, i) {
@@ -8250,12 +8250,12 @@ function xg(n) {
   const i = n.data.subarray(1).indexOf(0);
   if (i === -1)
     return;
-  const s = Ye(vs(n.data, 1, i)), r = n.data[2 + i], a = n.data.subarray(3 + i).indexOf(0);
+  const s = Ye(_s(n.data, 1, i)), r = n.data[2 + i], a = n.data.subarray(3 + i).indexOf(0);
   if (a === -1)
     return;
-  const o = Ye(vs(n.data, 3 + i, a));
+  const o = Ye(_s(n.data, 3 + i, a));
   let d;
-  return s === "-->" ? d = Ye(vs(n.data, 4 + i + a)) : d = _g(n.data.subarray(4 + i + a)), e.mimeType = s, e.pictureType = r, e.description = o, e.data = d, e;
+  return s === "-->" ? d = Ye(_s(n.data, 4 + i + a)) : d = _g(n.data.subarray(4 + i + a)), e.mimeType = s, e.pictureType = r, e.description = o, e.data = d, e;
 }
 function Eg(n) {
   if (n.size < 2)
@@ -8313,7 +8313,7 @@ function kg(n) {
   return n.type === "PRIV" ? Eg(n) : n.type[0] === "W" ? Tg(n) : n.type === "APIC" ? xg(n) : Sg(n);
 }
 function wg(n) {
-  const e = String.fromCharCode(n[0], n[1], n[2], n[3]), t = is(n, 4), i = 10;
+  const e = String.fromCharCode(n[0], n[1], n[2], n[3]), t = ts(n, 4), i = 10;
   return {
     type: e,
     size: t,
@@ -8324,8 +8324,8 @@ const Wi = 10, Ag = 10;
 function Jc(n) {
   let e = 0;
   const t = [];
-  for (; Wr(n, e); ) {
-    const i = is(n, e + 6);
+  for (; jr(n, e); ) {
+    const i = ts(n, e + 6);
     n[e + 5] >> 6 & 1 && (e += Wi), e += Wi;
     const s = e + i;
     for (; e + Ag < s; ) {
@@ -8346,7 +8346,7 @@ function Ig(n) {
     return i /= 45, t && (i += 4772185884e-2), Math.round(i);
   }
 }
-function qr(n) {
+function Yr(n) {
   const e = Jc(n);
   for (let t = 0; t < e.length; t++) {
     const i = e[t];
@@ -8357,7 +8357,7 @@ function qr(n) {
 let We = /* @__PURE__ */ (function(n) {
   return n.audioId3 = "org.id3", n.dateRange = "com.apple.quicktime.HLS", n.emsg = "https://aomedia.org/emsg/ID3", n.misbklv = "urn:misb:KLV:bin:1910.1", n;
 })({});
-function lt(n = "", e = 9e4) {
+function ct(n = "", e = 9e4) {
   return {
     type: n,
     id: -1,
@@ -8368,7 +8368,7 @@ function lt(n = "", e = 9e4) {
     dropped: 0
   };
 }
-class Xr {
+class qr {
   constructor() {
     this._audioTrack = void 0, this._id3Track = void 0, this.frameIndex = 0, this.cachedData = null, this.basePTS = null, this.initPTS = null, this.lastPTS = null;
   }
@@ -8398,8 +8398,8 @@ class Xr {
   demux(e, t) {
     this.cachedData && (e = Xe(this.cachedData, e), this.cachedData = null);
     let i = Fi(e, 0), s = i ? i.length : 0, r;
-    const a = this._audioTrack, o = this._id3Track, d = i ? qr(i) : void 0, c = e.length;
-    for ((this.basePTS === null || this.frameIndex === 0 && Y(d)) && (this.basePTS = Lg(d, t, this.initPTS), this.lastPTS = this.basePTS), this.lastPTS === null && (this.lastPTS = this.basePTS), i && i.length > 0 && o.samples.push({
+    const a = this._audioTrack, o = this._id3Track, d = i ? Yr(i) : void 0, c = e.length;
+    for ((this.basePTS === null || this.frameIndex === 0 && X(d)) && (this.basePTS = Lg(d, t, this.initPTS), this.lastPTS = this.basePTS), this.lastPTS === null && (this.lastPTS = this.basePTS), i && i.length > 0 && o.samples.push({
       pts: this.lastPTS,
       dts: this.lastPTS,
       data: i,
@@ -8423,9 +8423,9 @@ class Xr {
     }
     return {
       audioTrack: a,
-      videoTrack: lt(),
+      videoTrack: ct(),
       id3Track: o,
-      textTrack: lt()
+      textTrack: ct()
     };
   }
   demuxSampleAes(e, t, i) {
@@ -8435,9 +8435,9 @@ class Xr {
     const t = this.cachedData;
     return t && (this.cachedData = null, this.demux(t, 0)), {
       audioTrack: this._audioTrack,
-      videoTrack: lt(),
+      videoTrack: ct(),
       id3Track: this._id3Track,
-      textTrack: lt()
+      textTrack: ct()
     };
   }
   destroy() {
@@ -8445,7 +8445,7 @@ class Xr {
   }
 }
 const Lg = (n, e, t) => {
-  if (Y(n))
+  if (X(n))
     return n * 90;
   const i = t ? t.baseTime * 9e4 / t.timescale : 0;
   return e * 9e4 + i;
@@ -8539,17 +8539,17 @@ function id(n, e) {
     };
   }
 }
-function Qr(n, e) {
+function Xr(n, e) {
   return n[e] === 255 && (n[e + 1] & 224) === 224 && (n[e + 1] & 6) !== 0;
 }
 function nd(n, e) {
-  return e + 1 < n.length && Qr(n, e);
+  return e + 1 < n.length && Xr(n, e);
 }
 function Mg(n, e) {
-  return Qr(n, e) && 4 <= n.length - e;
+  return Xr(n, e) && 4 <= n.length - e;
 }
 function sd(n, e) {
-  if (e + 1 < n.length && Qr(n, e)) {
+  if (e + 1 < n.length && Xr(n, e)) {
     const i = id(n, e);
     let s = 4;
     i != null && i.frameLength && (s = i.frameLength);
@@ -8558,7 +8558,7 @@ function sd(n, e) {
   }
   return !1;
 }
-class Og extends Xr {
+class Og extends qr {
   constructor(e, t) {
     super(), this.observer = void 0, this.config = void 0, this.observer = e, this.config = t;
   }
@@ -8611,7 +8611,7 @@ const rd = (n, e) => {
   }
   return t;
 };
-class Fg extends Xr {
+class Fg extends qr {
   constructor(e) {
     super(), this.observer = void 0, this.observer = e;
   }
@@ -8649,7 +8649,7 @@ class Fg extends Xr {
     if (!t)
       return !1;
     const i = t.length;
-    return e[i] === 11 && e[i + 1] === 119 && qr(t) !== void 0 && // check the bsid to confirm ac-3
+    return e[i] === 11 && e[i + 1] === 119 && Yr(t) !== void 0 && // check the bsid to confirm ac-3
     rd(e, i) < 16;
   }
 }
@@ -8671,7 +8671,7 @@ function ad(n, e, t, i, s) {
     pts: E
   }), u;
 }
-class Ng extends Xr {
+class Ng extends qr {
   resetInitSegment(e, t, i, s) {
     super.resetInitSegment(e, t, i, s), this._audioTrack = {
       container: "audio/mpeg",
@@ -8692,7 +8692,7 @@ class Ng extends Xr {
       return !1;
     const t = Fi(e, 0);
     let i = t?.length || 0;
-    if (t && e[i] === 11 && e[i + 1] === 119 && qr(t) !== void 0 && // check the bsid to confirm ac-3 or ec-3 (not mp3)
+    if (t && e[i] === 11 && e[i + 1] === 119 && Yr(t) !== void 0 && // check the bsid to confirm ac-3 or ec-3 (not mp3)
     rd(e, i) <= 16)
       return !1;
     for (let s = e.length; i < s; i++)
@@ -8716,8 +8716,8 @@ class Bg {
   resetTimeStamp() {
   }
   resetInitSegment(e, t, i, s) {
-    const r = this.videoTrack = lt("video", 1), a = this.audioTrack = lt("audio", 1), o = this.txtTrack = lt("text", 1);
-    if (this.id3Track = lt("id3", 1), this.timeOffset = 0, !(e != null && e.byteLength))
+    const r = this.videoTrack = ct("video", 1), a = this.audioTrack = ct("audio", 1), o = this.txtTrack = ct("text", 1);
+    if (this.id3Track = ct("id3", 1), this.timeOffset = 0, !(e != null && e.byteLength))
       return;
     const d = mc(e);
     if (d.video) {
@@ -8756,7 +8756,7 @@ class Bg {
     } else
       s.samples = i;
     const a = this.extractID3Track(s, t);
-    return r.samples = Ba(t, s), {
+    return r.samples = $a(t, s), {
       videoTrack: s,
       audioTrack: this.audioTrack,
       id3Track: a,
@@ -8767,21 +8767,21 @@ class Bg {
     const e = this.timeOffset, t = this.videoTrack, i = this.txtTrack;
     t.samples = this.remainderData || new Uint8Array(), this.remainderData = null;
     const s = this.extractID3Track(t, this.timeOffset);
-    return i.samples = Ba(e, t), {
+    return i.samples = $a(e, t), {
       videoTrack: t,
-      audioTrack: lt(),
+      audioTrack: ct(),
       id3Track: s,
-      textTrack: lt()
+      textTrack: ct()
     };
   }
   extractID3Track(e, t) {
     const i = this.id3Track;
     if (e.samples.length) {
-      const s = ae(e.samples, ["emsg"]);
+      const s = re(e.samples, ["emsg"]);
       s && s.forEach((r) => {
         const a = Hf(r);
         if ($g.test(a.schemeIdUri)) {
-          const o = So(a, t);
+          const o = Eo(a, t);
           let d = a.eventDuration === 4294967295 ? Number.POSITIVE_INFINITY : a.eventDuration / a.timeScale;
           d <= 1e-3 && (d = Number.POSITIVE_INFINITY);
           const c = a.payload;
@@ -8794,7 +8794,7 @@ class Bg {
             duration: d
           });
         } else if (this.config.enableEmsgKLVMetadata && a.schemeIdUri.startsWith("urn:misb:KLV:bin:1910.1")) {
-          const o = So(a, t);
+          const o = Eo(a, t);
           i.samples.push({
             data: a.payload,
             len: a.payload.byteLength,
@@ -8815,17 +8815,17 @@ class Bg {
     this.config = null, this.remainderData = null, this.videoTrack = this.audioTrack = this.id3Track = this.txtTrack = void 0;
   }
 }
-function So(n, e) {
-  return Y(n.presentationTime) ? n.presentationTime / n.timeScale : e + n.presentationTimeDelta / n.timeScale;
+function Eo(n, e) {
+  return X(n.presentationTime) ? n.presentationTime / n.timeScale : e + n.presentationTimeDelta / n.timeScale;
 }
 class Ug {
   constructor(e, t, i) {
-    this.keyData = void 0, this.decrypter = void 0, this.keyData = i, this.decrypter = new Gr(t, {
+    this.keyData = void 0, this.decrypter = void 0, this.keyData = i, this.decrypter = new Ur(t, {
       removePKCS7Padding: !1
     });
   }
   decryptBuffer(e) {
-    return this.decrypter.decrypt(e, this.keyData.key.buffer, this.keyData.iv.buffer, Nt.cbc);
+    return this.decrypter.decrypt(e, this.keyData.key.buffer, this.keyData.iv.buffer, $t.cbc);
   }
   // AAC - encrypt all full 16 bytes blocks starting from offset 16
   decryptAacSample(e, t, i) {
@@ -9070,7 +9070,7 @@ class Gg extends od {
           break;
         // SEI
         case 6: {
-          o = !0, Nr(c.data, 1, i.pts, t.samples);
+          o = !0, Fr(c.data, 1, i.pts, t.samples);
           break;
         }
         case 7: {
@@ -9154,8 +9154,8 @@ class Gg extends od {
       for (g(1), _(), _(), o = f(), c = 0; c < o; c++)
         _();
     m(), g(1);
-    const E = f(), S = f(), w = h(1);
-    w === 0 && g(1), g(1), p() && (i = f(), s = f(), r = f(), a = f());
+    const E = f(), S = f(), A = h(1);
+    A === 0 && g(1), g(1), p() && (i = f(), s = f(), r = f(), a = f());
     let T = [1, 1];
     if (p() && p())
       switch (u()) {
@@ -9214,7 +9214,7 @@ class Gg extends od {
       }
     return {
       width: Math.ceil((E + 1) * 16 - i * 2 - s * 2),
-      height: (2 - w) * (S + 1) * 16 - (w ? 2 : 4) * (r + a),
+      height: (2 - A) * (S + 1) * 16 - (A ? 2 : 4) * (r + a),
       pixelRatio: T
     };
   }
@@ -9260,7 +9260,7 @@ class Vg extends od {
           break;
         // SEI
         case 39:
-          o = !0, Nr(
+          o = !0, Fr(
             c.data,
             2,
             // NALu header size
@@ -9346,10 +9346,10 @@ class Vg extends od {
     t.readUEG();
     const E = t.readUEG();
     E == 3 && t.skipBits(1);
-    const S = t.readUEG(), w = t.readUEG(), T = t.readBoolean();
-    let k = 0, I = 0, A = 0, C = 0;
-    T && (k += t.readUEG(), I += t.readUEG(), A += t.readUEG(), C += t.readUEG());
-    const M = t.readUEG(), B = t.readUEG(), H = t.readUEG(), U = t.readBoolean();
+    const S = t.readUEG(), A = t.readUEG(), T = t.readBoolean();
+    let k = 0, I = 0, w = 0, M = 0;
+    T && (k += t.readUEG(), I += t.readUEG(), w += t.readUEG(), M += t.readUEG());
+    const P = t.readUEG(), B = t.readUEG(), H = t.readUEG(), U = t.readBoolean();
     for (let ce = U ? 0 : i; ce <= i; ce++)
       t.skipUEG(), t.skipUEG(), t.skipUEG();
     if (t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.readBoolean() && t.readBoolean())
@@ -9360,7 +9360,7 @@ class Vg extends od {
           else {
             const Ke = Math.min(64, 1 << 4 + (Ie << 1));
             Ie > 1 && t.readEG();
-            for (let _t = 0; _t < Ke; _t++)
+            for (let vt = 0; vt < Ke; vt++)
               t.readEG();
           }
     t.readBoolean(), t.readBoolean(), t.readBoolean() && (t.readUByte(), t.skipUEG(), t.skipUEG(), t.readBoolean());
@@ -9371,18 +9371,18 @@ class Vg extends od {
       if (ce !== 0 && (Ie = t.readBoolean()), Ie) {
         ce === L && t.readUEG(), t.readBoolean(), t.readUEG();
         let Fe = 0;
-        for (let mt = 0; mt <= O; mt++) {
+        for (let _t = 0; _t <= O; _t++) {
           const Ke = t.readBoolean();
-          let _t = !1;
-          Ke || (_t = t.readBoolean()), (Ke || _t) && Fe++;
+          let vt = !1;
+          Ke || (vt = t.readBoolean()), (Ke || vt) && Fe++;
         }
         O = Fe;
       } else {
-        const Fe = t.readUEG(), mt = t.readUEG();
-        O = Fe + mt;
+        const Fe = t.readUEG(), _t = t.readUEG();
+        O = Fe + _t;
         for (let Ke = 0; Ke < Fe; Ke++)
           t.readUEG(), t.readBoolean();
-        for (let Ke = 0; Ke < mt; Ke++)
+        for (let Ke = 0; Ke < _t; Ke++)
           t.readUEG(), t.readBoolean();
       }
     }
@@ -9394,46 +9394,46 @@ class Vg extends od {
         t.readBits(1);
       }
     }
-    let $ = 0, K = 1, ie = 1, q = !0, j = 1, Z = 0;
+    let $ = 0, K = 1, Y = 1, ie = !0, j = 1, q = 0;
     t.readBoolean(), t.readBoolean();
-    let ee = !1;
+    let te = !1;
     if (t.readBoolean()) {
       if (t.readBoolean()) {
-        const vt = t.readUByte(), Qt = [1, 12, 10, 16, 40, 24, 20, 32, 80, 18, 15, 64, 160, 4, 3, 2], Zt = [1, 11, 11, 11, 33, 11, 11, 11, 33, 11, 11, 33, 99, 3, 2, 1];
-        vt > 0 && vt < 16 ? (K = Qt[vt - 1], ie = Zt[vt - 1]) : vt === 255 && (K = t.readBits(16), ie = t.readBits(16));
+        const yt = t.readUByte(), rt = [1, 12, 10, 16, 40, 24, 20, 32, 80, 18, 15, 64, 160, 4, 3, 2], Zt = [1, 11, 11, 11, 33, 11, 11, 11, 33, 11, 11, 33, 99, 3, 2, 1];
+        yt > 0 && yt < 16 ? (K = rt[yt - 1], Y = Zt[yt - 1]) : yt === 255 && (K = t.readBits(16), Y = t.readBits(16));
       }
-      if (t.readBoolean() && t.readBoolean(), t.readBoolean() && (t.readBits(3), t.readBoolean(), t.readBoolean() && (t.readUByte(), t.readUByte(), t.readUByte())), t.readBoolean() && (t.readUEG(), t.readUEG()), t.readBoolean(), t.readBoolean(), t.readBoolean(), ee = t.readBoolean(), ee && (t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG()), t.readBoolean() && (j = t.readBits(32), Z = t.readBits(32), t.readBoolean() && t.readUEG(), t.readBoolean())) {
+      if (t.readBoolean() && t.readBoolean(), t.readBoolean() && (t.readBits(3), t.readBoolean(), t.readBoolean() && (t.readUByte(), t.readUByte(), t.readUByte())), t.readBoolean() && (t.readUEG(), t.readUEG()), t.readBoolean(), t.readBoolean(), t.readBoolean(), te = t.readBoolean(), te && (t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG()), t.readBoolean() && (j = t.readBits(32), q = t.readBits(32), t.readBoolean() && t.readUEG(), t.readBoolean())) {
         const Zt = t.readBoolean(), Gi = t.readBoolean();
-        let $t = !1;
-        (Zt || Gi) && ($t = t.readBoolean(), $t && (t.readUByte(), t.readBits(5), t.readBoolean(), t.readBits(5)), t.readBits(4), t.readBits(4), $t && t.readBits(4), t.readBits(5), t.readBits(5), t.readBits(5));
+        let Bt = !1;
+        (Zt || Gi) && (Bt = t.readBoolean(), Bt && (t.readUByte(), t.readBits(5), t.readBoolean(), t.readBits(5)), t.readBits(4), t.readBits(4), Bt && t.readBits(4), t.readBits(5), t.readBits(5), t.readBits(5));
         for (let _i = 0; _i <= i; _i++) {
-          q = t.readBoolean();
-          const vi = q || t.readBoolean();
+          ie = t.readBoolean();
+          const vi = ie || t.readBoolean();
           let Jt = !1;
           vi ? t.readEG() : Jt = t.readBoolean();
           const ei = Jt ? 1 : t.readUEG() + 1;
           if (Zt)
-            for (let yt = 0; yt < ei; yt++)
-              t.readUEG(), t.readUEG(), $t && (t.readUEG(), t.readUEG()), t.skipBits(1);
+            for (let bt = 0; bt < ei; bt++)
+              t.readUEG(), t.readUEG(), Bt && (t.readUEG(), t.readUEG()), t.skipBits(1);
           if (Gi)
-            for (let yt = 0; yt < ei; yt++)
-              t.readUEG(), t.readUEG(), $t && (t.readUEG(), t.readUEG()), t.skipBits(1);
+            for (let bt = 0; bt < ei; bt++)
+              t.readUEG(), t.readUEG(), Bt && (t.readUEG(), t.readUEG()), t.skipBits(1);
         }
       }
       t.readBoolean() && (t.readBoolean(), t.readBoolean(), t.readBoolean(), $ = t.readUEG());
     }
-    let Se = S, te = w;
+    let Se = S, ee = A;
     if (T) {
       let ce = 1, Ie = 1;
-      E === 1 ? ce = Ie = 2 : E == 2 && (ce = 2), Se = S - ce * I - ce * k, te = w - Ie * C - Ie * A;
+      E === 1 ? ce = Ie = 2 : E == 2 && (ce = 2), Se = S - ce * I - ce * k, ee = A - Ie * M - Ie * w;
     }
     const Te = s ? ["A", "B", "C"][s] : "", Ue = o << 24 | d << 16 | c << 8 | u;
-    let qt = 0;
+    let Xt = 0;
     for (let ce = 0; ce < 32; ce++)
-      qt = (qt | (Ue >> ce & 1) << 31 - ce) >>> 0;
-    let Xt = qt.toString(16);
-    return a === 1 && Xt === "2" && (Xt = "6"), {
-      codecString: `hvc1.${Te}${a}.${Xt}.${r ? "H" : "L"}${v}.B0`,
+      Xt = (Xt | (Ue >> ce & 1) << 31 - ce) >>> 0;
+    let Qt = Xt.toString(16);
+    return a === 1 && Qt === "2" && (Qt = "6"), {
+      codecString: `hvc1.${Te}${a}.${Qt}.${r ? "H" : "L"}${v}.B0`,
       params: {
         general_tier_flag: r,
         general_profile_idc: a,
@@ -9441,19 +9441,19 @@ class Vg extends od {
         general_profile_compatibility_flags: [o, d, c, u],
         general_constraint_indicator_flags: [h, f, p, g, _, m],
         general_level_idc: v,
-        bit_depth: M + 8,
-        bit_depth_luma_minus8: M,
+        bit_depth: P + 8,
+        bit_depth_luma_minus8: P,
         bit_depth_chroma_minus8: B,
         min_spatial_segmentation_idc: $,
         chroma_format_idc: E,
         frame_rate: {
-          fixed: q,
-          fps: Z / j
+          fixed: ie,
+          fps: q / j
         }
       },
       width: Se,
-      height: te,
-      pixelRatio: [K, ie]
+      height: ee,
+      pixelRatio: [K, Y]
     };
   }
   readPPS(e) {
@@ -9470,12 +9470,12 @@ class Vg extends od {
   }
 }
 const De = 188;
-class Dt {
+class Ct {
   constructor(e, t, i, s) {
     this.logger = void 0, this.observer = void 0, this.config = void 0, this.typeSupported = void 0, this.sampleAes = null, this.pmtParsed = !1, this.audioCodec = void 0, this.videoCodec = void 0, this._pmtId = -1, this._videoTrack = void 0, this._audioTrack = void 0, this._id3Track = void 0, this._txtTrack = void 0, this.aacOverFlow = null, this.remainderData = null, this.videoParser = void 0, this.observer = e, this.config = t, this.typeSupported = i, this.logger = s, this.videoParser = null;
   }
   static probe(e, t) {
-    const i = Dt.syncOffset(e);
+    const i = Ct.syncOffset(e);
     return i > 0 && t.warn(`MPEG2-TS detected but first sync word found @ offset ${i}`), i !== -1;
   }
   static syncOffset(e) {
@@ -9485,7 +9485,7 @@ class Dt {
       let r = !1, a = -1, o = 0;
       for (let d = s; d < t; d += De)
         if (e[d] === 71 && (t - d === De || e[d + De] === 71)) {
-          if (o++, a === -1 && (a = d, a !== 0 && (i = Math.min(a + De * 99, e.length - De) + 1)), r || (r = sr(e, d) === 0), r && o > 1 && (a === 0 && o > 2 || d + De > i))
+          if (o++, a === -1 && (a = d, a !== 0 && (i = Math.min(a + De * 99, e.length - De) + 1)), r || (r = nr(e, d) === 0), r && o > 1 && (a === 0 && o > 2 || d + De > i))
             return a;
         } else {
           if (o)
@@ -9517,7 +9517,7 @@ class Dt {
    * Resets all internal track instances of the demuxer.
    */
   resetInitSegment(e, t, i, s) {
-    this.pmtParsed = !1, this._pmtId = -1, this._videoTrack = Dt.createTrack("video"), this._videoTrack.duration = s, this._audioTrack = Dt.createTrack("audio", s), this._id3Track = Dt.createTrack("id3"), this._txtTrack = Dt.createTrack("text"), this._audioTrack.segmentCodec = "aac", this.videoParser = null, this.aacOverFlow = null, this.remainderData = null, this.audioCodec = t, this.videoCodec = i;
+    this.pmtParsed = !1, this._pmtId = -1, this._videoTrack = Ct.createTrack("video"), this._videoTrack.duration = s, this._audioTrack = Ct.createTrack("audio", s), this._id3Track = Ct.createTrack("id3"), this._txtTrack = Ct.createTrack("text"), this._audioTrack.segmentCodec = "aac", this.videoParser = null, this.aacOverFlow = null, this.remainderData = null, this.audioCodec = t, this.videoCodec = i;
   }
   resetTimeStamp() {
   }
@@ -9541,24 +9541,24 @@ class Dt {
         id3Track: d,
         textTrack: c
       };
-    const E = Math.max(0, Dt.syncOffset(e));
+    const E = Math.max(0, Ct.syncOffset(e));
     x -= (x - E) % De, x < e.byteLength && !s && (this.remainderData = new Uint8Array(e.buffer, x, e.buffer.byteLength - x));
     let S = 0;
     for (let T = E; T < x; T += De)
       if (e[T] === 71) {
-        const k = !!(e[T + 1] & 64), I = sr(e, T), A = (e[T + 3] & 48) >> 4;
-        let C;
-        if (A > 1) {
-          if (C = T + 5 + e[T + 4], C === T + De)
+        const k = !!(e[T + 1] & 64), I = nr(e, T), w = (e[T + 3] & 48) >> 4;
+        let M;
+        if (w > 1) {
+          if (M = T + 5 + e[T + 4], M === T + De)
             continue;
         } else
-          C = T + 4;
+          M = T + 4;
         switch (I) {
           case u:
             k && (h && (r = si(h, this.logger)) && (this.readyVideoParser(a.segmentCodec), this.videoParser !== null && this.videoParser.parsePES(a, c, r, !1)), h = {
               data: [],
               size: 0
-            }), h && (h.data.push(e.subarray(C, T + De)), h.size += T + De - C);
+            }), h && (h.data.push(e.subarray(M, T + De)), h.size += T + De - M);
             break;
           case f:
             if (k) {
@@ -9579,21 +9579,21 @@ class Dt {
                 size: 0
               };
             }
-            g && (g.data.push(e.subarray(C, T + De)), g.size += T + De - C);
+            g && (g.data.push(e.subarray(M, T + De)), g.size += T + De - M);
             break;
           case p:
             k && (_ && (r = si(_, this.logger)) && this.parseID3PES(d, r), _ = {
               data: [],
               size: 0
-            }), _ && (_.data.push(e.subarray(C, T + De)), _.size += T + De - C);
+            }), _ && (_.data.push(e.subarray(M, T + De)), _.size += T + De - M);
             break;
           case 0:
-            k && (C += e[C] + 1), b = this._pmtId = Kg(e, C);
+            k && (M += e[M] + 1), b = this._pmtId = Kg(e, M);
             break;
           case b: {
-            k && (C += e[C] + 1);
-            const M = zg(e, C, this.typeSupported, i, this.observer, this.logger);
-            u = M.videoPid, u > 0 && (a.pid = u, a.segmentCodec = M.segmentVideoCodec), f = M.audioPid, f > 0 && (o.pid = f, o.segmentCodec = M.segmentAudioCodec), p = M.id3Pid, p > 0 && (d.pid = p), m !== null && !v && (this.logger.warn(`MPEG-TS PMT found at ${T} after unknown PID '${m}'. Backtracking to sync byte @${E} to parse all TS packets.`), m = null, T = E - 188), v = this.pmtParsed = !0;
+            k && (M += e[M] + 1);
+            const P = zg(e, M, this.typeSupported, i, this.observer, this.logger);
+            u = P.videoPid, u > 0 && (a.pid = u, a.segmentCodec = P.segmentVideoCodec), f = P.audioPid, f > 0 && (o.pid = f, o.segmentCodec = P.segmentAudioCodec), p = P.id3Pid, p > 0 && (d.pid = p), m !== null && !v && (this.logger.warn(`MPEG-TS PMT found at ${T} after unknown PID '${m}'. Backtracking to sync byte @${E} to parse all TS packets.`), m = null, T = E - 188), v = this.pmtParsed = !0;
             break;
           }
           case 17:
@@ -9605,14 +9605,14 @@ class Dt {
         }
       } else
         S++;
-    S > 0 && rr(this.observer, new Error(`Found ${S} TS packet/s that do not start with 0x47`), void 0, this.logger), a.pesData = h, o.pesData = g, d.pesData = _;
-    const w = {
+    S > 0 && sr(this.observer, new Error(`Found ${S} TS packet/s that do not start with 0x47`), void 0, this.logger), a.pesData = h, o.pesData = g, d.pesData = _;
+    const A = {
       audioTrack: o,
       videoTrack: a,
       id3Track: d,
       textTrack: c
     };
-    return s && this.extractRemainingSamples(w), w;
+    return s && this.extractRemainingSamples(A), A;
   }
   flush() {
     const {
@@ -9692,12 +9692,12 @@ class Dt {
       }
     }
     let a, o;
-    for (a = i, o = r.length; a < o - 1 && !Bn(r, a); a++)
+    for (a = i, o = r.length; a < o - 1 && !$n(r, a); a++)
       ;
     if (a !== i) {
       let h;
       const f = a < o - 1;
-      if (f ? h = `AAC PES did not start with ADTS header,offset:${a}` : h = "No ADTS header found in AAC PES", rr(this.observer, new Error(h), f, this.logger), !f)
+      if (f ? h = `AAC PES did not start with ADTS header,offset:${a}` : h = "No ADTS header found in AAC PES", sr(this.observer, new Error(h), f, this.logger), !f)
         return;
     }
     Xc(e, this.observer, r, a, this.audioCodec);
@@ -9717,7 +9717,7 @@ class Dt {
         this.aacOverFlow = u;
         break;
       } else
-        for (c++; a < o - 1 && !Bn(r, a); a++)
+        for (c++; a < o - 1 && !$n(r, a); a++)
           ;
   }
   parseMPEGPES(e, t) {
@@ -9763,7 +9763,7 @@ class Dt {
     e.samples.push(i);
   }
 }
-function sr(n, e) {
+function nr(n, e) {
   return ((n[e + 1] & 31) << 8) + n[e + 2];
 }
 function Kg(n, e) {
@@ -9778,11 +9778,11 @@ function zg(n, e, t, i, s, r) {
     segmentAudioCodec: "aac"
   }, o = (n[e + 1] & 15) << 8 | n[e + 2], d = e + 3 + o - 4, c = (n[e + 10] & 15) << 8 | n[e + 11];
   for (e += 12 + c; e < d; ) {
-    const u = sr(n, e), h = (n[e + 3] & 15) << 8 | n[e + 4];
+    const u = nr(n, e), h = (n[e + 3] & 15) << 8 | n[e + 4];
     switch (n[e]) {
       case 207:
         if (!i) {
-          ys("ADTS AAC", r);
+          vs("ADTS AAC", r);
           break;
         }
       /* falls through */
@@ -9795,7 +9795,7 @@ function zg(n, e, t, i, s, r) {
         break;
       case 219:
         if (!i) {
-          ys("H.264", r);
+          vs("H.264", r);
           break;
         }
       /* falls through */
@@ -9810,7 +9810,7 @@ function zg(n, e, t, i, s, r) {
         break;
       case 193:
         if (!i) {
-          ys("AC-3", r);
+          vs("AC-3", r);
           break;
         }
       /* falls through */
@@ -9835,7 +9835,7 @@ function zg(n, e, t, i, s, r) {
       // SAMPLE-AES EC3
       /* falls through */
       case 135:
-        return rr(s, new Error("Unsupported EC-3 in M2TS found"), void 0, r), a;
+        return sr(s, new Error("Unsupported EC-3 in M2TS found"), void 0, r), a;
       case 36:
         a.videoPid === -1 && (a.videoPid = u, a.segmentVideoCodec = "hevc", r.log("HEVC in M2TS found"));
         break;
@@ -9844,17 +9844,17 @@ function zg(n, e, t, i, s, r) {
   }
   return a;
 }
-function rr(n, e, t, i) {
+function sr(n, e, t, i) {
   i.warn(`parsing error: ${e.message}`), n.emit(y.ERROR, y.ERROR, {
     type: J.MEDIA_ERROR,
-    details: P.FRAG_PARSING_ERROR,
+    details: C.FRAG_PARSING_ERROR,
     fatal: !1,
     levelRetry: t,
     error: e,
     reason: e.message
   });
 }
-function ys(n, e) {
+function vs(n, e) {
   e.log(`${n} with AES-128-CBC encryption found in unencrypted stream`);
 }
 function si(n, e) {
@@ -9931,7 +9931,7 @@ class Hg {
     }
   }
 }
-const At = Math.pow(2, 32) - 1;
+const It = Math.pow(2, 32) - 1;
 class D {
   static init() {
     D.types = {
@@ -10198,7 +10198,7 @@ class D {
   }
   static mdhd(e, t) {
     t *= e;
-    const i = Math.floor(t / (At + 1)), s = Math.floor(t % (At + 1));
+    const i = Math.floor(t / (It + 1)), s = Math.floor(t % (It + 1));
     return D.box(D.types.mdhd, new Uint8Array([
       1,
       // version 1
@@ -10283,7 +10283,7 @@ class D {
   }
   static mvhd(e, t) {
     t *= e;
-    const i = Math.floor(t / (At + 1)), s = Math.floor(t % (At + 1)), r = new Uint8Array([
+    const i = Math.floor(t / (It + 1)), s = Math.floor(t % (It + 1)), r = new Uint8Array([
       1,
       // version 1
       0,
@@ -10697,7 +10697,7 @@ class D {
     throw new Error(`unsupported ${e.type} segment codec (${t}/${e.codec})`);
   }
   static tkhd(e) {
-    const t = e.id, i = (e.duration || 0) * (e.timescale || 0), s = e.width || 0, r = e.height || 0, a = Math.floor(i / (At + 1)), o = Math.floor(i % (At + 1));
+    const t = e.id, i = (e.duration || 0) * (e.timescale || 0), s = e.width || 0, r = e.height || 0, a = Math.floor(i / (It + 1)), o = Math.floor(i % (It + 1));
     return D.box(D.types.tkhd, new Uint8Array([
       1,
       // version 1
@@ -10812,7 +10812,7 @@ class D {
     ]));
   }
   static traf(e, t) {
-    const i = D.sdtp(e), s = e.id, r = Math.floor(t / (At + 1)), a = Math.floor(t % (At + 1));
+    const i = D.sdtp(e), s = e.id, r = Math.floor(t / (It + 1)), a = Math.floor(t % (It + 1));
     return D.box(
       D.types.traf,
       D.box(D.types.tfhd, new Uint8Array([
@@ -11107,20 +11107,20 @@ D.STSD = void 0;
 D.FTYP = void 0;
 D.DINF = void 0;
 const ld = 9e4;
-function Zr(n, e, t = 1, i = !1) {
+function Qr(n, e, t = 1, i = !1) {
   const s = n * e * t;
   return i ? Math.round(s) : s;
 }
 function jg(n, e, t = 1, i = !1) {
-  return Zr(n, e, 1 / t, i);
+  return Qr(n, e, 1 / t, i);
 }
 function yi(n, e = !1) {
-  return Zr(n, 1e3, 1 / ld, e);
+  return Qr(n, 1e3, 1 / ld, e);
 }
 function Wg(n, e = 1) {
-  return Zr(n, ld, 1 / e);
+  return Qr(n, ld, 1 / e);
 }
-function To(n) {
+function So(n) {
   const {
     baseTime: e,
     timescale: t,
@@ -11129,8 +11129,8 @@ function To(n) {
   return `${e / t} (${e}/${t}) trackId: ${i}`;
 }
 const Yg = 10 * 1e3, qg = 1024, Xg = 1152, Qg = 1536;
-let ri = null, bs = null;
-function ko(n, e, t, i) {
+let ri = null, ys = null;
+function To(n, e, t, i) {
   return {
     duration: e,
     size: t,
@@ -11145,15 +11145,15 @@ function ko(n, e, t, i) {
     }
   };
 }
-class xn extends Qe {
+class bn extends Qe {
   constructor(e, t, i, s) {
     if (super("mp4-remuxer", s), this.observer = void 0, this.config = void 0, this.typeSupported = void 0, this.ISGenerated = !1, this._initPTS = null, this._initDTS = null, this.nextVideoTs = null, this.nextAudioTs = null, this.videoSampleDuration = null, this.isAudioContiguous = !1, this.isVideoContiguous = !1, this.videoTrackConfig = void 0, this.observer = e, this.config = t, this.typeSupported = i, this.ISGenerated = !1, ri === null) {
       const a = (navigator.userAgent || "").match(/Chrome\/(\d+)/i);
       ri = a ? parseInt(a[1]) : 0;
     }
-    if (bs === null) {
+    if (ys === null) {
       const r = navigator.userAgent.match(/Safari\/(\d+)/i);
-      bs = r ? parseInt(r[1]) : 0;
+      ys = r ? parseInt(r[1]) : 0;
     }
   }
   destroy() {
@@ -11161,7 +11161,7 @@ class xn extends Qe {
   }
   resetTimeStamp(e) {
     const t = this._initPTS;
-    (!t || !e || e.trackId !== t.trackId || e.baseTime !== t.baseTime || e.timescale !== t.timescale) && this.log(`Reset initPTS: ${t && To(t)} > ${e && To(e)}`), this._initPTS = this._initDTS = e;
+    (!t || !e || e.trackId !== t.trackId || e.baseTime !== t.baseTime || e.timescale !== t.timescale) && this.log(`Reset initPTS: ${t && So(t)} > ${e && So(e)}`), this._initPTS = this._initDTS = e;
   }
   resetNextTimestamp() {
     this.log("reset next timestamp"), this.isVideoContiguous = !1, this.isAudioContiguous = !1;
@@ -11182,31 +11182,31 @@ class xn extends Qe {
     const v = e.pid > -1, b = t.pid > -1, x = t.samples.length, E = e.samples.length > 0, S = o && x > 0 || x > 1;
     if ((!v || E) && (!b || S) || this.ISGenerated || o) {
       if (this.ISGenerated) {
-        var T, k, I, A;
+        var T, k, I, w;
         const H = this.videoTrackConfig;
-        (H && (t.width !== H.width || t.height !== H.height || ((T = t.pixelRatio) == null ? void 0 : T[0]) !== ((k = H.pixelRatio) == null ? void 0 : k[0]) || ((I = t.pixelRatio) == null ? void 0 : I[1]) !== ((A = H.pixelRatio) == null ? void 0 : A[1])) || !H && S || this.nextAudioTs === null && E) && this.resetInitSegment();
+        (H && (t.width !== H.width || t.height !== H.height || ((T = t.pixelRatio) == null ? void 0 : T[0]) !== ((k = H.pixelRatio) == null ? void 0 : k[0]) || ((I = t.pixelRatio) == null ? void 0 : I[1]) !== ((w = H.pixelRatio) == null ? void 0 : w[1])) || !H && S || this.nextAudioTs === null && E) && this.resetInitSegment();
       }
       this.ISGenerated || (h = this.generateIS(e, t, r, a));
-      const C = this.isVideoContiguous;
-      let M = -1, B;
-      if (S && (M = Zg(t.samples), !C && this.config.forceKeyFrameOnDiscontinuity))
-        if (g = !0, M > 0) {
-          this.warn(`Dropped ${M} out of ${x} video samples due to a missing keyframe`);
+      const M = this.isVideoContiguous;
+      let P = -1, B;
+      if (S && (P = Zg(t.samples), !M && this.config.forceKeyFrameOnDiscontinuity))
+        if (g = !0, P > 0) {
+          this.warn(`Dropped ${P} out of ${x} video samples due to a missing keyframe`);
           const H = this.getVideoStartPts(t.samples);
-          t.samples = t.samples.slice(M), t.dropped += M, m += (t.samples[0].pts - H) / t.inputTimeScale, B = m;
-        } else M === -1 && (this.warn(`No keyframe found out of ${x} video samples`), g = !1);
+          t.samples = t.samples.slice(P), t.dropped += P, m += (t.samples[0].pts - H) / t.inputTimeScale, B = m;
+        } else P === -1 && (this.warn(`No keyframe found out of ${x} video samples`), g = !1);
       if (this.ISGenerated) {
         if (E && S) {
           const H = this.getVideoStartPts(t.samples), R = (je(e.samples[0].pts, H) - H) / t.inputTimeScale;
           _ += Math.max(0, R), m += Math.max(0, -R);
         }
         if (E) {
-          if (e.samplerate || (this.warn("regenerate InitSegment as audio detected"), h = this.generateIS(e, t, r, a)), u = this.remuxAudio(e, _, this.isAudioContiguous, a, b || S || d === Q.AUDIO ? m : void 0), S) {
+          if (e.samplerate || (this.warn("regenerate InitSegment as audio detected"), h = this.generateIS(e, t, r, a)), u = this.remuxAudio(e, _, this.isAudioContiguous, a, b || S || d === Z.AUDIO ? m : void 0), S) {
             const H = u ? u.endPTS - u.startPTS : 0;
-            t.inputTimeScale || (this.warn("regenerate InitSegment as video detected"), h = this.generateIS(e, t, r, a)), c = this.remuxVideo(t, m, C, H);
+            t.inputTimeScale || (this.warn("regenerate InitSegment as video detected"), h = this.generateIS(e, t, r, a)), c = this.remuxVideo(t, m, M, H);
           }
-        } else S && (c = this.remuxVideo(t, m, C, 0));
-        c && (c.firstKeyFrame = M, c.independent = M !== -1, c.firstKeyFramePTS = B);
+        } else S && (c = this.remuxVideo(t, m, M, 0));
+        c && (c.firstKeyFrame = P, c.independent = P !== -1, c.firstKeyFramePTS = B);
       }
     }
     return this.ISGenerated && this._initPTS && this._initDTS && (i.samples.length && (p = cd(i, r, this._initPTS, this._initDTS)), s.samples.length && (f = dd(s, r, this._initPTS))), {
@@ -11299,48 +11299,48 @@ class xn extends Qe {
       K.pts = je(K.pts, x), K.dts = je(K.dts, x), K.dts < a[$ > 0 ? $ - 1 : $].dts && (b = !0);
     }
     b && a.sort(function($, K) {
-      const ie = $.dts - K.dts, q = $.pts - K.pts;
-      return ie || q;
+      const Y = $.dts - K.dts, ie = $.pts - K.pts;
+      return Y || ie;
     }), g = a[0].dts, _ = a[a.length - 1].dts;
     const E = _ - g, S = E ? Math.round(E / (d - 1)) : p || e.inputTimeScale / 30;
     if (i) {
-      const $ = g - x, K = $ > S, ie = $ < -1;
-      if ((K || ie) && (K ? this.warn(`${(e.segmentCodec || "").toUpperCase()}: ${yi($, !0)} ms (${$}dts) hole between fragments detected at ${t.toFixed(3)}`) : this.warn(`${(e.segmentCodec || "").toUpperCase()}: ${yi(-$, !0)} ms (${$}dts) overlapping between fragments detected at ${t.toFixed(3)}`), !ie || x >= a[0].pts || ri)) {
+      const $ = g - x, K = $ > S, Y = $ < -1;
+      if ((K || Y) && (K ? this.warn(`${(e.segmentCodec || "").toUpperCase()}: ${yi($, !0)} ms (${$}dts) hole between fragments detected at ${t.toFixed(3)}`) : this.warn(`${(e.segmentCodec || "").toUpperCase()}: ${yi(-$, !0)} ms (${$}dts) overlapping between fragments detected at ${t.toFixed(3)}`), !Y || x >= a[0].pts || ri)) {
         g = x;
-        const q = a[0].pts - $;
+        const ie = a[0].pts - $;
         if (K)
-          a[0].dts = g, a[0].pts = q;
+          a[0].dts = g, a[0].pts = ie;
         else {
           let j = !0;
-          for (let Z = 0; Z < a.length && !(a[Z].dts > q && j); Z++) {
-            const ee = a[Z].pts;
-            if (a[Z].dts -= $, a[Z].pts -= $, Z < a.length - 1) {
-              const re = a[Z + 1].pts, Se = a[Z].pts, te = re <= Se, Te = re <= ee;
-              j = te == Te;
+          for (let q = 0; q < a.length && !(a[q].dts > ie && j); q++) {
+            const te = a[q].pts;
+            if (a[q].dts -= $, a[q].pts -= $, q < a.length - 1) {
+              const ae = a[q + 1].pts, Se = a[q].pts, ee = ae <= Se, Te = ae <= te;
+              j = ee == Te;
             }
           }
         }
-        this.log(`Video: Initial PTS/DTS adjusted: ${yi(q, !0)}/${yi(g, !0)}, delta: ${yi($, !0)} ms`);
+        this.log(`Video: Initial PTS/DTS adjusted: ${yi(ie, !0)}/${yi(g, !0)}, delta: ${yi($, !0)} ms`);
       }
     }
     g = Math.max(0, g);
-    let w = 0, T = 0, k = g;
+    let A = 0, T = 0, k = g;
     for (let $ = 0; $ < d; $++) {
-      const K = a[$], ie = K.units, q = ie.length;
+      const K = a[$], Y = K.units, ie = Y.length;
       let j = 0;
-      for (let Z = 0; Z < q; Z++)
-        j += ie[Z].data.length;
-      T += j, w += q, K.length = j, K.dts < k ? (K.dts = k, k += S / 4 | 0 || 1) : k = K.dts, m = Math.min(K.pts, m), v = Math.max(K.pts, v);
+      for (let q = 0; q < ie; q++)
+        j += Y[q].data.length;
+      T += j, A += ie, K.length = j, K.dts < k ? (K.dts = k, k += S / 4 | 0 || 1) : k = K.dts, m = Math.min(K.pts, m), v = Math.max(K.pts, v);
     }
     _ = a[d - 1].dts;
-    const I = T + 4 * w + 8;
-    let A;
+    const I = T + 4 * A + 8;
+    let w;
     try {
-      A = new Uint8Array(I);
+      w = new Uint8Array(I);
     } catch ($) {
       this.observer.emit(y.ERROR, y.ERROR, {
         type: J.MUX_ERROR,
-        details: P.REMUX_ALLOC_ERROR,
+        details: C.REMUX_ALLOC_ERROR,
         fatal: !1,
         error: $,
         bytes: I,
@@ -11348,29 +11348,29 @@ class xn extends Qe {
       });
       return;
     }
-    const C = new DataView(A.buffer);
-    C.setUint32(0, I), A.set(D.types.mdat, 4);
-    let M = !1, B = Number.POSITIVE_INFINITY, H = Number.POSITIVE_INFINITY, U = Number.NEGATIVE_INFINITY, R = Number.NEGATIVE_INFINITY;
+    const M = new DataView(w.buffer);
+    M.setUint32(0, I), w.set(D.types.mdat, 4);
+    let P = !1, B = Number.POSITIVE_INFINITY, H = Number.POSITIVE_INFINITY, U = Number.NEGATIVE_INFINITY, R = Number.NEGATIVE_INFINITY;
     for (let $ = 0; $ < d; $++) {
-      const K = a[$], ie = K.units;
-      let q = 0;
-      for (let ee = 0, re = ie.length; ee < re; ee++) {
-        const Se = ie[ee], te = Se.data, Te = Se.data.byteLength;
-        C.setUint32(f, Te), f += 4, A.set(te, f), f += Te, q += 4 + Te;
+      const K = a[$], Y = K.units;
+      let ie = 0;
+      for (let te = 0, ae = Y.length; te < ae; te++) {
+        const Se = Y[te], ee = Se.data, Te = Se.data.byteLength;
+        M.setUint32(f, Te), f += 4, w.set(ee, f), f += Te, ie += 4 + Te;
       }
       let j;
       if ($ < d - 1)
         p = a[$ + 1].dts - K.dts, j = a[$ + 1].pts - K.pts;
       else {
-        const ee = this.config, re = $ > 0 ? K.dts - a[$ - 1].dts : S;
-        if (j = $ > 0 ? K.pts - a[$ - 1].pts : S, ee.stretchShortVideoTrack && this.nextAudioTs !== null) {
-          const Se = Math.floor(ee.maxBufferHole * r), te = (s ? m + s * r : this.nextAudioTs + u) - K.pts;
-          te > Se ? (p = te - re, p < 0 ? p = re : M = !0, this.log(`It is approximately ${te / 90} ms to the next segment; using duration ${p / 90} ms for the last video frame.`)) : p = re;
+        const te = this.config, ae = $ > 0 ? K.dts - a[$ - 1].dts : S;
+        if (j = $ > 0 ? K.pts - a[$ - 1].pts : S, te.stretchShortVideoTrack && this.nextAudioTs !== null) {
+          const Se = Math.floor(te.maxBufferHole * r), ee = (s ? m + s * r : this.nextAudioTs + u) - K.pts;
+          ee > Se ? (p = ee - ae, p < 0 ? p = ae : P = !0, this.log(`It is approximately ${ee / 90} ms to the next segment; using duration ${p / 90} ms for the last video frame.`)) : p = ae;
         } else
-          p = re;
+          p = ae;
       }
-      const Z = Math.round(K.pts - K.dts);
-      B = Math.min(B, p), U = Math.max(U, p), H = Math.min(H, j), R = Math.max(R, j), o.push(ko(K.key, p, q, Z));
+      const q = Math.round(K.pts - K.dts);
+      B = Math.min(B, p), U = Math.max(U, p), H = Math.min(H, j), R = Math.max(R, j), o.push(To(K.key, p, ie, q));
     }
     if (o.length) {
       if (ri) {
@@ -11378,28 +11378,28 @@ class xn extends Qe {
           const $ = o[0].flags;
           $.dependsOn = 2, $.isNonSync = 0;
         }
-      } else if (bs && R - H < U - B && S / U < 0.025 && o[0].cts === 0) {
+      } else if (ys && R - H < U - B && S / U < 0.025 && o[0].cts === 0) {
         this.warn("Found irregular gaps in sample duration. Using PTS instead of DTS to determine MP4 sample duration.");
         let $ = g;
-        for (let K = 0, ie = o.length; K < ie; K++) {
-          const q = $ + o[K].duration, j = $ + o[K].cts;
-          if (K < ie - 1) {
-            const Z = q + o[K + 1].cts;
-            o[K].duration = Z - j;
+        for (let K = 0, Y = o.length; K < Y; K++) {
+          const ie = $ + o[K].duration, j = $ + o[K].cts;
+          if (K < Y - 1) {
+            const q = ie + o[K + 1].cts;
+            o[K].duration = q - j;
           } else
             o[K].duration = K ? o[K - 1].duration : S;
-          o[K].cts = 0, $ = q;
+          o[K].cts = 0, $ = ie;
         }
       }
     }
-    p = M || !p ? S : p;
+    p = P || !p ? S : p;
     const N = _ + p;
     this.nextVideoTs = h = N - u, this.videoSampleDuration = p, this.isVideoContiguous = !0;
-    const G = {
+    const V = {
       data1: D.moof(e.sequenceNumber++, g, ge(e, {
         samples: o
       })),
-      data2: A,
+      data2: w,
       startPTS: (m - u) / r,
       endPTS: (v + p - u) / r,
       startDTS: (g - u) / r,
@@ -11410,7 +11410,7 @@ class xn extends Qe {
       nb: o.length,
       dropped: e.dropped
     };
-    return e.samples = [], e.dropped = 0, G;
+    return e.samples = [], e.dropped = 0, V;
   }
   getSamplesPerFrame(e) {
     switch (e.segmentCodec) {
@@ -11437,15 +11437,15 @@ class xn extends Qe {
     if (e.segmentCodec === "aac") {
       const R = this.config.maxAudioFramesDrift;
       for (let N = 0, L = v + b; N < _.length; N++) {
-        const O = _[N], G = O.pts, $ = G - L, K = Math.abs(1e3 * $ / a);
+        const O = _[N], V = O.pts, $ = V - L, K = Math.abs(1e3 * $ / a);
         if ($ <= -R * u && g)
-          N === 0 && (this.warn(`Audio frame @ ${(G / a).toFixed(3)}s overlaps marker by ${Math.round(1e3 * $ / a)} ms.`), this.nextAudioTs = v = G - b, L = G);
+          N === 0 && (this.warn(`Audio frame @ ${(V / a).toFixed(3)}s overlaps marker by ${Math.round(1e3 * $ / a)} ms.`), this.nextAudioTs = v = V - b, L = V);
         else if ($ >= R * u && K < Yg && g) {
-          let ie = Math.round($ / u);
-          for (L = G - ie * u; L < 0 && ie && u; )
-            ie--, L += u;
-          N === 0 && (this.nextAudioTs = v = L - b), this.warn(`Injecting ${ie} audio frames @ ${((L - b) / a).toFixed(3)}s due to ${Math.round(1e3 * $ / a)} ms gap.`);
-          for (let q = 0; q < ie; q++) {
+          let Y = Math.round($ / u);
+          for (L = V - Y * u; L < 0 && Y && u; )
+            Y--, L += u;
+          N === 0 && (this.nextAudioTs = v = L - b), this.warn(`Injecting ${Y} audio frames @ ${((L - b) / a).toFixed(3)}s due to ${Math.round(1e3 * $ / a)} ms gap.`);
+          for (let ie = 0; ie < Y; ie++) {
             let j = Hg.getSilentFrame(e.parsedCodec || e.manifestCodec || e.codec, e.channelCount);
             j || (this.log("Unable to get silent frame for given audio codec; duplicating last frame instead."), j = O.unit.subarray()), _.splice(N, 0, {
               unit: j,
@@ -11456,23 +11456,23 @@ class xn extends Qe {
         O.pts = L, L += u;
       }
     }
-    let E = null, S = null, w, T = 0, k = _.length;
+    let E = null, S = null, A, T = 0, k = _.length;
     for (; k--; )
       T += _[k].unit.byteLength;
     for (let R = 0, N = _.length; R < N; R++) {
       const L = _[R], O = L.unit;
-      let G = L.pts;
+      let V = L.pts;
       if (S !== null) {
         const K = p[R - 1];
-        K.duration = Math.round((G - S) / d);
-      } else if (i && e.segmentCodec === "aac" && (G = v + b), E = G, T > 0) {
+        K.duration = Math.round((V - S) / d);
+      } else if (i && e.segmentCodec === "aac" && (V = v + b), E = V, T > 0) {
         T += m;
         try {
-          w = new Uint8Array(T);
+          A = new Uint8Array(T);
         } catch (K) {
           this.observer.emit(y.ERROR, y.ERROR, {
             type: J.MUX_ERROR,
-            details: P.REMUX_ALLOC_ERROR,
+            details: C.REMUX_ALLOC_ERROR,
             fatal: !1,
             error: K,
             bytes: T,
@@ -11480,28 +11480,28 @@ class xn extends Qe {
           });
           return;
         }
-        f || (new DataView(w.buffer).setUint32(0, T), w.set(D.types.mdat, 4));
+        f || (new DataView(A.buffer).setUint32(0, T), A.set(D.types.mdat, 4));
       } else
         return;
-      w.set(O, m);
+      A.set(O, m);
       const $ = O.byteLength;
-      m += $, p.push(ko(!0, c, $, 0)), S = G;
+      m += $, p.push(To(!0, c, $, 0)), S = V;
     }
     const I = p.length;
     if (!I)
       return;
-    const A = p[p.length - 1];
-    v = S - b, this.nextAudioTs = v + d * A.duration;
-    const C = f ? new Uint8Array(0) : D.moof(e.sequenceNumber++, E / d, ge({}, e, {
+    const w = p[p.length - 1];
+    v = S - b, this.nextAudioTs = v + d * w.duration;
+    const M = f ? new Uint8Array(0) : D.moof(e.sequenceNumber++, E / d, ge({}, e, {
       samples: p
     }));
     e.samples = [];
-    const M = (E - b) / a, B = this.nextAudioTs / a, U = {
-      data1: C,
-      data2: w,
-      startPTS: M,
+    const P = (E - b) / a, B = this.nextAudioTs / a, U = {
+      data1: M,
+      data2: A,
+      startPTS: P,
       endPTS: B,
-      startDTS: M,
+      startDTS: P,
       endDTS: B,
       type: "audio",
       hasAudio: !0,
@@ -11590,7 +11590,7 @@ class Jg extends Qe {
       const d = r || a;
       d != null && d.encrypted && this.warn(`Init segment with encrypted track with has no key ("${d.codec}")!`);
     }
-    r && (i = wo(r, me.AUDIO, this)), a && (s = wo(a, me.VIDEO, this));
+    r && (i = ko(r, me.AUDIO, this)), a && (s = ko(a, me.VIDEO, this));
     const o = {};
     r && a ? o.audiovideo = {
       container: "video/mp4",
@@ -11627,7 +11627,7 @@ class Jg extends Qe {
       id3: i,
       initSegment: void 0
     };
-    Y(u) || (u = this.lastEndTime = r || 0);
+    X(u) || (u = this.lastEndTime = r || 0);
     const f = t.samples;
     if (!f.length)
       return h;
@@ -11641,37 +11641,37 @@ class Jg extends Qe {
       return this.warn("Failed to generate initSegment."), h;
     this.emitInitSegment && (p.tracks = this.initTracks, this.emitInitSegment = !1);
     const _ = Vf(f, g, this), m = g.audio ? _[g.audio.id] : null, v = g.video ? _[g.video.id] : null, b = qi(v, 1 / 0), x = qi(m, 1 / 0), E = qi(v, 0, !0), S = qi(m, 0, !0);
-    let w = r, T = 0;
+    let A = r, T = 0;
     const k = m && (!v || !c && x < b || c && c.trackId === g.audio.id), I = k ? m : v;
     if (I) {
-      const L = I.timescale, O = I.start - r * L, G = k ? g.audio.id : g.video.id;
-      w = I.start / L, T = k ? S - x : E - b, (a || !c) && (em(c, w, r, T) || L !== c.timescale) && (c && this.warn(`Timestamps at playlist time: ${a ? "" : "~"}${r} ${O / L} != initPTS: ${c.baseTime / c.timescale} (${c.baseTime}/${c.timescale}) trackId: ${c.trackId}`), this.log(`Found initPTS at playlist time: ${r} offset: ${w - r} (${O}/${L}) trackId: ${G}`), c = null, p.initPTS = O, p.timescale = L, p.trackId = G);
+      const L = I.timescale, O = I.start - r * L, V = k ? g.audio.id : g.video.id;
+      A = I.start / L, T = k ? S - x : E - b, (a || !c) && (em(c, A, r, T) || L !== c.timescale) && (c && this.warn(`Timestamps at playlist time: ${a ? "" : "~"}${r} ${O / L} != initPTS: ${c.baseTime / c.timescale} (${c.baseTime}/${c.timescale}) trackId: ${c.trackId}`), this.log(`Found initPTS at playlist time: ${r} offset: ${A - r} (${O}/${L}) trackId: ${V}`), c = null, p.initPTS = O, p.timescale = L, p.trackId = V);
     } else
       this.warn(`No audio or video samples found for initPTS at playlist time: ${r}`);
-    c ? (p.initPTS = c.baseTime, p.timescale = c.timescale, p.trackId = c.trackId) : ((!p.timescale || p.trackId === void 0 || p.initPTS === void 0) && (this.warn("Could not set initPTS"), p.initPTS = w, p.timescale = 1, p.trackId = -1), this.initPTS = c = {
+    c ? (p.initPTS = c.baseTime, p.timescale = c.timescale, p.trackId = c.trackId) : ((!p.timescale || p.trackId === void 0 || p.initPTS === void 0) && (this.warn("Could not set initPTS"), p.initPTS = A, p.timescale = 1, p.trackId = -1), this.initPTS = c = {
       baseTime: p.initPTS,
       timescale: p.timescale,
       trackId: p.trackId
     });
-    const A = w - c.baseTime / c.timescale, C = A + T;
-    T > 0 ? this.lastEndTime = C : (this.warn("Duration parsed from mp4 should be greater than zero"), this.resetNextTimestamp());
-    const M = !!g.audio, B = !!g.video;
+    const w = A - c.baseTime / c.timescale, M = w + T;
+    T > 0 ? this.lastEndTime = M : (this.warn("Duration parsed from mp4 should be greater than zero"), this.resetNextTimestamp());
+    const P = !!g.audio, B = !!g.video;
     let H = "";
-    M && (H += "audio"), B && (H += "video");
+    P && (H += "audio"), B && (H += "video");
     const U = (g.audio ? g.audio.encrypted : !1) || (g.video ? g.video.encrypted : !1), R = {
       data1: f,
-      startPTS: A,
-      startDTS: A,
-      endPTS: C,
-      endDTS: C,
+      startPTS: w,
+      startDTS: w,
+      endPTS: M,
+      endDTS: M,
       type: H,
-      hasAudio: M,
+      hasAudio: P,
       hasVideo: B,
       nb: 1,
       dropped: 0,
       encrypted: U
     };
-    h.audio = M && !B ? R : void 0, h.video = B ? R : void 0;
+    h.audio = P && !B ? R : void 0, h.video = B ? R : void 0;
     const N = v?.sampleCount;
     if (N) {
       const L = v.keyFrameIndex, O = L !== -1;
@@ -11689,34 +11689,34 @@ function em(n, e, t, i) {
   const s = Math.max(i, 1), r = e - n.baseTime / n.timescale;
   return Math.abs(r - t) > s;
 }
-function wo(n, e, t) {
+function ko(n, e, t) {
   const i = n.codec;
-  return i && i.length > 4 ? i : e === me.AUDIO ? i === "ec-3" || i === "ac-3" || i === "alac" ? i : i === "fLaC" || i === "Opus" ? Dn(i, !1) : (t.warn(`Unhandled audio codec "${i}" in mp4 MAP`), i || "mp4a") : (t.warn(`Unhandled video codec "${i}" in mp4 MAP`), i || "avc1");
+  return i && i.length > 4 ? i : e === me.AUDIO ? i === "ec-3" || i === "ac-3" || i === "alac" ? i : i === "fLaC" || i === "Opus" ? Rn(i, !1) : (t.warn(`Unhandled audio codec "${i}" in mp4 MAP`), i || "mp4a") : (t.warn(`Unhandled video codec "${i}" in mp4 MAP`), i || "avc1");
 }
-let Tt;
+let kt;
 try {
-  Tt = self.performance.now.bind(self.performance);
+  kt = self.performance.now.bind(self.performance);
 } catch {
-  Tt = Date.now;
+  kt = Date.now;
 }
-const En = [{
+const xn = [{
   demux: Bg,
   remux: Jg
 }, {
-  demux: Dt,
-  remux: xn
+  demux: Ct,
+  remux: bn
 }, {
   demux: Og,
-  remux: xn
+  remux: bn
 }, {
   demux: Ng,
-  remux: xn
+  remux: bn
 }];
-En.splice(2, 0, {
+xn.splice(2, 0, {
   demux: Fg,
-  remux: xn
+  remux: bn
 });
-class Ao {
+class wo {
   constructor(e, t, i, s, r, a) {
     this.asyncResult = !1, this.logger = void 0, this.observer = void 0, this.typeSupported = void 0, this.config = void 0, this.id = void 0, this.demuxer = void 0, this.remuxer = void 0, this.decrypter = void 0, this.probe = void 0, this.decryptionPromise = null, this.transmuxConfig = void 0, this.currentTransmuxState = void 0, this.observer = e, this.typeSupported = t, this.config = i, this.id = r, this.logger = a;
   }
@@ -11725,7 +11725,7 @@ class Ao {
   }
   push(e, t, i, s) {
     const r = i.transmuxing;
-    r.executeStart = Tt();
+    r.executeStart = kt();
     let a = new Uint8Array(e);
     const {
       currentTransmuxState: o,
@@ -11747,20 +11747,20 @@ class Ao {
       initSegmentData: x
     } = d, E = tm(a, t);
     if (E && ui(E.method)) {
-      const k = this.getDecrypter(), I = Kr(E.method);
+      const k = this.getDecrypter(), I = Vr(E.method);
       if (k.isSync()) {
-        let A = k.softwareDecrypt(a, E.key.buffer, E.iv.buffer, I);
+        let w = k.softwareDecrypt(a, E.key.buffer, E.iv.buffer, I);
         if (i.part > -1) {
-          const M = k.flush();
-          A = M && M.buffer;
+          const P = k.flush();
+          w = P && P.buffer;
         }
-        if (!A)
-          return r.executeEnd = Tt(), xs(i);
-        a = new Uint8Array(A);
+        if (!w)
+          return r.executeEnd = kt(), bs(i);
+        a = new Uint8Array(w);
       } else
-        return this.asyncResult = !0, this.decryptionPromise = k.webCryptoDecrypt(a, E.key.buffer, E.iv.buffer, I).then((A) => {
-          const C = this.push(A, null, i);
-          return this.decryptionPromise = null, C;
+        return this.asyncResult = !0, this.decryptionPromise = k.webCryptoDecrypt(a, E.key.buffer, E.iv.buffer, I).then((w) => {
+          const M = this.push(w, null, i);
+          return this.decryptionPromise = null, M;
         }), this.decryptionPromise;
     }
     const S = this.needsProbing(u, h);
@@ -11769,22 +11769,22 @@ class Ao {
       if (k)
         return this.logger.warn(`[transmuxer] ${k.message}`), this.observer.emit(y.ERROR, y.ERROR, {
           type: J.MEDIA_ERROR,
-          details: P.FRAG_PARSING_ERROR,
+          details: C.FRAG_PARSING_ERROR,
           fatal: !1,
           error: k,
           reason: k.message
-        }), r.executeEnd = Tt(), xs(i);
+        }), r.executeEnd = kt(), bs(i);
     }
     (u || h || g || S) && this.resetInitSegment(x, _, m, b, t), (u || g || S) && this.resetInitialTimestamp(v), c || this.resetContiguity();
-    const w = this.transmux(a, E, p, f, i);
-    this.asyncResult = Ni(w);
+    const A = this.transmux(a, E, p, f, i);
+    this.asyncResult = Ni(A);
     const T = this.currentTransmuxState;
-    return T.contiguous = !0, T.discontinuity = !1, T.trackSwitch = !1, r.executeEnd = Tt(), w;
+    return T.contiguous = !0, T.discontinuity = !1, T.trackSwitch = !1, r.executeEnd = kt(), A;
   }
   // Due to data caching, flush calls can produce more than one TransmuxerResult (hence the Array type)
   flush(e) {
     const t = e.transmuxing;
-    t.executeStart = Tt();
+    t.executeStart = kt();
     const {
       decrypter: i,
       currentTransmuxState: s,
@@ -11804,8 +11804,8 @@ class Ao {
       remuxer: c
     } = this;
     if (!d || !c) {
-      t.executeEnd = Tt();
-      const h = [xs(e)];
+      t.executeEnd = kt();
+      const h = [bs(e)];
       return this.asyncResult ? Promise.resolve(h) : h;
     }
     const u = d.flush(o);
@@ -11821,12 +11821,12 @@ class Ao {
       accurateTimeOffset: d,
       timeOffset: c
     } = this.currentTransmuxState;
-    this.logger.log(`[transmuxer.ts]: Flushed ${this.id} sn: ${i.sn}${i.part > -1 ? " part: " + i.part : ""} of ${this.id === Q.MAIN ? "level" : "track"} ${i.level}`);
+    this.logger.log(`[transmuxer.ts]: Flushed ${this.id} sn: ${i.sn}${i.part > -1 ? " part: " + i.part : ""} of ${this.id === Z.MAIN ? "level" : "track"} ${i.level}`);
     const u = this.remuxer.remux(s, r, a, o, c, d, !0, this.id);
     e.push({
       remuxResult: u,
       chunkMeta: i
-    }), i.transmuxing.executeEnd = Tt();
+    }), i.transmuxing.executeEnd = kt();
   }
   resetInitialTimestamp(e) {
     const {
@@ -11881,10 +11881,10 @@ class Ao {
       typeSupported: s
     } = this;
     let r;
-    for (let h = 0, f = En.length; h < f; h++) {
+    for (let h = 0, f = xn.length; h < f; h++) {
       var a;
-      if ((a = En[h].demux) != null && a.probe(e, this.logger)) {
-        r = En[h];
+      if ((a = xn[h].demux) != null && a.probe(e, this.logger)) {
+        r = xn[h];
         break;
       }
     }
@@ -11898,14 +11898,14 @@ class Ao {
   }
   getDecrypter() {
     let e = this.decrypter;
-    return e || (e = this.decrypter = new Gr(this.config)), e;
+    return e || (e = this.decrypter = new Ur(this.config)), e;
   }
 }
 function tm(n, e) {
   let t = null;
   return n.byteLength > 0 && e?.key != null && e.iv !== null && e.method != null && (t = e), t;
 }
-const xs = (n) => ({
+const bs = (n) => ({
   remuxResult: {},
   chunkMeta: n
 });
@@ -11922,10 +11922,10 @@ class nm {
     this.discontinuity = void 0, this.contiguous = void 0, this.accurateTimeOffset = void 0, this.trackSwitch = void 0, this.timeOffset = void 0, this.initSegmentChange = void 0, this.discontinuity = e, this.contiguous = t, this.accurateTimeOffset = i, this.trackSwitch = s, this.timeOffset = r, this.initSegmentChange = a;
   }
 }
-let Io = 0;
+let Ao = 0;
 class ud {
   constructor(e, t, i, s) {
-    this.error = null, this.hls = void 0, this.id = void 0, this.instanceNo = Io++, this.observer = void 0, this.frag = null, this.part = null, this.useWorker = void 0, this.workerContext = null, this.transmuxer = null, this.onTransmuxComplete = void 0, this.onFlush = void 0, this.onWorkerMessage = (d) => {
+    this.error = null, this.hls = void 0, this.id = void 0, this.instanceNo = Ao++, this.observer = void 0, this.frag = null, this.part = null, this.useWorker = void 0, this.workerContext = null, this.transmuxer = null, this.onTransmuxComplete = void 0, this.onFlush = void 0, this.onWorkerMessage = (d) => {
       const c = d.data, u = this.hls;
       if (!(!u || !(c != null && c.event) || c.instanceNo !== this.instanceNo))
         switch (c.event) {
@@ -11959,7 +11959,7 @@ class ud {
       const c = new Error(`${d.message}  (${d.filename}:${d.lineno})`);
       this.hls.config.enableWorker = !1, this.hls.logger.warn(`Error in "${this.id}" Web Worker, fallback to inline`), this.hls.trigger(y.ERROR, {
         type: J.OTHER_ERROR,
-        details: P.INTERNAL_EXCEPTION,
+        details: C.INTERNAL_EXCEPTION,
         fatal: !1,
         event: "demuxerWorker",
         error: c
@@ -11970,8 +11970,8 @@ class ud {
     const a = (d, c) => {
       c = c || {}, c.frag = this.frag || void 0, d === y.ERROR && (c = c, c.parent = this.id, c.part = this.part, this.error = c.error), this.hls.trigger(d, c);
     };
-    this.observer = new jr(), this.observer.on(y.FRAG_DECRYPTED, a), this.observer.on(y.ERROR, a);
-    const o = Va(r.preferManagedMediaSource);
+    this.observer = new Hr(), this.observer.on(y.FRAG_DECRYPTED, a), this.observer.on(y.ERROR, a);
+    const o = Ga(r.preferManagedMediaSource);
     if (this.useWorker && typeof Worker < "u") {
       const d = this.hls.logger;
       if (r.workerPath || og()) {
@@ -11988,18 +11988,18 @@ class ud {
             config: ve(r)
           });
         } catch (u) {
-          d.warn(`Error setting up "${t}" Web Worker, fallback to inline`, u), this.terminateWorker(), this.error = null, this.transmuxer = new Ao(this.observer, o, r, "", t, e.logger);
+          d.warn(`Error setting up "${t}" Web Worker, fallback to inline`, u), this.terminateWorker(), this.error = null, this.transmuxer = new wo(this.observer, o, r, "", t, e.logger);
         }
         return;
       }
     }
-    this.transmuxer = new Ao(this.observer, o, r, "", t, e.logger);
+    this.transmuxer = new wo(this.observer, o, r, "", t, e.logger);
   }
   reset() {
     if (this.frag = null, this.part = null, this.workerContext) {
       const e = this.instanceNo;
-      this.instanceNo = Io++;
-      const t = this.hls.config, i = Va(t.preferManagedMediaSource);
+      this.instanceNo = Ao++;
+      const t = this.hls.config, i = Ga(t.preferManagedMediaSource);
       this.workerContext.worker.postMessage({
         instanceNo: this.instanceNo,
         cmd: "reset",
@@ -12034,19 +12034,19 @@ class ud {
     const {
       instanceNo: p,
       transmuxer: g
-    } = this, _ = a ? a.start : r.start, m = r.decryptdata, v = this.frag, b = !(v && r.cc === v.cc), x = !(v && c.level === v.level), E = v ? c.sn - v.sn : -1, S = this.part ? c.part - this.part.index : -1, w = E === 0 && c.id > 1 && c.id === v?.stats.chunkCount, T = !x && (E === 1 || E === 0 && (S === 1 || w && S <= 0)), k = self.performance.now();
+    } = this, _ = a ? a.start : r.start, m = r.decryptdata, v = this.frag, b = !(v && r.cc === v.cc), x = !(v && c.level === v.level), E = v ? c.sn - v.sn : -1, S = this.part ? c.part - this.part.index : -1, A = E === 0 && c.id > 1 && c.id === v?.stats.chunkCount, T = !x && (E === 1 || E === 0 && (S === 1 || A && S <= 0)), k = self.performance.now();
     (x || E || r.stats.parsing.start === 0) && (r.stats.parsing.start = k), a && (S || !T) && (a.stats.parsing.start = k);
-    const I = !(v && ((h = r.initSegment) == null ? void 0 : h.url) === ((f = v.initSegment) == null ? void 0 : f.url)), A = new nm(b, T, d, x, _, I);
+    const I = !(v && ((h = r.initSegment) == null ? void 0 : h.url) === ((f = v.initSegment) == null ? void 0 : f.url)), w = new nm(b, T, d, x, _, I);
     if (!T || b || I) {
-      this.hls.logger.log(`[transmuxer-interface]: Starting new transmux session for ${r.type} sn: ${c.sn}${c.part > -1 ? " part: " + c.part : ""} ${this.id === Q.MAIN ? "level" : "track"}: ${c.level} id: ${c.id}
+      this.hls.logger.log(`[transmuxer-interface]: Starting new transmux session for ${r.type} sn: ${c.sn}${c.part > -1 ? " part: " + c.part : ""} ${this.id === Z.MAIN ? "level" : "track"}: ${c.level} id: ${c.id}
         discontinuity: ${b}
         trackSwitch: ${x}
         contiguous: ${T}
         accurateTimeOffset: ${d}
         timeOffset: ${_}
         initSegmentChange: ${I}`);
-      const C = new im(i, s, t, o, u);
-      this.configureTransmuxer(C);
+      const M = new im(i, s, t, o, u);
+      this.configureTransmuxer(M);
     }
     if (this.frag = r, this.part = a, this.workerContext)
       this.workerContext.worker.postMessage({
@@ -12055,15 +12055,15 @@ class ud {
         data: e,
         decryptdata: m,
         chunkMeta: c,
-        state: A
+        state: w
       }, e instanceof ArrayBuffer ? [e] : []);
     else if (g) {
-      const C = g.push(e, m, c, A);
-      Ni(C) ? C.then((M) => {
-        this.handleTransmuxComplete(M);
-      }).catch((M) => {
-        this.transmuxerError(M, c, "transmuxer-interface push error");
-      }) : this.handleTransmuxComplete(C);
+      const M = g.push(e, m, c, w);
+      Ni(M) ? M.then((P) => {
+        this.handleTransmuxComplete(P);
+      }).catch((P) => {
+        this.transmuxerError(P, c, "transmuxer-interface push error");
+      }) : this.handleTransmuxComplete(M);
     }
   }
   flush(e) {
@@ -12090,7 +12090,7 @@ class ud {
   transmuxerError(e, t, i) {
     this.hls && (this.error = e, this.hls.trigger(y.ERROR, {
       type: J.MEDIA_ERROR,
-      details: P.FRAG_PARSING_ERROR,
+      details: C.FRAG_PARSING_ERROR,
       chunkMeta: t,
       frag: this.frag || void 0,
       part: this.part || void 0,
@@ -12120,10 +12120,10 @@ class ud {
     e.chunkMeta.transmuxing.end = self.performance.now(), this.onTransmuxComplete(e);
   }
 }
-const Lo = 100;
-class sm extends Hr {
+const Io = 100;
+class sm extends zr {
   constructor(e, t, i) {
-    super(e, t, i, "audio-stream-controller", Q.AUDIO), this.mainAnchor = null, this.mainFragLoading = null, this.audioOnly = !1, this.bufferedTrack = null, this.switchingTrack = null, this.trackId = -1, this.waitingData = null, this.mainDetails = null, this.flushing = !1, this.bufferFlushed = !1, this.cachedTrackLoadedData = null, this.registerListeners();
+    super(e, t, i, "audio-stream-controller", Z.AUDIO), this.mainAnchor = null, this.mainFragLoading = null, this.audioOnly = !1, this.bufferedTrack = null, this.switchingTrack = null, this.trackId = -1, this.waitingData = null, this.mainDetails = null, this.flushing = !1, this.bufferFlushed = !1, this.cachedTrackLoadedData = null, this.registerListeners();
   }
   onHandlerDestroying() {
     this.unregisterListeners(), super.onHandlerDestroying(), this.resetItem();
@@ -12152,7 +12152,7 @@ class sm extends Hr {
     timescale: r,
     trackId: a
   }) {
-    if (i === Q.MAIN) {
+    if (i === Z.MAIN) {
       const o = t.cc, d = this.fragCurrent;
       if (this.initPTS[o] = {
         baseTime: s,
@@ -12181,7 +12181,7 @@ class sm extends Hr {
       return;
     }
     const i = this.lastCurrentTime;
-    this.stopLoad(), this.setInterval(Lo), i > 0 && e === -1 ? (this.log(`Override startPosition with lastCurrentTime @${i.toFixed(3)}`), e = i, this.state = F.IDLE) : this.state = F.WAITING_TRACK, this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
+    this.stopLoad(), this.setInterval(Io), i > 0 && e === -1 ? (this.log(`Override startPosition with lastCurrentTime @${i.toFixed(3)}`), e = i, this.state = F.IDLE) : this.state = F.WAITING_TRACK, this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
   }
   doTick() {
     switch (this.state) {
@@ -12255,8 +12255,8 @@ class sm extends Hr {
       return;
     }
     const c = this.mediaBuffer ? this.mediaBuffer : this.media;
-    this.bufferFlushed && c && (this.bufferFlushed = !1, this.afterBufferFlushed(c, me.AUDIO, Q.AUDIO));
-    const u = this.getFwdBufferInfo(c, Q.AUDIO);
+    this.bufferFlushed && c && (this.bufferFlushed = !1, this.afterBufferFlushed(c, me.AUDIO, Z.AUDIO));
+    const u = this.getFwdBufferInfo(c, Z.AUDIO);
     if (u === null)
       return;
     if (!this.switchingTrack && this._streamEnded(u, d)) {
@@ -12273,7 +12273,7 @@ class sm extends Hr {
     if (h >= f && !this.switchingTrack && m < p[p.length - 1].start)
       return;
     let v = this.getNextFragment(m, d);
-    if (v && this.isLoopLoading(v, m) && (v = this.getNextFragmentLoopLoading(v, d, u, Q.MAIN, f)), !v) {
+    if (v && this.isLoopLoading(v, m) && (v = this.getNextFragmentLoopLoading(v, d, u, Z.MAIN, f)), !v) {
       this.bufferFlushed = !0;
       return;
     }
@@ -12282,7 +12282,7 @@ class sm extends Hr {
     let b = ((e = this.mainFragLoading) == null ? void 0 : e.frag) || null;
     if (!this.audioOnly && this.startFragRequested && b && we(v) && !v.endList && (!d.live || !this.loadingParts && m < this.hls.liveSyncPosition) && (this.fragmentTracker.getState(b) === Re.OK && (this.mainFragLoading = b = null), b && we(b))) {
       if (v.start > b.end) {
-        const E = this.fragmentTracker.getFragAtPos(m, Q.MAIN);
+        const E = this.fragmentTracker.getFragAtPos(m, Z.MAIN);
         E && E.end > b.end && (b = E, this.mainFragLoading = {
           frag: E,
           targetBufferTime: null
@@ -12307,7 +12307,7 @@ class sm extends Hr {
     const {
       fragCurrent: s
     } = this;
-    s && (s.abortRequests(), this.removeUnbufferedFrags(s.start)), this.resetLoadingState(), i ? (this.switchingTrack = t, this.flushAudioIfNeeded(t), this.state !== F.STOPPED && (this.setInterval(Lo), this.state = F.IDLE, this.tick())) : (this.resetTransmuxer(), this.switchingTrack = null, this.bufferedTrack = t, this.clearInterval());
+    s && (s.abortRequests(), this.removeUnbufferedFrags(s.start)), this.resetLoadingState(), i ? (this.switchingTrack = t, this.flushAudioIfNeeded(t), this.state !== F.STOPPED && (this.setInterval(Io), this.state = F.IDLE, this.tick())) : (this.resetTransmuxer(), this.switchingTrack = null, this.bufferedTrack = t, this.clearInterval());
   }
   onManifestLoading() {
     super.onManifestLoading(), this.bufferFlushed = this.flushing = this.audioOnly = !1, this.resetItem(), this.trackId = -1;
@@ -12346,7 +12346,7 @@ class sm extends Hr {
         var f;
         h = this.alignPlaylists(r, u.details, (f = this.levelLastLoaded) == null ? void 0 : f.details);
       }
-      r.alignedSliding || (Hc(r, c), r.alignedSliding || $n(r, c), h = r.fragmentStart);
+      r.alignedSliding || (Hc(r, c), r.alignedSliding || Nn(r, c), h = r.fragmentStart);
     }
     u.details = r, this.levelLastLoaded = u, this.startFragRequested || this.setStartPosition(c, h), this.hls.trigger(y.AUDIO_TRACK_UPDATED, {
       details: r,
@@ -12380,10 +12380,10 @@ class sm extends Hr {
     }
     const h = a.defaultAudioCodec || c.audioCodec || "mp4a.40.2";
     let f = this.transmuxer;
-    f || (f = this.transmuxer = new ud(this.hls, Q.AUDIO, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)));
+    f || (f = this.transmuxer = new ud(this.hls, Z.AUDIO, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)));
     const p = this.initPTS[i.cc], g = (t = i.initSegment) == null ? void 0 : t.data;
     if (p !== void 0) {
-      const m = s ? s.index : -1, v = m !== -1, b = new Vr(i.level, i.sn, i.stats.chunkCount, r.byteLength, m, v);
+      const m = s ? s.index : -1, v = m !== -1, b = new Gr(i.level, i.sn, i.stats.chunkCount, r.byteLength, m, v);
       f.push(r, g, h, "", i, s, u.totalduration, !1, b, p);
     } else {
       this.log(`Unknown video PTS for cc ${i.cc}, waiting for video PTS before demuxing audio frag ${i.sn} of [${u.startSN} ,${u.endSN}],track ${o}`);
@@ -12414,15 +12414,15 @@ class sm extends Hr {
     i && (this.mediaBuffer = i.buffer || null);
   }
   onFragLoading(e, t) {
-    !this.audioOnly && t.frag.type === Q.MAIN && we(t.frag) && (this.mainFragLoading = t, this.state === F.IDLE && this.tick());
+    !this.audioOnly && t.frag.type === Z.MAIN && we(t.frag) && (this.mainFragLoading = t, this.state === F.IDLE && this.tick());
   }
   onFragBuffered(e, t) {
     const {
       frag: i,
       part: s
     } = t;
-    if (i.type !== Q.AUDIO) {
-      !this.audioOnly && i.type === Q.MAIN && !i.elementaryStreams.video && !i.elementaryStreams.audiovideo && (this.audioOnly = !0, this.mainFragLoading = null);
+    if (i.type !== Z.AUDIO) {
+      !this.audioOnly && i.type === Z.MAIN && !i.elementaryStreams.video && !i.elementaryStreams.audiovideo && (this.audioOnly = !0, this.mainFragLoading = null);
       return;
     }
     if (this.fragContextChanged(i)) {
@@ -12443,32 +12443,32 @@ class sm extends Hr {
       return;
     }
     switch (t.details) {
-      case P.FRAG_GAP:
-      case P.FRAG_PARSING_ERROR:
-      case P.FRAG_DECRYPT_ERROR:
-      case P.FRAG_LOAD_ERROR:
-      case P.FRAG_LOAD_TIMEOUT:
-      case P.KEY_LOAD_ERROR:
-      case P.KEY_LOAD_TIMEOUT:
-        this.onFragmentOrKeyLoadError(Q.AUDIO, t);
+      case C.FRAG_GAP:
+      case C.FRAG_PARSING_ERROR:
+      case C.FRAG_DECRYPT_ERROR:
+      case C.FRAG_LOAD_ERROR:
+      case C.FRAG_LOAD_TIMEOUT:
+      case C.KEY_LOAD_ERROR:
+      case C.KEY_LOAD_TIMEOUT:
+        this.onFragmentOrKeyLoadError(Z.AUDIO, t);
         break;
-      case P.AUDIO_TRACK_LOAD_ERROR:
-      case P.AUDIO_TRACK_LOAD_TIMEOUT:
-      case P.LEVEL_PARSING_ERROR:
+      case C.AUDIO_TRACK_LOAD_ERROR:
+      case C.AUDIO_TRACK_LOAD_TIMEOUT:
+      case C.LEVEL_PARSING_ERROR:
         !t.levelRetry && this.state === F.WAITING_TRACK && ((i = t.context) == null ? void 0 : i.type) === oe.AUDIO_TRACK && (this.state = F.IDLE);
         break;
-      case P.BUFFER_ADD_CODEC_ERROR:
-      case P.BUFFER_APPEND_ERROR:
+      case C.BUFFER_ADD_CODEC_ERROR:
+      case C.BUFFER_APPEND_ERROR:
         if (t.parent !== "audio")
           return;
         this.reduceLengthAndFlushBuffer(t) || this.resetLoadingState();
         break;
-      case P.BUFFER_FULL_ERROR:
+      case C.BUFFER_FULL_ERROR:
         if (t.parent !== "audio")
           return;
         this.reduceLengthAndFlushBuffer(t) && (this.bufferedTrack = null, super.flushMainBuffer(0, Number.POSITIVE_INFINITY, "audio"));
         break;
-      case P.INTERNAL_EXCEPTION:
+      case C.INTERNAL_EXCEPTION:
         this.recoverWorkerError(t);
         break;
     }
@@ -12484,7 +12484,7 @@ class sm extends Hr {
     if (t !== me.VIDEO) {
       this.flushing = !1, this.bufferFlushed = !0, this.state === F.ENDED && (this.state = F.IDLE);
       const i = this.mediaBuffer || this.media;
-      i && (this.afterBufferFlushed(i, t, Q.AUDIO), this.tick());
+      i && (this.afterBufferFlushed(i, t, Z.AUDIO), this.tick());
     }
   }
   _handleTransmuxComplete(e) {
@@ -12560,7 +12560,7 @@ class sm extends Hr {
     if (this.state !== F.PARSING || (t.video && delete t.video, t.audiovideo && delete t.audiovideo, !t.audio))
       return;
     const r = t.audio;
-    r.id = Q.AUDIO;
+    r.id = Z.AUDIO;
     const a = e.audioCodec;
     this.log(`Init audio buffer, container:${r.container}, codecs[level/parsed]=[${a}/${r.codec}]`), a && a.split(",").length === 1 && (r.levelCodec = a), this.hls.trigger(y.BUFFER_CODECS, t);
     const o = r.initSegment;
@@ -12586,7 +12586,7 @@ class sm extends Hr {
       else if ((r = t.details) != null && r.live && !this.initPTS[e.cc]) {
         this.log(`Waiting for video PTS in continuity counter ${e.cc} of live stream before loading audio fragment ${e.sn} of level ${this.trackId}`), this.state = F.WAITING_INIT_PTS;
         const a = this.mainDetails;
-        a && a.fragmentStart !== t.details.fragmentStart && $n(t.details, a);
+        a && a.fragmentStart !== t.details.fragmentStart && Nn(t.details, a);
       } else
         super.loadFragment(e, t, i);
     } else
@@ -12602,14 +12602,14 @@ class sm extends Hr {
         audioCodec: a,
         channels: o
       } = this.bufferedTrack;
-      jt({
+      Wt({
         name: t,
         lang: i,
         assocLang: s,
         characteristics: r,
         audioCodec: a,
         channels: o
-      }, e, Kt) || (Pn(e.url, this.hls) ? (this.log("Switching audio track : flushing all audio"), super.flushMainBuffer(0, Number.POSITIVE_INFINITY, "audio"), this.bufferedTrack = null) : this.bufferedTrack = e);
+      }, e, zt) || (Cn(e.url, this.hls) ? (this.log("Switching audio track : flushing all audio"), super.flushMainBuffer(0, Number.POSITIVE_INFINITY, "audio"), this.bufferedTrack = null) : this.bufferedTrack = e);
     }
   }
   completeAudioSwitch(e) {
@@ -12619,7 +12619,7 @@ class sm extends Hr {
     this.flushAudioIfNeeded(e), this.bufferedTrack = e, this.switchingTrack = null, t.trigger(y.AUDIO_TRACK_SWITCHED, fe({}, e));
   }
 }
-class Jr extends Qe {
+class Zr extends Qe {
   constructor(e, t) {
     super(t, e.logger), this.hls = void 0, this.canLoad = !1, this.timer = -1, this.hls = e;
   }
@@ -12659,8 +12659,8 @@ class Jr extends Qe {
           const u = Math.min(t.age - t.partTarget, t.targetduration);
           d >= 0 && u > t.partTarget && (d += 1);
         }
-        const c = i && Ka(i);
-        return new za(o, d >= 0 ? d : void 0, c);
+        const c = i && Va(i);
+        return new Ka(o, d >= 0 ? d : void 0, c);
       }
     }
   }
@@ -12710,7 +12710,7 @@ class Jr extends Qe {
             } = t;
             x.trigger(y.ERROR, {
               type: J.NETWORK_ERROR,
-              details: P.LEVEL_PARSING_ERROR,
+              details: C.LEVEL_PARSING_ERROR,
               fatal: !1,
               url: s.url,
               error: b,
@@ -12731,24 +12731,24 @@ class Jr extends Qe {
         return;
       let _, m, v;
       if (s.canBlockReload && s.endSN && s.advanced) {
-        const b = this.hls.config.lowLatencyMode, x = s.lastPartSn, E = s.endSN, S = s.lastPartIndex, w = S !== -1, T = x === E;
-        w ? T ? (m = E + 1, v = b ? 0 : S) : (m = x, v = b ? S + 1 : s.maxPartIndex) : m = E + 1;
+        const b = this.hls.config.lowLatencyMode, x = s.lastPartSn, E = s.endSN, S = s.lastPartIndex, A = S !== -1, T = x === E;
+        A ? T ? (m = E + 1, v = b ? 0 : S) : (m = x, v = b ? S + 1 : s.maxPartIndex) : m = E + 1;
         const k = s.age, I = k + s.ageHeader;
-        let A = Math.min(I - s.partTarget, s.targetduration * 1.5);
-        if (A > 0) {
+        let w = Math.min(I - s.partTarget, s.targetduration * 1.5);
+        if (w > 0) {
           if (I > s.targetduration * 3)
             this.log(`Playlist last advanced ${k.toFixed(2)}s ago. Omitting segment and part directives.`), m = void 0, v = void 0;
           else if (i != null && i.tuneInGoal && I - s.partTarget > i.tuneInGoal)
-            this.warn(`CDN Tune-in goal increased from: ${i.tuneInGoal} to: ${A} with playlist age: ${s.age}`), A = 0;
+            this.warn(`CDN Tune-in goal increased from: ${i.tuneInGoal} to: ${w} with playlist age: ${s.age}`), w = 0;
           else {
-            const C = Math.floor(A / s.targetduration);
-            if (m += C, v !== void 0) {
-              const M = Math.round(A % s.targetduration / s.partTarget);
-              v += M;
+            const M = Math.floor(w / s.targetduration);
+            if (m += M, v !== void 0) {
+              const P = Math.round(w % s.targetduration / s.partTarget);
+              v += P;
             }
-            this.log(`CDN Tune-in age: ${s.ageHeader}s last advanced ${k.toFixed(2)}s goal: ${A} skip sn ${C} to part ${v}`);
+            this.log(`CDN Tune-in age: ${s.ageHeader}s last advanced ${k.toFixed(2)}s goal: ${w} skip sn ${M} to part ${v}`);
           }
-          s.tuneInGoal = A;
+          s.tuneInGoal = w;
         }
         if (_ = this.getDeliveryDirectives(s, t.deliveryDirectives, m, v), b || !T) {
           s.requestScheduled = a, this.loadingPlaylist(u, _);
@@ -12774,11 +12774,11 @@ class Jr extends Qe {
     this.log(`reload live playlist ${e.name || e.bitrate + "bps"} in ${Math.round(o)} ms`), this.clearTimer(), this.timer = self.setTimeout(() => this.loadingPlaylist(e, t), o);
   }
   getDeliveryDirectives(e, t, i, s) {
-    let r = Ka(e);
-    return t != null && t.skip && e.deltaUpdateFailed && (i = t.msn, s = t.part, r = yn.No), new za(i, s, r);
+    let r = Va(e);
+    return t != null && t.skip && e.deltaUpdateFailed && (i = t.msn, s = t.part, r = vn.No), new Ka(i, s, r);
   }
   checkRetry(e) {
-    const t = e.details, i = Mn(e), s = e.errorAction, {
+    const t = e.details, i = Pn(e), s = e.errorAction, {
       action: r,
       retryCount: a = 0,
       retryConfig: o
@@ -12790,7 +12790,7 @@ class Jr extends Qe {
       if (i && (c = e.context) != null && c.deliveryDirectives)
         this.warn(`Retrying playlist loading ${a + 1}/${o.maxNumRetry} after "${t}" without delivery-directives`), this.loadPlaylist();
       else {
-        const u = Ur(o, a);
+        const u = Br(o, a);
         this.clearTimer(), this.timer = self.setTimeout(() => this.loadPlaylist(), u), this.warn(`Retrying playlist loading ${a + 1}/${o.maxNumRetry} after "${t}" in ${u}ms`);
       }
       e.levelRetry = !0, s.resolved = !0;
@@ -12810,10 +12810,10 @@ function $i(n, e, t) {
   const i = n["STABLE-RENDITION-ID"];
   return i && !t ? i === e["STABLE-RENDITION-ID"] : !(t || ["LANGUAGE", "NAME", "CHARACTERISTICS", "AUTOSELECT", "DEFAULT", "FORCED", "ASSOC-LANGUAGE"]).some((s) => n[s] !== e[s]);
 }
-function ar(n, e) {
+function rr(n, e) {
   return e.label.toLowerCase() === n.name.toLowerCase() && (!e.language || e.language.toLowerCase() === (n.lang || "").toLowerCase());
 }
-class rm extends Jr {
+class rm extends Zr {
   constructor(e) {
     super(e, "audio-track-controller"), this.tracks = [], this.groupIds = null, this.tracksInGroup = [], this.trackId = -1, this.currentTrack = null, this.selectDefaultTrack = !0, this.registerListeners();
   }
@@ -12875,11 +12875,11 @@ class rm extends Jr {
       this.tracksInGroup = o;
       const d = this.hls.config.audioPreference;
       if (!r && d) {
-        const f = dt(d, o, Kt);
+        const f = ut(d, o, zt);
         if (f > -1)
           r = o[f];
         else {
-          const p = dt(d, this.tracks);
+          const p = ut(d, this.tracks);
           r = this.tracks[p];
         }
       }
@@ -12897,7 +12897,7 @@ class rm extends Jr {
         const f = new Error(`No audio track selected for current audio group-ID(s): ${(a = this.groupIds) == null ? void 0 : a.join(",")} track count: ${o.length}`);
         this.warn(f.message), this.hls.trigger(y.ERROR, {
           type: J.MEDIA_ERROR,
-          details: P.AUDIO_TRACK_LOAD_ERROR,
+          details: C.AUDIO_TRACK_LOAD_ERROR,
           fatal: !0,
           error: f
         });
@@ -12925,22 +12925,22 @@ class rm extends Jr {
       const i = this.allAudioTracks;
       if (this.selectDefaultTrack = !1, i.length) {
         const s = this.currentTrack;
-        if (s && jt(e, s, Kt))
+        if (s && Wt(e, s, zt))
           return s;
-        const r = dt(e, this.tracksInGroup, Kt);
+        const r = ut(e, this.tracksInGroup, zt);
         if (r > -1) {
           const a = this.tracksInGroup[r];
           return this.setAudioTrack(r), a;
         } else if (s) {
           let a = t.loadLevel;
           a === -1 && (a = t.firstAutoLevel);
-          const o = _p(e, t.levels, i, a, Kt);
+          const o = _p(e, t.levels, i, a, zt);
           if (o === -1)
             return null;
           t.nextLoadLevel = o;
         }
         if (e.channels || e.audioCodec) {
-          const a = dt(e, i);
+          const a = ut(e, i);
           if (a > -1)
             return i[a];
         }
@@ -12965,7 +12965,7 @@ class rm extends Jr {
     const t = this.tracksInGroup;
     for (let i = 0; i < t.length; i++) {
       const s = t[i];
-      if (!(this.selectDefaultTrack && !s.default) && (!e || jt(e, s, Kt)))
+      if (!(this.selectDefaultTrack && !s.default) && (!e || Wt(e, s, zt)))
         return i;
     }
     if (e) {
@@ -12979,14 +12979,14 @@ class rm extends Jr {
       } = e;
       for (let c = 0; c < t.length; c++) {
         const u = t[c];
-        if (jt({
+        if (Wt({
           name: i,
           lang: s,
           assocLang: r,
           characteristics: a,
           audioCodec: o,
           channels: d
-        }, u, Kt))
+        }, u, zt))
           return c;
       }
       for (let c = 0; c < t.length; c++) {
@@ -13005,7 +13005,7 @@ class rm extends Jr {
   loadPlaylist(e) {
     super.loadPlaylist();
     const t = this.currentTrack;
-    this.shouldLoadPlaylist(t) && Pn(t.url, this.hls) && this.scheduleLoading(t, e);
+    this.shouldLoadPlaylist(t) && Cn(t.url, this.hls) && this.scheduleLoading(t, e);
   }
   loadingPlaylist(e, t) {
     super.loadingPlaylist(e, t);
@@ -13128,7 +13128,7 @@ ${this.list("audiovideo")}}`;
     return ((t = this.queues) == null ? void 0 : t[e].map((i) => i.label).join(", ")) || "";
   }
 }
-const Ro = /(avc[1234]|hvc1|hev1|dvh[1e]|vp09|av01)(?:\.[^.,]+)+/, fd = "HlsJsTrackRemovedError";
+const Lo = /(avc[1234]|hvc1|hev1|dvh[1e]|vp09|av01)(?:\.[^.,]+)+/, fd = "HlsJsTrackRemovedError";
 class om extends Error {
   constructor(e) {
     super(e), this.name = fd;
@@ -13164,7 +13164,7 @@ class lm extends Qe {
         _objectUrl: s
       } = this;
       i !== s && this.error(`Media element src was set while attaching MediaSource (${s} > ${i})`);
-    }, this.hls = e, this.fragmentTracker = t, this.appendSource = Rf(Ft(e.config.preferManagedMediaSource)), this.initTracks(), this.registerListeners();
+    }, this.hls = e, this.fragmentTracker = t, this.appendSource = Rf(Nt(e.config.preferManagedMediaSource)), this.initTracks(), this.registerListeners();
   }
   hasSourceTypes() {
     return Object.keys(this.tracks).length > 0;
@@ -13223,7 +13223,7 @@ class lm extends Qe {
   onMediaAttaching(e, t) {
     const i = this.media = t.media;
     this.transferData = this.overrides = void 0;
-    const s = Ft(this.appendSource);
+    const s = Nt(this.appendSource);
     if (s) {
       const r = !!t.mediaSource;
       (r || t.overrides) && (this.transferData = t, this.overrides = t.overrides);
@@ -13236,7 +13236,7 @@ class lm extends Qe {
           try {
             i.removeAttribute("src");
             const d = self.ManagedMediaSource;
-            i.disableRemotePlayback = i.disableRemotePlayback || d && a instanceof d, Do(i), cm(i, o), i.load();
+            i.disableRemotePlayback = i.disableRemotePlayback || d && a instanceof d, Ro(i), cm(i, o), i.load();
           } catch {
             i.src = o;
           }
@@ -13286,7 +13286,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
               const m = se.getBuffered(h);
               f.detectEvictedFragments(c, m, p, null, !0);
             }
-            const g = Es(c), _ = [c, h];
+            const g = xs(c), _ = [c, h];
             this.sourceBuffers[g] = _, h.updating && this.operationQueue && this.operationQueue.prependBlocker(c), this.trackSourceBuffer(c, u);
           }
         }
@@ -13328,7 +13328,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
       }
       r.removeEventListener("sourceopen", this._onMediaSourceOpen), r.removeEventListener("sourceended", this._onMediaSourceEnded), r.removeEventListener("sourceclose", this._onMediaSourceClose), this.appendSource && (r.removeEventListener("startstreaming", this._onStartStreaming), r.removeEventListener("endstreaming", this._onEndStreaming)), this.mediaSource = null, this._objectUrl = null;
     }
-    s && (s.removeEventListener("emptied", this._onMediaEmptied), i || (a && self.URL.revokeObjectURL(a), this.mediaSrc === a ? (s.removeAttribute("src"), this.appendSource && Do(s), s.load()) : this.warn("media|source.src was changed by a third party - skip cleanup")), this.media = null), this.hls.trigger(y.MEDIA_DETACHED, t);
+    s && (s.removeEventListener("emptied", this._onMediaEmptied), i || (a && self.URL.revokeObjectURL(a), this.mediaSrc === a ? (s.removeAttribute("src"), this.appendSource && Ro(s), s.load()) : this.warn("media|source.src was changed by a third party - skip cleanup")), this.media = null), this.hls.trigger(y.MEDIA_DETACHED, t);
   }
   onBufferReset() {
     this.sourceBuffers.forEach(([e]) => {
@@ -13348,7 +13348,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     delete this.tracks[e];
   }
   removeBuffer(e) {
-    this.removeBufferListeners(e), this.sourceBuffers[Es(e)] = [null, null];
+    this.removeBufferListeners(e), this.sourceBuffers[xs(e)] = [null, null];
     const t = this.tracks[e];
     t && (t.buffer = void 0);
   }
@@ -13375,7 +13375,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
         supplemental: v
       } = h;
       let b = s[d];
-      const x = (c = this.transferData) == null || (c = c.tracks) == null ? void 0 : c[d], E = x != null && x.buffer ? x : b, S = E?.pendingCodec || E?.codec, w = E?.levelCodec;
+      const x = (c = this.transferData) == null || (c = c.tracks) == null ? void 0 : c[d], E = x != null && x.buffer ? x : b, S = E?.pendingCodec || E?.codec, A = E?.levelCodec;
       b || (b = s[d] = {
         buffer: void 0,
         listeners: [],
@@ -13386,10 +13386,10 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
         metadata: m,
         id: f
       });
-      const T = vn(S, w), k = T?.replace(Ro, "$1");
-      let I = vn(p, g);
-      const A = (u = I) == null ? void 0 : u.replace(Ro, "$1");
-      I && T && k !== A && (d.slice(0, 5) === "audio" && (I = Dn(I, this.appendSource)), this.log(`switching codec ${S} to ${I}`), I !== (b.pendingCodec || b.codec) && (b.pendingCodec = I), b.container = _, this.appendChangeType(d, _, I));
+      const T = _n(S, A), k = T?.replace(Lo, "$1");
+      let I = _n(p, g);
+      const w = (u = I) == null ? void 0 : u.replace(Lo, "$1");
+      I && T && k !== w && (d.slice(0, 5) === "audio" && (I = Rn(I, this.appendSource)), this.log(`switching codec ${S} to ${I}`), I !== (b.pendingCodec || b.codec) && (b.pendingCodec = I), b.container = _, this.appendChangeType(d, _, I));
     }), (this.tracksReady || this.sourceBufferCount) && (t.tracks = this.sourceBufferTracks), !this.sourceBufferCount && (this.bufferCodecEventsTotal > 1 && !this.tracks.video && !t.video && ((i = t.audio) == null ? void 0 : i.id) === "main" && (this.log("Main audio-only"), this.bufferCodecEventsTotal = 1), this.mediaSourceOpenOrEnded && this.checkPendingTracks());
   }
   get sourceBufferTracks() {
@@ -13427,14 +13427,14 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
   blockAudio(e) {
     var t;
     const i = e.start, s = i + e.duration * 0.05;
-    if (((t = this.fragmentTracker.getAppendedFrag(i, Q.MAIN)) == null ? void 0 : t.gap) === !0)
+    if (((t = this.fragmentTracker.getAppendedFrag(i, Z.MAIN)) == null ? void 0 : t.gap) === !0)
       return;
     const a = {
       label: "block-audio",
       execute: () => {
         var o;
         const d = this.tracks.video;
-        (this.lastVideoAppendEnd > s || d != null && d.buffer && se.isBuffered(d.buffer, s) || ((o = this.fragmentTracker.getAppendedFrag(s, Q.MAIN)) == null ? void 0 : o.gap) === !0) && (this.blockedAudioAppend = null, this.shiftAndExecuteNext("audio"));
+        (this.lastVideoAppendEnd > s || d != null && d.buffer && se.isBuffered(d.buffer, s) || ((o = this.fragmentTracker.getAppendedFrag(s, Z.MAIN)) == null ? void 0 : o.gap) === !0) && (this.blockedAudioAppend = null, this.shiftAndExecuteNext("audio"));
       },
       onStart: () => {
       },
@@ -13481,24 +13481,24 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     if (E && f !== "initSegment") {
       const T = d || o, k = this.blockedAudioAppend;
       if (r === "audio" && a !== "main" && !this.blockedAudioAppend && !(x.ending || x.ended)) {
-        const A = T.start + T.duration * 0.05, C = E.buffered, M = this.currentOp("video");
-        !C.length && !M ? this.blockAudio(T) : !M && !se.isBuffered(E, A) && this.lastVideoAppendEnd < A && this.blockAudio(T);
+        const w = T.start + T.duration * 0.05, M = E.buffered, P = this.currentOp("video");
+        !M.length && !P ? this.blockAudio(T) : !P && !se.isBuffered(E, w) && this.lastVideoAppendEnd < w && this.blockAudio(T);
       } else if (r === "video") {
         const I = T.end;
         if (k) {
-          const A = k.frag.start;
-          (I > A || I < this.lastVideoAppendEnd || se.isBuffered(E, A)) && this.unblockAudio();
+          const w = k.frag.start;
+          (I > w || I < this.lastVideoAppendEnd || se.isBuffered(E, w)) && this.unblockAudio();
         }
         this.lastVideoAppendEnd = I;
       }
     }
-    const S = (d || o).start, w = {
+    const S = (d || o).start, A = {
       label: `append-${r}`,
       execute: () => {
         var T;
         h.executeStart = self.performance.now();
         const k = (T = this.tracks[r]) == null ? void 0 : T.buffer;
-        k && (b ? this.updateTimestampOffset(k, S, 0.1, r, f, p) : u !== void 0 && Y(u) && this.updateTimestampOffset(k, u, 1e-6, r, f, p)), this.appendExecutor(s, r);
+        k && (b ? this.updateTimestampOffset(k, S, 0.1, r, f, p) : u !== void 0 && X(u) && this.updateTimestampOffset(k, u, 1e-6, r, f, p)), this.appendExecutor(s, r);
       },
       onStart: () => {
       },
@@ -13506,8 +13506,8 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
         const T = self.performance.now();
         h.executeEnd = h.end = T, _.first === 0 && (_.first = T), m && m.first === 0 && (m.first = T);
         const k = {};
-        this.sourceBuffers.forEach(([I, A]) => {
-          I && (k[I] = se.getBuffered(A));
+        this.sourceBuffers.forEach(([I, w]) => {
+          I && (k[I] = se.getBuffered(w));
         }), this.appendErrors[r] = 0, r === "audio" || r === "video" ? this.appendErrors.audiovideo = 0 : (this.appendErrors.audio = 0, this.appendErrors.video = 0), this.hls.trigger(y.BUFFER_APPENDED, {
           type: r,
           frag: o,
@@ -13522,7 +13522,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
         const I = {
           type: J.MEDIA_ERROR,
           parent: o.type,
-          details: P.BUFFER_APPEND_ERROR,
+          details: C.BUFFER_APPEND_ERROR,
           sourceBufferName: r,
           frag: o,
           part: d,
@@ -13530,21 +13530,21 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
           error: T,
           err: T,
           fatal: !1
-        }, A = (k = this.media) == null ? void 0 : k.error;
+        }, w = (k = this.media) == null ? void 0 : k.error;
         if (T.code === DOMException.QUOTA_EXCEEDED_ERR || T.name == "QuotaExceededError" || "quota" in T)
-          I.details = P.BUFFER_FULL_ERROR;
-        else if (T.code === DOMException.INVALID_STATE_ERR && this.mediaSourceOpenOrEnded && !A)
+          I.details = C.BUFFER_FULL_ERROR;
+        else if (T.code === DOMException.INVALID_STATE_ERR && this.mediaSourceOpenOrEnded && !w)
           I.errorAction = di(!0);
         else if (T.name === fd && this.sourceBufferCount === 0)
           I.errorAction = di(!0);
         else {
-          const C = ++this.appendErrors[r];
-          this.warn(`Failed ${C}/${this.hls.config.appendErrorMaxRetry} times to append segment in "${r}" sourceBuffer (${A || "no media error"})`), (C >= this.hls.config.appendErrorMaxRetry || A) && (I.fatal = !0);
+          const M = ++this.appendErrors[r];
+          this.warn(`Failed ${M}/${this.hls.config.appendErrorMaxRetry} times to append segment in "${r}" sourceBuffer (${w || "no media error"})`), (M >= this.hls.config.appendErrorMaxRetry || w) && (I.fatal = !0);
         }
         this.hls.trigger(y.ERROR, I);
       }
     };
-    this.log(`queuing "${r}" append sn: ${f}${d ? " p: " + d.index : ""} of ${o.type === Q.MAIN ? "level" : "track"} ${o.level} cc: ${p}`), this.append(w, r, this.isPending(this.tracks[r]));
+    this.log(`queuing "${r}" append sn: ${f}${d ? " p: " + d.index : ""} of ${o.type === Z.MAIN ? "level" : "track"} ${o.level} cc: ${p}`), this.append(A, r, this.isPending(this.tracks[r]));
   }
   getFlushOp(e, t, i) {
     return this.log(`queuing "${e}" remove ${t}-${i}`), {
@@ -13654,10 +13654,10 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     });
   }
   onError(e, t) {
-    if (t.details === P.BUFFER_APPEND_ERROR && t.frag) {
+    if (t.details === C.BUFFER_APPEND_ERROR && t.frag) {
       var i;
       const s = (i = t.errorAction) == null ? void 0 : i.nextAutoLevel;
-      Y(s) && s !== t.frag.level && this.resetAppendErrors();
+      X(s) && s !== t.frag.level && this.resetAppendErrors();
     }
   }
   resetAppendErrors() {
@@ -13676,12 +13676,12 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     if (!i || t === null || !this.sourceBufferCount)
       return;
     const s = e.config, r = i.currentTime, a = t.levelTargetDuration, o = t.live && s.liveBackBufferLength !== null ? s.liveBackBufferLength : s.backBufferLength;
-    if (Y(o) && o >= 0) {
+    if (X(o) && o >= 0) {
       const c = Math.max(o, a), u = Math.floor(r / a) * a - c;
       this.flushBackBuffer(r, a, u);
     }
     const d = s.frontBufferFlushThreshold;
-    if (Y(d) && d > 0) {
+    if (X(d) && d > 0) {
       const c = Math.max(s.maxBufferLength, d), u = Math.max(c, a), h = Math.floor(r / a) * a + u;
       this.flushFrontBuffer(r, a, h);
     }
@@ -13759,11 +13759,11 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     }
     const r = (e = this.overrides) == null ? void 0 : e.duration;
     if (r)
-      return Y(r) ? {
+      return X(r) ? {
         duration: r
       } : null;
-    const a = this.media.duration, o = Y(i.duration) ? i.duration : 0;
-    return s > o && s > a || !Y(a) ? {
+    const a = this.media.duration, o = X(i.duration) ? i.duration : 0;
+    return s > o && s > a || !X(a) ? {
       duration: s
     } : null;
   }
@@ -13773,7 +13773,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     end: i
   }) {
     const s = this.mediaSource;
-    !this.media || !s || s.readyState !== "open" || (s.duration !== e && (Y(e) && this.log(`Updating MediaSource duration to ${e.toFixed(3)}`), s.duration = e), t !== void 0 && i !== void 0 && (this.log(`MediaSource duration is set to ${s.duration}. Setting seekable range to ${t}-${i}.`), s.setLiveSeekableRange(t, i)));
+    !this.media || !s || s.readyState !== "open" || (s.duration !== e && (X(e) && this.log(`Updating MediaSource duration to ${e.toFixed(3)}`), s.duration = e), t !== void 0 && i !== void 0 && (this.log(`MediaSource duration is set to ${s.duration}. Setting seekable range to ${t}-${i}.`), s.setLiveSeekableRange(t, i)));
   }
   get tracksReady() {
     const e = this.pendingTrackCount;
@@ -13816,7 +13816,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
       const e = new Error("could not create source buffer for media codec(s)");
       this.hls.trigger(y.ERROR, {
         type: J.MEDIA_ERROR,
-        details: P.BUFFER_INCOMPATIBLE_CODECS_ERROR,
+        details: C.BUFFER_INCOMPATIBLE_CODECS_ERROR,
         fatal: !0,
         error: e,
         reason: e.message
@@ -13837,13 +13837,13 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
         const d = this.getTrackCodec(o, a), c = `${o.container};codecs=${d}`;
         o.codec = d, this.log(`creating sourceBuffer(${c})${this.currentOp(a) ? " Queued" : ""} ${ve(o)}`);
         try {
-          const u = i.addSourceBuffer(c), h = Es(a), f = [a, u];
+          const u = i.addSourceBuffer(c), h = xs(a), f = [a, u];
           t[h] = f, o.buffer = u;
         } catch (u) {
           var s;
           this.error(`error while trying to add sourceBuffer: ${u.message}`), this.shiftAndExecuteNext(a), (s = this.operationQueue) == null || s.removeBlockers(), delete this.tracks[a], this.hls.trigger(y.ERROR, {
             type: J.MEDIA_ERROR,
-            details: P.BUFFER_ADD_CODEC_ERROR,
+            details: C.BUFFER_ADD_CODEC_ERROR,
             fatal: !1,
             error: u,
             sourceBufferName: a,
@@ -13861,8 +13861,8 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     const i = e.supplemental;
     let s = e.codec;
     i && (t === "video" || t === "audiovideo") && Ci(i, "video") && (s = Zf(s, i));
-    const r = vn(s, e.levelCodec);
-    return r ? t.slice(0, 5) === "audio" ? Dn(r, this.appendSource) : r : "";
+    const r = _n(s, e.levelCodec);
+    return r ? t.slice(0, 5) === "audio" ? Rn(r, this.appendSource) : r : "";
   }
   trackSourceBuffer(e, t) {
     const i = t.buffer;
@@ -13908,7 +13908,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     const s = new Error(`${e} SourceBuffer error. MediaSource readyState: ${(i = this.mediaSource) == null ? void 0 : i.readyState}`);
     this.error(`${s}`, t), this.hls.trigger(y.ERROR, {
       type: J.MEDIA_ERROR,
-      details: P.BUFFER_APPENDING_ERROR,
+      details: C.BUFFER_APPENDING_ERROR,
       sourceBufferName: e,
       error: s,
       fatal: !1
@@ -13930,7 +13930,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
       this.warn(`Attempting to remove from the ${e} SourceBuffer, but it does not exist`), this.shiftAndExecuteNext(e);
       return;
     }
-    const d = Y(s.duration) ? s.duration : 1 / 0, c = Y(r.duration) ? r.duration : 1 / 0, u = Math.max(0, t), h = Math.min(i, d, c);
+    const d = X(s.duration) ? s.duration : 1 / 0, c = X(r.duration) ? r.duration : 1 / 0, u = Math.max(0, t), h = Math.min(i, d, c);
     h > u && (!a.ending || a.ended) ? (a.ended = !1, this.log(`Removing [${u},${h}] from the ${e} SourceBuffer`), o.remove(u, h)) : this.shiftAndExecuteNext(e);
   }
   // This method must result in an updateend event; if append is not called, onSBUpdateEnd must be called manually
@@ -14029,7 +14029,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !cc(s,
     }), t.listeners.length = 0);
   }
 }
-function Do(n) {
+function Ro(n) {
   const e = n.querySelectorAll("source");
   [].slice.call(e).forEach((t) => {
     n.removeChild(t);
@@ -14039,10 +14039,10 @@ function cm(n, e) {
   const t = self.document.createElement("source");
   t.type = "video/mp4", t.src = e, n.appendChild(t);
 }
-function Es(n) {
+function xs(n) {
   return n === "audio" ? 1 : 0;
 }
-class ea {
+class Jr {
   constructor(e) {
     this.hls = void 0, this.autoLevelCapping = void 0, this.firstLevel = void 0, this.media = void 0, this.restrictedLevels = void 0, this.timer = void 0, this.clientRect = void 0, this.streamController = void 0, this.hls = e, this.autoLevelCapping = Number.POSITIVE_INFINITY, this.firstLevel = -1, this.media = null, this.restrictedLevels = [], this.timer = void 0, this.clientRect = null, this.registerListeners();
   }
@@ -14080,7 +14080,7 @@ class ea {
     this.restrictedLevels = [], this.firstLevel = t.firstLevel, i.config.capLevelToPlayerSize && t.video && this.startCapping();
   }
   onLevelsUpdated(e, t) {
-    this.timer && Y(this.autoLevelCapping) && this.detectPlayerSize();
+    this.timer && X(this.autoLevelCapping) && this.detectPlayerSize();
   }
   // Only activate capping when playing a video stream; otherwise, multi-bitrate audio-only streams will be restricted
   // to the first level
@@ -14111,7 +14111,7 @@ class ea {
     if (!t.length)
       return -1;
     const i = t.filter((s, r) => this.isLevelAllowed(s) && r <= e);
-    return this.clientRect = null, ea.getMaxLevelByMediaSize(i, this.mediaWidth, this.mediaHeight);
+    return this.clientRect = null, Jr.getMaxLevelByMediaSize(i, this.mediaWidth, this.mediaHeight);
   }
   startCapping() {
     this.timer || (this.autoLevelCapping = Number.POSITIVE_INFINITY, self.clearInterval(this.timer), this.timer = self.setInterval(this.detectPlayerSize.bind(this), 1e3), this.detectPlayerSize());
@@ -14209,9 +14209,9 @@ const dm = {
    */
   HLS: "h"
 }, hm = um;
-class pt {
+class gt {
   constructor(e, t) {
-    Array.isArray(e) && (e = e.map((i) => i instanceof pt ? i : new pt(i))), this.value = e, this.params = t;
+    Array.isArray(e) && (e = e.map((i) => i instanceof gt ? i : new gt(i))), this.value = e, this.params = t;
   }
 }
 const fm = "Dict";
@@ -14223,7 +14223,7 @@ function gm(n, e, t, i) {
     cause: i
   });
 }
-function gt(n, e, t) {
+function mt(n, e, t) {
   return gm("serialize", n, e, t);
 }
 class pd {
@@ -14231,10 +14231,10 @@ class pd {
     this.description = e;
   }
 }
-const Co = "Bare Item", mm = "Boolean";
+const Do = "Bare Item", mm = "Boolean";
 function _m(n) {
   if (typeof n != "boolean")
-    throw gt(n, mm);
+    throw mt(n, mm);
   return n ? "?1" : "?0";
 }
 function vm(n) {
@@ -14243,7 +14243,7 @@ function vm(n) {
 const ym = "Byte Sequence";
 function bm(n) {
   if (ArrayBuffer.isView(n) === !1)
-    throw gt(n, ym);
+    throw mt(n, ym);
   return `:${vm(n)}:`;
 }
 const xm = "Integer";
@@ -14252,7 +14252,7 @@ function Em(n) {
 }
 function gd(n) {
   if (Em(n))
-    throw gt(n, xm);
+    throw mt(n, xm);
   return n.toString();
 }
 function Sm(n) {
@@ -14272,36 +14272,36 @@ const Tm = "Decimal";
 function km(n) {
   const e = md(n, 3);
   if (Math.floor(Math.abs(e)).toString().length > 12)
-    throw gt(n, Tm);
+    throw mt(n, Tm);
   const t = e.toString();
   return t.includes(".") ? t : `${t}.0`;
 }
 const wm = "String", Am = /[\x00-\x1f\x7f]+/;
 function Im(n) {
   if (Am.test(n))
-    throw gt(n, wm);
+    throw mt(n, wm);
   return `"${n.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
 }
 function Lm(n) {
   return n.description || n.toString().slice(7, -1);
 }
 const Rm = "Token";
-function Po(n) {
+function Co(n) {
   const e = Lm(n);
   if (/^([a-zA-Z*])([!#$%&'*+\-.^_`|~\w:/]*)$/.test(e) === !1)
-    throw gt(e, Rm);
+    throw mt(e, Rm);
   return e;
 }
-function or(n) {
+function ar(n) {
   switch (typeof n) {
     case "number":
-      if (!Y(n))
-        throw gt(n, Co);
+      if (!X(n))
+        throw mt(n, Do);
       return Number.isInteger(n) ? gd(n) : km(n);
     case "string":
       return Im(n);
     case "symbol":
-      return Po(n);
+      return Co(n);
     case "boolean":
       return _m(n);
     case "object":
@@ -14310,53 +14310,53 @@ function or(n) {
       if (n instanceof Uint8Array)
         return bm(n);
       if (n instanceof pd)
-        return Po(n);
+        return Co(n);
     default:
-      throw gt(n, Co);
+      throw mt(n, Do);
   }
 }
 const Dm = "Key";
-function lr(n) {
+function or(n) {
   if (/^[a-z*][a-z0-9\-_.*]*$/.test(n) === !1)
-    throw gt(n, Dm);
+    throw mt(n, Dm);
   return n;
 }
-function ta(n) {
-  return n == null ? "" : Object.entries(n).map(([e, t]) => t === !0 ? `;${lr(e)}` : `;${lr(e)}=${or(t)}`).join("");
+function ea(n) {
+  return n == null ? "" : Object.entries(n).map(([e, t]) => t === !0 ? `;${or(e)}` : `;${or(e)}=${ar(t)}`).join("");
 }
 function _d(n) {
-  return n instanceof pt ? `${or(n.value)}${ta(n.params)}` : or(n);
+  return n instanceof gt ? `${ar(n.value)}${ea(n.params)}` : ar(n);
 }
 function Cm(n) {
-  return `(${n.value.map(_d).join(" ")})${ta(n.params)}`;
+  return `(${n.value.map(_d).join(" ")})${ea(n.params)}`;
 }
 function Pm(n, e = {
   whitespace: !0
 }) {
   if (typeof n != "object" || n == null)
-    throw gt(n, fm);
+    throw mt(n, fm);
   const t = n instanceof Map ? n.entries() : Object.entries(n), i = e?.whitespace ? " " : "";
   return Array.from(t).map(([s, r]) => {
-    r instanceof pt || (r = new pt(r));
-    let a = lr(s);
-    return r.value === !0 ? a += ta(r.params) : (a += "=", Array.isArray(r.value) ? a += Cm(r) : a += _d(r)), a;
+    r instanceof gt || (r = new gt(r));
+    let a = or(s);
+    return r.value === !0 ? a += ea(r.params) : (a += "=", Array.isArray(r.value) ? a += Cm(r) : a += _d(r)), a;
   }).join(`,${i}`);
 }
 function vd(n, e) {
   return Pm(n, e);
 }
-const at = "CMCD-Object", xe = "CMCD-Request", Ut = "CMCD-Session", It = "CMCD-Status", Mm = {
+const ot = "CMCD-Object", xe = "CMCD-Request", Gt = "CMCD-Session", Lt = "CMCD-Status", Mm = {
   // Object
-  br: at,
-  ab: at,
-  d: at,
-  ot: at,
-  tb: at,
-  tpb: at,
-  lb: at,
-  tab: at,
-  lab: at,
-  url: at,
+  br: ot,
+  ab: ot,
+  d: ot,
+  ot,
+  tb: ot,
+  tpb: ot,
+  lb: ot,
+  tab: ot,
+  lab: ot,
+  url: ot,
   // Request
   pb: xe,
   bl: xe,
@@ -14381,22 +14381,22 @@ const at = "CMCD-Object", xe = "CMCD-Request", Ut = "CMCD-Session", It = "CMCD-S
   // TODO: Which header to put the `ts` field is not defined yet.
   ts: xe,
   // Session
-  cid: Ut,
-  pr: Ut,
-  sf: Ut,
-  sid: Ut,
-  st: Ut,
-  v: Ut,
-  msd: Ut,
+  cid: Gt,
+  pr: Gt,
+  sf: Gt,
+  sid: Gt,
+  st: Gt,
+  v: Gt,
+  msd: Gt,
   // Status
-  bs: It,
-  bsd: It,
-  cdn: It,
-  rtp: It,
-  bg: It,
-  pt: It,
-  ec: It,
-  e: It
+  bs: Lt,
+  bsd: Lt,
+  cdn: Lt,
+  rtp: Lt,
+  bg: Lt,
+  pt: Lt,
+  ec: Lt,
+  e: Lt
 }, Om = {
   /**
    * keys whose values vary with each request.
@@ -14424,7 +14424,7 @@ function $m(n) {
   return ["ot", "sf", "st", "e", "sta"].includes(n);
 }
 function Bm(n) {
-  return typeof n == "number" ? Y(n) : n != null && n !== "" && n !== !1;
+  return typeof n == "number" ? X(n) : n != null && n !== "" && n !== !1;
 }
 const yd = "event";
 function Um(n, e) {
@@ -14438,18 +14438,18 @@ function Um(n, e) {
     r.shift(), s.unshift("..");
   return s.join("/") + t.search + t.hash;
 }
-const Sn = (n) => Math.round(n), cr = (n, e) => Array.isArray(n) ? n.map((t) => cr(t, e)) : n instanceof pt && typeof n.value == "string" ? new pt(cr(n.value, e), n.params) : (e.baseUrl && (n = Um(n, e.baseUrl)), e.version === 1 ? encodeURIComponent(n) : n), Xi = (n) => Sn(n / 100) * 100, Gm = (n, e) => {
+const En = (n) => Math.round(n), lr = (n, e) => Array.isArray(n) ? n.map((t) => lr(t, e)) : n instanceof gt && typeof n.value == "string" ? new gt(lr(n.value, e), n.params) : (e.baseUrl && (n = Um(n, e.baseUrl)), e.version === 1 ? encodeURIComponent(n) : n), Xi = (n) => En(n / 100) * 100, Gm = (n, e) => {
   let t = n;
-  return e.version >= 2 && (n instanceof pt && typeof n.value == "string" ? t = new pt([n]) : typeof n == "string" && (t = [n])), cr(t, e);
+  return e.version >= 2 && (n instanceof gt && typeof n.value == "string" ? t = new gt([n]) : typeof n == "string" && (t = [n])), lr(t, e);
 }, Vm = {
   /**
    * Bitrate (kbps) rounded integer
    */
-  br: Sn,
+  br: En,
   /**
    * Duration (milliseconds) rounded integer
    */
-  d: Sn,
+  d: En,
   /**
    * Buffer Length (milliseconds) rounded nearest 100ms
    */
@@ -14473,25 +14473,25 @@ const Sn = (n) => Math.round(n), cr = (n, e) => Array.isArray(n) ? n.map((t) => 
   /**
    * Top Bitrate (kbps) rounded integer
    */
-  tb: Sn
-}, bd = "request", xd = "response", ia = ["ab", "bg", "bl", "br", "bs", "bsd", "cdn", "cid", "cs", "df", "ec", "lab", "lb", "ltc", "msd", "mtp", "pb", "pr", "pt", "sf", "sid", "sn", "st", "sta", "tab", "tb", "tbl", "tpb", "ts", "v"], Km = ["e"], zm = /^[a-zA-Z0-9-.]+-[a-zA-Z0-9-.]+$/;
-function ns(n) {
+  tb: En
+}, bd = "request", xd = "response", ta = ["ab", "bg", "bl", "br", "bs", "bsd", "cdn", "cid", "cs", "df", "ec", "lab", "lb", "ltc", "msd", "mtp", "pb", "pr", "pt", "sf", "sid", "sn", "st", "sta", "tab", "tb", "tbl", "tpb", "ts", "v"], Km = ["e"], zm = /^[a-zA-Z0-9-.]+-[a-zA-Z0-9-.]+$/;
+function is(n) {
   return zm.test(n);
 }
 function Hm(n) {
-  return ia.includes(n) || Km.includes(n) || ns(n);
+  return ta.includes(n) || Km.includes(n) || is(n);
 }
 const Ed = ["d", "dl", "nor", "ot", "rtp", "su"];
 function jm(n) {
-  return ia.includes(n) || Ed.includes(n) || ns(n);
+  return ta.includes(n) || Ed.includes(n) || is(n);
 }
 const Wm = ["cmsdd", "cmsds", "rc", "smrt", "ttfb", "ttfbb", "ttlb", "url"];
 function Ym(n) {
-  return ia.includes(n) || Ed.includes(n) || Wm.includes(n) || ns(n);
+  return ta.includes(n) || Ed.includes(n) || Wm.includes(n) || is(n);
 }
 const qm = ["bl", "br", "bs", "cid", "d", "dl", "mtp", "nor", "nrr", "ot", "pr", "rtp", "sf", "sid", "st", "su", "tb", "v"];
 function Xm(n) {
-  return qm.includes(n) || ns(n);
+  return qm.includes(n) || is(n);
 }
 const Qm = {
   [xd]: Ym,
@@ -14521,7 +14521,7 @@ function Sd(n, e = {}) {
         return;
       f = i;
     }
-    h == "pr" && f === 1 || (d && h === "ts" && !Y(f) && (f = Date.now()), Bm(f) && ($m(h) && typeof f == "string" && (f = new pd(f)), t[h] = f));
+    h == "pr" && f === 1 || (d && h === "ts" && !X(f) && (f = Date.now()), Bm(f) && ($m(h) && typeof f == "string" && (f = new pd(f)), t[h] = f));
   }), t;
 }
 function Zm(n, e = {}) {
@@ -14557,13 +14557,13 @@ function n0(n, e = {}) {
   const t = i0(n, e);
   return `${e0}=${t}`;
 }
-const Mo = /CMCD=[^&#]+/;
+const Po = /CMCD=[^&#]+/;
 function s0(n, e, t) {
   const i = n0(e, t);
   if (!i)
     return n;
-  if (Mo.test(n))
-    return n.replace(Mo, i);
+  if (Po.test(n))
+    return n.replace(Po, i);
   const s = n.includes("?") ? "&" : "?";
   return `${n}${s}${i}`;
 }
@@ -14849,7 +14849,7 @@ class o0 extends Qe {
         } = t.context;
         o && s ? a = this.getPathwayForGroupId(o, c, a) : d && (a = d);
       }
-      a in this.penalizedPathways || (this.penalizedPathways[a] = performance.now()), !r && s && (r = this.pathways()), r && r.length > 1 && (this.updatePathwayPriority(r), i.resolved = this.pathwayId !== a), t.details === P.BUFFER_APPEND_ERROR && !t.fatal ? i.resolved = !0 : i.resolved || this.warn(`Could not resolve ${t.details} ("${t.error.message}") with content-steering for Pathway: ${a} levels: ${s && s.length} priorities: ${ve(r)} penalized: ${ve(this.penalizedPathways)}`);
+      a in this.penalizedPathways || (this.penalizedPathways[a] = performance.now()), !r && s && (r = this.pathways()), r && r.length > 1 && (this.updatePathwayPriority(r), i.resolved = this.pathwayId !== a), t.details === C.BUFFER_APPEND_ERROR && !t.fatal ? i.resolved = !0 : i.resolved || this.warn(`Could not resolve ${t.details} ("${t.error.message}") with content-steering for Pathway: ${a} levels: ${s && s.length} priorities: ${ve(r)} penalized: ${ve(this.penalizedPathways)}`);
     }
   }
   filterParsedLevels(e) {
@@ -14931,7 +14931,7 @@ class o0 extends Qe {
             _.addGroupId("text", `${u.subtitleGroups[m]}_clone_${a}`);
         return _;
       });
-      t.push(...c), Oo(this.audioTracks, i, d, a), Oo(this.subtitleTracks, s, d, a);
+      t.push(...c), Mo(this.audioTracks, i, d, a), Mo(this.subtitleTracks, s, d, a);
     });
   }
   loadSteeringManifest(e) {
@@ -15020,7 +15020,7 @@ class o0 extends Qe {
     }, t);
   }
 }
-function Oo(n, e, t, i) {
+function Mo(n, e, t, i) {
   n && Object.keys(e).forEach((s) => {
     const r = n.filter((a) => a.groupId === s).map((a) => {
       const o = ge({}, a);
@@ -15053,18 +15053,18 @@ class hi extends Qe {
         if (!this.keyFormatPromise) {
           let a = Object.keys(this.keySystemAccessPromises);
           a.length || (a = Ei(this.config));
-          const o = a.map(ps).filter((d) => !!d);
+          const o = a.map(fs).filter((d) => !!d);
           this.keyFormatPromise = this.getKeyFormatPromise(o);
         }
         this.keyFormatPromise.then((a) => {
-          const o = bn(a);
+          const o = yn(a);
           if (i !== "sinf" || o !== be.FAIRPLAY) {
             this.log(`Ignoring "${t.type}" event with init data type: "${i}" for selected key-system ${o}`);
             return;
           }
           let d;
           try {
-            const p = Le(new Uint8Array(s)), g = zr(JSON.parse(p).sinf), _ = vc(g);
+            const p = Le(new Uint8Array(s)), g = Kr(JSON.parse(p).sinf), _ = vc(g);
             if (!_)
               throw new Error("'schm' box missing or not cbcs/cenc with schi > tenc");
             d = new Uint8Array(_.subarray(8, 24));
@@ -15082,7 +15082,7 @@ class hi extends Qe {
             if (!_.keyId)
               continue;
             const m = Me(_.keyId);
-            if (Fn(d, _.keyId) || _.uri.replace(/-/g, "").indexOf(c) !== -1) {
+            if (On(d, _.keyId) || _.uri.replace(/-/g, "").indexOf(c) !== -1) {
               if (f = u[m], !f)
                 continue;
               if (_.pssh)
@@ -15144,7 +15144,7 @@ class hi extends Qe {
         })).catch((h) => {
           c.length ? d(c) : h instanceof ze ? o(h) : o(new ze({
             type: J.KEY_SYSTEM_ERROR,
-            details: P.KEY_SYSTEM_NO_ACCESS,
+            details: C.KEY_SYSTEM_NO_ACCESS,
             error: h,
             fatal: !0
           }, h.message));
@@ -15223,7 +15223,7 @@ class hi extends Qe {
       hasMediaKeys: e
     }) => !!e).map(({
       keySystem: e
-    }) => ps(e)).filter((e) => !!e);
+    }) => fs(e)).filter((e) => !!e);
   }
   getKeySystemAccess(e) {
     return this.getKeySystemSelectionPromise(e).then(({
@@ -15236,7 +15236,7 @@ class hi extends Qe {
       this.getKeySystemSelectionPromise(e).then(({
         keySystem: s
       }) => {
-        const r = ps(s);
+        const r = fs(s);
         r ? t(r) : i(new Error(`Unable to find format for key-system "${s}"`));
       }).catch(i);
     });
@@ -15246,7 +15246,7 @@ class hi extends Qe {
     return this.keyFormatPromise || (this.log(`Selecting key-system from fragment (sn: ${e.sn} ${e.type}: ${e.level}) key formats ${t.join(", ")}`), this.keyFormatPromise = this.getKeyFormatPromise(t)), this.keyFormatPromise;
   }
   getKeyFormatPromise(e) {
-    const t = Ei(this.config), i = e.map(bn).filter((s) => !!s && t.indexOf(s) !== -1);
+    const t = Ei(this.config), i = e.map(yn).filter((s) => !!s && t.indexOf(s) !== -1);
     return this.selectKeySystem(i);
   }
   getKeyStatus(e) {
@@ -15262,7 +15262,7 @@ class hi extends Qe {
   loadKey(e) {
     const t = e.keyInfo.decryptdata, i = Qi(t), s = this.bannedKeyIds[i];
     if (s || this.getKeyStatus(t) === "internal-error") {
-      const o = Fo(s || "internal-error", t);
+      const o = Oo(s || "internal-error", t);
       return this.handleError(o, e.frag), Promise.reject(o);
     }
     const r = `(keyId: ${i} format: "${t.keyFormat}" method: ${t.method} uri: ${t.uri})`;
@@ -15304,7 +15304,7 @@ class hi extends Qe {
       } else
         this.error(e.message), this.hls.trigger(y.ERROR, {
           type: J.KEY_SYSTEM_ERROR,
-          details: P.KEY_SYSTEM_NO_KEYS,
+          details: C.KEY_SYSTEM_NO_KEYS,
           error: e,
           fatal: !0
         });
@@ -15312,7 +15312,7 @@ class hi extends Qe {
   getKeySystemForKeyPromise(e) {
     const t = Qi(e), i = this.keyIdToKeySessionPromise[t];
     if (!i) {
-      const s = bn(e.keyFormat), r = s ? [s] : Ei(this.config);
+      const s = yn(e.keyFormat), r = s ? [s] : Ei(this.config);
       return this.attemptKeySystemAccess(r);
     }
     return i;
@@ -15321,7 +15321,7 @@ class hi extends Qe {
     if (e.length || (e = Ei(this.config)), e.length === 0)
       throw new ze({
         type: J.KEY_SYSTEM_ERROR,
-        details: P.KEY_SYSTEM_NO_CONFIGURED_LICENSE,
+        details: C.KEY_SYSTEM_NO_CONFIGURED_LICENSE,
         fatal: !0
       }, `Missing key-system license configuration options ${ve({
         drmSystems: this.config.drmSystems
@@ -15361,7 +15361,7 @@ class hi extends Qe {
       return this.log(`Skipping key-session request for "${s}" (no initData)`), Promise.resolve(e);
     const o = Qi(e.decryptdata), d = e.decryptdata.uri;
     this.log(`Generating key-session request for "${s}" keyId: ${o} URI: ${d} (init data type: ${t} length: ${i.byteLength})`);
-    const c = new jr(), u = e._onmessage = (g) => {
+    const c = new Hr(), u = e._onmessage = (g) => {
       const _ = e.mediaKeysSession;
       if (!_) {
         c.emit("error", new Error("invalid state"));
@@ -15373,11 +15373,11 @@ class hi extends Qe {
       } = g;
       this.log(`"${m}" message event for session "${_.sessionId}" message size: ${v.byteLength}`), m === "license-request" || m === "license-renewal" ? this.renewLicense(e, v).catch((b) => {
         c.eventNames().length ? c.emit("error", b) : this.handleError(b);
-      }) : m === "license-release" ? e.keySystem === be.FAIRPLAY && this.updateKeySession(e, tr("acknowledged")).then(() => this.removeSession(e)).catch((b) => this.handleError(b)) : this.warn(`unhandled media key message type "${m}"`);
+      }) : m === "license-release" ? e.keySystem === be.FAIRPLAY && this.updateKeySession(e, er("acknowledged")).then(() => this.removeSession(e)).catch((b) => this.handleError(b)) : this.warn(`unhandled media key message type "${m}"`);
     }, h = (g, _) => {
       _.keyStatus = g;
       let m;
-      g.startsWith("usable") ? c.emit("resolved") : g === "internal-error" || g === "output-restricted" || g === "output-downscaled" ? m = Fo(g, _.decryptdata) : g === "expired" ? m = new Error(`key expired (keyId: ${o})`) : g === "released" ? m = new Error("key released") : g === "status-pending" || this.warn(`unhandled key status change "${g}" (keyId: ${o})`), m && (c.eventNames().length ? c.emit("error", m) : this.handleError(m));
+      g.startsWith("usable") ? c.emit("resolved") : g === "internal-error" || g === "output-restricted" || g === "output-downscaled" ? m = Oo(g, _.decryptdata) : g === "expired" ? m = new Error(`key expired (keyId: ${o})`) : g === "released" ? m = new Error("key released") : g === "status-pending" || this.warn(`unhandled key status change "${g}" (keyId: ${o})`), m && (c.eventNames().length ? c.emit("error", m) : this.handleError(m));
     }, f = e._onkeystatuseschange = (g) => {
       if (!e.mediaKeysSession) {
         c.emit("error", new Error("invalid state"));
@@ -15414,7 +15414,7 @@ class hi extends Qe {
     }).catch((g) => {
       throw new ze({
         type: J.KEY_SYSTEM_ERROR,
-        details: P.KEY_SYSTEM_NO_SESSION,
+        details: C.KEY_SYSTEM_NO_SESSION,
         error: g,
         decryptdata: e.decryptdata,
         fatal: !1
@@ -15458,7 +15458,7 @@ class hi extends Qe {
         onError: (f, p, g, _) => {
           o(new ze({
             type: J.KEY_SYSTEM_ERROR,
-            details: P.KEY_SYSTEM_SERVER_CERTIFICATE_REQUEST_FAILED,
+            details: C.KEY_SYSTEM_SERVER_CERTIFICATE_REQUEST_FAILED,
             fatal: !0,
             networkDetails: g,
             response: fe({
@@ -15470,7 +15470,7 @@ class hi extends Qe {
         onTimeout: (f, p, g) => {
           o(new ze({
             type: J.KEY_SYSTEM_ERROR,
-            details: P.KEY_SYSTEM_SERVER_CERTIFICATE_REQUEST_FAILED,
+            details: C.KEY_SYSTEM_SERVER_CERTIFICATE_REQUEST_FAILED,
             fatal: !0,
             networkDetails: g,
             response: {
@@ -15493,7 +15493,7 @@ class hi extends Qe {
       }).catch((a) => {
         r(new ze({
           type: J.KEY_SYSTEM_ERROR,
-          details: P.KEY_SYSTEM_SERVER_CERTIFICATE_UPDATE_FAILED,
+          details: C.KEY_SYSTEM_SERVER_CERTIFICATE_UPDATE_FAILED,
           error: a,
           fatal: !0
         }, a.message));
@@ -15504,7 +15504,7 @@ class hi extends Qe {
     return this.requestLicense(e, new Uint8Array(t)).then((i) => this.updateKeySession(e, new Uint8Array(i)).catch((s) => {
       throw new ze({
         type: J.KEY_SYSTEM_ERROR,
-        details: P.KEY_SYSTEM_SESSION_UPDATE_FAILED,
+        details: C.KEY_SYSTEM_SESSION_UPDATE_FAILED,
         decryptdata: e.decryptdata,
         error: s,
         fatal: !1
@@ -15528,7 +15528,7 @@ class hi extends Qe {
     const d = s.querySelector("Challenge"), c = d?.textContent;
     if (!c)
       throw new Error("Cannot find <Challenge> in key message");
-    return tr(atob(c));
+    return er(atob(c));
   }
   setupLicenseXHR(e, t, i, s) {
     const r = this.config.licenseXhrSetup;
@@ -15575,7 +15575,7 @@ class hi extends Qe {
             if (this._requestLicenseFailureCount++, this._requestLicenseFailureCount > c || o.status >= 400 && o.status < 500)
               r(new ze({
                 type: J.KEY_SYSTEM_ERROR,
-                details: P.KEY_SYSTEM_LICENSE_REQUEST_FAILED,
+                details: C.KEY_SYSTEM_LICENSE_REQUEST_FAILED,
                 decryptdata: e.decryptdata,
                 fatal: !0,
                 networkDetails: o,
@@ -15621,19 +15621,19 @@ class hi extends Qe {
     if (t && t(), !this.mediaKeys && !this.mediaKeySessions.length)
       return;
     const i = this.media, s = this.mediaKeySessions.slice();
-    this.mediaKeySessions = [], this.mediaKeys = null, Ct.clearKeyUriToKeyIdMap();
+    this.mediaKeySessions = [], this.mediaKeys = null, Pt.clearKeyUriToKeyIdMap();
     const r = s.length;
     hi.CDMCleanupPromise = Promise.all(s.map((a) => this.removeSession(a)).concat((i == null || (e = i.setMediaKeys(null)) == null ? void 0 : e.catch((a) => {
       this.log(`Could not clear media keys: ${a}`), this.hls && this.hls.trigger(y.ERROR, {
         type: J.OTHER_ERROR,
-        details: P.KEY_SYSTEM_DESTROY_MEDIA_KEYS_ERROR,
+        details: C.KEY_SYSTEM_DESTROY_MEDIA_KEYS_ERROR,
         fatal: !1,
         error: new Error(`Could not clear media keys: ${a}`)
       });
     })) || Promise.resolve())).catch((a) => {
       this.log(`Could not close sessions and clear media keys: ${a}`), this.hls && this.hls.trigger(y.ERROR, {
         type: J.OTHER_ERROR,
-        details: P.KEY_SYSTEM_DESTROY_CLOSE_SESSION_ERROR,
+        details: C.KEY_SYSTEM_DESTROY_CLOSE_SESSION_ERROR,
         fatal: !1,
         error: new Error(`Could not close sessions and clear media keys: ${a}`)
       });
@@ -15674,14 +15674,14 @@ class hi extends Qe {
       }) : Promise.resolve()).catch((c) => {
         this.log(`Could not remove session: ${c}`), this.hls && this.hls.trigger(y.ERROR, {
           type: J.OTHER_ERROR,
-          details: P.KEY_SYSTEM_DESTROY_REMOVE_SESSION_ERROR,
+          details: C.KEY_SYSTEM_DESTROY_REMOVE_SESSION_ERROR,
           fatal: !1,
           error: new Error(`Could not remove session: ${c}`)
         });
       }).then(() => t.close()).catch((c) => {
         this.log(`Could not close session: ${c}`), this.hls && this.hls.trigger(y.ERROR, {
           type: J.OTHER_ERROR,
-          details: P.KEY_SYSTEM_DESTROY_CLOSE_SESSION_ERROR,
+          details: C.KEY_SYSTEM_DESTROY_CLOSE_SESSION_ERROR,
           fatal: !1,
           error: new Error(`Could not close session: ${c}`)
         });
@@ -15709,8 +15709,8 @@ class ze extends Error {
     super(t), this.data = void 0, e.error || (e.error = new Error(t)), this.data = e, e.err = e.error;
   }
 }
-function Fo(n, e) {
-  const t = n === "output-restricted", i = t ? P.KEY_SYSTEM_STATUS_OUTPUT_RESTRICTED : P.KEY_SYSTEM_STATUS_INTERNAL_ERROR;
+function Oo(n, e) {
+  const t = n === "output-restricted", i = t ? C.KEY_SYSTEM_STATUS_OUTPUT_RESTRICTED : C.KEY_SYSTEM_STATUS_INTERNAL_ERROR;
   return new ze({
     type: J.KEY_SYSTEM_ERROR,
     details: i,
@@ -15807,7 +15807,7 @@ function ci(n, e) {
       e && n.cues[i].removeEventListener("enter", e), n.removeCue(n.cues[i]);
   t === "disabled" && (n.mode = t);
 }
-function dr(n, e, t, i) {
+function cr(n, e, t, i) {
   const s = n.mode;
   if (s === "disabled" && (n.mode = "hidden"), n.cues && n.cues.length > 0) {
     const r = u0(n.cues, e, t);
@@ -15844,7 +15844,7 @@ function u0(n, e, t) {
     }
   return i;
 }
-function Tn(n) {
+function Sn(n) {
   const e = [];
   for (let t = 0; t < n.length; t++) {
     const i = n[t];
@@ -15852,13 +15852,13 @@ function Tn(n) {
   }
   return e;
 }
-class h0 extends Jr {
+class h0 extends Zr {
   constructor(e) {
     super(e, "subtitle-track-controller"), this.media = null, this.tracks = [], this.groupIds = null, this.tracksInGroup = [], this.trackId = -1, this.currentTrack = null, this.selectDefaultTrack = !0, this.queuedDefaultTrack = -1, this.useTextTrackPolling = !1, this.subtitlePollingInterval = -1, this._subtitleDisplay = !0, this.asyncPollTrackChange = () => this.pollTrackChange(0), this.onTextTracksChanged = () => {
       if (this.useTextTrackPolling || self.clearInterval(this.subtitlePollingInterval), !this.media || !this.hls.config.renderTextTracksNatively)
         return;
       let t = null;
-      const i = Tn(this.media.textTracks);
+      const i = Sn(this.media.textTracks);
       for (let r = 0; r < i.length; r++)
         if (i[r].mode === "hidden")
           t = i[r];
@@ -15905,7 +15905,7 @@ class h0 extends Jr {
     const s = !!t.transferMedia;
     if (self.clearInterval(this.subtitlePollingInterval), this.useTextTrackPolling || i.textTracks.removeEventListener("change", this.asyncPollTrackChange), this.trackId > -1 && (this.queuedDefaultTrack = this.trackId), this.subtitleTrack = -1, this.media = null, s)
       return;
-    Tn(i.textTracks).forEach((a) => {
+    Sn(i.textTracks).forEach((a) => {
       ci(a);
     });
   }
@@ -15954,11 +15954,11 @@ class h0 extends Jr {
       const o = this.hls.config.subtitlePreference;
       if (!r && o) {
         this.selectDefaultTrack = !1;
-        const u = dt(o, a);
+        const u = ut(o, a);
         if (u > -1)
           r = a[u];
         else {
-          const h = dt(o, this.tracks);
+          const h = ut(o, this.tracks);
           r = this.tracks[h];
         }
       }
@@ -15974,7 +15974,7 @@ class h0 extends Jr {
     const t = this.tracksInGroup, i = this.selectDefaultTrack;
     for (let s = 0; s < t.length; s++) {
       const r = t[s];
-      if (!(i && !r.default || !i && !e) && (!e || jt(r, e)))
+      if (!(i && !r.default || !i && !e) && (!e || Wt(r, e)))
         return s;
     }
     if (e) {
@@ -15996,7 +15996,7 @@ class h0 extends Jr {
       const t = this.tracksInGroup;
       for (let i = 0; i < t.length; i++) {
         const s = t[i];
-        if (ar(s, e))
+        if (rr(s, e))
           return i;
       }
     }
@@ -16026,9 +16026,9 @@ class h0 extends Jr {
       const t = this.allSubtitleTracks;
       if (this.selectDefaultTrack = !1, t.length) {
         const i = this.currentTrack;
-        if (i && jt(e, i))
+        if (i && Wt(e, i))
           return i;
-        const s = dt(e, this.tracksInGroup);
+        const s = ut(e, this.tracksInGroup);
         if (s > -1) {
           const r = this.tracksInGroup[s];
           return this.setSubtitleTrack(s), r;
@@ -16036,7 +16036,7 @@ class h0 extends Jr {
           if (i)
             return null;
           {
-            const r = dt(e, t);
+            const r = ut(e, t);
             if (r > -1)
               return t[r];
           }
@@ -16070,9 +16070,9 @@ class h0 extends Jr {
     } = this;
     if (!e)
       return;
-    const t = Tn(e.textTracks), i = this.currentTrack;
+    const t = Sn(e.textTracks), i = this.currentTrack;
     let s;
-    if (i && (s = t.filter((r) => ar(i, r))[0], s || this.warn(`Unable to find subtitle TextTrack with name "${i.name}" and language "${i.lang}"`)), [].slice.call(t).forEach((r) => {
+    if (i && (s = t.filter((r) => rr(i, r))[0], s || this.warn(`Unable to find subtitle TextTrack with name "${i.name}" and language "${i.lang}"`)), [].slice.call(t).forEach((r) => {
       r.mode !== "disabled" && r !== s && (r.mode = "disabled");
     }), s) {
       const r = this.subtitleDisplay ? "showing" : "hidden";
@@ -16089,7 +16089,7 @@ class h0 extends Jr {
       this.queuedDefaultTrack = e;
       return;
     }
-    if (e < -1 || e >= t.length || !Y(e)) {
+    if (e < -1 || e >= t.length || !X(e)) {
       this.warn(`Invalid subtitle track id: ${e}`);
       return;
     }
@@ -16146,7 +16146,7 @@ function Ii(n) {
   return (e >>> 0).toString();
 }
 const fi = 0.025;
-let Un = /* @__PURE__ */ (function(n) {
+let Bn = /* @__PURE__ */ (function(n) {
   return n[n.Point = 0] = "Point", n[n.Range = 1] = "Range", n;
 })({});
 function p0(n, e, t) {
@@ -16190,7 +16190,7 @@ class g0 {
     if (this.snapOptions.out) {
       const t = this.dateRange.tagAnchor;
       if (t)
-        return Ss(e, t);
+        return Es(e, t);
     }
     return e;
   }
@@ -16202,13 +16202,13 @@ class g0 {
       return !0;
     const e = this.dateRange.tagAnchor;
     if (e) {
-      const t = this.dateRange.startTime, i = Ss(t, e);
+      const t = this.dateRange.startTime, i = Es(t, e);
       return t - i < 0.1;
     }
     return !1;
   }
   get resumptionOffset() {
-    const e = this.resumeOffset, t = Y(e) ? e : this.duration;
+    const e = this.resumeOffset, t = X(e) ? e : this.duration;
     return this.cumulativeDuration + t;
   }
   get resumeTime() {
@@ -16216,7 +16216,7 @@ class g0 {
     if (this.snapOptions.in) {
       const t = this.resumeAnchor;
       if (t)
-        return Ss(e, t);
+        return Es(e, t);
     }
     return e;
   }
@@ -16250,7 +16250,7 @@ class g0 {
     return this.dateRange.cue;
   }
   get timelineOccupancy() {
-    return this.dateRange.attr["X-TIMELINE-OCCUPIES"] === "RANGE" ? Un.Range : Un.Point;
+    return this.dateRange.attr["X-TIMELINE-OCCUPIES"] === "RANGE" ? Bn.Range : Bn.Point;
   }
   get supplementsPrimary() {
     return this.dateRange.attr["X-TIMELINE-STYLE"] === "PRIMARY";
@@ -16274,14 +16274,14 @@ class g0 {
     return m0(this);
   }
 }
-function Ss(n, e) {
+function Es(n, e) {
   return n - e.start < e.duration / 2 && !(Math.abs(n - (e.start + e.duration)) < fi) ? e.start : e.start + e.duration;
 }
 function Ad(n, e, t) {
   const i = new self.URL(n, t);
   return i.protocol !== "data:" && i.searchParams.set("_HLS_primary_id", e), i;
 }
-function Ts(n, e) {
+function Ss(n, e) {
   for (; (t = n.assetList[++e]) != null && t.error; )
     var t;
   return e;
@@ -16465,7 +16465,7 @@ class _0 {
     return `HlsAssetPlayer: ${oi(this.assetItem)} ${(e = this.hls) == null ? void 0 : e.sessionId} ${this.appendInPlace ? "append-in-place" : ""}`;
   }
 }
-const No = 0.033;
+const Fo = 0.033;
 class v0 extends Qe {
   constructor(e, t) {
     super("interstitials-sched", t), this.onScheduleUpdate = void 0, this.eventMap = {}, this.events = null, this.items = null, this.durations = {
@@ -16611,8 +16611,8 @@ class v0 extends Qe {
       this.resolveOffsets(e, t);
       let d = 0, c = 0;
       if (e.forEach((u, h) => {
-        const f = u.cue.pre, p = u.cue.post, g = e[h - 1] || null, _ = u.appendInPlace, m = p ? r : u.startOffset, v = u.duration, b = u.timelineOccupancy === Un.Range ? v : 0, x = u.resumptionOffset, E = g?.startTime === m, S = m + u.cumulativeDuration;
-        let w = _ ? S + v : m + x;
+        const f = u.cue.pre, p = u.cue.post, g = e[h - 1] || null, _ = u.appendInPlace, m = p ? r : u.startOffset, v = u.duration, b = u.timelineOccupancy === Bn.Range ? v : 0, x = u.resumptionOffset, E = g?.startTime === m, S = m + u.cumulativeDuration;
+        let A = _ ? S + v : m + x;
         if (f || !p && m <= 0) {
           const k = c;
           c += b, u.timelineStart = S;
@@ -16620,7 +16620,7 @@ class v0 extends Qe {
           a += v, i.push({
             event: u,
             start: S,
-            end: w,
+            end: A,
             playout: {
               start: I,
               end: a
@@ -16632,37 +16632,37 @@ class v0 extends Qe {
           });
         } else if (m <= r) {
           if (!E) {
-            const A = m - d;
-            if (A > No) {
-              const C = d, M = c;
-              c += A;
+            const w = m - d;
+            if (w > Fo) {
+              const M = d, P = c;
+              c += w;
               const B = a;
-              a += A;
+              a += w;
               const H = {
                 previousEvent: e[h - 1] || null,
                 nextEvent: u,
-                start: C,
-                end: C + A,
+                start: M,
+                end: M + w,
                 playout: {
                   start: B,
                   end: a
                 },
                 integrated: {
-                  start: M,
+                  start: P,
                   end: c
                 }
               };
               i.push(H);
-            } else A > 0 && g && (g.cumulativeDuration += A, i[i.length - 1].end = m);
+            } else w > 0 && g && (g.cumulativeDuration += w, i[i.length - 1].end = m);
           }
-          p && (w = S), u.timelineStart = S;
+          p && (A = S), u.timelineStart = S;
           const k = c;
           c += b;
           const I = a;
           a += v, i.push({
             event: u,
             start: S,
-            end: w,
+            end: A,
             playout: {
               start: I,
               end: a
@@ -16726,8 +16726,8 @@ class v0 extends Qe {
     let r = 0, a = -1;
     e.forEach((o, d) => {
       const c = o.cue.pre, u = o.cue.post, h = c ? 0 : u ? s : o.startTime;
-      this.updateAssetDurations(o), a === h ? o.cumulativeDuration = r : (r = 0, a = h), !u && o.snapOptions.in && (o.resumeAnchor = Wt(null, i.fragments, o.startOffset + o.resumptionOffset, 0, 0) || void 0), o.appendInPlace && !o.appendInPlaceStarted && (this.primaryCanResumeInPlaceAt(o, t) || (o.appendInPlace = !1)), !o.appendInPlace && d + 1 < e.length && e[d + 1].startTime - e[d].resumeTime < No && (e[d + 1].appendInPlace = !1, e[d + 1].appendInPlace && this.warn(`Could not change append strategy for abutting event ${o}`));
-      const p = Y(o.resumeOffset) ? o.resumeOffset : o.duration;
+      this.updateAssetDurations(o), a === h ? o.cumulativeDuration = r : (r = 0, a = h), !u && o.snapOptions.in && (o.resumeAnchor = Yt(null, i.fragments, o.startOffset + o.resumptionOffset, 0, 0) || void 0), o.appendInPlace && !o.appendInPlaceStarted && (this.primaryCanResumeInPlaceAt(o, t) || (o.appendInPlace = !1)), !o.appendInPlace && d + 1 < e.length && e[d + 1].startTime - e[d].resumeTime < Fo && (e[d + 1].appendInPlace = !1, e[d + 1].appendInPlace && this.warn(`Could not change append strategy for abutting event ${o}`));
+      const p = X(o.resumeOffset) ? o.resumeOffset : o.duration;
       r += p;
     });
   }
@@ -16737,7 +16737,7 @@ class v0 extends Qe {
       const o = t[a].details, d = o.edge;
       if (i >= d)
         return this.log(`"${e.identifier}" resumption ${i} past ${a} playlist end ${d}`), !1;
-      const c = Wt(null, o.fragments, i);
+      const c = Yt(null, o.fragments, i);
       if (!c)
         return this.log(`"${e.identifier}" resumption ${i} does not align with any fragments in ${a} playlist (${o.fragStart}-${o.fragmentEnd})`), !0;
       const u = a === "audio" ? 0.175 : 0;
@@ -16777,7 +16777,7 @@ class y0 {
     try {
       s = Ad(i, this.hls.sessionId, e.baseUrl);
     } catch (f) {
-      const p = this.assignAssetListError(e, P.ASSET_LIST_LOAD_ERROR, f, i);
+      const p = this.assignAssetListError(e, C.ASSET_LIST_LOAD_ERROR, f, i);
       this.hls.trigger(y.ERROR, p);
       return;
     }
@@ -16795,7 +16795,7 @@ class y0 {
       onSuccess: (f, p, g, _) => {
         const m = f.data, v = m?.ASSETS;
         if (!Array.isArray(v)) {
-          const b = this.assignAssetListError(e, P.ASSET_LIST_PARSING_ERROR, new Error("Invalid interstitial asset list"), g.url, p, _);
+          const b = this.assignAssetListError(e, C.ASSET_LIST_PARSING_ERROR, new Error("Invalid interstitial asset list"), g.url, p, _);
           this.hls.trigger(y.ERROR, b);
           return;
         }
@@ -16806,11 +16806,11 @@ class y0 {
         });
       },
       onError: (f, p, g, _) => {
-        const m = this.assignAssetListError(e, P.ASSET_LIST_LOAD_ERROR, new Error(`Error loading X-ASSET-LIST: HTTP status ${f.code} ${f.text} (${p.url})`), p.url, _, g);
+        const m = this.assignAssetListError(e, C.ASSET_LIST_LOAD_ERROR, new Error(`Error loading X-ASSET-LIST: HTTP status ${f.code} ${f.text} (${p.url})`), p.url, _, g);
         this.hls.trigger(y.ERROR, m);
       },
       onTimeout: (f, p, g) => {
-        const _ = this.assignAssetListError(e, P.ASSET_LIST_LOAD_TIMEOUT, new Error(`Timeout loading X-ASSET-LIST (${p.url})`), p.url, f, g);
+        const _ = this.assignAssetListError(e, C.ASSET_LIST_LOAD_TIMEOUT, new Error(`Timeout loading X-ASSET-LIST (${p.url})`), p.url, f, g);
         this.hls.trigger(y.ERROR, _);
       }
     };
@@ -16831,7 +16831,7 @@ class y0 {
     };
   }
 }
-function $o(n) {
+function No(n) {
   var e;
   n == null || (e = n.play()) == null || e.catch(() => {
   });
@@ -17011,7 +17011,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
         let m = h[f].start;
         const v = h.event;
         if (v) {
-          if (f === "playout" || v.timelineOccupancy !== Un.Point) {
+          if (f === "playout" || v.timelineOccupancy !== Bn.Point) {
             const b = i(p);
             b?.interstitial === v && (m += b.assetItem.startOffset + b[_]);
           }
@@ -17045,13 +17045,13 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
       if (_ != null && (p = _.event) != null && p.restrictions.skip || !e.schedule)
         return;
       e.log(`seek to ${h} "${f}"`);
-      const m = e.effectivePlayingItem, v = e.schedule.findItemIndexAtTime(h, f), b = (g = e.schedule.items) == null ? void 0 : g[v], x = e.getBufferingPlayer(), E = x?.interstitial, S = E?.appendInPlace, w = m && e.itemsMatch(m, b);
-      if (m && (S || w)) {
+      const m = e.effectivePlayingItem, v = e.schedule.findItemIndexAtTime(h, f), b = (g = e.schedule.items) == null ? void 0 : g[v], x = e.getBufferingPlayer(), E = x?.interstitial, S = E?.appendInPlace, A = m && e.itemsMatch(m, b);
+      if (m && (S || A)) {
         const T = i(e.playingAsset), k = T?.media || e.primaryMedia;
         if (k) {
-          const I = f === "primary" ? k.currentTime : s(m, f, e.playingAsset, "timelinePos", "currentTime"), A = h - I, C = (S ? I : k.currentTime) + A;
-          if (C >= 0 && (!T || S || C <= T.duration)) {
-            k.currentTime = C;
+          const I = f === "primary" ? k.currentTime : s(m, f, e.playingAsset, "timelinePos", "currentTime"), w = h - I, M = (S ? I : k.currentTime) + w;
+          if (M >= 0 && (!T || S || M <= T.duration)) {
+            k.currentTime = M;
             return;
           }
         }
@@ -17059,8 +17059,8 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
       if (b) {
         let T = h;
         if (f !== "primary") {
-          const I = b[f].start, A = h - I;
-          T = b.start + A;
+          const I = b[f].start, w = h - I;
+          T = b.start + w;
         }
         const k = !e.isInterstitial(b);
         if ((!e.isInterstitial(m) || m.event.appendInPlace) && (k || b.event.appendInPlace)) {
@@ -17069,26 +17069,26 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
         } else if (m) {
           const I = e.findItemIndex(m);
           if (v > I) {
-            const C = e.schedule.findJumpRestrictedIndex(I + 1, v);
-            if (C > I) {
-              e.setSchedulePosition(C);
+            const M = e.schedule.findJumpRestrictedIndex(I + 1, v);
+            if (M > I) {
+              e.setSchedulePosition(M);
               return;
             }
           }
-          let A = 0;
+          let w = 0;
           if (k)
             e.timelinePos = T, e.checkBuffer();
           else {
-            const C = b.event.assetList, M = h - (b[f] || b).start;
-            for (let B = C.length; B--; ) {
-              const H = C[B];
-              if (H.duration && M >= H.startOffset && M < H.startOffset + H.duration) {
-                A = B;
+            const M = b.event.assetList, P = h - (b[f] || b).start;
+            for (let B = M.length; B--; ) {
+              const H = M[B];
+              if (H.duration && P >= H.startOffset && P < H.startOffset + H.duration) {
+                w = B;
                 break;
               }
             }
           }
-          e.setSchedulePosition(v, A);
+          e.setSchedulePosition(v, w);
         }
       }
     }, c = () => {
@@ -17243,7 +17243,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
     let s = this.media;
     !s && (e = this.bufferingItem) != null && (e = e.event) != null && e.appendInPlace && (s = this.primaryMedia);
     const r = (t = s) == null ? void 0 : t.currentTime;
-    if (!(r === void 0 || !Y(r)))
+    if (!(r === void 0 || !X(r)))
       return r;
   }
   get primaryMedia() {
@@ -17342,7 +17342,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
     }
   }
   advanceAssetBuffering(e, t) {
-    const i = e.event, s = i.findAssetIndex(t), r = Ts(i, s);
+    const i = e.event, s = i.findAssetIndex(t), r = Ss(i, s);
     if (!i.isAssetPastPlayoutLimit(r))
       this.bufferedToEvent(e, r);
     else if (this.schedule) {
@@ -17352,7 +17352,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
     }
   }
   advanceAfterAssetEnded(e, t, i) {
-    const s = Ts(e, i);
+    const s = Ss(e, i);
     if (e.isAssetPastPlayoutLimit(s)) {
       if (this.schedule) {
         const r = this.schedule.items;
@@ -17441,7 +17441,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
       const u = o.event;
       if (i === void 0) {
         i = a.findAssetIndex(u, this.timelinePos);
-        const g = Ts(u, i - 1);
+        const g = Ss(u, i - 1);
         if (u.isAssetPastPlayoutLimit(g) || u.appendInPlace && this.timelinePos === o.end) {
           this.advanceAfterAssetEnded(u, e, i);
           return;
@@ -17475,8 +17475,8 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
       }
       if (!this.eventItemsMatch(o, this.bufferingItem) && u.appendInPlace && this.isAssetBuffered(p))
         return;
-      this.startAssetPlayer(f, i, t, e, d), this.shouldPlay && $o(f.media);
-    } else o ? (this.resumePrimary(o, e, s), this.shouldPlay && $o(this.hls.media)) : r && this.isInterstitial(s) && (this.endedItem = null, this.playingItem = s, s.event.appendInPlace || this.attachPrimary(a.durations.primary, null));
+      this.startAssetPlayer(f, i, t, e, d), this.shouldPlay && No(f.media);
+    } else o ? (this.resumePrimary(o, e, s), this.shouldPlay && No(this.hls.media)) : r && this.isInterstitial(s) && (this.endedItem = null, this.playingItem = s, s.event.appendInPlace || this.attachPrimary(a.durations.primary, null));
   }
   get playbackDisabled() {
     return this.hls.config.enableInterstitialPlayback === !1;
@@ -17574,13 +17574,13 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
     this.mediaSelection = r;
   }
   onAudioTrackSwitching(e, t) {
-    const i = ja(t);
+    const i = Ha(t);
     this.playerQueue.forEach(({
       hls: s
     }) => s && (s.setAudioOption(t) || s.setAudioOption(i)));
   }
   onSubtitleTrackSwitch(e, t) {
-    const i = ja(t);
+    const i = Ha(t);
     this.playerQueue.forEach(({
       hls: s
     }) => s && (s.setSubtitleOption(t) || t.id !== -1 && s.setSubtitleOption(i)));
@@ -17875,14 +17875,14 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
         const k = new Error(`Interstitials MUST be VOD assets ${e}`), I = {
           fatal: !0,
           type: J.OTHER_ERROR,
-          details: P.INTERSTITIAL_ASSET_ITEM_ERROR,
+          details: C.INTERSTITIAL_ASSET_ITEM_ERROR,
           error: k
-        }, A = ((S = this.schedule) == null ? void 0 : S.findEventIndex(e.identifier)) || -1;
-        this.handleAssetItemError(I, e, A, i, k.message);
+        }, w = ((S = this.schedule) == null ? void 0 : S.findEventIndex(e.identifier)) || -1;
+        this.handleAssetItemError(I, e, w, i, k.message);
         return;
       }
-      const w = E.edge - E.fragmentStart, T = t.duration;
-      (_ || T === null || w > T) && (_ = !1, this.log(`Interstitial asset "${h}" duration change ${T} > ${w}`), t.duration = w, this.updateSchedule());
+      const A = E.edge - E.fragmentStart, T = t.duration;
+      (_ || T === null || A > T) && (_ = !1, this.log(`Interstitial asset "${h}" duration change ${T} > ${A}`), t.duration = A, this.updateSchedule());
     };
     g.on(y.LEVEL_UPDATED, (E, {
       details: S
@@ -17890,11 +17890,11 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
       details: S
     }) => m(S)), g.on(y.EVENT_CUE_ENTER, () => this.onInterstitialCueEnter());
     const v = (E, S) => {
-      const w = this.getAssetPlayer(h);
-      if (w && S.tracks) {
-        w.off(y.BUFFER_CODECS, v), w.tracks = S.tracks;
+      const A = this.getAssetPlayer(h);
+      if (A && S.tracks) {
+        A.off(y.BUFFER_CODECS, v), A.tracks = S.tracks;
         const T = this.primaryMedia;
-        this.bufferingAsset === w.assetItem && T && !w.media && this.bufferAssetPlayer(w, T);
+        this.bufferingAsset === A.assetItem && T && !A.media && this.bufferAssetPlayer(A, T);
       }
     };
     g.on(y.BUFFER_CODECS, v);
@@ -17903,7 +17903,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
       const S = this.getAssetPlayer(h);
       if (this.log(`buffered to end of asset ${S}`), !S || !this.schedule)
         return;
-      const w = this.schedule.findEventIndex(e.identifier), T = (E = this.schedule.items) == null ? void 0 : E[w];
+      const A = this.schedule.findEventIndex(e.identifier), T = (E = this.schedule.items) == null ? void 0 : E[A];
       this.isInterstitial(T) && this.advanceAssetBuffering(T, t);
     };
     g.on(y.BUFFERED_TO_END, b);
@@ -17911,15 +17911,15 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
       if (!this.getAssetPlayer(h) || !this.schedule)
         return;
       this.shouldPlay = !0;
-      const w = this.schedule.findEventIndex(e.identifier);
-      this.advanceAfterAssetEnded(e, w, E);
+      const A = this.schedule.findEventIndex(e.identifier);
+      this.advanceAfterAssetEnded(e, A, E);
     };
     return g.once(y.MEDIA_ENDED, x(i)), g.once(y.PLAYOUT_LIMIT_REACHED, x(1 / 0)), g.on(y.ERROR, (E, S) => {
       if (!this.schedule)
         return;
-      const w = this.getAssetPlayer(h);
-      if (S.details === P.BUFFER_STALLED_ERROR) {
-        if (w != null && w.appendInPlace) {
+      const A = this.getAssetPlayer(h);
+      if (S.details === C.BUFFER_STALLED_ERROR) {
+        if (A != null && A.appendInPlace) {
           this.handleInPlaceStall(e);
           return;
         }
@@ -17930,13 +17930,13 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
     }), g.on(y.DESTROYING, () => {
       if (!this.getAssetPlayer(h) || !this.schedule)
         return;
-      const S = new Error(`Asset player destroyed unexpectedly ${h}`), w = {
+      const S = new Error(`Asset player destroyed unexpectedly ${h}`), A = {
         fatal: !0,
         type: J.OTHER_ERROR,
-        details: P.INTERSTITIAL_ASSET_ITEM_ERROR,
+        details: C.INTERSTITIAL_ASSET_ITEM_ERROR,
         error: S
       };
-      this.handleAssetItemError(w, e, this.schedule.findEventIndex(e.identifier), i, S.message);
+      this.handleAssetItemError(A, e, this.schedule.findEventIndex(e.identifier), i, S.message);
     }), this.log(`INTERSTITIAL_ASSET_PLAYER_CREATED ${oi(t)}`), this.hls.trigger(y.INTERSTITIAL_ASSET_PLAYER_CREATED, {
       asset: t,
       assetListIndex: i,
@@ -18015,7 +18015,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
         const f = new Error(`Asset ${oi(a)} SourceBuffer tracks ('${Object.keys(e.tracks)}') are not compatible with primary content tracks ('${Object.keys(h)}')`), p = {
           fatal: !0,
           type: J.OTHER_ERROR,
-          details: P.INTERSTITIAL_ASSET_ITEM_ERROR,
+          details: C.INTERSTITIAL_ASSET_ITEM_ERROR,
           error: f
         }, g = r.findAssetIndex(a);
         this.handleAssetItemError(p, r, o, g, f.message);
@@ -18045,7 +18045,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
     t && t.currentTime < e && (t.currentTime = e);
   }
   handleAssetItemError(e, t, i, s, r) {
-    if (e.details === P.BUFFER_STALLED_ERROR)
+    if (e.details === C.BUFFER_STALLED_ERROR)
       return;
     const a = t.assetList[s] || null;
     if (this.warn(`INTERSTITIAL_ASSET_ERROR ${a && oi(a)} ${e.error}`), !this.schedule)
@@ -18126,14 +18126,14 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
   onError(e, t) {
     if (this.schedule)
       switch (t.details) {
-        case P.ASSET_LIST_PARSING_ERROR:
-        case P.ASSET_LIST_LOAD_ERROR:
-        case P.ASSET_LIST_LOAD_TIMEOUT: {
+        case C.ASSET_LIST_PARSING_ERROR:
+        case C.ASSET_LIST_LOAD_ERROR:
+        case C.ASSET_LIST_LOAD_TIMEOUT: {
           const i = t.interstitial;
           i && (this.updateSchedule(!0), this.primaryFallback(i));
           break;
         }
-        case P.BUFFER_STALLED_ERROR: {
+        case C.BUFFER_STALLED_ERROR: {
           const i = this.endedItem || this.waitingItem || this.playingItem;
           if (this.isInterstitial(i) && i.event.appendInPlace) {
             this.handleInPlaceStall(i.event);
@@ -18145,10 +18145,10 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
       }
   }
 }
-const Bo = 500;
-class x0 extends Hr {
+const $o = 500;
+class x0 extends zr {
   constructor(e, t, i) {
-    super(e, t, i, "subtitle-stream-controller", Q.SUBTITLE), this.currentTrackId = -1, this.tracksBuffered = [], this.mainDetails = null, this.registerListeners();
+    super(e, t, i, "subtitle-stream-controller", Z.SUBTITLE), this.currentTrackId = -1, this.tracksBuffered = [], this.mainDetails = null, this.registerListeners();
   }
   onHandlerDestroying() {
     this.unregisterListeners(), super.onHandlerDestroying(), this.mainDetails = null;
@@ -18168,7 +18168,7 @@ class x0 extends Hr {
     e.off(y.LEVEL_LOADED, this.onLevelLoaded, this), e.off(y.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.off(y.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.off(y.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.off(y.SUBTITLE_FRAG_PROCESSED, this.onSubtitleFragProcessed, this), e.off(y.BUFFER_FLUSHING, this.onBufferFlushing, this);
   }
   startLoad(e, t) {
-    this.stopLoad(), this.state = F.IDLE, this.setInterval(Bo), this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
+    this.stopLoad(), this.state = F.IDLE, this.setInterval($o), this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
   }
   onManifestLoading() {
     super.onManifestLoading(), this.mainDetails = null;
@@ -18222,13 +18222,13 @@ class x0 extends Hr {
             break;
           o++;
         }
-      }), this.fragmentTracker.removeFragmentsInRange(i, r, Q.SUBTITLE);
+      }), this.fragmentTracker.removeFragmentsInRange(i, r, Z.SUBTITLE);
     }
   }
   // If something goes wrong, proceed to next frag, if we were processing one.
   onError(e, t) {
     const i = t.frag;
-    i?.type === Q.SUBTITLE && (t.details === P.FRAG_GAP && this.fragmentTracker.fragBuffered(i, !0), this.fragCurrent && this.fragCurrent.abortRequests(), this.state !== F.STOPPED && (this.state = F.IDLE));
+    i?.type === Z.SUBTITLE && (t.details === C.FRAG_GAP && this.fragmentTracker.fragBuffered(i, !0), this.fragCurrent && this.fragCurrent.abortRequests(), this.state !== F.STOPPED && (this.state = F.IDLE));
   }
   // Got all new subtitle levels.
   onSubtitleTracksUpdated(e, {
@@ -18241,7 +18241,7 @@ class x0 extends Hr {
     this.tracksBuffered = [], this.levels = t.map((i) => {
       const s = new Mi(i);
       return this.tracksBuffered[s.id] = [], s;
-    }), this.fragmentTracker.removeFragmentsInRange(0, Number.POSITIVE_INFINITY, Q.SUBTITLE), this.fragPrevious = null, this.mediaBuffer = null;
+    }), this.fragmentTracker.removeFragmentsInRange(0, Number.POSITIVE_INFINITY, Z.SUBTITLE), this.fragPrevious = null, this.mediaBuffer = null;
   }
   onSubtitleTrackSwitch(e, t) {
     var i;
@@ -18250,7 +18250,7 @@ class x0 extends Hr {
       return;
     }
     const s = this.levels[this.currentTrackId];
-    s != null && s.details ? this.mediaBuffer = this.mediaBufferTimeRanges : this.mediaBuffer = null, s && this.state !== F.STOPPED && this.setInterval(Bo);
+    s != null && s.details ? this.mediaBuffer = this.mediaBufferTimeRanges : this.mediaBuffer = null, s && this.state !== F.STOPPED && this.setInterval($o);
   }
   // Got a new set of subtitle fragments.
   onSubtitleTrackLoaded(e, t) {
@@ -18281,10 +18281,10 @@ class x0 extends Hr {
       }
       const f = h.fragments[0];
       if (!d.details)
-        a.hasProgramDateTime && h.hasProgramDateTime ? ($n(a, h), c = a.fragmentStart) : f && (c = f.start, nr(a, c));
+        a.hasProgramDateTime && h.hasProgramDateTime ? (Nn(a, h), c = a.fragmentStart) : f && (c = f.start, ir(a, c));
       else {
         var u;
-        c = this.alignPlaylists(a, d.details, (u = this.levelLastLoaded) == null ? void 0 : u.details), c === 0 && f && (c = f.start, nr(a, c));
+        c = this.alignPlaylists(a, d.details, (u = this.levelLastLoaded) == null ? void 0 : u.details), c === 0 && f && (c = f.start, ir(a, c));
       }
       h && !this.startFragRequested && this.setStartPosition(h, c);
     }
@@ -18292,7 +18292,7 @@ class x0 extends Hr {
       details: a,
       id: o,
       groupId: t.groupId
-    }), this.tick(), a.live && !this.fragCurrent && this.media && this.state === F.IDLE && (Wt(null, a.fragments, this.media.currentTime, 0) || (this.warn("Subtitle playlist not aligned with playback"), d.details = void 0)));
+    }), this.tick(), a.live && !this.fragCurrent && this.media && this.state === F.IDLE && (Yt(null, a.fragments, this.media.currentTime, 0) || (this.warn("Subtitle playlist not aligned with playback"), d.details = void 0)));
   }
   _handleFragmentLoadComplete(e) {
     const {
@@ -18301,10 +18301,10 @@ class x0 extends Hr {
     } = e, s = t.decryptdata, r = this.hls;
     if (!this.fragContextChanged(t) && i && i.byteLength > 0 && s != null && s.key && s.iv && ui(s.method)) {
       const a = performance.now();
-      this.decrypter.decrypt(new Uint8Array(i), s.key.buffer, s.iv.buffer, Kr(s.method)).catch((o) => {
+      this.decrypter.decrypt(new Uint8Array(i), s.key.buffer, s.iv.buffer, Vr(s.method)).catch((o) => {
         throw r.trigger(y.ERROR, {
           type: J.MEDIA_ERROR,
-          details: P.FRAG_DECRYPT_ERROR,
+          details: C.FRAG_DECRYPT_ERROR,
           fatal: !1,
           error: o,
           reason: o.message,
@@ -18350,7 +18350,7 @@ class x0 extends Hr {
       const _ = this.fragPrevious;
       if (o < p) {
         const b = s.maxFragLookUpTolerance, x = o > p - b ? 0 : b;
-        g = Wt(_, h, Math.max(h[0].start, o), x), !g && _ && _.start < h[0].start && (g = h[0]);
+        g = Yt(_, h, Math.max(h[0].start, o), x), !g && _ && _.start < h[0].start && (g = h[0]);
       } else
         g = h[f - 1];
       if (g = this.filterReplacedPrimary(g, i.details), !g)
@@ -18578,7 +18578,7 @@ const S0 = {
   // Box drawings heavy up and right
   207: 9499
   // Box drawings heavy up and left
-}, Id = (n) => String.fromCharCode(S0[n] || n), et = 15, xt = 100, T0 = {
+}, Id = (n) => String.fromCharCode(S0[n] || n), et = 15, Et = 100, T0 = {
   17: 1,
   18: 3,
   21: 5,
@@ -18624,7 +18624,7 @@ class L0 {
     }
   }
 }
-const Gt = function(e) {
+const Vt = function(e) {
   const t = [];
   for (let i = 0; i < e.length; i++)
     t.push(e[i].toString(16));
@@ -18683,23 +18683,23 @@ class R0 {
 class D0 {
   constructor(e) {
     this.chars = [], this.pos = 0, this.currPenState = new Ld(), this.cueStartTime = null, this.logger = void 0;
-    for (let t = 0; t < xt; t++)
+    for (let t = 0; t < Et; t++)
       this.chars.push(new R0());
     this.logger = e;
   }
   equals(e) {
-    for (let t = 0; t < xt; t++)
+    for (let t = 0; t < Et; t++)
       if (!this.chars[t].equals(e.chars[t]))
         return !1;
     return !0;
   }
   copy(e) {
-    for (let t = 0; t < xt; t++)
+    for (let t = 0; t < Et; t++)
       this.chars[t].copy(e.chars[t]);
   }
   isEmpty() {
     let e = !0;
-    for (let t = 0; t < xt; t++)
+    for (let t = 0; t < Et; t++)
       if (!this.chars[t].isEmpty()) {
         e = !1;
         break;
@@ -18710,7 +18710,7 @@ class D0 {
    *  Set the cursor to a valid column.
    */
   setCursor(e) {
-    this.pos !== e && (this.pos = e), this.pos < 0 ? (this.logger.log(3, "Negative cursor position " + this.pos), this.pos = 0) : this.pos > xt && (this.logger.log(3, "Too large cursor position " + this.pos), this.pos = xt);
+    this.pos !== e && (this.pos = e), this.pos < 0 ? (this.logger.log(3, "Negative cursor position " + this.pos), this.pos = 0) : this.pos > Et && (this.logger.log(3, "Too large cursor position " + this.pos), this.pos = Et);
   }
   /**
    * Move the cursor relative to current position.
@@ -18731,7 +18731,7 @@ class D0 {
   insertChar(e) {
     e >= 144 && this.backSpace();
     const t = Id(e);
-    if (this.pos >= xt) {
+    if (this.pos >= Et) {
       this.logger.log(0, () => "Cannot insert " + e.toString(16) + " (" + t + ") at position " + this.pos + ". Skipping it!");
       return;
     }
@@ -18739,7 +18739,7 @@ class D0 {
   }
   clearFromPos(e) {
     let t;
-    for (t = e; t < xt; t++)
+    for (t = e; t < Et; t++)
       this.chars[t].reset();
   }
   clear() {
@@ -18751,7 +18751,7 @@ class D0 {
   getTextString() {
     const e = [];
     let t = !0;
-    for (let i = 0; i < xt; i++) {
+    for (let i = 0; i < Et; i++) {
       const s = this.chars[i].uchar;
       s !== " " && (t = !1), e.push(s);
     }
@@ -18761,7 +18761,7 @@ class D0 {
     this.currPenState.setStyles(e), this.chars[this.pos].setPenState(this.currPenState);
   }
 }
-class ks {
+class Ts {
   constructor(e) {
     this.rows = [], this.currRow = et - 1, this.nrRollUpRows = null, this.lastOutputScreen = null, this.logger = void 0;
     for (let t = 0; t < et; t++)
@@ -18881,9 +18881,9 @@ class ks {
     return this.rows;
   }
 }
-class Uo {
+class Bo {
   constructor(e, t, i) {
-    this.chNr = void 0, this.outputFilter = void 0, this.mode = void 0, this.verbose = void 0, this.displayedMemory = void 0, this.nonDisplayedMemory = void 0, this.lastOutputScreen = void 0, this.currRollUpRow = void 0, this.writeScreen = void 0, this.cueStartTime = void 0, this.logger = void 0, this.chNr = e, this.outputFilter = t, this.mode = null, this.verbose = 0, this.displayedMemory = new ks(i), this.nonDisplayedMemory = new ks(i), this.lastOutputScreen = new ks(i), this.currRollUpRow = this.displayedMemory.rows[et - 1], this.writeScreen = this.displayedMemory, this.mode = null, this.cueStartTime = null, this.logger = i;
+    this.chNr = void 0, this.outputFilter = void 0, this.mode = void 0, this.verbose = void 0, this.displayedMemory = void 0, this.nonDisplayedMemory = void 0, this.lastOutputScreen = void 0, this.currRollUpRow = void 0, this.writeScreen = void 0, this.cueStartTime = void 0, this.logger = void 0, this.chNr = e, this.outputFilter = t, this.mode = null, this.verbose = 0, this.displayedMemory = new Ts(i), this.nonDisplayedMemory = new Ts(i), this.lastOutputScreen = new Ts(i), this.currRollUpRow = this.displayedMemory.rows[et - 1], this.writeScreen = this.displayedMemory, this.mode = null, this.cueStartTime = null, this.logger = i;
   }
   reset() {
     this.mode = null, this.displayedMemory.reset(), this.nonDisplayedMemory.reset(), this.lastOutputScreen.reset(), this.outputFilter.reset(), this.currRollUpRow = this.displayedMemory.rows[et - 1], this.writeScreen = this.displayedMemory, this.mode = null, this.cueStartTime = null;
@@ -18978,11 +18978,11 @@ class Uo {
     this.outputFilter && (this.displayedMemory.isEmpty() || (this.outputFilter.newCue && this.outputFilter.newCue(this.cueStartTime, e, this.displayedMemory), this.cueStartTime = e));
   }
 }
-class Go {
+class Uo {
   constructor(e, t, i) {
     this.channels = void 0, this.currentChannel = 0, this.cmdHistory = P0(), this.logger = void 0;
     const s = this.logger = new L0();
-    this.channels = [null, new Uo(e, t, s), new Uo(e + 1, i, s)];
+    this.channels = [null, new Bo(e, t, s), new Bo(e + 1, i, s)];
   }
   getHandler(e) {
     return this.channels[e].getHandler();
@@ -19000,11 +19000,11 @@ class Go {
       let a = !1, o = null;
       if (s === 0 && r === 0)
         continue;
-      this.logger.log(3, () => "[" + Gt([t[i], t[i + 1]]) + "] -> (" + Gt([s, r]) + ")");
+      this.logger.log(3, () => "[" + Vt([t[i], t[i + 1]]) + "] -> (" + Vt([s, r]) + ")");
       const d = this.cmdHistory;
       if (s >= 16 && s <= 31) {
         if (C0(s, r, d)) {
-          Zi(null, null, d), this.logger.log(3, () => "Repeated command (" + Gt([s, r]) + ") is dropped");
+          Zi(null, null, d), this.logger.log(3, () => "Repeated command (" + Vt([s, r]) + ") is dropped");
           continue;
         }
         Zi(s, r, this.cmdHistory), a = this.parseCmd(s, r), a || (a = this.parseMidrow(s, r)), a || (a = this.parsePAC(s, r)), a || (a = this.parseBackgroundAttributes(s, r));
@@ -19014,7 +19014,7 @@ class Go {
         const u = this.currentChannel;
         u && u > 0 ? this.channels[u].insertChars(o) : this.logger.log(2, "No channel found yet. TEXT-MODE?");
       }
-      !a && !o && this.logger.log(2, () => "Couldn't parse cleaned data " + Gt([s, r]) + " orig: " + Gt([t[i], t[i + 1]]));
+      !a && !o && this.logger.log(2, () => "Couldn't parse cleaned data " + Vt([s, r]) + " orig: " + Vt([t[i], t[i + 1]]));
     }
   }
   /**
@@ -19037,7 +19037,7 @@ class Go {
       if (e === 17 ? i = 1 : i = 2, i !== this.currentChannel)
         return this.logger.log(0, "Mismatch channel in midrow parsing"), !1;
       const s = this.channels[i];
-      return s ? (s.ccMIDROW(t), this.logger.log(3, () => "MIDROW (" + Gt([e, t]) + ")"), !0) : !1;
+      return s ? (s.ccMIDROW(t), this.logger.log(3, () => "MIDROW (" + Vt([e, t]) + ")"), !0) : !1;
     }
     return !1;
   }
@@ -19080,7 +19080,7 @@ class Go {
       let a;
       r === 17 ? a = t + 80 : r === 18 ? a = t + 112 : a = t + 144, this.logger.log(2, () => "Special char '" + Id(a) + "' in channel " + i), s = [a];
     } else e >= 32 && e <= 127 && (s = t === 0 ? [e] : [e, t]);
-    return s && this.logger.log(3, () => "Char codes =  " + Gt(s).join(",")), s;
+    return s && this.logger.log(3, () => "Char codes =  " + Vt(s).join(",")), s;
   }
   /**
    * Parse extended background attributes as well as new foreground color black.
@@ -19128,8 +19128,8 @@ function P0() {
     b: null
   };
 }
-var na = (function() {
-  if (Nn != null && Nn.VTTCue)
+var ia = (function() {
+  if (Fn != null && Fn.VTTCue)
     return self.VTTCue;
   const n = ["", "lr", "rl"], e = ["start", "middle", "end", "left", "right"];
   function t(o, d) {
@@ -19158,126 +19158,126 @@ var na = (function() {
       enumerable: !0
     };
     u.hasBeenReset = !1;
-    let f = "", p = !1, g = o, _ = d, m = c, v = null, b = "", x = !0, E = "auto", S = "start", w = 50, T = "middle", k = 50, I = "middle";
+    let f = "", p = !1, g = o, _ = d, m = c, v = null, b = "", x = !0, E = "auto", S = "start", A = 50, T = "middle", k = 50, I = "middle";
     Object.defineProperty(u, "id", r({}, h, {
       get: function() {
         return f;
       },
-      set: function(A) {
-        f = "" + A;
+      set: function(w) {
+        f = "" + w;
       }
     })), Object.defineProperty(u, "pauseOnExit", r({}, h, {
       get: function() {
         return p;
       },
-      set: function(A) {
-        p = !!A;
+      set: function(w) {
+        p = !!w;
       }
     })), Object.defineProperty(u, "startTime", r({}, h, {
       get: function() {
         return g;
       },
-      set: function(A) {
-        if (typeof A != "number")
+      set: function(w) {
+        if (typeof w != "number")
           throw new TypeError("Start time must be set to a number.");
-        g = A, this.hasBeenReset = !0;
+        g = w, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "endTime", r({}, h, {
       get: function() {
         return _;
       },
-      set: function(A) {
-        if (typeof A != "number")
+      set: function(w) {
+        if (typeof w != "number")
           throw new TypeError("End time must be set to a number.");
-        _ = A, this.hasBeenReset = !0;
+        _ = w, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "text", r({}, h, {
       get: function() {
         return m;
       },
-      set: function(A) {
-        m = "" + A, this.hasBeenReset = !0;
+      set: function(w) {
+        m = "" + w, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "region", r({}, h, {
       get: function() {
         return v;
       },
-      set: function(A) {
-        v = A, this.hasBeenReset = !0;
+      set: function(w) {
+        v = w, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "vertical", r({}, h, {
       get: function() {
         return b;
       },
-      set: function(A) {
-        const C = i(A);
-        if (C === !1)
+      set: function(w) {
+        const M = i(w);
+        if (M === !1)
           throw new SyntaxError("An invalid or illegal string was specified.");
-        b = C, this.hasBeenReset = !0;
+        b = M, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "snapToLines", r({}, h, {
       get: function() {
         return x;
       },
-      set: function(A) {
-        x = !!A, this.hasBeenReset = !0;
+      set: function(w) {
+        x = !!w, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "line", r({}, h, {
       get: function() {
         return E;
       },
-      set: function(A) {
-        if (typeof A != "number" && A !== "auto")
+      set: function(w) {
+        if (typeof w != "number" && w !== "auto")
           throw new SyntaxError("An invalid number or illegal string was specified.");
-        E = A, this.hasBeenReset = !0;
+        E = w, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "lineAlign", r({}, h, {
       get: function() {
         return S;
       },
-      set: function(A) {
-        const C = s(A);
-        if (!C)
+      set: function(w) {
+        const M = s(w);
+        if (!M)
           throw new SyntaxError("An invalid or illegal string was specified.");
-        S = C, this.hasBeenReset = !0;
+        S = M, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "position", r({}, h, {
       get: function() {
-        return w;
+        return A;
       },
-      set: function(A) {
-        if (A < 0 || A > 100)
+      set: function(w) {
+        if (w < 0 || w > 100)
           throw new Error("Position must be between 0 and 100.");
-        w = A, this.hasBeenReset = !0;
+        A = w, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "positionAlign", r({}, h, {
       get: function() {
         return T;
       },
-      set: function(A) {
-        const C = s(A);
-        if (!C)
+      set: function(w) {
+        const M = s(w);
+        if (!M)
           throw new SyntaxError("An invalid or illegal string was specified.");
-        T = C, this.hasBeenReset = !0;
+        T = M, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "size", r({}, h, {
       get: function() {
         return k;
       },
-      set: function(A) {
-        if (A < 0 || A > 100)
+      set: function(w) {
+        if (w < 0 || w > 100)
           throw new Error("Size must be between 0 and 100.");
-        k = A, this.hasBeenReset = !0;
+        k = w, this.hasBeenReset = !0;
       }
     })), Object.defineProperty(u, "align", r({}, h, {
       get: function() {
         return I;
       },
-      set: function(A) {
-        const C = s(A);
-        if (!C)
+      set: function(w) {
+        const M = s(w);
+        if (!M)
           throw new SyntaxError("An invalid or illegal string was specified.");
-        I = C, this.hasBeenReset = !0;
+        I = M, this.hasBeenReset = !0;
       }
     })), u.displayState = void 0;
   }
@@ -19355,7 +19355,7 @@ function Dd(n, e, t, i) {
     e(o, d);
   }
 }
-const ur = new na(0, 0, ""), Ji = ur.align === "middle" ? "middle" : "center";
+const dr = new ia(0, 0, ""), Ji = dr.align === "middle" ? "middle" : "center";
 function F0(n, e, t) {
   const i = n;
   function s() {
@@ -19394,9 +19394,9 @@ function F0(n, e, t) {
       }
     }, /:/, /\s/), d.region = c.get("region", null), d.vertical = c.get("vertical", "");
     let u = c.get("line", "auto");
-    u === "auto" && ur.line === -1 && (u = -1), d.line = u, d.lineAlign = c.get("lineAlign", "start"), d.snapToLines = c.get("snapToLines", !0), d.size = c.get("size", 100), d.align = c.get("align", Ji);
+    u === "auto" && dr.line === -1 && (u = -1), d.line = u, d.lineAlign = c.get("lineAlign", "start"), d.snapToLines = c.get("snapToLines", !0), d.size = c.get("size", 100), d.align = c.get("align", Ji);
     let h = c.get("position", "auto");
-    h === "auto" && ur.position === 50 && (h = d.align === "start" || d.align === "left" ? 0 : d.align === "end" || d.align === "right" ? 100 : 50), d.position = h;
+    h === "auto" && dr.position === 50 && (h = d.align === "start" || d.align === "left" ? 0 : d.align === "end" || d.align === "right" ? 100 : 50), d.position = h;
   }
   function a() {
     n = n.replace(/^\s+/, "");
@@ -19460,7 +19460,7 @@ class N0 {
             }
             if (!r)
               continue;
-            if (t.cue = new na(0, 0, ""), t.state = "CUE", r.indexOf("-->") === -1) {
+            if (t.cue = new ia(0, 0, ""), t.state = "CUE", r.indexOf("-->") === -1) {
               t.cue.id = r;
               continue;
             }
@@ -19514,16 +19514,16 @@ class N0 {
     return e.onflush && e.onflush(), this;
   }
 }
-const $0 = /\r\n|\n\r|\n|\r/g, ws = function(e, t, i = 0) {
+const $0 = /\r\n|\n\r|\n|\r/g, ks = function(e, t, i = 0) {
   return e.slice(i, i + t.length) === t;
 }, B0 = function(e) {
   let t = parseInt(e.slice(-3));
   const i = parseInt(e.slice(-6, -4)), s = parseInt(e.slice(-9, -7)), r = e.length > 9 ? parseInt(e.substring(0, e.indexOf(":"))) : 0;
-  if (!Y(t) || !Y(i) || !Y(s) || !Y(r))
+  if (!X(t) || !X(i) || !X(s) || !X(r))
     throw Error(`Malformed X-TIMESTAMP-MAP: Local:${e}`);
   return t += 1e3 * i, t += 60 * 1e3 * s, t += 3600 * 1e3 * r, t;
 };
-function sa(n, e, t) {
+function na(n, e, t) {
   return Ii(n.toString()) + Ii(e.toString()) + Ii(t);
 }
 const U0 = function(e, t, i) {
@@ -19556,8 +19556,8 @@ function G0(n, e, t, i, s, r, a) {
     }
     const E = m.endTime - m.startTime, S = je((m.startTime + b - p) * 9e4, s * 9e4) / 9e4;
     m.startTime = Math.max(S, 0), m.endTime = Math.max(S + E, 0);
-    const w = m.text.trim();
-    m.text = decodeURIComponent(encodeURIComponent(w)), m.id || (m.id = sa(m.startTime, m.endTime, w)), m.endTime > 0 && c.push(m);
+    const A = m.text.trim();
+    m.text = decodeURIComponent(encodeURIComponent(A)), m.id || (m.id = na(m.startTime, m.endTime, A)), m.endTime > 0 && c.push(m);
   }, o.onparsingerror = function(m) {
     g = m;
   }, o.onflush = function() {
@@ -19568,9 +19568,9 @@ function G0(n, e, t, i, s, r, a) {
     r(c);
   }, d.forEach((m) => {
     if (_)
-      if (ws(m, "X-TIMESTAMP-MAP=")) {
+      if (ks(m, "X-TIMESTAMP-MAP=")) {
         _ = !1, m.slice(16).split(",").forEach((v) => {
-          ws(v, "LOCAL:") ? h = v.slice(6) : ws(v, "MPEGTS:") && (f = parseInt(v.slice(7)));
+          ks(v, "LOCAL:") ? h = v.slice(6) : ks(v, "MPEGTS:") && (f = parseInt(v.slice(7)));
         });
         try {
           p = B0(h) / 1e3;
@@ -19583,15 +19583,15 @@ function G0(n, e, t, i, s, r, a) {
 `);
   }), o.flush();
 }
-const As = "stpp.ttml.im1t", Pd = /^(\d{2,}):(\d{2}):(\d{2}):(\d{2})\.?(\d+)?$/, Md = /^(\d*(?:\.\d*)?)(h|m|s|ms|f|t)$/, V0 = {
+const ws = "stpp.ttml.im1t", Pd = /^(\d{2,}):(\d{2}):(\d{2}):(\d{2})\.?(\d+)?$/, Md = /^(\d*(?:\.\d*)?)(h|m|s|ms|f|t)$/, V0 = {
   left: "start",
   center: "center",
   right: "end",
   start: "start",
   end: "end"
 };
-function Vo(n, e, t, i) {
-  const s = ae(new Uint8Array(n), ["mdat"]);
+function Go(n, e, t, i) {
+  const s = re(new Uint8Array(n), ["mdat"]);
   if (s.length === 0) {
     i(new Error("Could not parse IMSC1 mdat"));
     return;
@@ -19612,22 +19612,22 @@ function K0(n, e) {
     subFrameRate: 1,
     frameRateMultiplier: 0,
     tickRate: 0
-  }, a = Object.keys(r).reduce((h, f) => (h[f] = s.getAttribute(`ttp:${f}`) || r[f], h), {}), o = s.getAttribute("xml:space") !== "preserve", d = Ko(Is(s, "styling", "style")), c = Ko(Is(s, "layout", "region")), u = Is(s, "body", "[begin]");
+  }, a = Object.keys(r).reduce((h, f) => (h[f] = s.getAttribute(`ttp:${f}`) || r[f], h), {}), o = s.getAttribute("xml:space") !== "preserve", d = Vo(As(s, "styling", "style")), c = Vo(As(s, "layout", "region")), u = As(s, "body", "[begin]");
   return [].map.call(u, (h) => {
     const f = Od(h, o);
     if (!f || !h.hasAttribute("begin"))
       return null;
-    const p = Rs(h.getAttribute("begin"), a), g = Rs(h.getAttribute("dur"), a);
-    let _ = Rs(h.getAttribute("end"), a);
+    const p = Ls(h.getAttribute("begin"), a), g = Ls(h.getAttribute("dur"), a);
+    let _ = Ls(h.getAttribute("end"), a);
     if (p === null)
-      throw zo(h);
+      throw Ko(h);
     if (_ === null) {
       if (g === null)
-        throw zo(h);
+        throw Ko(h);
       _ = p + g;
     }
-    const m = new na(p - e, _ - e, f);
-    m.id = sa(m.startTime, m.endTime, m.text);
+    const m = new ia(p - e, _ - e, f);
+    m.id = na(m.startTime, m.endTime, m.text);
     const v = c[h.getAttribute("region")], b = d[h.getAttribute("style")], x = z0(v, b, d), {
       textAlign: E
     } = x;
@@ -19638,11 +19638,11 @@ function K0(n, e) {
     return ge(m, x), m;
   }).filter((h) => h !== null);
 }
-function Is(n, e, t) {
+function As(n, e, t) {
   const i = n.getElementsByTagName(e)[0];
   return i ? [].slice.call(i.querySelectorAll(t)) : [];
 }
-function Ko(n) {
+function Vo(n) {
   return n.reduce((e, t) => {
     const i = t.getAttribute("xml:id");
     return i && (e[i] = t), e;
@@ -19673,17 +19673,17 @@ function z0(n, e, t) {
     // 'writingMode'
   ], a = n != null && n.hasAttribute("style") ? n.getAttribute("style") : null;
   return a && t.hasOwnProperty(a) && (s = t[a]), r.reduce((o, d) => {
-    const c = Ls(e, i, d) || Ls(n, i, d) || Ls(s, i, d);
+    const c = Is(e, i, d) || Is(n, i, d) || Is(s, i, d);
     return c && (o[d] = c), o;
   }, {});
 }
-function Ls(n, e, t) {
+function Is(n, e, t) {
   return n && n.hasAttributeNS(e, t) ? n.getAttributeNS(e, t) : null;
 }
-function zo(n) {
+function Ko(n) {
   return new Error(`Could not parse ttml timestamp ${n}`);
 }
-function Rs(n, e) {
+function Ls(n, e) {
   if (!n)
     return null;
   let t = Rd(n);
@@ -19725,7 +19725,7 @@ class en {
 }
 class W0 {
   constructor(e) {
-    this.hls = void 0, this.media = null, this.config = void 0, this.enabled = !0, this.Cues = void 0, this.textTracks = [], this.tracks = [], this.initPTS = [], this.unparsedVttFrags = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.cea608Parser1 = void 0, this.cea608Parser2 = void 0, this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = jo(), this.captionsProperties = void 0, this.hls = e, this.config = e.config, this.Cues = e.config.cueHandler, this.captionsProperties = {
+    this.hls = void 0, this.media = null, this.config = void 0, this.enabled = !0, this.Cues = void 0, this.textTracks = [], this.tracks = [], this.initPTS = [], this.unparsedVttFrags = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.cea608Parser1 = void 0, this.cea608Parser2 = void 0, this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = Ho(), this.captionsProperties = void 0, this.hls = e, this.config = e.config, this.Cues = e.config.cueHandler, this.captionsProperties = {
       textTrack1: {
         label: this.config.captionsTextTrack1Label,
         languageCode: this.config.captionsTextTrack1LanguageCode
@@ -19752,7 +19752,7 @@ class W0 {
   }
   initCea608Parsers() {
     const e = new en(this, "textTrack1"), t = new en(this, "textTrack2"), i = new en(this, "textTrack3"), s = new en(this, "textTrack4");
-    this.cea608Parser1 = new Go(1, e, t), this.cea608Parser2 = new Go(3, i, s);
+    this.cea608Parser1 = new Uo(1, e, t), this.cea608Parser2 = new Uo(3, i, s);
   }
   addCues(e, t, i, s, r) {
     let a = !1;
@@ -19784,7 +19784,7 @@ class W0 {
     const {
       unparsedVttFrags: o
     } = this;
-    i === Q.MAIN && (this.initPTS[t.cc] = {
+    i === Z.MAIN && (this.initPTS[t.cc] = {
       baseTime: s,
       timescale: r,
       trackId: a
@@ -19803,7 +19803,7 @@ class W0 {
     if (i)
       for (let s = 0; s < i.textTracks.length; s++) {
         const r = i.textTracks[s];
-        if (Ho(r, {
+        if (zo(r, {
           name: e,
           lang: t,
           characteristics: "transcribes-spoken-dialog,describes-music-and-sound"
@@ -19870,7 +19870,7 @@ class W0 {
     }), this.nonNativeCaptionsTracks = {};
   }
   onManifestLoading() {
-    this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = jo(), this._cleanTracks(), this.tracks = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.textTracks = [], this.unparsedVttFrags = [], this.initPTS = [], this.cea608Parser1 && this.cea608Parser2 && (this.cea608Parser1.reset(), this.cea608Parser2.reset());
+    this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = Ho(), this._cleanTracks(), this.tracks = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.textTracks = [], this.unparsedVttFrags = [], this.initPTS = [], this.cea608Parser1 && this.cea608Parser2 && (this.cea608Parser1.reset(), this.cea608Parser2.reset());
   }
   _cleanTracks() {
     const {
@@ -19884,20 +19884,20 @@ class W0 {
         ci(t[i]);
   }
   onSubtitleTracksUpdated(e, t) {
-    const i = t.subtitleTracks || [], s = i.some((r) => r.textCodec === As);
+    const i = t.subtitleTracks || [], s = i.some((r) => r.textCodec === ws);
     if (this.config.enableWebVTT || s && this.config.enableIMSC1) {
       if (hd(this.tracks, i)) {
         this.tracks = i;
         return;
       }
       if (this.textTracks = [], this.tracks = i, this.config.renderTextTracksNatively) {
-        const a = this.media, o = a ? Tn(a.textTracks) : null;
+        const a = this.media, o = a ? Sn(a.textTracks) : null;
         if (this.tracks.forEach((d, c) => {
           let u;
           if (o) {
             let h = null;
             for (let f = 0; f < o.length; f++)
-              if (o[f] && Ho(o[f], d)) {
+              if (o[f] && zo(o[f], d)) {
                 h = o[f], o[f] = null;
                 break;
               }
@@ -19941,7 +19941,7 @@ class W0 {
     return t?.attrs["CLOSED-CAPTIONS"];
   }
   onFragLoading(e, t) {
-    if (this.enabled && t.frag.type === Q.MAIN) {
+    if (this.enabled && t.frag.type === Z.MAIN) {
       var i, s;
       const {
         cea608Parser1: r,
@@ -19959,7 +19959,7 @@ class W0 {
       frag: i,
       payload: s
     } = t;
-    if (i.type === Q.SUBTITLE)
+    if (i.type === Z.SUBTITLE)
       if (s.byteLength) {
         const r = i.decryptdata, a = "stats" in t;
         if (r == null || !r.encrypted || a) {
@@ -19968,7 +19968,7 @@ class W0 {
             start: i.start,
             prevCC: this.prevCC,
             new: !0
-          }, this.prevCC = i.cc), o && o.textCodec === As ? this._parseIMSC1(i, s) : this._parseVTTs(t);
+          }, this.prevCC = i.cc), o && o.textCodec === ws ? this._parseIMSC1(i, s) : this._parseVTTs(t);
         }
       } else
         this.hls.trigger(y.SUBTITLE_FRAG_PROCESSED, {
@@ -19979,7 +19979,7 @@ class W0 {
   }
   _parseIMSC1(e, t) {
     const i = this.hls;
-    Vo(t, this.initPTS[e.cc], (s) => {
+    Go(t, this.initPTS[e.cc], (s) => {
       this._appendCues(s, e.level), i.trigger(y.SUBTITLE_FRAG_PROCESSED, {
         success: !0,
         frag: e
@@ -20022,8 +20022,8 @@ class W0 {
   }
   _fallbackToIMSC1(e, t) {
     const i = this.tracks[e.level];
-    i.textCodec || Vo(t, this.initPTS[e.cc], () => {
-      i.textCodec = As, this._parseIMSC1(e, t);
+    i.textCodec || Go(t, this.initPTS[e.cc], () => {
+      i.textCodec = ws, this._parseIMSC1(e, t);
     }, () => {
       i.textCodec = "wvtt";
     });
@@ -20051,7 +20051,7 @@ class W0 {
     const {
       frag: i
     } = t;
-    i.type === Q.SUBTITLE && this.onFragLoaded(y.FRAG_LOADED, t);
+    i.type === Z.SUBTITLE && this.onFragLoaded(y.FRAG_LOADED, t);
   }
   onSubtitleTracksCleared() {
     this.tracks = [], this.captionsTracks = {};
@@ -20063,7 +20063,7 @@ class W0 {
       frag: i,
       samples: s
     } = t;
-    if (!(i.type === Q.MAIN && this.closedCaptionsForLevel(i) === "NONE"))
+    if (!(i.type === Z.MAIN && this.closedCaptionsForLevel(i) === "NONE"))
       for (let r = 0; r < s.length; r++) {
         const a = s[r].bytes;
         if (a) {
@@ -20087,13 +20087,13 @@ class W0 {
         const {
           captionsTracks: o
         } = this;
-        Object.keys(o).forEach((d) => dr(o[d], t, i));
+        Object.keys(o).forEach((d) => cr(o[d], t, i));
       }
       if (this.config.renderTextTracksNatively && t === 0 && s !== void 0) {
         const {
           textTracks: o
         } = this;
-        Object.keys(o).forEach((d) => dr(o[d], t, s));
+        Object.keys(o).forEach((d) => cr(o[d], t, s));
       }
     }
   }
@@ -20115,13 +20115,13 @@ class W0 {
 function Fd(n) {
   return n.characteristics && /transcribes-spoken-dialog/gi.test(n.characteristics) && /describes-music-and-sound/gi.test(n.characteristics) ? "captions" : "subtitles";
 }
-function Ho(n, e) {
-  return !!n && n.kind === Fd(e) && ar(e, n);
+function zo(n, e) {
+  return !!n && n.kind === Fd(e) && rr(e, n);
 }
 function Y0(n, e, t, i) {
   return Math.min(e, i) - Math.max(n, t);
 }
-function jo() {
+function Ho() {
   return {
     ccOffset: 0,
     presentationOffset: 0,
@@ -20143,7 +20143,7 @@ const q0 = /\s/, X0 = {
         for (let _ = 0; _ < r.chars.length; _++)
           q0.test(r.chars[_].uchar) && o ? d++ : (c += r.chars[_].uchar, o = !1);
         r.cueStartTime = e, e === t && (t += 1e-4), d >= 16 ? d-- : d++;
-        const p = Cd(c.trim()), g = sa(e, t, p);
+        const p = Cd(c.trim()), g = na(e, t, p);
         n != null && (h = n.cues) != null && h.getCueById(g) || (a = new u(e, t, p), a.id = g, a.line = f + 1, a.align = "left", a.position = 10 + Math.min(80, Math.floor(d * 8 / 32) * 10), s.push(a));
       }
     return n && s.length && (s.sort((f, p) => f.line === "auto" || p.line === "auto" ? 0 : f.line > 8 && p.line > 8 ? p.line - f.line : f.line - p.line), s.forEach((f) => wd(n, f))), s;
@@ -20161,9 +20161,9 @@ function Q0() {
   return !1;
 }
 const Z0 = /(\d+)-(\d+)\/(\d+)/;
-class Wo {
+class jo {
   constructor(e) {
-    this.fetchSetup = void 0, this.requestTimeout = void 0, this.request = null, this.response = null, this.controller = void 0, this.context = null, this.config = null, this.callbacks = null, this.stats = void 0, this.loader = null, this.fetchSetup = e.fetchSetup || i_, this.controller = new self.AbortController(), this.stats = new Fr();
+    this.fetchSetup = void 0, this.requestTimeout = void 0, this.request = null, this.response = null, this.controller = void 0, this.context = null, this.config = null, this.callbacks = null, this.stats = void 0, this.loader = null, this.fetchSetup = e.fetchSetup || i_, this.controller = new self.AbortController(), this.stats = new Or();
   }
   destroy() {
     this.loader = this.callbacks = this.context = this.config = this.request = null, this.abortInternal(), this.response = null, this.fetchSetup = this.controller = this.stats = null;
@@ -20184,7 +20184,7 @@ class Wo {
       maxTimeToFirstByteMs: d,
       maxLoadTimeMs: c
     } = t.loadPolicy;
-    this.context = e, this.config = t, this.callbacks = i, this.request = this.fetchSetup(e, r), self.clearTimeout(this.requestTimeout), t.timeout = d && Y(d) ? d : c, this.requestTimeout = self.setTimeout(() => {
+    this.context = e, this.config = t, this.callbacks = i, this.request = this.fetchSetup(e, r), self.clearTimeout(this.requestTimeout), t.timeout = d && X(d) ? d : c, this.requestTimeout = self.setTimeout(() => {
       this.callbacks && (this.abortInternal(), this.callbacks.onTimeout(s, e, this.response));
     }, t.timeout), (Ni(this.request) ? this.request.then(self.fetch) : self.fetch(this.request)).then((h) => {
       var f;
@@ -20201,7 +20201,7 @@ class Wo {
       }
       s.loading.first = p, s.total = t_(h.headers) || s.total;
       const g = (f = this.callbacks) == null ? void 0 : f.onProgress;
-      return g && Y(t.highWaterMark) ? this.loadProgressively(h, s, e, t.highWaterMark, g) : a ? h.arrayBuffer() : e.responseType === "json" ? h.json() : h.text();
+      return g && X(t.highWaterMark) ? this.loadProgressively(h, s, e, t.highWaterMark, g) : a ? h.arrayBuffer() : e.responseType === "json" ? h.json() : h.text();
     }).then((h) => {
       var f, p;
       const g = this.response;
@@ -20215,7 +20215,7 @@ class Wo {
         data: h,
         code: g.status
       }, v = (f = this.callbacks) == null ? void 0 : f.onProgress;
-      v && !Y(t.highWaterMark) && v(s, e, h, g), (p = this.callbacks) == null || p.onSuccess(m, s, e, g);
+      v && !X(t.highWaterMark) && v(s, e, h, g), (p = this.callbacks) == null || p.onSuccess(m, s, e, g);
     }).catch((h) => {
       var f;
       if (self.clearTimeout(this.requestTimeout), s.aborted)
@@ -20267,7 +20267,7 @@ function t_(n) {
   const e = n.get("Content-Range");
   if (e) {
     const i = e_(e);
-    if (Y(i))
+    if (X(i))
       return i;
   }
   const t = n.get("Content-Length");
@@ -20285,7 +20285,7 @@ class n_ extends Error {
 const s_ = /^age:\s*[\d.]+\s*$/im;
 class Nd {
   constructor(e) {
-    this.xhrSetup = void 0, this.requestTimeout = void 0, this.retryTimeout = void 0, this.retryDelay = void 0, this.config = null, this.callbacks = null, this.context = null, this.loader = null, this.stats = void 0, this.xhrSetup = e && e.xhrSetup || null, this.stats = new Fr(), this.retryDelay = 0;
+    this.xhrSetup = void 0, this.requestTimeout = void 0, this.retryTimeout = void 0, this.retryDelay = void 0, this.config = null, this.callbacks = null, this.context = null, this.loader = null, this.stats = void 0, this.xhrSetup = e && e.xhrSetup || null, this.stats = new Or(), this.retryDelay = 0;
   }
   destroy() {
     this.callbacks = null, this.abortInternal(), this.loader = null, this.config = null, this.context = null, this.xhrSetup = null;
@@ -20338,7 +20338,7 @@ class Nd {
     if (s)
       for (const o in s)
         e.setRequestHeader(o, s[o]);
-    t.rangeEnd && e.setRequestHeader("Range", "bytes=" + t.rangeStart + "-" + (t.rangeEnd - 1)), e.onreadystatechange = this.readystatechange.bind(this), e.onprogress = this.loadprogress.bind(this), e.responseType = t.responseType, self.clearTimeout(this.requestTimeout), i.timeout = r && Y(r) ? r : a, this.requestTimeout = self.setTimeout(this.loadtimeout.bind(this), i.timeout), e.send();
+    t.rangeEnd && e.setRequestHeader("Range", "bytes=" + t.rangeStart + "-" + (t.rangeEnd - 1)), e.onreadystatechange = this.readystatechange.bind(this), e.onprogress = this.loadprogress.bind(this), e.responseType = t.responseType, self.clearTimeout(this.requestTimeout), i.timeout = r && X(r) ? r : a, this.requestTimeout = self.setTimeout(this.loadtimeout.bind(this), i.timeout), e.send();
   }
   readystatechange() {
     const {
@@ -20375,7 +20375,7 @@ class Nd {
         data: void 0,
         code: c
       };
-      if (On(h, f, !1, p))
+      if (Mn(h, f, !1, p))
         this.retry(h);
       else {
         var d;
@@ -20389,7 +20389,7 @@ class Nd {
   loadtimeout() {
     if (!this.config) return;
     const e = this.config.loadPolicy.timeoutRetry, t = this.stats.retry;
-    if (On(e, t, !0))
+    if (Mn(e, t, !0))
       this.retry(e);
     else {
       var i;
@@ -20403,7 +20403,7 @@ class Nd {
       context: t,
       stats: i
     } = this;
-    this.retryDelay = Ur(e, i.retry), i.retry++, pe.warn(`${status ? "HTTP Status " + status : "Timeout"} while loading ${t?.url}, retrying ${i.retry}/${e.maxNumRetry} in ${this.retryDelay}ms`), this.abortInternal(), this.loader = null, self.clearTimeout(this.retryTimeout), this.retryTimeout = self.setTimeout(this.loadInternal.bind(this), this.retryDelay);
+    this.retryDelay = Br(e, i.retry), i.retry++, pe.warn(`${status ? "HTTP Status " + status : "Timeout"} while loading ${t?.url}, retrying ${i.retry}/${e.maxNumRetry} in ${this.retryDelay}ms`), this.abortInternal(), this.loader = null, self.clearTimeout(this.retryTimeout), this.retryTimeout = self.setTimeout(this.loadInternal.bind(this), this.retryDelay);
   }
   loadprogress(e) {
     const t = this.stats;
@@ -20523,7 +20523,7 @@ const r_ = {
   // used by eme-controller
   abrController: vp,
   bufferController: lm,
-  capLevelController: ea,
+  capLevelController: Jr,
   errorController: Sp,
   fpsController: c0,
   stretchShortVideoTrack: !1,
@@ -20743,7 +20743,7 @@ function l_(n, e, t) {
     throw new Error('Illegal hls.js config: "liveMaxLatencyDurationCount" must be greater than "liveSyncDurationCount"');
   if (e.liveMaxLatencyDuration !== void 0 && (e.liveSyncDuration === void 0 || e.liveMaxLatencyDuration <= e.liveSyncDuration))
     throw new Error('Illegal hls.js config: "liveMaxLatencyDuration" must be greater than "liveSyncDuration"');
-  const i = hr(n), s = ["manifest", "level", "frag"], r = ["TimeOut", "MaxRetry", "RetryDelay", "MaxRetryTimeout"];
+  const i = ur(n), s = ["manifest", "level", "frag"], r = ["TimeOut", "MaxRetry", "RetryDelay", "MaxRetryTimeout"];
   return s.forEach((a) => {
     const o = `${a === "level" ? "playlist" : a}LoadPolicy`, d = e[o] === void 0, c = [];
     r.forEach((u) => {
@@ -20771,14 +20771,14 @@ function l_(n, e, t) {
     }), c.length && t.warn(`hls.js config: "${c.join('", "')}" setting(s) are deprecated, use "${o}": ${ve(e[o])}`);
   }), fe(fe({}, i), e);
 }
-function hr(n) {
-  return n && typeof n == "object" ? Array.isArray(n) ? n.map(hr) : Object.keys(n).reduce((e, t) => (e[t] = hr(n[t]), e), {}) : n;
+function ur(n) {
+  return n && typeof n == "object" ? Array.isArray(n) ? n.map(ur) : Object.keys(n).reduce((e, t) => (e[t] = ur(n[t]), e), {}) : n;
 }
 function c_(n, e) {
   const t = n.loader;
-  t !== Wo && t !== Nd ? (e.log("[config]: Custom loader detected, cannot enable progressive streaming"), n.progressive = !1) : Q0() && (n.loader = Wo, n.progressive = !0, n.enableSoftwareAES = !0, e.log("[config]: Progressive streaming enabled, using FetchLoader"));
+  t !== jo && t !== Nd ? (e.log("[config]: Custom loader detected, cannot enable progressive streaming"), n.progressive = !1) : Q0() && (n.loader = jo, n.progressive = !0, n.enableSoftwareAES = !0, e.log("[config]: Progressive streaming enabled, using FetchLoader"));
 }
-const kn = 2, d_ = 0.1, u_ = 0.05, h_ = 100;
+const Tn = 2, d_ = 0.1, u_ = 0.05, h_ = 100;
 class f_ extends Rc {
   constructor(e, t) {
     super("gap-controller", e.logger), this.hls = void 0, this.fragmentTracker = void 0, this.media = null, this.mediaSource = void 0, this.nudgeRetry = 0, this.stallReported = !1, this.stalled = null, this.moved = !1, this.seeking = !1, this.buffered = {}, this.lastCurrentTime = 0, this.ended = 0, this.waiting = 0, this.onMediaPlaying = () => {
@@ -20872,7 +20872,7 @@ class f_ extends Rc {
     }
     const h = se.bufferInfo(a, e, 0), f = h.nextStart || 0, p = this.fragmentTracker;
     if (o && p && this.hls) {
-      const w = Yo(this.hls.inFlightFragments, e), T = h.len > kn, k = !f || w || f - e > kn && !p.getPartialFragment(e);
+      const A = Wo(this.hls.inFlightFragments, e), T = h.len > Tn, k = !f || A || f - e > Tn && !p.getPartialFragment(e);
       if (T || k)
         return;
       this.moved = !1;
@@ -20881,9 +20881,9 @@ class f_ extends Rc {
     if (!this.moved && this.stalled !== null && p) {
       if (!(h.len > 0) && !f)
         return;
-      const T = Math.max(f, h.start || 0) - e, I = !!(g != null && g.live) ? g.targetduration * 2 : kn, A = tn(e, p);
-      if (T > 0 && (T <= I || A)) {
-        a.paused || this._trySkipBufferHole(A);
+      const T = Math.max(f, h.start || 0) - e, I = !!(g != null && g.live) ? g.targetduration * 2 : Tn, w = tn(e, p);
+      if (T > 0 && (T <= I || w)) {
+        a.paused || this._trySkipBufferHole(w);
         return;
       }
     }
@@ -20938,7 +20938,7 @@ class f_ extends Rc {
             const p = se.bufferInfo(this.media, e, 0);
             this.hls.trigger(y.ERROR, {
               type: J.MEDIA_ERROR,
-              details: P.BUFFER_SEEK_OVER_HOLE,
+              details: C.BUFFER_SEEK_OVER_HOLE,
               fatal: !1,
               error: h,
               reason: h.message,
@@ -20974,7 +20974,7 @@ class f_ extends Rc {
   adjacentTraversal(e, t) {
     const i = this.fragmentTracker, s = e.nextStart;
     if (i && s) {
-      const r = i.getFragAtPos(t, Q.MAIN), a = i.getFragAtPos(s, Q.MAIN);
+      const r = i.getFragAtPos(t, Z.MAIN), a = i.getFragAtPos(s, Z.MAIN);
       if (r && a)
         return a.sn - r.sn < 2;
     }
@@ -20997,7 +20997,7 @@ class f_ extends Rc {
       const a = new Error(`Playback stalling at @${i.currentTime} due to low buffer (${ve(e)})`);
       this.warn(a.message), t.trigger(y.ERROR, {
         type: J.MEDIA_ERROR,
-        details: P.BUFFER_STALLED_ERROR,
+        details: C.BUFFER_STALLED_ERROR,
         fatal: !1,
         error: a,
         buffer: e.len,
@@ -21028,12 +21028,12 @@ class f_ extends Rc {
         if (f > r.maxBufferHole) {
           let g = !1;
           if (a === 0) {
-            const _ = i.getAppendedFrag(0, Q.MAIN);
+            const _ = i.getAppendedFrag(0, Z.MAIN);
             _ && d < _.end && (g = !0);
           }
           if (!g && e) {
             var c;
-            if (!((c = this.hls.loadLevelObj) != null && c.details) || Yo(this.hls.inFlightFragments, d))
+            if (!((c = this.hls.loadLevelObj) != null && c.details) || Wo(this.hls.inFlightFragments, d))
               return 0;
             let m = !1, v = e.end;
             for (; v < d; ) {
@@ -21053,7 +21053,7 @@ class f_ extends Rc {
         if (this.warn(`skipping hole, adjusting currentTime from ${a} to ${p}`), this.moved = !0, s.currentTime = p, !(e != null && e.gap)) {
           const g = new Error(`fragment loaded with buffer holes, seeking from ${a} to ${p}`), _ = {
             type: J.MEDIA_ERROR,
-            details: P.BUFFER_SEEK_OVER_HOLE,
+            details: C.BUFFER_SEEK_OVER_HOLE,
             fatal: !1,
             error: g,
             reason: g.message,
@@ -21084,7 +21084,7 @@ class f_ extends Rc {
       const o = a + (s + 1) * r.nudgeOffset, d = new Error(`Nudging 'currentTime' from ${a} to ${o}`);
       this.warn(d.message), i.currentTime = o, t.trigger(y.ERROR, {
         type: J.MEDIA_ERROR,
-        details: P.BUFFER_NUDGE_ON_STALL,
+        details: C.BUFFER_NUDGE_ON_STALL,
         error: d,
         fatal: !1,
         buffer: e.len,
@@ -21094,7 +21094,7 @@ class f_ extends Rc {
       const o = new Error(`Playhead still not moving while enough data buffered @${a} after ${r.nudgeMaxRetry} nudges`);
       this.error(o.message), t.trigger(y.ERROR, {
         type: J.MEDIA_ERROR,
-        details: P.BUFFER_STALLED_ERROR,
+        details: C.BUFFER_STALLED_ERROR,
         error: o,
         fatal: !0,
         buffer: e.len,
@@ -21103,14 +21103,14 @@ class f_ extends Rc {
     }
   }
 }
-function Yo(n, e) {
-  const t = qo(n.main);
+function Wo(n, e) {
+  const t = Yo(n.main);
   if (t && t.start <= e)
     return t;
-  const i = qo(n.audio);
+  const i = Yo(n.audio);
   return i && i.start <= e ? i : null;
 }
-function qo(n) {
+function Yo(n) {
   if (!n)
     return null;
   switch (n.state) {
@@ -21123,14 +21123,14 @@ function qo(n) {
   return n.frag;
 }
 function tn(n, e) {
-  return e.getAppendedFrag(n, Q.MAIN) || e.getPartialFragment(n);
+  return e.getAppendedFrag(n, Z.MAIN) || e.getPartialFragment(n);
 }
 const p_ = 0.25;
-function fr() {
+function hr() {
   if (!(typeof self > "u"))
     return self.VTTCue || self.TextTrackCue;
 }
-function Ds(n, e, t, i, s) {
+function Rs(n, e, t, i, s) {
   let r = new n(e, t, "");
   try {
     r.value = i, s && (r.type = s);
@@ -21142,7 +21142,7 @@ function Ds(n, e, t, i, s) {
   return r;
 }
 const nn = (() => {
-  const n = fr();
+  const n = hr();
   try {
     n && new n(0, Number.POSITIVE_INFINITY, "");
   } catch {
@@ -21214,7 +21214,7 @@ class g_ {
       samples: r
     } = t;
     this.id3Track || (this.id3Track = this.createTrack(this.media));
-    const a = fr();
+    const a = hr();
     if (a)
       for (let o = 0; o < r.length; o++) {
         const d = r[o].type;
@@ -21227,7 +21227,7 @@ class g_ {
           const g = c[p];
           if (!ed(g)) {
             this.updateId3CueEnds(u, d);
-            const _ = Ds(a, u, h, g, d);
+            const _ = Rs(a, u, h, g, d);
             _ && this.id3Track.addCue(_);
           }
         }
@@ -21261,7 +21261,7 @@ class g_ {
     } = a;
     if (r && (o || d)) {
       let c;
-      s === "audio" ? c = (u) => u.type === We.audioId3 && d : s === "video" ? c = (u) => u.type === We.emsg && o : c = (u) => u.type === We.audioId3 && d || u.type === We.emsg && o, dr(r, t, i, c);
+      s === "audio" ? c = (u) => u.type === We.audioId3 && d : s === "video" ? c = (u) => u.type === We.emsg && o : c = (u) => u.type === We.audioId3 && d || u.type === We.emsg && o, cr(r, t, i, c);
     }
   }
   onLevelUpdated(e, {
@@ -21283,14 +21283,14 @@ class g_ {
     } = this.hls.config;
     if (!r)
       return;
-    const o = fr();
+    const o = hr();
     if (i && s && !a) {
       const {
         fragmentStart: _,
         fragmentEnd: m
       } = e;
       let v = this.assetCue;
-      v ? (v.startTime = _, v.endTime = m) : o && (v = this.assetCue = Ds(o, _, m, {
+      v ? (v.startTime = _, v.endTime = m) : o && (v = this.assetCue = Rs(o, _, m, {
         assetPlayerId: this.hls.config.assetPlayerId
       }, "hlsjs.interstitial.asset"), v && (v.id = i, this.id3Track || (this.id3Track = this.createTrack(this.media)), this.id3Track.addCue(v), v.addEventListener("enter", this.onEventCueEnter)));
     }
@@ -21324,44 +21324,44 @@ class g_ {
         h = this.dateRangeCuesAppended = {};
     }
     const g = e.fragments[e.fragments.length - 1];
-    if (!(u.length === 0 || !Y(g?.programDateTime))) {
+    if (!(u.length === 0 || !X(g?.programDateTime))) {
       this.id3Track || (this.id3Track = this.createTrack(this.media));
       for (let _ = 0; _ < u.length; _++) {
         const m = u[_], v = c[m], b = v.startTime, x = h[m], E = x?.cues || {};
-        let S = x?.durationKnown || !1, w = nn;
+        let S = x?.durationKnown || !1, A = nn;
         const {
           duration: T,
           endDate: k
         } = v;
         if (k && T !== null)
-          w = b + T, S = !0;
+          A = b + T, S = !0;
         else if (v.endOnNext && !S) {
-          const A = u.reduce((C, M) => {
-            if (M !== v.id) {
-              const B = c[M];
-              if (B.class === v.class && B.startDate > v.startDate && (!C || v.startDate < C.startDate))
+          const w = u.reduce((M, P) => {
+            if (P !== v.id) {
+              const B = c[P];
+              if (B.class === v.class && B.startDate > v.startDate && (!M || v.startDate < M.startDate))
                 return B;
             }
-            return C;
+            return M;
           }, null);
-          A && (w = A.startTime, S = !0);
+          w && (A = w.startTime, S = !0);
         }
         const I = Object.keys(v.attr);
-        for (let A = 0; A < I.length; A++) {
-          const C = I[A];
-          if (!Fp(C))
+        for (let w = 0; w < I.length; w++) {
+          const M = I[w];
+          if (!Fp(M))
             continue;
-          const M = E[C];
-          if (M)
-            S && !(x != null && x.durationKnown) ? M.endTime = w : Math.abs(M.startTime - b) > 0.01 && (M.startTime = b, M.endTime = w);
+          const P = E[M];
+          if (P)
+            S && !(x != null && x.durationKnown) ? P.endTime = A : Math.abs(P.startTime - b) > 0.01 && (P.startTime = b, P.endTime = A);
           else if (o) {
-            let B = v.attr[C];
-            Np(C) && (B = dc(B));
-            const U = Ds(o, b, w, {
-              key: C,
+            let B = v.attr[M];
+            Np(M) && (B = dc(B));
+            const U = Rs(o, b, A, {
+              key: M,
               data: B
             }, We.dateRange);
-            U && (U.id = m, this.id3Track.addCue(U), E[C] = U, a && (C === "X-ASSET-LIST" || C === "X-ASSET-URL") && U.addEventListener("enter", this.onEventCueEnter));
+            U && (U.id = m, this.id3Track.addCue(U), E[M] = U, a && (M === "X-ASSET-LIST" || M === "X-ASSET-URL") && U.addEventListener("enter", this.onEventCueEnter));
           }
         }
         h[m] = {
@@ -21500,7 +21500,7 @@ class m_ {
   }
   onError(e, t) {
     var i;
-    t.details === P.BUFFER_STALLED_ERROR && (this.stallCount++, this.hls && (i = this.levelDetails) != null && i.live && this.hls.logger.warn("[latency-controller]: Stall detected, adjusting target latency"));
+    t.details === C.BUFFER_STALLED_ERROR && (this.stallCount++, this.hls && (i = this.levelDetails) != null && i.live && this.hls.logger.warn("[latency-controller]: Stall detected, adjusting target latency"));
   }
   changeMediaPlaybackRate(e, t) {
     var i, s;
@@ -21515,7 +21515,7 @@ class m_ {
     return e === null ? null : e - this.currentTime;
   }
 }
-class __ extends Jr {
+class __ extends Zr {
   constructor(e, t) {
     super(e, "level-controller"), this._levels = [], this._firstLevel = -1, this._maxAutoLevel = -1, this._startLevel = void 0, this.currentLevel = null, this.currentLevelIndex = -1, this.manualLevelIndex = -1, this.steering = void 0, this.onParsedComplete = void 0, this.steering = t, this._registerListeners();
   }
@@ -21554,7 +21554,7 @@ class __ extends Jr {
         audioCodec: f,
         videoCodec: p
       } = u;
-      f && (u.audioCodec = f = Dn(f, i) || void 0), p && (p = u.videoCodec = Jf(p));
+      f && (u.audioCodec = f = Rn(f, i) || void 0), p && (p = u.videoCodec = Jf(p));
       const {
         width: g,
         height: _,
@@ -21569,20 +21569,20 @@ class __ extends Jr {
         "FRAME-RATE": x,
         "HDCP-LEVEL": E,
         "PATHWAY-ID": S,
-        RESOLUTION: w,
+        RESOLUTION: A,
         "VIDEO-RANGE": T
-      } = h, I = `${`${S || "."}-`}${u.bitrate}-${w}-${x}-${b}-${T}-${E}`;
+      } = h, I = `${`${S || "."}-`}${u.bitrate}-${A}-${x}-${b}-${T}-${E}`;
       if (r[I])
         if (r[I].uri !== u.url && !u.attrs["PATHWAY-ID"]) {
-          const A = a[I] += 1;
-          u.attrs["PATHWAY-ID"] = new Array(A + 1).join(".");
-          const C = this.createLevel(u);
-          r[I] = C, s.push(C);
+          const w = a[I] += 1;
+          u.attrs["PATHWAY-ID"] = new Array(w + 1).join(".");
+          const M = this.createLevel(u);
+          r[I] = M, s.push(M);
         } else
           r[I].addGroupId("audio", h.AUDIO), r[I].addGroupId("text", h.SUBTITLES);
       else {
-        const A = this.createLevel(u);
-        r[I] = A, a[I] = 1, s.push(A);
+        const w = this.createLevel(u);
+        r[I] = w, a[I] = 1, s.push(w);
       }
     }), this.filterAndSortMediaOptions(s, t, o, d, c);
   }
@@ -21613,11 +21613,11 @@ class __ extends Jr {
       Promise.resolve().then(() => {
         if (this.hls) {
           let b = "no level with compatible codecs found in manifest", x = b;
-          t.levels.length && (x = `one or more CODECS in variant not supported: ${ve(t.levels.map((S) => S.attrs.CODECS).filter((S, w, T) => T.indexOf(S) === w))}`, this.warn(x), b += ` (${x})`);
+          t.levels.length && (x = `one or more CODECS in variant not supported: ${ve(t.levels.map((S) => S.attrs.CODECS).filter((S, A, T) => T.indexOf(S) === A))}`, this.warn(x), b += ` (${x})`);
           const E = new Error(b);
           this.hls.trigger(y.ERROR, {
             type: J.MEDIA_ERROR,
-            details: P.MANIFEST_INCOMPATIBLE_CODECS_ERROR,
+            details: C.MANIFEST_INCOMPATIBLE_CODECS_ERROR,
             fatal: !0,
             url: t.url,
             error: E,
@@ -21627,7 +21627,7 @@ class __ extends Jr {
       }), u.end = performance.now();
       return;
     }
-    t.audioTracks && (o = t.audioTracks.filter((b) => !b.audioCodec || this.isAudioSupported(b.audioCodec)), Xo(o)), t.subtitles && (d = t.subtitles, Xo(d));
+    t.audioTracks && (o = t.audioTracks.filter((b) => !b.audioCodec || this.isAudioSupported(b.audioCodec)), qo(o)), t.subtitles && (d = t.subtitles, qo(d));
     const h = c.slice(0);
     c.sort((b, x) => {
       if (b.attrs["HDCP-LEVEL"] !== x.attrs["HDCP-LEVEL"])
@@ -21637,14 +21637,14 @@ class __ extends Jr {
       if (b.frameRate !== x.frameRate)
         return b.frameRate - x.frameRate;
       if (b.videoRange !== x.videoRange)
-        return Cn.indexOf(b.videoRange) - Cn.indexOf(x.videoRange);
+        return Dn.indexOf(b.videoRange) - Dn.indexOf(x.videoRange);
       if (b.videoCodec !== x.videoCodec) {
-        const E = Ua(b.videoCodec), S = Ua(x.videoCodec);
+        const E = Ba(b.videoCodec), S = Ba(x.videoCodec);
         if (E !== S)
           return S - E;
       }
       if (b.uri === x.uri && b.codecSet !== x.codecSet) {
-        const E = Rn(b.codecSet), S = Rn(x.codecSet);
+        const E = Ln(b.codecSet), S = Ln(x.codecSet);
         if (E !== S)
           return S - E;
       }
@@ -21701,7 +21701,7 @@ class __ extends Jr {
       const u = new Error("invalid level idx"), h = e < 0;
       if (this.hls.trigger(y.ERROR, {
         type: J.OTHER_ERROR,
-        details: P.LEVEL_SWITCH_ERROR,
+        details: C.LEVEL_SWITCH_ERROR,
         level: e,
         fatal: h,
         error: u,
@@ -21792,7 +21792,7 @@ class __ extends Jr {
   onFragBuffered(e, {
     frag: t
   }) {
-    if (t !== void 0 && t.type === Q.MAIN) {
+    if (t !== void 0 && t.type === Z.MAIN) {
       const i = t.elementaryStreams;
       if (!Object.keys(i).some((r) => !!i[r]))
         return;
@@ -21870,7 +21870,7 @@ class __ extends Jr {
     }));
   }
 }
-function Xo(n) {
+function qo(n) {
   const e = {};
   n.forEach((t) => {
     const i = t.groupId || "";
@@ -21881,7 +21881,7 @@ function $d() {
   return self.SourceBuffer || self.WebKitSourceBuffer;
 }
 function Bd() {
-  if (!Ft())
+  if (!Nt())
     return !1;
   const e = $d();
   return !e || e.prototype && typeof e.prototype.appendBuffer == "function" && typeof e.prototype.remove == "function";
@@ -21889,7 +21889,7 @@ function Bd() {
 function v_() {
   if (!Bd())
     return !1;
-  const n = Ft();
+  const n = Nt();
   return typeof n?.isTypeSupported == "function" && (["avc1.42E01E,mp4a.40.2", "av01.0.01M.08", "vp09.00.50.08"].some((e) => n.isTypeSupported(Pi(e, "video"))) || ["mp4a.40.2", "fLaC"].some((e) => n.isTypeSupported(Pi(e, "audio"))));
 }
 function y_() {
@@ -21898,15 +21898,15 @@ function y_() {
   return typeof (e == null || (n = e.prototype) == null ? void 0 : n.changeType) == "function";
 }
 const b_ = 100;
-class x_ extends Hr {
+class x_ extends zr {
   constructor(e, t, i) {
-    super(e, t, i, "stream-controller", Q.MAIN), this.audioCodecSwap = !1, this.level = -1, this._forceStartLoad = !1, this._hasEnoughToStart = !1, this.altAudio = 0, this.audioOnly = !1, this.fragPlaying = null, this.fragLastKbps = 0, this.couldBacktrack = !1, this.backtrackFragment = null, this.audioCodecSwitch = !1, this.videoBuffer = null, this.onMediaPlaying = () => {
+    super(e, t, i, "stream-controller", Z.MAIN), this.audioCodecSwap = !1, this.level = -1, this._forceStartLoad = !1, this._hasEnoughToStart = !1, this.altAudio = 0, this.audioOnly = !1, this.fragPlaying = null, this.fragLastKbps = 0, this.couldBacktrack = !1, this.backtrackFragment = null, this.audioCodecSwitch = !1, this.videoBuffer = null, this.onMediaPlaying = () => {
       this.tick();
     }, this.onMediaSeeked = () => {
       const s = this.media, r = s ? s.currentTime : null;
-      if (r === null || !Y(r) || (this.log(`Media seeked to ${r.toFixed(3)}`), !this.getBufferedFrag(r)))
+      if (r === null || !X(r) || (this.log(`Media seeked to ${r.toFixed(3)}`), !this.getBufferedFrag(r)))
         return;
-      const a = this.getFwdBufferInfoAtPos(s, r, Q.MAIN, 0);
+      const a = this.getFwdBufferInfoAtPos(s, r, Z.MAIN, 0);
       if (a === null || a.len === 0) {
         this.warn(`Main forward buffer length at ${r} on "seeked" event ${a ? a.len : "empty"})`);
         return;
@@ -22019,9 +22019,9 @@ class x_ extends Hr {
     if (p && this.isLoopLoading(p, f)) {
       if (!p.gap) {
         const m = this.audioOnly && !this.altAudio ? me.AUDIO : me.VIDEO, v = (m === me.VIDEO ? this.videoBuffer : this.mediaBuffer) || this.media;
-        v && this.afterBufferFlushed(v, m, Q.MAIN);
+        v && this.afterBufferFlushed(v, m, Z.MAIN);
       }
-      p = this.getNextFragmentLoopLoading(p, c, o, Q.MAIN, h);
+      p = this.getNextFragmentLoopLoading(p, c, o, Z.MAIN, h);
     }
     p && (this.exceedsMaxBuffer(o, h, p) || (p.initSegment && !p.initSegment.data && !this.bitrateTest && (p = p.initSegment), this.loadFragment(p, a, f)));
   }
@@ -22030,7 +22030,7 @@ class x_ extends Hr {
     s === Re.NOT_LOADED || s === Re.PARTIAL ? we(e) ? this.bitrateTest ? (this.log(`Fragment ${e.sn} of level ${e.level} is being downloaded to test bitrate and will not be buffered`), this._loadBitrateTestFrag(e, t)) : super.loadFragment(e, t, i) : this._loadInitSegment(e, t) : this.clearTrackerIfNeeded(e);
   }
   getBufferedFrag(e) {
-    return this.fragmentTracker.getBufferedFrag(e, Q.MAIN);
+    return this.fragmentTracker.getBufferedFrag(e, Z.MAIN);
   }
   followingBufferedFrag(e) {
     return e ? this.getBufferedFrag(e.end + 0.5) : null;
@@ -22213,12 +22213,12 @@ class x_ extends Hr {
       this.warn(`Dropping fragment ${i.sn} of level ${i.level} after level details were reset`), this.fragmentTracker.removeFragment(i);
       return;
     }
-    const c = o.videoCodec, u = d.PTSKnown || !d.live, h = (t = i.initSegment) == null ? void 0 : t.data, f = this._getAudioCodec(o), p = this.transmuxer = this.transmuxer || new ud(this.hls, Q.MAIN, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)), g = s ? s.index : -1, _ = g !== -1, m = new Vr(i.level, i.sn, i.stats.chunkCount, r.byteLength, g, _), v = this.initPTS[i.cc];
+    const c = o.videoCodec, u = d.PTSKnown || !d.live, h = (t = i.initSegment) == null ? void 0 : t.data, f = this._getAudioCodec(o), p = this.transmuxer = this.transmuxer || new ud(this.hls, Z.MAIN, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)), g = s ? s.index : -1, _ = g !== -1, m = new Gr(i.level, i.sn, i.stats.chunkCount, r.byteLength, g, _), v = this.initPTS[i.cc];
     p.push(r, h, f, c, i, s, d.totalduration, u, m, v);
   }
   onAudioTrackSwitching(e, t) {
     const i = this.hls, s = this.altAudio !== 0;
-    if (Pn(t.url, i))
+    if (Cn(t.url, i))
       this.altAudio = 1;
     else {
       if (this.mediaBuffer !== this.media) {
@@ -22240,7 +22240,7 @@ class x_ extends Hr {
     }
   }
   onAudioTrackSwitched(e, t) {
-    const i = Pn(t.url, this.hls);
+    const i = Cn(t.url, this.hls);
     if (i) {
       const s = this.videoBuffer;
       s && this.mediaBuffer !== s && (this.log("Switching on alternate audio, use video.buffered to schedule main fragment loading"), this.mediaBuffer = s);
@@ -22266,7 +22266,7 @@ class x_ extends Hr {
     const {
       frag: i,
       part: s
-    } = t, r = i.type === Q.MAIN;
+    } = t, r = i.type === Z.MAIN;
     if (r) {
       if (this.fragContextChanged(i)) {
         this.warn(`Fragment ${i.sn}${s ? " p: " + s.index : ""} of level ${i.level} finished buffering, but was aborted. state: ${this.state}`), this.state === F.PARSED && (this.state = F.IDLE);
@@ -22288,32 +22288,32 @@ class x_ extends Hr {
       return;
     }
     switch (t.details) {
-      case P.FRAG_GAP:
-      case P.FRAG_PARSING_ERROR:
-      case P.FRAG_DECRYPT_ERROR:
-      case P.FRAG_LOAD_ERROR:
-      case P.FRAG_LOAD_TIMEOUT:
-      case P.KEY_LOAD_ERROR:
-      case P.KEY_LOAD_TIMEOUT:
-        this.onFragmentOrKeyLoadError(Q.MAIN, t);
+      case C.FRAG_GAP:
+      case C.FRAG_PARSING_ERROR:
+      case C.FRAG_DECRYPT_ERROR:
+      case C.FRAG_LOAD_ERROR:
+      case C.FRAG_LOAD_TIMEOUT:
+      case C.KEY_LOAD_ERROR:
+      case C.KEY_LOAD_TIMEOUT:
+        this.onFragmentOrKeyLoadError(Z.MAIN, t);
         break;
-      case P.LEVEL_LOAD_ERROR:
-      case P.LEVEL_LOAD_TIMEOUT:
-      case P.LEVEL_PARSING_ERROR:
+      case C.LEVEL_LOAD_ERROR:
+      case C.LEVEL_LOAD_TIMEOUT:
+      case C.LEVEL_PARSING_ERROR:
         !t.levelRetry && this.state === F.WAITING_LEVEL && ((i = t.context) == null ? void 0 : i.type) === oe.LEVEL && (this.state = F.IDLE);
         break;
-      case P.BUFFER_ADD_CODEC_ERROR:
-      case P.BUFFER_APPEND_ERROR:
+      case C.BUFFER_ADD_CODEC_ERROR:
+      case C.BUFFER_APPEND_ERROR:
         if (t.parent !== "main")
           return;
         this.reduceLengthAndFlushBuffer(t) && this.resetLoadingState();
         break;
-      case P.BUFFER_FULL_ERROR:
+      case C.BUFFER_FULL_ERROR:
         if (t.parent !== "main")
           return;
         this.reduceLengthAndFlushBuffer(t) && (!this.config.interstitialsController && this.config.assetPlayerId ? this._hasEnoughToStart = !0 : this.flushMainBuffer(0, Number.POSITIVE_INFINITY));
         break;
-      case P.INTERNAL_EXCEPTION:
+      case C.INTERNAL_EXCEPTION:
         this.recoverWorkerError(t);
         break;
     }
@@ -22326,7 +22326,7 @@ class x_ extends Hr {
   }) {
     if (t !== me.AUDIO || !this.altAudio) {
       const i = (t === me.VIDEO ? this.videoBuffer : this.mediaBuffer) || this.media;
-      i && (this.afterBufferFlushed(i, t, Q.MAIN), this.tick());
+      i && (this.afterBufferFlushed(i, t, Z.MAIN), this.tick());
     }
   }
   onLevelsUpdated(e, t) {
@@ -22415,7 +22415,7 @@ class x_ extends Hr {
         });
       }
       const v = p.initPTS, b = p.timescale, x = this.initPTS[o.cc];
-      if (Y(v) && (!x || x.baseTime !== v || x.timescale !== b)) {
+      if (X(v) && (!x || x.baseTime !== v || x.timescale !== b)) {
         const E = p.trackId;
         this.initPTS[o.cc] = {
           baseTime: v,
@@ -22438,14 +22438,14 @@ class x_ extends Hr {
           startPTS: x,
           endPTS: E,
           startDTS: S,
-          endDTS: w
+          endDTS: A
         } = u;
         if (d)
           d.elementaryStreams[u.type] = {
             startPTS: x,
             endPTS: E,
             startDTS: S,
-            endDTS: w
+            endDTS: A
           };
         else if (u.firstKeyFrame && u.independent && r.id === 1 && !b && (this.couldBacktrack = !0), u.dropped && u.independent) {
           const T = this.getMainFwdBufferInfo(), k = (T ? T.end : this.getLoadPosition()) + this.config.maxBufferHole, I = u.firstKeyFramePTS ? u.firstKeyFramePTS : x;
@@ -22453,9 +22453,9 @@ class x_ extends Hr {
             this.backtrack(o);
             return;
           } else b && (o.gap = !0);
-          o.setElementaryStreamInfo(u.type, o.start, E, o.start, w, !0);
-        } else v && x - (g.appliedTimelineOffset || 0) > kn && (o.gap = !0);
-        o.setElementaryStreamInfo(u.type, x, E, S, w), this.backtrackFragment && (this.backtrackFragment = o), this.bufferFragmentData(u, o, d, r, v || b);
+          o.setElementaryStreamInfo(u.type, o.start, E, o.start, A, !0);
+        } else v && x - (g.appliedTimelineOffset || 0) > Tn && (o.gap = !0);
+        o.setElementaryStreamInfo(u.type, x, E, S, A), this.backtrackFragment && (this.backtrackFragment = o), this.bufferFragmentData(u, o, d, r, v || b);
       } else if (v || b)
         o.gap = !0;
       else {
@@ -22510,7 +22510,7 @@ class x_ extends Hr {
     } = t;
     if (r) {
       const c = e.audioCodec;
-      let u = vn(r.codec, c);
+      let u = _n(r.codec, c);
       u === "mp4a" && (u = "mp4a.40.5");
       const h = navigator.userAgent.toLowerCase();
       if (this.audioCodecSwitch) {
@@ -22518,10 +22518,10 @@ class x_ extends Hr {
         const f = r.metadata;
         f && "channelCount" in f && (f.channelCount || 1) !== 1 && h.indexOf("firefox") === -1 && (u = "mp4a.40.5");
       }
-      u && u.indexOf("mp4a.40.5") !== -1 && h.indexOf("android") !== -1 && r.container !== "audio/mpeg" && (u = "mp4a.40.2", this.log(`Android: force audio codec to ${u}`)), c && c !== u && this.log(`Swapping manifest audio codec "${c}" for "${u}"`), r.levelCodec = u, r.id = Q.MAIN, this.log(`Init audio buffer, container:${r.container}, codecs[selected/level/parsed]=[${u || ""}/${c || ""}/${r.codec}]`), delete t.audiovideo;
+      u && u.indexOf("mp4a.40.5") !== -1 && h.indexOf("android") !== -1 && r.container !== "audio/mpeg" && (u = "mp4a.40.2", this.log(`Android: force audio codec to ${u}`)), c && c !== u && this.log(`Swapping manifest audio codec "${c}" for "${u}"`), r.levelCodec = u, r.id = Z.MAIN, this.log(`Init audio buffer, container:${r.container}, codecs[selected/level/parsed]=[${u || ""}/${c || ""}/${r.codec}]`), delete t.audiovideo;
     }
     if (a) {
-      a.levelCodec = e.videoCodec, a.id = Q.MAIN;
+      a.levelCodec = e.videoCodec, a.id = Z.MAIN;
       const c = a.codec;
       if (c?.length === 4)
         switch (c) {
@@ -22559,7 +22559,7 @@ class x_ extends Hr {
   }
   getMainFwdBufferInfo() {
     const e = this.mediaBuffer && this.altAudio === 2 ? this.mediaBuffer : this.media;
-    return this.getFwdBufferInfo(e, Q.MAIN);
+    return this.getFwdBufferInfo(e, Z.MAIN);
   }
   get maxBufferLength() {
     const {
@@ -22596,13 +22596,13 @@ class x_ extends Hr {
     if (this.fragPlaying)
       return this.fragPlaying;
     const t = ((e = this.media) == null ? void 0 : e.currentTime) || this.lastCurrentTime;
-    return Y(t) ? this.getAppendedFrag(t) : null;
+    return X(t) ? this.getAppendedFrag(t) : null;
   }
   get currentProgramDateTime() {
     var e;
     const t = ((e = this.media) == null ? void 0 : e.currentTime) || this.lastCurrentTime;
-    if (Y(t)) {
-      const i = this.getLevelDetails(), s = this.currentFrag || (i ? Wt(null, i.fragments, t) : null);
+    if (X(t)) {
+      const i = this.getLevelDetails(), s = this.currentFrag || (i ? Yt(null, i.fragments, t) : null);
       if (s) {
         const r = s.programDateTime;
         if (r !== null) {
@@ -22654,8 +22654,8 @@ class E_ extends Qe {
     }
     this.keyIdToKeyInfo = {};
   }
-  createKeyLoadError(e, t = P.KEY_LOAD_ERROR, i, s, r) {
-    return new St({
+  createKeyLoadError(e, t = C.KEY_LOAD_ERROR, i, s, r) {
+    return new Tt({
       type: J.NETWORK_ERROR,
       details: t,
       fatal: !1,
@@ -22675,7 +22675,7 @@ class E_ extends Qe {
               if (!this.emeController)
                 return;
               a.setKeyFormat(o);
-              const d = bn(o);
+              const d = yn(o);
               if (d)
                 return this.emeController.getKeySystemAccess([d]);
             });
@@ -22697,12 +22697,12 @@ class E_ extends Qe {
     const r = e.decryptdata;
     if (!r) {
       const c = new Error(t ? `Expected frag.decryptdata to be defined after setting format ${t}` : `Missing decryption data on fragment in onKeyLoading (emeEnabled with controller: ${this.emeController && this.config.emeEnabled})`);
-      return Promise.reject(this.createKeyLoadError(e, P.KEY_LOAD_ERROR, c));
+      return Promise.reject(this.createKeyLoadError(e, C.KEY_LOAD_ERROR, c));
     }
     const a = r.uri;
     if (!a)
-      return Promise.reject(this.createKeyLoadError(e, P.KEY_LOAD_ERROR, new Error(`Invalid key URI: "${a}"`)));
-    const o = Cs(r);
+      return Promise.reject(this.createKeyLoadError(e, C.KEY_LOAD_ERROR, new Error(`Invalid key URI: "${a}"`)));
+    const o = Ds(r);
     let d = this.keyIdToKeyInfo[o];
     if ((i = d) != null && i.decryptdata.key)
       return r.key = d.decryptdata.key, Promise.resolve({
@@ -22738,7 +22738,7 @@ class E_ extends Qe {
       case "AES-256-CTR":
         return this.loadKeyHTTP(d, e);
       default:
-        return Promise.reject(this.createKeyLoadError(e, P.KEY_LOAD_ERROR, new Error(`Key supplied with unsupported METHOD: "${r.method}"`)));
+        return Promise.reject(this.createKeyLoadError(e, C.KEY_LOAD_ERROR, new Error(`Key supplied with unsupported METHOD: "${r.method}"`)));
     }
   }
   loadKeyEME(e, t) {
@@ -22752,7 +22752,7 @@ class E_ extends Qe {
         const a = Gf(t.initSegment.data);
         if (a.length) {
           let o = a[0];
-          o.some((d) => d !== 0) ? (this.log(`Using keyId found in init segment ${Me(o)}`), Ct.setKeyIdForUri(e.decryptdata.uri, o)) : (o = Ct.addKeyIdForUri(e.decryptdata.uri), this.log(`Generating keyId to patch media ${Me(o)}`)), e.decryptdata.keyId = o;
+          o.some((d) => d !== 0) ? (this.log(`Using keyId found in init segment ${Me(o)}`), Pt.setKeyIdForUri(e.decryptdata.uri, o)) : (o = Pt.addKeyIdForUri(e.decryptdata.uri), this.log(`Generating keyId to patch media ${Me(o)}`)), e.decryptdata.keyId = o;
         }
       }
       if (!e.decryptdata.keyId && !we(t))
@@ -22783,25 +22783,25 @@ class E_ extends Qe {
           const {
             frag: m,
             keyInfo: v
-          } = g, b = Cs(v.decryptdata);
+          } = g, b = Ds(v.decryptdata);
           if (!m.decryptdata || v !== this.keyIdToKeyInfo[b])
-            return o(this.createKeyLoadError(m, P.KEY_LOAD_ERROR, new Error("after key load, decryptdata unset or changed"), _));
+            return o(this.createKeyLoadError(m, C.KEY_LOAD_ERROR, new Error("after key load, decryptdata unset or changed"), _));
           v.decryptdata.key = m.decryptdata.key = new Uint8Array(f.data), m.keyLoader = null, v.loader = null, a({
             frag: m,
             keyInfo: v
           });
         },
         onError: (f, p, g, _) => {
-          this.resetLoader(p), o(this.createKeyLoadError(t, P.KEY_LOAD_ERROR, new Error(`HTTP Error ${f.code} loading key ${f.text}`), g, fe({
+          this.resetLoader(p), o(this.createKeyLoadError(t, C.KEY_LOAD_ERROR, new Error(`HTTP Error ${f.code} loading key ${f.text}`), g, fe({
             url: d.url,
             data: void 0
           }, f)));
         },
         onTimeout: (f, p, g) => {
-          this.resetLoader(p), o(this.createKeyLoadError(t, P.KEY_LOAD_TIMEOUT, new Error("key loading timed out"), g));
+          this.resetLoader(p), o(this.createKeyLoadError(t, C.KEY_LOAD_TIMEOUT, new Error("key loading timed out"), g));
         },
         onAbort: (f, p, g) => {
-          this.resetLoader(p), o(this.createKeyLoadError(t, P.INTERNAL_ABORTED, new Error("key loading aborted"), g));
+          this.resetLoader(p), o(this.createKeyLoadError(t, C.INTERNAL_ABORTED, new Error("key loading aborted"), g));
         }
       };
       r.load(d, u, h);
@@ -22814,11 +22814,11 @@ class E_ extends Qe {
       url: s
     } = e, r = i.loader;
     t.keyLoader === r && (t.keyLoader = null, i.loader = null);
-    const a = Cs(i.decryptdata) || s;
+    const a = Ds(i.decryptdata) || s;
     delete this.keyIdToKeyInfo[a], r && r.destroy();
   }
 }
-function Cs(n) {
+function Ds(n) {
   if (n.keyFormat !== Oe.FAIRPLAY) {
     const e = n.keyId;
     if (e)
@@ -22826,20 +22826,20 @@ function Cs(n) {
   }
   return n.uri;
 }
-function Qo(n) {
+function Xo(n) {
   const {
     type: e
   } = n;
   switch (e) {
     case oe.AUDIO_TRACK:
-      return Q.AUDIO;
+      return Z.AUDIO;
     case oe.SUBTITLE_TRACK:
-      return Q.SUBTITLE;
+      return Z.SUBTITLE;
     default:
-      return Q.MAIN;
+      return Z.MAIN;
   }
 }
-function Ps(n, e) {
+function Cs(n, e) {
   let t = n.url;
   return (t === void 0 || t.indexOf("data:") === 0) && (t = e.url), t;
 }
@@ -22984,7 +22984,7 @@ class S_ {
     if (e.type === oe.MANIFEST ? r = i.manifestLoadPolicy.default : r = ge({}, i.playlistLoadPolicy.default, {
       timeoutRetry: null,
       errorRetry: null
-    }), s = this.createInternalLoader(e), Y((t = e.deliveryDirectives) == null ? void 0 : t.part)) {
+    }), s = this.createInternalLoader(e), X((t = e.deliveryDirectives) == null ? void 0 : t.part)) {
       let c;
       if (e.type === oe.LEVEL && e.level !== null ? c = this.hls.levels[e.level].details : e.type === oe.AUDIO_TRACK && e.id !== null ? c = this.hls.audioTracks[e.id].details : e.type === oe.SUBTITLE_TRACK && e.id !== null && (c = this.hls.subtitleTracks[e.id].details), c) {
         const u = c.partTarget, h = c.targetduration;
@@ -23008,7 +23008,7 @@ class S_ {
         const p = this.getInternalLoader(h);
         this.resetInternalLoader(h.type);
         const g = c.data;
-        u.parsing.start = performance.now(), ut.isMediaPlaylist(g) || h.type !== oe.MANIFEST ? this.handleTrackOrLevelPlaylist(c, u, h, f || null, p) : this.handleMasterPlaylist(c, u, h, f);
+        u.parsing.start = performance.now(), ht.isMediaPlaylist(g) || h.type !== oe.MANIFEST ? this.handleTrackOrLevelPlaylist(c, u, h, f || null, p) : this.handleMasterPlaylist(c, u, h, f);
       },
       onError: (c, u, h, f) => {
         this.handleNetworkError(u, h, !1, c, f);
@@ -23032,7 +23032,7 @@ class S_ {
     (e || i) && (this.hls.logger.log(`${e ? "auto" : "force"} startLoad with configured startPosition ${t}`), this.hls.startLoad(t));
   }
   handleMasterPlaylist(e, t, i, s) {
-    const r = this.hls, a = e.data, o = Ps(e, i), d = ut.parseMasterPlaylist(a, o);
+    const r = this.hls, a = e.data, o = Cs(e, i), d = ht.parseMasterPlaylist(a, o);
     if (d.playlistParsingError) {
       t.parsing.end = performance.now(), this.handleManifestParsingError(e, i, d.playlistParsingError, s, t);
       return;
@@ -23055,11 +23055,11 @@ class S_ {
         } = this.hls.config;
         let {
           audioCodec: S,
-          videoCodec: w
+          videoCodec: A
         } = b;
         for (let T = x.length; T--; ) {
           const k = x[T];
-          Ci(k, "audio", E) ? (b.audioCodec = S = S ? `${S},${k}` : k, gi.audio[S.substring(0, 4)] = 2, x.splice(T, 1)) : Ci(k, "video", E) && (b.videoCodec = w = w ? `${w},${k}` : k, gi.video[w.substring(0, 4)] = 2, x.splice(T, 1));
+          Ci(k, "audio", E) ? (b.audioCodec = S = S ? `${S},${k}` : k, gi.audio[S.substring(0, 4)] = 2, x.splice(T, 1)) : Ci(k, "video", E) && (b.videoCodec = A = A ? `${A},${k}` : k, gi.video[A.substring(0, 4)] = 2, x.splice(T, 1));
         }
       }
     });
@@ -23067,7 +23067,7 @@ class S_ {
       AUDIO: _ = [],
       SUBTITLES: m,
       "CLOSED-CAPTIONS": v
-    } = ut.parseMasterPlaylistMedia(a, o, d);
+    } = ht.parseMasterPlaylistMedia(a, o, d);
     _.length && !_.some((x) => !x.url) && u[0].audioCodec && !u[0].attrs.AUDIO && (this.hls.logger.log("[playlist-loader]: audio codec signaled in quality level, but no embedded audio track signaled, create one"), _.unshift({
       type: "main",
       name: "main",
@@ -23099,7 +23099,7 @@ class S_ {
       id: o,
       level: d,
       type: c
-    } = i, u = Ps(e, i), h = Y(d) ? d : Y(o) ? o : 0, f = Qo(i), p = ut.parseLevelPlaylist(e.data, u, h, f, 0, this.variableList);
+    } = i, u = Cs(e, i), h = X(d) ? d : X(o) ? o : 0, f = Xo(i), p = ht.parseLevelPlaylist(e.data, u, h, f, 0, this.variableList);
     if (c === oe.MANIFEST) {
       const g = {
         attrs: new ye({}),
@@ -23126,7 +23126,7 @@ class S_ {
   handleManifestParsingError(e, t, i, s, r) {
     this.hls.trigger(y.ERROR, {
       type: J.NETWORK_ERROR,
-      details: P.MANIFEST_PARSING_ERROR,
+      details: C.MANIFEST_PARSING_ERROR,
       fatal: t.type === oe.MANIFEST,
       url: e.url,
       err: i,
@@ -23143,20 +23143,20 @@ class S_ {
     e.type === oe.LEVEL ? a += `: ${e.level} id: ${e.id}` : (e.type === oe.AUDIO_TRACK || e.type === oe.SUBTITLE_TRACK) && (a += ` id: ${e.id} group-id: "${e.groupId}"`);
     const o = new Error(a);
     this.hls.logger.warn(`[playlist-loader]: ${a}`);
-    let d = P.UNKNOWN, c = !1;
+    let d = C.UNKNOWN, c = !1;
     const u = this.getInternalLoader(e);
     switch (e.type) {
       case oe.MANIFEST:
-        d = i ? P.MANIFEST_LOAD_TIMEOUT : P.MANIFEST_LOAD_ERROR, c = !0;
+        d = i ? C.MANIFEST_LOAD_TIMEOUT : C.MANIFEST_LOAD_ERROR, c = !0;
         break;
       case oe.LEVEL:
-        d = i ? P.LEVEL_LOAD_TIMEOUT : P.LEVEL_LOAD_ERROR, c = !1;
+        d = i ? C.LEVEL_LOAD_TIMEOUT : C.LEVEL_LOAD_ERROR, c = !1;
         break;
       case oe.AUDIO_TRACK:
-        d = i ? P.AUDIO_TRACK_LOAD_TIMEOUT : P.AUDIO_TRACK_LOAD_ERROR, c = !1;
+        d = i ? C.AUDIO_TRACK_LOAD_TIMEOUT : C.AUDIO_TRACK_LOAD_ERROR, c = !1;
         break;
       case oe.SUBTITLE_TRACK:
-        d = i ? P.SUBTITLE_TRACK_LOAD_TIMEOUT : P.SUBTITLE_LOAD_ERROR, c = !1;
+        d = i ? C.SUBTITLE_TRACK_LOAD_TIMEOUT : C.SUBTITLE_LOAD_ERROR, c = !1;
         break;
     }
     u && this.resetInternalLoader(e.type);
@@ -23188,14 +23188,14 @@ class S_ {
       id: h,
       groupId: f,
       deliveryDirectives: p
-    } = s, g = Ps(t, s), _ = Qo(s);
-    let m = typeof s.level == "number" && _ === Q.MAIN ? c : void 0;
+    } = s, g = Cs(t, s), _ = Xo(s);
+    let m = typeof s.level == "number" && _ === Z.MAIN ? c : void 0;
     const v = e.playlistParsingError;
     if (v) {
       if (this.hls.logger.warn(`${v} ${e.url}`), !o.config.ignorePlaylistParsingErrors) {
         o.trigger(y.ERROR, {
           type: J.NETWORK_ERROR,
-          details: P.LEVEL_PARSING_ERROR,
+          details: C.LEVEL_PARSING_ERROR,
           fatal: !1,
           url: g,
           error: v,
@@ -23215,7 +23215,7 @@ class S_ {
       const b = e.playlistParsingError = new Error("No Segments found in Playlist");
       o.trigger(y.ERROR, {
         type: J.NETWORK_ERROR,
-        details: P.LEVEL_EMPTY_ERROR,
+        details: C.LEVEL_EMPTY_ERROR,
         fatal: !1,
         url: g,
         error: b,
@@ -23299,7 +23299,7 @@ class tt {
    * Get the MediaSource global used for MSE playback (ManagedMediaSource, MediaSource, or WebKitMediaSource).
    */
   static getMediaSource() {
-    return Ft();
+    return Nt();
   }
   static get Events() {
     return y;
@@ -23311,7 +23311,7 @@ class tt {
     return J;
   }
   static get ErrorDetails() {
-    return P;
+    return C;
   }
   /**
    * Get the default configuration applied to new instances.
@@ -23330,7 +23330,7 @@ class tt {
    * @param userConfig - Configuration options applied over `Hls.DefaultConfig`
    */
   constructor(e = {}) {
-    this.config = void 0, this.userConfig = void 0, this.logger = void 0, this.coreComponents = void 0, this.networkControllers = void 0, this._emitter = new jr(), this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.abrController = void 0, this.bufferController = void 0, this.capLevelController = void 0, this.latencyController = void 0, this.levelController = void 0, this.streamController = void 0, this.audioStreamController = void 0, this.subtititleStreamController = void 0, this.audioTrackController = void 0, this.subtitleTrackController = void 0, this.interstitialsController = void 0, this.gapController = void 0, this.emeController = void 0, this.cmcdController = void 0, this._media = null, this._url = null, this._sessionId = void 0, this.triggeringException = void 0, this.started = !1;
+    this.config = void 0, this.userConfig = void 0, this.logger = void 0, this.coreComponents = void 0, this.networkControllers = void 0, this._emitter = new Hr(), this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.abrController = void 0, this.bufferController = void 0, this.capLevelController = void 0, this.latencyController = void 0, this.levelController = void 0, this.streamController = void 0, this.audioStreamController = void 0, this.subtititleStreamController = void 0, this.audioTrackController = void 0, this.subtitleTrackController = void 0, this.interstitialsController = void 0, this.gapController = void 0, this.emeController = void 0, this.cmcdController = void 0, this._media = null, this._url = null, this._sessionId = void 0, this.triggeringException = void 0, this.started = !1;
     const t = this.logger = Lf(e.debug || !1, "Hls instance", e.assetPlayerId), i = this.config = l_(tt.DefaultConfig, e, t);
     this.userConfig = e, i.progressive && c_(i, t);
     const {
@@ -23339,16 +23339,16 @@ class tt {
       capLevelController: a,
       errorController: o,
       fpsController: d
-    } = i, c = new o(this), u = this.abrController = new s(this), h = new Tp(this), f = i.interstitialsController, p = f ? this.interstitialsController = new f(this, tt) : null, g = this.bufferController = new r(this, h), _ = this.capLevelController = new a(this), m = new d(this), v = new S_(this), b = i.contentSteeringController, x = b ? new b(this) : null, E = this.levelController = new __(this, x), S = new g_(this), w = new E_(this.config, this.logger), T = this.streamController = new x_(this, h, w), k = this.gapController = new f_(this, h);
+    } = i, c = new o(this), u = this.abrController = new s(this), h = new Tp(this), f = i.interstitialsController, p = f ? this.interstitialsController = new f(this, tt) : null, g = this.bufferController = new r(this, h), _ = this.capLevelController = new a(this), m = new d(this), v = new S_(this), b = i.contentSteeringController, x = b ? new b(this) : null, E = this.levelController = new __(this, x), S = new g_(this), A = new E_(this.config, this.logger), T = this.streamController = new x_(this, h, A), k = this.gapController = new f_(this, h);
     _.setStreamController(T), m.setStreamController(T);
     const I = [v, E, T];
     p && I.splice(1, 0, p), x && I.splice(1, 0, x), this.networkControllers = I;
-    const A = [u, g, k, _, m, S, h];
+    const w = [u, g, k, _, m, S, h];
     this.audioTrackController = this.createController(i.audioTrackController, I);
-    const C = i.audioStreamController;
-    C && I.push(this.audioStreamController = new C(this, h, w)), this.subtitleTrackController = this.createController(i.subtitleTrackController, I);
-    const M = i.subtitleStreamController;
-    M && I.push(this.subtititleStreamController = new M(this, h, w)), this.createController(i.timelineController, A), w.emeController = this.emeController = this.createController(i.emeController, A), this.cmcdController = this.createController(i.cmcdController, A), this.latencyController = this.createController(m_, A), this.coreComponents = A, I.push(c);
+    const M = i.audioStreamController;
+    M && I.push(this.audioStreamController = new M(this, h, A)), this.subtitleTrackController = this.createController(i.subtitleTrackController, I);
+    const P = i.subtitleStreamController;
+    P && I.push(this.subtititleStreamController = new P(this, h, A)), this.createController(i.timelineController, w), A.emeController = this.emeController = this.createController(i.emeController, w), this.cmcdController = this.createController(i.cmcdController, w), this.latencyController = this.createController(m_, w), this.coreComponents = w, I.push(c);
     const B = c.onErrorOut;
     typeof B == "function" && this.on(y.ERROR, B, c), this.on(y.MANIFEST_LOADED, v.onManifestLoaded, v);
   }
@@ -23389,7 +23389,7 @@ class tt {
         const s = e === y.ERROR;
         this.trigger(y.ERROR, {
           type: J.OTHER_ERROR,
-          details: P.INTERNAL_EXCEPTION,
+          details: C.INTERNAL_EXCEPTION,
           fatal: s,
           event: e,
           error: i
@@ -23417,7 +23417,7 @@ class tt {
       const r = new Error(`attachMedia failed: invalid argument (${e})`);
       this.trigger(y.ERROR, {
         type: J.OTHER_ERROR,
-        details: P.ATTACH_MEDIA_ERROR,
+        details: C.ATTACH_MEDIA_ERROR,
         fatal: !0,
         error: r
       });
@@ -23450,7 +23450,7 @@ class tt {
    */
   loadSource(e) {
     this.stopLoad();
-    const t = this.media, i = this._url, s = this._url = Or.buildAbsoluteURL(self.location.href, e, {
+    const t = this.media, i = this._url, s = this._url = Mr.buildAbsoluteURL(self.location.href, e, {
       alwaysNormalize: !0
     });
     this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.logger.log(`loadSource:${s}`), t && i && (i !== s || this.bufferController.hasSourceTypes()) && (this.detachMedia(), this.attachMedia(t)), this.trigger(y.MANIFEST_LOADING, {
@@ -23526,9 +23526,9 @@ class tt {
   }
   get inFlightFragments() {
     const e = {
-      [Q.MAIN]: this.streamController.inFlightFrag
+      [Z.MAIN]: this.streamController.inFlightFrag
     };
-    return this.audioStreamController && (e[Q.AUDIO] = this.audioStreamController.inFlightFrag), this.subtititleStreamController && (e[Q.SUBTITLE] = this.subtititleStreamController.inFlightFrag), e;
+    return this.audioStreamController && (e[Z.AUDIO] = this.audioStreamController.inFlightFrag), this.subtititleStreamController && (e[Z.SUBTITLE] = this.subtititleStreamController.inFlightFrag), e;
   }
   /**
    * Swap through possible audio codecs in the stream (for example to switch from stereo to 5.1)
@@ -24052,13 +24052,13 @@ async function A_(n, e) {
   }
 }
 function I_({ hass: n, entityId: e, title: t, onClose: i }) {
-  const s = ue(null), [r, a] = V(null), [o, d] = V(!0), [c, u] = V(null), [h, f] = V(!1), [p, g] = V(""), [_, m] = V(null), v = X(() => Object.keys(n.states).filter((E) => E.startsWith("camera.") && E !== e).sort(), [n.states, e]), b = st(i);
+  const s = ue(null), [r, a] = G(null), [o, d] = G(!0), [c, u] = G(null), [h, f] = G(!1), [p, g] = G(""), [_, m] = G(null), v = Q(() => Object.keys(n.states).filter((E) => E.startsWith("camera.") && E !== e).sort(), [n.states, e]), b = st(i);
   de(() => {
     let E = !1;
     async function S() {
-      const w = zl()[e];
-      if (w && n.states[w]) {
-        E || u(w);
+      const A = zl()[e];
+      if (A && n.states[A]) {
+        E || u(A);
         return;
       }
       const T = await A_(n, e);
@@ -24069,22 +24069,22 @@ function I_({ hass: n, entityId: e, title: t, onClose: i }) {
     };
   }, [n != null, e]), de(() => {
     if (!c) return;
-    let E = !1, S = null, w = null;
+    let E = !1, S = null, A = null;
     const T = s.current;
     a(null), d(!0), f(!1), m(null);
     function k() {
-      const M = k_(n, c);
-      return M ? (m(M), d(!1), !0) : !1;
+      const P = k_(n, c);
+      return P ? (m(P), d(!1), !0) : !1;
     }
     async function I() {
-      const M = await n.callWS({
+      const P = await n.callWS({
         type: "camera/stream",
         entity_id: c
       });
       if (E || !T) return;
-      if (!M?.url)
+      if (!P?.url)
         throw { code: "start_stream_failed", message: "no HLS URL returned" };
-      const B = T_(n, M.url);
+      const B = T_(n, P.url);
       if (T.canPlayType("application/vnd.apple.mpegurl"))
         T.src = B, T.addEventListener("loadedmetadata", () => d(!1), { once: !0 }), T.addEventListener("error", () => a("Erreur de lecture"), { once: !0 });
       else if (tt.isSupported())
@@ -24094,19 +24094,19 @@ function I_({ hass: n, entityId: e, title: t, onClose: i }) {
       else
         throw new Error("Lecteur non supporté");
     }
-    async function A() {
+    async function w() {
       if (!T) throw new Error("video element missing");
-      w = await w_(n, c, T), !E && d(!1);
+      A = await w_(n, c, T), !E && d(!1);
     }
-    async function C() {
+    async function M() {
       try {
         await I();
-      } catch (M) {
+      } catch (P) {
         if (E) return;
-        const B = M?.code;
-        if (console.warn("[Nido] HLS failed, trying WebRTC:", M), B === "start_stream_failed")
+        const B = P?.code;
+        if (console.warn("[Nido] HLS failed, trying WebRTC:", P), B === "start_stream_failed")
           try {
-            await A();
+            await w();
             return;
           } catch (R) {
             if (E || (console.warn("[Nido] WebRTC failed, trying MJPEG:", R), k())) return;
@@ -24114,19 +24114,19 @@ function I_({ hass: n, entityId: e, title: t, onClose: i }) {
             a(`Live indisponible : ${L}`), f(!0), d(!1);
             return;
           }
-        if (console.warn("[Nido] HLS failed, trying MJPEG:", M), k()) return;
-        const H = M, U = H?.message || H?.code || String(M);
-        console.error("[Nido] camera/stream failed:", M), a(`Live indisponible : ${U}`), f(!0), d(!1);
+        if (console.warn("[Nido] HLS failed, trying MJPEG:", P), k()) return;
+        const H = P, U = H?.message || H?.code || String(P);
+        console.error("[Nido] camera/stream failed:", P), a(`Live indisponible : ${U}`), f(!0), d(!1);
       }
     }
-    return C(), () => {
-      if (E = !0, S && S.destroy(), w) {
+    return M(), () => {
+      if (E = !0, S && S.destroy(), A) {
         try {
-          w.unsubscribe();
+          A.unsubscribe();
         } catch {
         }
         try {
-          w.pc.close();
+          A.pc.close();
         } catch {
         }
       }
@@ -24224,19 +24224,19 @@ function I_({ hass: n, entityId: e, title: t, onClose: i }) {
     )
   ] });
 }
-function Zo(n) {
+function Qo(n) {
   return (n.hassUrl?.("") ?? "").replace(/\/$/, "");
 }
 function L_(n, e) {
   const t = n.state.attributes.access_token;
   if (t)
-    return `${Zo(e)}/api/camera_proxy/${n.entity_id}?token=${t}`;
+    return `${Qo(e)}/api/camera_proxy/${n.entity_id}?token=${t}`;
   const i = n.state.attributes.entity_picture;
-  return i ? i.startsWith("http") ? i : `${Zo(e)}${i}` : null;
+  return i ? i.startsWith("http") ? i : `${Qo(e)}${i}` : null;
 }
 const R_ = 1e4;
 function D_({ hass: n, entity: e, roomLabel: t }) {
-  const i = e.state.state, s = i === "unavailable", r = i === "recording" || i === "streaming", [a, o] = V(() => Date.now()), [d, c] = V(!1), [u, h] = V(!1), f = L_(e, n), p = f ? `${f}${f.includes("?") ? "&" : "?"}_=${a}` : null;
+  const i = e.state.state, s = i === "unavailable", r = i === "recording" || i === "streaming", [a, o] = G(() => Date.now()), [d, c] = G(!1), [u, h] = G(!1), f = L_(e, n), p = f ? `${f}${f.includes("?") ? "&" : "?"}_=${a}` : null;
   return de(() => {
     c(!1);
   }, [f, a]), de(() => {
@@ -24264,7 +24264,7 @@ function D_({ hass: n, entity: e, roomLabel: t }) {
               onError: () => c(!0)
             }
           ) : /* @__PURE__ */ l("div", { class: "n-camera__placeholder", "aria-hidden": "true", style: { display: "flex", flexDirection: "column", alignItems: "center" }, children: [
-            /* @__PURE__ */ l(Xn, { size: 28 }),
+            /* @__PURE__ */ l(qn, { size: 28 }),
             d && /* @__PURE__ */ l("span", { style: { fontSize: "10px", marginTop: "4px", opacity: 0.7 }, children: "Erreur de flux" })
           ] }),
           r && /* @__PURE__ */ l("span", { class: "n-camera__live", children: "● LIVE" }),
@@ -24286,7 +24286,7 @@ function D_({ hass: n, entity: e, roomLabel: t }) {
   ] });
 }
 function C_({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
-  const s = e.state.state === "on", r = e.state.state === "unavailable", a = e.state.attributes.percentage, o = typeof a == "number", [d, c] = V(!1), [u, h] = V(null), f = u ?? (o ? a : s ? 100 : 0), p = async () => {
+  const s = e.state.state === "on", r = e.state.state === "unavailable", a = e.state.attributes.percentage, o = typeof a == "number", [d, c] = G(!1), [u, h] = G(null), f = u ?? (o ? a : s ? 100 : 0), p = async () => {
     if (!r) {
       c(!0);
       try {
@@ -24305,10 +24305,10 @@ function C_({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
     } finally {
       setTimeout(() => h(null), 50);
     }
-  }, _ = ["n-card", s ? `breathe-${i}` : ""].filter(Boolean).join(" "), m = s ? { ...es(f / 100), ...zh(f) } : void 0;
+  }, _ = ["n-card", s ? `breathe-${i}` : ""].filter(Boolean).join(" "), m = s ? { ...Jn(f / 100), ...zh(f) } : void 0;
   return /* @__PURE__ */ l("div", { class: _, style: m, "data-on": s ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-      /* @__PURE__ */ l("div", { class: `n-icon-bubble ${s ? "n-fan-spin" : ""}`, children: /* @__PURE__ */ l(Qn, { size: 20 }) }),
+      /* @__PURE__ */ l("div", { class: `n-icon-bubble ${s ? "n-fan-spin" : ""}`, children: /* @__PURE__ */ l(Xn, { size: 20 }) }),
       /* @__PURE__ */ l(
         "button",
         {
@@ -24351,7 +24351,7 @@ function C_({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
   ] });
 }
 function P_({ hass: n, entity: e, roomLabel: t }) {
-  const i = e.domain === "scene", s = e.state.state === "unavailable", [r, a] = V(!1), [o, d] = V(!1), c = async () => {
+  const i = e.domain === "scene", s = e.state.state === "unavailable", [r, a] = G(!1), [o, d] = G(!1), c = async () => {
     if (!(s || r)) {
       a(!0);
       try {
@@ -24370,7 +24370,7 @@ function P_({ hass: n, entity: e, roomLabel: t }) {
       "data-on": o ? "true" : "false",
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: i ? /* @__PURE__ */ l(Zn, { size: 18 }) : /* @__PURE__ */ l(Ot, { size: 16 }) }),
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: i ? /* @__PURE__ */ l(Qn, { size: 18 }) : /* @__PURE__ */ l(Ft, { size: 16 }) }),
           /* @__PURE__ */ l("span", { class: "n-eyebrow", children: i ? "Scène" : "Script" })
         ] }),
         t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
@@ -24383,7 +24383,7 @@ function P_({ hass: n, entity: e, roomLabel: t }) {
             disabled: s || r,
             onClick: c,
             children: [
-              /* @__PURE__ */ l(Ot, { size: 14 }),
+              /* @__PURE__ */ l(Ft, { size: 14 }),
               /* @__PURE__ */ l("span", { children: i ? "Activer" : "Lancer" })
             ]
           }
@@ -24392,7 +24392,7 @@ function P_({ hass: n, entity: e, roomLabel: t }) {
     }
   );
 }
-const Jo = [
+const Zo = [
   "var(--accent)",
   "var(--positive)",
   "#4A8FE0",
@@ -24401,9 +24401,9 @@ const Jo = [
   "#4AE0B5"
 ];
 function Ud(n) {
-  return Jo[n % Jo.length];
+  return Zo[n % Zo.length];
 }
-function Gn(n) {
+function Un(n) {
   return new Date(n.getFullYear(), n.getMonth(), n.getDate());
 }
 function Gd(n) {
@@ -24412,8 +24412,8 @@ function Gd(n) {
   const [e, t, i] = n.split("-").map(Number);
   return { date: new Date(e, t - 1, i), allDay: !0 };
 }
-function ra(n, e) {
-  const t = Gn(e), i = [], s = Array.isArray(n) ? { unknown: n } : n;
+function sa(n, e) {
+  const t = Un(e), i = [], s = Array.isArray(n) ? { unknown: n } : n;
   for (const [r, a] of Object.entries(s)) {
     if (!Array.isArray(a)) {
       console.warn(`[parseHassEvents] Expected array for ${r}, got:`, typeof a);
@@ -24423,7 +24423,7 @@ function ra(n, e) {
       let d = "";
       if (typeof o.start == "string" ? d = o.start : o.start && (d = o.start.dateTime ?? o.start.date ?? ""), !d) continue;
       const { date: c, allDay: u } = Gd(d), h = Math.round(
-        (Gn(c).getTime() - t.getTime()) / 864e5
+        (Un(c).getTime() - t.getTime()) / 864e5
       );
       i.push({
         id: `${r}-${o.uid ?? o.summary}-${d}`,
@@ -24441,7 +24441,7 @@ function M_(n, e) {
   const t = n.message, i = n.start_time;
   if (!t || !i) return null;
   const { date: s, allDay: r } = Gd(i), a = Math.round(
-    (Gn(s).getTime() - Gn(e).getTime()) / 864e5
+    (Un(s).getTime() - Un(e).getTime()) / 864e5
   );
   return {
     title: t,
@@ -24452,7 +24452,7 @@ function M_(n, e) {
 }
 const O_ = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
 function F_({ hass: n, calendarEntities: e, onClose: t }) {
-  const i = st(t), [s, r] = V(null), a = /* @__PURE__ */ new Date(), o = new Map(
+  const i = st(t), [s, r] = G(null), a = /* @__PURE__ */ new Date(), o = new Map(
     [...e].sort((u, h) => u.entity_id.localeCompare(h.entity_id)).map((u, h) => [u.entity_id, Ud(h)])
   );
   de(() => {
@@ -24503,7 +24503,7 @@ function F_({ hass: n, calendarEntities: e, onClose: t }) {
       for (const b of _)
         m[b.entity_id] = b.events;
       console.log("[CalendarPanel] Combined response:", m);
-      const v = ra(m, a);
+      const v = sa(m, a);
       console.log("[CalendarPanel] Parsed events:", v), r(v);
     });
   }, []);
@@ -24577,7 +24577,7 @@ function F_({ hass: n, calendarEntities: e, onClose: t }) {
   ] });
 }
 function Vd() {
-  const [n, e] = V(0);
+  const [n, e] = G(0);
   return de(() => {
     let t;
     const i = () => {
@@ -24622,7 +24622,7 @@ async function Kd(n, e, t, i) {
   }
 }
 function G_({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: s }) {
-  const [r, a] = V(!1), [o, d] = V(null), c = Vd(), h = [...s].sort((v, b) => v.entity_id.localeCompare(b.entity_id)).map((v) => v.entity_id).indexOf(e.entity_id), f = Ud(h >= 0 ? h : 0);
+  const [r, a] = G(!1), [o, d] = G(null), c = Vd(), h = [...s].sort((v, b) => v.entity_id.localeCompare(b.entity_id)).map((v) => v.entity_id).indexOf(e.entity_id), f = Ud(h >= 0 ? h : 0);
   de(() => {
     let v = !1;
     const b = /* @__PURE__ */ new Date(), x = new Date(b);
@@ -24630,8 +24630,8 @@ function G_({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
     const E = new Date(x);
     return E.setDate(E.getDate() + 30), Kd(n, e.entity_id, x, E).then((S) => {
       if (v) return;
-      const w = ra({ [e.entity_id]: S }, b);
-      d(w.filter((T) => T.dayOffset >= 0));
+      const A = sa({ [e.entity_id]: S }, b);
+      d(A.filter((T) => T.dayOffset >= 0));
     }), () => {
       v = !0;
     };
@@ -24648,7 +24648,7 @@ function G_({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
         onClick: () => a(!0),
         children: [
           /* @__PURE__ */ l("div", { class: "nido-cal-widget__head", children: [
-            /* @__PURE__ */ l(Pr, { size: i ? 18 : 16 }),
+            /* @__PURE__ */ l(Cr, { size: i ? 18 : 16 }),
             /* @__PURE__ */ l("span", { class: "n-eyebrow", children: t || e.friendly_name })
           ] }),
           o === null ? /* @__PURE__ */ l("div", { class: "n-muted nido-cal-widget__placeholder", children: "Chargement…" }) : g.length === 0 ? /* @__PURE__ */ l("div", { class: "n-muted nido-cal-widget__placeholder", children: "Rien à venir" }) : /* @__PURE__ */ l("ul", { class: "nido-cal-widget__agenda", children: g.map((v) => {
@@ -24828,7 +24828,7 @@ function Wd({ hass: n, notifications: e, onClose: t }) {
             )
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-notification-panel__scroll", children: e.length === 0 ? /* @__PURE__ */ l("div", { class: "nido-notification-empty", children: [
-            /* @__PURE__ */ l("div", { class: "nido-notification-empty__icon", children: /* @__PURE__ */ l(Ar, { size: 48 }) }),
+            /* @__PURE__ */ l("div", { class: "nido-notification-empty__icon", children: /* @__PURE__ */ l(wr, { size: 48 }) }),
             /* @__PURE__ */ l("p", { children: "Aucune notification pour le moment." })
           ] }) : /* @__PURE__ */ l("div", { class: "nido-notification-list", children: [...e].reverse().map((a) => {
             const o = a.type === "warning" ? sc : a.type === "success" ? Ph : Ch, d = `nido-notification-item--${a.type}`, u = new Date(a.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), h = z_(a.image, n);
@@ -24875,7 +24875,7 @@ function H_(n) {
   return typeof e != "number" ? 100 : Math.round(e / 255 * 100);
 }
 function j_({ hass: n, entity: e }) {
-  const [t, i] = V(!1), s = e.state.state === "on", r = H_(e), a = async () => {
+  const [t, i] = G(!1), s = e.state.state === "on", r = H_(e), a = async () => {
     i(!0);
     try {
       await n.callService("light", "toggle", { entity_id: e.entity_id });
@@ -24884,7 +24884,7 @@ function j_({ hass: n, entity: e }) {
     }
   };
   return /* @__PURE__ */ l("div", { class: `nido-lights-row ${t ? "is-pending" : ""}`, children: [
-    /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: s ? /* @__PURE__ */ l(ft, { size: 18 }) : /* @__PURE__ */ l(qu, { size: 18 }) }),
+    /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: s ? /* @__PURE__ */ l(pt, { size: 18 }) : /* @__PURE__ */ l(qu, { size: 18 }) }),
     /* @__PURE__ */ l("div", { class: "nido-lights-row__body", children: /* @__PURE__ */ l("div", { class: "nido-lights-row__name", children: e.friendly_name }) }),
     s && /* @__PURE__ */ l("div", { class: "nido-lights-row__pct", children: [
       r,
@@ -24905,7 +24905,7 @@ function j_({ hass: n, entity: e }) {
   ] });
 }
 function W_({ hass: n, lights: e, areas: t, onClose: i }) {
-  const s = st(i), [r, a] = V(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = Sr(e, o), c = e.filter((h) => h.state.state === "on"), u = async () => {
+  const s = st(i), [r, a] = G(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = Er(e, o), c = e.filter((h) => h.state.state === "on"), u = async () => {
     a(!0);
     try {
       await Promise.all(
@@ -24964,7 +24964,7 @@ function W_({ hass: n, lights: e, areas: t, onClose: i }) {
   ] });
 }
 function Y_({ hass: n, entity: e }) {
-  const [t, i] = V(!1), s = Er(e), r = async (a) => {
+  const [t, i] = G(!1), s = xr(e), r = async (a) => {
     i(!0);
     try {
       await n.callService("cover", a, { entity_id: e.entity_id });
@@ -24973,7 +24973,7 @@ function Y_({ hass: n, entity: e }) {
     }
   };
   return /* @__PURE__ */ l("div", { class: `nido-lights-row ${t ? "is-pending" : ""}`, children: [
-    /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: /* @__PURE__ */ l(Pt, { size: 18 }) }),
+    /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: /* @__PURE__ */ l(Mt, { size: 18 }) }),
     /* @__PURE__ */ l("div", { class: "nido-lights-row__body", children: /* @__PURE__ */ l("div", { class: "nido-lights-row__name", children: e.friendly_name }) }),
     /* @__PURE__ */ l("div", { class: "nido-lights-row__pct", children: [
       s,
@@ -25020,7 +25020,7 @@ function Y_({ hass: n, entity: e }) {
   ] });
 }
 function q_({ hass: n, covers: e, areas: t, onClose: i }) {
-  const s = st(i), [r, a] = V(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = Sr(e, o), c = e.filter((h) => Er(h) > 0), u = async (h) => {
+  const s = st(i), [r, a] = G(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = Er(e, o), c = e.filter((h) => xr(h) > 0), u = async (h) => {
     a(!0);
     try {
       await Promise.all(
@@ -25102,7 +25102,7 @@ function Q_({ entity: n }) {
   ] });
 }
 function Z_({ openings: n, areas: e, onClose: t }) {
-  const i = st(t), s = new Map(e.map((o) => [o.area_id, o.name])), r = Sr(n, s), a = n.filter((o) => o.state.state === "on");
+  const i = st(t), s = new Map(e.map((o) => [o.area_id, o.name])), r = Er(n, s), a = n.filter((o) => o.state.state === "on");
   return /* @__PURE__ */ l("div", { class: "nido-lights-panel", children: [
     /* @__PURE__ */ l("div", { class: "nido-notification-panel__backdrop", onClick: t }),
     /* @__PURE__ */ l(
@@ -25139,8 +25139,8 @@ function Z_({ openings: n, areas: e, onClose: t }) {
     )
   ] });
 }
-const Ms = "nido.shoppingColor", el = "nido.shoppingSize", J_ = 600;
-function tl(n, e, t) {
+const Ps = "nido.shoppingColor", Jo = "nido.shoppingSize", J_ = 600;
+function el(n, e, t) {
   if (e.length < 2) return;
   n.lineWidth = t, n.lineCap = "round", n.lineJoin = "round", n.beginPath(), n.moveTo(e[0][0], e[0][1]);
   for (let s = 1; s < e.length - 1; s++) {
@@ -25151,9 +25151,9 @@ function tl(n, e, t) {
   n.lineTo(i[0], i[1]), n.stroke();
 }
 function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
-  const i = st(e), s = ue(null), r = ue(null), a = ue([]), o = ue(null), d = ue(null), c = ue({ w: 0, h: 0 }), u = ue(null), h = ue("nido-" + Math.random().toString(36).slice(2, 8)), [f, p] = V(() => localStorage.getItem(Ms) || "#1a1410"), [g, _] = V(() => parseInt(localStorage.getItem(el) || "4", 10));
+  const i = st(e), s = ue(null), r = ue(null), a = ue([]), o = ue(null), d = ue(null), c = ue({ w: 0, h: 0 }), u = ue(null), h = ue("nido-" + Math.random().toString(36).slice(2, 8)), [f, p] = G(() => localStorage.getItem(Ps) || "#1a1410"), [g, _] = G(() => parseInt(localStorage.getItem(Jo) || "4", 10));
   de(() => {
-    if (localStorage.getItem(Ms)) return;
+    if (localStorage.getItem(Ps)) return;
     const R = r.current;
     if (!R) return;
     const N = getComputedStyle(R).getPropertyValue("--ink-1").trim();
@@ -25162,17 +25162,17 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     L.style.color = N, document.body.appendChild(L);
     const O = getComputedStyle(L).color;
     document.body.removeChild(L);
-    const G = O.match(/\d+/g);
-    if (G && G.length >= 3) {
-      const $ = "#" + [+G[0], +G[1], +G[2]].map((K) => K.toString(16).padStart(2, "0")).join("");
+    const V = O.match(/\d+/g);
+    if (V && V.length >= 3) {
+      const $ = "#" + [+V[0], +V[1], +V[2]].map((K) => K.toString(16).padStart(2, "0")).join("");
       p($);
     }
   }, []);
   const m = ue(f), v = ue(g);
   de(() => {
-    m.current = f, localStorage.setItem(Ms, f);
+    m.current = f, localStorage.setItem(Ps, f);
   }, [f]), de(() => {
-    v.current = g, localStorage.setItem(el, String(g));
+    v.current = g, localStorage.setItem(Jo, String(g));
   }, [g]);
   const b = Ce((R) => [R[0] * c.current.w, R[1] * c.current.h], []), x = Ce(() => {
     const R = s.current;
@@ -25182,8 +25182,8 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     const L = c.current.w / J_;
     N.clearRect(0, 0, c.current.w, c.current.h);
     for (const O of a.current)
-      N.strokeStyle = O.color, tl(N, O.points.map(b), O.size * L);
-    o.current && (N.strokeStyle = o.current.color, tl(N, o.current.points.map(b), o.current.size * L));
+      N.strokeStyle = O.color, el(N, O.points.map(b), O.size * L);
+    o.current && (N.strokeStyle = o.current.color, el(N, o.current.points.map(b), o.current.size * L));
   }, [b]), E = Ce(() => {
     const R = s.current, N = r.current;
     if (!R || !N) return;
@@ -25191,8 +25191,8 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     if (L.width === 0 || L.height === 0) return;
     const O = window.devicePixelRatio || 1;
     R.width = Math.round(L.width * O), R.height = Math.round(L.height * O);
-    const G = R.getContext("2d");
-    G && G.setTransform(O, 0, 0, O, 0, 0), c.current = { w: L.width, h: L.height }, x();
+    const V = R.getContext("2d");
+    V && V.setTransform(O, 0, 0, O, 0, 0), c.current = { w: L.width, h: L.height }, x();
   }, [x]);
   de(() => {
     E();
@@ -25217,7 +25217,7 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
       }
     };
   }, []);
-  const S = Ce((R) => `${t}/${R}`, [t]), w = Ce(async () => {
+  const S = Ce((R) => `${t}/${R}`, [t]), A = Ce(async () => {
     const R = JSON.stringify({
       strokes: a.current,
       updatedAt: (/* @__PURE__ */ new Date()).toISOString(),
@@ -25245,8 +25245,8 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     } catch (N) {
       console.warn("[shopping] add publish failed", N);
     }
-    w();
-  }, [n, S, w]), k = Ce(async (R) => {
+    A();
+  }, [n, S, A]), k = Ce(async (R) => {
     try {
       await n.callService("mqtt", "publish", {
         topic: S("strokes/undo"),
@@ -25257,8 +25257,8 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     } catch (N) {
       console.warn("[shopping] undo publish failed", N);
     }
-    w();
-  }, [n, S, w]), I = Ce(async () => {
+    A();
+  }, [n, S, A]), I = Ce(async () => {
     try {
       await n.callService("mqtt", "publish", {
         topic: S("clear"),
@@ -25269,48 +25269,48 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     } catch (R) {
       console.warn("[shopping] clear publish failed", R);
     }
-    w();
-  }, [n, S, w]);
+    A();
+  }, [n, S, A]);
   de(() => {
     let R = null, N = !1;
     const L = (O) => {
       try {
-        const G = O.topic, $ = O.payload ? JSON.parse(O.payload) : null;
+        const V = O.topic, $ = O.payload ? JSON.parse(O.payload) : null;
         if (!$) return;
-        if (G.endsWith("/state"))
+        if (V.endsWith("/state"))
           Array.isArray($.strokes) && $.updatedBy !== h.current && (a.current = $.strokes, x());
-        else if (G.endsWith("/strokes/add")) {
+        else if (V.endsWith("/strokes/add")) {
           if ($.by === h.current) return;
           $.points && $.points.length >= 2 && (a.current.push($), x());
-        } else if (G.endsWith("/strokes/undo")) {
+        } else if (V.endsWith("/strokes/undo")) {
           if ($.by === h.current) return;
-          const K = a.current.findIndex((ie) => ie.id === $.id);
+          const K = a.current.findIndex((Y) => Y.id === $.id);
           K >= 0 && (a.current.splice(K, 1), x());
-        } else if (G.endsWith("/clear")) {
+        } else if (V.endsWith("/clear")) {
           if ($.by === h.current) return;
           a.current = [], x();
         }
-      } catch (G) {
-        console.warn("[shopping] parse error", G);
+      } catch (V) {
+        console.warn("[shopping] parse error", V);
       }
     };
     return (async () => {
       const O = n.connection;
       if (!(!O || typeof O.subscribeMessage != "function"))
         try {
-          const G = await O.subscribeMessage(L, {
+          const V = await O.subscribeMessage(L, {
             type: "mqtt/subscribe",
             topic: `${t}/#`
           });
           if (N)
             try {
-              G();
+              V();
             } catch {
             }
           else
-            R = G;
-        } catch (G) {
-          console.warn("[shopping] mqtt subscribe failed", G);
+            R = V;
+        } catch (V) {
+          console.warn("[shopping] mqtt subscribe failed", V);
         }
     })(), () => {
       if (N = !0, R)
@@ -25320,23 +25320,23 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
         }
     };
   }, [n, t, x]);
-  const A = Ce((R) => {
+  const w = Ce((R) => {
     const L = s.current.getBoundingClientRect();
     return [(R.clientX - L.left) / L.width, (R.clientY - L.top) / L.height];
-  }, []), C = Ce((R) => {
+  }, []), M = Ce((R) => {
     R.pointerType === "touch" && (R.width > 40 || R.height > 40) || d.current === null && (d.current = R.pointerId, s.current?.setPointerCapture(R.pointerId), o.current = {
       id: h.current + "-" + Date.now(),
       by: h.current,
       color: m.current,
       size: v.current,
-      points: [A(R)],
+      points: [w(R)],
       t: Date.now()
     }, x(), R.preventDefault());
-  }, [A, x]), M = Ce((R) => {
+  }, [w, x]), P = Ce((R) => {
     if (R.pointerId !== d.current) return;
     const N = o.current;
-    N && (N.points.push(A(R)), x());
-  }, [A, x]), B = Ce((R) => {
+    N && (N.points.push(w(R)), x());
+  }, [w, x]), B = Ce((R) => {
     if (R.pointerId !== d.current) return;
     d.current = null;
     const N = o.current;
@@ -25385,8 +25385,8 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
               {
                 ref: s,
                 class: "nido-shopping-panel__canvas",
-                onPointerDown: C,
-                onPointerMove: M,
+                onPointerDown: M,
+                onPointerMove: P,
                 onPointerUp: B,
                 onPointerCancel: B,
                 onPointerLeave: B
@@ -25445,7 +25445,7 @@ function ev({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     )
   ] });
 }
-function Os(n, e, t, i) {
+function Ms(n, e, t, i) {
   const s = Math.PI * (1 - n);
   return [e + i * Math.cos(s), t - i * Math.sin(s)];
 }
@@ -25455,11 +25455,11 @@ function Yd({
   max: t = 7e3,
   onOpen: i
 }) {
-  const s = n.states[e], r = s?.attributes.friendly_name ?? "Compteur Linky", a = s?.state ?? "unavailable", o = a === "unavailable" || a === "unknown" || !s, d = s?.attributes.unit_of_measurement ?? "W", c = X(() => {
+  const s = n.states[e], r = s?.attributes.friendly_name ?? "Compteur Linky", a = s?.state ?? "unavailable", o = a === "unavailable" || a === "unknown" || !s, d = s?.attributes.unit_of_measurement ?? "W", c = Q(() => {
     if (o) return 0;
-    const A = Number(a);
-    return Number.isFinite(A) ? Math.max(0, Math.round(A)) : 0;
-  }, [a, o]), u = Math.max(0, Math.min(1, c / t)), h = 100, f = 100, p = 86, [g, _] = Os(0, h, f, p), [m, v] = Os(1, h, f, p), [b, x] = Os(u, h, f, p), E = `M ${g.toFixed(2)} ${_.toFixed(2)} A ${p} ${p} 0 0 1 ${m.toFixed(2)} ${v.toFixed(2)}`, S = u > 0.5 ? 1 : 0, w = u > 0 ? `M ${g.toFixed(2)} ${_.toFixed(2)} A ${p} ${p} 0 ${S} 1 ${b.toFixed(2)} ${x.toFixed(2)}` : "", T = c >= 5e3 ? "Pic" : c >= 2e3 ? "Soutenu" : "Sobre", k = ["n-card", "n-card--accent", "breathe-1", "n-power-gauge"].join(" "), I = typeof i == "function";
+    const w = Number(a);
+    return Number.isFinite(w) ? Math.max(0, Math.round(w)) : 0;
+  }, [a, o]), u = Math.max(0, Math.min(1, c / t)), h = 100, f = 100, p = 86, [g, _] = Ms(0, h, f, p), [m, v] = Ms(1, h, f, p), [b, x] = Ms(u, h, f, p), E = `M ${g.toFixed(2)} ${_.toFixed(2)} A ${p} ${p} 0 0 1 ${m.toFixed(2)} ${v.toFixed(2)}`, S = u > 0.5 ? 1 : 0, A = u > 0 ? `M ${g.toFixed(2)} ${_.toFixed(2)} A ${p} ${p} 0 ${S} 1 ${b.toFixed(2)} ${x.toFixed(2)}` : "", T = c >= 5e3 ? "Pic" : c >= 2e3 ? "Soutenu" : "Sobre", k = ["n-card", "n-card--accent", "breathe-1", "n-power-gauge"].join(" "), I = typeof i == "function";
   return /* @__PURE__ */ l(
     "div",
     {
@@ -25468,8 +25468,8 @@ function Yd({
       role: I ? "button" : void 0,
       tabIndex: I ? 0 : void 0,
       onClick: I ? i : void 0,
-      onKeyDown: I ? (A) => {
-        (A.key === "Enter" || A.key === " ") && (A.preventDefault(), i?.());
+      onKeyDown: I ? (w) => {
+        (w.key === "Enter" || w.key === " ") && (w.preventDefault(), i?.());
       } : void 0,
       style: { cursor: I ? "pointer" : "default" },
       children: [
@@ -25499,7 +25499,7 @@ function Yd({
               /* @__PURE__ */ l("span", { class: "n-power-gauge__live-dot" }),
               "Live"
             ] }),
-            I && /* @__PURE__ */ l("span", { class: "n-power-gauge__open", "aria-hidden": "true", children: /* @__PURE__ */ l(Dr, { size: 14 }) })
+            I && /* @__PURE__ */ l("span", { class: "n-power-gauge__open", "aria-hidden": "true", children: /* @__PURE__ */ l(Rr, { size: 14 }) })
           ] })
         ] }),
         o ? /* @__PURE__ */ l("div", { class: "n-muted n-power-gauge__unavailable", children: "Indisponible" }) : /* @__PURE__ */ l(he, { children: [
@@ -25523,10 +25523,10 @@ function Yd({
                       "stroke-linecap": "round"
                     }
                   ),
-                  w && /* @__PURE__ */ l(
+                  A && /* @__PURE__ */ l(
                     "path",
                     {
-                      d: w,
+                      d: A,
                       fill: "none",
                       stroke: "rgba(255,255,255,0.95)",
                       "stroke-width": "14",
@@ -25590,12 +25590,12 @@ function Yd({
     }
   );
 }
-const Vn = 64, sn = 80, rn = 80, il = 270 / 360 * 2 * Math.PI * Vn, nl = 2 * Math.PI * Vn;
+const Gn = 64, sn = 80, rn = 80, tl = 270 / 360 * 2 * Math.PI * Gn, il = 2 * Math.PI * Gn;
 function tv({
   currentPower: n,
   subscribedKva: e = 9
 }) {
-  const t = Math.max(0, n) / 1e3, i = Math.min(1, t / e), s = i >= 0.85, r = !s && i >= 0.7, a = s ? "var(--warning)" : r ? "var(--accent-deep)" : "var(--accent)", o = `${(il * i).toFixed(1)} ${nl.toFixed(1)}`, d = `${il.toFixed(1)} ${nl.toFixed(1)}`, c = s ? "Risque coupure" : r ? "À surveiller" : "Marge ok", u = s ? "Coupez un gros poste pour éviter la disjonction." : r ? "Évitez de cumuler four + lave-linge maintenant." : "Tout est sous contrôle, rien à signaler.";
+  const t = Math.max(0, n) / 1e3, i = Math.min(1, t / e), s = i >= 0.85, r = !s && i >= 0.7, a = s ? "var(--warning)" : r ? "var(--accent-deep)" : "var(--accent)", o = `${(tl * i).toFixed(1)} ${il.toFixed(1)}`, d = `${tl.toFixed(1)} ${il.toFixed(1)}`, c = s ? "Risque coupure" : r ? "À surveiller" : "Marge ok", u = s ? "Coupez un gros poste pour éviter la disjonction." : r ? "Évitez de cumuler four + lave-linge maintenant." : "Tout est sous contrôle, rien à signaler.";
   return /* @__PURE__ */ l("div", { class: "n-card n-subscription-guard", children: [
     /* @__PURE__ */ l("div", { class: "n-subscription-guard__head", children: [
       /* @__PURE__ */ l("div", { children: [
@@ -25617,7 +25617,7 @@ function tv({
           {
             cx: sn,
             cy: rn,
-            r: Vn,
+            r: Gn,
             fill: "none",
             stroke: "var(--bg-inset)",
             "stroke-width": "12",
@@ -25631,7 +25631,7 @@ function tv({
           {
             cx: sn,
             cy: rn,
-            r: Vn,
+            r: Gn,
             fill: "none",
             stroke: a,
             "stroke-width": "12",
@@ -25690,7 +25690,7 @@ function av(n) {
   const e = Date.parse(String(n.start));
   return Number.isFinite(e) ? e : null;
 }
-function sl(n, e, t, i, s) {
+function nl(n, e, t, i, s) {
   const r = new Array(i).fill(0);
   if (n.length === 0) return { buckets: r, total: 0 };
   const a = n.map((c) => ({ t: sv(c), v: rv(c) })).filter((c) => c.t !== null && c.v !== null).sort((c, u) => c.t - u.t);
@@ -25731,7 +25731,7 @@ function ov(n, e, t, i) {
   return { buckets: s, total: r };
 }
 const lv = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
-function rl(n, e) {
+function sl(n, e) {
   if (n === "day")
     return {
       axisLabels: ["00 h", "06 h", "12 h", "18 h", "24 h"],
@@ -25769,29 +25769,29 @@ function dv({
   powerEntityId: e,
   dailyConsumptionEntityId: t
 }) {
-  const [i, s] = V(null), [r, a] = V(!0), [o, d] = V("day");
+  const [i, s] = G(null), [r, a] = G(!0), [o, d] = G("day");
   de(() => {
     let T = !1;
     return (async () => {
       a(!0);
       try {
         if (o === "day") {
-          const I = iv(new Date(Date.now() - 828e5)), A = /* @__PURE__ */ new Date(), C = await n.callWS({
+          const I = iv(new Date(Date.now() - 828e5)), w = /* @__PURE__ */ new Date(), M = await n.callWS({
             type: "history/history_during_period",
             start_time: I.toISOString(),
-            end_time: A.toISOString(),
+            end_time: w.toISOString(),
             entity_ids: [e],
             minimal_response: !0,
             no_attributes: !0
           });
           if (T) return;
-          const M = C?.[e] ?? [], { buckets: B, total: H } = sl(
-            M,
+          const P = M?.[e] ?? [], { buckets: B, total: H } = nl(
+            P,
             I.getTime(),
-            A.getTime(),
+            w.getTime(),
             24,
             36e5
-          ), U = rl("day", I.getTime());
+          ), U = sl("day", I.getTime());
           s({
             buckets: B,
             total: H,
@@ -25802,21 +25802,21 @@ function dv({
             nowIndex: (/* @__PURE__ */ new Date()).getHours()
           });
         } else {
-          const I = o === "week" ? 7 : 30, A = nv(new Date(Date.now() - (I - 1) * 864e5)), C = /* @__PURE__ */ new Date();
-          let M = [], B = 0, H = !1;
+          const I = o === "week" ? 7 : 30, w = nv(new Date(Date.now() - (I - 1) * 864e5)), M = /* @__PURE__ */ new Date();
+          let P = [], B = 0, H = !1;
           try {
             const R = await n.callWS({
               type: "recorder/statistics_during_period",
-              start_time: A.toISOString(),
-              end_time: C.toISOString(),
+              start_time: w.toISOString(),
+              end_time: M.toISOString(),
               statistic_ids: [e],
               period: "day"
             });
             if (T) return;
             const N = R?.[e] ?? [];
             if (N.length > 0) {
-              const L = ov(N, A.getTime(), I, 864e5);
-              M = L.buckets, B = L.total, H = !0;
+              const L = ov(N, w.getTime(), I, 864e5);
+              P = L.buckets, B = L.total, H = !0;
             }
           } catch {
             H = !1;
@@ -25824,25 +25824,25 @@ function dv({
           if (!H) {
             const R = await n.callWS({
               type: "history/history_during_period",
-              start_time: A.toISOString(),
-              end_time: C.toISOString(),
+              start_time: w.toISOString(),
+              end_time: M.toISOString(),
               entity_ids: [e],
               minimal_response: !0,
               no_attributes: !0
             });
             if (T) return;
-            const N = R?.[e] ?? [], L = sl(N, A.getTime(), C.getTime(), I, 864e5);
-            M = L.buckets, B = L.total;
+            const N = R?.[e] ?? [], L = nl(N, w.getTime(), M.getTime(), I, 864e5);
+            P = L.buckets, B = L.total;
           }
-          const U = rl(o, A.getTime());
+          const U = sl(o, w.getTime());
           s({
-            buckets: M,
+            buckets: P,
             total: B,
             available: B > 0,
             axisLabels: U.axisLabels,
             bucketLabel: U.bucketLabel,
             unit: "kWh",
-            nowIndex: cv(o, A.getTime())
+            nowIndex: cv(o, w.getTime())
           });
         }
       } catch (I) {
@@ -25863,11 +25863,11 @@ function dv({
       T = !0;
     };
   }, [n != null, e, o]);
-  const c = t ? n.states[t] : void 0, u = X(() => {
+  const c = t ? n.states[t] : void 0, u = Q(() => {
     if (!c) return null;
     const T = Number(c.state);
     return Number.isFinite(T) ? T : null;
-  }, [c]), h = c?.attributes.unit_of_measurement ?? "kWh", f = i?.buckets ?? new Array(Si[o].bucketCount).fill(0), p = o === "day" && u !== null ? u : i?.total ?? 0, g = o === "day" && u !== null ? h : "kWh", _ = i?.available ?? !1, m = i?.nowIndex ?? -1, v = f.filter((T) => T > 0), b = v.length > 0 ? v.reduce((T, k) => T + k, 0) / v.length : 0, x = Math.max(...f, b) * 1.1 || 1, E = Math.max(...f), S = o === "day" ? "Consommation · Aujourd'hui" : o === "week" ? "Consommation · 7 derniers jours" : "Consommation · 30 derniers jours", w = o === "day" ? `moyenne · ${b.toFixed(2)} kWh` : o === "week" ? `moyenne · ${b.toFixed(1)} kWh / jour` : `moyenne · ${b.toFixed(1)} kWh / jour`;
+  }, [c]), h = c?.attributes.unit_of_measurement ?? "kWh", f = i?.buckets ?? new Array(Si[o].bucketCount).fill(0), p = o === "day" && u !== null ? u : i?.total ?? 0, g = o === "day" && u !== null ? h : "kWh", _ = i?.available ?? !1, m = i?.nowIndex ?? -1, v = f.filter((T) => T > 0), b = v.length > 0 ? v.reduce((T, k) => T + k, 0) / v.length : 0, x = Math.max(...f, b) * 1.1 || 1, E = Math.max(...f), S = o === "day" ? "Consommation · Aujourd'hui" : o === "week" ? "Consommation · 7 derniers jours" : "Consommation · 30 derniers jours", A = o === "day" ? `moyenne · ${b.toFixed(2)} kWh` : o === "week" ? `moyenne · ${b.toFixed(1)} kWh / jour` : `moyenne · ${b.toFixed(1)} kWh / jour`;
   return /* @__PURE__ */ l("div", { class: "n-card n-hourly", children: [
     /* @__PURE__ */ l("div", { class: "n-hourly__head", children: [
       /* @__PURE__ */ l("div", { children: [
@@ -25892,12 +25892,12 @@ function dv({
     ] }),
     r ? /* @__PURE__ */ l("div", { class: "n-muted n-hourly__loading", children: "Chargement de l'historique…" }) : _ ? /* @__PURE__ */ l(he, { children: [
       /* @__PURE__ */ l("div", { class: "n-bars", children: [
-        b > 0 && /* @__PURE__ */ l("div", { class: "n-bars__avg", style: { bottom: `${b / x * 100}%` }, children: /* @__PURE__ */ l("span", { class: "n-bars__avg-label", children: w }) }),
+        b > 0 && /* @__PURE__ */ l("div", { class: "n-bars__avg", style: { bottom: `${b / x * 100}%` }, children: /* @__PURE__ */ l("span", { class: "n-bars__avg-label", children: A }) }),
         /* @__PURE__ */ l("div", { class: "n-bars__grid", children: f.map((T, k) => {
-          const I = k === m, A = k < m, C = T > 0 && T === E;
-          let M = "n-bars__bar";
-          return I ? M += " is-now" : C ? M += " is-peak" : A ? M += " is-past" : M += " is-future", /* @__PURE__ */ l("div", { class: "n-bars__col", children: [
-            /* @__PURE__ */ l("div", { class: M, style: { height: `${Math.max(2, T / x * 100)}%` } }),
+          const I = k === m, w = k < m, M = T > 0 && T === E;
+          let P = "n-bars__bar";
+          return I ? P += " is-now" : M ? P += " is-peak" : w ? P += " is-past" : P += " is-future", /* @__PURE__ */ l("div", { class: "n-bars__col", children: [
+            /* @__PURE__ */ l("div", { class: P, style: { height: `${Math.max(2, T / x * 100)}%` } }),
             I && /* @__PURE__ */ l("div", { class: "n-bars__now-label", children: [
               T.toFixed(2),
               " kWh"
@@ -25915,11 +25915,11 @@ function uv({
   areas: t,
   onSelect: i
 }) {
-  const s = X(() => {
+  const s = Q(() => {
     const o = /* @__PURE__ */ new Map();
     for (const d of t) o.set(d.area_id, d.name);
     return o;
-  }, [t]), r = X(() => {
+  }, [t]), r = Q(() => {
     const o = [];
     for (const d of n) {
       if (d.entity_id === e || d.state.attributes.device_class !== "power") continue;
@@ -25948,7 +25948,7 @@ function uv({
             (h.key === "Enter" || h.key === " ") && (h.preventDefault(), i?.(o.entity));
           } : void 0,
           children: [
-            /* @__PURE__ */ l("div", { class: `n-top-consumers__bubble ${d === 0 ? "is-first" : ""}`, children: /* @__PURE__ */ l(zt, { size: 18 }) }),
+            /* @__PURE__ */ l("div", { class: `n-top-consumers__bubble ${d === 0 ? "is-first" : ""}`, children: /* @__PURE__ */ l(Ht, { size: 18 }) }),
             /* @__PURE__ */ l("div", { class: "n-top-consumers__body", children: [
               /* @__PURE__ */ l("div", { class: "n-top-consumers__line", children: [
                 /* @__PURE__ */ l("div", { class: "n-top-consumers__name-wrap", children: [
@@ -25968,7 +25968,7 @@ function uv({
                 }
               ) }) })
             ] }),
-            u && /* @__PURE__ */ l("span", { class: "n-top-consumers__chevron", "aria-hidden": "true", children: /* @__PURE__ */ l(Ys, { size: 14 }) })
+            u && /* @__PURE__ */ l("span", { class: "n-top-consumers__chevron", "aria-hidden": "true", children: /* @__PURE__ */ l(Ws, { size: 14 }) })
           ]
         },
         o.entity.entity_id
@@ -25976,30 +25976,30 @@ function uv({
     }) })
   ] });
 }
-const ct = "sensor.consommation_electrique_sinsts", Kn = "sensor.conso", hv = "sensor.conso_daily", fv = "select.conso_hebdomadaire_2_en_eur", al = 9;
+const dt = "sensor.consommation_electrique_sinsts", Vn = "sensor.conso", hv = "sensor.conso_daily", fv = "select.conso_hebdomadaire_2_en_eur", rl = 9;
 function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
-  const r = X(() => new Set(t), [t]), a = X(
+  const r = Q(() => new Set(t), [t]), a = Q(
     () => e.filter((S) => r.has(S.entity_id)),
     [e, r]
-  ), o = n.states[ct], d = !!o && o.state !== "unavailable" && o.state !== "unknown", c = X(() => {
+  ), o = n.states[dt], d = !!o && o.state !== "unavailable" && o.state !== "unknown", c = Q(() => {
     if (!d || !o) return 0;
     const S = Number(o.state);
     return Number.isFinite(S) ? Math.max(0, S) : 0;
-  }, [o, d]), u = o?.attributes.unit_of_measurement ?? "W", h = n.states[Kn], f = X(() => {
+  }, [o, d]), u = o?.attributes.unit_of_measurement ?? "W", h = n.states[Vn], f = Q(() => {
     if (!h) return null;
     const S = Number(h.state);
     return Number.isFinite(S) ? S : null;
-  }, [h]), p = h?.attributes.unit_of_measurement ?? "kWh", g = n.states[hv], _ = X(() => {
+  }, [h]), p = h?.attributes.unit_of_measurement ?? "kWh", g = n.states[hv], _ = Q(() => {
     if (!g) return null;
     const S = Number(g.state);
     return Number.isFinite(S) ? S : null;
-  }, [g]), m = g?.attributes.unit_of_measurement ?? "€", v = n.states[fv], b = X(() => {
+  }, [g]), m = g?.attributes.unit_of_measurement ?? "€", v = n.states[fv], b = Q(() => {
     if (!v) return null;
     const S = v.state;
     if (S === "unavailable" || S === "unknown") return null;
-    const w = Number(S);
-    return Number.isFinite(w) ? w : null;
-  }, [v]), x = v?.state ?? null, E = X(() => (/* @__PURE__ */ new Date()).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (w) => w.toUpperCase()), []);
+    const A = Number(S);
+    return Number.isFinite(A) ? A : null;
+  }, [v]), x = v?.state ?? null, E = Q(() => (/* @__PURE__ */ new Date()).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (A) => A.toUpperCase()), []);
   return /* @__PURE__ */ l("div", { class: "nido-shell", children: /* @__PURE__ */ l("div", { class: "nido-dashboard nido-energy", children: [
     /* @__PURE__ */ l("header", { class: "nido-energy__header", children: [
       /* @__PURE__ */ l(
@@ -26024,7 +26024,7 @@ function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
             href: "/lovelace/energy",
             target: "_top",
             children: [
-              /* @__PURE__ */ l(Dr, { size: 12 }),
+              /* @__PURE__ */ l(Rr, { size: 12 }),
               "Ouvrir HA"
             ]
           }
@@ -26036,7 +26036,7 @@ function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
       /* @__PURE__ */ l("div", { class: "nido-energy__hero-left", children: [
         /* @__PURE__ */ l("div", { class: "nido-energy__icon", children: [
           /* @__PURE__ */ l("div", { class: "pattern-dots nido-energy__icon-bg", "aria-hidden": "true" }),
-          /* @__PURE__ */ l(zt, { size: 32 })
+          /* @__PURE__ */ l(Ht, { size: 32 })
         ] }),
         /* @__PURE__ */ l("div", { children: [
           /* @__PURE__ */ l("div", { class: "nido-energy__hero-meta", children: [
@@ -26059,7 +26059,7 @@ function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
             unit: f !== null ? p : ""
           }
         ),
-        /* @__PURE__ */ l(Fs, {}),
+        /* @__PURE__ */ l(Os, {}),
         /* @__PURE__ */ l(
           an,
           {
@@ -26068,7 +26068,7 @@ function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
             unit: _ !== null ? m : ""
           }
         ),
-        /* @__PURE__ */ l(Fs, {}),
+        /* @__PURE__ */ l(Os, {}),
         /* @__PURE__ */ l(
           an,
           {
@@ -26078,7 +26078,7 @@ function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
           }
         ),
         x !== null && /* @__PURE__ */ l(he, { children: [
-          /* @__PURE__ */ l(Fs, {}),
+          /* @__PURE__ */ l(Os, {}),
           /* @__PURE__ */ l(
             an,
             {
@@ -26098,15 +26098,15 @@ function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
             Yd,
             {
               hass: n,
-              powerEntityId: ct,
-              max: al * 1e3
+              powerEntityId: dt,
+              max: rl * 1e3
             }
           ),
           /* @__PURE__ */ l(
             tv,
             {
               currentPower: c,
-              subscribedKva: al
+              subscribedKva: rl
             }
           )
         ] })
@@ -26120,8 +26120,8 @@ function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
           dv,
           {
             hass: n,
-            powerEntityId: ct,
-            dailyConsumptionEntityId: Kn
+            powerEntityId: dt,
+            dailyConsumptionEntityId: Vn
           }
         )
       ] }),
@@ -26131,14 +26131,14 @@ function pv({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
           uv,
           {
             entities: a,
-            primaryPowerEntityId: ct,
+            primaryPowerEntityId: dt,
             areas: i
           }
         )
       ] })
     ] }) : /* @__PURE__ */ l("div", { class: "nido-empty", children: /* @__PURE__ */ l("p", { class: "n-muted", children: [
       "L'entité de puissance ",
-      /* @__PURE__ */ l("code", { children: ct }),
+      /* @__PURE__ */ l("code", { children: dt }),
       " n'est pas disponible. Vérifiez qu'elle est exposée dans Nido."
     ] }) })
   ] }) });
@@ -26152,10 +26152,10 @@ function an({ label: n, value: e, unit: t }) {
     ] })
   ] });
 }
-function Fs() {
+function Os() {
   return /* @__PURE__ */ l("div", { class: "nido-energy__stat-sep", "aria-hidden": "true" });
 }
-const qd = "nido.kidsPoints", ht = {
+const qd = "nido.kidsPoints", ft = {
   silver: 10,
   gold: 25,
   platinum: 50
@@ -26172,8 +26172,8 @@ const qd = "nido.kidsPoints", ht = {
   { id: "clear_table", label: "Débarrasser la table", points: 2, emoji: "🧹" },
   { id: "homework", label: "Faire ses devoirs", points: 3, emoji: "📚" },
   { id: "brush_teeth", label: "Se brosser les dents", points: 1, emoji: "🪥" }
-], ol = ["#FFB4A2", "#B8E0D2", "#C7B8EA", "#FFE08A", "#9DD3F8", "#F8A8C9"], pr = ["🦊", "🦄", "🦖", "🐼", "🐱", "🐸", "🐶", "🐯", "🦁", "🐨", "🐰", "🐵"];
-function aa(n = ht) {
+], al = ["#FFB4A2", "#B8E0D2", "#C7B8EA", "#FFE08A", "#9DD3F8", "#F8A8C9"], fr = ["🦊", "🦄", "🦖", "🐼", "🐱", "🐸", "🐶", "🐯", "🦁", "🐨", "🐰", "🐵"];
+function ra(n = ft) {
   return [
     { key: "bronze", label: "Bronze", emoji: "🥉", min: 0, next: n.silver },
     { key: "silver", label: "Argent", emoji: "🥈", min: n.silver, next: n.gold },
@@ -26181,15 +26181,15 @@ function aa(n = ht) {
     { key: "platinum", label: "Platine", emoji: "💎", min: n.platinum, next: null }
   ];
 }
-function Zd(n, e = ht) {
-  const t = aa(e);
+function Zd(n, e = ft) {
+  const t = ra(e);
   let i = t[0];
   for (const s of t)
     n >= s.min && (i = s);
   return i;
 }
-function gv(n, e = ht) {
-  const t = aa(e), i = Zd(n, e);
+function gv(n, e = ft) {
+  const t = ra(e), i = Zd(n, e);
   return i.next === null ? null : t.find((s) => s.min === i.next) ?? null;
 }
 function Jd() {
@@ -26206,12 +26206,12 @@ function eu(n = /* @__PURE__ */ new Date()) {
   return e.setDate(e.getDate() + i), e.toISOString().slice(0, 10);
 }
 function mv(n) {
-  return ol[n % ol.length];
+  return al[n % al.length];
 }
 function _v(n) {
-  return pr[n % pr.length];
+  return fr[n % fr.length];
 }
-const vv = pr;
+const vv = fr;
 function on() {
   return {
     kids: [],
@@ -26219,7 +26219,7 @@ function on() {
     weekStart: eu(),
     completed: {},
     lastWeek: {},
-    medalThresholds: { ...ht },
+    medalThresholds: { ...ft },
     privileges: Xd.slice(),
     activePrivileges: {},
     updatedAt: (/* @__PURE__ */ new Date(0)).toISOString()
@@ -26249,7 +26249,7 @@ function bv(n) {
   return e;
 }
 function xv(n) {
-  const e = n && typeof n == "object" ? n : {}, t = Number.isFinite(e.silver) ? Math.max(1, Math.round(e.silver)) : ht.silver, i = Number.isFinite(e.gold) ? Math.max(t + 1, Math.round(e.gold)) : Math.max(t + 1, ht.gold), s = Number.isFinite(e.platinum) ? Math.max(i + 1, Math.round(e.platinum)) : Math.max(i + 1, ht.platinum);
+  const e = n && typeof n == "object" ? n : {}, t = Number.isFinite(e.silver) ? Math.max(1, Math.round(e.silver)) : ft.silver, i = Number.isFinite(e.gold) ? Math.max(t + 1, Math.round(e.gold)) : Math.max(t + 1, ft.gold), s = Number.isFinite(e.platinum) ? Math.max(i + 1, Math.round(e.platinum)) : Math.max(i + 1, ft.platinum);
   return { silver: t, gold: i, platinum: s };
 }
 function Ev(n) {
@@ -26291,11 +26291,11 @@ function Sv() {
     return on();
   }
 }
-function ll(n) {
+function ol(n) {
   const e = Jd();
   e && e.setItem(qd, JSON.stringify(n));
 }
-function gr(n, e) {
+function pr(n, e) {
   return tu(n, e);
 }
 function ln(n, e, t, i) {
@@ -26305,7 +26305,7 @@ function ln(n, e, t, i) {
     completed: { ...n.completed, [e]: s }
   };
 }
-function cl(n, e) {
+function ll(n, e) {
   const t = e.trim();
   if (!t) return n;
   const s = {
@@ -26365,11 +26365,11 @@ function Iv(n, e) {
     completed: t
   };
 }
-function Ns(n, e, t) {
-  const s = { ...n.medalThresholds ?? ht, [e]: Math.max(1, Math.round(t)) };
+function Fs(n, e, t) {
+  const s = { ...n.medalThresholds ?? ft, [e]: Math.max(1, Math.round(t)) };
   return e === "silver" || e === "gold" ? (s.gold <= s.silver && (s.gold = s.silver + 1), s.platinum <= s.gold && (s.platinum = s.gold + 1)) : e === "platinum" && s.platinum <= s.gold && (s.platinum = s.gold + 1), { ...n, medalThresholds: s };
 }
-function dl(n, e, t) {
+function cl(n, e, t) {
   return {
     ...n,
     tasks: n.tasks.map((i) => {
@@ -26379,7 +26379,7 @@ function dl(n, e, t) {
     })
   };
 }
-function Lv(n, e = ht) {
+function Lv(n, e = ft) {
   return n >= e.platinum;
 }
 function su(n, e) {
@@ -26406,7 +26406,7 @@ function ru(n, e) {
   const t = { ...n.activePrivileges };
   return delete t[e], { ...n, activePrivileges: t };
 }
-function ul(n, e, t) {
+function dl(n, e, t) {
   const i = e.trim();
   if (!i) return n;
   const r = {
@@ -26426,7 +26426,7 @@ function Dv(n, e) {
     activePrivileges: t
   };
 }
-function hl(n, e, t, i) {
+function ul(n, e, t, i) {
   const s = t.trim();
   return s ? {
     ...n,
@@ -26439,9 +26439,9 @@ function Cv(n) {
   return n.trim().split(/\s+/).slice(0, 2).map((t) => t[0]?.toUpperCase() ?? "").join("");
 }
 function Pv({ data: n, onOpen: e, onChange: t }) {
-  const i = X(() => n.kids.map((a) => ({
+  const i = Q(() => n.kids.map((a) => ({
     kid: a,
-    total: gr(n, a.id),
+    total: pr(n, a.id),
     last: n.lastWeek[a.id] ?? 0,
     activeInfo: su(n, a.id)
   })).sort((a, o) => o.total - a.total), [n]), s = i.reduce((a, o) => Math.max(a, o.total), 1), r = i.length === 0;
@@ -26478,7 +26478,7 @@ function Pv({ data: n, onOpen: e, onChange: t }) {
             /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Tableau de points" }),
             /* @__PURE__ */ l("div", { class: "n-title", children: "Points enfants" })
           ] }),
-          /* @__PURE__ */ l("div", { class: "n-kids-card__head-actions", children: /* @__PURE__ */ l("span", { class: "n-power-gauge__open", "aria-hidden": "true", children: /* @__PURE__ */ l(Dr, { size: 14 }) }) })
+          /* @__PURE__ */ l("div", { class: "n-kids-card__head-actions", children: /* @__PURE__ */ l("span", { class: "n-power-gauge__open", "aria-hidden": "true", children: /* @__PURE__ */ l(Rr, { size: 14 }) }) })
         ] }),
         r ? /* @__PURE__ */ l("div", { class: "n-kids-card__empty", children: [
           /* @__PURE__ */ l("p", { class: "n-muted", children: "Aucun enfant configuré." }),
@@ -26492,7 +26492,7 @@ function Pv({ data: n, onOpen: e, onChange: t }) {
               },
               "data-no-drag": "true",
               children: [
-                /* @__PURE__ */ l(Ir, { size: 14 }),
+                /* @__PURE__ */ l(Ar, { size: 14 }),
                 /* @__PURE__ */ l("span", { children: "Configurer" })
               ]
             }
@@ -26564,14 +26564,14 @@ function Pv({ data: n, onOpen: e, onChange: t }) {
     }
   );
 }
-const fl = ["#FF8A3D", "#FFD166", "#6FCF97", "#9DD3F8", "#F8A8C9", "#C7B8EA"];
+const hl = ["#FF8A3D", "#FFD166", "#6FCF97", "#9DD3F8", "#F8A8C9", "#C7B8EA"];
 function Mv({ data: n, onChange: e, onClose: t }) {
-  const i = st(t), [s, r] = V("play"), [a, o] = V(
+  const i = st(t), [s, r] = G("play"), [a, o] = G(
     n.kids[0]?.id ?? null
-  ), [d, c] = V(""), [u, h] = V(""), [f, p] = V(2), [g, _] = V(null), [m, v] = V(null), [b, x] = V(null), [E, S] = V(""), [w, T] = V("🎁"), k = n.kids.find((L) => L.id === a) ?? n.kids[0], I = [...n.tasks].sort((L, O) => {
-    const G = L.points < 0 ? 1 : 0, $ = O.points < 0 ? 1 : 0;
-    return G !== $ ? G - $ : L.label.localeCompare(O.label, "fr", { sensitivity: "base" });
-  }), A = I.filter((L) => L.points >= 0), C = I.filter((L) => L.points < 0), M = n.medalThresholds ?? ht, B = k ? gr(n, k.id) : 0, H = Zd(B, M), U = gv(B, M), R = U ? Math.min(100, Math.max(0, (B - H.min) / (U.min - H.min) * 100)) : 100, N = U ? Math.max(0, U.min - B) : 0;
+  ), [d, c] = G(""), [u, h] = G(""), [f, p] = G(2), [g, _] = G(null), [m, v] = G(null), [b, x] = G(null), [E, S] = G(""), [A, T] = G("🎁"), k = n.kids.find((L) => L.id === a) ?? n.kids[0], I = [...n.tasks].sort((L, O) => {
+    const V = L.points < 0 ? 1 : 0, $ = O.points < 0 ? 1 : 0;
+    return V !== $ ? V - $ : L.label.localeCompare(O.label, "fr", { sensitivity: "base" });
+  }), w = I.filter((L) => L.points >= 0), M = I.filter((L) => L.points < 0), P = n.medalThresholds ?? ft, B = k ? pr(n, k.id) : 0, H = Zd(B, P), U = gv(B, P), R = U ? Math.min(100, Math.max(0, (B - H.min) / (U.min - H.min) * 100)) : 100, N = U ? Math.max(0, U.min - B) : 0;
   return /* @__PURE__ */ l("div", { class: "nido-shopping-panel", children: [
     /* @__PURE__ */ l("div", { class: "nido-shopping-panel__backdrop", onClick: t }),
     /* @__PURE__ */ l(
@@ -26598,7 +26598,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                   "aria-pressed": s === "config",
                   "aria-label": "Configurer",
                   title: "Configurer",
-                  children: /* @__PURE__ */ l(Ir, { size: 18 })
+                  children: /* @__PURE__ */ l(Ar, { size: 18 })
                 }
               ),
               /* @__PURE__ */ l(
@@ -26623,12 +26623,12 @@ function Mv({ data: n, onChange: e, onClose: t }) {
             ] })
           ] }) : /* @__PURE__ */ l(he, { children: [
             /* @__PURE__ */ l("div", { class: "nido-kids-panel__tabs", children: n.kids.map((L) => {
-              const O = gr(n, L.id), G = k?.id === L.id;
+              const O = pr(n, L.id), V = k?.id === L.id;
               return /* @__PURE__ */ l(
                 "button",
                 {
                   type: "button",
-                  class: `nido-kids-panel__tab ${G ? "is-active" : ""}`,
+                  class: `nido-kids-panel__tab ${V ? "is-active" : ""}`,
                   style: { "--kid-color": L.color },
                   onClick: () => o(L.id),
                   children: [
@@ -26687,7 +26687,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                 ] }) : /* @__PURE__ */ l(he, { children: "Médaille maximale atteinte ! 🏆" }) })
               ] }),
               (() => {
-                const L = su(n, k.id), O = Lv(B, M);
+                const L = su(n, k.id), O = Lv(B, P);
                 if (L)
                   return /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege nido-kids-panel__privilege--active", children: /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege-head", children: [
                     /* @__PURE__ */ l("span", { class: "nido-kids-panel__privilege-emoji", "aria-hidden": "true", children: L.privilege.emoji ?? "🎁" }),
@@ -26712,8 +26712,8 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                     /* @__PURE__ */ l("strong", { children: "Configurer" }),
                     "."
                   ] }) });
-                const G = b === k.id;
-                return /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege", children: G ? /* @__PURE__ */ l(he, { children: [
+                const V = b === k.id;
+                return /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege", children: V ? /* @__PURE__ */ l(he, { children: [
                   /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege-eyebrow", children: "Choisis ton privilège" }),
                   /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege-choices", children: n.privileges.map(($) => /* @__PURE__ */ l(
                     "button",
@@ -26756,13 +26756,13 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                   )
                 ] }) });
               })(),
-              A.length > 0 && /* @__PURE__ */ l(he, { children: [
+              w.length > 0 && /* @__PURE__ */ l(he, { children: [
                 /* @__PURE__ */ l("h4", { class: "nido-kids-panel__group-title", children: [
                   /* @__PURE__ */ l("span", { "aria-hidden": "true", children: "✨" }),
                   " Bonnes actions"
                 ] }),
-                /* @__PURE__ */ l("div", { class: "nido-kids-panel__tiles", children: A.map((L) => /* @__PURE__ */ l(
-                  pl,
+                /* @__PURE__ */ l("div", { class: "nido-kids-panel__tiles", children: w.map((L) => /* @__PURE__ */ l(
+                  fl,
                   {
                     emoji: L.emoji ?? "✨",
                     label: L.label,
@@ -26779,13 +26779,13 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                   L.id
                 )) })
               ] }),
-              C.length > 0 && /* @__PURE__ */ l(he, { children: [
+              M.length > 0 && /* @__PURE__ */ l(he, { children: [
                 /* @__PURE__ */ l("h4", { class: "nido-kids-panel__group-title nido-kids-panel__group-title--neg", children: [
                   /* @__PURE__ */ l("span", { "aria-hidden": "true", children: "⚠️" }),
                   " Bêtises"
                 ] }),
-                /* @__PURE__ */ l("div", { class: "nido-kids-panel__tiles", children: C.map((L) => /* @__PURE__ */ l(
-                  pl,
+                /* @__PURE__ */ l("div", { class: "nido-kids-panel__tiles", children: M.map((L) => /* @__PURE__ */ l(
+                  fl,
                   {
                     emoji: L.emoji ?? "⚠️",
                     label: L.label,
@@ -26867,7 +26867,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                     value: d,
                     onInput: (L) => c(L.target.value),
                     onKeyDown: (L) => {
-                      L.key === "Enter" && d.trim() && (e(cl(n, d)), c(""));
+                      L.key === "Enter" && d.trim() && (e(ll(n, d)), c(""));
                     }
                   }
                 ),
@@ -26877,10 +26877,10 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                     type: "button",
                     class: "n-pill-btn",
                     onClick: () => {
-                      d.trim() && (e(cl(n, d)), c(""));
+                      d.trim() && (e(ll(n, d)), c(""));
                     },
                     children: [
-                      /* @__PURE__ */ l(Vt, { size: 14 }),
+                      /* @__PURE__ */ l(Kt, { size: 14 }),
                       /* @__PURE__ */ l("span", { children: "Ajouter" })
                     ]
                   }
@@ -26900,11 +26900,11 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                       class: "nido-kids-panel__btn",
                       onClick: () => {
                         const O = L.points === 1 ? -1 : L.points - 1;
-                        e(dl(n, L.id, O));
+                        e(cl(n, L.id, O));
                       },
                       disabled: L.points <= -10,
                       "aria-label": "Moins de points",
-                      children: /* @__PURE__ */ l(_n, { size: 14 })
+                      children: /* @__PURE__ */ l(mn, { size: 14 })
                     }
                   ),
                   /* @__PURE__ */ l(
@@ -26925,11 +26925,11 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                       class: "nido-kids-panel__btn",
                       onClick: () => {
                         const O = L.points === -1 ? 1 : L.points + 1;
-                        e(dl(n, L.id, O));
+                        e(cl(n, L.id, O));
                       },
                       disabled: L.points >= 10,
                       "aria-label": "Plus de points",
-                      children: /* @__PURE__ */ l(Vt, { size: 14 })
+                      children: /* @__PURE__ */ l(Kt, { size: 14 })
                     }
                   )
                 ] }),
@@ -26966,7 +26966,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                         p(Math.max(-10, L));
                       },
                       "aria-label": "Moins",
-                      children: /* @__PURE__ */ l(_n, { size: 14 })
+                      children: /* @__PURE__ */ l(mn, { size: 14 })
                     }
                   ),
                   /* @__PURE__ */ l("span", { class: f < 0 ? "is-negative" : "", children: [
@@ -26984,7 +26984,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                         p(Math.min(10, L));
                       },
                       "aria-label": "Plus",
-                      children: /* @__PURE__ */ l(Vt, { size: 14 })
+                      children: /* @__PURE__ */ l(Kt, { size: 14 })
                     }
                   )
                 ] }),
@@ -26997,7 +26997,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                       u.trim() && (e(Av(n, u, f)), h(""), p(2));
                     },
                     children: [
-                      /* @__PURE__ */ l(Vt, { size: 14 }),
+                      /* @__PURE__ */ l(Kt, { size: 14 }),
                       /* @__PURE__ */ l("span", { children: "Ajouter" })
                     ]
                   }
@@ -27007,7 +27007,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
             /* @__PURE__ */ l("section", { class: "nido-kids-panel__section", children: [
               /* @__PURE__ */ l("h3", { children: "Médailles" }),
               /* @__PURE__ */ l("p", { class: "nido-kids-panel__hint", children: "Points nécessaires pour passer à la médaille suivante." }),
-              /* @__PURE__ */ l("ul", { class: "nido-kids-panel__list", children: aa(M).map((L) => {
+              /* @__PURE__ */ l("ul", { class: "nido-kids-panel__list", children: ra(P).map((L) => {
                 const O = L.key === "silver" || L.key === "gold" || L.key === "platinum" ? L.key : null;
                 return /* @__PURE__ */ l("li", { class: "nido-kids-panel__list-row", children: [
                   /* @__PURE__ */ l("span", { class: "nido-kids-panel__task-emoji", children: L.emoji }),
@@ -27019,14 +27019,14 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                         type: "button",
                         class: "nido-kids-panel__btn",
                         onClick: () => e(
-                          Ns(
+                          Fs(
                             n,
                             O,
-                            M[O] - 1
+                            P[O] - 1
                           )
                         ),
                         "aria-label": "Diminuer le seuil",
-                        children: /* @__PURE__ */ l(_n, { size: 14 })
+                        children: /* @__PURE__ */ l(mn, { size: 14 })
                       }
                     ),
                     /* @__PURE__ */ l(
@@ -27035,10 +27035,10 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                         type: "number",
                         class: "nido-kids-panel__threshold-input",
                         min: 1,
-                        value: M[O],
-                        onChange: (G) => {
-                          const $ = Number(G.target.value);
-                          Number.isFinite($) && e(Ns(n, O, $));
+                        value: P[O],
+                        onChange: (V) => {
+                          const $ = Number(V.target.value);
+                          Number.isFinite($) && e(Fs(n, O, $));
                         }
                       }
                     ),
@@ -27049,14 +27049,14 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                         type: "button",
                         class: "nido-kids-panel__btn",
                         onClick: () => e(
-                          Ns(
+                          Fs(
                             n,
                             O,
-                            M[O] + 1
+                            P[O] + 1
                           )
                         ),
                         "aria-label": "Augmenter le seuil",
-                        children: /* @__PURE__ */ l(Vt, { size: 14 })
+                        children: /* @__PURE__ */ l(Kt, { size: 14 })
                       }
                     )
                   ] }) : /* @__PURE__ */ l("span", { class: "nido-kids-panel__task-pts", children: [
@@ -27079,7 +27079,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                     maxLength: 4,
                     value: L.emoji ?? "🎁",
                     onChange: (O) => e(
-                      hl(
+                      ul(
                         n,
                         L.id,
                         L.label,
@@ -27095,7 +27095,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                     class: "nido-kids-panel__input",
                     value: L.label,
                     onChange: (O) => e(
-                      hl(
+                      ul(
                         n,
                         L.id,
                         O.target.value,
@@ -27122,7 +27122,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                     type: "text",
                     class: "nido-kids-panel__input nido-kids-panel__emoji-input",
                     maxLength: 4,
-                    value: w,
+                    value: A,
                     onInput: (L) => T(L.target.value)
                   }
                 ),
@@ -27135,7 +27135,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                     value: E,
                     onInput: (L) => S(L.target.value),
                     onKeyDown: (L) => {
-                      L.key === "Enter" && E.trim() && (e(ul(n, E, w)), S(""), T("🎁"));
+                      L.key === "Enter" && E.trim() && (e(dl(n, E, A)), S(""), T("🎁"));
                     }
                   }
                 ),
@@ -27145,10 +27145,10 @@ function Mv({ data: n, onChange: e, onClose: t }) {
                     type: "button",
                     class: "n-pill-btn",
                     onClick: () => {
-                      E.trim() && (e(ul(n, E, w)), S(""), T("🎁"));
+                      E.trim() && (e(dl(n, E, A)), S(""), T("🎁"));
                     },
                     children: [
-                      /* @__PURE__ */ l(Vt, { size: 14 }),
+                      /* @__PURE__ */ l(Kt, { size: 14 }),
                       /* @__PURE__ */ l("span", { children: "Ajouter" })
                     ]
                   }
@@ -27161,7 +27161,7 @@ function Mv({ data: n, onChange: e, onClose: t }) {
     )
   ] });
 }
-function pl({
+function fl({
   emoji: n,
   label: e,
   points: t,
@@ -27217,14 +27217,14 @@ function Ov(n) {
   if (n && !(typeof window < "u" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches))
     for (let e = 0; e < 6; e++) {
       const t = document.createElement("span");
-      t.className = "nido-kids-panel__confetti", t.style.background = fl[e % fl.length];
+      t.className = "nido-kids-panel__confetti", t.style.background = hl[e % hl.length];
       const i = Math.PI * 2 * e / 6 + Math.random() * 0.6, s = 60 + Math.random() * 30;
       t.style.setProperty("--cx", `${Math.cos(i) * s}px`), t.style.setProperty("--cy", `${Math.sin(i) * s}px`), t.style.setProperty("--cr", `${Math.random() * 360}deg`), n.appendChild(t), window.setTimeout(() => t.remove(), 900);
     }
 }
-const gl = "nido/kids/state";
+const pl = "nido/kids/state";
 function Fv(n) {
-  const [e, t] = V(() => Sv()), i = ue("nido-" + Math.random().toString(36).slice(2, 8)), s = ue(e);
+  const [e, t] = G(() => Sv()), i = ue("nido-" + Math.random().toString(36).slice(2, 8)), s = ue(e);
   s.current = e;
   const r = ue(n);
   r.current = n;
@@ -27233,7 +27233,7 @@ function Fv(n) {
     if (u?.callService)
       try {
         await u.callService("mqtt", "publish", {
-          topic: gl,
+          topic: pl,
           payload: JSON.stringify({
             data: c,
             updatedBy: i.current
@@ -27259,7 +27259,7 @@ function Fv(n) {
         const m = iu(_.data);
         if (!m) return;
         const v = s.current;
-        m.updatedAt > v.updatedAt ? (t(m), ll(m)) : v.updatedAt > m.updatedAt && a(v);
+        m.updatedAt > v.updatedAt ? (t(m), ol(m)) : v.updatedAt > m.updatedAt && a(v);
       } catch (g) {
         console.warn("[kids] parse error", g);
       }
@@ -27268,7 +27268,7 @@ function Fv(n) {
       try {
         const p = await c.subscribeMessage(f, {
           type: "mqtt/subscribe",
-          topic: gl
+          topic: pl
         });
         if (h)
           try {
@@ -27291,14 +27291,14 @@ function Fv(n) {
   const d = Ce(
     (c) => {
       const u = Ev(c);
-      t(u), ll(u), a(u);
+      t(u), ol(u), a(u);
     },
     [a]
   );
   return [e, d];
 }
 function au() {
-  const [n, e] = V(() => /* @__PURE__ */ new Date());
+  const [n, e] = G(() => /* @__PURE__ */ new Date());
   return de(() => {
     let t;
     const i = () => {
@@ -27310,15 +27310,15 @@ function au() {
     return i(), () => window.clearTimeout(t);
   }, []), n;
 }
-function Yt(n) {
+function qt(n) {
   return n < 60 ? `${Math.max(1, n)} min` : n < 1440 ? `${Math.round(n / 60)} h` : `${Math.round(n / 1440)} j`;
 }
-const Et = 3, Nv = 120, $v = 180, Bv = {
+const St = 3, Nv = 120, $v = 180, Bv = {
   smoke: "Fumée détectée",
   gas: "Gaz détecté",
   carbon_monoxide: "Monoxyde détecté",
   moisture: "Fuite d'eau"
-}, $s = {
+}, Ns = {
   window: { one: "Fenêtre ouverte", many: "fenêtres ouvertes" },
   door: { one: "Porte ouverte", many: "portes ouvertes" },
   garage_door: { one: "Garage ouvert", many: "garages ouverts" }
@@ -27334,7 +27334,7 @@ function Gv(n, e) {
   return Number.isNaN(t) ? null : Math.floor((e.getTime() - t) / 6e4);
 }
 function Vv(n) {
-  return `depuis ${Yt(n)}`;
+  return `depuis ${qt(n)}`;
 }
 function Kv(n) {
   return n <= 1 ? "maintenant" : n < 60 ? `dans ${n} min` : `dans ${Math.round(n / 60)} h`;
@@ -27358,29 +27358,29 @@ function zv(n, e) {
   return t;
 }
 function Hv({ hass: n, entities: e, areaNameById: t, now: i }) {
-  const s = [], r = (p) => p ? t.get(p) : void 0, a = () => s.length >= Et;
+  const s = [], r = (p) => p ? t.get(p) : void 0, a = () => s.length >= St;
   for (const p of e) {
     if (p.domain !== "binary_sensor" || !it(p)) continue;
     const g = Bv[xi(p) ?? ""];
     g && s.push({ id: `alert:${p.entity_id}`, text: g, room: r(p.area_id), tone: "alert" });
   }
-  if (a()) return s.slice(0, Et);
+  if (a()) return s.slice(0, St);
   const o = e.filter(
-    (p) => p.domain === "binary_sensor" && it(p) && $s[xi(p) ?? ""]
+    (p) => p.domain === "binary_sensor" && it(p) && Ns[xi(p) ?? ""]
   );
   if (o.length === 1) {
     const p = o[0];
     s.push({
       id: `opening:${p.entity_id}`,
-      text: $s[xi(p) ?? ""].one,
+      text: Ns[xi(p) ?? ""].one,
       room: r(p.area_id),
       tone: "notice"
     });
   } else if (o.length > 1) {
-    const g = new Set(o.map((_) => xi(_))).size === 1 ? `${o.length} ${$s[xi(o[0]) ?? ""].many}` : `${o.length} ouvrants ouverts`;
+    const g = new Set(o.map((_) => xi(_))).size === 1 ? `${o.length} ${Ns[xi(o[0]) ?? ""].many}` : `${o.length} ouvrants ouverts`;
     s.push({ id: `openings:${o.length}`, text: g, tone: "notice" });
   }
-  if (a()) return s.slice(0, Et);
+  if (a()) return s.slice(0, St);
   for (const p of Object.values(n.states)) {
     if (!p.entity_id.startsWith("person.") || p.state !== "home") continue;
     const g = Gv(p.last_changed, i);
@@ -27392,14 +27392,14 @@ function Hv({ hass: n, entities: e, areaNameById: t, now: i }) {
       tone: "active"
     }), a()) break;
   }
-  if (a()) return s.slice(0, Et);
+  if (a()) return s.slice(0, St);
   const d = e.filter((p) => p.domain === "light" && it(p));
   if (d.length === 1 ? s.push({
     id: `lights:${d[0].entity_id}`,
     text: "Lumière allumée",
     room: r(d[0].area_id),
     tone: "active"
-  }) : d.length > 1 && s.push({ id: `lights:${d.length}`, text: `${d.length} lumières allumées`, tone: "active" }), a()) return s.slice(0, Et);
+  }) : d.length > 1 && s.push({ id: `lights:${d.length}`, text: `${d.length} lumières allumées`, tone: "active" }), a()) return s.slice(0, St);
   const c = e.find((p) => p.domain === "media_player" && it(p));
   if (c) {
     const p = c.state.attributes.media_content_type;
@@ -27410,22 +27410,22 @@ function Hv({ hass: n, entities: e, areaNameById: t, now: i }) {
       tone: "active"
     });
   }
-  if (a()) return s.slice(0, Et);
+  if (a()) return s.slice(0, St);
   const u = zv(e, i);
   if (u) {
     let p;
     u.dayOffset === 1 ? p = `${u.title} demain${u.time ? ` à ${u.time}` : ""}` : u.allDay ? p = `${u.title} aujourd'hui` : u.minutes <= $v ? p = `${u.title} ${Kv(u.minutes)}` : p = `${u.title} à ${u.time}`, s.push({ id: `event:${p}`, text: p, tone: "calm" });
   }
-  if (a()) return s.slice(0, Et);
+  if (a()) return s.slice(0, St);
   const h = Object.values(n.states).filter((p) => p.entity_id.startsWith("person."));
-  if (h.length > 0 && h.every((p) => p.state !== "home") && s.push({ id: "empty", text: "Personne à la maison", tone: "calm" }), a()) return s.slice(0, Et);
+  if (h.length > 0 && h.every((p) => p.state !== "home") && s.push({ id: "empty", text: "Personne à la maison", tone: "calm" }), a()) return s.slice(0, St);
   const f = e.find((p) => p.domain === "climate" && p.state.state === "heat");
   return f && s.push({
     id: `heating:${f.entity_id}`,
     text: "Chauffage en marche",
     room: r(f.area_id),
     tone: "calm"
-  }), s.slice(0, Et);
+  }), s.slice(0, St);
 }
 function ou(n) {
   return n >= 5 && n < 12 ? { greeting: "Bonjour", sub: "La maison se réveille doucement" } : n >= 12 && n < 18 ? { greeting: "Bel après-midi", sub: "Tout va bien à la maison" } : n >= 18 && n < 22 ? { greeting: "Bonsoir", sub: "Tout le monde est rentré" } : { greeting: "Bonne nuit", sub: "La maison veille sur vous" };
@@ -27433,33 +27433,33 @@ function ou(n) {
 function jv(n) {
   return n.replace(/[^\x00-\x7F]/g, "_").toLowerCase();
 }
-function Wv(n, e) {
-  const t = new Map(e.map((s) => [jv(s.name), s.area_id])), i = /* @__PURE__ */ new Map();
-  for (const s of Object.values(n.states)) {
-    if (!s.entity_id.startsWith("sensor.")) continue;
-    const r = s.state.toLowerCase(), a = t.get(r);
-    if (!a) continue;
-    const o = s.entity_id.slice(7), d = o.slice(o.lastIndexOf("_") + 1);
+function Wv(n, e, t) {
+  const i = new Map(e.map((r) => [jv(r.name), r.area_id])), s = /* @__PURE__ */ new Map();
+  for (const r of t) {
+    if (r.domain !== "sensor") continue;
+    const a = r.state, o = a.state.toLowerCase(), d = i.get(o);
     if (!d) continue;
-    const u = n.states[`person.${d}`]?.attributes.entity_picture, h = i.get(a) ?? /* @__PURE__ */ new Map();
-    h.has(d) || h.set(d, { name: d, picture: u }), i.set(a, h);
+    const c = a.entity_id.slice(7), u = c.slice(c.lastIndexOf("_") + 1);
+    if (!u) continue;
+    const f = n.states[`person.${u}`]?.attributes.entity_picture, p = s.get(d) ?? /* @__PURE__ */ new Map();
+    p.has(u) || p.set(u, { name: u, picture: f }), s.set(d, p);
   }
   return new Map(
-    Array.from(i.entries()).map(([s, r]) => [s, Array.from(r.values())])
+    Array.from(s.entries()).map(([r, a]) => [r, Array.from(a.values())])
   );
 }
 const Yv = /* @__PURE__ */ new Set(["door", "garage_door", "window"]), qv = {
   window: Bi,
   door: Di,
   moisture: Xl,
-  smoke: Ln,
-  gas: Ln
+  smoke: In,
+  gas: In
 };
-function ml(n) {
-  return n.kind === "motion" ? `Mouvement il y a ${Yt(n.minutes)}` : `Calme depuis ${Yt(n.minutes)}`;
+function gl(n) {
+  return n.kind === "motion" ? `Mouvement il y a ${qt(n.minutes)}` : `Calme depuis ${qt(n.minutes)}`;
 }
 function Xv(n) {
-  return n.kind === "motion" ? Yt(n.minutes) : `Calme ${Yt(n.minutes)}`;
+  return n.kind === "motion" ? qt(n.minutes) : `Calme ${qt(n.minutes)}`;
 }
 const Qv = {
   presence: "Présence",
@@ -27487,7 +27487,7 @@ function Jv(n) {
     unit: n.humidity.unit || "%"
   }), n.illuminance && e.push({
     key: "illuminance",
-    Icon: qn,
+    Icon: Yn,
     label: "Lumino.",
     value: Math.round(parseFloat(n.illuminance.value)).toString(),
     unit: n.illuminance.unit || "lx"
@@ -27507,8 +27507,8 @@ function ey({
 }) {
   const u = oc(e.name), h = Bl(t), f = Mu(t), p = ac(
     `${f.lightsOn}|${f.coversOpen}|${f.mediaPlaying}|${f.alerts.length}|${d?.kind ?? ""}`
-  ), g = Jv(h), _ = f.lightsOn === 0 && f.coversOpen === 0 && !f.mediaPlaying && f.alerts.length === 0, m = s === "phone", v = _ && !d ? c ?? null : null, b = (C, M, B, H) => {
-    C.stopPropagation(), H.length !== 0 && n.callService(M, B, { entity_id: H });
+  ), g = Jv(h), _ = f.lightsOn === 0 && f.coversOpen === 0 && !f.mediaPlaying && f.alerts.length === 0, m = s === "phone", v = _ && !d ? c ?? null : null, b = (P, B, H, U) => {
+    P.stopPropagation(), U.length !== 0 && n.callService(B, H, { entity_id: U });
   }, x = d ? /* @__PURE__ */ l(
     "span",
     {
@@ -27523,71 +27523,71 @@ function ey({
   ].filter(Boolean).join(" "), S = i ? /* @__PURE__ */ l("svg", { class: "nido-room-card__deco", viewBox: "0 0 120 120", "aria-hidden": "true", children: [
     /* @__PURE__ */ l("circle", { cx: "60", cy: "60", r: "48", fill: "none", stroke: "rgba(244,237,226,0.08)" }),
     /* @__PURE__ */ l("circle", { cx: "60", cy: "60", r: "32", fill: "none", stroke: "rgba(244,237,226,0.08)" })
-  ] }) : null, w = o && o.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-room-card__presence", children: o.map(
-    (C) => C.picture ? /* @__PURE__ */ l("img", { class: "nido-room-card__avatar", src: C.picture, alt: C.name }, C.name) : /* @__PURE__ */ l("span", { class: "nido-room-card__avatar nido-room-card__avatar--initial", children: C.name[0].toUpperCase() }, C.name)
-  ) }) : null, T = /* @__PURE__ */ l("div", { class: "nido-room-card__chips", children: [
+  ] }) : null, A = o && o.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-room-card__presence", children: o.map(
+    (P) => P.picture ? /* @__PURE__ */ l("img", { class: "nido-room-card__avatar", src: P.picture, alt: P.name }, P.name) : /* @__PURE__ */ l("span", { class: "nido-room-card__avatar nido-room-card__avatar--initial", children: P.name[0].toUpperCase() }, P.name)
+  ) }) : null, T = f.coversOpen > 0 ? /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--cover", children: [
+    /* @__PURE__ */ l(Mt, { size: 13 }),
+    f.coversOpen === 1 ? `${Math.round(f.coverPositions[0])} %` : f.coversOpen
+  ] }) : null, k = /* @__PURE__ */ l("div", { class: "nido-room-card__chips", children: [
     d && /* @__PURE__ */ l(
       "span",
       {
         class: "nido-room-card__chip nido-room-card__chip--presence",
         title: d.label,
         children: [
-          /* @__PURE__ */ l(wt, { size: 13 }),
+          /* @__PURE__ */ l(At, { size: 13 }),
           Qv[d.kind]
         ]
       }
     ),
     f.lightsOn > 0 && /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--on", children: [
-      /* @__PURE__ */ l(ft, { size: 13 }),
+      /* @__PURE__ */ l(pt, { size: 13 }),
       f.lightsOn
     ] }),
-    f.coversOpen > 0 && /* @__PURE__ */ l("span", { class: "nido-room-card__chip", children: [
-      /* @__PURE__ */ l(Pt, { size: 13 }),
-      f.coversOpen === 1 ? `${Math.round(f.coverPositions[0])} %` : f.coversOpen
-    ] }),
+    !m && T,
     f.mediaPlaying && /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--on", children: [
       /* @__PURE__ */ l(Ui, { size: 13 }),
       !m && "En lecture"
     ] }),
-    f.alerts.map((C) => {
-      const M = qv[C.kind];
+    f.alerts.map((P) => {
+      const B = qv[P.kind];
       return /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--alert", children: [
-        /* @__PURE__ */ l(M, { size: 13 }),
-        m ? Zv[C.kind] : C.label
-      ] }, C.label);
+        /* @__PURE__ */ l(B, { size: 13 }),
+        m ? Zv[P.kind] : P.label
+      ] }, P.label);
     }),
     _ && (v ? /* @__PURE__ */ l(
       "span",
       {
         class: "nido-room-card__chip nido-room-card__chip--idle",
-        title: ml(v),
+        title: gl(v),
         children: [
-          v.kind === "motion" && /* @__PURE__ */ l(wt, { size: 13 }),
-          m ? Xv(v) : ml(v)
+          v.kind === "motion" && /* @__PURE__ */ l(At, { size: 13 }),
+          m ? Xv(v) : gl(v)
         ]
       }
     ) : /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--idle", children: "Tout éteint" }))
-  ] }), k = g.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-room-card__band", children: g.map(({ key: C, Icon: M, label: B, value: H, unit: U }) => /* @__PURE__ */ l("span", { class: "nido-room-card__band-item", children: [
-    /* @__PURE__ */ l("span", { class: "nido-room-card__band-icon", children: /* @__PURE__ */ l(M, { size: 14 }) }),
-    /* @__PURE__ */ l("span", { class: "nido-room-card__band-label", children: B }),
+  ] }), I = g.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-room-card__band", children: g.map(({ key: P, Icon: B, label: H, value: U, unit: R }) => /* @__PURE__ */ l("span", { class: "nido-room-card__band-item", children: [
+    /* @__PURE__ */ l("span", { class: "nido-room-card__band-icon", children: /* @__PURE__ */ l(B, { size: 14 }) }),
+    /* @__PURE__ */ l("span", { class: "nido-room-card__band-label", children: H }),
     /* @__PURE__ */ l("span", { class: "nido-room-card__band-value", children: [
-      H,
-      /* @__PURE__ */ l("span", { class: "nido-room-card__band-unit", children: U })
+      U,
+      /* @__PURE__ */ l("span", { class: "nido-room-card__band-unit", children: R })
     ] })
-  ] }, C)) }) : null, I = s === "touch" && (f.lightIds.length > 0 || f.coverIds.length > 0) ? /* @__PURE__ */ l("div", { class: "nido-room-card__actions", "data-no-drag": !0, children: [
+  ] }, P)) }) : null, w = s === "touch" && (f.lightIds.length > 0 || f.coverIds.length > 0) ? /* @__PURE__ */ l("div", { class: "nido-room-card__actions", "data-no-drag": !0, children: [
     f.lightIds.length > 0 && /* @__PURE__ */ l(
       "button",
       {
         type: "button",
         class: `n-pill-btn${f.lightsOn === 0 ? " is-idle" : ""}`,
-        onClick: (C) => b(
-          C,
+        onClick: (P) => b(
+          P,
           "light",
           f.lightsOn > 0 ? "turn_off" : "turn_on",
           f.lightIds
         ),
         children: [
-          /* @__PURE__ */ l(ft, { size: 16 }),
+          /* @__PURE__ */ l(pt, { size: 16 }),
           f.lightsOn > 0 ? "Éteindre" : "Allumer"
         ]
       }
@@ -27598,17 +27598,17 @@ function ey({
         type: "button",
         class: "n-icon-btn",
         "aria-label": f.coversOpen > 0 ? "Fermer les volets" : "Ouvrir les volets",
-        onClick: (C) => b(
-          C,
+        onClick: (P) => b(
+          P,
           "cover",
           f.coversOpen > 0 ? "close_cover" : "open_cover",
           f.coverIds
         ),
-        children: /* @__PURE__ */ l(Pt, { size: 18 })
+        children: /* @__PURE__ */ l(Mt, { size: 18 })
       }
     )
-  ] }) : null, A = (C) => {
-    (C.key === "Enter" || C.key === " ") && (C.preventDefault(), r());
+  ] }) : null, M = (P) => {
+    (P.key === "Enter" || P.key === " ") && (P.preventDefault(), r());
   };
   return m ? /* @__PURE__ */ l(
     "div",
@@ -27618,7 +27618,7 @@ function ey({
       class: E,
       "data-flash": p ? "true" : void 0,
       onClick: r,
-      onKeyDown: A,
+      onKeyDown: M,
       ...a,
       children: [
         S,
@@ -27628,10 +27628,11 @@ function ey({
             x
           ] }),
           /* @__PURE__ */ l("span", { class: "nido-room-card__name", children: e.name }),
-          w,
-          /* @__PURE__ */ l("span", { class: "nido-room-card__chev", children: /* @__PURE__ */ l(Ys, { size: 16 }) })
+          A,
+          /* @__PURE__ */ l("span", { class: "nido-room-card__chev", children: /* @__PURE__ */ l(Ws, { size: 16 }) })
         ] }),
         /* @__PURE__ */ l("div", { class: "nido-room-card__line", children: [
+          I,
           k,
           T
         ] })
@@ -27645,7 +27646,7 @@ function ey({
       class: E,
       "data-flash": p ? "true" : void 0,
       onClick: r,
-      onKeyDown: A,
+      onKeyDown: M,
       ...a,
       children: [
         S,
@@ -27656,15 +27657,15 @@ function ey({
               x
             ] }),
             /* @__PURE__ */ l("div", { class: "nido-room-card__head-right", children: [
-              w,
-              /* @__PURE__ */ l(Ys, { size: 16 })
+              A,
+              /* @__PURE__ */ l(Ws, { size: 16 })
             ] })
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-room-card__foot", children: [
             /* @__PURE__ */ l("div", { class: "nido-room-card__name", children: e.name }),
-            T,
             k,
-            I
+            I,
+            w
           ] })
         ] })
       ]
@@ -27685,53 +27686,53 @@ function ty({
   onReorderFavorites: u,
   onReorderRooms: h
 }) {
-  const f = n.user?.name ?? "vous", p = au(), g = p.getHours(), { greeting: _, sub: m } = ou(g), v = `${String(g).padStart(2, "0")}:${String(p.getMinutes()).padStart(2, "0")}`, b = p.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (z) => z.toUpperCase()), x = X(() => new Set(s), [s]), E = X(
+  const f = n.user?.name ?? "vous", p = au(), g = p.getHours(), { greeting: _, sub: m } = ou(g), v = `${String(g).padStart(2, "0")}:${String(p.getMinutes()).padStart(2, "0")}`, b = p.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (z) => z.toUpperCase()), x = Q(() => new Set(s), [s]), E = Q(
     () => t.filter((z) => x.has(z.entity_id) && zd.has(z.domain)),
     [t, x]
-  ), S = X(
+  ), S = Q(
     () => E.find((z) => z.domain === "weather"),
     [E]
-  ), w = X(
+  ), A = Q(
     () => new Map(e.map((z) => [z.area_id, z.name])),
     [e]
-  ), T = X(
+  ), T = Q(
     () => E.filter((z) => z.domain === "light"),
     [E]
-  ), k = X(
-    () => os(T, w),
-    [T, w]
-  ), I = X(
+  ), k = Q(
+    () => as(T, A),
+    [T, A]
+  ), I = Q(
     () => T.filter(it).length,
     [T]
-  ), A = X(
+  ), w = Q(
     () => E.filter((z) => z.domain === "cover"),
     [E]
-  ), C = X(
-    () => os(A, w),
-    [A, w]
-  ), M = X(
-    () => A.filter(it).length,
-    [A]
-  ), B = X(
+  ), M = Q(
+    () => as(w, A),
+    [w, A]
+  ), P = Q(
+    () => w.filter(it).length,
+    [w]
+  ), B = Q(
     () => E.filter(
       (z) => z.domain === "binary_sensor" && Yv.has(z.state.attributes.device_class)
     ),
     [E]
-  ), H = X(
-    () => os(B, w),
-    [B, w]
-  ), U = X(
+  ), H = Q(
+    () => as(B, A),
+    [B, A]
+  ), U = Q(
     () => B.filter(it).length,
     [B]
-  ), R = X(
+  ), R = Q(
     () => E.filter((z) => z.domain === "calendar"),
     [E]
-  ), N = X(
-    () => Hv({ hass: n, entities: E, areaNameById: w, now: p }),
-    [n.states, E, w, p]
-  ), L = X(() => S ? Object.keys(n.states).some(
+  ), N = Q(
+    () => Hv({ hass: n, entities: E, areaNameById: A, now: p }),
+    [n.states, E, A, p]
+  ), L = Q(() => S ? Object.keys(n.states).some(
     (le) => le.startsWith("sensor.") && (le.endsWith("_next_rain") || le.endsWith("_weather_alert") || le.endsWith("_uv"))
-  ) : !1, [n.states, S]), [O, G] = V(!1), [$, K] = V(!1), [ie, q] = V(!1), [j, Z] = V(!1), [ee, re] = V(!1), [Se, te] = V(!1), [Te, Ue] = V(!1), [qt, Xt] = Fv(n), Ze = X(() => {
+  ) : !1, [n.states, S]), [O, V] = G(!1), [$, K] = G(!1), [Y, ie] = G(!1), [j, q] = G(!1), [te, ae] = G(!1), [Se, ee] = G(!1), [Te, Ue] = G(!1), [Xt, Qt] = Fv(n), Ze = Q(() => {
     const z = n.states["sensor.nido_notifications"];
     return !z || !z.attributes.notifications ? [] : z.attributes.notifications;
   }, [n.states["sensor.nido_notifications"]]), ce = ue(new Set(Ze.map((z) => z.id))), Ie = ue(!0);
@@ -27743,54 +27744,57 @@ function ty({
     }
     Ze.some((qe) => !z.has(qe.id)) && jd(), ce.current = new Set(Ze.map((qe) => qe.id));
   }, [Ze]);
-  const Fe = X(() => Vl(), [$]), mt = X(() => {
+  const Fe = Q(() => Vl(), [$]), _t = Q(() => {
     if (Ze.length === 0) return !1;
     if (!Fe) return !0;
     const z = Ze[Ze.length - 1];
     return new Date(z.timestamp) > new Date(Fe);
   }, [Ze, Fe]), Ke = () => {
     K(!0), Kl((/* @__PURE__ */ new Date()).toISOString());
-  }, _t = X(() => Object.values(n.states).filter(
+  }, vt = Q(() => Object.values(n.states).filter(
     (z) => z.entity_id.startsWith("person.") && z.state === "home" && z.attributes.entity_picture
-  ), [n.states]), vt = (z) => {
+  ), [n.states]), yt = (z) => {
     if (!z) return null;
     if (z.startsWith("http")) return z;
     const le = n.hassUrl?.("");
     return le ? le.replace(/\/$/, "") + z : z;
-  }, Qt = X(() => mn(E), [E]), Zt = X(() => Wv(n, e), [n.states, e]), Gi = X(() => {
+  }, rt = Q(() => Nl(E), [E]), Zt = Q(
+    () => Wv(n, e, E),
+    [n.states, e, E]
+  ), Gi = Q(() => {
     const z = /* @__PURE__ */ new Map();
-    for (const [le, qe] of mn(t)) {
+    for (const [le, qe] of rt) {
       if (!le) continue;
-      const Bt = Lu(qe);
-      Bt && z.set(le, Bt);
+      const Ut = Lu(qe);
+      Ut && z.set(le, Ut);
     }
     return z;
-  }, [t]), $t = X(() => {
+  }, [rt]), Bt = Q(() => {
     const z = /* @__PURE__ */ new Map();
-    for (const [le, qe] of mn(t)) {
+    for (const [le, qe] of rt) {
       if (!le) continue;
-      const Bt = $l(qe, p);
-      Bt && z.set(le, Bt);
+      const Ut = $l(qe, p);
+      Ut && z.set(le, Ut);
     }
     return z;
-  }, [t, p]), _i = Yu(), vi = X(() => {
+  }, [rt, p]), _i = Yu(), vi = Q(() => {
     const z = new Map(E.map((le) => [le.entity_id, le]));
     return i.map((le) => z.get(le)).filter((le) => !!le);
-  }, [E, i]), Jt = X(() => {
-    const z = e.filter((le) => (Qt.get(le.area_id) ?? []).length > 0);
-    return wr(z, r, (le) => le.area_id);
-  }, [e, Qt, r]), ei = Ws(
+  }, [E, i]), Jt = Q(() => {
+    const z = e.filter((le) => (rt.get(le.area_id) ?? []).length > 0);
+    return kr(z, r, (le) => le.area_id);
+  }, [e, rt, r]), ei = js(
     vi,
     (z) => z.entity_id,
     (z) => u(z.map((le) => le.entity_id))
-  ), yt = Ws(
+  ), bt = js(
     Jt,
     (z) => z.area_id,
     (z) => h(z.map((le) => le.area_id))
   ), cu = vi.some(
     (z) => !(z.domain === "binary_sensor" && z.state.state === "off")
   );
-  let ss = 0;
+  let ns = 0;
   const du = cu ? /* @__PURE__ */ l("section", { class: "nido-room nido-room--favorites", children: [
     /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { class: "is-accent", children: "Favoris" }) }),
     /* @__PURE__ */ l(
@@ -27802,8 +27806,8 @@ function ty({
         },
         children: vi.map((z) => {
           if (z.domain === "binary_sensor" && z.state.state === "off") return null;
-          ss += 1;
-          const qe = ss === 1, Bt = (ss - 1) % 4 + 1;
+          ns += 1;
+          const qe = ns === 1, Ut = (ns - 1) % 4 + 1;
           return /* @__PURE__ */ l(
             lc,
             {
@@ -27814,7 +27818,7 @@ function ty({
                 hass: n,
                 areaName: e.find((hu) => hu.area_id === z.area_id)?.name ?? "",
                 hero: qe,
-                variant: Bt,
+                variant: Ut,
                 calendarEntities: R
               })
             },
@@ -27823,7 +27827,7 @@ function ty({
         })
       }
     )
-  ] }, "__favorites") : null, oa = !!c && x.has(ct) && !!n.states[ct], uu = E.length > 0;
+  ] }, "__favorites") : null, aa = !!c && x.has(dt) && !!n.states[dt], uu = E.length > 0;
   return /* @__PURE__ */ l("div", { class: "nido-shell", children: [
     /* @__PURE__ */ l("div", { class: "nido-dashboard", children: [
       /* @__PURE__ */ l("header", { class: "nido-topbar", children: [
@@ -27836,35 +27840,35 @@ function ty({
           {
             type: "button",
             class: "nido-weather-pill-btn",
-            onClick: () => G(!0),
+            onClick: () => V(!0),
             "aria-label": "Voir la météo détaillée",
-            children: /* @__PURE__ */ l(Pa, { entity: S })
+            children: /* @__PURE__ */ l(Ca, { entity: S })
           }
-        ) : /* @__PURE__ */ l(Pa, { entity: S })) }),
+        ) : /* @__PURE__ */ l(Ca, { entity: S })) }),
         /* @__PURE__ */ l("div", { class: "nido-topbar__utility", children: [
           T.length > 0 && /* @__PURE__ */ l(
             "button",
             {
               type: "button",
               class: "nido-lights-pill-btn",
-              onClick: () => q(!0),
+              onClick: () => ie(!0),
               "aria-label": `${I} lumière${I > 1 ? "s" : ""} allumée${I > 1 ? "s" : ""}`,
               children: /* @__PURE__ */ l("div", { class: "nido-lights-pill", children: [
-                /* @__PURE__ */ l(ft, { size: 16 }),
+                /* @__PURE__ */ l(pt, { size: 16 }),
                 /* @__PURE__ */ l("span", { class: "nido-lights-pill__count", children: I })
               ] })
             }
           ),
-          A.length > 0 && /* @__PURE__ */ l(
+          w.length > 0 && /* @__PURE__ */ l(
             "button",
             {
               type: "button",
               class: "nido-covers-pill-btn",
-              onClick: () => Z(!0),
-              "aria-label": `${M} volet${M > 1 ? "s" : ""} ouvert${M > 1 ? "s" : ""}`,
+              onClick: () => q(!0),
+              "aria-label": `${P} volet${P > 1 ? "s" : ""} ouvert${P > 1 ? "s" : ""}`,
               children: /* @__PURE__ */ l("div", { class: "nido-covers-pill", children: [
-                /* @__PURE__ */ l(Pt, { size: 16 }),
-                /* @__PURE__ */ l("span", { class: "nido-covers-pill__count", children: M })
+                /* @__PURE__ */ l(Mt, { size: 16 }),
+                /* @__PURE__ */ l("span", { class: "nido-covers-pill__count", children: P })
               ] })
             }
           ),
@@ -27873,7 +27877,7 @@ function ty({
             {
               type: "button",
               class: "nido-covers-pill-btn",
-              onClick: () => re(!0),
+              onClick: () => ae(!0),
               "aria-label": `${U} ouvrant${U > 1 ? "s" : ""} ouvert${U > 1 ? "s" : ""}`,
               children: /* @__PURE__ */ l("div", { class: "nido-covers-pill", children: [
                 /* @__PURE__ */ l(Bi, { size: 16 }),
@@ -27888,7 +27892,7 @@ function ty({
             {
               type: "button",
               class: "nido-bell-btn",
-              onClick: () => te(!0),
+              onClick: () => ee(!0),
               "aria-label": "Bloc note",
               title: "Bloc note",
               children: /* @__PURE__ */ l(Oh, { size: 20 })
@@ -27902,8 +27906,8 @@ function ty({
               onClick: Ke,
               "aria-label": "Notifications",
               children: [
-                /* @__PURE__ */ l(Ar, { size: 20 }),
-                mt && /* @__PURE__ */ l("span", { class: "nido-bell-btn__badge" })
+                /* @__PURE__ */ l(wr, { size: 20 }),
+                _t && /* @__PURE__ */ l("span", { class: "nido-bell-btn__badge" })
               ]
             }
           ),
@@ -27913,7 +27917,7 @@ function ty({
               type: "button",
               class: "n-pill-btn n-pill-btn--ghost",
               onClick: o,
-              children: /* @__PURE__ */ l(Ir, { size: 16 })
+              children: /* @__PURE__ */ l(Ar, { size: 16 })
             }
           )
         ] })
@@ -27926,9 +27930,9 @@ function ty({
             ", ",
             /* @__PURE__ */ l("em", { children: f })
           ] }),
-          _t.length > 0 && /* @__PURE__ */ l("div", { class: "nido-home-pill", children: [
-            /* @__PURE__ */ l("div", { class: "nido-home-pill__avatars", children: _t.map((z) => {
-              const le = vt(z.attributes.entity_picture);
+          vt.length > 0 && /* @__PURE__ */ l("div", { class: "nido-home-pill", children: [
+            /* @__PURE__ */ l("div", { class: "nido-home-pill__avatars", children: vt.map((z) => {
+              const le = yt(z.attributes.entity_picture);
               return le ? /* @__PURE__ */ l(
                 "img",
                 {
@@ -27951,14 +27955,14 @@ function ty({
       ] }),
       uu ? /* @__PURE__ */ l(he, { children: [
         du,
-        (oa || a) && /* @__PURE__ */ l("div", { class: "nido-energy-row", children: [
-          oa && /* @__PURE__ */ l("section", { class: "nido-room nido-room--energy", children: [
+        (aa || a) && /* @__PURE__ */ l("div", { class: "nido-energy-row", children: [
+          aa && /* @__PURE__ */ l("section", { class: "nido-room nido-room--energy", children: [
             /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { children: "Consommation en direct" }) }),
             /* @__PURE__ */ l("div", { class: "nido-energy-summary", children: /* @__PURE__ */ l(
               Yd,
               {
                 hass: n,
-                powerEntityId: ct,
+                powerEntityId: dt,
                 onOpen: c
               }
             ) })
@@ -27968,9 +27972,9 @@ function ty({
             /* @__PURE__ */ l("div", { class: "nido-kids-summary", children: /* @__PURE__ */ l(
               Pv,
               {
-                data: qt,
+                data: Xt,
                 onOpen: () => Ue(!0),
-                onChange: Xt
+                onChange: Qt
               }
             ) })
           ] }, "__kids")
@@ -27980,23 +27984,23 @@ function ty({
           /* @__PURE__ */ l(
             "div",
             {
-              class: `nido-rooms-grid nido-rooms-grid--${_i} ${yt.isDragging ? "is-dragging" : ""}`,
+              class: `nido-rooms-grid nido-rooms-grid--${_i} ${bt.isDragging ? "is-dragging" : ""}`,
               ref: (z) => {
-                yt.containerRef.current = z;
+                bt.containerRef.current = z;
               },
               children: Jt.map((z, le) => /* @__PURE__ */ l(
                 ey,
                 {
                   hass: n,
                   area: z,
-                  entities: Qt.get(z.area_id) ?? [],
+                  entities: rt.get(z.area_id) ?? [],
                   accent: le === 0,
                   layout: _i,
                   onOpen: () => d(z.area_id),
-                  dragProps: yt.itemPropsFor(z.area_id),
+                  dragProps: bt.itemPropsFor(z.area_id),
                   presence: Zt.get(z.area_id),
                   occupancy: Gi.get(z.area_id) ?? null,
-                  activity: $t.get(z.area_id) ?? null
+                  activity: Bt.get(z.area_id) ?? null
                 },
                 z.area_id
               ))
@@ -28013,7 +28017,7 @@ function ty({
       {
         hass: n,
         weatherEntityId: S.entity_id,
-        onClose: () => G(!1)
+        onClose: () => V(!1)
       }
     ),
     $ && /* @__PURE__ */ l(
@@ -28024,44 +28028,44 @@ function ty({
         onClose: () => K(!1)
       }
     ),
-    ie && /* @__PURE__ */ l(
+    Y && /* @__PURE__ */ l(
       W_,
       {
         hass: n,
         lights: k,
         areas: e,
-        onClose: () => q(!1)
+        onClose: () => ie(!1)
       }
     ),
     j && /* @__PURE__ */ l(
       q_,
       {
         hass: n,
-        covers: C,
+        covers: M,
         areas: e,
-        onClose: () => Z(!1)
+        onClose: () => q(!1)
       }
     ),
-    ee && /* @__PURE__ */ l(
+    te && /* @__PURE__ */ l(
       Z_,
       {
         openings: H,
         areas: e,
-        onClose: () => re(!1)
+        onClose: () => ae(!1)
       }
     ),
     Se && /* @__PURE__ */ l(
       ev,
       {
         hass: n,
-        onClose: () => te(!1)
+        onClose: () => ee(!1)
       }
     ),
     Te && /* @__PURE__ */ l(
       Mv,
       {
-        data: qt,
-        onChange: Xt,
+        data: Xt,
+        onChange: Qt,
         onClose: () => Ue(!1)
       }
     )
@@ -28071,47 +28075,46 @@ function iy({
   hass: n,
   area: e,
   entities: t,
-  allRoomEntities: i,
-  entitiesOrder: s,
-  onBack: r,
-  onReorderEntities: a
+  entitiesOrder: i,
+  onBack: s,
+  onReorderEntities: r
 }) {
-  const o = oc(e.name), d = Bl(t), c = au(), u = X(
-    () => wr(t, s, (S) => S.entity_id),
-    [t, s]
-  ), h = X(
-    () => u.filter((S) => {
-      if (S.domain !== "sensor") return !0;
-      const w = S.state.attributes.device_class;
-      return w !== "temperature" && w !== "humidity";
+  const a = oc(e.name), o = Bl(t), d = au(), c = Q(
+    () => kr(t, i, (E) => E.entity_id),
+    [t, i]
+  ), u = Q(
+    () => c.filter((E) => {
+      if (E.domain !== "sensor") return !0;
+      const S = E.state.attributes.device_class;
+      return S !== "temperature" && S !== "humidity";
     }),
+    [c]
+  ), h = Q(
+    () => u.filter((E) => E.domain === "calendar"),
     [u]
-  ), f = X(
-    () => h.filter((S) => S.domain === "calendar"),
-    [h]
-  ), p = X(() => {
-    const S = /* @__PURE__ */ new Map();
-    for (const w of h)
-      S.set(w.domain, (S.get(w.domain) ?? 0) + 1);
-    return Array.from(S.entries()).sort((w, T) => T[1] - w[1]);
-  }, [h]), [g, _] = V("all"), m = X(
-    () => g === "all" ? h : h.filter((S) => S.domain === g),
-    [h, g]
-  ), v = Ws(
-    m,
-    (S) => S.entity_id,
-    (S) => {
-      const w = new Set(m.map((I) => I.entity_id)), T = [...S], k = u.map(
-        (I) => w.has(I.entity_id) ? T.shift() : I
+  ), f = Q(() => {
+    const E = /* @__PURE__ */ new Map();
+    for (const S of u)
+      E.set(S.domain, (E.get(S.domain) ?? 0) + 1);
+    return Array.from(E.entries()).sort((S, A) => A[1] - S[1]);
+  }, [u]), [p, g] = G("all"), _ = Q(
+    () => p === "all" ? u : u.filter((E) => E.domain === p),
+    [u, p]
+  ), m = js(
+    _,
+    (E) => E.entity_id,
+    (E) => {
+      const S = new Set(_.map((k) => k.entity_id)), A = [...E], T = c.map(
+        (k) => S.has(k.entity_id) ? A.shift() : k
       );
-      a(k.map((I) => I.entity_id));
+      r(T.map((k) => k.entity_id));
     }
-  ), b = h.filter(
-    (S) => S.domain !== "sensor" && S.domain !== "binary_sensor"
-  ).length, x = h.filter(it).length, E = x === 0 ? $l(i, c) : null;
+  ), v = u.filter(
+    (E) => E.domain !== "sensor" && E.domain !== "binary_sensor"
+  ).length, b = u.filter(it).length, x = b === 0 ? $l(t, d) : null;
   return /* @__PURE__ */ l("div", { class: "nido-shell", children: /* @__PURE__ */ l("div", { class: "nido-dashboard nido-room-detail", children: [
     /* @__PURE__ */ l("header", { class: "nido-room-detail__header", children: [
-      /* @__PURE__ */ l("button", { type: "button", class: "n-icon-btn nido-room-detail__back", onClick: r, children: /* @__PURE__ */ l(ic, { size: 18 }) }),
+      /* @__PURE__ */ l("button", { type: "button", class: "n-icon-btn nido-room-detail__back", onClick: s, children: /* @__PURE__ */ l(ic, { size: 18 }) }),
       /* @__PURE__ */ l("div", { class: "nido-room-detail__crumb", children: [
         /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Maison · Pièce" }),
         /* @__PURE__ */ l("div", { class: "nido-room-detail__brand", children: "nido" })
@@ -28122,56 +28125,56 @@ function iy({
       /* @__PURE__ */ l("div", { class: "nido-room-detail__hero-left", children: [
         /* @__PURE__ */ l("div", { class: "nido-room-detail__icon", children: [
           /* @__PURE__ */ l("div", { class: "pattern-dots nido-room-detail__icon-bg", "aria-hidden": "true" }),
-          /* @__PURE__ */ l(o, { size: 32 })
+          /* @__PURE__ */ l(a, { size: 32 })
         ] }),
         /* @__PURE__ */ l("div", { children: [
           /* @__PURE__ */ l("div", { class: "nido-room-detail__hero-meta", children: [
             /* @__PURE__ */ l("span", { children: [
-              b,
+              v,
               " appareil",
-              b > 1 ? "s" : ""
+              v > 1 ? "s" : ""
             ] }),
-            x > 0 ? /* @__PURE__ */ l(he, { children: [
+            b > 0 ? /* @__PURE__ */ l(he, { children: [
               /* @__PURE__ */ l("span", { class: "nido-room-card__sep", children: "•" }),
               /* @__PURE__ */ l("span", { class: "nido-room-card__active", children: [
                 /* @__PURE__ */ l("span", { class: "nido-room-card__dot" }),
-                x,
+                b,
                 " actif",
-                x > 1 ? "s" : ""
+                b > 1 ? "s" : ""
               ] })
-            ] }) : E && /* @__PURE__ */ l(he, { children: [
+            ] }) : x && /* @__PURE__ */ l(he, { children: [
               /* @__PURE__ */ l("span", { class: "nido-room-card__sep", children: "•" }),
-              /* @__PURE__ */ l("span", { children: E.kind === "motion" ? `mouvement il y a ${Yt(E.minutes)}` : `calme depuis ${Yt(E.minutes)}` })
+              /* @__PURE__ */ l("span", { children: x.kind === "motion" ? `mouvement il y a ${qt(x.minutes)}` : `calme depuis ${qt(x.minutes)}` })
             ] })
           ] }),
           /* @__PURE__ */ l("h1", { class: "nido-room-detail__title", children: e.name })
         ] })
       ] }),
-      (d.temperature || d.humidity || d.illuminance) && /* @__PURE__ */ l("div", { class: "nido-room-detail__stats", children: [
-        d.temperature && /* @__PURE__ */ l(
-          Bs,
+      (o.temperature || o.humidity || o.illuminance) && /* @__PURE__ */ l("div", { class: "nido-room-detail__stats", children: [
+        o.temperature && /* @__PURE__ */ l(
+          $s,
           {
             label: "Température",
-            value: d.temperature.value,
-            unit: d.temperature.unit || "°"
+            value: o.temperature.value,
+            unit: o.temperature.unit || "°"
           }
         ),
-        d.humidity && /* @__PURE__ */ l(_l, {}),
-        d.humidity && /* @__PURE__ */ l(
-          Bs,
+        o.humidity && /* @__PURE__ */ l(ml, {}),
+        o.humidity && /* @__PURE__ */ l(
+          $s,
           {
             label: "Humidité",
-            value: Math.round(parseFloat(d.humidity.value)).toString(),
-            unit: d.humidity.unit || "%"
+            value: Math.round(parseFloat(o.humidity.value)).toString(),
+            unit: o.humidity.unit || "%"
           }
         ),
-        d.illuminance && /* @__PURE__ */ l(_l, {}),
-        d.illuminance && /* @__PURE__ */ l(
-          Bs,
+        o.illuminance && /* @__PURE__ */ l(ml, {}),
+        o.illuminance && /* @__PURE__ */ l(
+          $s,
           {
             label: "Luminosité",
-            value: Math.round(parseFloat(d.illuminance.value)).toString(),
-            unit: d.illuminance.unit || "lx"
+            value: Math.round(parseFloat(o.illuminance.value)).toString(),
+            unit: o.illuminance.unit || "lx"
           }
         )
       ] })
@@ -28181,24 +28184,24 @@ function iy({
         "button",
         {
           type: "button",
-          class: `n-pill-btn ${g === "all" ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
-          onClick: () => _("all"),
+          class: `n-pill-btn ${p === "all" ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
+          onClick: () => g("all"),
           children: [
             "Tout · ",
             t.length
           ]
         }
       ),
-      p.map(([S, w]) => /* @__PURE__ */ l(
+      f.map(([E, S]) => /* @__PURE__ */ l(
         "button",
         {
           type: "button",
-          class: `n-pill-btn ${g === S ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
-          onClick: () => _(S),
+          class: `n-pill-btn ${p === E ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
+          onClick: () => g(E),
           children: [
-            Gh[S] ?? S,
+            Gh[E] ?? E,
             " · ",
-            w
+            S
           ]
         }
       ))
@@ -28206,28 +28209,28 @@ function iy({
     /* @__PURE__ */ l(
       "div",
       {
-        class: `nido-room-detail__grid ${v.isDragging ? "is-dragging" : ""}`,
-        ref: (S) => {
-          v.containerRef.current = S;
+        class: `nido-room-detail__grid ${m.isDragging ? "is-dragging" : ""}`,
+        ref: (E) => {
+          m.containerRef.current = E;
         },
-        children: m.map((S, w) => {
-          const T = w % 4 + 1, k = w === 0;
+        children: _.map((E, S) => {
+          const A = S % 4 + 1, T = S === 0;
           return /* @__PURE__ */ l(
             lc,
             {
-              signature: `${S.state.state}|${S.state.last_changed}`,
-              hero: k,
-              dragProps: v.itemPropsFor(S.entity_id),
-              children: Hd(S, { hass: n, areaName: e.name, hero: k, variant: T, calendarEntities: f })
+              signature: `${E.state.state}|${E.state.last_changed}`,
+              hero: T,
+              dragProps: m.itemPropsFor(E.entity_id),
+              children: Hd(E, { hass: n, areaName: e.name, hero: T, variant: A, calendarEntities: h })
             },
-            S.entity_id
+            E.entity_id
           );
         })
       }
     )
   ] }) });
 }
-function Bs({ label: n, value: e, unit: t }) {
+function $s({ label: n, value: e, unit: t }) {
   return /* @__PURE__ */ l("div", { class: "nido-room-detail__stat", children: [
     /* @__PURE__ */ l("div", { class: "n-eyebrow", children: n }),
     /* @__PURE__ */ l("div", { class: "nido-room-detail__stat-value", children: [
@@ -28236,27 +28239,27 @@ function Bs({ label: n, value: e, unit: t }) {
     ] })
   ] });
 }
-function _l() {
+function ml() {
   return /* @__PURE__ */ l("div", { class: "nido-room-detail__stat-sep", "aria-hidden": "true" });
 }
 const cn = 5, Ti = {
-  light: { label: "Lumières", Icon: ft },
-  switch: { label: "Prises & switches", Icon: jn },
-  cover: { label: "Volets & stores", Icon: Pt },
+  light: { label: "Lumières", Icon: pt },
+  switch: { label: "Prises & switches", Icon: Hn },
+  cover: { label: "Volets & stores", Icon: Mt },
   climate: { label: "Thermostats", Icon: nt },
-  lock: { label: "Serrures", Icon: Wn },
-  vacuum: { label: "Aspirateurs", Icon: Yn },
-  binary_sensor: { label: "Détecteurs", Icon: Mt },
-  sensor: { label: "Capteurs", Icon: wt },
+  lock: { label: "Serrures", Icon: jn },
+  vacuum: { label: "Aspirateurs", Icon: Wn },
+  binary_sensor: { label: "Détecteurs", Icon: Ot },
+  sensor: { label: "Capteurs", Icon: At },
   media_player: { label: "Lecteurs média", Icon: Ui },
-  alarm_control_panel: { label: "Alarmes", Icon: Mt },
-  camera: { label: "Caméras", Icon: Xn },
-  fan: { label: "Ventilateurs", Icon: Qn },
-  scene: { label: "Scènes", Icon: Zn },
-  script: { label: "Scripts", Icon: Ot },
-  weather: { label: "Météo", Icon: Rr },
-  calendar: { label: "Calendriers", Icon: Pr }
-}, vl = Object.keys(Ti), mr = {
+  alarm_control_panel: { label: "Alarmes", Icon: Ot },
+  camera: { label: "Caméras", Icon: qn },
+  fan: { label: "Ventilateurs", Icon: Xn },
+  scene: { label: "Scènes", Icon: Qn },
+  script: { label: "Scripts", Icon: Ft },
+  weather: { label: "Météo", Icon: Lr },
+  calendar: { label: "Calendriers", Icon: Cr }
+}, _l = Object.keys(Ti), gr = {
   terracotta: { name: "Terracotta", desc: "Toscan chaleureux", swatches: ["#f4ede2", "#c75a2a", "#1a1410"] },
   miel: { name: "Miel", desc: "Solaire et doré", swatches: ["#f6ecd6", "#d4a020", "#2a1f10"] },
   sauge: { name: "Sauge", desc: "Organique scandinave", swatches: ["#ebe7d8", "#6a7a3a", "#1a1d10"] },
@@ -28277,54 +28280,54 @@ function ny(n) {
     onApplyTheme: h,
     onClose: f,
     onDone: p
-  } = n, g = st(f), [_, m] = V(0), [v, b] = V(s), [x, E] = V(r), [S, w] = V(new Set(a)), [T, k] = V(new Set(o)), [I, A] = V(
+  } = n, g = st(f), [_, m] = G(0), [v, b] = G(s), [x, E] = G(r), [S, A] = G(new Set(a)), [T, k] = G(new Set(o)), [I, w] = G(
     new Set(d)
-  ), [C, M] = V(c), [B, H] = V(null), [U, R] = V(null);
+  ), [M, P] = G(c), [B, H] = G(null), [U, R] = G(null);
   de(() => {
     let j = !1;
-    return e.callWS({ type: "config/auth/list" }).then((Z) => {
+    return e.callWS({ type: "config/auth/list" }).then((q) => {
       j || H(
-        (Z ?? []).filter((ee) => !ee.system_generated).sort((ee, re) => ee.name.localeCompare(re.name))
+        (q ?? []).filter((te) => !te.system_generated).sort((te, ae) => te.name.localeCompare(ae.name))
       );
-    }).catch((Z) => {
-      j || (R(Z instanceof Error ? Z.message : String(Z)), e.user && H([e.user]));
+    }).catch((q) => {
+      j || (R(q instanceof Error ? q.message : String(q)), e.user && H([e.user]));
     }), () => {
       j = !0;
     };
   }, [e]);
-  const N = () => m((j) => Math.min(cn - 1, j + 1)), L = () => m((j) => Math.max(0, j - 1)), O = (j, Z) => {
-    b(j), E(Z), h(j, Z);
-  }, G = (j) => {
-    w((Z) => {
-      const ee = new Set(Z);
-      return ee.has(j) ? (ee.delete(j), k((re) => {
-        if (!re.has(j)) return re;
-        const Se = new Set(re);
+  const N = () => m((j) => Math.min(cn - 1, j + 1)), L = () => m((j) => Math.max(0, j - 1)), O = (j, q) => {
+    b(j), E(q), h(j, q);
+  }, V = (j) => {
+    A((q) => {
+      const te = new Set(q);
+      return te.has(j) ? (te.delete(j), k((ae) => {
+        if (!ae.has(j)) return ae;
+        const Se = new Set(ae);
         return Se.delete(j), Se;
-      })) : ee.add(j), ee;
+      })) : te.add(j), te;
     });
   }, $ = (j) => {
-    k((Z) => {
-      const ee = new Set(Z);
-      return ee.has(j) ? ee.delete(j) : (ee.add(j), w((re) => re.has(j) ? re : new Set(re).add(j))), ee;
+    k((q) => {
+      const te = new Set(q);
+      return te.has(j) ? te.delete(j) : (te.add(j), A((ae) => ae.has(j) ? ae : new Set(ae).add(j))), te;
     });
   }, K = (j) => {
-    A((Z) => {
-      const ee = new Set(Z);
-      return ee.has(j) ? ee.delete(j) : ee.add(j), ee;
+    w((q) => {
+      const te = new Set(q);
+      return te.has(j) ? te.delete(j) : te.add(j), te;
     });
-  }, ie = () => {
-    const j = Array.from(S), Z = Array.from(T).filter((re) => S.has(re)), ee = Array.from(I);
-    Aa(v, x), Sa(j), js(Z), Ta(ee), Ia(C), wa(), p({
+  }, Y = () => {
+    const j = Array.from(S), q = Array.from(T).filter((ae) => S.has(ae)), te = Array.from(I);
+    wa(v, x), Ea(j), Hs(q), Sa(te), Aa(M), ka(), p({
       exposed: j,
-      favorites: Z,
+      favorites: q,
       theme: v,
       mode: x,
-      excludedUsers: ee,
-      kidsEnabled: C
+      excludedUsers: te,
+      kidsEnabled: M
     });
-  }, q = () => {
-    Aa(v, x), Sa(Array.from(S)), js(Array.from(T).filter((j) => S.has(j))), Ta(Array.from(I)), Ia(C), wa(), f();
+  }, ie = () => {
+    wa(v, x), Ea(Array.from(S)), Hs(Array.from(T).filter((j) => S.has(j))), Sa(Array.from(I)), Aa(M), ka(), f();
   };
   return /* @__PURE__ */ l("div", { ref: g, class: "n-ob", role: "dialog", "aria-modal": "true", "aria-label": "Configuration de Nido", children: /* @__PURE__ */ l("div", { class: "n-ob__shell", children: [
     /* @__PURE__ */ l("header", { class: "n-ob__header", children: [
@@ -28333,10 +28336,10 @@ function ny(n) {
         /* @__PURE__ */ l("span", { class: "n-ob__brand-name", children: "nido" })
       ] }),
       /* @__PURE__ */ l("div", { class: "n-ob__stepper", children: [
-        Array.from({ length: cn }, (j, Z) => /* @__PURE__ */ l(
+        Array.from({ length: cn }, (j, q) => /* @__PURE__ */ l(
           "span",
           {
-            class: `n-ob__step-dot ${Z === _ ? "is-active" : ""} ${Z < _ ? "is-done" : ""}`
+            class: `n-ob__step-dot ${q === _ ? "is-active" : ""} ${q < _ ? "is-done" : ""}`
           }
         )),
         /* @__PURE__ */ l("span", { class: "n-ob__step-count", children: [
@@ -28345,7 +28348,7 @@ function ny(n) {
           cn
         ] })
       ] }),
-      /* @__PURE__ */ l("button", { type: "button", class: "n-ob__skip", onClick: q, children: "Passer →" })
+      /* @__PURE__ */ l("button", { type: "button", class: "n-ob__skip", onClick: ie, children: "Passer →" })
     ] }),
     /* @__PURE__ */ l("div", { class: "n-ob__body", children: [
       _ === 0 && /* @__PURE__ */ l(
@@ -28354,7 +28357,7 @@ function ny(n) {
           isReturning: u,
           exposedCount: S.size,
           favCount: T.size,
-          themeLabel: mr[v].name,
+          themeLabel: gr[v].name,
           modeLabel: x === "light" ? "Clair" : "Sombre",
           allowedUsersCount: B ? B.filter((j) => !I.has(j.id)).length : null
         }
@@ -28366,7 +28369,7 @@ function ny(n) {
           entities: t,
           exposed: S,
           favs: T,
-          onToggleExpose: G,
+          onToggleExpose: V,
           onToggleFav: $
         }
       ),
@@ -28377,8 +28380,8 @@ function ny(n) {
           mode: x,
           onPick: O,
           userName: e.user?.name ?? "vous",
-          kidsEnabled: C,
-          onToggleKidsEnabled: () => M((j) => !j)
+          kidsEnabled: M,
+          onToggleKidsEnabled: () => P((j) => !j)
         }
       ),
       _ === 4 && /* @__PURE__ */ l(
@@ -28408,36 +28411,36 @@ function ny(n) {
       ),
       _ < cn - 1 ? /* @__PURE__ */ l("button", { type: "button", class: "n-ob__primary", onClick: N, children: [
         "Continuer ",
-        /* @__PURE__ */ l(Ca, { size: 16 })
-      ] }) : /* @__PURE__ */ l("button", { type: "button", class: "n-ob__primary", onClick: ie, children: [
+        /* @__PURE__ */ l(Da, { size: 16 })
+      ] }) : /* @__PURE__ */ l("button", { type: "button", class: "n-ob__primary", onClick: Y, children: [
         "Entrer chez moi ",
-        /* @__PURE__ */ l(Ca, { size: 16 })
+        /* @__PURE__ */ l(Da, { size: 16 })
       ] })
     ] })
   ] }) });
 }
-const yl = [
-  ft,
-  Pt,
-  jn,
-  nt,
-  Wn,
-  Yn,
-  wt,
-  Ui,
+const vl = [
+  pt,
   Mt,
+  Hn,
+  nt,
+  jn,
+  Wn,
+  At,
+  Ui,
+  Ot,
+  qn,
   Xn,
   Qn,
-  Zn,
-  Ot
+  Ft
 ];
 function dn({ offset: n, intervalMs: e }) {
-  const [t, i] = V(n);
+  const [t, i] = G(n);
   de(() => {
     const r = setInterval(() => i((a) => a + 1), e);
     return () => clearInterval(r);
   }, [e]);
-  const s = yl[t % yl.length];
+  const s = vl[t % vl.length];
   return /* @__PURE__ */ l("div", { class: "n-ob-cycle", children: /* @__PURE__ */ l(s, { size: 28 }) }, t);
 }
 function sy(n) {
@@ -28503,7 +28506,7 @@ function un(n) {
   ] });
 }
 function ry({ entitiesCount: n, areasCount: e }) {
-  const [t, i] = V("scanning");
+  const [t, i] = G("scanning");
   return de(() => {
     const s = setTimeout(() => i("found"), 1100), r = setTimeout(() => i("connected"), 2200);
     return () => {
@@ -28577,12 +28580,12 @@ function ry({ entitiesCount: n, areasCount: e }) {
   ] });
 }
 function ay(n) {
-  const { entities: e, exposed: t, favs: i, onToggleExpose: s, onToggleFav: r } = n, a = X(() => {
+  const { entities: e, exposed: t, favs: i, onToggleExpose: s, onToggleFav: r } = n, a = Q(() => {
     const m = /* @__PURE__ */ new Map();
     for (const v of e)
-      vl.includes(v.domain) && (m.has(v.domain) || m.set(v.domain, []), m.get(v.domain).push(v));
+      _l.includes(v.domain) && (m.has(v.domain) || m.set(v.domain, []), m.get(v.domain).push(v));
     return Array.from(m.entries()).sort((v, b) => b[1].length - v[1].length);
-  }, [e]), [o, d] = V(a[0]?.[0] ?? "light"), [c, u] = V(""), h = a.find(([m]) => m === o) ?? a[0], f = t.size, p = e.filter((m) => vl.includes(m.domain)).length, g = c.trim().toLowerCase(), _ = h ? g ? h[1].filter(
+  }, [e]), [o, d] = G(a[0]?.[0] ?? "light"), [c, u] = G(""), h = a.find(([m]) => m === o) ?? a[0], f = t.size, p = e.filter((m) => _l.includes(m.domain)).length, g = c.trim().toLowerCase(), _ = h ? g ? h[1].filter(
     (m) => (m.friendly_name ?? "").toLowerCase().includes(g) || m.entity_id.toLowerCase().includes(g)
   ) : h[1] : [];
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--entities", children: [
@@ -28597,7 +28600,7 @@ function ay(n) {
       ] }),
       /* @__PURE__ */ l("div", { class: "n-ob__hint", style: { marginBottom: 16 }, children: f === 0 ? "Aucun appareil exposé pour l'instant" : `appareil${f > 1 ? "s" : ""} exposé${f > 1 ? "s" : ""}` }),
       /* @__PURE__ */ l("div", { class: "n-ob-ent__list", children: a.map(([m, v]) => {
-        const b = Ti[m], x = b.Icon, E = v.filter((w) => t.has(w.entity_id)).length;
+        const b = Ti[m], x = b.Icon, E = v.filter((A) => t.has(A.entity_id)).length;
         return /* @__PURE__ */ l(
           "button",
           {
@@ -28712,7 +28715,7 @@ function ay(n) {
   ] });
 }
 function oy(n) {
-  const { theme: e, mode: t, userName: i, onPick: s, kidsEnabled: r, onToggleKidsEnabled: a } = n, o = mr[e];
+  const { theme: e, mode: t, userName: i, onPick: s, kidsEnabled: r, onToggleKidsEnabled: a } = n, o = gr[e];
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--theme", children: [
     /* @__PURE__ */ l("div", { class: "n-ob-step__col", children: [
       /* @__PURE__ */ l("div", { class: "n-ob__eyebrow", children: "Étape 3 · Ambiance" }),
@@ -28723,7 +28726,7 @@ function oy(n) {
       ] }),
       /* @__PURE__ */ l("p", { class: "n-ob__lead", children: "Vous pourrez en changer à tout moment. Chaque thème existe en clair et en sombre." }),
       /* @__PURE__ */ l("div", { class: "n-ob-theme__grid", children: Ul.map((d) => {
-        const c = mr[d];
+        const c = gr[d];
         return /* @__PURE__ */ l(
           "button",
           {
@@ -28755,7 +28758,7 @@ function oy(n) {
             class: `n-ob-theme__mode ${t === "light" ? "is-active" : ""}`,
             onClick: () => s(e, "light"),
             children: [
-              /* @__PURE__ */ l(qn, { size: 14 }),
+              /* @__PURE__ */ l(Yn, { size: 14 }),
               " Clair"
             ]
           }
@@ -28767,7 +28770,7 @@ function oy(n) {
             class: `n-ob-theme__mode ${t === "dark" ? "is-active" : ""}`,
             onClick: () => s(e, "dark"),
             children: [
-              /* @__PURE__ */ l(Cr, { size: 14 }),
+              /* @__PURE__ */ l(Dr, { size: 14 }),
               " Sombre"
             ]
           }
@@ -28904,7 +28907,7 @@ function ly(n) {
     }) }) })
   ] });
 }
-const bl = /* @__PURE__ */ new Set(["light", "switch", "cover", "lock", "vacuum", "fan", "climate"]), lu = {
+const yl = /* @__PURE__ */ new Set(["light", "switch", "cover", "lock", "vacuum", "fan", "climate"]), lu = {
   off: "Éteint",
   heat: "Chauffage",
   cool: "Climatisation",
@@ -28914,7 +28917,7 @@ const bl = /* @__PURE__ */ new Set(["light", "switch", "cover", "lock", "vacuum"
   fan_only: "Ventilation"
 };
 function cy(n, e) {
-  const [t, i] = V(void 0), s = e.map((a) => a.entity_id).join(","), r = Vd();
+  const [t, i] = G(void 0), s = e.map((a) => a.entity_id).join(","), r = Vd();
   return de(() => {
     if (e.length === 0) {
       i(null);
@@ -28927,7 +28930,7 @@ function cy(n, e) {
     return c.setDate(c.getDate() + 14), Promise.all(
       e.map(
         (u) => Kd(n, u.entity_id, d, c).then(
-          (h) => ra({ [u.entity_id]: h }, o)
+          (h) => sa({ [u.entity_id]: h }, o)
         )
       )
     ).then((u) => {
@@ -28956,72 +28959,72 @@ function hy({
   exposed: s,
   roomsOrder: r
 }) {
-  const [a, o] = V("glance"), [, d] = V(0), [c, u] = V(!1);
+  const [a, o] = G("glance"), [, d] = G(0), [c, u] = G(!1);
   de(() => {
-    const te = setInterval(() => d((Te) => Te + 1), 3e4);
-    return () => clearInterval(te);
+    const ee = setInterval(() => d((Te) => Te + 1), 3e4);
+    return () => clearInterval(ee);
   }, []);
-  const h = X(() => {
-    const te = n.states["sensor.nido_notifications"];
-    return !te || !te.attributes.notifications ? [] : te.attributes.notifications;
-  }, [n.states["sensor.nido_notifications"]]), f = ue(new Set(h.map((te) => te.id))), p = ue(!0);
+  const h = Q(() => {
+    const ee = n.states["sensor.nido_notifications"];
+    return !ee || !ee.attributes.notifications ? [] : ee.attributes.notifications;
+  }, [n.states["sensor.nido_notifications"]]), f = ue(new Set(h.map((ee) => ee.id))), p = ue(!0);
   de(() => {
-    const te = f.current;
+    const ee = f.current;
     if (p.current) {
       p.current = !1, f.current = new Set(h.map((Ue) => Ue.id));
       return;
     }
-    h.some((Ue) => !te.has(Ue.id)) && jd(), f.current = new Set(h.map((Ue) => Ue.id));
+    h.some((Ue) => !ee.has(Ue.id)) && jd(), f.current = new Set(h.map((Ue) => Ue.id));
   }, [h]);
-  const g = X(() => Vl(), [c]), _ = X(() => {
+  const g = Q(() => Vl(), [c]), _ = Q(() => {
     if (h.length === 0) return !1;
     if (!g) return !0;
-    const te = h[h.length - 1];
-    return new Date(te.timestamp) > new Date(g);
+    const ee = h[h.length - 1];
+    return new Date(ee.timestamp) > new Date(g);
   }, [h, g]), m = () => {
     u(!0), Kl((/* @__PURE__ */ new Date()).toISOString());
-  }, v = /* @__PURE__ */ new Date(), b = v.getHours(), x = `${String(b).padStart(2, "0")}:${String(v.getMinutes()).padStart(2, "0")}`, E = v.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (te) => te.toUpperCase()), { greeting: S } = ou(b), w = n.user?.name ?? "vous", T = X(() => new Set(s), [s]), k = X(
-    () => t.filter((te) => T.has(te.entity_id) && zd.has(te.domain)),
+  }, v = /* @__PURE__ */ new Date(), b = v.getHours(), x = `${String(b).padStart(2, "0")}:${String(v.getMinutes()).padStart(2, "0")}`, E = v.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (ee) => ee.toUpperCase()), { greeting: S } = ou(b), A = n.user?.name ?? "vous", T = Q(() => new Set(s), [s]), k = Q(
+    () => t.filter((ee) => T.has(ee.entity_id) && zd.has(ee.domain)),
     [t, T]
-  ), I = X(
-    () => k.find((te) => te.domain === "weather"),
+  ), I = Q(
+    () => k.find((ee) => ee.domain === "weather"),
     [k]
-  ), A = X(
-    () => k.filter((te) => te.domain === "calendar"),
+  ), w = Q(
+    () => k.filter((ee) => ee.domain === "calendar"),
     [k]
-  ), C = X(
-    () => k.filter((te) => te.domain === "climate"),
+  ), M = Q(
+    () => k.filter((ee) => ee.domain === "climate"),
     [k]
-  ), M = X(
-    () => k.filter((te) => te.domain === "light"),
+  ), P = Q(
+    () => k.filter((ee) => ee.domain === "light"),
     [k]
-  ), B = X(
-    () => k.filter((te) => te.domain === "media_player"),
+  ), B = Q(
+    () => k.filter((ee) => ee.domain === "media_player"),
     [k]
-  ), H = X(
-    () => k.filter((te) => te.domain === "lock"),
+  ), H = Q(
+    () => k.filter((ee) => ee.domain === "lock"),
     [k]
-  ), U = X(() => i.map((Te) => k.find((Ue) => Ue.entity_id === Te)).find((Te) => !!Te && Te.domain === "light") ?? M[0] ?? null, [i, k, M]), R = C[0] ?? null, N = X(
+  ), U = Q(() => i.map((Te) => k.find((Ue) => Ue.entity_id === Te)).find((Te) => !!Te && Te.domain === "light") ?? P[0] ?? null, [i, k, P]), R = M[0] ?? null, N = Q(
     () => B.find(it) ?? B[0] ?? null,
     [B]
-  ), L = n.states[Kn], O = X(() => {
-    if (!L || !T.has(Kn)) return null;
-    const te = Number(L.state);
-    return Number.isFinite(te) ? te : null;
-  }, [L, T]), G = X(
-    () => M.filter(it).length,
-    [M]
-  ), $ = X(
-    () => Object.values(n.states).filter((te) => te.entity_id.startsWith("person.")),
+  ), L = n.states[Vn], O = Q(() => {
+    if (!L || !T.has(Vn)) return null;
+    const ee = Number(L.state);
+    return Number.isFinite(ee) ? ee : null;
+  }, [L, T]), V = Q(
+    () => P.filter(it).length,
+    [P]
+  ), $ = Q(
+    () => Object.values(n.states).filter((ee) => ee.entity_id.startsWith("person.")),
     [n.states]
-  ), K = $.filter((te) => te.state === "home").length, ie = cy(n, A), q = X(() => mn(k), [k]), j = X(() => {
-    const te = e.filter(
-      (Te) => (q.get(Te.area_id) ?? []).some((Ue) => bl.has(Ue.domain))
+  ), K = $.filter((ee) => ee.state === "home").length, Y = cy(n, w), ie = Q(() => Nl(k), [k]), j = Q(() => {
+    const ee = e.filter(
+      (Te) => (ie.get(Te.area_id) ?? []).some((Ue) => yl.has(Ue.domain))
     );
-    return wr(te, r, (Te) => Te.area_id);
-  }, [e, q, r]), [Z, ee] = V(null), re = j.some((te) => te.area_id === Z) ? Z : j[0]?.area_id ?? null, Se = X(
-    () => (q.get(re ?? "") ?? []).filter((te) => bl.has(te.domain)),
-    [q, re]
+    return kr(ee, r, (Te) => Te.area_id);
+  }, [e, ie, r]), [q, te] = G(null), ae = j.some((ee) => ee.area_id === q) ? q : j[0]?.area_id ?? null, Se = Q(
+    () => (ie.get(ae ?? "") ?? []).filter((ee) => yl.has(ee.domain)),
+    [ie, ae]
   );
   return /* @__PURE__ */ l("div", { class: "nido-compact", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact__shell", children: [
@@ -29040,7 +29043,7 @@ function hy({
           {
             hass: n,
             greeting: S,
-            userName: w,
+            userName: A,
             dateStr: E,
             timeStr: x,
             presentCount: K,
@@ -29048,10 +29051,10 @@ function hy({
             heroLight: U,
             climateEntity: R,
             dailyKwhValue: O,
-            activeLightsCount: G,
+            activeLightsCount: V,
             weatherEntity: I ?? null,
             mediaEntity: N,
-            nextEvent: ie
+            nextEvent: Y
           }
         ),
         a === "controls" && /* @__PURE__ */ l(
@@ -29059,8 +29062,8 @@ function hy({
           {
             hass: n,
             areas: j,
-            activeAreaId: re,
-            onSelectArea: ee,
+            activeAreaId: ae,
+            onSelectArea: te,
             controlEntities: Se
           }
         ),
@@ -29072,10 +29075,10 @@ function hy({
             dateStr: E,
             weatherEntity: I ?? null,
             familyMembers: $,
-            activeLightsCount: G,
+            activeLightsCount: V,
             climateEntity: R,
             lockEntities: H,
-            nextEvent: ie
+            nextEvent: Y
           }
         )
       ] })
@@ -29103,9 +29106,9 @@ function fy({
       /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "1.5", fill: "currentColor" })
     ] }) }),
     [
-      { id: "glance", label: "Accueil", Icon: Lr },
-      { id: "controls", label: "Contrôles", Icon: ft },
-      { id: "ambient", label: "Veille", Icon: Cr }
+      { id: "glance", label: "Accueil", Icon: Ir },
+      { id: "controls", label: "Contrôles", Icon: pt },
+      { id: "ambient", label: "Veille", Icon: Dr }
     ].map((r) => /* @__PURE__ */ l(
       "button",
       {
@@ -29125,7 +29128,7 @@ function fy({
           class: "nido-compact-rail__btn",
           "aria-label": "Notifications",
           onClick: i,
-          children: /* @__PURE__ */ l(Ar, { size: 19 })
+          children: /* @__PURE__ */ l(wr, { size: 19 })
         }
       ),
       t && /* @__PURE__ */ l("span", { class: "nido-compact-rail__bell-dot" })
@@ -29153,7 +29156,7 @@ function py({
     const m = d.state.attributes.current_temperature, b = d.state.attributes.temperature ?? m;
     g.push(
       /* @__PURE__ */ l(
-        Us,
+        Bs,
         {
           label: d.friendly_name,
           value: typeof b == "number" ? String(Math.round(b * 10) / 10) : "—",
@@ -29167,26 +29170,26 @@ function py({
   }
   c !== null && g.push(
     /* @__PURE__ */ l(
-      Us,
+      Bs,
       {
         label: "Aujourd'hui",
         value: c.toLocaleString("fr-FR", { maximumFractionDigits: 1 }),
         unit: " kWh",
         caption: "Consommation du jour",
-        Icon: zt,
+        Icon: Ht,
         accent: !0
       },
       "energy"
     )
   ), g.length < 2 && g.push(
     /* @__PURE__ */ l(
-      Us,
+      Bs,
       {
         label: "Lumières",
         value: String(u),
         unit: "",
         caption: u > 1 ? "allumées" : "allumée",
-        Icon: ft
+        Icon: pt
       },
       "lights"
     )
@@ -29237,7 +29240,7 @@ function py({
     ] })
   ] });
 }
-function Us({
+function Bs({
   label: n,
   value: e,
   unit: t,
@@ -29265,7 +29268,7 @@ function gy(n) {
   return typeof e != "number" ? n.state.state === "on" ? 100 : 0 : Math.round(e / 255 * 100);
 }
 function my({ hass: n, entity: e }) {
-  const t = e.state.state === "on", [i, s] = V(null), r = i ?? gy(e), a = () => n.callService("light", "toggle", { entity_id: e.entity_id }), o = async (d) => {
+  const t = e.state.state === "on", [i, s] = G(null), r = i ?? gy(e), a = () => n.callService("light", "toggle", { entity_id: e.entity_id }), o = async (d) => {
     s(d);
     try {
       await n.callService("light", "turn_on", {
@@ -29321,7 +29324,7 @@ function my({ hass: n, entity: e }) {
   ] });
 }
 function _y({ entity: n, timeStr: e }) {
-  const { label: t, Icon: i } = Ht(n.state.state), s = n.state.attributes.temperature_unit ?? "°", r = n.state.attributes.temperature;
+  const { label: t, Icon: i } = jt(n.state.state), s = n.state.attributes.temperature_unit ?? "°", r = n.state.attributes.temperature;
   return /* @__PURE__ */ l("div", { class: "nido-compact-weather", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact-weather__icon", children: /* @__PURE__ */ l(i, { size: 26 }) }),
     /* @__PURE__ */ l("div", { style: { minWidth: 0 }, children: [
@@ -29346,7 +29349,7 @@ function vy({ hass: n, entity: e }) {
         class: "nido-compact-media__play",
         "aria-label": t ? "Pause" : "Lecture",
         onClick: () => n.callService("media_player", "media_play_pause", { entity_id: e.entity_id }),
-        children: t ? /* @__PURE__ */ l(ec, { size: 14 }) : /* @__PURE__ */ l(Ot, { size: 14 })
+        children: t ? /* @__PURE__ */ l(ec, { size: 14 }) : /* @__PURE__ */ l(Ft, { size: 14 })
       }
     )
   ] });
@@ -29478,7 +29481,7 @@ async function Sy(n, e) {
   }
 }
 function Ty({ hass: n, entity: e }) {
-  const [t, i] = V(!1), s = Vh[e.domain] ?? wt, r = xy(e), a = e.state.state === "unavailable", o = e.domain !== "climate";
+  const [t, i] = G(!1), s = Vh[e.domain] ?? At, r = xy(e), a = e.state.state === "unavailable", o = e.domain !== "climate";
   return /* @__PURE__ */ l(
     o ? "button" : "div",
     {
@@ -29529,7 +29532,7 @@ function ky({
       /* @__PURE__ */ l("div", { class: "nido-compact-ambient__clock", children: e }),
       /* @__PURE__ */ l("div", { class: "nido-compact-ambient__meta", children: [
         i && i.state.state !== "unavailable" && /* @__PURE__ */ l("div", { class: "nido-compact-ambient__weather", children: (() => {
-          const { label: _, Icon: m } = Ht(i.state.state), v = i.state.attributes.temperature_unit ?? "°", b = i.state.attributes.temperature;
+          const { label: _, Icon: m } = jt(i.state.state), v = i.state.attributes.temperature_unit ?? "°", b = i.state.attributes.temperature;
           return /* @__PURE__ */ l(he, { children: [
             /* @__PURE__ */ l("span", { style: { color: "var(--accent)" }, children: /* @__PURE__ */ l(m, { size: 20 }) }),
             /* @__PURE__ */ l("span", { class: "nido-compact-ambient__weather-temp", children: b != null ? `${b}${v}` : "—" }),
@@ -29582,13 +29585,13 @@ function ky({
   ] });
 }
 const wy = 600, Ay = 700;
-function xl() {
+function bl() {
   return typeof window > "u" ? !1 : window.innerHeight <= wy && window.innerWidth >= Ay;
 }
 function Iy() {
-  const [n, e] = V(xl);
+  const [n, e] = G(bl);
   return de(() => {
-    const t = () => e(xl());
+    const t = () => e(bl());
     return window.addEventListener("resize", t), t(), () => window.removeEventListener("resize", t);
   }, []), n;
 }
@@ -29598,55 +29601,55 @@ const Ly = [
   "device_registry_updated"
 ];
 function Ry({ hass: n, host: e }) {
-  const [t, i] = V(null), [s, r] = V(null), [a, o] = V(null), [d, c] = V(null), u = X(() => Gl(), []), [h, f] = V(() => Fu()), [p, g] = V(() => Nu()), [_, m] = V(() => $u()), [v, b] = V(() => zu()), [x, E] = V(() => Bu()), [S, w] = V(
+  const [t, i] = G(null), [s, r] = G(null), [a, o] = G(null), [d, c] = G(null), u = Q(() => Gl(), []), [h, f] = G(() => Fu()), [p, g] = G(() => Nu()), [_, m] = G(() => $u()), [v, b] = G(() => zu()), [x, E] = G(() => Bu()), [S, A] = G(
     () => Gu()
-  ), [T, k] = V(() => !ka()), [I, A] = V({ kind: "dashboard" }), C = Iy(), M = (q) => {
-    f(q), js(q);
-  }, B = (q) => {
-    E(q), Uu(q);
-  }, H = (q, j) => {
-    w((Z) => {
-      const ee = { ...Z, [q]: j };
-      return Vu(ee), ee;
+  ), [T, k] = G(() => !Ta()), [I, w] = G({ kind: "dashboard" }), M = Iy(), P = (Y) => {
+    f(Y), Hs(Y);
+  }, B = (Y) => {
+    E(Y), Uu(Y);
+  }, H = (Y, ie) => {
+    A((j) => {
+      const q = { ...j, [Y]: ie };
+      return Vu(q), q;
     });
   }, U = ue(n);
   U.current = n, de(() => {
     if (!n) return;
-    let q = !1;
-    const j = [], Z = async () => {
-      const ee = U.current;
-      if (ee)
+    let Y = !1;
+    const ie = [], j = async () => {
+      const q = U.current;
+      if (q)
         try {
-          const [re, Se, te] = await Promise.all([
-            Su(ee),
-            Tu(ee),
-            ku(ee)
+          const [te, ae, Se] = await Promise.all([
+            Su(q),
+            Tu(q),
+            ku(q)
           ]);
-          if (q) return;
-          i(re), r(Se), o(te);
-        } catch (re) {
-          if (q) return;
-          c(re instanceof Error ? re.message : String(re));
+          if (Y) return;
+          i(te), r(ae), o(Se);
+        } catch (te) {
+          if (Y) return;
+          c(te instanceof Error ? te.message : String(te));
         }
     };
-    return Z(), Promise.all(
+    return j(), Promise.all(
       Ly.map(
-        (ee) => n.connection.subscribeEvents(() => {
-          q || Z();
-        }, ee)
+        (q) => n.connection.subscribeEvents(() => {
+          Y || j();
+        }, q)
       )
-    ).then((ee) => {
-      if (q) {
-        ee.forEach((re) => re());
+    ).then((q) => {
+      if (Y) {
+        q.forEach((te) => te());
         return;
       }
-      j.push(...ee);
-    }).catch((ee) => console.warn("Nido: subscribeEvents failed", ee)), () => {
-      q = !0, j.forEach((ee) => ee());
+      ie.push(...q);
+    }).catch((q) => console.warn("Nido: subscribeEvents failed", q)), () => {
+      Y = !0, ie.forEach((q) => q());
     };
   }, [n != null]);
-  const R = X(() => !n || !s || !a ? [] : Au(n, s, a), [n?.states, s, a]), N = (q, j) => {
-    e?.applyTheme?.(q, j);
+  const R = Q(() => !n || !s || !a ? [] : Au(n, s, a), [n?.states, s, a]), N = (Y, ie) => {
+    e?.applyTheme?.(Y, ie);
   };
   if (!n)
     return /* @__PURE__ */ l("div", { class: "nido-loading", children: "Connexion à Home Assistant…" });
@@ -29666,17 +29669,14 @@ function Ry({ hass: n, host: e }) {
       ] }),
       /* @__PURE__ */ l("p", { class: "n-ob__lead", children: "Votre compte n'a pas accès à ce tableau de bord. Vous pouvez continuer à utiliser Home Assistant normalement." })
     ] }) });
-  const O = X(() => new Set(p), [p]), G = I.kind === "room" ? t.find((q) => q.area_id === I.areaId) ?? null : null, $ = X(
-    () => G ? R.filter(
-      (q) => q.area_id === G.area_id && O.has(q.entity_id)
+  const O = Q(() => new Set(p), [p]), V = I.kind === "room" ? t.find((Y) => Y.area_id === I.areaId) ?? null : null, $ = Q(
+    () => V ? R.filter(
+      (Y) => Y.area_id === V.area_id && O.has(Y.entity_id)
     ) : [],
-    [R, G, O]
-  ), K = X(
-    () => G ? R.filter((q) => q.area_id === G.area_id) : [],
-    [R, G]
-  ), ie = !!n.states[ct] && O.has(ct);
+    [R, V, O]
+  ), K = !!n.states[dt] && O.has(dt);
   return /* @__PURE__ */ l(he, { children: [
-    C && (I.kind === "dashboard" || !G) ? /* @__PURE__ */ l(
+    M && (I.kind === "dashboard" || !V) ? /* @__PURE__ */ l(
       hy,
       {
         hass: n,
@@ -29693,9 +29693,9 @@ function Ry({ hass: n, host: e }) {
         entities: R,
         exposed: p,
         areas: t,
-        onBack: () => A({ kind: "dashboard" })
+        onBack: () => w({ kind: "dashboard" })
       }
-    ) : I.kind === "dashboard" || !G ? /* @__PURE__ */ l(
+    ) : I.kind === "dashboard" || !V ? /* @__PURE__ */ l(
       ty,
       {
         hass: n,
@@ -29706,21 +29706,20 @@ function Ry({ hass: n, host: e }) {
         roomsOrder: x,
         kidsEnabled: v,
         onConfigure: () => k(!0),
-        onOpenRoom: (q) => A({ kind: "room", areaId: q }),
-        onOpenEnergy: ie ? () => A({ kind: "energy" }) : void 0,
-        onReorderFavorites: M,
+        onOpenRoom: (Y) => w({ kind: "room", areaId: Y }),
+        onOpenEnergy: K ? () => w({ kind: "energy" }) : void 0,
+        onReorderFavorites: P,
         onReorderRooms: B
       }
     ) : /* @__PURE__ */ l(
       iy,
       {
         hass: n,
-        area: G,
+        area: V,
         entities: $,
-        allRoomEntities: K,
-        entitiesOrder: S[G.area_id] ?? [],
-        onBack: () => A({ kind: "dashboard" }),
-        onReorderEntities: (q) => H(G.area_id, q)
+        entitiesOrder: S[V.area_id] ?? [],
+        onBack: () => w({ kind: "dashboard" }),
+        onReorderEntities: (Y) => H(V.area_id, Y)
       }
     ),
     T && /* @__PURE__ */ l(
@@ -29735,25 +29734,25 @@ function Ry({ hass: n, host: e }) {
         initialFavorites: h,
         initialExcludedUsers: _,
         initialKidsEnabled: v,
-        isReturning: ka(),
+        isReturning: Ta(),
         onApplyTheme: N,
         onClose: () => k(!1),
-        onDone: (q) => {
-          g(q.exposed), f(q.favorites), m(q.excludedUsers), b(q.kidsEnabled), k(!1);
+        onDone: (Y) => {
+          g(Y.exposed), f(Y.favorites), m(Y.excludedUsers), b(Y.kidsEnabled), k(!1);
         }
       }
     )
   ] });
 }
-const Dy = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(var(--breathe-scale, 1.01));filter:brightness(var(--breathe-bright, 1.04))}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:var(--glow-peak, 1);transform:scale(var(--glow-max, 1.08))}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe var(--breathe-speed, 5.5s) var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe var(--breathe-speed, 6.2s) var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe var(--breathe-speed, 4.8s) var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe var(--breathe-speed, 7s) var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', Cy = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}@media(max-width:600px){.nido-shell{padding:0}.nido-dashboard{border-radius:0;padding:20px 16px;min-height:100vh}}.nido-topbar{display:grid;grid-template-columns:auto 1fr auto auto auto;grid-template-areas:"brand . weather utility icons";align-items:center;column-gap:12px;margin-bottom:28px}.nido-topbar__brand{grid-area:brand;display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__weather{grid-area:weather;display:flex;align-items:center}.nido-topbar__utility{grid-area:utility;display:flex;align-items:center;gap:8px}.nido-topbar__icons{grid-area:icons;display:flex;align-items:center;gap:8px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}@media(max-width:600px){.nido-hero h1{font-size:30px}}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-hero__digest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px;font-size:15px;color:var(--ink-2);min-height:20px}.nido-hero__fact{display:inline-flex;align-items:baseline;gap:10px;animation:nido-fact-in .42s var(--ease-out) both}.nido-hero__fact-sep{width:3px;height:3px;border-radius:50%;background:var(--ink-3);transform:translateY(-4px)}.nido-hero__fact[data-tone=alert] .nido-hero__fact-text{color:var(--danger);font-weight:600}.nido-hero__fact[data-tone=notice] .nido-hero__fact-text{color:var(--accent-deep);font-weight:600}.nido-hero__fact[data-tone=active] .nido-hero__fact-text{color:var(--ink-1)}.nido-hero__fact-room{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}@keyframes nido-fact-in{0%{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media(max-width:600px){.nido-hero__digest{flex-direction:column;align-items:flex-start;gap:5px 0}.nido-hero__fact-sep{display:none}}@media(prefers-reduced-motion:reduce){.nido-hero__fact{animation:none}}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:var(--glow-size, 140px);height:var(--glow-size, 140px);border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:var(--glow-base, .85);transition:width .4s var(--ease-out),height .4s var(--ease-out),opacity .4s var(--ease-out)}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-cover__actions{display:flex;gap:8px;margin-top:12px}.n-cover__actions .n-pill-btn{flex:1 1 0;padding:8px 0;min-width:0}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-eyebrow{padding-top:14px}.n-card--camera .n-title{padding-bottom:9px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}.nido-camera-panel__picker{padding:16px 20px;border-top:1px solid rgba(var(--fg-rgb),.06);display:flex;flex-direction:column;gap:10px}.nido-camera-panel__picker-msg{margin:0;font-size:.85rem;color:var(--danger, #b00020)}.nido-camera-panel__picker-hint{margin:0;font-size:.85rem;color:var(--ink-2)}.nido-camera-panel__picker-row{display:flex;gap:8px;flex-wrap:wrap}.nido-camera-panel__picker-select{flex:1 1 220px;min-width:0;padding:8px 10px;border-radius:var(--r-sm);border:1px solid rgba(var(--fg-rgb),.15);background:var(--bg-inset);color:var(--fg);font:inherit}.nido-camera-panel__picker-save{padding:8px 14px;border-radius:var(--r-sm);border:0;background:var(--accent);color:var(--accent-ink, #fff);font:inherit;cursor:pointer}.nido-camera-panel__picker-save:disabled{opacity:.4;cursor:default}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin var(--fan-speed, 2.4s) linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn,.nido-covers-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover,.nido-covers-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active,.nido-covers-pill-btn:active{transform:scale(.96)}.nido-lights-pill,.nido-covers-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count,.nido-covers-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center}.nido-lights-panel .nido-notification-panel__content{height:auto;max-height:min(720px,calc(100% - 48px));max-width:460px;border-radius:var(--r-2xl)}.nido-lights-panel .nido-notification-panel__header{padding:18px 18px 18px 20px}.nido-lights-panel .nido-notification-panel__scroll{padding:12px 18px 18px 20px}.nido-lights-panel .nido-lights-panel__footer{padding:16px 18px 18px 20px}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:20px}.nido-lights-group{display:flex;flex-direction:column;gap:10px}.nido-lights-group__title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 4px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status.is-open{color:var(--accent-deep)}.nido-covers-row__actions{display:flex;gap:4px;flex-shrink:0}.nido-covers-row__actions .n-pill-btn{flex:0 0 auto;width:32px;height:32px;padding:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-covers-panel__footer{display:flex;gap:10px}.nido-covers-panel__footer .nido-lights-panel__all-off{width:auto;flex:1}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-widget--agenda{display:flex;flex-direction:column;gap:10px}.nido-cal-widget__head{display:flex;align-items:center;gap:8px;color:var(--cal-color, var(--ink-3))}.nido-cal-widget__head .n-eyebrow{color:var(--ink-3)}.nido-cal-widget__placeholder{padding-left:12px;border-left:2px solid color-mix(in srgb,var(--cal-color, var(--ink-3)) 35%,transparent)}.nido-cal-widget__agenda{list-style:none;margin:0;padding:2px 0 2px 12px;border-left:2px solid var(--cal-color, var(--ink-3));display:flex;flex-direction:column;gap:8px}.nido-cal-widget__agenda-row{display:grid;grid-template-columns:48px auto 1fr;align-items:start;gap:8px;font-family:var(--font-sans);font-size:12px;color:var(--ink-1);line-height:1.25}.nido-cal-widget__agenda-day{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--cal-color, var(--ink-3));font-weight:600;white-space:nowrap}.nido-cal-widget__agenda-time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.04em;white-space:nowrap}.nido-cal-widget__agenda-title{color:var(--ink-1);font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;word-break:break-word}.n-card[data-hero=true] .nido-cal-widget__agenda{gap:10px}.n-card[data-hero=true] .nido-cal-widget__agenda-row{font-size:14px;grid-template-columns:46px auto 1fr}.n-card[data-hero=true] .nido-cal-widget__agenda-day,.n-card[data-hero=true] .nido-cal-widget__agenda-time{font-size:11px}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-drag-item[data-flash=true]:after,.nido-room-card[data-flash=true]:after{content:"";position:absolute;inset:0;border-radius:var(--r-lg);pointer-events:none;z-index:3;animation:nido-state-flash .9s var(--ease-out) forwards}.nido-room-card[data-flash=true]:after{border-radius:inherit}@keyframes nido-state-flash{0%{box-shadow:inset 0 0 0 2px var(--accent);opacity:0}20%{opacity:.9}to{box-shadow:inset 0 0 0 2px var(--accent);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-drag-item[data-flash=true]:after,.nido-room-card[data-flash=true]:after{animation:none;content:none}}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-rooms-grid--phone{grid-template-columns:minmax(0,1fr);gap:12px}.nido-rooms-grid--touch{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:170px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--hero-dark);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__icon{position:relative}.nido-room-card__occupancy{position:absolute;top:-2px;right:-2px;width:11px;height:11px;box-sizing:border-box;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card)}.nido-room-card--accent .nido-room-card__occupancy{border-color:var(--hero-dark)}.nido-room-card__occupancy--motion{opacity:.85}.nido-room-card__occupancy:after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1.5px solid var(--accent);animation:nido-occupancy-pulse 2.6s var(--ease-out) infinite}@keyframes nido-occupancy-pulse{0%{transform:scale(.85);opacity:.75}60%{transform:scale(2.1);opacity:0}to{transform:scale(2.1);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-room-card__occupancy:after{animation:none;opacity:.35}}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__chips{display:flex;flex-wrap:wrap;gap:6px}.nido-room-card__chip{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:var(--r-pill);background:var(--bg-inset);font-family:var(--font-sans);font-size:12px;font-weight:500;line-height:1}.nido-room-card--accent .nido-room-card__chip{background:#f4ede21f}.nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--alert{background:color-mix(in srgb,var(--danger) 16%,transparent);color:var(--danger)}.nido-room-card__chip--idle{opacity:.55}.nido-room-card__band{display:flex;align-items:center;gap:12px;margin-top:12px;padding-top:11px;border-top:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);font-size:13px;font-weight:500;opacity:.8}.nido-room-card--accent .nido-room-card__band{border-top-color:#f4ede229}.nido-room-card__band-item{display:inline-flex;align-items:center;gap:5px;min-width:0}.nido-room-card__band-icon{display:flex;opacity:.65}.nido-room-card__band-label{display:none}.nido-room-card__band-unit{margin-left:1px}.nido-room-card__actions{display:flex;gap:8px;margin-top:auto;padding-top:14px}.nido-room-card__actions .n-pill-btn.is-idle{opacity:.55}.nido-room-card--accent .nido-room-card__actions .n-pill-btn,.nido-room-card--accent .nido-room-card__actions .n-icon-btn{background:#f4ede224;color:var(--hero-dark-ink)}.nido-room-card--touch{min-height:210px}.nido-room-card--touch .nido-room-card__icon{width:44px;height:44px}.nido-room-card--touch .nido-room-card__name{font-size:19px}.nido-room-card--touch .nido-room-card__band{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);opacity:1}.nido-room-card--accent.nido-room-card--touch .nido-room-card__band{border-bottom-color:#f4ede229}.nido-room-card--touch .nido-room-card__band-item{display:flex;flex-direction:column;align-items:flex-start;gap:0}.nido-room-card--touch .nido-room-card__band-icon{display:none}.nido-room-card--touch .nido-room-card__band-label{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}.nido-room-card--touch .nido-room-card__band-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;margin-top:5px}.nido-room-card--touch .nido-room-card__band-unit{font-size:11px;font-weight:500;opacity:.6;margin-left:2px}.nido-room-card--touch .n-pill-btn{height:44px;font-size:13px}.nido-room-card--touch .n-icon-btn{width:44px;height:44px}.nido-room-card--phone{min-height:96px;padding:16px;border-radius:var(--r-md);display:flex;flex-direction:column;gap:10px}.nido-room-card--phone .nido-room-card__deco{display:none}.nido-room-card__row{position:relative;display:flex;align-items:center;gap:12px}.nido-room-card--phone .nido-room-card__icon{width:36px;height:36px}.nido-room-card--phone .nido-room-card__name{flex:1;min-width:0;margin-bottom:0;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-room-card__chev{display:flex;opacity:.45;flex-shrink:0}.nido-room-card__line{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px}.nido-room-card--phone .nido-room-card__band{margin-top:0;padding-top:0;border-top:none;font-size:13.5px;font-weight:600;letter-spacing:-.02em;opacity:.85}.nido-room-card--phone .nido-room-card__chips{flex-wrap:nowrap;flex-shrink:0}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:0;overflow:hidden}.n-ob__shell{padding:16px;border-radius:0;min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__image{display:block;width:100%;max-height:240px;object-fit:cover;border-radius:var(--r-md);margin-top:10px;background:var(--bg-inset)}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__icons>.nido-bell-btn,.nido-topbar__icons>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar{grid-template-columns:1fr auto;grid-template-areas:"weather icons" "brand utility";row-gap:12px}.nido-topbar__weather{justify-content:flex-start}.nido-topbar__icons,.nido-topbar__utility{justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:0}.nido-energy-row{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.nido-energy-row>section{margin-top:0;min-width:0}@media(max-width:900px){.nido-energy-row{grid-template-columns:1fr}}.nido-energy-summary,.nido-kids-summary{display:grid;grid-template-columns:1fr;gap:16px}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}.n-kids-card{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer}.n-kids-card__deco{position:absolute;top:-20px;right:-40px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-kids-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:1}.n-kids-card__head-text{display:flex;flex-direction:column;gap:4px}.n-kids-card__head-actions{display:flex;align-items:center;gap:8px}.n-kids-card__star{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#ffffff2e;color:var(--accent-ink)}.n-kids-card__empty{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding-top:16px;position:relative;z-index:1}.n-kids-card__list{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}.n-kids-card__row{display:flex;align-items:center;gap:12px}.n-kids-card__avatar{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;position:relative;box-shadow:0 2px 6px #0000001f}.n-kids-card__crown{position:absolute;top:-8px;right:-6px;font-size:14px;color:#f6c451;text-shadow:0 1px 2px rgba(0,0,0,.25)}.n-kids-card__row-body{flex:1;min-width:0}.n-kids-card__row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.n-kids-card__name{font-weight:600;color:var(--accent-ink);font-size:14px}.n-kids-card__total{font-weight:700;font-size:18px;color:var(--accent-ink);line-height:1}.n-kids-card__total-unit{font-weight:500;font-size:11px;margin-left:3px;opacity:.7}.n-kids-card__bar{margin-top:6px;height:6px;border-radius:999px;background:#ffffff38;overflow:hidden}.n-kids-card__bar-fill{display:block;height:100%;border-radius:999px;transition:width .4s ease;min-width:6px}.n-kids-card__last{margin-top:4px;font-size:11px;color:var(--accent-ink);opacity:.65}.n-kids-card__privilege{margin-top:6px;display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 10px;border-radius:999px;background:#ffffff2e;border:1px solid rgba(255,255,255,.25);color:var(--accent-ink);font-size:12px;font-weight:600;max-width:100%}.n-kids-card__privilege-emoji{font-size:14px;line-height:1}.n-kids-card__privilege-label{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-kids-card__privilege-end{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#00000026;color:var(--accent-ink);border:none;cursor:pointer;padding:0}.n-kids-card__privilege-end:hover{background:#00000047}.nido-kids-panel{display:flex;flex-direction:column;font-family:"Baloo 2",DM Sans,system-ui,sans-serif;--kids-accent: #ff8a3d;--kids-accent-2: #ffd166;--kids-good: #6fcf97;--kids-bad: #f4736b;--kids-surface: var(--bg-card);--kids-surface-2: var(--bg-inset);--kids-pastel-1: #ffb4a2;--kids-pastel-2: #b8e0d2;--kids-pastel-3: #c7b8ea;--kids-pastel-4: #ffe08a;--kids-pastel-5: #9dd3f8;--kids-pastel-6: #f8a8c9}.nido-kids-panel__header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(135deg,var(--kids-accent),var(--kids-accent-2));color:#fff;position:relative;overflow:hidden}.nido-kids-panel__header:after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 8% 80%,rgba(255,255,255,.18) 0 12px,transparent 13px),radial-gradient(circle at 92% 25%,rgba(255,255,255,.16) 0 9px,transparent 10px),radial-gradient(circle at 50% 115%,rgba(255,255,255,.12) 0 16px,transparent 17px);pointer-events:none}.nido-kids-panel__header h2{margin:0;font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px;text-shadow:0 1px 0 rgba(0,0,0,.08)}.nido-kids-panel__header-star{display:inline-block;animation:nido-kids-spin 6s linear infinite}.nido-kids-panel__header-actions{display:flex;align-items:center;gap:8px;position:relative;z-index:1}.nido-kids-panel__iconbtn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:#ffffff40;color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s ease,background .15s ease}.nido-kids-panel__iconbtn:hover{transform:scale(1.08);background:#fff6}.nido-kids-panel__body{padding:22px 24px 28px;overflow-y:auto;flex:1}.nido-kids-panel__empty{padding:36px 0;text-align:center}.nido-kids-panel__empty-emoji{font-size:48px;margin-bottom:12px}.nido-kids-panel__tabs{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}.nido-kids-panel__tab{flex:1 1 180px;min-width:160px;background:var(--kids-surface-2);border:3px solid transparent;border-radius:22px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .18s ease,box-shadow .18s ease;font:inherit;color:var(--ink-1);text-align:left;box-sizing:border-box}.nido-kids-panel__tab:hover{transform:translateY(-2px)}.nido-kids-panel__tab.is-active{border-color:var(--kid-color, var(--kids-accent));background:var(--kids-surface);box-shadow:0 12px 28px #ff8a3d2e;transform:translateY(-2px)}.nido-kids-panel__tab.is-active .nido-kids-panel__tab-avatar{animation:nido-kids-wiggle 1.4s ease-in-out infinite}.nido-kids-panel__tab-avatar{width:56px;height:56px;border-radius:50%;background:var(--kid-color, var(--kids-pastel-1));display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:inset 0 -3px #00000014,0 3px #0000000f}.nido-kids-panel__tab-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.nido-kids-panel__tab-name{font-weight:700;font-size:17px;line-height:1.1}.nido-kids-panel__tab-pts{font-size:18px;font-weight:800;color:var(--kids-accent);display:flex;align-items:baseline;gap:4px}.nido-kids-panel__tab-pts small{font-size:12px;font-weight:600;color:var(--ink-3)}.nido-kids-panel__score{background:linear-gradient(135deg,var(--kids-pastel-4),var(--kids-pastel-2));border-radius:24px;padding:20px 22px;margin-bottom:18px;color:#2a2018;box-shadow:0 6px 20px #ffd1662e}.nido-kids-panel__score-row{display:flex;align-items:center;gap:16px}.nido-kids-panel__score-big{font-size:48px;font-weight:800;line-height:1;display:flex;align-items:baseline;gap:6px}.nido-kids-panel__score-star{font-size:32px;animation:nido-kids-bounce 1.6s ease-in-out infinite}.nido-kids-panel__score-num{font-variant-numeric:tabular-nums}.nido-kids-panel__score-unit{font-size:20px;font-weight:700}.nido-kids-panel__score-badge{margin-left:auto;background:#ffffff8c;border-radius:16px;padding:8px 14px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:inset 0 -3px #0000000f}.nido-kids-panel__progress{margin-top:14px;background:#ffffff73;border-radius:999px;height:14px;overflow:hidden}.nido-kids-panel__progress-bar{background:linear-gradient(90deg,var(--kids-accent),var(--kids-bad));height:100%;border-radius:999px;transition:width .5s cubic-bezier(.34,1.56,.64,1);box-shadow:inset 0 -3px #0000001a}.nido-kids-panel__progress-label{margin-top:6px;font-size:13px;font-weight:600;opacity:.85}.nido-kids-panel__group-title{margin:4px 0 10px;font-size:14px;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:8px;letter-spacing:.02em}.nido-kids-panel__group-title:not(:first-of-type),.nido-kids-panel__tiles+.nido-kids-panel__group-title{margin-top:18px}.nido-kids-panel__group-title--neg{color:var(--kids-bad)}.nido-kids-panel__tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}.nido-kids-panel__tile{background:var(--kids-surface-2);border:none;border-radius:20px;padding:14px 10px 12px;text-align:center;cursor:pointer;position:relative;transition:transform .12s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease;font:inherit;color:var(--ink-1);user-select:none;box-shadow:0 3px #0000000f;overflow:visible;box-sizing:border-box;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.nido-kids-panel__tile:hover{transform:translateY(-3px);box-shadow:0 6px #0000000f}.nido-kids-panel__tile:active{transform:translateY(1px) scale(.97);box-shadow:0 1px #0000000f}.nido-kids-panel__tile.is-pop{animation:nido-kids-pop .4s cubic-bezier(.34,1.56,.64,1)}.nido-kids-panel__tile.is-negative{background:#fce6e5}[data-mode=dark] .nido-kids-panel__tile.is-negative{background:#3b2422}.nido-kids-panel__tile-emoji{font-size:40px;display:block;line-height:1;margin-bottom:8px;transition:transform .2s ease}.nido-kids-panel__tile:hover .nido-kids-panel__tile-emoji{transform:scale(1.1) rotate(-3deg)}.nido-kids-panel__tile-label{font-size:13px;font-weight:600;line-height:1.2;color:var(--ink-1);min-height:32px;display:flex;align-items:center;justify-content:center}.nido-kids-panel__tile-pts{position:absolute;top:8px;right:8px;background:var(--kids-good);color:#fff;font-size:12px;font-weight:800;padding:3px 8px;border-radius:999px;box-shadow:0 2px #0000001a}.nido-kids-panel__tile.is-negative .nido-kids-panel__tile-pts{background:var(--kids-bad)}.nido-kids-panel__tile-count{position:absolute;top:8px;left:8px;background:var(--kids-accent);color:#fff;min-width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px #0000001a;transform:scale(0);transition:transform .25s cubic-bezier(.34,1.56,.64,1);padding:0 6px}.nido-kids-panel__tile-count.is-visible{transform:scale(1)}.nido-kids-panel__confetti{position:absolute;left:50%;top:40%;width:8px;height:8px;border-radius:2px;pointer-events:none;animation:nido-kids-confetti .8s ease-out forwards}.nido-kids-panel__hint{margin:14px 0 0;font-size:12px;color:var(--ink-3);text-align:center;font-family:DM Sans,system-ui,sans-serif}.nido-kids-panel__avatar-pick{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;box-shadow:inset 0 -2px #00000014}.nido-kids-panel__emoji-picker{flex:1 0 100%;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px;padding:10px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-md)}.nido-kids-panel__emoji-choice{font-size:22px;background:transparent;border:2px solid transparent;border-radius:12px;padding:6px;cursor:pointer;transition:transform .12s ease,border-color .12s ease}.nido-kids-panel__emoji-choice:hover{transform:scale(1.15)}.nido-kids-panel__emoji-choice.is-active{border-color:var(--kids-accent);background:var(--bg-inset)}.nido-kids-panel__task-emoji{font-size:22px;flex:0 0 auto}.nido-kids-panel__task-label-static{flex:1;font-weight:500;color:var(--ink-1)}.nido-kids-panel__task-pts{font-size:12px;color:var(--ink-3);font-weight:600}.nido-kids-panel__task-pts.is-negative,.nido-kids-panel__points-input .is-negative{color:var(--danger, #c45d3f)}.n-kids-card__total.is-negative{color:#ffd2c5}.nido-kids-panel__threshold-input{width:56px;padding:4px 6px;border:1px solid var(--bg-inset);border-radius:8px;background:var(--bg-1);color:var(--ink-1);font-weight:600;text-align:center;font-size:13px}.nido-kids-panel__threshold-input:focus{outline:none;border-color:var(--kids-accent)}.nido-kids-panel__threshold-input::-webkit-outer-spin-button,.nido-kids-panel__threshold-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.nido-kids-panel__threshold-input{-moz-appearance:textfield}.nido-kids-panel__emoji-input{width:48px;text-align:center;font-size:18px;flex:0 0 auto}.nido-kids-panel__privilege{margin-top:12px;padding:12px;border-radius:14px;background:var(--bg-inset);border:1px solid color-mix(in srgb,var(--kids-accent) 30%,transparent);display:flex;flex-direction:column;gap:10px}.nido-kids-panel__privilege--active{background:linear-gradient(135deg,color-mix(in srgb,var(--kids-accent) 20%,var(--bg-inset)),color-mix(in srgb,var(--kids-accent-2) 20%,var(--bg-inset)));border-color:var(--kids-accent)}.nido-kids-panel__privilege-head{display:flex;align-items:center;gap:12px}.nido-kids-panel__privilege-emoji{font-size:28px;flex:0 0 auto}.nido-kids-panel__privilege-meta{flex:1;display:flex;flex-direction:column;min-width:0}.nido-kids-panel__privilege-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);font-weight:700}.nido-kids-panel__privilege-label{font-size:15px;font-weight:700;color:var(--ink-1)}.nido-kids-panel__privilege-choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}.nido-kids-panel__privilege-choice{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--bg-card);border:1px solid var(--bg-inset);color:var(--ink-1);cursor:pointer;text-align:left;font-weight:600;font-size:13px}.nido-kids-panel__privilege-choice:hover{border-color:var(--kids-accent);background:color-mix(in srgb,var(--kids-accent) 8%,var(--bg-card))}@keyframes nido-kids-wiggle{0%,to{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes nido-kids-bounce{0%,to{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes nido-kids-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes nido-kids-pop{0%{transform:scale(1)}35%{transform:scale(1.12);box-shadow:0 12px 28px #ff8a3d4d}to{transform:scale(1)}}@keyframes nido-kids-confetti{0%{transform:translate(0) rotate(0);opacity:1}to{transform:translate(var(--cx),var(--cy)) rotate(var(--cr));opacity:0}}@media(prefers-reduced-motion:reduce){.nido-kids-panel *,.nido-kids-panel *:before,.nido-kids-panel *:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}.nido-kids-panel__btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .1s ease,opacity .15s ease}.nido-kids-panel__btn:hover:not(:disabled){background:var(--bg-inset)}.nido-kids-panel__btn:active:not(:disabled){transform:scale(.94)}.nido-kids-panel__btn:disabled{opacity:.35;cursor:not-allowed}.nido-kids-panel__btn--plus{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.nido-kids-panel__btn--plus:hover:not(:disabled){background:var(--accent);filter:brightness(1.05)}.nido-kids-panel__btn--danger{color:var(--danger, #c45d3f)}.nido-kids-panel__config{display:flex;flex-direction:column;gap:24px}.nido-kids-panel__section h3{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}.nido-kids-panel__list{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:8px}.nido-kids-panel__list-row{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-inset);border:1px solid var(--line);border-radius:var(--r-lg)}.nido-kids-panel__input{flex:1;min-width:0;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);font-size:14px;font-family:inherit;box-sizing:border-box}.nido-kids-panel__input:focus{outline:none;border-color:var(--accent)}.nido-kids-panel__add{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.nido-kids-panel__points-input{display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:999px;background:var(--bg-inset);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-2)}.nido-kids-panel__task-points-edit{display:flex;align-items:center;gap:8px}.nido-compact{width:100%;height:100%;padding:10px;box-sizing:border-box;font-family:var(--font-sans);color:var(--ink-1);overflow:hidden}.nido-compact__shell{position:relative;height:100%;background:var(--bg-shell);border-radius:var(--r-xl);overflow:hidden;display:flex}.nido-compact__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-compact__shell>*{position:relative}.nido-compact-rail{width:68px;flex-shrink:0;background:var(--bg-card);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:8px}.nido-compact-rail__brand{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;margin-bottom:6px}.nido-compact-rail__btn{width:48px;height:48px;border-radius:var(--r-md);background:transparent;color:var(--ink-2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.nido-compact-rail__btn.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-rail__bell{margin-top:auto;position:relative}.nido-compact-rail__bell-dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);pointer-events:none}.nido-compact-content{position:relative;flex:1;min-width:0;padding:16px;overflow:hidden}.nido-compact-glance{height:100%;display:grid;grid-template-columns:1fr 300px;gap:14px}.nido-compact-glance__main{display:flex;flex-direction:column;min-width:0}.nido-compact-glance__meta{display:flex;align-items:baseline;gap:10px;margin-bottom:2px}.nido-compact-glance__meta-item{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.12em;text-transform:uppercase}.nido-compact-glance__meta-dot{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-glance__title{font-family:var(--font-display);font-size:34px;font-weight:600;letter-spacing:-.035em;line-height:1;margin:6px 0 0}.nido-compact-glance__title em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-compact-glance__row{margin-top:12px;display:grid;gap:10px;flex:1;min-height:0}.nido-compact-glance__stack{display:grid;gap:10px}.nido-compact-glance__side{display:flex;flex-direction:column;gap:10px;min-width:0}.nido-compact-tile{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink-1)}.nido-compact-tile--accent{background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-compact-tile__head{position:relative;display:flex;align-items:center;justify-content:space-between}.nido-compact-tile__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}.nido-compact-tile__icon{opacity:.55}.nido-compact-tile--accent .nido-compact-tile__icon{opacity:.8}.nido-compact-tile__value{position:relative;font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:-.035em;line-height:1}.nido-compact-tile__unit{font-size:14px;opacity:.6;margin-left:2px}.nido-compact-tile__caption{font-size:13px;opacity:.85;margin-top:4px}.nido-compact-hero{position:relative;background:var(--bg-card);color:var(--ink-1);border-radius:var(--r-lg);padding:16px;overflow:hidden;display:flex;flex-direction:column}.nido-compact-hero[data-on=true]{background:var(--accent);color:var(--accent-ink)}.nido-compact-hero__glow{position:absolute;top:-50px;right:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%);pointer-events:none}.nido-compact-hero__top{position:relative;display:flex;align-items:flex-start;justify-content:space-between}.nido-compact-hero__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.nido-compact-hero__name{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.025em;margin-top:3px}.nido-compact-hero__bottom{position:relative;margin-top:auto}.nido-compact-hero__row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}.nido-compact-hero__pct{font-family:var(--font-display);font-size:26px;font-weight:600;letter-spacing:-.03em}.nido-compact-toggle{width:68px;height:44px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;flex-shrink:0}.nido-compact-toggle[data-on=true]{background:#ffffff4d}.nido-compact-toggle__thumb{position:absolute;top:4px;left:4px;width:36px;height:36px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.nido-compact-toggle[data-on=true] .nido-compact-toggle__thumb{left:28px;background:var(--accent-ink)}.nido-compact-weather{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px}.nido-compact-weather__icon{color:var(--accent);flex-shrink:0}.nido-compact-weather__temp{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-weather__cond{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-weather__clock{margin-left:auto;font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--ink-2)}.nido-compact-media{position:relative;background:var(--hero-dark);color:var(--hero-dark-ink);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px;overflow:hidden}.nido-compact-media__disc{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 45% 45%,var(--accent) 0%,var(--accent-deep) 38%,var(--hero-dark) 92%);position:relative}.nido-compact-media__disc.is-spinning{animation:nido-compact-spin 8s linear infinite}.nido-compact-media__disc:after{content:"";position:absolute;inset:17px;border-radius:50%;background:var(--hero-dark);border:1px solid rgba(244,237,226,.15)}.nido-compact-media__body{min-width:0;flex:1}.nido-compact-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-compact-media__sub{font-size:13px;color:#f4ede2c7;margin-top:2px}.nido-compact-media__play{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}@keyframes nido-compact-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.nido-compact-media__disc.is-spinning{animation:none}}.nido-compact-next{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;flex:1;min-height:0}.nido-compact-next__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}.nido-compact-next__row{display:flex;align-items:center;gap:10px}.nido-compact-next__badge{width:46px;height:46px;border-radius:var(--r-sm);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.nido-compact-next__badge-day{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.1em}.nido-compact-next__badge-num{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-next__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em}.nido-compact-next__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-compact-controls{height:100%;display:flex;flex-direction:column}.nido-compact-controls__tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;flex-shrink:0;scrollbar-width:thin}.nido-compact-tab{padding:10px 16px;min-height:44px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-2);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:-.01em;flex-shrink:0;white-space:nowrap}.nido-compact-tab.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-controls__grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:10px;flex:1;min-height:0;overflow-y:auto}.nido-mini-control{position:relative;background:var(--bg-card);border:1.5px solid transparent;border-radius:var(--r-lg);padding:14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;justify-content:space-between;min-height:88px;font-family:var(--font-sans);color:var(--ink-1);transition:background .2s,border-color .2s}.nido-mini-control.is-static{cursor:default}.nido-mini-control[data-on=true]{background:var(--accent-soft);border-color:var(--accent)}.nido-mini-control:disabled{opacity:.55;cursor:not-allowed}.nido-mini-control__top{display:flex;align-items:center;justify-content:space-between;width:100%}.nido-mini-control__icon{width:34px;height:34px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center}.nido-mini-control[data-on=true] .nido-mini-control__icon{background:var(--accent);color:var(--accent-ink)}.nido-mini-control__dot{width:8px;height:8px;border-radius:50%;background:var(--ink-4)}.nido-mini-control[data-on=true] .nido-mini-control__dot{background:var(--accent)}.nido-mini-control__name{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em}.nido-mini-control__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-mini-control[data-on=true] .nido-mini-control__sub{color:var(--accent-deep)}.nido-compact-empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink-3);font-size:14px;text-align:center;padding:0 24px}.nido-compact-ambient{height:100%;display:grid;grid-template-columns:1fr 240px;gap:18px;align-items:center}.nido-compact-ambient__date{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}.nido-compact-ambient__clock{font-family:var(--font-display);font-size:112px;font-weight:600;letter-spacing:-.05em;line-height:.86;margin-top:6px}.nido-compact-ambient__meta{display:flex;align-items:center;gap:14px;margin-top:14px}.nido-compact-ambient__weather{display:flex;align-items:center;gap:8px;color:var(--ink-2)}.nido-compact-ambient__weather-temp{font-family:var(--font-display);font-size:17px;font-weight:500}.nido-compact-ambient__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-ambient__family{display:flex}.nido-compact-ambient__avatar{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg-shell);object-fit:cover;margin-left:-8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);font-size:11px;font-weight:600;flex-shrink:0;transition:opacity .2s,filter .2s}.nido-compact-ambient__avatar:first-child{margin-left:0}.nido-compact-ambient__avatar.is-away{opacity:.4;filter:grayscale(1)}.nido-compact-ambient__side{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:10px}.nido-compact-status{background:var(--bg-card);border-radius:var(--r-lg);padding:14px}.nido-compact-status__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}.nido-compact-status__title{font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-.02em}.nido-compact-status__sub{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-next--ambient{background:var(--accent);color:var(--accent-ink);border-radius:var(--r-lg);padding:14px;position:relative;overflow:hidden}.nido-alarm-code{position:fixed;inset:0;z-index:2100;display:flex;align-items:center;justify-content:center;padding:24px}.nido-alarm-code__backdrop{position:absolute;inset:0;background:#00000080;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:fade-in .2s ease-out}.nido-alarm-code__content{position:relative;width:100%;max-width:320px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;padding:20px;display:flex;flex-direction:column;gap:14px;animation:fade-in .25s ease-out}.nido-alarm-code__content:focus{outline:none}.nido-alarm-code__header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.nido-alarm-code__title-group{display:flex;align-items:center;gap:10px;min-width:0}.nido-alarm-code__title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1)}.nido-alarm-code__subtitle{font-size:12px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-alarm-code__close{flex:none;width:30px;height:30px;border:0;border-radius:50%;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}.nido-alarm-code__close:hover{background:var(--ink-4);color:var(--ink-1)}.nido-alarm-code__display{height:48px;border-radius:var(--r-md, 12px);background:var(--bg-inset);display:flex;align-items:center;justify-content:center}.nido-alarm-code__placeholder{font-size:13px;color:var(--ink-3)}.nido-alarm-code__dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.nido-alarm-code__dot{width:10px;height:10px;border-radius:50%;background:var(--ink-1)}.nido-alarm-code__input{height:48px;border-radius:var(--r-md, 12px);border:1px solid var(--ink-4);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:16px;padding:0 14px;letter-spacing:.15em}.nido-alarm-code__input:focus{outline:none;border-color:var(--accent)}.nido-alarm-code__error{font-size:12px;color:var(--danger, #d9534f);text-align:center}.nido-alarm-code__pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.nido-alarm-code__key{height:52px;border:0;border-radius:var(--r-md, 12px);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:20px;font-weight:500;cursor:pointer;transition:background .15s}.nido-alarm-code__key:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.nido-alarm-code__key--aux{font-size:16px;color:var(--ink-2)}.nido-alarm-code__key:disabled{opacity:.4;cursor:not-allowed}.nido-alarm-code__submit{height:44px;border:0;border-radius:var(--r-md, 12px);background:var(--accent);color:var(--accent-ink);font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;transition:opacity .15s}.nido-alarm-code__submit:disabled{opacity:.45;cursor:not-allowed}@keyframes fade-in{0%{opacity:0}to{opacity:1}}', El = "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
-let Sl = !1;
+const Dy = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(var(--breathe-scale, 1.01));filter:brightness(var(--breathe-bright, 1.04))}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:var(--glow-peak, 1);transform:scale(var(--glow-max, 1.08))}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe var(--breathe-speed, 5.5s) var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe var(--breathe-speed, 6.2s) var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe var(--breathe-speed, 4.8s) var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe var(--breathe-speed, 7s) var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', Cy = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}@media(max-width:600px){.nido-shell{padding:0}.nido-dashboard{border-radius:0;padding:20px 16px;min-height:100vh}}.nido-topbar{display:grid;grid-template-columns:auto 1fr auto auto auto;grid-template-areas:"brand . weather utility icons";align-items:center;column-gap:12px;margin-bottom:28px}.nido-topbar__brand{grid-area:brand;display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__weather{grid-area:weather;display:flex;align-items:center}.nido-topbar__utility{grid-area:utility;display:flex;align-items:center;gap:8px}.nido-topbar__icons{grid-area:icons;display:flex;align-items:center;gap:8px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}@media(max-width:600px){.nido-hero h1{font-size:30px}}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-hero__digest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px;font-size:15px;color:var(--ink-2);min-height:20px}.nido-hero__fact{display:inline-flex;align-items:baseline;gap:10px;animation:nido-fact-in .42s var(--ease-out) both}.nido-hero__fact-sep{width:3px;height:3px;border-radius:50%;background:var(--ink-3);transform:translateY(-4px)}.nido-hero__fact[data-tone=alert] .nido-hero__fact-text{color:var(--danger);font-weight:600}.nido-hero__fact[data-tone=notice] .nido-hero__fact-text{color:var(--accent-deep);font-weight:600}.nido-hero__fact[data-tone=active] .nido-hero__fact-text{color:var(--ink-1)}.nido-hero__fact-room{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}@keyframes nido-fact-in{0%{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media(max-width:600px){.nido-hero__digest{flex-direction:column;align-items:flex-start;gap:5px 0}.nido-hero__fact-sep{display:none}}@media(prefers-reduced-motion:reduce){.nido-hero__fact{animation:none}}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:var(--glow-size, 140px);height:var(--glow-size, 140px);border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:var(--glow-base, .85);transition:width .4s var(--ease-out),height .4s var(--ease-out),opacity .4s var(--ease-out)}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-cover__actions{display:flex;gap:8px;margin-top:12px}.n-cover__actions .n-pill-btn{flex:1 1 0;padding:8px 0;min-width:0}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-eyebrow{padding-top:14px}.n-card--camera .n-title{padding-bottom:9px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}.nido-camera-panel__picker{padding:16px 20px;border-top:1px solid rgba(var(--fg-rgb),.06);display:flex;flex-direction:column;gap:10px}.nido-camera-panel__picker-msg{margin:0;font-size:.85rem;color:var(--danger, #b00020)}.nido-camera-panel__picker-hint{margin:0;font-size:.85rem;color:var(--ink-2)}.nido-camera-panel__picker-row{display:flex;gap:8px;flex-wrap:wrap}.nido-camera-panel__picker-select{flex:1 1 220px;min-width:0;padding:8px 10px;border-radius:var(--r-sm);border:1px solid rgba(var(--fg-rgb),.15);background:var(--bg-inset);color:var(--fg);font:inherit}.nido-camera-panel__picker-save{padding:8px 14px;border-radius:var(--r-sm);border:0;background:var(--accent);color:var(--accent-ink, #fff);font:inherit;cursor:pointer}.nido-camera-panel__picker-save:disabled{opacity:.4;cursor:default}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin var(--fan-speed, 2.4s) linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn,.nido-covers-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover,.nido-covers-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active,.nido-covers-pill-btn:active{transform:scale(.96)}.nido-lights-pill,.nido-covers-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count,.nido-covers-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center}.nido-lights-panel .nido-notification-panel__content{height:auto;max-height:min(720px,calc(100% - 48px));max-width:460px;border-radius:var(--r-2xl)}.nido-lights-panel .nido-notification-panel__header{padding:18px 18px 18px 20px}.nido-lights-panel .nido-notification-panel__scroll{padding:12px 18px 18px 20px}.nido-lights-panel .nido-lights-panel__footer{padding:16px 18px 18px 20px}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:20px}.nido-lights-group{display:flex;flex-direction:column;gap:10px}.nido-lights-group__title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 4px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status.is-open{color:var(--accent-deep)}.nido-covers-row__actions{display:flex;gap:4px;flex-shrink:0}.nido-covers-row__actions .n-pill-btn{flex:0 0 auto;width:32px;height:32px;padding:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-covers-panel__footer{display:flex;gap:10px}.nido-covers-panel__footer .nido-lights-panel__all-off{width:auto;flex:1}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-widget--agenda{display:flex;flex-direction:column;gap:10px}.nido-cal-widget__head{display:flex;align-items:center;gap:8px;color:var(--cal-color, var(--ink-3))}.nido-cal-widget__head .n-eyebrow{color:var(--ink-3)}.nido-cal-widget__placeholder{padding-left:12px;border-left:2px solid color-mix(in srgb,var(--cal-color, var(--ink-3)) 35%,transparent)}.nido-cal-widget__agenda{list-style:none;margin:0;padding:2px 0 2px 12px;border-left:2px solid var(--cal-color, var(--ink-3));display:flex;flex-direction:column;gap:8px}.nido-cal-widget__agenda-row{display:grid;grid-template-columns:48px auto 1fr;align-items:start;gap:8px;font-family:var(--font-sans);font-size:12px;color:var(--ink-1);line-height:1.25}.nido-cal-widget__agenda-day{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--cal-color, var(--ink-3));font-weight:600;white-space:nowrap}.nido-cal-widget__agenda-time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.04em;white-space:nowrap}.nido-cal-widget__agenda-title{color:var(--ink-1);font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;word-break:break-word}.n-card[data-hero=true] .nido-cal-widget__agenda{gap:10px}.n-card[data-hero=true] .nido-cal-widget__agenda-row{font-size:14px;grid-template-columns:46px auto 1fr}.n-card[data-hero=true] .nido-cal-widget__agenda-day,.n-card[data-hero=true] .nido-cal-widget__agenda-time{font-size:11px}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-drag-item[data-flash=true]:after,.nido-room-card[data-flash=true]:after{content:"";position:absolute;inset:0;border-radius:var(--r-lg);pointer-events:none;z-index:3;animation:nido-state-flash .9s var(--ease-out) forwards}.nido-room-card[data-flash=true]:after{border-radius:inherit}@keyframes nido-state-flash{0%{box-shadow:inset 0 0 0 2px var(--accent);opacity:0}20%{opacity:.9}to{box-shadow:inset 0 0 0 2px var(--accent);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-drag-item[data-flash=true]:after,.nido-room-card[data-flash=true]:after{animation:none;content:none}}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-rooms-grid--phone{grid-template-columns:minmax(0,1fr);gap:12px}.nido-rooms-grid--touch{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:170px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--hero-dark);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__icon{position:relative}.nido-room-card__occupancy{position:absolute;top:-2px;right:-2px;width:11px;height:11px;box-sizing:border-box;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card)}.nido-room-card--accent .nido-room-card__occupancy{border-color:var(--hero-dark)}.nido-room-card__occupancy--motion{opacity:.85}.nido-room-card__occupancy:after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1.5px solid var(--accent);animation:nido-occupancy-pulse 2.6s var(--ease-out) infinite}@keyframes nido-occupancy-pulse{0%{transform:scale(.85);opacity:.75}60%{transform:scale(2.1);opacity:0}to{transform:scale(2.1);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-room-card__occupancy:after{animation:none;opacity:.35}}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__chips{display:flex;flex-wrap:wrap;gap:6px}.nido-room-card__chip{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:var(--r-pill);background:var(--bg-inset);font-family:var(--font-sans);font-size:12px;font-weight:500;line-height:1}.nido-room-card--accent .nido-room-card__chip{background:#f4ede21f}.nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--alert{background:color-mix(in srgb,var(--danger) 16%,transparent);color:var(--danger)}.nido-room-card__chip--idle{opacity:.55}.nido-room-card__band{display:flex;align-items:center;gap:12px;margin-top:12px;padding-top:11px;border-top:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);font-size:13px;font-weight:500;opacity:.8}.nido-room-card--accent .nido-room-card__band{border-top-color:#f4ede229}.nido-room-card__band-item{display:inline-flex;align-items:center;gap:5px;min-width:0}.nido-room-card__band-icon{display:flex;opacity:.65}.nido-room-card__band-label{display:none}.nido-room-card__band-unit{margin-left:1px}.nido-room-card__actions{display:flex;gap:8px;margin-top:auto;padding-top:14px}.nido-room-card__actions .n-pill-btn.is-idle{opacity:.55}.nido-room-card--accent .nido-room-card__actions .n-pill-btn,.nido-room-card--accent .nido-room-card__actions .n-icon-btn{background:#f4ede224;color:var(--hero-dark-ink)}.nido-room-card--touch{min-height:210px}.nido-room-card--touch .nido-room-card__icon{width:44px;height:44px}.nido-room-card--touch .nido-room-card__name{font-size:19px}.nido-room-card--touch .nido-room-card__band{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);opacity:1}.nido-room-card--accent.nido-room-card--touch .nido-room-card__band{border-bottom-color:#f4ede229}.nido-room-card--touch .nido-room-card__band-item{display:flex;flex-direction:column;align-items:flex-start;gap:0}.nido-room-card--touch .nido-room-card__band-icon{display:none}.nido-room-card--touch .nido-room-card__band-label{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}.nido-room-card--touch .nido-room-card__band-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;margin-top:5px}.nido-room-card--touch .nido-room-card__band-unit{font-size:11px;font-weight:500;opacity:.6;margin-left:2px}.nido-room-card--touch .n-pill-btn{height:44px;font-size:13px}.nido-room-card--touch .n-icon-btn{width:44px;height:44px}.nido-room-card--phone{min-height:96px;padding:16px;border-radius:var(--r-md);display:flex;flex-direction:column;gap:10px}.nido-room-card--phone .nido-room-card__deco{display:none}.nido-room-card__row{position:relative;display:flex;align-items:center;gap:12px}.nido-room-card--phone .nido-room-card__icon{width:36px;height:36px}.nido-room-card--phone .nido-room-card__name{flex:1;min-width:0;margin-bottom:0;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-room-card__chev{display:flex;opacity:.45;flex-shrink:0}.nido-room-card__line{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px}.nido-room-card--phone .nido-room-card__band{margin-top:0;padding-top:0;border-top:none;font-size:13.5px;font-weight:600;letter-spacing:-.02em;opacity:.85}.nido-room-card--phone .nido-room-card__chips{flex-wrap:nowrap;flex-shrink:0}.nido-room-card--phone .nido-room-card__line{justify-content:flex-start}.nido-room-card--phone .nido-room-card__band{min-width:0;overflow:hidden}.nido-room-card--phone .nido-room-card__chips{margin-left:auto}.nido-room-card--phone .nido-room-card__chip--cover{flex-shrink:0;margin-left:auto}.nido-room-card--phone .nido-room-card__chips+.nido-room-card__chip--cover{margin-left:6px}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:0;overflow:hidden}.n-ob__shell{padding:16px;border-radius:0;min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__image{display:block;width:100%;max-height:240px;object-fit:cover;border-radius:var(--r-md);margin-top:10px;background:var(--bg-inset)}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__icons>.nido-bell-btn,.nido-topbar__icons>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar{grid-template-columns:1fr auto;grid-template-areas:"weather icons" "brand utility";row-gap:12px}.nido-topbar__weather{justify-content:flex-start}.nido-topbar__icons,.nido-topbar__utility{justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:0}.nido-energy-row{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.nido-energy-row>section{margin-top:0;min-width:0}@media(max-width:900px){.nido-energy-row{grid-template-columns:1fr}}.nido-energy-summary,.nido-kids-summary{display:grid;grid-template-columns:1fr;gap:16px}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}.n-kids-card{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer}.n-kids-card__deco{position:absolute;top:-20px;right:-40px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-kids-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:1}.n-kids-card__head-text{display:flex;flex-direction:column;gap:4px}.n-kids-card__head-actions{display:flex;align-items:center;gap:8px}.n-kids-card__star{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#ffffff2e;color:var(--accent-ink)}.n-kids-card__empty{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding-top:16px;position:relative;z-index:1}.n-kids-card__list{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}.n-kids-card__row{display:flex;align-items:center;gap:12px}.n-kids-card__avatar{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;position:relative;box-shadow:0 2px 6px #0000001f}.n-kids-card__crown{position:absolute;top:-8px;right:-6px;font-size:14px;color:#f6c451;text-shadow:0 1px 2px rgba(0,0,0,.25)}.n-kids-card__row-body{flex:1;min-width:0}.n-kids-card__row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.n-kids-card__name{font-weight:600;color:var(--accent-ink);font-size:14px}.n-kids-card__total{font-weight:700;font-size:18px;color:var(--accent-ink);line-height:1}.n-kids-card__total-unit{font-weight:500;font-size:11px;margin-left:3px;opacity:.7}.n-kids-card__bar{margin-top:6px;height:6px;border-radius:999px;background:#ffffff38;overflow:hidden}.n-kids-card__bar-fill{display:block;height:100%;border-radius:999px;transition:width .4s ease;min-width:6px}.n-kids-card__last{margin-top:4px;font-size:11px;color:var(--accent-ink);opacity:.65}.n-kids-card__privilege{margin-top:6px;display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 10px;border-radius:999px;background:#ffffff2e;border:1px solid rgba(255,255,255,.25);color:var(--accent-ink);font-size:12px;font-weight:600;max-width:100%}.n-kids-card__privilege-emoji{font-size:14px;line-height:1}.n-kids-card__privilege-label{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-kids-card__privilege-end{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#00000026;color:var(--accent-ink);border:none;cursor:pointer;padding:0}.n-kids-card__privilege-end:hover{background:#00000047}.nido-kids-panel{display:flex;flex-direction:column;font-family:"Baloo 2",DM Sans,system-ui,sans-serif;--kids-accent: #ff8a3d;--kids-accent-2: #ffd166;--kids-good: #6fcf97;--kids-bad: #f4736b;--kids-surface: var(--bg-card);--kids-surface-2: var(--bg-inset);--kids-pastel-1: #ffb4a2;--kids-pastel-2: #b8e0d2;--kids-pastel-3: #c7b8ea;--kids-pastel-4: #ffe08a;--kids-pastel-5: #9dd3f8;--kids-pastel-6: #f8a8c9}.nido-kids-panel__header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(135deg,var(--kids-accent),var(--kids-accent-2));color:#fff;position:relative;overflow:hidden}.nido-kids-panel__header:after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 8% 80%,rgba(255,255,255,.18) 0 12px,transparent 13px),radial-gradient(circle at 92% 25%,rgba(255,255,255,.16) 0 9px,transparent 10px),radial-gradient(circle at 50% 115%,rgba(255,255,255,.12) 0 16px,transparent 17px);pointer-events:none}.nido-kids-panel__header h2{margin:0;font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px;text-shadow:0 1px 0 rgba(0,0,0,.08)}.nido-kids-panel__header-star{display:inline-block;animation:nido-kids-spin 6s linear infinite}.nido-kids-panel__header-actions{display:flex;align-items:center;gap:8px;position:relative;z-index:1}.nido-kids-panel__iconbtn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:#ffffff40;color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s ease,background .15s ease}.nido-kids-panel__iconbtn:hover{transform:scale(1.08);background:#fff6}.nido-kids-panel__body{padding:22px 24px 28px;overflow-y:auto;flex:1}.nido-kids-panel__empty{padding:36px 0;text-align:center}.nido-kids-panel__empty-emoji{font-size:48px;margin-bottom:12px}.nido-kids-panel__tabs{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}.nido-kids-panel__tab{flex:1 1 180px;min-width:160px;background:var(--kids-surface-2);border:3px solid transparent;border-radius:22px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .18s ease,box-shadow .18s ease;font:inherit;color:var(--ink-1);text-align:left;box-sizing:border-box}.nido-kids-panel__tab:hover{transform:translateY(-2px)}.nido-kids-panel__tab.is-active{border-color:var(--kid-color, var(--kids-accent));background:var(--kids-surface);box-shadow:0 12px 28px #ff8a3d2e;transform:translateY(-2px)}.nido-kids-panel__tab.is-active .nido-kids-panel__tab-avatar{animation:nido-kids-wiggle 1.4s ease-in-out infinite}.nido-kids-panel__tab-avatar{width:56px;height:56px;border-radius:50%;background:var(--kid-color, var(--kids-pastel-1));display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:inset 0 -3px #00000014,0 3px #0000000f}.nido-kids-panel__tab-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.nido-kids-panel__tab-name{font-weight:700;font-size:17px;line-height:1.1}.nido-kids-panel__tab-pts{font-size:18px;font-weight:800;color:var(--kids-accent);display:flex;align-items:baseline;gap:4px}.nido-kids-panel__tab-pts small{font-size:12px;font-weight:600;color:var(--ink-3)}.nido-kids-panel__score{background:linear-gradient(135deg,var(--kids-pastel-4),var(--kids-pastel-2));border-radius:24px;padding:20px 22px;margin-bottom:18px;color:#2a2018;box-shadow:0 6px 20px #ffd1662e}.nido-kids-panel__score-row{display:flex;align-items:center;gap:16px}.nido-kids-panel__score-big{font-size:48px;font-weight:800;line-height:1;display:flex;align-items:baseline;gap:6px}.nido-kids-panel__score-star{font-size:32px;animation:nido-kids-bounce 1.6s ease-in-out infinite}.nido-kids-panel__score-num{font-variant-numeric:tabular-nums}.nido-kids-panel__score-unit{font-size:20px;font-weight:700}.nido-kids-panel__score-badge{margin-left:auto;background:#ffffff8c;border-radius:16px;padding:8px 14px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:inset 0 -3px #0000000f}.nido-kids-panel__progress{margin-top:14px;background:#ffffff73;border-radius:999px;height:14px;overflow:hidden}.nido-kids-panel__progress-bar{background:linear-gradient(90deg,var(--kids-accent),var(--kids-bad));height:100%;border-radius:999px;transition:width .5s cubic-bezier(.34,1.56,.64,1);box-shadow:inset 0 -3px #0000001a}.nido-kids-panel__progress-label{margin-top:6px;font-size:13px;font-weight:600;opacity:.85}.nido-kids-panel__group-title{margin:4px 0 10px;font-size:14px;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:8px;letter-spacing:.02em}.nido-kids-panel__group-title:not(:first-of-type),.nido-kids-panel__tiles+.nido-kids-panel__group-title{margin-top:18px}.nido-kids-panel__group-title--neg{color:var(--kids-bad)}.nido-kids-panel__tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}.nido-kids-panel__tile{background:var(--kids-surface-2);border:none;border-radius:20px;padding:14px 10px 12px;text-align:center;cursor:pointer;position:relative;transition:transform .12s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease;font:inherit;color:var(--ink-1);user-select:none;box-shadow:0 3px #0000000f;overflow:visible;box-sizing:border-box;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.nido-kids-panel__tile:hover{transform:translateY(-3px);box-shadow:0 6px #0000000f}.nido-kids-panel__tile:active{transform:translateY(1px) scale(.97);box-shadow:0 1px #0000000f}.nido-kids-panel__tile.is-pop{animation:nido-kids-pop .4s cubic-bezier(.34,1.56,.64,1)}.nido-kids-panel__tile.is-negative{background:#fce6e5}[data-mode=dark] .nido-kids-panel__tile.is-negative{background:#3b2422}.nido-kids-panel__tile-emoji{font-size:40px;display:block;line-height:1;margin-bottom:8px;transition:transform .2s ease}.nido-kids-panel__tile:hover .nido-kids-panel__tile-emoji{transform:scale(1.1) rotate(-3deg)}.nido-kids-panel__tile-label{font-size:13px;font-weight:600;line-height:1.2;color:var(--ink-1);min-height:32px;display:flex;align-items:center;justify-content:center}.nido-kids-panel__tile-pts{position:absolute;top:8px;right:8px;background:var(--kids-good);color:#fff;font-size:12px;font-weight:800;padding:3px 8px;border-radius:999px;box-shadow:0 2px #0000001a}.nido-kids-panel__tile.is-negative .nido-kids-panel__tile-pts{background:var(--kids-bad)}.nido-kids-panel__tile-count{position:absolute;top:8px;left:8px;background:var(--kids-accent);color:#fff;min-width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px #0000001a;transform:scale(0);transition:transform .25s cubic-bezier(.34,1.56,.64,1);padding:0 6px}.nido-kids-panel__tile-count.is-visible{transform:scale(1)}.nido-kids-panel__confetti{position:absolute;left:50%;top:40%;width:8px;height:8px;border-radius:2px;pointer-events:none;animation:nido-kids-confetti .8s ease-out forwards}.nido-kids-panel__hint{margin:14px 0 0;font-size:12px;color:var(--ink-3);text-align:center;font-family:DM Sans,system-ui,sans-serif}.nido-kids-panel__avatar-pick{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;box-shadow:inset 0 -2px #00000014}.nido-kids-panel__emoji-picker{flex:1 0 100%;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px;padding:10px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-md)}.nido-kids-panel__emoji-choice{font-size:22px;background:transparent;border:2px solid transparent;border-radius:12px;padding:6px;cursor:pointer;transition:transform .12s ease,border-color .12s ease}.nido-kids-panel__emoji-choice:hover{transform:scale(1.15)}.nido-kids-panel__emoji-choice.is-active{border-color:var(--kids-accent);background:var(--bg-inset)}.nido-kids-panel__task-emoji{font-size:22px;flex:0 0 auto}.nido-kids-panel__task-label-static{flex:1;font-weight:500;color:var(--ink-1)}.nido-kids-panel__task-pts{font-size:12px;color:var(--ink-3);font-weight:600}.nido-kids-panel__task-pts.is-negative,.nido-kids-panel__points-input .is-negative{color:var(--danger, #c45d3f)}.n-kids-card__total.is-negative{color:#ffd2c5}.nido-kids-panel__threshold-input{width:56px;padding:4px 6px;border:1px solid var(--bg-inset);border-radius:8px;background:var(--bg-1);color:var(--ink-1);font-weight:600;text-align:center;font-size:13px}.nido-kids-panel__threshold-input:focus{outline:none;border-color:var(--kids-accent)}.nido-kids-panel__threshold-input::-webkit-outer-spin-button,.nido-kids-panel__threshold-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.nido-kids-panel__threshold-input{-moz-appearance:textfield}.nido-kids-panel__emoji-input{width:48px;text-align:center;font-size:18px;flex:0 0 auto}.nido-kids-panel__privilege{margin-top:12px;padding:12px;border-radius:14px;background:var(--bg-inset);border:1px solid color-mix(in srgb,var(--kids-accent) 30%,transparent);display:flex;flex-direction:column;gap:10px}.nido-kids-panel__privilege--active{background:linear-gradient(135deg,color-mix(in srgb,var(--kids-accent) 20%,var(--bg-inset)),color-mix(in srgb,var(--kids-accent-2) 20%,var(--bg-inset)));border-color:var(--kids-accent)}.nido-kids-panel__privilege-head{display:flex;align-items:center;gap:12px}.nido-kids-panel__privilege-emoji{font-size:28px;flex:0 0 auto}.nido-kids-panel__privilege-meta{flex:1;display:flex;flex-direction:column;min-width:0}.nido-kids-panel__privilege-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);font-weight:700}.nido-kids-panel__privilege-label{font-size:15px;font-weight:700;color:var(--ink-1)}.nido-kids-panel__privilege-choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}.nido-kids-panel__privilege-choice{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--bg-card);border:1px solid var(--bg-inset);color:var(--ink-1);cursor:pointer;text-align:left;font-weight:600;font-size:13px}.nido-kids-panel__privilege-choice:hover{border-color:var(--kids-accent);background:color-mix(in srgb,var(--kids-accent) 8%,var(--bg-card))}@keyframes nido-kids-wiggle{0%,to{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes nido-kids-bounce{0%,to{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes nido-kids-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes nido-kids-pop{0%{transform:scale(1)}35%{transform:scale(1.12);box-shadow:0 12px 28px #ff8a3d4d}to{transform:scale(1)}}@keyframes nido-kids-confetti{0%{transform:translate(0) rotate(0);opacity:1}to{transform:translate(var(--cx),var(--cy)) rotate(var(--cr));opacity:0}}@media(prefers-reduced-motion:reduce){.nido-kids-panel *,.nido-kids-panel *:before,.nido-kids-panel *:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}.nido-kids-panel__btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .1s ease,opacity .15s ease}.nido-kids-panel__btn:hover:not(:disabled){background:var(--bg-inset)}.nido-kids-panel__btn:active:not(:disabled){transform:scale(.94)}.nido-kids-panel__btn:disabled{opacity:.35;cursor:not-allowed}.nido-kids-panel__btn--plus{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.nido-kids-panel__btn--plus:hover:not(:disabled){background:var(--accent);filter:brightness(1.05)}.nido-kids-panel__btn--danger{color:var(--danger, #c45d3f)}.nido-kids-panel__config{display:flex;flex-direction:column;gap:24px}.nido-kids-panel__section h3{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}.nido-kids-panel__list{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:8px}.nido-kids-panel__list-row{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-inset);border:1px solid var(--line);border-radius:var(--r-lg)}.nido-kids-panel__input{flex:1;min-width:0;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);font-size:14px;font-family:inherit;box-sizing:border-box}.nido-kids-panel__input:focus{outline:none;border-color:var(--accent)}.nido-kids-panel__add{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.nido-kids-panel__points-input{display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:999px;background:var(--bg-inset);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-2)}.nido-kids-panel__task-points-edit{display:flex;align-items:center;gap:8px}.nido-compact{width:100%;height:100%;padding:10px;box-sizing:border-box;font-family:var(--font-sans);color:var(--ink-1);overflow:hidden}.nido-compact__shell{position:relative;height:100%;background:var(--bg-shell);border-radius:var(--r-xl);overflow:hidden;display:flex}.nido-compact__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-compact__shell>*{position:relative}.nido-compact-rail{width:68px;flex-shrink:0;background:var(--bg-card);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:8px}.nido-compact-rail__brand{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;margin-bottom:6px}.nido-compact-rail__btn{width:48px;height:48px;border-radius:var(--r-md);background:transparent;color:var(--ink-2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.nido-compact-rail__btn.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-rail__bell{margin-top:auto;position:relative}.nido-compact-rail__bell-dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);pointer-events:none}.nido-compact-content{position:relative;flex:1;min-width:0;padding:16px;overflow:hidden}.nido-compact-glance{height:100%;display:grid;grid-template-columns:1fr 300px;gap:14px}.nido-compact-glance__main{display:flex;flex-direction:column;min-width:0}.nido-compact-glance__meta{display:flex;align-items:baseline;gap:10px;margin-bottom:2px}.nido-compact-glance__meta-item{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.12em;text-transform:uppercase}.nido-compact-glance__meta-dot{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-glance__title{font-family:var(--font-display);font-size:34px;font-weight:600;letter-spacing:-.035em;line-height:1;margin:6px 0 0}.nido-compact-glance__title em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-compact-glance__row{margin-top:12px;display:grid;gap:10px;flex:1;min-height:0}.nido-compact-glance__stack{display:grid;gap:10px}.nido-compact-glance__side{display:flex;flex-direction:column;gap:10px;min-width:0}.nido-compact-tile{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink-1)}.nido-compact-tile--accent{background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-compact-tile__head{position:relative;display:flex;align-items:center;justify-content:space-between}.nido-compact-tile__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}.nido-compact-tile__icon{opacity:.55}.nido-compact-tile--accent .nido-compact-tile__icon{opacity:.8}.nido-compact-tile__value{position:relative;font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:-.035em;line-height:1}.nido-compact-tile__unit{font-size:14px;opacity:.6;margin-left:2px}.nido-compact-tile__caption{font-size:13px;opacity:.85;margin-top:4px}.nido-compact-hero{position:relative;background:var(--bg-card);color:var(--ink-1);border-radius:var(--r-lg);padding:16px;overflow:hidden;display:flex;flex-direction:column}.nido-compact-hero[data-on=true]{background:var(--accent);color:var(--accent-ink)}.nido-compact-hero__glow{position:absolute;top:-50px;right:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%);pointer-events:none}.nido-compact-hero__top{position:relative;display:flex;align-items:flex-start;justify-content:space-between}.nido-compact-hero__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.nido-compact-hero__name{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.025em;margin-top:3px}.nido-compact-hero__bottom{position:relative;margin-top:auto}.nido-compact-hero__row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}.nido-compact-hero__pct{font-family:var(--font-display);font-size:26px;font-weight:600;letter-spacing:-.03em}.nido-compact-toggle{width:68px;height:44px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;flex-shrink:0}.nido-compact-toggle[data-on=true]{background:#ffffff4d}.nido-compact-toggle__thumb{position:absolute;top:4px;left:4px;width:36px;height:36px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.nido-compact-toggle[data-on=true] .nido-compact-toggle__thumb{left:28px;background:var(--accent-ink)}.nido-compact-weather{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px}.nido-compact-weather__icon{color:var(--accent);flex-shrink:0}.nido-compact-weather__temp{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-weather__cond{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-weather__clock{margin-left:auto;font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--ink-2)}.nido-compact-media{position:relative;background:var(--hero-dark);color:var(--hero-dark-ink);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px;overflow:hidden}.nido-compact-media__disc{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 45% 45%,var(--accent) 0%,var(--accent-deep) 38%,var(--hero-dark) 92%);position:relative}.nido-compact-media__disc.is-spinning{animation:nido-compact-spin 8s linear infinite}.nido-compact-media__disc:after{content:"";position:absolute;inset:17px;border-radius:50%;background:var(--hero-dark);border:1px solid rgba(244,237,226,.15)}.nido-compact-media__body{min-width:0;flex:1}.nido-compact-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-compact-media__sub{font-size:13px;color:#f4ede2c7;margin-top:2px}.nido-compact-media__play{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}@keyframes nido-compact-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.nido-compact-media__disc.is-spinning{animation:none}}.nido-compact-next{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;flex:1;min-height:0}.nido-compact-next__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}.nido-compact-next__row{display:flex;align-items:center;gap:10px}.nido-compact-next__badge{width:46px;height:46px;border-radius:var(--r-sm);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.nido-compact-next__badge-day{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.1em}.nido-compact-next__badge-num{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-next__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em}.nido-compact-next__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-compact-controls{height:100%;display:flex;flex-direction:column}.nido-compact-controls__tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;flex-shrink:0;scrollbar-width:thin}.nido-compact-tab{padding:10px 16px;min-height:44px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-2);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:-.01em;flex-shrink:0;white-space:nowrap}.nido-compact-tab.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-controls__grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:10px;flex:1;min-height:0;overflow-y:auto}.nido-mini-control{position:relative;background:var(--bg-card);border:1.5px solid transparent;border-radius:var(--r-lg);padding:14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;justify-content:space-between;min-height:88px;font-family:var(--font-sans);color:var(--ink-1);transition:background .2s,border-color .2s}.nido-mini-control.is-static{cursor:default}.nido-mini-control[data-on=true]{background:var(--accent-soft);border-color:var(--accent)}.nido-mini-control:disabled{opacity:.55;cursor:not-allowed}.nido-mini-control__top{display:flex;align-items:center;justify-content:space-between;width:100%}.nido-mini-control__icon{width:34px;height:34px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center}.nido-mini-control[data-on=true] .nido-mini-control__icon{background:var(--accent);color:var(--accent-ink)}.nido-mini-control__dot{width:8px;height:8px;border-radius:50%;background:var(--ink-4)}.nido-mini-control[data-on=true] .nido-mini-control__dot{background:var(--accent)}.nido-mini-control__name{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em}.nido-mini-control__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-mini-control[data-on=true] .nido-mini-control__sub{color:var(--accent-deep)}.nido-compact-empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink-3);font-size:14px;text-align:center;padding:0 24px}.nido-compact-ambient{height:100%;display:grid;grid-template-columns:1fr 240px;gap:18px;align-items:center}.nido-compact-ambient__date{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}.nido-compact-ambient__clock{font-family:var(--font-display);font-size:112px;font-weight:600;letter-spacing:-.05em;line-height:.86;margin-top:6px}.nido-compact-ambient__meta{display:flex;align-items:center;gap:14px;margin-top:14px}.nido-compact-ambient__weather{display:flex;align-items:center;gap:8px;color:var(--ink-2)}.nido-compact-ambient__weather-temp{font-family:var(--font-display);font-size:17px;font-weight:500}.nido-compact-ambient__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-ambient__family{display:flex}.nido-compact-ambient__avatar{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg-shell);object-fit:cover;margin-left:-8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);font-size:11px;font-weight:600;flex-shrink:0;transition:opacity .2s,filter .2s}.nido-compact-ambient__avatar:first-child{margin-left:0}.nido-compact-ambient__avatar.is-away{opacity:.4;filter:grayscale(1)}.nido-compact-ambient__side{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:10px}.nido-compact-status{background:var(--bg-card);border-radius:var(--r-lg);padding:14px}.nido-compact-status__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}.nido-compact-status__title{font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-.02em}.nido-compact-status__sub{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-next--ambient{background:var(--accent);color:var(--accent-ink);border-radius:var(--r-lg);padding:14px;position:relative;overflow:hidden}.nido-alarm-code{position:fixed;inset:0;z-index:2100;display:flex;align-items:center;justify-content:center;padding:24px}.nido-alarm-code__backdrop{position:absolute;inset:0;background:#00000080;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:fade-in .2s ease-out}.nido-alarm-code__content{position:relative;width:100%;max-width:320px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;padding:20px;display:flex;flex-direction:column;gap:14px;animation:fade-in .25s ease-out}.nido-alarm-code__content:focus{outline:none}.nido-alarm-code__header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.nido-alarm-code__title-group{display:flex;align-items:center;gap:10px;min-width:0}.nido-alarm-code__title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1)}.nido-alarm-code__subtitle{font-size:12px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-alarm-code__close{flex:none;width:30px;height:30px;border:0;border-radius:50%;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}.nido-alarm-code__close:hover{background:var(--ink-4);color:var(--ink-1)}.nido-alarm-code__display{height:48px;border-radius:var(--r-md, 12px);background:var(--bg-inset);display:flex;align-items:center;justify-content:center}.nido-alarm-code__placeholder{font-size:13px;color:var(--ink-3)}.nido-alarm-code__dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.nido-alarm-code__dot{width:10px;height:10px;border-radius:50%;background:var(--ink-1)}.nido-alarm-code__input{height:48px;border-radius:var(--r-md, 12px);border:1px solid var(--ink-4);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:16px;padding:0 14px;letter-spacing:.15em}.nido-alarm-code__input:focus{outline:none;border-color:var(--accent)}.nido-alarm-code__error{font-size:12px;color:var(--danger, #d9534f);text-align:center}.nido-alarm-code__pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.nido-alarm-code__key{height:52px;border:0;border-radius:var(--r-md, 12px);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:20px;font-weight:500;cursor:pointer;transition:background .15s}.nido-alarm-code__key:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.nido-alarm-code__key--aux{font-size:16px;color:var(--ink-2)}.nido-alarm-code__key:disabled{opacity:.4;cursor:not-allowed}.nido-alarm-code__submit{height:44px;border:0;border-radius:var(--r-md, 12px);background:var(--accent);color:var(--accent-ink);font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;transition:opacity .15s}.nido-alarm-code__submit:disabled{opacity:.45;cursor:not-allowed}@keyframes fade-in{0%{opacity:0}to{opacity:1}}', xl = "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
+let El = !1;
 function Py() {
-  if (Sl || typeof document > "u") return;
-  if (!document.head.querySelector(`link[href="${El}"]`)) {
+  if (El || typeof document > "u") return;
+  if (!document.head.querySelector(`link[href="${xl}"]`)) {
     const e = document.createElement("link");
-    e.rel = "stylesheet", e.href = El, document.head.appendChild(e);
+    e.rel = "stylesheet", e.href = xl, document.head.appendChild(e);
   }
-  Sl = !0;
+  El = !0;
 }
 class My extends HTMLElement {
   constructor() {
@@ -29791,18 +29790,18 @@ ${Cy}`, this._mountPoint = document.createElement("div"), this._mountPoint.class
     this.hasAttribute("data-theme") || this.setAttribute("data-theme", e), this.hasAttribute("data-mode") || this.setAttribute("data-mode", t), this._render();
   }
   disconnectedCallback() {
-    ha(null, this._mountPoint);
+    ua(null, this._mountPoint);
   }
   applyTheme(e, t) {
     this.setAttribute("data-theme", e), this.setAttribute("data-mode", t);
   }
   _render() {
-    ha(Il(Ry, { hass: this._hass, host: this }), this._mountPoint);
+    ua(Al(Ry, { hass: this._hass, host: this }), this._mountPoint);
   }
 }
 customElements.get("nido-panel") || customElements.define("nido-panel", My);
 console.info(
-  "%c NIDO %c v0.3.43 ",
+  "%c NIDO %c v0.3.44 ",
   "background:#c75a2a;color:#fff;padding:2px 6px;border-radius:3px 0 0 3px;",
   "background:#1a1410;color:#fff;padding:2px 6px;border-radius:0 3px 3px 0;"
 );

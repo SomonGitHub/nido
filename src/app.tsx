@@ -182,10 +182,6 @@ export function App({ hass, host }: AppProps) {
         : [],
     [entities, currentArea, exposedSet],
   );
-  const currentRoomAllEntities = useMemo(
-    () => (currentArea ? entities.filter((e) => e.area_id === currentArea.area_id) : []),
-    [entities, currentArea],
-  );
 
   const energyAvailable =
     !!hass.states[POWER_ENTITY_ID] && exposedSet.has(POWER_ENTITY_ID);
@@ -231,7 +227,6 @@ export function App({ hass, host }: AppProps) {
           hass={hass}
           area={currentArea}
           entities={currentRoomEntities}
-          allRoomEntities={currentRoomAllEntities}
           entitiesOrder={roomEntitiesOrder[currentArea.area_id] ?? []}
           onBack={() => setView({ kind: "dashboard" })}
           onReorderEntities={(ids) => reorderRoomEntities(currentArea.area_id, ids)}

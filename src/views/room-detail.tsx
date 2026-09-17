@@ -18,9 +18,6 @@ interface RoomDetailProps {
   hass: HassObject;
   area: Area;
   entities: ResolvedEntity[];
-  /** Toutes les entités de la pièce, exposées ou non : sert aux signaux de
-   *  pièce (activité), comme l'occupation sur le dashboard. */
-  allRoomEntities: ResolvedEntity[];
   entitiesOrder: string[];
   onBack: () => void;
   onReorderEntities: (ids: string[]) => void;
@@ -30,7 +27,6 @@ export function RoomDetail({
   hass,
   area,
   entities,
-  allRoomEntities,
   entitiesOrder,
   onBack,
   onReorderEntities,
@@ -92,7 +88,7 @@ export function RoomDetail({
     (e) => e.domain !== "sensor" && e.domain !== "binary_sensor",
   ).length;
   const active = visibleEntities.filter(isEntityActive).length;
-  const activity = active === 0 ? lastActivity(allRoomEntities, now) : null;
+  const activity = active === 0 ? lastActivity(entities, now) : null;
 
   return (
     <div class="nido-shell">
