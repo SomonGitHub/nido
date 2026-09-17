@@ -975,47 +975,59 @@ const j = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
   /* @__PURE__ */ l("path", { d: "M3 17h18" }),
   /* @__PURE__ */ l("rect", { x: "4.6", y: "9.6", width: "5.4", height: "3.4", rx: "1.2" })
 ] }), Zu = (n) => /* @__PURE__ */ l(j, { ...n, children: [
-  /* @__PURE__ */ l("path", { d: "M7 3v6a2 2 0 0 0 2 2h0v10" }),
-  /* @__PURE__ */ l("path", { d: "M11 3v6" }),
-  /* @__PURE__ */ l("path", { d: "M16 3c-1 2-1 4 0 6 1 1 1 3 0 4v8" })
-] }), Ju = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "6", y: "2", width: "12", height: "20", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M6 9.5h12" }),
   /* @__PURE__ */ l("path", { d: "M15 4.6v3" }),
   /* @__PURE__ */ l("path", { d: "M15 11.6v3.4" })
-] }), eh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), Ju = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M3 12.4h18v2.1a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 14.5v-2.1Z" }),
   /* @__PURE__ */ l("path", { d: "M7 12.4V6.4A2.4 2.4 0 0 1 11.8 6" }),
   /* @__PURE__ */ l("path", { d: "M6 19v1.8M18 19v1.8" })
-] }), th = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), eh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M6 21V4.4A1.4 1.4 0 0 1 7.4 3h9.2A1.4 1.4 0 0 1 18 4.4V21" }),
   /* @__PURE__ */ l("path", { d: "M3 21h18" }),
   /* @__PURE__ */ l("path", { d: "M9 7.5h6" }),
   /* @__PURE__ */ l("circle", { cx: "15", cy: "13", r: "1" })
-] }), ih = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), th = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "5.4", y: "2.6", width: "6", height: "4.6", rx: "1.1" }),
   /* @__PURE__ */ l("path", { d: "M8.4 7.2v2.2" }),
   /* @__PURE__ */ l("path", { d: "M3.8 9.4h12.4v1.8a4.8 4.8 0 0 1-4.8 4.8H8.6a4.8 4.8 0 0 1-4.8-4.8V9.4Z" }),
   /* @__PURE__ */ l("path", { d: "M10 16v3.6M6.8 19.6h6.4" })
-] }), nh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), ih = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "4", y: "2.6", width: "16", height: "18.8", rx: "2.2" }),
   /* @__PURE__ */ l("path", { d: "M4 7.6h16" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "14.6", r: "4.2" }),
   /* @__PURE__ */ l("circle", { cx: "16.6", cy: "5.1", r: "0.9" })
-] }), sh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), nh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M3 21V9.6L12 4l9 5.6V21" }),
   /* @__PURE__ */ l("path", { d: "M6.6 21v-8h10.8v8" }),
   /* @__PURE__ */ l("path", { d: "M6.6 16.4h10.8M6.6 18.8h10.8" })
-] }), rh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), sh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "4.2", width: "18", height: "11.2", rx: "1.6" }),
   /* @__PURE__ */ l("path", { d: "M12 15.4v3.2" }),
   /* @__PURE__ */ l("path", { d: "M8 18.6h8" })
+] }), rh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+  /* @__PURE__ */ l("path", { d: "M3 20.6h4.3v-4.2h4.3v-4.2h4.3V8h4.4" }),
+  /* @__PURE__ */ l("path", { d: "M20.3 8V3.8" }),
+  /* @__PURE__ */ l("path", { d: "M3 20.6V17" })
 ] }), ah = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+  /* @__PURE__ */ l("path", { d: "M12 3.6c-2.5 0-4.4 1.7-4.6 3.8-2 .5-3 2.2-2.5 4 .4 1.6 1.8 2.8 3.5 2.8h7.2c1.7 0 3.1-1.2 3.5-2.8.5-1.8-.5-3.5-2.5-4-.2-2.1-2.1-3.8-4.6-3.8Z" }),
+  /* @__PURE__ */ l("path", { d: "M12 14.2V21" }),
+  /* @__PURE__ */ l("path", { d: "M12 18.4 9.2 15.8M12 17.2l2.6-2.2" })
+] }), oh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+  /* @__PURE__ */ l("path", { d: "M10 2.8h4v3.8l2 2.8a3.2 3.2 0 0 1 .6 1.9V19a2.2 2.2 0 0 1-2.2 2.2H9.6A2.2 2.2 0 0 1 7.4 19v-7.7a3.2 3.2 0 0 1 .6-1.9l2-2.8V2.8Z" }),
+  /* @__PURE__ */ l("path", { d: "M7.4 13.4h9.2M7.4 17h9.2" })
+] }), lh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+  /* @__PURE__ */ l("path", { d: "M2.8 12.6h18.4" }),
+  /* @__PURE__ */ l("path", { d: "M5.2 12.6v6.6M18.8 12.6v6.6" }),
+  /* @__PURE__ */ l("path", { d: "M7.4 12.6V9a1.7 1.7 0 0 1 1.7-1.7h1.2A1.7 1.7 0 0 1 12 9v3.6" }),
+  /* @__PURE__ */ l("path", { d: "M12 12.6V9a1.7 1.7 0 0 1 1.7-1.7h1.2A1.7 1.7 0 0 1 16.6 9v3.6" })
+] }), ch = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M5.6 12.6h12.8l-1.3 7.2a1.7 1.7 0 0 1-1.7 1.4H8.6a1.7 1.7 0 0 1-1.7-1.4L5.6 12.6Z" }),
   /* @__PURE__ */ l("path", { d: "M12 12.6V6.4" }),
   /* @__PURE__ */ l("path", { d: "M12 10.2C8.8 10.2 7.4 8 7.7 5.2c2.7-.3 4.3 1.5 4.3 5Z" }),
   /* @__PURE__ */ l("path", { d: "M12 11c3 0 4.3-2 4-4.6-2.6-.3-4 1.4-4 4.6Z" })
-] }), oh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), dh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "6.9", cy: "6.9", r: "2.3" }),
   /* @__PURE__ */ l("circle", { cx: "17.1", cy: "6.9", r: "2.3" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "6.2" }),
@@ -1026,31 +1038,31 @@ const j = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
   /* @__PURE__ */ l("path", { d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" }),
   /* @__PURE__ */ l("path", { d: "M12 9v4" }),
   /* @__PURE__ */ l("path", { d: "M12 17h.01" })
-] }), lh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), uh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M22 12a10.06 10.06 1 0 0-20 0Z" }),
   /* @__PURE__ */ l("path", { d: "M12 12v8a2 2 0 0 0 4 0" }),
   /* @__PURE__ */ l("path", { d: "M12 2v1" })
-] }), ch = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), hh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "4" }),
   /* @__PURE__ */ l("path", { d: "M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" })
-] }), dh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), fh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "10" }),
   /* @__PURE__ */ l("path", { d: "M12 16v-4" }),
   /* @__PURE__ */ l("path", { d: "M12 8h.01" })
-] }), uh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), ph = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "10" }),
   /* @__PURE__ */ l("path", { d: "m9 12 2 2 4-4" })
 ] }), kr = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "4", width: "18", height: "18", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M16 2v4M8 2v4M3 10h18" })
-] }), hh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), gh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M18.36 6.64a9 9 0 1 1-12.73 0" }),
   /* @__PURE__ */ l("line", { x1: "12", y1: "2", x2: "12", y2: "12" })
-] }), fh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
+] }), mh = (n) => /* @__PURE__ */ l(j, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" }),
   /* @__PURE__ */ l("path", { d: "M9 7h6M9 11h6M9 15h4" }),
   /* @__PURE__ */ l("path", { d: "M5 7h2M5 11h2M5 15h2" })
-] }), ph = {
+] }), _h = {
   "clear-night": { label: "Nuit claire", Icon: Tr },
   cloudy: { label: "Nuageux", Icon: Kl },
   exceptional: { label: "Conditions extrêmes", Icon: ts },
@@ -1068,14 +1080,14 @@ const j = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
   "windy-variant": { label: "Venteux", Icon: xa }
 };
 function Vt(n) {
-  return ph[n] ?? { label: n || "—", Icon: Kl };
+  return _h[n] ?? { label: n || "—", Icon: Kl };
 }
 function Yl(n, e) {
   if (n == null || n === "") return "—";
   const t = Number(n);
   return Number.isFinite(t) ? `${n}${e}` : "—";
 }
-function gh({ entity: n, roomLabel: e }) {
+function vh({ entity: n, roomLabel: e }) {
   const t = n.state.state === "unavailable" || n.state.state === "unknown", { label: i, Icon: s } = Vt(n.state.state), r = n.state.attributes.temperature_unit ?? "°", a = Yl(n.state.attributes.temperature, r), o = n.state.attributes.humidity;
   return /* @__PURE__ */ l("div", { class: "n-card n-card--compact n-weather", "data-status": t ? "indisponible" : "off", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: /* @__PURE__ */ l("div", { class: "n-icon-bubble n-weather__icon", children: /* @__PURE__ */ l(s, { size: 20 }) }) }),
@@ -1123,15 +1135,15 @@ function nt(n) {
     }
   }, []), e;
 }
-function mh(n, e) {
+function yh(n, e) {
   const t = e.split(".")[1] || "", i = Object.values(n.states).filter((o) => o.entity_id.startsWith("sensor."));
   let s, r, a;
   for (const o of i)
     o.entity_id.endsWith("_next_rain") && (o.entity_id.includes(t) || !s) && (s = o), o.entity_id.endsWith("_weather_alert") && (o.entity_id.includes(t) || !r) && (r = o), o.entity_id.endsWith("_uv") && (o.entity_id.includes(t) || !a) && (a = o);
   return { nextRain: s, weatherAlert: r, uvIndex: a };
 }
-function _h({ hass: n, weatherEntityId: e, onClose: t }) {
-  const i = nt(t), [s, r] = K([]), [a, o] = K([]), d = n.states[e], { nextRain: c, weatherAlert: u, uvIndex: h } = mh(n, e);
+function bh({ hass: n, weatherEntityId: e, onClose: t }) {
+  const i = nt(t), [s, r] = K([]), [a, o] = K([]), d = n.states[e], { nextRain: c, weatherAlert: u, uvIndex: h } = yh(n, e);
   if (ce(() => {
     let b = !1;
     async function x() {
@@ -1198,14 +1210,14 @@ function _h({ hass: n, weatherEntityId: e, onClose: t }) {
             /* @__PURE__ */ l("div", { class: "nido-wp-grid", children: [
               c && /* @__PURE__ */ l("div", { class: "nido-wp-card", children: [
                 /* @__PURE__ */ l("div", { class: "nido-wp-card-head", children: [
-                  /* @__PURE__ */ l(lh, { size: 18 }),
+                  /* @__PURE__ */ l(uh, { size: 18 }),
                   /* @__PURE__ */ l("span", { children: "Pluie dans l'heure" })
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-wp-card-val", children: c.state === "unknown" ? "Pas de pluie prévue" : new Date(c.state).getTime() > Date.now() ? `Prévue à ${new Date(c.state).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}` : "Pas de pluie prévue" })
               ] }),
               h && /* @__PURE__ */ l("div", { class: "nido-wp-card", children: [
                 /* @__PURE__ */ l("div", { class: "nido-wp-card-head", children: [
-                  /* @__PURE__ */ l(ch, { size: 18 }),
+                  /* @__PURE__ */ l(hh, { size: 18 }),
                   /* @__PURE__ */ l("span", { children: "Index UV" })
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-wp-card-val", children: h.state })
@@ -1261,9 +1273,9 @@ function _h({ hass: n, weatherEntityId: e, onClose: t }) {
 }
 function ql(n) {
   const e = n.toLowerCase();
-  return /(salle ?[àa] ?manger|dining)/.test(e) ? Zu : /(salon|séjour|sejour|living)/.test(e) ? Xu : /(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(e) ? oh : /(chambre|bedroom)/.test(e) ? Qu : /(cuisine|kitchen)/.test(e) ? Ju : /(wc|toilette|water ?closet)/.test(e) ? ih : /(salle ?de ?bain|sdb|bath|douche|shower)/.test(e) ? eh : /(buanderie|lingerie|laundry|cellier)/.test(e) ? nh : /(garage|carport|atelier)/.test(e) ? sh : /(jardin|terrasse|balcon|patio|ext[ée]rieur|garden|outdoor)/.test(e) ? ah : /(bureau|office|study)/.test(e) ? rh : /(entrée|entree|hall|couloir|palier|d[ée]gagement)/.test(e) ? th : xr;
+  return /(salle ?[àa] ?manger|dining)/.test(e) ? lh : /(salon|séjour|sejour|living)/.test(e) ? Xu : /(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(e) ? dh : /(chambre|bedroom)/.test(e) ? Qu : /(cuisine|kitchen)/.test(e) ? Zu : /(wc|toilette|water ?closet)/.test(e) ? th : /(salle ?de ?bain|sdb|bath|douche|shower)/.test(e) ? Ju : /(buanderie|lingerie|laundry|cellier)/.test(e) ? ih : /(garage|carport|atelier)/.test(e) ? nh : /(jardin|ext[ée]rieur|dehors|garden|outdoor)/.test(e) ? ah : /(terrasse|balcon|patio|v[ée]randa)/.test(e) ? ch : /(cave|sous-? ?sol|basement)/.test(e) ? oh : /(escalier|stairs?|mont[ée]e)/.test(e) ? rh : /(bureau|office|study)/.test(e) ? sh : /(entrée|entree|hall|couloir|palier|d[ée]gagement)/.test(e) ? eh : xr;
 }
-const vh = {
+const xh = {
   light: "Lumières",
   switch: "Prises",
   cover: "Volets",
@@ -1280,7 +1292,7 @@ const vh = {
   script: "Scripts",
   weather: "Météo",
   calendar: "Calendriers"
-}, yh = {
+}, Eh = {
   light: ft,
   switch: Gn,
   cover: Ct,
@@ -1298,18 +1310,18 @@ const vh = {
   weather: Er,
   calendar: kr
 };
-function bh(n) {
+function Sh(n) {
   const e = n.attributes.brightness;
   return typeof e != "number" ? n.state === "on" ? 100 : 0 : Math.round(e / 255 * 100);
 }
-function xh({
+function Th({
   hass: n,
   entity: e,
   hero: t = !1,
   breatheVariant: i = 1,
   roomLabel: s
 }) {
-  const r = e.state.state === "on", a = e.state.state === "unavailable", [o, d] = K(!1), [c, u] = K(null), h = c ?? bh(e.state), f = async () => {
+  const r = e.state.state === "on", a = e.state.state === "unavailable", [o, d] = K(!1), [c, u] = K(null), h = c ?? Sh(e.state), f = async () => {
     if (!a) {
       d(!0);
       try {
@@ -1379,12 +1391,12 @@ function xh({
     a && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] });
 }
-function Eh(n) {
+function kh(n) {
   const e = n.attributes.current_position;
   return typeof e == "number" ? e : n.state === "open" ? 100 : n.state === "closed" ? 0 : 50;
 }
-function Sh({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
-  const s = e.state.state === "unavailable", [r, a] = K(null), o = r ?? Eh(e.state), d = o > 0, c = async (f) => {
+function Ah({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
+  const s = e.state.state === "unavailable", [r, a] = K(null), o = r ?? kh(e.state), d = o > 0, c = async (f) => {
     a(f);
     try {
       await n.callService("cover", "set_cover_position", {
@@ -1469,7 +1481,7 @@ function Sh({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
     s && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] }) });
 }
-function Th({
+function wh({
   hass: n,
   entity: e,
   roomLabel: t,
@@ -1511,7 +1523,7 @@ function Th({
     a && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] });
 }
-const kh = {
+const Ih = {
   door: ki,
   garage_door: ki,
   window: Pi,
@@ -1521,7 +1533,7 @@ const kh = {
   motion: Rt,
   occupancy: Rt,
   presence: Rt
-}, Ah = {
+}, Lh = {
   door: { on: "Ouverte", off: "Fermée" },
   garage_door: { on: "Ouverte", off: "Fermée" },
   window: { on: "Ouverte", off: "Fermée" },
@@ -1531,9 +1543,9 @@ const kh = {
   motion: { on: "Mouvement", off: "Calme" },
   occupancy: { on: "Présence", off: "Vide" },
   presence: { on: "Présence", off: "Vide" }
-}, wh = /* @__PURE__ */ new Set(["smoke", "gas", "moisture"]), Ih = /* @__PURE__ */ new Set(["door", "garage_door", "window"]);
-function Lh({ entity: n, roomLabel: e, hero: t = !1 }) {
-  const i = n.state.attributes.device_class ?? "", s = n.state.state === "on", r = n.state.state === "unavailable", a = kh[i] ?? Pt, o = Ah[i] ?? { on: "Actif", off: "Inactif" }, d = wh.has(i), c = Ih.has(i), u = r ? "indisponible" : s ? "on" : "off", f = ["n-card", t ? s ? "n-card--accent" : "n-card--accent-muted" : "n-card--compact"].filter(Boolean).join(" "), p = /* @__PURE__ */ l("div", { class: f, "data-hero": t ? "true" : "false", "data-status": u, "data-alert": d ? "true" : "false", children: [
+}, Rh = /* @__PURE__ */ new Set(["smoke", "gas", "moisture"]), Dh = /* @__PURE__ */ new Set(["door", "garage_door", "window"]);
+function Ch({ entity: n, roomLabel: e, hero: t = !1 }) {
+  const i = n.state.attributes.device_class ?? "", s = n.state.state === "on", r = n.state.state === "unavailable", a = Ih[i] ?? Pt, o = Lh[i] ?? { on: "Actif", off: "Inactif" }, d = Rh.has(i), c = Dh.has(i), u = r ? "indisponible" : s ? "on" : "off", f = ["n-card", t ? s ? "n-card--accent" : "n-card--accent-muted" : "n-card--compact"].filter(Boolean).join(" "), p = /* @__PURE__ */ l("div", { class: f, "data-hero": t ? "true" : "false", "data-status": u, "data-alert": d ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
       /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(a, { size: t ? 22 : 18 }) }),
       /* @__PURE__ */ l("span", { class: "n-dot", "aria-hidden": "true" })
@@ -1544,7 +1556,7 @@ function Lh({ entity: n, roomLabel: e, hero: t = !1 }) {
   ] });
   return c ? /* @__PURE__ */ l("div", { class: "n-cover-glow-wrap", "data-active": s ? "true" : "false", children: p }) : p;
 }
-const Rh = {
+const Ph = {
   off: "Éteint",
   heat: "Chauffage",
   cool: "Climatisation",
@@ -1552,7 +1564,7 @@ const Rh = {
   auto: "Auto",
   dry: "Déshu.",
   fan_only: "Ventilation"
-}, Dh = {
+}, Mh = {
   heat: Cu,
   cool: Pu,
   heat_cool: it,
@@ -1560,7 +1572,7 @@ const Rh = {
   dry: it,
   fan_only: it
 };
-function Ch({
+function Oh({
   hass: n,
   entity: e,
   roomLabel: t,
@@ -1578,12 +1590,12 @@ function Ch({
     } finally {
       setTimeout(() => g(null), 50);
     }
-  }, v = Dh[a] ?? it, x = ["n-card", s ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${i}` : ""].filter(Boolean).join(" ");
+  }, v = Mh[a] ?? it, x = ["n-card", s ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${i}` : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ l("div", { class: x, "data-hero": s ? "true" : "false", "data-on": o ? "true" : "false", children: [
     o && /* @__PURE__ */ l("div", { class: "n-light__glow", "aria-hidden": "true" }),
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
       /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(v, { size: 18 }) }),
-      /* @__PURE__ */ l("span", { class: "n-eyebrow", children: Rh[a] ?? a })
+      /* @__PURE__ */ l("span", { class: "n-eyebrow", children: Ph[a] ?? a })
     ] }),
     t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
     /* @__PURE__ */ l("div", { class: `n-title ${s ? "n-title--xl" : ""}`, children: e.friendly_name }),
@@ -1627,7 +1639,7 @@ function Ch({
     r && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] });
 }
-function Ph({ hass: n, entity: e, roomLabel: t }) {
+function Fh({ hass: n, entity: e, roomLabel: t }) {
   const i = e.state.state, s = i === "unavailable", r = i === "locked", a = i === "jammed", o = i === "locking" || i === "unlocking", [d, c] = K(!1), u = async () => {
     if (!(s || o || d)) {
       c(!0);
@@ -1669,7 +1681,7 @@ function Ph({ hass: n, entity: e, roomLabel: t }) {
     }
   );
 }
-const Mh = {
+const Nh = {
   cleaning: "Nettoyage",
   docked: "À la base",
   returning: "Retour base",
@@ -1677,7 +1689,7 @@ const Mh = {
   paused: "En pause",
   error: "Erreur"
 };
-function Oh({
+function $h({
   hass: n,
   entity: e,
   roomLabel: t,
@@ -1712,7 +1724,7 @@ function Oh({
         ] }),
         t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
         /* @__PURE__ */ l("div", { class: "n-title", children: e.friendly_name }),
-        /* @__PURE__ */ l("div", { class: "n-binary-state", children: Mh[s] ?? s }),
+        /* @__PURE__ */ l("div", { class: "n-binary-state", children: Nh[s] ?? s }),
         !r && /* @__PURE__ */ l("div", { class: "n-vacuum__actions", children: [
           /* @__PURE__ */ l(
             "button",
@@ -1745,7 +1757,7 @@ function Oh({
     }
   );
 }
-const Fh = {
+const Bh = {
   temperature: it,
   humidity: Ul,
   power: Gt,
@@ -1756,14 +1768,14 @@ const Fh = {
   pressure: Ou,
   battery: Gl
 };
-function Nh(n, e, t) {
+function Uh(n, e, t) {
   if (n === "unavailable" || n === "unknown") return { value: "—", unit: "" };
   if (t === "temperature") return { value: n, unit: e ?? "" };
   const i = Number(n);
   return Number.isFinite(i) ? { value: Math.abs(i) >= 100 ? Math.round(i).toString() : (Math.round(i * 10) / 10).toString(), unit: e ?? "" } : { value: n, unit: e ?? "" };
 }
-function $h({ entity: n, roomLabel: e }) {
-  const t = n.state.attributes.device_class ?? "", i = n.state.attributes.unit_of_measurement, s = Fh[t] ?? Fu, r = n.state.state === "unavailable", { value: a, unit: o } = Nh(n.state.state, i, t);
+function Gh({ entity: n, roomLabel: e }) {
+  const t = n.state.attributes.device_class ?? "", i = n.state.attributes.unit_of_measurement, s = Bh[t] ?? Fu, r = n.state.state === "unavailable", { value: a, unit: o } = Uh(n.state.state, i, t);
   return /* @__PURE__ */ l("div", { class: "n-card n-card--compact", "data-status": r ? "indisponible" : "off", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(s, { size: 18 }) }) }),
     e && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: e }),
@@ -1774,7 +1786,7 @@ function $h({ entity: n, roomLabel: e }) {
     ] })
   ] });
 }
-const Bh = {
+const Kh = {
   playing: "En lecture",
   paused: "En pause",
   idle: "Au repos",
@@ -1783,7 +1795,7 @@ const Bh = {
   standby: "Veille",
   buffering: "Mise en mémoire"
 };
-function Uh({
+function Vh({
   hass: n,
   entity: e,
   roomLabel: t,
@@ -1812,7 +1824,7 @@ function Uh({
     /* @__PURE__ */ l("div", { class: "n-card__head", style: { alignItems: "center" }, children: [
       /* @__PURE__ */ l("div", { style: { display: "flex", alignItems: "center", gap: "10px" }, children: [
         /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Mi, { size: 20 }) }),
-        /* @__PURE__ */ l("span", { class: "n-eyebrow", children: Bh[r] ?? r })
+        /* @__PURE__ */ l("span", { class: "n-eyebrow", children: Kh[r] ?? r })
       ] }),
       /* @__PURE__ */ l(
         "button",
@@ -1824,7 +1836,7 @@ function Uh({
           onClick: (S) => {
             S.stopPropagation(), v("toggle");
           },
-          children: /* @__PURE__ */ l(hh, { size: 18 })
+          children: /* @__PURE__ */ l(gh, { size: 18 })
         }
       )
     ] }),
@@ -1888,8 +1900,8 @@ function Uh({
     a && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] });
 }
-const Gh = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], Kh = 16;
-function Vh({
+const zh = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], Hh = 16;
+function jh({
   title: n,
   format: e,
   pending: t,
@@ -1906,7 +1918,7 @@ function Vh({
   const u = () => {
     t || d.length === 0 || s(d);
   }, h = (p) => {
-    t || c((g) => g.length >= Kh ? g : g + p);
+    t || c((g) => g.length >= Hh ? g : g + p);
   };
   return /* @__PURE__ */ l("div", { class: "nido-alarm-code", "data-no-drag": !0, children: [
     /* @__PURE__ */ l("div", { class: "nido-alarm-code__backdrop", onClick: r }),
@@ -1961,7 +1973,7 @@ function Vh({
           ),
           i && /* @__PURE__ */ l("div", { class: "nido-alarm-code__error", role: "alert", children: i }),
           e === "number" && /* @__PURE__ */ l("div", { class: "nido-alarm-code__pad", children: [
-            Gh.map((p) => /* @__PURE__ */ l(
+            zh.map((p) => /* @__PURE__ */ l(
               "button",
               {
                 type: "button",
@@ -2019,7 +2031,7 @@ function Vh({
     )
   ] });
 }
-const zh = {
+const Wh = {
   disarmed: "Désarmée",
   armed_home: "Présence",
   armed_away: "Absence",
@@ -2030,16 +2042,16 @@ const zh = {
   arming: "Armement…",
   disarming: "Désarmement…",
   triggered: "Déclenchée"
-}, Hh = [
+}, Yh = [
   { id: "armed_home", service: "alarm_arm_home", label: "Présence", Icon: Uu },
   { id: "armed_away", service: "alarm_arm_away", label: "Absence", Icon: Gu },
   { id: "armed_night", service: "alarm_arm_night", label: "Nuit", Icon: Ku }
-], jh = 6e3;
-function Wh(n) {
+], qh = 6e3;
+function Xh(n) {
   const e = n?.message;
   return typeof e == "string" && e.trim() ? e.trim() : null;
 }
-function Yh({ hass: n, entity: e, roomLabel: t }) {
+function Qh({ hass: n, entity: e, roomLabel: t }) {
   const i = e.state.state, s = i === "unavailable", r = i === "triggered", a = i.startsWith("armed_"), o = i === "pending" || i === "arming" || i === "disarming", [d, c] = K(!1), u = e.state.attributes.code_format, h = u === "number" || u === "text" ? u : null, [f, p] = K(!1), [g, _] = K(null), [m, v] = K(!1), b = async (L) => {
     if (!(s || d)) {
       c(!0);
@@ -2066,7 +2078,7 @@ function Yh({ hass: n, entity: e, roomLabel: t }) {
       });
     } catch (T) {
       v(!1);
-      const k = Wh(T);
+      const k = Xh(T);
       _(k ? `Code refusé — ${k}` : "Code incorrect.");
     }
   };
@@ -2078,7 +2090,7 @@ function Yh({ hass: n, entity: e, roomLabel: t }) {
     }
     const L = window.setTimeout(() => {
       v(!1), _("Code incorrect.");
-    }, jh);
+    }, qh);
     return () => window.clearTimeout(L);
   }, [m, i]);
   const S = () => {
@@ -2093,12 +2105,12 @@ function Yh({ hass: n, entity: e, roomLabel: t }) {
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
           /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Pt, { size: 20 }) }),
-          /* @__PURE__ */ l("span", { class: "n-eyebrow", children: zh[i] ?? i })
+          /* @__PURE__ */ l("span", { class: "n-eyebrow", children: Wh[i] ?? i })
         ] }),
         t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
         /* @__PURE__ */ l("div", { class: "n-title", children: e.friendly_name }),
         !s && /* @__PURE__ */ l("div", { class: "n-alarm__modes", children: [
-          Hh.map(({ id: L, service: T, label: k, Icon: w }) => /* @__PURE__ */ l(
+          Yh.map(({ id: L, service: T, label: k, Icon: w }) => /* @__PURE__ */ l(
             "button",
             {
               type: "button",
@@ -2125,7 +2137,7 @@ function Yh({ hass: n, entity: e, roomLabel: t }) {
           )
         ] }),
         f && h && /* @__PURE__ */ l(
-          Vh,
+          jh,
           {
             title: e.friendly_name,
             format: h,
@@ -2141,9 +2153,9 @@ function Yh({ hass: n, entity: e, roomLabel: t }) {
 }
 const X = Number.isFinite || function(n) {
   return typeof n == "number" && isFinite(n);
-}, qh = Number.isSafeInteger || function(n) {
-  return typeof n == "number" && Math.abs(n) <= Xh;
-}, Xh = Number.MAX_SAFE_INTEGER || 9007199254740991;
+}, Zh = Number.isSafeInteger || function(n) {
+  return typeof n == "number" && Math.abs(n) <= Jh;
+}, Jh = Number.MAX_SAFE_INTEGER || 9007199254740991;
 let J = /* @__PURE__ */ (function(n) {
   return n.NETWORK_ERROR = "networkError", n.MEDIA_ERROR = "mediaError", n.KEY_SYSTEM_ERROR = "keySystemError", n.MUX_ERROR = "muxError", n.OTHER_ERROR = "otherError", n;
 })({}), C = /* @__PURE__ */ (function(n) {
@@ -2182,7 +2194,7 @@ class Xt {
     return this.estimate_;
   }
 }
-class Qh {
+class ef {
   constructor(e, t, i, s = 100) {
     this.defaultEstimate_ = void 0, this.minWeight_ = void 0, this.minDelayMs_ = void 0, this.slow_ = void 0, this.fast_ = void 0, this.defaultTTFB_ = void 0, this.ttfb_ = void 0, this.defaultEstimate_ = i, this.minWeight_ = 1e-3, this.minDelayMs_ = 50, this.slow_ = new Xt(e), this.fast_ = new Xt(t), this.defaultTTFB_ = s, this.ttfb_ = new Xt(e);
   }
@@ -2218,8 +2230,8 @@ class Qh {
   destroy() {
   }
 }
-function Zh(n, e, t) {
-  return (e = ef(e)) in n ? Object.defineProperty(n, e, {
+function tf(n, e, t) {
+  return (e = sf(e)) in n ? Object.defineProperty(n, e, {
     value: t,
     enumerable: !0,
     configurable: !0,
@@ -2249,14 +2261,14 @@ function ue(n) {
   for (var e = 1; e < arguments.length; e++) {
     var t = arguments[e] != null ? arguments[e] : {};
     e % 2 ? Ta(Object(t), !0).forEach(function(i) {
-      Zh(n, i, t[i]);
+      tf(n, i, t[i]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(n, Object.getOwnPropertyDescriptors(t)) : Ta(Object(t)).forEach(function(i) {
       Object.defineProperty(n, i, Object.getOwnPropertyDescriptor(t, i));
     });
   }
   return n;
 }
-function Jh(n, e) {
+function nf(n, e) {
   if (typeof n != "object" || !n) return n;
   var t = n[Symbol.toPrimitive];
   if (t !== void 0) {
@@ -2266,8 +2278,8 @@ function Jh(n, e) {
   }
   return (e === "string" ? String : Number)(n);
 }
-function ef(n) {
-  var e = Jh(n, "string");
+function sf(n) {
+  var e = nf(n, "string");
   return typeof e == "symbol" ? e : e + "";
 }
 class Qe {
@@ -2278,7 +2290,7 @@ class Qe {
   }
 }
 const It = function() {
-}, tf = {
+}, rf = {
   trace: It,
   debug: It,
   log: It,
@@ -2287,17 +2299,17 @@ const It = function() {
   error: It
 };
 function Gs() {
-  return ge({}, tf);
+  return ge({}, rf);
 }
-function nf(n, e) {
+function af(n, e) {
   const t = self.console[n];
   return t ? t.bind(self.console, `${e ? "[" + e + "] " : ""}[${n}] >`) : It;
 }
 function ka(n, e, t) {
-  return e[n] ? e[n].bind(e) : nf(n, t);
+  return e[n] ? e[n].bind(e) : af(n, t);
 }
 const Ks = Gs();
-function sf(n, e, t) {
+function of(n, e, t) {
   const i = Gs();
   if (typeof console == "object" && n === !0 || typeof n == "object") {
     const s = [
@@ -2328,7 +2340,7 @@ const pe = Ks;
 function Ot(n = !0) {
   return typeof self > "u" ? void 0 : (n || !self.MediaSource) && self.ManagedMediaSource || self.MediaSource || self.WebKitMediaSource;
 }
-function rf(n) {
+function lf(n) {
   return typeof self < "u" && n === self.ManagedMediaSource;
 }
 function Xl(n, e) {
@@ -2384,11 +2396,11 @@ function Me(n) {
 function Ql(n) {
   return Uint8Array.from(n.replace(/^0x/, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" ")).buffer;
 }
-function af(n) {
+function cf(n) {
   return n && n.__esModule && Object.prototype.hasOwnProperty.call(n, "default") ? n.default : n;
 }
 var is = { exports: {} }, Aa;
-function of() {
+function df() {
   return Aa || (Aa = 1, (function(n, e) {
     (function(t) {
       var i = /^(?=((?:[a-zA-Z0-9+\-.]+:)?))\1(?=((?:\/\/[^\/?#]*)?))\2(?=((?:(?:[^?#\/]*\/)*[^;?#\/]*)?))\3((?:;[^?#]*)?)(\?[^#]*)?(#[^]*)?$/, s = /^(?=([^\/?#]*))\1([^]*)$/, r = /(?:\/|^)\.(?=\/)/g, a = /(?:\/|^)\.\.\/(?!\.\.\/)[^\/]*(?=\/)/g, o = {
@@ -2465,7 +2477,7 @@ function of() {
     })();
   })(is)), is.exports;
 }
-var Ar = of();
+var Ar = df();
 class wr {
   constructor() {
     this.aborted = !1, this.loaded = 0, this.retry = 0, this.total = 0, this.chunkCount = 0, this.bwEstimate = 0, this.loading = {
@@ -2491,7 +2503,7 @@ class Zl {
   constructor(e) {
     this._byteRange = null, this._url = null, this._stats = null, this._streams = null, this.base = void 0, this.relurl = void 0, typeof e == "string" && (e = {
       url: e
-    }), this.base = e, cf(this, "stats");
+    }), this.base = e, hf(this, "stats");
   }
   // setByteRange converts a EXT-X-BYTERANGE attribute into a two element array
   setByteRange(e, t) {
@@ -2670,7 +2682,7 @@ class ns extends Zl {
     d.startPTS = Math.min(d.startPTS, t), d.endPTS = Math.max(d.endPTS, i), d.startDTS = Math.min(d.startDTS, s), d.endDTS = Math.max(d.endDTS, r);
   }
 }
-class lf extends Zl {
+class uf extends Zl {
   constructor(e, t, i, s, r) {
     super(i), this.fragOffset = 0, this.duration = 0, this.gap = !1, this.independent = !1, this.relurl = void 0, this.fragment = void 0, this.index = void 0, this.duration = e.decimalFloatingPoint("DURATION"), this.gap = e.bool("GAP"), this.independent = e.bool("INDEPENDENT"), this.relurl = e.enumeratedString("URI"), this.fragment = t, this.index = s;
     const a = e.enumeratedString("BYTERANGE");
@@ -2696,11 +2708,11 @@ function Jl(n, e) {
     return i || Jl(t, e);
   }
 }
-function cf(n, e) {
+function hf(n, e) {
   const t = Jl(n, e);
   t && (t.enumerable = !0, Object.defineProperty(n, e, t));
 }
-const wa = Math.pow(2, 32) - 1, df = [].push, ec = {
+const wa = Math.pow(2, 32) - 1, ff = [].push, ec = {
   video: 1,
   audio: 2,
   id3: 3,
@@ -2724,7 +2736,7 @@ function Ia(n, e) {
 function ic(n, e) {
   return n[e] << 24 | n[e + 1] << 16 | n[e + 2] << 8 | n[e + 3];
 }
-function uf(n) {
+function pf(n) {
   const e = n.byteLength;
   for (let t = 0; t < e; ) {
     const i = ie(n, t);
@@ -2746,13 +2758,13 @@ function re(n, e) {
         t.push(n.subarray(s + 8, o));
       else {
         const d = re(n.subarray(s + 8, o), e.slice(1));
-        d.length && df.apply(t, d);
+        d.length && ff.apply(t, d);
       }
     s = o;
   }
   return t;
 }
-function hf(n) {
+function gf(n) {
   const e = [], t = n[0];
   let i = 8;
   const s = ie(n, i);
@@ -2803,7 +2815,7 @@ function nc(n) {
           const f = Le(h.subarray(8, 12)), p = {
             soun: me.AUDIO,
             vide: me.VIDEO
-          }[f], g = re(r, ["mdia", "minf", "stbl", "stsd"])[0], _ = ff(g);
+          }[f], g = re(r, ["mdia", "minf", "stbl", "stsd"])[0], _ = mf(g);
           p ? (e[d] = {
             timescale: u,
             type: p,
@@ -2828,7 +2840,7 @@ function nc(n) {
     });
   }), e;
 }
-function ff(n) {
+function mf(n) {
   const e = n.subarray(8), t = e.subarray(86), i = Le(e.subarray(4, 8));
   let s = i, r;
   const a = i === "enca" || i === "encv";
@@ -2885,7 +2897,7 @@ function ff(n) {
       const d = re(t, ["hvcC"])[0];
       if (d && d.length > 12) {
         const c = d[1], u = ["", "A", "B", "C"][c >> 6], h = c & 31, f = ie(d, 2), p = (c & 32) >> 5 ? "H" : "L", g = d[12], _ = d.subarray(6, 12);
-        s += "." + u + h, s += "." + pf(f).toString(16).toUpperCase(), s += "." + p + g;
+        s += "." + u + h, s += "." + _f(f).toString(16).toUpperCase(), s += "." + p + g;
         let m = "";
         for (let v = _.length; v--; ) {
           const b = _[v];
@@ -2934,7 +2946,7 @@ function Ui(n, e) {
     return n + "." + ot(s) + "." + ot(r);
   }
 }
-function pf(n) {
+function _f(n) {
   let e = 0;
   for (let t = 0; t < 32; t++)
     e |= (n >> t & 1) << 31 - t;
@@ -2952,7 +2964,7 @@ function Gi(n) {
 function ot(n) {
   return (n < 10 ? "0" : "") + n;
 }
-function gf(n, e) {
+function vf(n, e) {
   if (!n || !e)
     return;
   const t = e.keyId;
@@ -2961,7 +2973,7 @@ function gf(n, e) {
     r.some((a) => a !== 0) || (pe.log(`[eme] Patching keyId in 'enc${s ? "a" : "v"}>sinf>>tenc' box: ${Me(r)} -> ${Me(t)}`), i.set(t, 8));
   });
 }
-function mf(n) {
+function yf(n) {
   const e = [];
   return sc(n, (t) => e.push(t.subarray(8, 24))), e;
 }
@@ -2992,7 +3004,7 @@ function rc(n) {
     }
   }
 }
-function _f(n, e, t) {
+function bf(n, e, t) {
   const i = {}, s = re(n, ["moof", "traf"]);
   for (let r = 0; r < s.length; r++) {
     const a = s[r], o = re(a, ["tfhd"])[0], d = ie(o, 4), c = e[d];
@@ -3031,7 +3043,7 @@ function _f(n, e, t) {
     let r = 1 / 0, a = 0;
     const o = re(n, ["sidx"]);
     for (let d = 0; d < o.length; d++) {
-      const c = hf(o[d]);
+      const c = gf(o[d]);
       if (c != null && c.references) {
         r = Math.min(r, c.earliestPresentationTime / c.timescale);
         const u = c.references.reduce((h, f) => h + f.info.duration || 0, 0);
@@ -3044,7 +3056,7 @@ function _f(n, e, t) {
   }
   return i;
 }
-function vf(n) {
+function xf(n) {
   const e = {
     valid: null,
     remainder: null
@@ -3094,7 +3106,7 @@ function La(n, e) {
               let z = 0;
               for (; z < N; ) {
                 const q = ie(i, Y);
-                if (Y += 4, yf(a, i[Y])) {
+                if (Y += 4, Ef(a, i[Y])) {
                   const te = i.subarray(Y, Y + q);
                   Ir(te, a ? 2 : 1, n + G / s, t);
                 }
@@ -3115,7 +3127,7 @@ function Yn(n) {
   return e === "hvc1" || e === "hev1" || // Dolby Vision
   e === "dvh1" || e === "dvhe";
 }
-function yf(n, e) {
+function Ef(n, e) {
   if (n) {
     const t = e >> 1 & 63;
     return t === 39 || t === 40;
@@ -3204,7 +3216,7 @@ function ac(n) {
     a === t[0] && (a++, t.shift()), r[i] = n[a];
   return r;
 }
-function bf(n) {
+function Sf(n) {
   const e = n[0];
   let t = "", i = "", s = 0, r = 0, a = 0, o = 0, d = 0, c = 0;
   if (e === 0) {
@@ -3218,7 +3230,7 @@ function bf(n) {
     const h = ie(n, c);
     c += 4;
     const f = ie(n, c);
-    for (c += 4, a = 2 ** 32 * h + f, qh(a) || (a = Number.MAX_SAFE_INTEGER, pe.warn("Presentation time exceeds safe integer limit and wrapped to max safe integer in parsing emsg box")), o = ie(n, c), c += 4, d = ie(n, c), c += 4; Le(n.subarray(c, c + 1)) !== "\0"; )
+    for (c += 4, a = 2 ** 32 * h + f, Zh(a) || (a = Number.MAX_SAFE_INTEGER, pe.warn("Presentation time exceeds safe integer limit and wrapped to max safe integer in parsing emsg box")), o = ie(n, c), c += 4, d = ie(n, c), c += 4; Le(n.subarray(c, c + 1)) !== "\0"; )
       t += Le(n.subarray(c, c + 1)), c += 1;
     for (t += Le(n.subarray(c, c + 1)), c += 1; Le(n.subarray(c, c + 1)) !== "\0"; )
       i += Le(n.subarray(c, c + 1)), c += 1;
@@ -3236,7 +3248,7 @@ function bf(n) {
     payload: u
   };
 }
-function xf(n, ...e) {
+function Tf(n, ...e) {
   const t = e.length;
   let i = 8, s = t;
   for (; s--; )
@@ -3246,7 +3258,7 @@ function xf(n, ...e) {
     r.set(e[s], i), i += e[s].byteLength;
   return r;
 }
-function Ef(n, e, t) {
+function kf(n, e, t) {
   if (n.byteLength !== 16)
     throw new RangeError("Invalid system id");
   let i, s;
@@ -3254,7 +3266,7 @@ function Ef(n, e, t) {
   let r;
   i > 0 ? (r = new Uint8Array(4), e.length > 0 && new DataView(r.buffer).setUint32(0, e.length, !1)) : r = new Uint8Array();
   const a = new Uint8Array(4);
-  return t.byteLength > 0 && new DataView(a.buffer).setUint32(0, t.byteLength, !1), xf(
+  return t.byteLength > 0 && new DataView(a.buffer).setUint32(0, t.byteLength, !1), Tf(
     [112, 115, 115, 104],
     new Uint8Array([
       i,
@@ -3271,19 +3283,19 @@ function Ef(n, e, t) {
     t
   );
 }
-function Sf(n) {
+function Af(n) {
   const e = [];
   if (n instanceof ArrayBuffer) {
     const t = n.byteLength;
     let i = 0;
     for (; i + 32 < t; ) {
-      const s = new DataView(n, i), r = Tf(s);
+      const s = new DataView(n, i), r = wf(s);
       e.push(r), i += r.size;
     }
   }
   return e;
 }
-function Tf(n) {
+function wf(n) {
   const e = n.getUint32(0), t = n.byteOffset, i = n.byteLength;
   if (i < e)
     return {
@@ -3444,7 +3456,7 @@ function An(n) {
   }, 0);
 }
 const rs = {};
-function kf(n, e = !0) {
+function If(n, e = !0) {
   if (rs[n])
     return rs[n];
   const t = {
@@ -3466,11 +3478,11 @@ function kf(n, e = !0) {
   }
   return n;
 }
-const Af = /flac|opus|mp4a\.40\.34/i;
+const Lf = /flac|opus|mp4a\.40\.34/i;
 function wn(n, e = !0) {
-  return n.replace(Af, (t) => kf(t.toLowerCase(), e));
+  return n.replace(Lf, (t) => If(t.toLowerCase(), e));
 }
-function wf(n, e) {
+function Rf(n, e) {
   const t = [];
   if (n) {
     const i = n.split(",");
@@ -3498,7 +3510,7 @@ function pn(n, e) {
 function Da(n, e) {
   return Lr(n, e) && Rr(n, e);
 }
-function If(n) {
+function Df(n) {
   const e = n.split(",");
   for (let t = 0; t < e.length; t++) {
     const i = e[t].split(".");
@@ -3506,7 +3518,7 @@ function If(n) {
   }
   return e.join(",");
 }
-function Lf(n) {
+function Cf(n) {
   if (n.startsWith("av01.")) {
     const e = n.split("."), t = ["0", "111", "01", "01", "01", "0"];
     for (let i = e.length; i > 4 && i < 10; i++)
@@ -3528,12 +3540,12 @@ function Ca(n) {
 function Vs(n) {
   return n.replace(/^.+codecs=["']?([^"']+).*$/, "$1");
 }
-const Rf = {
+const Pf = {
   supported: !0,
   powerEfficient: !0,
   smooth: !0
   // keySystemAccess: null,
-}, Df = {
+}, Mf = {
   supported: !1,
   smooth: !1,
   powerEfficient: !1
@@ -3541,17 +3553,17 @@ const Rf = {
 }, lc = {
   supported: !0,
   configurations: [],
-  decodingInfoResults: [Rf]
+  decodingInfoResults: [Pf]
 };
 function cc(n, e) {
   return {
     supported: !1,
     configurations: e,
-    decodingInfoResults: [Df],
+    decodingInfoResults: [Mf],
     error: n
   };
 }
-function Cf(n, e, t, i, s, r) {
+function Of(n, e, t, i, s, r) {
   const a = n.videoCodec, o = n.audioCodec ? n.audioGroups : null, d = r?.audioCodec, c = r?.channels, u = c ? parseInt(c) : d ? 1 / 0 : 2;
   let h = null;
   if (o != null && o.length)
@@ -3579,7 +3591,7 @@ function dc(n, e, t, i = {}) {
   const s = n.videoCodec;
   if (!s && !n.audioCodec || !t)
     return Promise.resolve(lc);
-  const r = [], a = Pf(n), o = a.length, d = Mf(n, e, o > 0), c = d.length;
+  const r = [], a = Ff(n), o = a.length, d = Nf(n, e, o > 0), c = d.length;
   for (let u = o || 1 * c || 1; u--; ) {
     const h = {
       type: "media-source"
@@ -3597,7 +3609,7 @@ function dc(n, e, t, i = {}) {
       return Promise.resolve(cc(new Error(`Overriding Windows Firefox HEVC MediaCapabilities result based on user-agent string: (${u})`), r));
   }
   return Promise.all(r.map((u) => {
-    const h = Ff(u);
+    const h = Bf(u);
     return i[h] || (i[h] = t.decodingInfo(u));
   })).then((u) => ({
     supported: !u.some((h) => !h.supported),
@@ -3610,12 +3622,12 @@ function dc(n, e, t, i = {}) {
     error: u
   }));
 }
-function Pf(n) {
+function Ff(n) {
   var e;
   const t = (e = n.videoCodec) == null ? void 0 : e.split(","), i = uc(n), s = n.width || 640, r = n.height || 480, a = n.frameRate || 30, o = n.videoRange.toLowerCase();
   return t ? t.map((d) => {
     const c = {
-      contentType: wi(Lf(d), "video"),
+      contentType: wi(Cf(d), "video"),
       width: s,
       height: r,
       bitrate: i,
@@ -3624,7 +3636,7 @@ function Pf(n) {
     return o !== "sdr" && (c.transferFunction = o), c;
   }) : [];
 }
-function Mf(n, e, t) {
+function Nf(n, e, t) {
   var i;
   const s = (i = n.audioCodec) == null ? void 0 : i.split(","), r = uc(n);
   return s && n.audioGroups ? n.audioGroups.reduce((a, o) => {
@@ -3636,7 +3648,7 @@ function Mf(n, e, t) {
         s.forEach((p) => {
           const g = {
             contentType: wi(p, "audio"),
-            bitrate: t ? Of(p, r) : r
+            bitrate: t ? $f(p, r) : r
           };
           f && (g.channels = "" + f), u.push(g);
         });
@@ -3645,7 +3657,7 @@ function Mf(n, e, t) {
     }, a) : a;
   }, []) : [];
 }
-function Of(n, e) {
+function $f(n, e) {
   if (e <= 1)
     return 1;
   let t = 128e3;
@@ -3654,7 +3666,7 @@ function Of(n, e) {
 function uc(n) {
   return Math.ceil(Math.max(n.bitrate * 0.9, n.averageBitrate) / 1e3) * 1e3 || 1;
 }
-function Ff(n) {
+function Bf(n) {
   let e = "";
   const {
     audio: t,
@@ -3671,11 +3683,11 @@ function Ff(n) {
   return e;
 }
 const zs = ["NONE", "TYPE-0", "TYPE-1", null];
-function Nf(n) {
+function Uf(n) {
   return zs.indexOf(n) > -1;
 }
 const In = ["SDR", "PQ", "HLG"];
-function $f(n) {
+function Gf(n) {
   return !!n && In.indexOf(n) > -1;
 }
 var gn = {
@@ -3783,7 +3795,7 @@ class Ii {
 function Oa(n, e) {
   return !e || !n ? !1 : n.indexOf(e) !== -1;
 }
-function Bf() {
+function Kf() {
   if (typeof matchMedia == "function") {
     const n = matchMedia("(dynamic-range: high)"), e = matchMedia("bad query");
     if (n.media !== e.media)
@@ -3791,19 +3803,19 @@ function Bf() {
   }
   return !1;
 }
-function Uf(n, e) {
+function Vf(n, e) {
   let t = !1, i = [];
   if (n && (t = n !== "SDR", i = [n]), e) {
     i = e.allowedVideoRanges || In.slice(0);
     const s = i.join("") !== "SDR" && !e.videoCodec;
-    t = e.preferHDR !== void 0 ? e.preferHDR : s && Bf(), t || (i = ["SDR"]);
+    t = e.preferHDR !== void 0 ? e.preferHDR : s && Kf(), t || (i = ["SDR"]);
   }
   return {
     preferHDR: t,
     allowedVideoRanges: i
   };
 }
-const Gf = (n) => {
+const zf = (n) => {
   const e = /* @__PURE__ */ new WeakSet();
   return (t, i) => {
     if (n && (i = n(t, i)), typeof i == "object" && i !== null) {
@@ -3813,14 +3825,14 @@ const Gf = (n) => {
     }
     return i;
   };
-}, ve = (n, e) => JSON.stringify(n, Gf(e));
-function Kf(n, e, t, i, s) {
+}, ve = (n, e) => JSON.stringify(n, zf(e));
+function Hf(n, e, t, i, s) {
   const r = Object.keys(n), a = i?.channels, o = i?.audioCodec, d = s?.videoCodec, c = a && parseInt(a) === 2;
   let u = !1, h = !1, f = 1 / 0, p = 1 / 0, g = 1 / 0, _ = 1 / 0, m = 0, v = [];
   const {
     preferHDR: b,
     allowedVideoRanges: x
-  } = Uf(e, s);
+  } = Vf(e, s);
   for (let k = r.length; k--; ) {
     const w = n[r[k]];
     u || (u = w.channels[2] > 0), f = Math.min(f, w.minHeight), p = Math.min(p, w.minFramerate), g = Math.min(g, w.minBitrate), x.filter((P) => w.videoRanges[P] > 0).length > 0 && (h = !0);
@@ -3888,7 +3900,7 @@ function hc(n) {
     groups: {}
   });
 }
-function Vf(n, e, t, i) {
+function jf(n, e, t, i) {
   return n.slice(t, i + 1).reduce((s, r, a) => {
     if (!r.codecSet)
       return s;
@@ -3959,12 +3971,12 @@ function zt(n, e, t) {
     assocLang: a,
     default: o
   } = n, d = n.forced;
-  return (i === void 0 || e.groupId === i) && (s === void 0 || e.name === s) && (r === void 0 || zf(r, e.lang)) && (r === void 0 || e.assocLang === a) && (o === void 0 || e.default === o) && (d === void 0 || e.forced === d) && (!("characteristics" in n) || Hf(n.characteristics || "", e.characteristics)) && (t === void 0 || t(n, e));
+  return (i === void 0 || e.groupId === i) && (s === void 0 || e.name === s) && (r === void 0 || Wf(r, e.lang)) && (r === void 0 || e.assocLang === a) && (o === void 0 || e.default === o) && (d === void 0 || e.forced === d) && (!("characteristics" in n) || Yf(n.characteristics || "", e.characteristics)) && (t === void 0 || t(n, e));
 }
-function zf(n, e = "--") {
+function Wf(n, e = "--") {
   return n.length === e.length ? n === e : n.startsWith(e) || e.startsWith(n);
 }
-function Hf(n, e = "") {
+function Yf(n, e = "") {
   const t = n.split(","), i = e.split(",");
   return t.length === i.length && !t.some((s) => i.indexOf(s) === -1);
 }
@@ -3975,7 +3987,7 @@ function Ut(n, e) {
   } = n;
   return (t === void 0 || (e.audioCodec || "").substring(0, 4) === t.substring(0, 4)) && (i === void 0 || i === (e.channels || "2"));
 }
-function jf(n, e, t, i, s) {
+function qf(n, e, t, i, s) {
   const r = e[i], o = e.reduce((f, p, g) => {
     const _ = p.uri;
     return (f[_] || (f[_] = [])).push(g), f;
@@ -4005,7 +4017,7 @@ function Ln(n, e) {
   var t;
   return !!n && n !== ((t = e.loadLevelObj) == null ? void 0 : t.uri);
 }
-class Wf extends Qe {
+class Xf extends Qe {
   constructor(e) {
     super("abr", e.logger), this.hls = void 0, this.lastLevelLoadSec = 0, this.lastLoadedFragLevel = -1, this.firstSelection = -1, this._nextAutoLevel = -1, this.nextAutoLevelKey = "", this.audioTracksByGroup = null, this.codecTiers = null, this.timer = -1, this.fragCurrent = null, this.partCurrent = null, this.bitrateTestDelay = 0, this.rebufferNotice = -1, this.supportedCache = {}, this.bwEstimator = void 0, this._abandonRulesCheck = (t) => {
       var i;
@@ -4086,7 +4098,7 @@ class Wf extends Qe {
   }
   initEstimator() {
     const e = this.hls.config;
-    return new Qh(e.abrEwmaSlowVoD, e.abrEwmaFastVoD, e.abrEwmaDefaultEstimate);
+    return new ef(e.abrEwmaSlowVoD, e.abrEwmaFastVoD, e.abrEwmaDefaultEstimate);
   }
   registerListeners() {
     const {
@@ -4292,7 +4304,7 @@ class Wf extends Qe {
     if (E) {
       if (this.firstSelection !== -1)
         return this.firstSelection;
-      const D = this.codecTiers || (this.codecTiers = Vf(g, A, t, i)), N = Kf(D, L, e, k, w), {
+      const D = this.codecTiers || (this.codecTiers = jf(g, A, t, i)), N = Hf(D, L, e, k, w), {
         codecSet: I,
         videoRanges: O,
         minFramerate: G,
@@ -4311,7 +4323,7 @@ class Wf extends Qe {
         continue;
       if (v.useMediaCapabilities && !N.supportedResult && !N.supportedPromise) {
         const z = navigator.mediaCapabilities;
-        typeof z?.decodingInfo == "function" && Cf(N, A, L, T, e, k) ? (N.supportedPromise = dc(N, A, z, this.supportedCache), N.supportedPromise.then((q) => {
+        typeof z?.decodingInfo == "function" && Of(N, A, L, T, e, k) ? (N.supportedPromise = dc(N, A, z, this.supportedCache), N.supportedPromise.then((q) => {
           if (!this.hls)
             return;
           N.supportedResult = q;
@@ -4386,7 +4398,7 @@ const fc = {
     return null;
   }
 };
-function Yf(n, e, t) {
+function Qf(n, e, t) {
   if (e === null || !Array.isArray(n) || !n.length || !X(e))
     return null;
   const i = n[0].programDateTime;
@@ -4397,7 +4409,7 @@ function Yf(n, e, t) {
     return null;
   for (let r = 0; r < n.length; ++r) {
     const a = n[r];
-    if (Xf(e, t, a))
+    if (Jf(e, t, a))
       return a;
   }
   return null;
@@ -4409,12 +4421,12 @@ function Ht(n, e, t = 0, i = 0, s = 5e-3) {
     const o = n.endDTS - t;
     o > 0 && o < 15e-7 && (t += 15e-7), r && n.level !== r.level && r.end <= n.end && (r = e[2 + n.sn - e[0].sn] || null);
   } else t === 0 && e[0].start === 0 && (r = e[0]);
-  if (r && ((!n || n.level === r.level) && $a(t, i, r) === 0 || qf(r, n, Math.min(s, i))))
+  if (r && ((!n || n.level === r.level) && $a(t, i, r) === 0 || Zf(r, n, Math.min(s, i))))
     return r;
   const a = fc.search(e, $a.bind(null, t, i));
   return a && (a !== n || !r) ? a : r;
 }
-function qf(n, e, t) {
+function Zf(n, e, t) {
   if (e && e.start === 0 && e.level < n.level && (e.endPTS || 0) > 0) {
     const i = e.tagList.reduce((s, r) => (r[0] === "INF" && (s += parseFloat(r[1])), s), t);
     return n.start <= i;
@@ -4427,7 +4439,7 @@ function $a(n = 0, e = 0, t) {
   const i = Math.min(e, t.duration + (t.deltaPTS ? t.deltaPTS : 0));
   return t.start + t.duration - i <= n ? 1 : t.start - i > n && t.start ? -1 : 0;
 }
-function Xf(n, e, t) {
+function Jf(n, e, t) {
   const i = Math.min(e, t.duration + (t.deltaPTS ? t.deltaPTS : 0)) * 1e3;
   return (t.endProgramDateTime || 0) - i > n;
 }
@@ -4476,10 +4488,10 @@ function Ua(n) {
 function Dn(n, e, t, i) {
   if (!n)
     return !1;
-  const s = i?.code, r = e < n.maxNumRetry && (Qf(s) || !!t);
+  const s = i?.code, r = e < n.maxNumRetry && (ep(s) || !!t);
   return n.shouldRetry ? n.shouldRetry(n, e, t, i, r) : r;
 }
-function Qf(n) {
+function ep(n) {
   return Hs(n) || !!n && (n < 400 || n > 499);
 }
 function Hs(n) {
@@ -4496,7 +4508,7 @@ var Pe = {
   MoveAllAlternatesMatchingHDCP: 2,
   MoveAllAlternatesMatchingKey: 4
 };
-class Zf extends Qe {
+class tp extends Qe {
   constructor(e) {
     super("error-controller", e.logger), this.hls = void 0, this.playlistError = 0, this.hls = e, this.registerListeners();
   }
@@ -4789,7 +4801,7 @@ var Re = {
   PARTIAL: "PARTIAL",
   OK: "OK"
 };
-class Jf {
+class ip {
   constructor(e) {
     this.activePartLists = /* @__PURE__ */ Object.create(null), this.endListFragments = /* @__PURE__ */ Object.create(null), this.fragments = /* @__PURE__ */ Object.create(null), this.timeRanges = /* @__PURE__ */ Object.create(null), this.bufferPadding = 0.2, this.hls = void 0, this.hasGaps = !1, this.hls = e, this._registerListeners();
   }
@@ -5072,7 +5084,7 @@ var Ft = {
   cbc: 0,
   ctr: 1
 };
-class ep {
+class np {
   constructor(e, t, i) {
     this.subtle = void 0, this.aesIV = void 0, this.aesMode = void 0, this.subtle = e, this.aesIV = t, this.aesMode = i;
   }
@@ -5099,11 +5111,11 @@ class ep {
     }
   }
 }
-function tp(n) {
+function sp(n) {
   const e = n.byteLength, t = e && new DataView(n.buffer).getUint8(e - 1);
   return t ? n.slice(0, e - t) : n;
 }
-class ip {
+class rp {
   constructor() {
     this.rcon = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54], this.subMix = [new Uint32Array(256), new Uint32Array(256), new Uint32Array(256), new Uint32Array(256)], this.invSubMix = [new Uint32Array(256), new Uint32Array(256), new Uint32Array(256), new Uint32Array(256)], this.sBox = new Uint32Array(256), this.invSBox = new Uint32Array(256), this.key = new Uint32Array(0), this.ksRows = 0, this.keySize = 0, this.keySchedule = void 0, this.invKeySchedule = void 0, this.initTable();
   }
@@ -5170,18 +5182,18 @@ class ip {
     return b.buffer;
   }
 }
-class np {
+class ap {
   constructor(e, t, i) {
     this.subtle = void 0, this.key = void 0, this.aesMode = void 0, this.subtle = e, this.key = t, this.aesMode = i;
   }
   expandKey() {
-    const e = sp(this.aesMode);
+    const e = op(this.aesMode);
     return this.subtle.importKey("raw", this.key, {
       name: e
     }, !1, ["encrypt", "decrypt"]);
   }
 }
-function sp(n) {
+function op(n) {
   switch (n) {
     case Ft.cbc:
       return "AES-CBC";
@@ -5191,7 +5203,7 @@ function sp(n) {
       throw new Error(`[FastAESKey] invalid aes mode ${n}`);
   }
 }
-const rp = 16;
+const lp = 16;
 class Cr {
   constructor(e, {
     removePKCS7Padding: t = !0
@@ -5218,7 +5230,7 @@ class Cr {
     if (!e || t)
       return this.reset(), null;
     const i = new Uint8Array(e);
-    return this.reset(), this.removePKCS7Padding ? tp(i) : i;
+    return this.reset(), this.removePKCS7Padding ? sp(i) : i;
   }
   reset() {
     this.currentResult = null, this.currentIV = null, this.remainderData = null, this.softwareDecrypter && (this.softwareDecrypter = null);
@@ -5247,7 +5259,7 @@ class Cr {
       return null;
     r && (i = r);
     let c = this.softwareDecrypter;
-    c || (c = this.softwareDecrypter = new ip()), c.expandKey(t);
+    c || (c = this.softwareDecrypter = new rp()), c.expandKey(t);
     const u = a;
     return this.currentResult = c.decrypt(d.buffer, 0, i), this.currentIV = d.slice(-16).buffer, u || null;
   }
@@ -5255,9 +5267,9 @@ class Cr {
     if (this.key !== t || !this.fastAesKey) {
       if (!this.subtle)
         return Promise.resolve(this.onWebCryptoError(e, t, i, s));
-      this.key = t, this.fastAesKey = new np(this.subtle, t, s);
+      this.key = t, this.fastAesKey = new ap(this.subtle, t, s);
     }
-    return this.fastAesKey.expandKey().then((r) => this.subtle ? (this.logOnce("WebCrypto AES decrypt"), new ep(this.subtle, new Uint8Array(i), s).decrypt(e.buffer, r)) : Promise.reject(new Error("web crypto not initialized"))).catch((r) => (pe.warn(`[decrypter]: WebCrypto Error, disable WebCrypto API, ${r.name}: ${r.message}`), this.onWebCryptoError(e, t, i, s)));
+    return this.fastAesKey.expandKey().then((r) => this.subtle ? (this.logOnce("WebCrypto AES decrypt"), new np(this.subtle, new Uint8Array(i), s).decrypt(e.buffer, r)) : Promise.reject(new Error("web crypto not initialized"))).catch((r) => (pe.warn(`[decrypter]: WebCrypto Error, disable WebCrypto API, ${r.name}: ${r.message}`), this.onWebCryptoError(e, t, i, s)));
   }
   onWebCryptoError(e, t, i, s) {
     const r = this.enableSoftwareAES;
@@ -5271,7 +5283,7 @@ class Cr {
   }
   getValidChunk(e) {
     let t = e;
-    const i = e.length - e.length % rp;
+    const i = e.length - e.length % lp;
     return i !== e.length && (t = e.slice(0, i), this.remainderData = e.slice(i)), t;
   }
   logOnce(e) {
@@ -5279,7 +5291,7 @@ class Cr {
   }
 }
 const Ka = Math.pow(2, 17);
-class ap {
+class cp {
   constructor(e) {
     this.config = void 0, this.loader = null, this.partLoadTimeout = -1, this.config = e;
   }
@@ -5476,7 +5488,7 @@ function Va(n, e = null) {
   if (X(s) && X(r)) {
     var a;
     let o = s, d = r;
-    if (n.sn === "initSegment" && op((a = n.decryptdata) == null ? void 0 : a.method)) {
+    if (n.sn === "initSegment" && dp((a = n.decryptdata) == null ? void 0 : a.method)) {
       const c = r - s;
       c % 16 && (d = r + (16 - c % 16)), s !== 0 && (i.resetIV = !0, o = s - 16);
     }
@@ -5495,7 +5507,7 @@ function za(n, e) {
   };
   return e && (i.part = e), (e || n).stats.aborted = !0, new xt(i);
 }
-function op(n) {
+function dp(n) {
   return n === "AES-128" || n === "AES-256";
 }
 class xt extends Error {
@@ -5701,7 +5713,7 @@ function Wa(n, e, t) {
     s = e.NAME, r = e.VALUE;
   s in i ? n.playlistParsingError || (n.playlistParsingError = new Error(`EXT-X-DEFINE duplicate Variable Name declarations: "${s}"`)) : i[s] = r || "";
 }
-function lp(n, e, t) {
+function up(n, e, t) {
   const i = e.IMPORT;
   if (t && i in t) {
     let s = n.variableList;
@@ -5709,7 +5721,7 @@ function lp(n, e, t) {
   } else
     n.playlistParsingError || (n.playlistParsingError = new Error(`EXT-X-DEFINE IMPORT attribute not found in Multivariant Playlist: "${i}"`));
 }
-const cp = /^(\d+)x(\d+)$/, Ya = /(.+?)=(".*?"|.*?)(?:,|$)/g;
+const hp = /^(\d+)x(\d+)$/, Ya = /(.+?)=(".*?"|.*?)(?:,|$)/g;
 class ye {
   constructor(e, t) {
     typeof e == "string" && (e = ye.parseAttrList(e, t)), ge(this, e);
@@ -5754,7 +5766,7 @@ class ye {
     return this[e] === "YES";
   }
   decimalResolution(e) {
-    const t = cp.exec(this[e]);
+    const t = hp.exec(this[e]);
     if (t !== null)
       return {
         width: parseInt(t[1], 10),
@@ -5826,11 +5838,11 @@ class ye {
     return s;
   }
 }
-const dp = "com.apple.hls.interstitial";
-function up(n) {
+const fp = "com.apple.hls.interstitial";
+function pp(n) {
   return n !== "ID" && n !== "CLASS" && n !== "CUE" && n !== "START-DATE" && n !== "DURATION" && n !== "END-DATE" && n !== "END-ON-NEXT";
 }
-function hp(n) {
+function gp(n) {
   return n === "SCTE35-OUT" || n === "SCTE35-IN" || n === "SCTE35-CMD";
 }
 class yc {
@@ -5896,14 +5908,14 @@ class yc {
     return this.attr.bool("END-ON-NEXT");
   }
   get isInterstitial() {
-    return this.class === dp;
+    return this.class === fp;
   }
   get isValid() {
     return !!this.id && !this._badValueForSameId && X(this.startDate.getTime()) && (this.duration === null || this.duration >= 0) && (!this.endOnNext || !!this.class) && (!this.attr.CUE || !this.cue.pre && !this.cue.post || this.cue.pre !== this.cue.post) && (!this.isInterstitial || "X-ASSET-URI" in this.attr || "X-ASSET-LIST" in this.attr);
   }
 }
-const fp = 10;
-class pp {
+const mp = 10;
+class _p {
   constructor(e) {
     this.PTSKnown = !1, this.alignedSliding = !1, this.averagetargetduration = void 0, this.endCC = 0, this.endSN = 0, this.fragments = void 0, this.fragmentHint = void 0, this.partList = null, this.dateRanges = void 0, this.dateRangeTagCount = 0, this.live = !0, this.requestScheduled = -1, this.ageHeader = 0, this.advancedDateTime = void 0, this.updated = !0, this.advanced = !0, this.misses = 0, this.startCC = 0, this.startSN = 0, this.startTimeOffset = null, this.targetduration = 0, this.totalduration = 0, this.type = null, this.url = void 0, this.m3u8 = "", this.version = null, this.canBlockReload = !1, this.canSkipUntil = 0, this.canSkipDateRanges = !1, this.skippedSegments = 0, this.recentlyRemovedDateranges = void 0, this.partHoldBack = 0, this.holdBack = 0, this.partTarget = 0, this.preloadHint = void 0, this.renditionReports = void 0, this.tuneInGoal = 0, this.deltaUpdateFailed = void 0, this.driftStartTime = 0, this.driftEndTime = 0, this.driftStart = 0, this.driftEnd = 0, this.encryptedFragments = void 0, this.playlistParsingError = null, this.variableList = null, this.hasVariableRefs = !1, this.appliedTimelineOffset = void 0, this.fragments = [], this.encryptedFragments = [], this.dateRanges = {}, this.url = e;
   }
@@ -5925,7 +5937,7 @@ class pp {
     return this.fragments.length ? X(this.fragments[this.fragments.length - 1].programDateTime) : !1;
   }
   get levelTargetDuration() {
-    return this.averagetargetduration || this.targetduration || fp;
+    return this.averagetargetduration || this.targetduration || mp;
   }
   get drift() {
     const e = this.driftEndTime - this.driftStartTime;
@@ -6002,7 +6014,7 @@ function Or(n) {
 function Ws(n) {
   return Uint8Array.from(unescape(encodeURIComponent(n)), (e) => e.charCodeAt(0));
 }
-function gp(n) {
+function vp(n) {
   const e = Ws(n).subarray(0, 16), t = new Uint8Array(16);
   return t.set(e, 16 - e.length), t;
 }
@@ -6020,7 +6032,7 @@ function xc(n) {
     const i = e[1].split(";"), s = i[i.length - 1].split(",");
     if (s.length === 2) {
       const r = s[0] === "base64", a = s[1];
-      r ? (i.splice(-1, 1), t = Or(a)) : t = gp(a);
+      r ? (i.splice(-1, 1), t = Or(a)) : t = vp(a);
     }
   }
   return t;
@@ -6071,7 +6083,7 @@ function mi(n) {
 const Ec = (function(n) {
   return Pn != null && (n = Pn.navigator) != null && n.requestMediaKeySystemAccess ? self.navigator.requestMediaKeySystemAccess.bind(self.navigator) : null;
 })();
-function mp(n, e, t, i) {
+function yp(n, e, t, i) {
   let s;
   switch (n) {
     case be.FAIRPLAY:
@@ -6087,9 +6099,9 @@ function mp(n, e, t, i) {
     default:
       throw new Error(`Unknown key-system: ${n}`);
   }
-  return _p(s, e, t, i);
+  return bp(s, e, t, i);
 }
-function _p(n, e, t, i) {
+function bp(n, e, t, i) {
   return [{
     initDataTypes: n,
     persistentState: i.persistentState || "optional",
@@ -6107,7 +6119,7 @@ function _p(n, e, t, i) {
     }))
   }];
 }
-function vp(n) {
+function xp(n) {
   var e;
   return !!n && (n.sessionType === "persistent-license" || !!((e = n.sessionTypes) != null && e.some((t) => t === "persistent-license")));
 }
@@ -6161,7 +6173,7 @@ class Dt {
       return null;
     if (ai(this.method)) {
       let r = this.iv;
-      return r || (typeof e != "number" && (pe.warn(`missing IV for initialization segment with method="${this.method}" - compliance issue`), e = 0), r = bp(e)), new Dt(this.method, this.uri, "identity", this.keyFormatVersions, r);
+      return r || (typeof e != "number" && (pe.warn(`missing IV for initialization segment with method="${this.method}" - compliance issue`), e = 0), r = Sp(e)), new Dt(this.method, this.uri, "identity", this.keyFormatVersions, r);
     }
     if (this.keyId) {
       const r = Zt[this.uri];
@@ -6173,7 +6185,7 @@ class Dt {
       switch (this.keyFormat) {
         case Oe.WIDEVINE:
           if (this.pssh = i, !this.keyId) {
-            const r = Sf(i.buffer);
+            const r = Af(i.buffer);
             if (r.length) {
               var s;
               const a = r[0];
@@ -6184,7 +6196,7 @@ class Dt {
           break;
         case Oe.PLAYREADY: {
           const r = new Uint8Array([154, 4, 240, 121, 152, 64, 66, 134, 171, 146, 230, 91, 224, 136, 95, 149]);
-          this.pssh = Ef(r, null, i), this.keyId = Sc(i);
+          this.pssh = kf(r, null, i), this.keyId = Sc(i);
           break;
         }
         default: {
@@ -6199,12 +6211,12 @@ class Dt {
       }
     if (!this.keyId || this.keyId.byteLength !== 16) {
       let r;
-      r = yp(t), r || (r = Xa(t), r || (r = Zt[this.uri])), r && (this.keyId = r, Dt.setKeyIdForUri(this.uri, r));
+      r = Ep(t), r || (r = Xa(t), r || (r = Zt[this.uri])), r && (this.keyId = r, Dt.setKeyIdForUri(this.uri, r));
     }
     return this;
   }
 }
-function yp(n) {
+function Ep(n) {
   const e = n?.[Oe.WIDEVINE];
   return e ? e.keyId : null;
 }
@@ -6217,20 +6229,20 @@ function Xa(n) {
   }
   return null;
 }
-function bp(n) {
+function Sp(n) {
   const e = new Uint8Array(16);
   for (let t = 12; t < 16; t++)
     e[t] = n >> 8 * (15 - t) & 255;
   return e;
 }
-const Qa = /#EXT-X-STREAM-INF:([^\r\n]*)(?:[\r\n](?:#[^\r\n]*)?)*([^\r\n]+)|#EXT-X-(SESSION-DATA|SESSION-KEY|DEFINE|CONTENT-STEERING|START):([^\r\n]*)[\r\n]+/g, Za = /#EXT-X-MEDIA:(.*)/g, xp = /^#EXT(?:INF|-X-TARGETDURATION):/m, os = new RegExp([
+const Qa = /#EXT-X-STREAM-INF:([^\r\n]*)(?:[\r\n](?:#[^\r\n]*)?)*([^\r\n]+)|#EXT-X-(SESSION-DATA|SESSION-KEY|DEFINE|CONTENT-STEERING|START):([^\r\n]*)[\r\n]+/g, Za = /#EXT-X-MEDIA:(.*)/g, Tp = /^#EXT(?:INF|-X-TARGETDURATION):/m, os = new RegExp([
   /#EXTINF:\s*(\d*(?:\.\d+)?)(?:,(.*)\s+)?/.source,
   // duration (#EXTINF:<duration>,<title>), group 1 => duration, group 2 => title
   /(?!#) *(\S[^\r\n]*)/.source,
   // segment URI, group 3 => the URI (note newline is not eaten)
   /#.*/.source
   // All other non-segment oriented tags will match with all groups empty
-].join("|"), "g"), Ep = new RegExp([/#EXT-X-(PROGRAM-DATE-TIME|BYTERANGE|DATERANGE|DEFINE|KEY|MAP|PART|PART-INF|PLAYLIST-TYPE|PRELOAD-HINT|RENDITION-REPORT|SERVER-CONTROL|SKIP|START):(.+)/.source, /#EXT-X-(BITRATE|DISCONTINUITY-SEQUENCE|MEDIA-SEQUENCE|TARGETDURATION|VERSION): *(\d+)/.source, /#EXT-X-(DISCONTINUITY|ENDLIST|GAP|INDEPENDENT-SEGMENTS)/.source, /(#)([^:]*):(.*)/.source, /(#)(.*)(?:.*)\r?\n?/.source].join("|"));
+].join("|"), "g"), kp = new RegExp([/#EXT-X-(PROGRAM-DATE-TIME|BYTERANGE|DATERANGE|DEFINE|KEY|MAP|PART|PART-INF|PLAYLIST-TYPE|PRELOAD-HINT|RENDITION-REPORT|SERVER-CONTROL|SKIP|START):(.+)/.source, /#EXT-X-(BITRATE|DISCONTINUITY-SEQUENCE|MEDIA-SEQUENCE|TARGETDURATION|VERSION): *(\d+)/.source, /#EXT-X-(DISCONTINUITY|ENDLIST|GAP|INDEPENDENT-SEGMENTS)/.source, /(#)([^:]*):(.*)/.source, /(#)(.*)(?:.*)\r?\n?/.source].join("|"));
 class ut {
   static findGroup(e, t) {
     for (let i = 0; i < e.length; i++) {
@@ -6245,7 +6257,7 @@ class ut {
     });
   }
   static isMediaPlaylist(e) {
-    return xp.test(e);
+    return Tp.test(e);
   }
   static parseMasterPlaylist(e, t) {
     const i = ja(e), s = {
@@ -6355,7 +6367,7 @@ class ut {
     var o;
     const d = {
       url: t
-    }, c = new pp(t), u = c.fragments, h = [];
+    }, c = new _p(t), u = c.fragments, h = [];
     let f = null, p = 0, g = 0, _ = 0, m = 0, v = 0, b = null, x = new ns(s, d), E, S, L, T = -1, k = !1, w = null, A;
     if (os.lastIndex = 0, c.m3u8 = e, c.hasVariableRefs = ja(e), ((o = os.exec(e)) == null ? void 0 : o[0]) !== "#EXTM3U")
       return c.playlistParsingError = new Error("Missing format identifier #EXTM3U"), c;
@@ -6373,7 +6385,7 @@ class ut {
           x.relurl = js(c, U), Ys(x, b, h), b = x, _ += x.duration, p++, g = 0, k = !0;
         }
       } else {
-        if (E = E[0].match(Ep), !E) {
+        if (E = E[0].match(kp), !E) {
           pe.warn("No matches on slow regex match for level playlist!");
           continue;
         }
@@ -6437,7 +6449,7 @@ class ut {
           case "DEFINE": {
             {
               const I = new ye(D, c);
-              "IMPORT" in I ? lp(c, I, a) : Wa(c, I, t);
+              "IMPORT" in I ? up(c, I, a) : Wa(c, I, t);
             }
             break;
           }
@@ -6491,7 +6503,7 @@ class ut {
           case "PART": {
             let I = c.partList;
             I || (I = c.partList = []);
-            const O = g > 0 ? I[I.length - 1] : void 0, G = g++, $ = new ye(D, c), V = new lf($, x, d, G, O);
+            const O = g > 0 ? I[I.length - 1] : void 0, G = g++, $ = new ye(D, c), V = new uf($, x, d, G, O);
             I.push(V), x.duration += V.duration;
             break;
           }
@@ -6516,7 +6528,7 @@ class ut {
     if (_ += c.skippedSegments * c.targetduration, _ > 0 && P && B) {
       c.averagetargetduration = _ / P;
       const H = B.sn;
-      c.endSN = H !== "initSegment" ? H : 0, c.live || (B.endList = !0), T > 0 && (Tp(u, T), M && h.unshift(M));
+      c.endSN = H !== "initSegment" ? H : 0, c.live || (B.endList = !0), T > 0 && (wp(u, T), M && h.unshift(M));
     }
     return c.fragmentHint && (_ += c.fragmentHint.duration), c.totalduration = _, h.length && c.dateRangeTagCount && M && Tc(h, c), c.endCC = m, c;
   }
@@ -6537,7 +6549,7 @@ function Tc(n, e) {
       var a;
       if (((a = n[u]) == null ? void 0 : a.sn) < e.startSN)
         break;
-      const h = Sp(e, c, n, u, s);
+      const h = Ap(e, c, n, u, s);
       if (h !== -1) {
         d.tagAnchor = e.fragments[h].ref;
         break;
@@ -6545,7 +6557,7 @@ function Tc(n, e) {
     }
   }
 }
-function Sp(n, e, t, i, s) {
+function Ap(n, e, t, i, s) {
   const r = t[i];
   if (r) {
     const o = r.programDateTime;
@@ -6593,7 +6605,7 @@ function io(n, e, t) {
   const i = e[t];
   i && (n[t] = i);
 }
-function Tp(n, e) {
+function wp(n, e) {
   let t = n[e];
   for (let i = e; i--; ) {
     const s = n[i];
@@ -6649,7 +6661,7 @@ function kc(n, e, t, i, s, r, a) {
     ls(m[g], m[g + 1]);
   return n.fragmentHint && ls(m[m.length - 1], n.fragmentHint), n.PTSKnown = n.alignedSliding = !0, f;
 }
-function kp(n, e, t) {
+function Ip(n, e, t) {
   if (n === e)
     return;
   let i = null;
@@ -6663,7 +6675,7 @@ function kp(n, e, t) {
   }
   n.fragmentHint && delete n.fragmentHint.endPTS;
   let r;
-  Ip(n, e, (u, h, f, p) => {
+  Dp(n, e, (u, h, f, p) => {
     if ((!e.startCC || e.skippedSegments) && h.cc !== u.cc) {
       const g = u.cc - h.cc;
       for (let _ = f; _ < p.length; _++)
@@ -6683,7 +6695,7 @@ function kp(n, e, t) {
         a.shift();
       e.startSN = a[0].sn;
     } else {
-      e.canSkipDateRanges && (e.dateRanges = Ap(n.dateRanges, e, t));
+      e.canSkipDateRanges && (e.dateRanges = Lp(n.dateRanges, e, t));
       const u = n.fragments.filter((h) => h.rawProgramDateTime);
       if (n.hasProgramDateTime && !e.hasProgramDateTime)
         for (let h = 1; h < o.length; h++)
@@ -6697,7 +6709,7 @@ function kp(n, e, t) {
     const u = Ic(n, e.startSN - 1);
     e.startCC = (d = u?.cc) != null ? d : a[0].cc;
   }
-  wp(n.partList, e.partList, (u, h) => {
+  Rp(n.partList, e.partList, (u, h) => {
     h.elementaryStreams = u.elementaryStreams, h.stats = u.stats;
   }), r ? kc(e, r, r.startPTS, r.endPTS, r.startDTS, r.endDTS, t) : Ac(n, e), a.length && (e.totalduration = e.edge - a[0].start), e.driftStartTime = n.driftStartTime, e.driftStart = n.driftStart;
   const c = e.advancedDateTime;
@@ -6708,7 +6720,7 @@ function kp(n, e, t) {
     e.driftEndTime = n.driftEndTime, e.driftEnd = n.driftEnd, e.advancedDateTime = n.advancedDateTime;
   e.requestScheduled === -1 && (e.requestScheduled = n.requestScheduled);
 }
-function Ap(n, e, t) {
+function Lp(n, e, t) {
   const {
     dateRanges: i,
     recentlyRemovedDateranges: s
@@ -6722,7 +6734,7 @@ function Ap(n, e, t) {
     u.isValid ? (r[d] = u, c || (u.tagOrder += o)) : t.warn(`Ignoring invalid Playlist Delta Update DATERANGE tag: "${ve(i[d].attr)}"`);
   }), r) : i;
 }
-function wp(n, e, t) {
+function Rp(n, e, t) {
   if (n && e) {
     let i = 0;
     for (let s = 0, r = n.length; s <= r; s++) {
@@ -6731,7 +6743,7 @@ function wp(n, e, t) {
     }
   }
 }
-function Ip(n, e, t) {
+function Dp(n, e, t) {
   const i = e.skippedSegments, s = Math.max(n.startSN, e.startSN) - e.startSN, r = (n.fragmentHint ? 1 : 0) + (i ? e.endSN : Math.min(n.endSN, e.endSN)) - e.startSN, a = e.startSN - n.startSN, o = e.fragmentHint ? e.fragments.concat(e.fragmentHint) : e.fragments, d = n.fragmentHint ? n.fragments.concat(n.fragmentHint) : n.fragments;
   for (let c = s; c <= r; c++) {
     const u = d[a + c];
@@ -6739,7 +6751,7 @@ function Ip(n, e, t) {
     if (i && !h && u && (h = e.fragments[c] = u), u && h) {
       t(u, h, c, o);
       const f = u.relurl, p = h.relurl;
-      if (f && Lp(f, p)) {
+      if (f && Cp(f, p)) {
         e.playlistParsingError = ao(`media sequence mismatch ${h.sn}:`, n, e, u, h);
         return;
       } else if (u.cc !== h.cc) {
@@ -6818,7 +6830,7 @@ function Rc(n) {
     });
   });
 }
-function Lp(n, e) {
+function Cp(n, e) {
   return n !== e && e ? lo(n) !== lo(e) : !1;
 }
 function lo(n) {
@@ -6832,7 +6844,7 @@ function bi(n, e) {
   }
   return null;
 }
-function Rp(n, e) {
+function Pp(n, e) {
   return !!(n && e.startCC < n.endCC && e.endCC > n.startCC);
 }
 function co(n, e) {
@@ -6845,11 +6857,11 @@ function Dc(n, e) {
     co(t[i], n);
   e.fragmentHint && co(e.fragmentHint, n), e.alignedSliding = !0;
 }
-function Dp(n, e) {
+function Mp(n, e) {
   n && (Cc(e, n), e.alignedSliding || Mn(e, n), !e.alignedSliding && !e.skippedSegments && Ac(n, e, !1));
 }
 function Cc(n, e) {
-  if (!Rp(e, n))
+  if (!Pp(e, n))
     return;
   const t = Math.min(e.endCC, n.endCC), i = bi(e.fragments, t), s = bi(n.fragments, t);
   if (!i || !s)
@@ -6879,7 +6891,7 @@ function $e(n, e, t) {
 function ze(n, e, t) {
   n.removeEventListener(e, t);
 }
-const Cp = {
+const Op = {
   toString: function(n) {
     let e = "";
     const t = n.length;
@@ -6931,7 +6943,7 @@ class Fr extends _c {
       this.hls.hasEnoughToStart || (this.log(`Setting ${p ? "startPosition" : "nextLoadPosition"} to ${h} for seek without enough to start`), this.nextLoadPosition = h, p && (this.startPosition = h)), p && this.state === F.IDLE && this.tickImmediate();
     }, this.onMediaEnded = () => {
       this.log("setting startPosition to 0 because media ended"), this.startPosition = this.lastCurrentTime = 0;
-    }, this.playlistType = r, this.hls = e, this.fragmentLoader = new ap(e.config), this.keyLoader = i, this.fragmentTracker = t, this.config = e.config, this.decrypter = new Cr(e.config);
+    }, this.playlistType = r, this.hls = e, this.fragmentLoader = new cp(e.config), this.keyLoader = i, this.fragmentTracker = t, this.config = e.config, this.decrypter = new Cr(e.config);
   }
   registerListeners() {
     const {
@@ -7181,7 +7193,7 @@ class Fr extends _c {
   }
   fragBufferedComplete(e, t) {
     const i = this.mediaBuffer ? this.mediaBuffer : this.media;
-    if (this.log(`Buffered ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)} > buffer:${i ? Cp.toString(se.getBuffered(i)) : "(detached)"})`), Ae(e)) {
+    if (this.log(`Buffered ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)} > buffer:${i ? Op.toString(se.getBuffered(i)) : "(detached)"})`), Ae(e)) {
       var s;
       if (e.type !== Z.SUBTITLE) {
         const a = e.elementaryStreams;
@@ -7546,7 +7558,7 @@ class Fr extends _c {
     const t = e.fragments, i = this.fragPrevious;
     let s = null;
     if (i) {
-      if (e.hasProgramDateTime && (s = Yf(t, i.endProgramDateTime, this.config.maxFragLookUpTolerance), s && this.log(`Live playlist, switching playlist, load frag with same PDT: ${i.programDateTime}`)), !s) {
+      if (e.hasProgramDateTime && (s = Qf(t, i.endProgramDateTime, this.config.maxFragLookUpTolerance), s && this.log(`Live playlist, switching playlist, load frag with same PDT: ${i.programDateTime}`)), !s) {
         const r = i.sn + 1;
         if (r >= e.startSN && r <= e.endSN) {
           const a = t[r - e.startSN];
@@ -7601,7 +7613,7 @@ class Fr extends _c {
       return this.warn("No fragments in live playlist"), 0;
     const r = e.fragmentStart, a = !t, o = e.alignedSliding && X(r);
     if (a || !o && !r) {
-      Dp(i, e);
+      Mp(i, e);
       const d = e.fragmentStart;
       return this.log(`Live playlist sliding: ${d.toFixed(2)} start-sn: ${t ? t.startSN : "na"}->${e.startSN} fragments: ${s}`), d;
     }
@@ -7807,7 +7819,7 @@ class Pc {
     } = this;
     let i;
     if (e.length)
-      e.length === 1 ? i = e[0] : i = Pp(e, t);
+      e.length === 1 ? i = e[0] : i = Fp(e, t);
     else return new Uint8Array(0);
     return this.reset(), i;
   }
@@ -7815,7 +7827,7 @@ class Pc {
     this.chunks.length = 0, this.dataLength = 0;
   }
 }
-function Pp(n, e) {
+function Fp(n, e) {
   const t = new Uint8Array(e);
   let i = 0;
   for (let s = 0; s < n.length; s++) {
@@ -7825,7 +7837,7 @@ function Pp(n, e) {
   return t;
 }
 var cs = { exports: {} }, ho;
-function Mp() {
+function Np() {
   return ho || (ho = 1, (function(n) {
     var e = Object.prototype.hasOwnProperty, t = "~";
     function i() {
@@ -7931,12 +7943,12 @@ function Mp() {
     }, o.prototype.off = o.prototype.removeListener, o.prototype.addListener = o.prototype.on, o.prefixed = t, o.EventEmitter = o, n.exports = o;
   })(cs)), cs.exports;
 }
-var Op = Mp(), Nr = /* @__PURE__ */ af(Op);
+var $p = Np(), Nr = /* @__PURE__ */ cf($p);
 const Li = "1.6.16", ui = {};
-function Fp() {
+function Bp() {
   return typeof __HLS_WORKER_BUNDLE__ == "function";
 }
-function Np() {
+function Up() {
   const n = ui[Li];
   if (n)
     return n.clientCount++, n;
@@ -7949,7 +7961,7 @@ function Np() {
   };
   return ui[Li] = s, s;
 }
-function $p(n) {
+function Gp(n) {
   const e = ui[n];
   if (e)
     return e.clientCount++, e;
@@ -7960,7 +7972,7 @@ function $p(n) {
   };
   return ui[n] = s, s;
 }
-function Bp(n) {
+function Kp(n) {
   const e = ui[n || Li];
   if (e && e.clientCount-- === 1) {
     const {
@@ -7991,7 +8003,7 @@ function Ri(n, e) {
   if (i > 0)
     return n.subarray(t, t + i);
 }
-function Up(n, e, t, i) {
+function Vp(n, e, t, i) {
   const s = [96e3, 88200, 64e3, 48e3, 44100, 32e3, 24e3, 22050, 16e3, 12e3, 11025, 8e3, 7350], r = e[t + 2], a = r >> 2 & 15;
   if (a > 12) {
     const p = new Error(`invalid ADTS sampling index:${a}`);
@@ -8026,16 +8038,16 @@ function Fc(n, e) {
 function Br(n, e) {
   return (n[e + 3] & 3) << 11 | n[e + 4] << 3 | (n[e + 5] & 224) >>> 5;
 }
-function Gp(n, e) {
+function zp(n, e) {
   return e + 5 < n.length;
 }
 function On(n, e) {
   return e + 1 < n.length && Oc(n, e);
 }
-function Kp(n, e) {
-  return Gp(n, e) && Oc(n, e) && Br(n, e) <= n.length - e;
+function Hp(n, e) {
+  return zp(n, e) && Oc(n, e) && Br(n, e) <= n.length - e;
 }
-function Vp(n, e) {
+function jp(n, e) {
   if (On(n, e)) {
     const t = Fc(n, e);
     if (e + t >= n.length)
@@ -8050,7 +8062,7 @@ function Vp(n, e) {
 }
 function Nc(n, e, t, i, s) {
   if (!n.samplerate) {
-    const r = Up(e, t, i, s);
+    const r = Vp(e, t, i, s);
     if (!r)
       return;
     ge(n, r);
@@ -8059,7 +8071,7 @@ function Nc(n, e, t, i, s) {
 function $c(n) {
   return 1024 * 9e4 / n;
 }
-function zp(n, e) {
+function Wp(n, e) {
   const t = Fc(n, e);
   if (e + t <= n.length) {
     const i = Br(n, e) - t;
@@ -8071,7 +8083,7 @@ function zp(n, e) {
   }
 }
 function Bc(n, e, t, i, s) {
-  const r = $c(n.samplerate), a = i + s * r, o = zp(e, t);
+  const r = $c(n.samplerate), a = i + s * r, o = Wp(e, t);
   let d;
   if (o) {
     const {
@@ -8099,29 +8111,29 @@ function Bc(n, e, t, i, s) {
     missing: -1
   };
 }
-function Hp(n, e) {
+function Yp(n, e) {
   return $r(n, e) && qn(n, e + 6) + 10 <= n.length - e;
 }
-function jp(n) {
+function qp(n) {
   return n instanceof ArrayBuffer ? n : n.byteOffset == 0 && n.byteLength == n.buffer.byteLength ? n.buffer : new Uint8Array(n).buffer;
 }
 function ds(n, e = 0, t = 1 / 0) {
-  return Wp(n, e, t, Uint8Array);
+  return Xp(n, e, t, Uint8Array);
 }
-function Wp(n, e, t, i) {
-  const s = Yp(n);
+function Xp(n, e, t, i) {
+  const s = Qp(n);
   let r = 1;
   "BYTES_PER_ELEMENT" in i && (r = i.BYTES_PER_ELEMENT);
-  const a = qp(n) ? n.byteOffset : 0, o = (a + n.byteLength) / r, d = (a + e) / r, c = Math.floor(Math.max(0, Math.min(d, o))), u = Math.floor(Math.min(c + Math.max(t, 0), o));
+  const a = Zp(n) ? n.byteOffset : 0, o = (a + n.byteLength) / r, d = (a + e) / r, c = Math.floor(Math.max(0, Math.min(d, o))), u = Math.floor(Math.min(c + Math.max(t, 0), o));
   return new i(s, c, u - c);
 }
-function Yp(n) {
+function Qp(n) {
   return n instanceof ArrayBuffer ? n : n.buffer;
 }
-function qp(n) {
+function Zp(n) {
   return n && n.buffer instanceof ArrayBuffer && n.byteLength !== void 0 && n.byteOffset !== void 0;
 }
-function Xp(n) {
+function Jp(n) {
   const e = {
     key: n.type,
     description: "",
@@ -8143,9 +8155,9 @@ function Xp(n) {
     return;
   const o = qe(ds(n.data, 3 + i, a));
   let d;
-  return s === "-->" ? d = qe(ds(n.data, 4 + i + a)) : d = jp(n.data.subarray(4 + i + a)), e.mimeType = s, e.pictureType = r, e.description = o, e.data = d, e;
+  return s === "-->" ? d = qe(ds(n.data, 4 + i + a)) : d = qp(n.data.subarray(4 + i + a)), e.mimeType = s, e.pictureType = r, e.description = o, e.data = d, e;
 }
-function Qp(n) {
+function eg(n) {
   if (n.size < 2)
     return;
   const e = qe(n.data, !0), t = new Uint8Array(n.data.subarray(e.length + 1));
@@ -8155,7 +8167,7 @@ function Qp(n) {
     data: t.buffer
   };
 }
-function Zp(n) {
+function tg(n) {
   if (n.size < 2)
     return;
   if (n.type === "TXXX") {
@@ -8176,7 +8188,7 @@ function Zp(n) {
     data: e
   };
 }
-function Jp(n) {
+function ig(n) {
   if (n.type === "WXXX") {
     if (n.size < 2)
       return;
@@ -8197,10 +8209,10 @@ function Jp(n) {
     data: e
   };
 }
-function eg(n) {
-  return n.type === "PRIV" ? Qp(n) : n.type[0] === "W" ? Jp(n) : n.type === "APIC" ? Xp(n) : Zp(n);
+function ng(n) {
+  return n.type === "PRIV" ? eg(n) : n.type[0] === "W" ? ig(n) : n.type === "APIC" ? Jp(n) : tg(n);
 }
-function tg(n) {
+function sg(n) {
   const e = String.fromCharCode(n[0], n[1], n[2], n[3]), t = qn(n, 4), i = 10;
   return {
     type: e,
@@ -8208,7 +8220,7 @@ function tg(n) {
     data: n.subarray(i, i + t)
   };
 }
-const zi = 10, ig = 10;
+const zi = 10, rg = 10;
 function Uc(n) {
   let e = 0;
   const t = [];
@@ -8216,8 +8228,8 @@ function Uc(n) {
     const i = qn(n, e + 6);
     n[e + 5] >> 6 & 1 && (e += zi), e += zi;
     const s = e + i;
-    for (; e + ig < s; ) {
-      const r = tg(n.subarray(e)), a = eg(r);
+    for (; e + rg < s; ) {
+      const r = sg(n.subarray(e)), a = ng(r);
       a && t.push(a), e += r.size + zi;
     }
     Mc(n, e) && (e += zi);
@@ -8227,7 +8239,7 @@ function Uc(n) {
 function Gc(n) {
   return n && n.key === "PRIV" && n.info === "com.apple.streaming.transportStreamTimestamp";
 }
-function ng(n) {
+function ag(n) {
   if (n.data.byteLength === 8) {
     const e = new Uint8Array(n.data), t = e[3] & 1;
     let i = (e[4] << 23) + (e[5] << 15) + (e[6] << 7) + e[7];
@@ -8239,7 +8251,7 @@ function Ur(n) {
   for (let t = 0; t < e.length; t++) {
     const i = e[t];
     if (Gc(i))
-      return ng(i);
+      return ag(i);
   }
 }
 let Ye = /* @__PURE__ */ (function(n) {
@@ -8287,7 +8299,7 @@ class Gr {
     this.cachedData && (e = Xe(this.cachedData, e), this.cachedData = null);
     let i = Ri(e, 0), s = i ? i.length : 0, r;
     const a = this._audioTrack, o = this._id3Track, d = i ? Ur(i) : void 0, c = e.length;
-    for ((this.basePTS === null || this.frameIndex === 0 && X(d)) && (this.basePTS = sg(d, t, this.initPTS), this.lastPTS = this.basePTS), this.lastPTS === null && (this.lastPTS = this.basePTS), i && i.length > 0 && o.samples.push({
+    for ((this.basePTS === null || this.frameIndex === 0 && X(d)) && (this.basePTS = og(d, t, this.initPTS), this.lastPTS = this.basePTS), this.lastPTS === null && (this.lastPTS = this.basePTS), i && i.length > 0 && o.samples.push({
       pts: this.lastPTS,
       dts: this.lastPTS,
       data: i,
@@ -8297,7 +8309,7 @@ class Gr {
       if (this.canParse(e, s)) {
         const u = this.appendFrame(a, e, s);
         u ? (this.frameIndex++, this.lastPTS = u.sample.pts, s += u.length, r = s) : s = c;
-      } else Hp(e, s) ? (i = Ri(e, s), o.samples.push({
+      } else Yp(e, s) ? (i = Ri(e, s), o.samples.push({
         pts: this.lastPTS,
         dts: this.lastPTS,
         data: i,
@@ -8332,14 +8344,14 @@ class Gr {
     this.cachedData = null, this._audioTrack = this._id3Track = void 0;
   }
 }
-const sg = (n, e, t) => {
+const og = (n, e, t) => {
   if (X(n))
     return n * 90;
   const i = t ? t.baseTime * 9e4 / t.timescale : 0;
   return e * 9e4 + i;
 };
 let Hi = null;
-const rg = [32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448, 32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 32, 48, 56, 64, 80, 96, 112, 128, 144, 160, 176, 192, 224, 256, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160], ag = [44100, 48e3, 32e3, 22050, 24e3, 16e3, 11025, 12e3, 8e3], og = [
+const lg = [32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448, 32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 32, 48, 56, 64, 80, 96, 112, 128, 144, 160, 176, 192, 224, 256, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160], cg = [44100, 48e3, 32e3, 22050, 24e3, 16e3, 11025, 12e3, 8e3], dg = [
   // MPEG 2.5
   [
     0,
@@ -8384,7 +8396,7 @@ const rg = [32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448, 3
     12
     // Layer1
   ]
-], lg = [
+], ug = [
   0,
   // Reserved
   1,
@@ -8414,7 +8426,7 @@ function Kc(n, e, t, i, s) {
 function Vc(n, e) {
   const t = n[e + 1] >> 3 & 3, i = n[e + 1] >> 1 & 3, s = n[e + 2] >> 4 & 15, r = n[e + 2] >> 2 & 3;
   if (t !== 1 && s !== 0 && s !== 15 && r !== 3) {
-    const a = n[e + 2] >> 1 & 1, o = n[e + 3] >> 6, d = t === 3 ? 3 - i : i === 3 ? 3 : 4, c = rg[d * 14 + s - 1] * 1e3, h = ag[(t === 3 ? 0 : t === 2 ? 1 : 2) * 3 + r], f = o === 3 ? 1 : 2, p = og[t][i], g = lg[i], _ = p * 8 * g, m = Math.floor(p * c / h + a) * g;
+    const a = n[e + 2] >> 1 & 1, o = n[e + 3] >> 6, d = t === 3 ? 3 - i : i === 3 ? 3 : 4, c = lg[d * 14 + s - 1] * 1e3, h = cg[(t === 3 ? 0 : t === 2 ? 1 : 2) * 3 + r], f = o === 3 ? 1 : 2, p = dg[t][i], g = ug[i], _ = p * 8 * g, m = Math.floor(p * c / h + a) * g;
     if (Hi === null) {
       const x = (navigator.userAgent || "").match(/Chrome\/(\d+)/i);
       Hi = x ? parseInt(x[1]) : 0;
@@ -8433,7 +8445,7 @@ function Kr(n, e) {
 function zc(n, e) {
   return e + 1 < n.length && Kr(n, e);
 }
-function cg(n, e) {
+function hg(n, e) {
   return Kr(n, e) && 4 <= n.length - e;
 }
 function Hc(n, e) {
@@ -8446,7 +8458,7 @@ function Hc(n, e) {
   }
   return !1;
 }
-class dg extends Gr {
+class fg extends Gr {
   constructor(e, t) {
     super(), this.observer = void 0, this.config = void 0, this.observer = e, this.config = t;
   }
@@ -8474,12 +8486,12 @@ class dg extends Gr {
     if (Hc(e, s))
       return !1;
     for (let r = e.length; s < r; s++)
-      if (Vp(e, s))
+      if (jp(e, s))
         return t.log("ADTS sync word found !"), !0;
     return !1;
   }
   canParse(e, t) {
-    return Kp(e, t);
+    return Hp(e, t);
   }
   appendFrame(e, t, i) {
     Nc(e, this.observer, t, i, e.manifestCodec);
@@ -8499,7 +8511,7 @@ const jc = (n, e) => {
   }
   return t;
 };
-class ug extends Gr {
+class pg extends Gr {
   constructor(e) {
     super(), this.observer = void 0, this.observer = e;
   }
@@ -8559,7 +8571,7 @@ function Wc(n, e, t, i, s) {
     pts: E
   }), u;
 }
-class hg extends Gr {
+class gg extends Gr {
   resetInitSegment(e, t, i, s) {
     super.resetInitSegment(e, t, i, s), this._audioTrack = {
       container: "audio/mpeg",
@@ -8589,15 +8601,15 @@ class hg extends Gr {
     return !1;
   }
   canParse(e, t) {
-    return cg(e, t);
+    return hg(e, t);
   }
   appendFrame(e, t, i) {
     if (this.basePTS !== null)
       return Kc(e, t, i, this.basePTS, this.frameIndex);
   }
 }
-const fg = /\/emsg[-/]ID3/i;
-class pg {
+const mg = /\/emsg[-/]ID3/i;
+class _g {
   constructor(e, t) {
     this.remainderData = null, this.timeOffset = 0, this.config = void 0, this.videoTrack = void 0, this.audioTrack = void 0, this.id3Track = void 0, this.txtTrack = void 0, this.config = t;
   }
@@ -8631,7 +8643,7 @@ class pg {
     this.remainderData = null;
   }
   static probe(e) {
-    return uf(e);
+    return pf(e);
   }
   demux(e, t) {
     this.timeOffset = t;
@@ -8639,7 +8651,7 @@ class pg {
     const s = this.videoTrack, r = this.txtTrack;
     if (this.config.progressive) {
       this.remainderData && (i = Xe(this.remainderData, e));
-      const o = vf(i);
+      const o = xf(i);
       this.remainderData = o.remainder, s.samples = o.valid || new Uint8Array();
     } else
       s.samples = i;
@@ -8667,8 +8679,8 @@ class pg {
     if (e.samples.length) {
       const s = re(e.samples, ["emsg"]);
       s && s.forEach((r) => {
-        const a = bf(r);
-        if (fg.test(a.schemeIdUri)) {
+        const a = Sf(r);
+        if (mg.test(a.schemeIdUri)) {
           const o = fo(a, t);
           let d = a.eventDuration === 4294967295 ? Number.POSITIVE_INFINITY : a.eventDuration / a.timeScale;
           d <= 1e-3 && (d = Number.POSITIVE_INFINITY);
@@ -8706,7 +8718,7 @@ class pg {
 function fo(n, e) {
   return X(n.presentationTime) ? n.presentationTime / n.timeScale : e + n.presentationTimeDelta / n.timeScale;
 }
-class gg {
+class vg {
   constructor(e, t, i) {
     this.keyData = void 0, this.decrypter = void 0, this.keyData = i, this.decrypter = new Cr(t, {
       removePKCS7Padding: !1
@@ -8930,7 +8942,7 @@ class xi {
     return this.readBits(32);
   }
 }
-class mg extends Yc {
+class yg extends Yc {
   parsePES(e, t, i, s) {
     const r = this.parseNALu(e, i.data, s);
     let a = this.VideoSample, o, d = !1;
@@ -9107,7 +9119,7 @@ class mg extends Yc {
     };
   }
 }
-class _g extends Yc {
+class bg extends Yc {
   constructor(...e) {
     super(...e), this.initVPS = null;
   }
@@ -9476,11 +9488,11 @@ class Lt {
             }), _ && (_.data.push(e.subarray(P, T + De)), _.size += T + De - P);
             break;
           case 0:
-            k && (P += e[P] + 1), b = this._pmtId = vg(e, P);
+            k && (P += e[P] + 1), b = this._pmtId = xg(e, P);
             break;
           case b: {
             k && (P += e[P] + 1);
-            const M = yg(e, P, this.typeSupported, i, this.observer, this.logger);
+            const M = Eg(e, P, this.typeSupported, i, this.observer, this.logger);
             u = M.videoPid, u > 0 && (a.pid = u, a.segmentCodec = M.segmentVideoCodec), f = M.audioPid, f > 0 && (o.pid = f, o.segmentCodec = M.segmentAudioCodec), p = M.id3Pid, p > 0 && (d.pid = p), m !== null && !v && (this.logger.warn(`MPEG-TS PMT found at ${T} after unknown PID '${m}'. Backtracking to sync byte @${E} to parse all TS packets.`), m = null, T = E - 188), v = this.pmtParsed = !0;
             break;
           }
@@ -9541,11 +9553,11 @@ class Lt {
     d && (c = Jt(d, this.logger)) ? (this.parseID3PES(s, c), s.pesData = null) : s.pesData = d;
   }
   demuxSampleAes(e, t, i) {
-    const s = this.demux(e, i, !0, !this.config.progressive), r = this.sampleAes = new gg(this.observer, this.config, t);
+    const s = this.demux(e, i, !0, !this.config.progressive), r = this.sampleAes = new vg(this.observer, this.config, t);
     return this.decrypt(s, r);
   }
   readyVideoParser(e) {
-    this.videoParser === null && (e === "avc" ? this.videoParser = new mg() : e === "hevc" && (this.videoParser = new _g()));
+    this.videoParser === null && (e === "avc" ? this.videoParser = new yg() : e === "hevc" && (this.videoParser = new bg()));
   }
   decrypt(e, t) {
     return new Promise((i) => {
@@ -9654,10 +9666,10 @@ class Lt {
 function Xs(n, e) {
   return ((n[e + 1] & 31) << 8) + n[e + 2];
 }
-function vg(n, e) {
+function xg(n, e) {
   return (n[e + 10] & 31) << 8 | n[e + 11];
 }
-function yg(n, e, t, i, s, r) {
+function Eg(n, e, t, i, s, r) {
   const a = {
     audioPid: -1,
     videoPid: -1,
@@ -9790,7 +9802,7 @@ function Jt(n, e) {
   }
   return null;
 }
-class bg {
+class Sg {
   static getSilentFrame(e, t) {
     switch (e) {
       case "mp4a.40.2":
@@ -10999,13 +11011,13 @@ function Vr(n, e, t = 1, i = !1) {
   const s = n * e * t;
   return i ? Math.round(s) : s;
 }
-function xg(n, e, t = 1, i = !1) {
+function Tg(n, e, t = 1, i = !1) {
   return Vr(n, e, 1 / t, i);
 }
 function pi(n, e = !1) {
   return Vr(n, 1e3, 1 / qc, e);
 }
-function Eg(n, e = 1) {
+function kg(n, e = 1) {
   return Vr(n, qc, 1 / e);
 }
 function po(n) {
@@ -11016,7 +11028,7 @@ function po(n) {
   } = n;
   return `${e / t} (${e}/${t}) trackId: ${i}`;
 }
-const Sg = 10 * 1e3, Tg = 1024, kg = 1152, Ag = 1536;
+const Ag = 10 * 1e3, wg = 1024, Ig = 1152, Lg = 1536;
 let ei = null, hs = null;
 function go(n, e, t, i) {
   return {
@@ -11077,7 +11089,7 @@ class _n extends Qe {
       this.ISGenerated || (h = this.generateIS(e, t, r, a));
       const P = this.isVideoContiguous;
       let M = -1, B;
-      if (S && (M = wg(t.samples), !P && this.config.forceKeyFrameOnDiscontinuity))
+      if (S && (M = Rg(t.samples), !P && this.config.forceKeyFrameOnDiscontinuity))
         if (g = !0, M > 0) {
           this.warn(`Dropped ${M} out of ${x} video samples due to a missing keyframe`);
           const H = this.getVideoStartPts(t.samples);
@@ -11303,11 +11315,11 @@ class _n extends Qe {
   getSamplesPerFrame(e) {
     switch (e.segmentCodec) {
       case "mp3":
-        return kg;
+        return Ig;
       case "ac3":
-        return Ag;
+        return Lg;
       default:
-        return Tg;
+        return wg;
     }
   }
   remuxAudio(e, t, i, s, r) {
@@ -11328,13 +11340,13 @@ class _n extends Qe {
         const O = _[N], G = O.pts, $ = G - I, V = Math.abs(1e3 * $ / a);
         if ($ <= -D * u && g)
           N === 0 && (this.warn(`Audio frame @ ${(G / a).toFixed(3)}s overlaps marker by ${Math.round(1e3 * $ / a)} ms.`), this.nextAudioTs = v = G - b, I = G);
-        else if ($ >= D * u && V < Sg && g) {
+        else if ($ >= D * u && V < Ag && g) {
           let Y = Math.round($ / u);
           for (I = G - Y * u; I < 0 && Y && u; )
             Y--, I += u;
           N === 0 && (this.nextAudioTs = v = I - b), this.warn(`Injecting ${Y} audio frames @ ${((I - b) / a).toFixed(3)}s due to ${Math.round(1e3 * $ / a)} ms gap.`);
           for (let ne = 0; ne < Y; ne++) {
-            let z = bg.getSilentFrame(e.parsedCodec || e.manifestCodec || e.codec, e.channelCount);
+            let z = Sg.getSilentFrame(e.parsedCodec || e.manifestCodec || e.codec, e.channelCount);
             z || (this.log("Unable to get silent frame for given audio codec; duplicating last frame instead."), z = O.unit.subarray()), _.splice(N, 0, {
               unit: z,
               pts: I
@@ -11407,7 +11419,7 @@ function We(n, e) {
     n += t;
   return n;
 }
-function wg(n) {
+function Rg(n) {
   for (let e = 0; e < n.length; e++)
     if (n[e].key)
       return e;
@@ -11442,7 +11454,7 @@ function Qc(n, e, t) {
     samples: r
   };
 }
-class Ig extends Qe {
+class Dg extends Qe {
   constructor(e, t, i, s) {
     super("passthrough-remuxer", s), this.emitInitSegment = !1, this.audioCodec = void 0, this.videoCodec = void 0, this.initData = void 0, this.initPTS = null, this.initTracks = void 0, this.lastEndTime = null, this.isVideoContiguous = !1;
   }
@@ -11473,7 +11485,7 @@ class Ig extends Qe {
       video: a
     } = this.initData = nc(e);
     if (t)
-      gf(e, t);
+      vf(e, t);
     else {
       const d = r || a;
       d != null && d.encrypted && this.warn(`Init segment with encrypted track with has no key ("${d.codec}")!`);
@@ -11528,12 +11540,12 @@ class Ig extends Qe {
     if ((o = g) != null && o.length || (this.generateInitSegment(f), g = this.initData), !((d = g) != null && d.length))
       return this.warn("Failed to generate initSegment."), h;
     this.emitInitSegment && (p.tracks = this.initTracks, this.emitInitSegment = !1);
-    const _ = _f(f, g, this), m = g.audio ? _[g.audio.id] : null, v = g.video ? _[g.video.id] : null, b = ji(v, 1 / 0), x = ji(m, 1 / 0), E = ji(v, 0, !0), S = ji(m, 0, !0);
+    const _ = bf(f, g, this), m = g.audio ? _[g.audio.id] : null, v = g.video ? _[g.video.id] : null, b = ji(v, 1 / 0), x = ji(m, 1 / 0), E = ji(v, 0, !0), S = ji(m, 0, !0);
     let L = r, T = 0;
     const k = m && (!v || !c && x < b || c && c.trackId === g.audio.id), w = k ? m : v;
     if (w) {
       const I = w.timescale, O = w.start - r * I, G = k ? g.audio.id : g.video.id;
-      L = w.start / I, T = k ? S - x : E - b, (a || !c) && (Lg(c, L, r, T) || I !== c.timescale) && (c && this.warn(`Timestamps at playlist time: ${a ? "" : "~"}${r} ${O / I} != initPTS: ${c.baseTime / c.timescale} (${c.baseTime}/${c.timescale}) trackId: ${c.trackId}`), this.log(`Found initPTS at playlist time: ${r} offset: ${L - r} (${O}/${I}) trackId: ${G}`), c = null, p.initPTS = O, p.timescale = I, p.trackId = G);
+      L = w.start / I, T = k ? S - x : E - b, (a || !c) && (Cg(c, L, r, T) || I !== c.timescale) && (c && this.warn(`Timestamps at playlist time: ${a ? "" : "~"}${r} ${O / I} != initPTS: ${c.baseTime / c.timescale} (${c.baseTime}/${c.timescale}) trackId: ${c.trackId}`), this.log(`Found initPTS at playlist time: ${r} offset: ${L - r} (${O}/${I}) trackId: ${G}`), c = null, p.initPTS = O, p.timescale = I, p.trackId = G);
     } else
       this.warn(`No audio or video samples found for initPTS at playlist time: ${r}`);
     c ? (p.initPTS = c.baseTime, p.timescale = c.timescale, p.trackId = c.trackId) : ((!p.timescale || p.trackId === void 0 || p.initPTS === void 0) && (this.warn("Could not set initPTS"), p.initPTS = L, p.timescale = 1, p.trackId = -1), this.initPTS = c = {
@@ -11571,7 +11583,7 @@ class Ig extends Qe {
 function ji(n, e, t = !1) {
   return n?.start !== void 0 ? (n.start + (t ? n.duration : 0)) / n.timescale : e;
 }
-function Lg(n, e, t, i) {
+function Cg(n, e, t, i) {
   if (n === null)
     return !0;
   const s = Math.max(i, 1), r = e - n.baseTime / n.timescale;
@@ -11588,20 +11600,20 @@ try {
   Et = Date.now;
 }
 const vn = [{
-  demux: pg,
-  remux: Ig
+  demux: _g,
+  remux: Dg
 }, {
   demux: Lt,
   remux: _n
 }, {
-  demux: dg,
+  demux: fg,
   remux: _n
 }, {
-  demux: hg,
+  demux: gg,
   remux: _n
 }];
 vn.splice(2, 0, {
-  demux: ug,
+  demux: pg,
   remux: _n
 });
 class _o {
@@ -11633,7 +11645,7 @@ class _o {
       defaultInitPts: v,
       duration: b,
       initSegmentData: x
-    } = d, E = Rg(a, t);
+    } = d, E = Pg(a, t);
     if (E && ai(E.method)) {
       const k = this.getDecrypter(), w = Mr(E.method);
       if (k.isSync()) {
@@ -11789,7 +11801,7 @@ class _o {
     return e || (e = this.decrypter = new Cr(this.config)), e;
   }
 }
-function Rg(n, e) {
+function Pg(n, e) {
   let t = null;
   return n.byteLength > 0 && e?.key != null && e.iv !== null && e.method != null && (t = e), t;
 }
@@ -11800,12 +11812,12 @@ const fs = (n) => ({
 function Di(n) {
   return "then" in n && n.then instanceof Function;
 }
-class Dg {
+class Mg {
   constructor(e, t, i, s, r) {
     this.audioCodec = void 0, this.videoCodec = void 0, this.initSegmentData = void 0, this.duration = void 0, this.defaultInitPts = void 0, this.audioCodec = e, this.videoCodec = t, this.initSegmentData = i, this.duration = s, this.defaultInitPts = r || null;
   }
 }
-class Cg {
+class Og {
   constructor(e, t, i, s, r, a) {
     this.discontinuity = void 0, this.contiguous = void 0, this.accurateTimeOffset = void 0, this.trackSwitch = void 0, this.timeOffset = void 0, this.initSegmentChange = void 0, this.discontinuity = e, this.contiguous = t, this.accurateTimeOffset = i, this.trackSwitch = s, this.timeOffset = r, this.initSegmentChange = a;
   }
@@ -11862,9 +11874,9 @@ class Zc {
     const o = Ca(r.preferManagedMediaSource);
     if (this.useWorker && typeof Worker < "u") {
       const d = this.hls.logger;
-      if (r.workerPath || Fp()) {
+      if (r.workerPath || Bp()) {
         try {
-          r.workerPath ? (d.log(`loading Web Worker ${r.workerPath} for "${t}"`), this.workerContext = $p(r.workerPath)) : (d.log(`injecting Web Worker for "${t}"`), this.workerContext = Np());
+          r.workerPath ? (d.log(`loading Web Worker ${r.workerPath} for "${t}"`), this.workerContext = Gp(r.workerPath)) : (d.log(`injecting Web Worker for "${t}"`), this.workerContext = Up());
           const {
             worker: u
           } = this.workerContext;
@@ -11903,7 +11915,7 @@ class Zc {
       const {
         worker: e
       } = this.workerContext;
-      this.workerContext = null, e.removeEventListener("message", this.onWorkerMessage), e.removeEventListener("error", this.onWorkerError), Bp(this.hls.config.workerPath);
+      this.workerContext = null, e.removeEventListener("message", this.onWorkerMessage), e.removeEventListener("error", this.onWorkerError), Kp(this.hls.config.workerPath);
     }
   }
   destroy() {
@@ -11924,7 +11936,7 @@ class Zc {
       transmuxer: g
     } = this, _ = a ? a.start : r.start, m = r.decryptdata, v = this.frag, b = !(v && r.cc === v.cc), x = !(v && c.level === v.level), E = v ? c.sn - v.sn : -1, S = this.part ? c.part - this.part.index : -1, L = E === 0 && c.id > 1 && c.id === v?.stats.chunkCount, T = !x && (E === 1 || E === 0 && (S === 1 || L && S <= 0)), k = self.performance.now();
     (x || E || r.stats.parsing.start === 0) && (r.stats.parsing.start = k), a && (S || !T) && (a.stats.parsing.start = k);
-    const w = !(v && ((h = r.initSegment) == null ? void 0 : h.url) === ((f = v.initSegment) == null ? void 0 : f.url)), A = new Cg(b, T, d, x, _, w);
+    const w = !(v && ((h = r.initSegment) == null ? void 0 : h.url) === ((f = v.initSegment) == null ? void 0 : f.url)), A = new Og(b, T, d, x, _, w);
     if (!T || b || w) {
       this.hls.logger.log(`[transmuxer-interface]: Starting new transmux session for ${r.type} sn: ${c.sn}${c.part > -1 ? " part: " + c.part : ""} ${this.id === Z.MAIN ? "level" : "track"}: ${c.level} id: ${c.id}
         discontinuity: ${b}
@@ -11933,7 +11945,7 @@ class Zc {
         accurateTimeOffset: ${d}
         timeOffset: ${_}
         initSegmentChange: ${w}`);
-      const P = new Dg(i, s, t, o, u);
+      const P = new Mg(i, s, t, o, u);
       this.configureTransmuxer(P);
     }
     if (this.frag = r, this.part = a, this.workerContext)
@@ -12009,7 +12021,7 @@ class Zc {
   }
 }
 const yo = 100;
-class Pg extends Fr {
+class Fg extends Fr {
   constructor(e, t, i) {
     super(e, t, i, "audio-stream-controller", Z.AUDIO), this.mainAnchor = null, this.mainFragLoading = null, this.audioOnly = !1, this.bufferedTrack = null, this.switchingTrack = null, this.trackId = -1, this.waitingData = null, this.mainDetails = null, this.flushing = !1, this.bufferFlushed = !1, this.cachedTrackLoadedData = null, this.registerListeners();
   }
@@ -12586,7 +12598,7 @@ class zr extends Qe {
     if (s.live || i != null && i.live) {
       const u = "levelInfo" in t ? t.levelInfo : t.track;
       if (s.reloaded(i), i && s.fragments.length > 0) {
-        kp(i, s, this);
+        Ip(i, s, this);
         const b = s.playlistParsingError;
         if (b) {
           this.warn(b);
@@ -12701,7 +12713,7 @@ function Ci(n, e, t) {
 function Zs(n, e) {
   return e.label.toLowerCase() === n.name.toLowerCase() && (!e.language || e.language.toLowerCase() === (n.lang || "").toLowerCase());
 }
-class Mg extends zr {
+class Ng extends zr {
   constructor(e) {
     super(e, "audio-track-controller"), this.tracks = [], this.groupIds = null, this.tracksInGroup = [], this.trackId = -1, this.currentTrack = null, this.selectDefaultTrack = !0, this.registerListeners();
   }
@@ -12822,7 +12834,7 @@ class Mg extends zr {
         } else if (s) {
           let a = t.loadLevel;
           a === -1 && (a = t.firstAutoLevel);
-          const o = jf(e, t.levels, i, a, Ut);
+          const o = qf(e, t.levels, i, a, Ut);
           if (o === -1)
             return null;
           t.nextLoadLevel = o;
@@ -12907,7 +12919,7 @@ class Mg extends zr {
     });
   }
 }
-class Og {
+class $g {
   constructor(e) {
     this.tracks = void 0, this.queues = {
       video: [],
@@ -13017,12 +13029,12 @@ ${this.list("audiovideo")}}`;
   }
 }
 const bo = /(avc[1234]|hvc1|hev1|dvh[1e]|vp09|av01)(?:\.[^.,]+)+/, ed = "HlsJsTrackRemovedError";
-class Fg extends Error {
+class Bg extends Error {
   constructor(e) {
     super(e), this.name = ed;
   }
 }
-class Ng extends Qe {
+class Ug extends Qe {
   constructor(e, t) {
     super("buffer-controller", e.logger), this.hls = void 0, this.fragmentTracker = void 0, this.details = null, this._objectUrl = null, this.operationQueue = null, this.bufferCodecEventsTotal = 0, this.media = null, this.mediaSource = null, this.lastMpegAudioChunk = null, this.blockedAudioAppend = null, this.lastVideoAppendEnd = 0, this.appendSource = void 0, this.transferData = void 0, this.overrides = void 0, this.appendErrors = {
       audio: 0,
@@ -13052,7 +13064,7 @@ class Ng extends Qe {
         _objectUrl: s
       } = this;
       i !== s && this.error(`Media element src was set while attaching MediaSource (${s} > ${i})`);
-    }, this.hls = e, this.fragmentTracker = t, this.appendSource = rf(Ot(e.config.preferManagedMediaSource)), this.initTracks(), this.registerListeners();
+    }, this.hls = e, this.fragmentTracker = t, this.appendSource = lf(Ot(e.config.preferManagedMediaSource)), this.initTracks(), this.registerListeners();
   }
   hasSourceTypes() {
     return Object.keys(this.tracks).length > 0;
@@ -13124,7 +13136,7 @@ class Ng extends Qe {
           try {
             i.removeAttribute("src");
             const d = self.ManagedMediaSource;
-            i.disableRemotePlayback = i.disableRemotePlayback || d && a instanceof d, xo(i), $g(i, o), i.load();
+            i.disableRemotePlayback = i.disableRemotePlayback || d && a instanceof d, xo(i), Gg(i, o), i.load();
           } catch {
             i.src = o;
           }
@@ -13241,7 +13253,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Xl(s,
     t && (t.buffer = void 0);
   }
   resetQueue() {
-    this.operationQueue && this.operationQueue.destroy(), this.operationQueue = new Og(this.tracks);
+    this.operationQueue && this.operationQueue.destroy(), this.operationQueue = new $g(this.tracks);
   }
   onBufferCodecs(e, t) {
     var i;
@@ -13748,7 +13760,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Xl(s,
   getTrackCodec(e, t) {
     const i = e.supplemental;
     let s = e.codec;
-    i && (t === "video" || t === "audiovideo") && Ai(i, "video") && (s = wf(s, i));
+    i && (t === "video" || t === "audiovideo") && Ai(i, "video") && (s = Rf(s, i));
     const r = pn(s, e.levelCodec);
     return r ? t.slice(0, 5) === "audio" ? wn(r, this.appendSource) : r : "";
   }
@@ -13825,7 +13837,7 @@ transfer tracks: ${ve(s, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Xl(s,
   appendExecutor(e, t) {
     const i = this.tracks[t], s = i?.buffer;
     if (!s)
-      throw new Fg(`Attempting to append to the ${t} SourceBuffer, but it does not exist`);
+      throw new Bg(`Attempting to append to the ${t} SourceBuffer, but it does not exist`);
     i.ending = !1, i.ended = !1, s.appendBuffer(e);
   }
   blockUntilOpen(e) {
@@ -13923,7 +13935,7 @@ function xo(n) {
     n.removeChild(t);
   });
 }
-function $g(n, e) {
+function Gg(n, e) {
   const t = self.document.createElement("source");
   t.type = "video/mp4", t.src = e, n.appendChild(t);
 }
@@ -14054,7 +14066,7 @@ class Hr {
     return r;
   }
 }
-const Bg = {
+const Kg = {
   /**
    * text file, such as a manifest or playlist
    */
@@ -14091,59 +14103,59 @@ const Bg = {
    * other
    */
   OTHER: "o"
-}, Ve = Bg, Ug = {
+}, Ve = Kg, Vg = {
   /**
    * HTTP Live Streaming (HLS)
    */
   HLS: "h"
-}, Gg = Ug;
+}, zg = Vg;
 class pt {
   constructor(e, t) {
     Array.isArray(e) && (e = e.map((i) => i instanceof pt ? i : new pt(i))), this.value = e, this.params = t;
   }
 }
-const Kg = "Dict";
-function Vg(n) {
+const Hg = "Dict";
+function jg(n) {
   return Array.isArray(n) ? JSON.stringify(n) : n instanceof Map ? "Map{}" : n instanceof Set ? "Set{}" : typeof n == "object" ? JSON.stringify(n) : String(n);
 }
-function zg(n, e, t, i) {
-  return new Error(`failed to ${n} "${Vg(e)}" as ${t}`, {
+function Wg(n, e, t, i) {
+  return new Error(`failed to ${n} "${jg(e)}" as ${t}`, {
     cause: i
   });
 }
 function gt(n, e, t) {
-  return zg("serialize", n, e, t);
+  return Wg("serialize", n, e, t);
 }
 class td {
   constructor(e) {
     this.description = e;
   }
 }
-const Eo = "Bare Item", Hg = "Boolean";
-function jg(n) {
+const Eo = "Bare Item", Yg = "Boolean";
+function qg(n) {
   if (typeof n != "boolean")
-    throw gt(n, Hg);
+    throw gt(n, Yg);
   return n ? "?1" : "?0";
 }
-function Wg(n) {
+function Xg(n) {
   return btoa(String.fromCharCode(...n));
 }
-const Yg = "Byte Sequence";
-function qg(n) {
+const Qg = "Byte Sequence";
+function Zg(n) {
   if (ArrayBuffer.isView(n) === !1)
-    throw gt(n, Yg);
-  return `:${Wg(n)}:`;
+    throw gt(n, Qg);
+  return `:${Xg(n)}:`;
 }
-const Xg = "Integer";
-function Qg(n) {
+const Jg = "Integer";
+function em(n) {
   return n < -999999999999999 || 999999999999999 < n;
 }
 function id(n) {
-  if (Qg(n))
-    throw gt(n, Xg);
+  if (em(n))
+    throw gt(n, Jg);
   return n.toString();
 }
-function Zg(n) {
+function tm(n) {
   return `@${id(n.getTime() / 1e3)}`;
 }
 function nd(n, e) {
@@ -14156,28 +14168,28 @@ function nd(n, e) {
   } else
     return Math.round(n * t) / t;
 }
-const Jg = "Decimal";
-function em(n) {
+const im = "Decimal";
+function nm(n) {
   const e = nd(n, 3);
   if (Math.floor(Math.abs(e)).toString().length > 12)
-    throw gt(n, Jg);
+    throw gt(n, im);
   const t = e.toString();
   return t.includes(".") ? t : `${t}.0`;
 }
-const tm = "String", im = /[\x00-\x1f\x7f]+/;
-function nm(n) {
-  if (im.test(n))
-    throw gt(n, tm);
+const sm = "String", rm = /[\x00-\x1f\x7f]+/;
+function am(n) {
+  if (rm.test(n))
+    throw gt(n, sm);
   return `"${n.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
 }
-function sm(n) {
+function om(n) {
   return n.description || n.toString().slice(7, -1);
 }
-const rm = "Token";
+const lm = "Token";
 function So(n) {
-  const e = sm(n);
+  const e = om(n);
   if (/^([a-zA-Z*])([!#$%&'*+\-.^_`|~\w:/]*)$/.test(e) === !1)
-    throw gt(e, rm);
+    throw gt(e, lm);
   return e;
 }
 function Js(n) {
@@ -14185,28 +14197,28 @@ function Js(n) {
     case "number":
       if (!X(n))
         throw gt(n, Eo);
-      return Number.isInteger(n) ? id(n) : em(n);
+      return Number.isInteger(n) ? id(n) : nm(n);
     case "string":
-      return nm(n);
+      return am(n);
     case "symbol":
       return So(n);
     case "boolean":
-      return jg(n);
+      return qg(n);
     case "object":
       if (n instanceof Date)
-        return Zg(n);
+        return tm(n);
       if (n instanceof Uint8Array)
-        return qg(n);
+        return Zg(n);
       if (n instanceof td)
         return So(n);
     default:
       throw gt(n, Eo);
   }
 }
-const am = "Key";
+const cm = "Key";
 function er(n) {
   if (/^[a-z*][a-z0-9\-_.*]*$/.test(n) === !1)
-    throw gt(n, am);
+    throw gt(n, cm);
   return n;
 }
 function jr(n) {
@@ -14215,25 +14227,25 @@ function jr(n) {
 function sd(n) {
   return n instanceof pt ? `${Js(n.value)}${jr(n.params)}` : Js(n);
 }
-function om(n) {
+function dm(n) {
   return `(${n.value.map(sd).join(" ")})${jr(n.params)}`;
 }
-function lm(n, e = {
+function um(n, e = {
   whitespace: !0
 }) {
   if (typeof n != "object" || n == null)
-    throw gt(n, Kg);
+    throw gt(n, Hg);
   const t = n instanceof Map ? n.entries() : Object.entries(n), i = e?.whitespace ? " " : "";
   return Array.from(t).map(([s, r]) => {
     r instanceof pt || (r = new pt(r));
     let a = er(s);
-    return r.value === !0 ? a += jr(r.params) : (a += "=", Array.isArray(r.value) ? a += om(r) : a += sd(r)), a;
+    return r.value === !0 ? a += jr(r.params) : (a += "=", Array.isArray(r.value) ? a += dm(r) : a += sd(r)), a;
   }).join(`,${i}`);
 }
 function rd(n, e) {
-  return lm(n, e);
+  return um(n, e);
 }
-const at = "CMCD-Object", Se = "CMCD-Request", Nt = "CMCD-Session", At = "CMCD-Status", cm = {
+const at = "CMCD-Object", Se = "CMCD-Request", Nt = "CMCD-Session", At = "CMCD-Status", hm = {
   // Object
   br: at,
   ab: at,
@@ -14285,37 +14297,37 @@ const at = "CMCD-Object", Se = "CMCD-Request", Nt = "CMCD-Session", At = "CMCD-S
   pt: At,
   ec: At,
   e: At
-}, dm = {
+}, fm = {
   /**
    * keys whose values vary with each request.
    */
   REQUEST: Se
 };
-function um(n) {
+function pm(n) {
   return Object.keys(n).reduce((e, t) => {
     var i;
     return (i = n[t]) === null || i === void 0 || i.forEach((s) => e[s] = t), e;
   }, {});
 }
-function hm(n, e) {
+function gm(n, e) {
   const t = {};
   if (!n)
     return t;
-  const i = Object.keys(n), s = e ? um(e) : {};
+  const i = Object.keys(n), s = e ? pm(e) : {};
   return i.reduce((r, a) => {
     var o;
-    const d = cm[a] || s[a] || dm.REQUEST, c = (o = r[d]) !== null && o !== void 0 ? o : r[d] = {};
+    const d = hm[a] || s[a] || fm.REQUEST, c = (o = r[d]) !== null && o !== void 0 ? o : r[d] = {};
     return c[a] = n[a], r;
   }, t);
 }
-function fm(n) {
+function mm(n) {
   return ["ot", "sf", "st", "e", "sta"].includes(n);
 }
-function pm(n) {
+function _m(n) {
   return typeof n == "number" ? X(n) : n != null && n !== "" && n !== !1;
 }
 const ad = "event";
-function gm(n, e) {
+function vm(n, e) {
   const t = new URL(n), i = new URL(e);
   if (t.origin !== i.origin)
     return n;
@@ -14326,10 +14338,10 @@ function gm(n, e) {
     r.shift(), s.unshift("..");
   return s.join("/") + t.search + t.hash;
 }
-const yn = (n) => Math.round(n), tr = (n, e) => Array.isArray(n) ? n.map((t) => tr(t, e)) : n instanceof pt && typeof n.value == "string" ? new pt(tr(n.value, e), n.params) : (e.baseUrl && (n = gm(n, e.baseUrl)), e.version === 1 ? encodeURIComponent(n) : n), Wi = (n) => yn(n / 100) * 100, mm = (n, e) => {
+const yn = (n) => Math.round(n), tr = (n, e) => Array.isArray(n) ? n.map((t) => tr(t, e)) : n instanceof pt && typeof n.value == "string" ? new pt(tr(n.value, e), n.params) : (e.baseUrl && (n = vm(n, e.baseUrl)), e.version === 1 ? encodeURIComponent(n) : n), Wi = (n) => yn(n / 100) * 100, ym = (n, e) => {
   let t = n;
   return e.version >= 2 && (n instanceof pt && typeof n.value == "string" ? t = new pt([n]) : typeof n == "string" && (t = [n])), tr(t, e);
-}, _m = {
+}, bm = {
   /**
    * Bitrate (kbps) rounded integer
    */
@@ -14353,7 +14365,7 @@ const yn = (n) => Math.round(n), tr = (n, e) => Array.isArray(n) ? n.map((t) => 
   /**
    * Next Object Request URL encoded
    */
-  nor: mm,
+  nor: ym,
   /**
    * Requested maximum throughput (kbps) rounded nearest 100kbps
    */
@@ -14362,41 +14374,41 @@ const yn = (n) => Math.round(n), tr = (n, e) => Array.isArray(n) ? n.map((t) => 
    * Top Bitrate (kbps) rounded integer
    */
   tb: yn
-}, od = "request", ld = "response", Wr = ["ab", "bg", "bl", "br", "bs", "bsd", "cdn", "cid", "cs", "df", "ec", "lab", "lb", "ltc", "msd", "mtp", "pb", "pr", "pt", "sf", "sid", "sn", "st", "sta", "tab", "tb", "tbl", "tpb", "ts", "v"], vm = ["e"], ym = /^[a-zA-Z0-9-.]+-[a-zA-Z0-9-.]+$/;
+}, od = "request", ld = "response", Wr = ["ab", "bg", "bl", "br", "bs", "bsd", "cdn", "cid", "cs", "df", "ec", "lab", "lb", "ltc", "msd", "mtp", "pb", "pr", "pt", "sf", "sid", "sn", "st", "sta", "tab", "tb", "tbl", "tpb", "ts", "v"], xm = ["e"], Em = /^[a-zA-Z0-9-.]+-[a-zA-Z0-9-.]+$/;
 function Xn(n) {
-  return ym.test(n);
+  return Em.test(n);
 }
-function bm(n) {
-  return Wr.includes(n) || vm.includes(n) || Xn(n);
+function Sm(n) {
+  return Wr.includes(n) || xm.includes(n) || Xn(n);
 }
 const cd = ["d", "dl", "nor", "ot", "rtp", "su"];
-function xm(n) {
+function Tm(n) {
   return Wr.includes(n) || cd.includes(n) || Xn(n);
 }
-const Em = ["cmsdd", "cmsds", "rc", "smrt", "ttfb", "ttfbb", "ttlb", "url"];
-function Sm(n) {
-  return Wr.includes(n) || cd.includes(n) || Em.includes(n) || Xn(n);
+const km = ["cmsdd", "cmsds", "rc", "smrt", "ttfb", "ttfbb", "ttlb", "url"];
+function Am(n) {
+  return Wr.includes(n) || cd.includes(n) || km.includes(n) || Xn(n);
 }
-const Tm = ["bl", "br", "bs", "cid", "d", "dl", "mtp", "nor", "nrr", "ot", "pr", "rtp", "sf", "sid", "st", "su", "tb", "v"];
-function km(n) {
-  return Tm.includes(n) || Xn(n);
+const wm = ["bl", "br", "bs", "cid", "d", "dl", "mtp", "nor", "nrr", "ot", "pr", "rtp", "sf", "sid", "st", "su", "tb", "v"];
+function Im(n) {
+  return wm.includes(n) || Xn(n);
 }
-const Am = {
-  [ld]: Sm,
-  [ad]: bm,
-  [od]: xm
+const Lm = {
+  [ld]: Am,
+  [ad]: Sm,
+  [od]: Tm
 };
 function dd(n, e = {}) {
   const t = {};
   if (n == null || typeof n != "object")
     return t;
-  const i = e.version || n.v || 1, s = e.reportingMode || od, r = i === 1 ? km : Am[s];
+  const i = e.version || n.v || 1, s = e.reportingMode || od, r = i === 1 ? Im : Lm[s];
   let a = Object.keys(n).filter(r);
   const o = e.filter;
   typeof o == "function" && (a = a.filter(o));
   const d = s === ld || s === ad;
   d && !a.includes("ts") && a.push("ts"), i > 1 && !a.includes("v") && a.push("v");
-  const c = ge({}, _m, e.formatters), u = {
+  const c = ge({}, bm, e.formatters), u = {
     version: i,
     reportingMode: s,
     baseUrl: e.baseUrl
@@ -14409,14 +14421,14 @@ function dd(n, e = {}) {
         return;
       f = i;
     }
-    h == "pr" && f === 1 || (d && h === "ts" && !X(f) && (f = Date.now()), pm(f) && (fm(h) && typeof f == "string" && (f = new td(f)), t[h] = f));
+    h == "pr" && f === 1 || (d && h === "ts" && !X(f) && (f = Date.now()), _m(f) && (mm(h) && typeof f == "string" && (f = new td(f)), t[h] = f));
   }), t;
 }
-function wm(n, e = {}) {
+function Rm(n, e = {}) {
   const t = {};
   if (!n)
     return t;
-  const i = dd(n, e), s = hm(i, e?.customHeaderMap);
+  const i = dd(n, e), s = gm(i, e?.customHeaderMap);
   return Object.entries(s).reduce((r, [a, o]) => {
     const d = rd(o, {
       whitespace: !1
@@ -14424,30 +14436,30 @@ function wm(n, e = {}) {
     return d && (r[a] = d), r;
   }, t);
 }
-function Im(n, e, t) {
-  return ge(n, wm(e, t));
+function Dm(n, e, t) {
+  return ge(n, Rm(e, t));
 }
-const Lm = "CMCD";
-function Rm(n, e = {}) {
+const Cm = "CMCD";
+function Pm(n, e = {}) {
   return n ? rd(dd(n, e), {
     whitespace: !1
   }) : "";
 }
-function Dm(n, e = {}) {
+function Mm(n, e = {}) {
   if (!n)
     return "";
-  const t = Rm(n, e);
+  const t = Pm(n, e);
   return encodeURIComponent(t);
 }
-function Cm(n, e = {}) {
+function Om(n, e = {}) {
   if (!n)
     return "";
-  const t = Dm(n, e);
-  return `${Lm}=${t}`;
+  const t = Mm(n, e);
+  return `${Cm}=${t}`;
 }
 const To = /CMCD=[^&#]+/;
-function Pm(n, e, t) {
-  const i = Cm(e, t);
+function Fm(n, e, t) {
+  const i = Om(e, t);
   if (!i)
     return n;
   if (To.test(n))
@@ -14455,7 +14467,7 @@ function Pm(n, e, t) {
   const s = n.includes("?") ? "&" : "?";
   return `${n}${s}${i}`;
 }
-class Mm {
+class Nm {
   constructor(e) {
     this.hls = void 0, this.config = void 0, this.media = void 0, this.sid = void 0, this.cid = void 0, this.useHeaders = !1, this.includeKeys = void 0, this.initialized = !1, this.starved = !1, this.buffering = !0, this.audioBuffer = void 0, this.videoBuffer = void 0, this.onWaiting = () => {
       this.initialized && (this.starved = !0), this.buffering = !0;
@@ -14519,7 +14531,7 @@ class Mm {
     var e;
     return {
       v: 1,
-      sf: Gg.HLS,
+      sf: zg.HLS,
       sid: this.sid,
       cid: this.cid,
       pr: (e = this.media) == null ? void 0 : e.playbackRate,
@@ -14540,7 +14552,7 @@ class Mm {
     const r = {
       baseUrl: e.url
     };
-    this.useHeaders ? (e.headers || (e.headers = {}), Im(e.headers, t, r)) : e.url = Pm(e.url, t, r);
+    this.useHeaders ? (e.headers || (e.headers = {}), Dm(e.headers, t, r)) : e.url = Fm(e.url, t, r);
   }
   getNextFrag(e) {
     var t;
@@ -14663,8 +14675,8 @@ class Mm {
     };
   }
 }
-const Om = 3e5;
-class Fm extends Qe {
+const $m = 3e5;
+class Bm extends Qe {
   constructor(e) {
     super("content-steering", e.logger), this.hls = void 0, this.loader = null, this.uri = null, this.pathwayId = ".", this._pathwayPriority = null, this.timeToLoad = 300, this.reloadTimer = -1, this.updated = 0, this.started = !1, this.enabled = !0, this.levels = null, this.audioTracks = null, this.subtitleTracks = null, this.penalizedPathways = {}, this.hls = e, this.registerListeners();
   }
@@ -14757,7 +14769,7 @@ class Fm extends Qe {
     let t;
     const i = this.penalizedPathways, s = performance.now();
     Object.keys(i).forEach((r) => {
-      s - i[r] > Om && delete i[r];
+      s - i[r] > $m && delete i[r];
     });
     for (let r = 0; r < e.length; r++) {
       const a = e[r];
@@ -15053,7 +15065,7 @@ class oi extends Qe {
   }
   getMediaKeysPromise(e, t, i) {
     var s;
-    const r = mp(e, t, i, this.config.drmSystemOptions || {});
+    const r = yp(e, t, i, this.config.drmSystemOptions || {});
     let a = this.keySystemAccessPromises[e], o = (s = a) == null ? void 0 : s.keySystemAccess;
     if (!o) {
       this.log(`Requesting encrypted media "${e}" key-system access with config: ${ve(r)}`), o = this.requestMediaKeySystemAccess(e, r);
@@ -15142,7 +15154,7 @@ class oi extends Qe {
       mediaKeySessions: t
     } = this;
     for (let i = 0; i < t.length; i++) {
-      const s = Nm(e, t[i]);
+      const s = Um(e, t[i]);
       if (s)
         return s;
     }
@@ -15557,7 +15569,7 @@ class oi extends Qe {
       const {
         drmSystemOptions: o
       } = this.config;
-      return (vp(o) ? new Promise((c, u) => {
+      return (xp(o) ? new Promise((c, u) => {
         self.setTimeout(() => u(new Error("MediaKeySession.remove() timeout")), 8e3), t.remove().then(c).catch(u);
       }) : Promise.resolve()).catch((c) => {
         this.log(`Could not remove session: ${c}`), this.hls && this.hls.trigger(y.ERROR, {
@@ -15586,7 +15598,7 @@ function Yi(n) {
     throw new Error("keyId is null");
   return Me(n.keyId);
 }
-function Nm(n, e) {
+function Um(n, e) {
   if (n.keyId && e.mediaKeysSession.keyStatuses.has(n.keyId))
     return e.mediaKeysSession.keyStatuses.get(n.keyId);
   if (n.matches(e.decryptdata))
@@ -15606,7 +15618,7 @@ function Ao(n, e) {
     decryptdata: e
   }, t ? "HDCP level output restricted" : `key status changed to "${n}"`);
 }
-class $m {
+class Gm {
   constructor(e) {
     this.hls = void 0, this.isVideoPlaybackQualityAvailable = !1, this.timer = void 0, this.media = null, this.lastTime = void 0, this.lastDroppedFrames = 0, this.lastDecodedFrames = 0, this.streamController = void 0, this.hls = e, this.registerListeners();
   }
@@ -15698,13 +15710,13 @@ function si(n, e) {
 function ir(n, e, t, i) {
   const s = n.mode;
   if (s === "disabled" && (n.mode = "hidden"), n.cues && n.cues.length > 0) {
-    const r = Um(n.cues, e, t);
+    const r = Vm(n.cues, e, t);
     for (let a = 0; a < r.length; a++)
       (!i || i(r[a])) && n.removeCue(r[a]);
   }
   s === "disabled" && (n.mode = s);
 }
-function Bm(n, e) {
+function Km(n, e) {
   if (e <= n[0].startTime)
     return 0;
   const t = n.length - 1;
@@ -15720,8 +15732,8 @@ function Bm(n, e) {
       return r;
   return n[i].startTime - e < e - n[s].startTime ? i : s;
 }
-function Um(n, e, t) {
-  const i = [], s = Bm(n, e);
+function Vm(n, e, t) {
+  const i = [], s = Km(n, e);
   if (s > -1)
     for (let r = s, a = n.length; r < a; r++) {
       const o = n[r];
@@ -15740,7 +15752,7 @@ function bn(n) {
   }
   return e;
 }
-class Gm extends zr {
+class zm extends zr {
   constructor(e) {
     super(e, "subtitle-track-controller"), this.media = null, this.tracks = [], this.groupIds = null, this.tracksInGroup = [], this.trackId = -1, this.currentTrack = null, this.selectDefaultTrack = !0, this.queuedDefaultTrack = -1, this.useTextTrackPolling = !1, this.subtitlePollingInterval = -1, this._subtitleDisplay = !0, this.asyncPollTrackChange = () => this.pollTrackChange(0), this.onTextTracksChanged = () => {
       if (this.useTextTrackPolling || self.clearInterval(this.subtitlePollingInterval), !this.media || !this.hls.config.renderTextTracksNatively)
@@ -16011,7 +16023,7 @@ class Gm extends zr {
     this.loadPlaylist(h);
   }
 }
-function Km() {
+function Hm() {
   try {
     return crypto.randomUUID();
   } catch {
@@ -16037,10 +16049,10 @@ const li = 0.025;
 let Fn = /* @__PURE__ */ (function(n) {
   return n[n.Point = 0] = "Point", n[n.Range = 1] = "Range", n;
 })({});
-function Vm(n, e, t) {
+function jm(n, e, t) {
   return `${n.identifier}-${t + 1}-${Ei(e)}`;
 }
-class zm {
+class Wm {
   constructor(e, t) {
     this.base = void 0, this._duration = null, this._timelineStart = null, this.appendInPlaceDisabled = void 0, this.appendInPlaceStarted = void 0, this.dateRange = void 0, this.hasPlayed = !1, this.cumulativeDuration = 0, this.resumeOffset = NaN, this.playoutLimit = NaN, this.restrictions = {
       skip: !1,
@@ -16159,7 +16171,7 @@ class zm {
     return this.assetList.length > 0 || this.assetListResponse !== null;
   }
   toString() {
-    return Hm(this);
+    return Ym(this);
   }
 }
 function gs(n, e) {
@@ -16174,14 +16186,14 @@ function ms(n, e) {
     var t;
   return e;
 }
-function Hm(n) {
+function Ym(n) {
   return `["${n.identifier}" ${n.cue.pre ? "<pre>" : n.cue.post ? "<post>" : ""}${n.timelineStart.toFixed(2)}-${n.resumeTime.toFixed(2)}]`;
 }
 function ii(n) {
   const e = n.timelineStart, t = n.duration || 0;
   return `["${n.identifier}" ${e.toFixed(2)}-${(e + t).toFixed(2)}]`;
 }
-class jm {
+class qm {
   constructor(e, t, i, s) {
     this.hls = void 0, this.interstitial = void 0, this.assetItem = void 0, this.tracks = null, this.hasDetails = !1, this.mediaAttached = null, this._currentTime = void 0, this._bufferedEosTime = void 0, this.checkPlayout = () => {
       this.reachedPlayout(this.currentTime) && this.hls && this.hls.trigger(y.PLAYOUT_LIMIT_REACHED, {});
@@ -16354,7 +16366,7 @@ class jm {
   }
 }
 const wo = 0.033;
-class Wm extends Qe {
+class Xm extends Qe {
   constructor(e, t) {
     super("interstitials-sched", t), this.onScheduleUpdate = void 0, this.eventMap = {}, this.events = null, this.items = null, this.durations = {
       primary: 0,
@@ -16487,7 +16499,7 @@ class Wm extends Qe {
       const o = r[a], d = e[o];
       if (d.isInterstitial) {
         let c = this.eventMap[o];
-        c ? c.setDateRange(d) : (c = new zm(d, t), this.eventMap[o] = c, i === !1 && (c.appendInPlace = i)), s.push(c);
+        c ? c.setDateRange(d) : (c = new Wm(d, t), this.eventMap[o] = c, i === !1 && (c.appendInPlace = i)), s.push(c);
       }
     }
     return s;
@@ -16652,7 +16664,7 @@ class Wm extends Qe {
 function Je(n) {
   return `[${n.event ? '"' + n.event.identifier + '"' : "primary"}: ${n.start.toFixed(2)}-${n.end.toFixed(2)}]`;
 }
-class Ym {
+class Qm {
   constructor(e) {
     this.hls = void 0, this.hls = e;
   }
@@ -16727,7 +16739,7 @@ function Io(n) {
 function ti(n, e) {
   return `[${n}] Advancing timeline position to ${e}`;
 }
-class qm extends Qe {
+class Zm extends Qe {
   constructor(e, t) {
     super("interstitials", e.logger), this.HlsPlayerClass = void 0, this.hls = void 0, this.assetListLoader = void 0, this.mediaSelection = null, this.altSelection = null, this.media = null, this.detachedData = null, this.requiredTracks = null, this.manager = null, this.playerQueue = [], this.bufferedPos = -1, this.timelinePos = -1, this.schedule = void 0, this.playingItem = null, this.bufferingItem = null, this.waitingItem = null, this.endedItem = null, this.playingAsset = null, this.endedAsset = null, this.bufferingAsset = null, this.shouldPlay = !1, this.onPlay = () => {
       this.shouldPlay = !0;
@@ -16831,7 +16843,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
         }
         a && this.trimInPlace(f, a), g && p !== f && this.trimInPlace(p, g), this.checkBuffer();
       }
-    }, this.hls = e, this.HlsPlayerClass = t, this.assetListLoader = new Ym(e), this.schedule = new Wm(this.onScheduleUpdate, e.logger), this.registerListeners();
+    }, this.hls = e, this.HlsPlayerClass = t, this.assetListLoader = new Qm(e), this.schedule = new Xm(this.onScheduleUpdate, e.logger), this.registerListeners();
   }
   registerListeners() {
     const e = this.hls;
@@ -17712,7 +17724,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
   createAsset(e, t, i, s, r, a) {
     const o = {
       parentIdentifier: e.identifier,
-      identifier: Vm(e, a, t),
+      identifier: jm(e, a, t),
       duration: r,
       startOffset: i,
       timelineStart: s,
@@ -17754,7 +17766,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
     p != null && p.sessionId && p.contentId && (f.cmcd = ge({}, p, {
       contentId: Ei(t.uri)
     })), this.getAssetPlayer(h) && this.warn(`Duplicate date range identifier ${e} and asset ${h}`);
-    const g = new jm(this.HlsPlayerClass, f, e, t);
+    const g = new qm(this.HlsPlayerClass, f, e, t);
     this.playerQueue.push(g), e.assetList[i] = t;
     let _ = !0;
     const m = (E) => {
@@ -18034,7 +18046,7 @@ Schedule: ${d.map((_) => Je(_))} pos: ${this.timelinePos}`), u.length && this.lo
   }
 }
 const Lo = 500;
-class Xm extends Fr {
+class Jm extends Fr {
   constructor(e, t, i) {
     super(e, t, i, "subtitle-stream-controller", Z.SUBTITLE), this.currentTrackId = -1, this.tracksBuffered = [], this.mainDetails = null, this.registerListeners();
   }
@@ -18254,10 +18266,10 @@ class Xm extends Fr {
     Ae(e) ? super.loadFragment(e, t, i) : this._loadInitSegment(e, t);
   }
   get mediaBufferTimeRanges() {
-    return new Qm(this.tracksBuffered[this.currentTrackId] || []);
+    return new e0(this.tracksBuffered[this.currentTrackId] || []);
   }
 }
-class Qm {
+class e0 {
   constructor(e) {
     this.buffered = void 0;
     const t = (i, s, r) => {
@@ -18278,7 +18290,7 @@ class Qm {
     };
   }
 }
-const Zm = {
+const t0 = {
   42: 225,
   // lowercase a, acute accent
   92: 233,
@@ -18466,7 +18478,7 @@ const Zm = {
   // Box drawings heavy up and right
   207: 9499
   // Box drawings heavy up and left
-}, gd = (n) => String.fromCharCode(Zm[n] || n), et = 15, bt = 100, Jm = {
+}, gd = (n) => String.fromCharCode(t0[n] || n), et = 15, bt = 100, i0 = {
   17: 1,
   18: 3,
   21: 5,
@@ -18475,7 +18487,7 @@ const Zm = {
   16: 11,
   19: 12,
   20: 14
-}, e0 = {
+}, n0 = {
   17: 2,
   18: 4,
   21: 6,
@@ -18483,7 +18495,7 @@ const Zm = {
   23: 10,
   19: 13,
   20: 15
-}, t0 = {
+}, s0 = {
   25: 1,
   26: 3,
   29: 5,
@@ -18492,7 +18504,7 @@ const Zm = {
   24: 11,
   27: 12,
   28: 14
-}, i0 = {
+}, r0 = {
   25: 2,
   26: 4,
   29: 6,
@@ -18500,8 +18512,8 @@ const Zm = {
   31: 10,
   27: 13,
   28: 15
-}, n0 = ["white", "green", "blue", "cyan", "red", "yellow", "magenta", "black", "transparent"];
-class s0 {
+}, a0 = ["white", "green", "blue", "cyan", "red", "yellow", "magenta", "black", "transparent"];
+class o0 {
   constructor() {
     this.time = null, this.verboseLevel = 0;
   }
@@ -18545,7 +18557,7 @@ class md {
     return "color=" + this.foreground + ", underline=" + this.underline + ", italics=" + this.italics + ", background=" + this.background + ", flash=" + this.flash;
   }
 }
-class r0 {
+class l0 {
   constructor() {
     this.uchar = " ", this.penState = new md();
   }
@@ -18568,11 +18580,11 @@ class r0 {
     return this.uchar === " " && this.penState.isDefault();
   }
 }
-class a0 {
+class c0 {
   constructor(e) {
     this.chars = [], this.pos = 0, this.currPenState = new md(), this.cueStartTime = null, this.logger = void 0;
     for (let t = 0; t < bt; t++)
-      this.chars.push(new r0());
+      this.chars.push(new l0());
     this.logger = e;
   }
   equals(e) {
@@ -18653,7 +18665,7 @@ class _s {
   constructor(e) {
     this.rows = [], this.currRow = et - 1, this.nrRollUpRows = null, this.lastOutputScreen = null, this.logger = void 0;
     for (let t = 0; t < et; t++)
-      this.rows.push(new a0(e));
+      this.rows.push(new c0(e));
     this.logger = e;
   }
   reset() {
@@ -18868,8 +18880,8 @@ class Ro {
 }
 class Do {
   constructor(e, t, i) {
-    this.channels = void 0, this.currentChannel = 0, this.cmdHistory = l0(), this.logger = void 0;
-    const s = this.logger = new s0();
+    this.channels = void 0, this.currentChannel = 0, this.cmdHistory = u0(), this.logger = void 0;
+    const s = this.logger = new o0();
     this.channels = [null, new Ro(e, t, s), new Ro(e + 1, i, s)];
   }
   getHandler(e) {
@@ -18891,7 +18903,7 @@ class Do {
       this.logger.log(3, () => "[" + $t([t[i], t[i + 1]]) + "] -> (" + $t([s, r]) + ")");
       const d = this.cmdHistory;
       if (s >= 16 && s <= 31) {
-        if (o0(s, r, d)) {
+        if (d0(s, r, d)) {
           qi(null, null, d), this.logger.log(3, () => "Repeated command (" + $t([s, r]) + ") is dropped");
           continue;
         }
@@ -18939,7 +18951,7 @@ class Do {
     if (!(s || r))
       return !1;
     const a = e <= 23 ? 1 : 2;
-    t >= 64 && t <= 95 ? i = a === 1 ? Jm[e] : t0[e] : i = a === 1 ? e0[e] : i0[e];
+    t >= 64 && t <= 95 ? i = a === 1 ? i0[e] : s0[e] : i = a === 1 ? n0[e] : r0[e];
     const o = this.channels[a];
     return o ? (o.setPAC(this.interpretPAC(i, t)), this.currentChannel = a, !0) : !1;
   }
@@ -18980,7 +18992,7 @@ class Do {
       return !1;
     let r;
     const a = {};
-    e === 16 || e === 24 ? (r = Math.floor((t - 32) / 2), a.background = n0[r], t % 2 === 1 && (a.background = a.background + "_semi")) : t === 45 ? a.background = "transparent" : (a.foreground = "black", t === 47 && (a.underline = !0));
+    e === 16 || e === 24 ? (r = Math.floor((t - 32) / 2), a.background = a0[r], t % 2 === 1 && (a.background = a.background + "_semi")) : t === 45 ? a.background = "transparent" : (a.foreground = "black", t === 47 && (a.underline = !0));
     const o = e <= 23 ? 1 : 2;
     return this.channels[o].setBkgData(a), !0;
   }
@@ -19007,10 +19019,10 @@ class Do {
 function qi(n, e, t) {
   t.a = n, t.b = e;
 }
-function o0(n, e, t) {
+function d0(n, e, t) {
   return t.a === n && t.b === e;
 }
-function l0() {
+function u0() {
   return {
     a: null,
     b: null
@@ -19173,7 +19185,7 @@ var Yr = (function() {
     return self.WebVTT.convertCueToDOMTree(self, this.text);
   }, a;
 })();
-class c0 {
+class h0 {
   decode(e, t) {
     if (!e)
       return "";
@@ -19189,7 +19201,7 @@ function _d(n) {
   const t = n.match(/^(?:(\d+):)?(\d{2}):(\d{2})(\.\d+)?/);
   return t ? parseFloat(t[2]) > 59 ? e(t[2], t[3], 0, t[4]) : e(t[1], t[2], t[3], t[4]) : null;
 }
-class d0 {
+class f0 {
   constructor() {
     this.values = /* @__PURE__ */ Object.create(null);
   }
@@ -19244,7 +19256,7 @@ function vd(n, e, t, i) {
   }
 }
 const nr = new Yr(0, 0, ""), Xi = nr.align === "middle" ? "middle" : "center";
-function u0(n, e, t) {
+function p0(n, e, t) {
   const i = n;
   function s() {
     const o = _d(n);
@@ -19253,7 +19265,7 @@ function u0(n, e, t) {
     return n = n.replace(/^[^\sa-zA-Z-]+/, ""), o;
   }
   function r(o, d) {
-    const c = new d0();
+    const c = new f0();
     vd(o, function(f, p) {
       let g;
       switch (f) {
@@ -19297,9 +19309,9 @@ function yd(n) {
   return n.replace(/<br(?: \/)?>/gi, `
 `);
 }
-class h0 {
+class g0 {
   constructor() {
-    this.state = "INITIAL", this.buffer = "", this.decoder = new c0(), this.regionList = [], this.cue = null, this.oncue = void 0, this.onparsingerror = void 0, this.onflush = void 0;
+    this.state = "INITIAL", this.buffer = "", this.decoder = new h0(), this.regionList = [], this.cue = null, this.oncue = void 0, this.onparsingerror = void 0, this.onflush = void 0;
   }
   parse(e) {
     const t = this;
@@ -19360,7 +19372,7 @@ class h0 {
               continue;
             }
             try {
-              u0(r, t.cue, t.regionList);
+              p0(r, t.cue, t.regionList);
             } catch {
               t.cue = null, t.state = "BADCUE";
               continue;
@@ -19402,9 +19414,9 @@ class h0 {
     return e.onflush && e.onflush(), this;
   }
 }
-const f0 = /\r\n|\n\r|\n|\r/g, vs = function(e, t, i = 0) {
+const m0 = /\r\n|\n\r|\n|\r/g, vs = function(e, t, i = 0) {
   return e.slice(i, i + t.length) === t;
-}, p0 = function(e) {
+}, _0 = function(e) {
   let t = parseInt(e.slice(-3));
   const i = parseInt(e.slice(-6, -4)), s = parseInt(e.slice(-9, -7)), r = e.length > 9 ? parseInt(e.substring(0, e.indexOf(":"))) : 0;
   if (!X(t) || !X(i) || !X(s) || !X(r))
@@ -19414,7 +19426,7 @@ const f0 = /\r\n|\n\r|\n|\r/g, vs = function(e, t, i = 0) {
 function qr(n, e, t) {
   return Ei(n.toString()) + Ei(e.toString()) + Ei(t);
 }
-const g0 = function(e, t, i) {
+const v0 = function(e, t, i) {
   let s = e[t], r = e[s.prevCC];
   if (!r || !r.new && s.new) {
     e.ccOffset = e.presentationOffset = s.start, s.new = !1;
@@ -19426,16 +19438,16 @@ const g0 = function(e, t, i) {
   }
   e.presentationOffset = i;
 };
-function m0(n, e, t, i, s, r, a) {
-  const o = new h0(), d = qe(new Uint8Array(n)).trim().replace(f0, `
+function y0(n, e, t, i, s, r, a) {
+  const o = new g0(), d = qe(new Uint8Array(n)).trim().replace(m0, `
 `).split(`
-`), c = [], u = e ? Eg(e.baseTime, e.timescale) : 0;
+`), c = [], u = e ? kg(e.baseTime, e.timescale) : 0;
   let h = "00:00.000", f = 0, p = 0, g, _ = !0;
   o.oncue = function(m) {
     const v = t[i];
     let b = t.ccOffset;
     const x = (f - u) / 9e4;
-    if (v != null && v.new && (p !== void 0 ? b = t.ccOffset = v.start : g0(t, i, x)), x) {
+    if (v != null && v.new && (p !== void 0 ? b = t.ccOffset = v.start : v0(t, i, x)), x) {
       if (!e) {
         g = new Error("Missing initPTS for VTT MPEGTS");
         return;
@@ -19461,7 +19473,7 @@ function m0(n, e, t, i, s, r, a) {
           vs(v, "LOCAL:") ? h = v.slice(6) : vs(v, "MPEGTS:") && (f = parseInt(v.slice(7)));
         });
         try {
-          p = p0(h) / 1e3;
+          p = _0(h) / 1e3;
         } catch (v) {
           g = v;
         }
@@ -19471,7 +19483,7 @@ function m0(n, e, t, i, s, r, a) {
 `);
   }), o.flush();
 }
-const ys = "stpp.ttml.im1t", bd = /^(\d{2,}):(\d{2}):(\d{2}):(\d{2})\.?(\d+)?$/, xd = /^(\d*(?:\.\d*)?)(h|m|s|ms|f|t)$/, _0 = {
+const ys = "stpp.ttml.im1t", bd = /^(\d{2,}):(\d{2}):(\d{2}):(\d{2})\.?(\d+)?$/, xd = /^(\d*(?:\.\d*)?)(h|m|s|ms|f|t)$/, b0 = {
   left: "start",
   center: "center",
   right: "end",
@@ -19484,14 +19496,14 @@ function Co(n, e, t, i) {
     i(new Error("Could not parse IMSC1 mdat"));
     return;
   }
-  const r = s.map((o) => qe(o)), a = xg(e.baseTime, 1, e.timescale);
+  const r = s.map((o) => qe(o)), a = Tg(e.baseTime, 1, e.timescale);
   try {
-    r.forEach((o) => t(v0(o, a)));
+    r.forEach((o) => t(x0(o, a)));
   } catch (o) {
     i(o);
   }
 }
-function v0(n, e) {
+function x0(n, e) {
   const s = new DOMParser().parseFromString(n, "text/xml").getElementsByTagName("tt")[0];
   if (!s)
     throw new Error("Invalid ttml");
@@ -19516,11 +19528,11 @@ function v0(n, e) {
     }
     const m = new Yr(p - e, _ - e, f);
     m.id = qr(m.startTime, m.endTime, m.text);
-    const v = c[h.getAttribute("region")], b = d[h.getAttribute("style")], x = y0(v, b, d), {
+    const v = c[h.getAttribute("region")], b = d[h.getAttribute("style")], x = E0(v, b, d), {
       textAlign: E
     } = x;
     if (E) {
-      const S = _0[E];
+      const S = b0[E];
       S && (m.lineAlign = S), m.align = E;
     }
     return ge(m, x), m;
@@ -19543,7 +19555,7 @@ function Ed(n, e) {
 ` : (r = i.childNodes) != null && r.length ? Ed(i, e) : e ? t + i.textContent.trim().replace(/\s+/g, " ") : t + i.textContent;
   }, "");
 }
-function y0(n, e, t) {
+function E0(n, e, t) {
   const i = "http://www.w3.org/ns/ttml#styling";
   let s = null;
   const r = [
@@ -19575,13 +19587,13 @@ function Es(n, e) {
   if (!n)
     return null;
   let t = _d(n);
-  return t === null && (bd.test(n) ? t = b0(n, e) : xd.test(n) && (t = x0(n, e))), t;
+  return t === null && (bd.test(n) ? t = S0(n, e) : xd.test(n) && (t = T0(n, e))), t;
 }
-function b0(n, e) {
+function S0(n, e) {
   const t = bd.exec(n), i = (t[4] | 0) + (t[5] | 0) / e.subFrameRate;
   return (t[1] | 0) * 3600 + (t[2] | 0) * 60 + (t[3] | 0) + i / e.frameRate;
 }
-function x0(n, e) {
+function T0(n, e) {
   const t = xd.exec(n), i = Number(t[1]);
   switch (t[2]) {
     case "h":
@@ -19611,7 +19623,7 @@ class Qi {
     this.cueRanges = [], this.startTime = null;
   }
 }
-class E0 {
+class k0 {
   constructor(e) {
     this.hls = void 0, this.media = null, this.config = void 0, this.enabled = !0, this.Cues = void 0, this.textTracks = [], this.tracks = [], this.initPTS = [], this.unparsedVttFrags = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.cea608Parser1 = void 0, this.cea608Parser2 = void 0, this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = Fo(), this.captionsProperties = void 0, this.hls = e, this.config = e.config, this.Cues = e.config.cueHandler, this.captionsProperties = {
       textTrack1: {
@@ -19645,7 +19657,7 @@ class E0 {
   addCues(e, t, i, s, r) {
     let a = !1;
     for (let o = r.length; o--; ) {
-      const d = r[o], c = S0(d[0], d[1], t, i);
+      const d = r[o], c = A0(d[0], d[1], t, i);
       if (c >= 0 && (d[0] = Math.min(d[0], t), d[1] = Math.max(d[1], i), a = !0, c / (i - t) > 0.5))
         return;
     }
@@ -19894,7 +19906,7 @@ class E0 {
       return;
     }
     const d = this.hls, c = (t = i.initSegment) != null && t.data ? Xe(i.initSegment.data, new Uint8Array(s)).buffer : s;
-    m0(c, this.initPTS[i.cc], this.vttCCs, i.cc, i.start, (u) => {
+    y0(c, this.initPTS[i.cc], this.vttCCs, i.cc, i.start, (u) => {
       this._appendCues(u, i.level), d.trigger(y.SUBTITLE_FRAG_PROCESSED, {
         success: !0,
         frag: i
@@ -20006,7 +20018,7 @@ function Sd(n) {
 function Oo(n, e) {
   return !!n && n.kind === Sd(e) && Zs(e, n);
 }
-function S0(n, e, t, i) {
+function A0(n, e, t, i) {
   return Math.min(e, i) - Math.max(n, t);
 }
 function Fo() {
@@ -20020,7 +20032,7 @@ function Fo() {
     }
   };
 }
-const T0 = /\s/, k0 = {
+const w0 = /\s/, I0 = {
   newCue(n, e, t, i) {
     const s = [];
     let r, a, o, d, c;
@@ -20029,7 +20041,7 @@ const T0 = /\s/, k0 = {
       if (r = i.rows[f], o = !0, d = 0, c = "", !r.isEmpty()) {
         var h;
         for (let _ = 0; _ < r.chars.length; _++)
-          T0.test(r.chars[_].uchar) && o ? d++ : (c += r.chars[_].uchar, o = !1);
+          w0.test(r.chars[_].uchar) && o ? d++ : (c += r.chars[_].uchar, o = !1);
         r.cueStartTime = e, e === t && (t += 1e-4), d >= 16 ? d-- : d++;
         const p = yd(c.trim()), g = qr(e, t, p);
         n != null && (h = n.cues) != null && h.getCueById(g) || (a = new u(e, t, p), a.id = g, a.line = f + 1, a.align = "left", a.position = 10 + Math.min(80, Math.floor(d * 8 / 32) * 10), s.push(a));
@@ -20037,7 +20049,7 @@ const T0 = /\s/, k0 = {
     return n && s.length && (s.sort((f, p) => f.line === "auto" || p.line === "auto" ? 0 : f.line > 8 && p.line > 8 ? p.line - f.line : f.line - p.line), s.forEach((f) => fd(n, f))), s;
   }
 };
-function A0() {
+function L0() {
   if (
     // @ts-ignore
     self.fetch && self.AbortController && self.ReadableStream && self.Request
@@ -20048,10 +20060,10 @@ function A0() {
     }
   return !1;
 }
-const w0 = /(\d+)-(\d+)\/(\d+)/;
+const R0 = /(\d+)-(\d+)\/(\d+)/;
 class No {
   constructor(e) {
-    this.fetchSetup = void 0, this.requestTimeout = void 0, this.request = null, this.response = null, this.controller = void 0, this.context = null, this.config = null, this.callbacks = null, this.stats = void 0, this.loader = null, this.fetchSetup = e.fetchSetup || D0, this.controller = new self.AbortController(), this.stats = new wr();
+    this.fetchSetup = void 0, this.requestTimeout = void 0, this.request = null, this.response = null, this.controller = void 0, this.context = null, this.config = null, this.callbacks = null, this.stats = void 0, this.loader = null, this.fetchSetup = e.fetchSetup || M0, this.controller = new self.AbortController(), this.stats = new wr();
   }
   destroy() {
     this.loader = this.callbacks = this.context = this.config = this.request = null, this.abortInternal(), this.response = null, this.fetchSetup = this.controller = this.stats = null;
@@ -20068,7 +20080,7 @@ class No {
     if (s.loading.start)
       throw new Error("Loader can only be used once.");
     s.loading.start = self.performance.now();
-    const r = I0(e, this.controller.signal), a = e.responseType === "arraybuffer", o = a ? "byteLength" : "length", {
+    const r = D0(e, this.controller.signal), a = e.responseType === "arraybuffer", o = a ? "byteLength" : "length", {
       maxTimeToFirstByteMs: d,
       maxLoadTimeMs: c
     } = t.loadPolicy;
@@ -20085,9 +20097,9 @@ class No {
           status: _,
           statusText: m
         } = h;
-        throw new C0(m || "fetch, bad network response", _, h);
+        throw new O0(m || "fetch, bad network response", _, h);
       }
-      s.loading.first = p, s.total = R0(h.headers) || s.total;
+      s.loading.first = p, s.total = P0(h.headers) || s.total;
       const g = (f = this.callbacks) == null ? void 0 : f.onProgress;
       return g && X(t.highWaterMark) ? this.loadProgressively(h, s, e, t.highWaterMark, g) : a ? h.arrayBuffer() : e.responseType === "json" ? h.json() : h.text();
     }).then((h) => {
@@ -20136,7 +20148,7 @@ class No {
     return d();
   }
 }
-function I0(n, e) {
+function D0(n, e) {
   const t = {
     method: "GET",
     mode: "cors",
@@ -20146,15 +20158,15 @@ function I0(n, e) {
   };
   return n.rangeEnd && t.headers.set("Range", "bytes=" + n.rangeStart + "-" + String(n.rangeEnd - 1)), t;
 }
-function L0(n) {
-  const e = w0.exec(n);
+function C0(n) {
+  const e = R0.exec(n);
   if (e)
     return parseInt(e[2]) - parseInt(e[1]) + 1;
 }
-function R0(n) {
+function P0(n) {
   const e = n.get("Content-Range");
   if (e) {
-    const i = L0(e);
+    const i = C0(e);
     if (X(i))
       return i;
   }
@@ -20162,15 +20174,15 @@ function R0(n) {
   if (t)
     return parseInt(t);
 }
-function D0(n, e) {
+function M0(n, e) {
   return new self.Request(n.url, e);
 }
-class C0 extends Error {
+class O0 extends Error {
   constructor(e, t, i) {
     super(e), this.code = void 0, this.details = void 0, this.code = t, this.details = i;
   }
 }
-const P0 = /^age:\s*[\d.]+\s*$/im;
+const F0 = /^age:\s*[\d.]+\s*$/im;
 class Td {
   constructor(e) {
     this.xhrSetup = void 0, this.requestTimeout = void 0, this.retryTimeout = void 0, this.retryDelay = void 0, this.config = null, this.callbacks = null, this.context = null, this.loader = null, this.stats = void 0, this.xhrSetup = e && e.xhrSetup || null, this.stats = new wr(), this.retryDelay = 0;
@@ -20299,7 +20311,7 @@ class Td {
   }
   getCacheAge() {
     let e = null;
-    if (this.loader && P0.test(this.loader.getAllResponseHeaders())) {
+    if (this.loader && F0.test(this.loader.getAllResponseHeaders())) {
       const t = this.loader.getResponseHeader("age");
       e = t ? parseFloat(t) : null;
     }
@@ -20309,12 +20321,12 @@ class Td {
     return this.loader && new RegExp(`^${e}:\\s*[\\d.]+\\s*$`, "im").test(this.loader.getAllResponseHeaders()) ? this.loader.getResponseHeader(e) : null;
   }
 }
-const M0 = {
+const N0 = {
   maxTimeToFirstByteMs: 8e3,
   maxLoadTimeMs: 2e4,
   timeoutRetry: null,
   errorRetry: null
-}, O0 = ue(ue({
+}, $0 = ue(ue({
   autoStartLoad: !0,
   // used by stream-controller
   startPosition: -1,
@@ -20409,11 +20421,11 @@ const M0 = {
   // used by eme-controller
   licenseResponseCallback: void 0,
   // used by eme-controller
-  abrController: Wf,
-  bufferController: Ng,
+  abrController: Xf,
+  bufferController: Ug,
   capLevelController: Hr,
-  errorController: Zf,
-  fpsController: $m,
+  errorController: tp,
+  fpsController: Gm,
   stretchShortVideoTrack: !1,
   // used by mp4-remuxer
   maxAudioFramesDrift: 1,
@@ -20470,7 +20482,7 @@ const M0 = {
   useMediaCapabilities: !0,
   preserveManualLevelOnError: !1,
   certLoadPolicy: {
-    default: M0
+    default: N0
   },
   keyLoadPolicy: {
     default: {
@@ -20584,20 +20596,20 @@ const M0 = {
   fragLoadingMaxRetry: 6,
   fragLoadingRetryDelay: 1e3,
   fragLoadingMaxRetryTimeout: 64e3
-}, F0()), {}, {
-  subtitleStreamController: Xm,
-  subtitleTrackController: Gm,
-  timelineController: E0,
-  audioStreamController: Pg,
-  audioTrackController: Mg,
+}, B0()), {}, {
+  subtitleStreamController: Jm,
+  subtitleTrackController: zm,
+  timelineController: k0,
+  audioStreamController: Fg,
+  audioTrackController: Ng,
   emeController: oi,
-  cmcdController: Mm,
-  contentSteeringController: Fm,
-  interstitialsController: qm
+  cmcdController: Nm,
+  contentSteeringController: Bm,
+  interstitialsController: Zm
 });
-function F0() {
+function B0() {
   return {
-    cueHandler: k0,
+    cueHandler: I0,
     // used by timeline-controller
     enableWebVTT: !0,
     // used by timeline-controller
@@ -20624,7 +20636,7 @@ function F0() {
     renderTextTracksNatively: !0
   };
 }
-function N0(n, e, t) {
+function U0(n, e, t) {
   if ((e.liveSyncDurationCount || e.liveMaxLatencyDurationCount) && (e.liveSyncDuration || e.liveMaxLatencyDuration))
     throw new Error("Illegal hls.js config: don't mix up liveSyncDurationCount/liveMaxLatencyDurationCount and liveSyncDuration/liveMaxLatencyDuration");
   if (e.liveMaxLatencyDurationCount !== void 0 && (e.liveSyncDurationCount === void 0 || e.liveMaxLatencyDurationCount <= e.liveSyncDurationCount))
@@ -20662,12 +20674,12 @@ function N0(n, e, t) {
 function sr(n) {
   return n && typeof n == "object" ? Array.isArray(n) ? n.map(sr) : Object.keys(n).reduce((e, t) => (e[t] = sr(n[t]), e), {}) : n;
 }
-function $0(n, e) {
+function G0(n, e) {
   const t = n.loader;
-  t !== No && t !== Td ? (e.log("[config]: Custom loader detected, cannot enable progressive streaming"), n.progressive = !1) : A0() && (n.loader = No, n.progressive = !0, n.enableSoftwareAES = !0, e.log("[config]: Progressive streaming enabled, using FetchLoader"));
+  t !== No && t !== Td ? (e.log("[config]: Custom loader detected, cannot enable progressive streaming"), n.progressive = !1) : L0() && (n.loader = No, n.progressive = !0, n.enableSoftwareAES = !0, e.log("[config]: Progressive streaming enabled, using FetchLoader"));
 }
-const xn = 2, B0 = 0.1, U0 = 0.05, G0 = 100;
-class K0 extends _c {
+const xn = 2, K0 = 0.1, V0 = 0.05, z0 = 100;
+class H0 extends _c {
   constructor(e, t) {
     super("gap-controller", e.logger), this.hls = void 0, this.fragmentTracker = void 0, this.media = null, this.mediaSource = void 0, this.nudgeRetry = 0, this.stallReported = !1, this.stalled = null, this.moved = !1, this.seeking = !1, this.buffered = {}, this.lastCurrentTime = 0, this.ended = 0, this.waiting = 0, this.onMediaPlaying = () => {
       this.ended = 0, this.waiting = 0;
@@ -20699,7 +20711,7 @@ class K0 extends _c {
     super.destroy(), this.unregisterListeners(), this.media = this.hls = this.fragmentTracker = null, this.mediaSource = void 0;
   }
   onMediaAttached(e, t) {
-    this.setInterval(G0), this.mediaSource = t.mediaSource;
+    this.setInterval(z0), this.mediaSource = t.mediaSource;
     const i = this.media = t.media;
     $e(i, "playing", this.onMediaPlaying), $e(i, "waiting", this.onMediaWaiting), $e(i, "ended", this.onMediaEnded);
   }
@@ -20937,7 +20949,7 @@ class K0 extends _c {
               return 0;
           }
         }
-        const p = Math.max(d + U0, a + B0);
+        const p = Math.max(d + V0, a + K0);
         if (this.warn(`skipping hole, adjusting currentTime from ${a} to ${p}`), this.moved = !0, s.currentTime = p, !(e != null && e.gap)) {
           const g = new Error(`fragment loaded with buffer holes, seeking from ${a} to ${p}`), _ = {
             type: J.MEDIA_ERROR,
@@ -21013,7 +21025,7 @@ function Bo(n) {
 function Zi(n, e) {
   return e.getAppendedFrag(n, Z.MAIN) || e.getPartialFragment(n);
 }
-const V0 = 0.25;
+const j0 = 0.25;
 function rr() {
   if (!(typeof self > "u"))
     return self.VTTCue || self.TextTrackCue;
@@ -21038,7 +21050,7 @@ const Ji = (() => {
   }
   return Number.POSITIVE_INFINITY;
 })();
-class z0 {
+class W0 {
   constructor(e) {
     this.hls = void 0, this.id3Track = null, this.media = null, this.dateRangeCuesAppended = {}, this.removeCues = !0, this.assetCue = void 0, this.onEventCueEnter = () => {
       this.hls && this.hls.trigger(y.EVENT_CUE_ENTER, {});
@@ -21110,7 +21122,7 @@ class z0 {
           continue;
         const c = Uc(r[o].data), u = r[o].pts;
         let h = u + r[o].duration;
-        h > Ji && (h = Ji), h - u <= 0 && (h = u + V0);
+        h > Ji && (h = Ji), h - u <= 0 && (h = u + j0);
         for (let p = 0; p < c.length; p++) {
           const g = c[p];
           if (!Gc(g)) {
@@ -21237,14 +21249,14 @@ class z0 {
         const w = Object.keys(v.attr);
         for (let A = 0; A < w.length; A++) {
           const P = w[A];
-          if (!up(P))
+          if (!pp(P))
             continue;
           const M = E[P];
           if (M)
             S && !(x != null && x.durationKnown) ? M.endTime = L : Math.abs(M.startTime - b) > 0.01 && (M.startTime = b, M.endTime = L);
           else if (o) {
             let B = v.attr[P];
-            hp(P) && (B = Ql(B));
+            gp(P) && (B = Ql(B));
             const U = Ss(o, b, L, {
               key: P,
               data: B
@@ -21261,7 +21273,7 @@ class z0 {
     }
   }
 }
-class H0 {
+class Y0 {
   constructor(e) {
     this.hls = void 0, this.config = void 0, this.media = null, this.currentTime = 0, this.stallCount = 0, this._latency = null, this._targetLatencyUpdated = !1, this.onTimeupdate = () => {
       const {
@@ -21403,7 +21415,7 @@ class H0 {
     return e === null ? null : e - this.currentTime;
   }
 }
-class j0 extends zr {
+class q0 extends zr {
   constructor(e, t) {
     super(e, "level-controller"), this._levels = [], this._firstLevel = -1, this._maxAutoLevel = -1, this._startLevel = void 0, this.currentLevel = null, this.currentLevelIndex = -1, this.manualLevelIndex = -1, this.steering = void 0, this.onParsedComplete = void 0, this.steering = t, this._registerListeners();
   }
@@ -21442,7 +21454,7 @@ class j0 extends zr {
         audioCodec: f,
         videoCodec: p
       } = u;
-      f && (u.audioCodec = f = wn(f, i) || void 0), p && (p = u.videoCodec = If(p));
+      f && (u.audioCodec = f = wn(f, i) || void 0), p && (p = u.videoCodec = Df(p));
       const {
         width: g,
         height: _,
@@ -21497,7 +21509,7 @@ class j0 extends zr {
       videoRange: x,
       width: E,
       height: S
-    }) => (!!b || !!(E && S)) && $f(x))), c.length === 0) {
+    }) => (!!b || !!(E && S)) && Gf(x))), c.length === 0) {
       Promise.resolve().then(() => {
         if (this.hls) {
           let b = "no level with compatible codecs found in manifest", x = b;
@@ -21774,19 +21786,19 @@ function Ad() {
   const e = kd();
   return !e || e.prototype && typeof e.prototype.appendBuffer == "function" && typeof e.prototype.remove == "function";
 }
-function W0() {
+function X0() {
   if (!Ad())
     return !1;
   const n = Ot();
   return typeof n?.isTypeSupported == "function" && (["avc1.42E01E,mp4a.40.2", "av01.0.01M.08", "vp09.00.50.08"].some((e) => n.isTypeSupported(wi(e, "video"))) || ["mp4a.40.2", "fLaC"].some((e) => n.isTypeSupported(wi(e, "audio"))));
 }
-function Y0() {
+function Q0() {
   var n;
   const e = kd();
   return typeof (e == null || (n = e.prototype) == null ? void 0 : n.changeType) == "function";
 }
-const q0 = 100;
-class X0 extends Fr {
+const Z0 = 100;
+class J0 extends Fr {
   constructor(e, t, i) {
     super(e, t, i, "stream-controller", Z.MAIN), this.audioCodecSwap = !1, this.level = -1, this._forceStartLoad = !1, this._hasEnoughToStart = !1, this.altAudio = 0, this.audioOnly = !1, this.fragPlaying = null, this.fragLastKbps = 0, this.couldBacktrack = !1, this.backtrackFragment = null, this.audioCodecSwitch = !1, this.videoBuffer = null, this.onMediaPlaying = () => {
       this.tick();
@@ -21825,7 +21837,7 @@ class X0 extends Fr {
         lastCurrentTime: i,
         hls: s
       } = this;
-      if (this.stopLoad(), this.setInterval(q0), this.level = -1, !this.startFragRequested) {
+      if (this.stopLoad(), this.setInterval(Z0), this.level = -1, !this.startFragRequested) {
         let r = s.startLevel;
         r === -1 && (s.config.testBandwidth && this.levels.length > 1 ? (r = 0, this.bitrateTest = !0) : r = s.firstAutoLevel), s.nextLoadLevel = r, this.level = s.loadLevel, this._hasEnoughToStart = !!t;
       }
@@ -22008,7 +22020,7 @@ class X0 extends Fr {
       const a = t.levels[r].audioCodec;
       a && (i = i || a.indexOf("mp4a.40.2") !== -1, s = s || a.indexOf("mp4a.40.5") !== -1);
     }
-    this.audioCodecSwitch = i && s && !Y0(), this.audioCodecSwitch && this.log("Both AAC/HE-AAC audio found in levels; declaring level codec as HE-AAC"), this.levels = t.levels, this.startFragRequested = !1;
+    this.audioCodecSwitch = i && s && !Q0(), this.audioCodecSwitch && this.log("Both AAC/HE-AAC audio found in levels; declaring level codec as HE-AAC"), this.levels = t.levels, this.startFragRequested = !1;
   }
   onLevelLoading(e, t) {
     const {
@@ -22513,7 +22525,7 @@ class X0 extends Fr {
     return this._forceStartLoad;
   }
 }
-class Q0 extends Qe {
+class e_ extends Qe {
   constructor(e, t) {
     super("key-loader", t), this.config = void 0, this.keyIdToKeyInfo = {}, this.emeController = null, this.config = e;
   }
@@ -22637,7 +22649,7 @@ class Q0 extends Qe {
     if (this.emeController && this.config.emeEnabled) {
       var s;
       if (!e.decryptdata.keyId && (s = t.initSegment) != null && s.data) {
-        const a = mf(t.initSegment.data);
+        const a = yf(t.initSegment.data);
         if (a.length) {
           let o = a[0];
           o.some((d) => d !== 0) ? (this.log(`Using keyId found in init segment ${Me(o)}`), Dt.setKeyIdForUri(e.decryptdata.uri, o)) : (o = Dt.addKeyIdForUri(e.decryptdata.uri), this.log(`Generating keyId to patch media ${Me(o)}`)), e.decryptdata.keyId = o;
@@ -22731,7 +22743,7 @@ function ks(n, e) {
   let t = n.url;
   return (t === void 0 || t.indexOf("data:") === 0) && (t = e.url), t;
 }
-class Z0 {
+class t_ {
   constructor(e) {
     this.hls = void 0, this.loaders = /* @__PURE__ */ Object.create(null), this.variableList = null, this.onManifestLoaded = this.checkAutostartLoad, this.hls = e, this.registerListeners();
   }
@@ -23181,7 +23193,7 @@ class tt {
    * Check if MediaSource Extensions are available and isTypeSupported checks pass for any baseline codecs.
    */
   static isSupported() {
-    return W0();
+    return X0();
   }
   /**
    * Get the MediaSource global used for MSE playback (ManagedMediaSource, MediaSource, or WebKitMediaSource).
@@ -23205,7 +23217,7 @@ class tt {
    * Get the default configuration applied to new instances.
    */
   static get DefaultConfig() {
-    return tt.defaultConfig ? tt.defaultConfig : O0;
+    return tt.defaultConfig ? tt.defaultConfig : $0;
   }
   /**
    * Replace the default configuration applied to new instances.
@@ -23219,15 +23231,15 @@ class tt {
    */
   constructor(e = {}) {
     this.config = void 0, this.userConfig = void 0, this.logger = void 0, this.coreComponents = void 0, this.networkControllers = void 0, this._emitter = new Nr(), this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.abrController = void 0, this.bufferController = void 0, this.capLevelController = void 0, this.latencyController = void 0, this.levelController = void 0, this.streamController = void 0, this.audioStreamController = void 0, this.subtititleStreamController = void 0, this.audioTrackController = void 0, this.subtitleTrackController = void 0, this.interstitialsController = void 0, this.gapController = void 0, this.emeController = void 0, this.cmcdController = void 0, this._media = null, this._url = null, this._sessionId = void 0, this.triggeringException = void 0, this.started = !1;
-    const t = this.logger = sf(e.debug || !1, "Hls instance", e.assetPlayerId), i = this.config = N0(tt.DefaultConfig, e, t);
-    this.userConfig = e, i.progressive && $0(i, t);
+    const t = this.logger = of(e.debug || !1, "Hls instance", e.assetPlayerId), i = this.config = U0(tt.DefaultConfig, e, t);
+    this.userConfig = e, i.progressive && G0(i, t);
     const {
       abrController: s,
       bufferController: r,
       capLevelController: a,
       errorController: o,
       fpsController: d
-    } = i, c = new o(this), u = this.abrController = new s(this), h = new Jf(this), f = i.interstitialsController, p = f ? this.interstitialsController = new f(this, tt) : null, g = this.bufferController = new r(this, h), _ = this.capLevelController = new a(this), m = new d(this), v = new Z0(this), b = i.contentSteeringController, x = b ? new b(this) : null, E = this.levelController = new j0(this, x), S = new z0(this), L = new Q0(this.config, this.logger), T = this.streamController = new X0(this, h, L), k = this.gapController = new K0(this, h);
+    } = i, c = new o(this), u = this.abrController = new s(this), h = new ip(this), f = i.interstitialsController, p = f ? this.interstitialsController = new f(this, tt) : null, g = this.bufferController = new r(this, h), _ = this.capLevelController = new a(this), m = new d(this), v = new t_(this), b = i.contentSteeringController, x = b ? new b(this) : null, E = this.levelController = new q0(this, x), S = new W0(this), L = new e_(this.config, this.logger), T = this.streamController = new J0(this, h, L), k = this.gapController = new H0(this, h);
     _.setStreamController(T), m.setStreamController(T);
     const w = [v, E, T];
     p && w.splice(1, 0, p), x && w.splice(1, 0, x), this.networkControllers = w;
@@ -23236,7 +23248,7 @@ class tt {
     const P = i.audioStreamController;
     P && w.push(this.audioStreamController = new P(this, h, L)), this.subtitleTrackController = this.createController(i.subtitleTrackController, w);
     const M = i.subtitleStreamController;
-    M && w.push(this.subtititleStreamController = new M(this, h, L)), this.createController(i.timelineController, A), L.emeController = this.emeController = this.createController(i.emeController, A), this.cmcdController = this.createController(i.cmcdController, A), this.latencyController = this.createController(H0, A), this.coreComponents = A, w.push(c);
+    M && w.push(this.subtititleStreamController = new M(this, h, L)), this.createController(i.timelineController, A), L.emeController = this.emeController = this.createController(i.emeController, A), this.cmcdController = this.createController(i.cmcdController, A), this.latencyController = this.createController(Y0, A), this.coreComponents = A, w.push(c);
     const B = c.onErrorOut;
     typeof B == "function" && this.on(y.ERROR, B, c), this.on(y.MANIFEST_LOADED, v.onManifestLoaded, v);
   }
@@ -23443,7 +23455,7 @@ class tt {
    */
   get sessionId() {
     let e = this._sessionId;
-    return e || (e = this._sessionId = Km()), e;
+    return e || (e = this._sessionId = Hm()), e;
   }
   /**
    * @returns an array of levels (variants) sorted by HDCP-LEVEL, RESOLUTION (height), FRAME-RATE, CODECS, VIDEO-RANGE, and BANDWIDTH
@@ -23609,7 +23621,7 @@ class tt {
     return this._maxHdcpLevel;
   }
   set maxHdcpLevel(e) {
-    Nf(e) && this._maxHdcpLevel !== e && (this._maxHdcpLevel = e, this.levelController.checkMaxAutoUpdated());
+    Uf(e) && this._maxHdcpLevel !== e && (this._maxHdcpLevel = e, this.levelController.checkMaxAutoUpdated());
   }
   /**
    * True when automatic level selection enabled
@@ -23871,14 +23883,14 @@ class tt {
   }
 }
 tt.defaultConfig = void 0;
-function J0(n, e) {
+function i_(n, e) {
   return e.startsWith("http") ? e : (n.hassUrl?.("") ?? "").replace(/\/$/, "") + e;
 }
-function e_(n, e) {
+function n_(n, e) {
   const t = n.states[e]?.attributes?.access_token;
   return t ? `${(n.hassUrl?.("") ?? "").replace(/\/$/, "")}/api/camera_proxy_stream/${e}?token=${t}` : null;
 }
-async function t_(n, e, t) {
+async function s_(n, e, t) {
   let i = {
     iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
   };
@@ -23925,7 +23937,7 @@ async function t_(n, e, t) {
     }, 100);
   }), { pc: s, unsubscribe: c };
 }
-async function i_(n, e) {
+async function r_(n, e) {
   try {
     const t = await n.callWS({
       type: "config/entity_registry/list"
@@ -23939,7 +23951,7 @@ async function i_(n, e) {
     return console.warn("[Nido] entity_registry lookup failed:", t), null;
   }
 }
-function n_({ hass: n, entityId: e, title: t, onClose: i }) {
+function a_({ hass: n, entityId: e, title: t, onClose: i }) {
   const s = he(null), [r, a] = K(null), [o, d] = K(!0), [c, u] = K(null), [h, f] = K(!1), [p, g] = K(""), [_, m] = K(null), v = Q(() => Object.keys(n.states).filter((E) => E.startsWith("camera.") && E !== e).sort(), [n.states, e]), b = nt(i);
   ce(() => {
     let E = !1;
@@ -23949,7 +23961,7 @@ function n_({ hass: n, entityId: e, title: t, onClose: i }) {
         E || u(L);
         return;
       }
-      const T = await i_(n, e);
+      const T = await r_(n, e);
       E || u(T || e);
     }
     return S(), () => {
@@ -23961,7 +23973,7 @@ function n_({ hass: n, entityId: e, title: t, onClose: i }) {
     const T = s.current;
     a(null), d(!0), f(!1), m(null);
     function k() {
-      const M = e_(n, c);
+      const M = n_(n, c);
       return M ? (m(M), d(!1), !0) : !1;
     }
     async function w() {
@@ -23972,7 +23984,7 @@ function n_({ hass: n, entityId: e, title: t, onClose: i }) {
       if (E || !T) return;
       if (!M?.url)
         throw { code: "start_stream_failed", message: "no HLS URL returned" };
-      const B = J0(n, M.url);
+      const B = i_(n, M.url);
       if (T.canPlayType("application/vnd.apple.mpegurl"))
         T.src = B, T.addEventListener("loadedmetadata", () => d(!1), { once: !0 }), T.addEventListener("error", () => a("Erreur de lecture"), { once: !0 });
       else if (tt.isSupported())
@@ -23984,7 +23996,7 @@ function n_({ hass: n, entityId: e, title: t, onClose: i }) {
     }
     async function A() {
       if (!T) throw new Error("video element missing");
-      L = await t_(n, c, T), !E && d(!1);
+      L = await s_(n, c, T), !E && d(!1);
     }
     async function P() {
       try {
@@ -24115,21 +24127,21 @@ function n_({ hass: n, entityId: e, title: t, onClose: i }) {
 function Ko(n) {
   return (n.hassUrl?.("") ?? "").replace(/\/$/, "");
 }
-function s_(n, e) {
+function o_(n, e) {
   const t = n.state.attributes.access_token;
   if (t)
     return `${Ko(e)}/api/camera_proxy/${n.entity_id}?token=${t}`;
   const i = n.state.attributes.entity_picture;
   return i ? i.startsWith("http") ? i : `${Ko(e)}${i}` : null;
 }
-const r_ = 1e4;
-function a_({ hass: n, entity: e, roomLabel: t }) {
-  const i = e.state.state, s = i === "unavailable", r = i === "recording" || i === "streaming", [a, o] = K(() => Date.now()), [d, c] = K(!1), [u, h] = K(!1), f = s_(e, n), p = f ? `${f}${f.includes("?") ? "&" : "?"}_=${a}` : null;
+const l_ = 1e4;
+function c_({ hass: n, entity: e, roomLabel: t }) {
+  const i = e.state.state, s = i === "unavailable", r = i === "recording" || i === "streaming", [a, o] = K(() => Date.now()), [d, c] = K(!1), [u, h] = K(!1), f = o_(e, n), p = f ? `${f}${f.includes("?") ? "&" : "?"}_=${a}` : null;
   return ce(() => {
     c(!1);
   }, [f, a]), ce(() => {
     if (s || !f) return;
-    const g = window.setInterval(() => o(Date.now()), r_);
+    const g = window.setInterval(() => o(Date.now()), l_);
     return () => window.clearInterval(g);
   }, [s, f]), /* @__PURE__ */ l("div", { class: "n-card n-card--camera", "data-on": r ? "true" : "false", children: [
     /* @__PURE__ */ l(
@@ -24163,7 +24175,7 @@ function a_({ hass: n, entity: e, roomLabel: t }) {
     t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
     /* @__PURE__ */ l("div", { class: "n-title n-title--sm", children: e.friendly_name }),
     u && /* @__PURE__ */ l(
-      n_,
+      a_,
       {
         hass: n,
         entityId: e.entity_id,
@@ -24173,7 +24185,7 @@ function a_({ hass: n, entity: e, roomLabel: t }) {
     )
   ] });
 }
-function o_({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
+function d_({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
   const s = e.state.state === "on", r = e.state.state === "unavailable", a = e.state.attributes.percentage, o = typeof a == "number", [d, c] = K(!1), [u, h] = K(null), f = u ?? (o ? a : s ? 100 : 0), p = async () => {
     if (!r) {
       c(!0);
@@ -24238,7 +24250,7 @@ function o_({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
     r && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] });
 }
-function l_({ hass: n, entity: e, roomLabel: t }) {
+function u_({ hass: n, entity: e, roomLabel: t }) {
   const i = e.domain === "scene", s = e.state.state === "unavailable", [r, a] = K(!1), [o, d] = K(!1), c = async () => {
     if (!(s || r)) {
       a(!0);
@@ -24294,7 +24306,7 @@ function wd(n) {
 function zo(n) {
   return new Date(n.getFullYear(), n.getMonth(), n.getDate());
 }
-function c_(n) {
+function h_(n) {
   if (n.includes("T") || n.includes(" ") && n.includes(":"))
     return { date: new Date(n.replace(" ", "T")), allDay: !1 };
   const [e, t, i] = n.split("-").map(Number);
@@ -24310,7 +24322,7 @@ function Xr(n, e) {
     for (const o of a) {
       let d = "";
       if (typeof o.start == "string" ? d = o.start : o.start && (d = o.start.dateTime ?? o.start.date ?? ""), !d) continue;
-      const { date: c, allDay: u } = c_(d), h = Math.round(
+      const { date: c, allDay: u } = h_(d), h = Math.round(
         (zo(c).getTime() - t.getTime()) / 864e5
       );
       i.push({
@@ -24325,8 +24337,8 @@ function Xr(n, e) {
   }
   return i.sort((r, a) => r.dayOffset !== a.dayOffset ? r.dayOffset - a.dayOffset : r.allDay && !a.allDay ? -1 : !r.allDay && a.allDay ? 1 : (r.time ?? "").localeCompare(a.time ?? ""));
 }
-const d_ = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-function u_({ hass: n, calendarEntities: e, onClose: t }) {
+const f_ = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+function p_({ hass: n, calendarEntities: e, onClose: t }) {
   const i = nt(t), [s, r] = K(null), a = /* @__PURE__ */ new Date(), o = new Map(
     [...e].sort((u, h) => u.entity_id.localeCompare(h.entity_id)).map((u, h) => [u.entity_id, wd(h)])
   );
@@ -24428,7 +24440,7 @@ function u_({ hass: n, calendarEntities: e, onClose: t }) {
               class: `nido-cal-panel__day ${h === 0 ? "is-today" : ""}`,
               children: [
                 /* @__PURE__ */ l("div", { class: "nido-cal-panel__badge", children: [
-                  /* @__PURE__ */ l("span", { class: "nido-cal-panel__badge-day", children: d_[u.getDay()] }),
+                  /* @__PURE__ */ l("span", { class: "nido-cal-panel__badge-day", children: f_[u.getDay()] }),
                   /* @__PURE__ */ l("span", { class: "nido-cal-panel__badge-num", children: u.getDate() })
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-cal-panel__events", children: f.length === 0 ? /* @__PURE__ */ l("span", { class: "nido-cal-panel__empty", children: "—" }) : f.map((p) => /* @__PURE__ */ l("div", { class: "nido-cal-panel__event", children: [
@@ -24464,9 +24476,9 @@ function Id() {
     return i(), () => window.clearTimeout(t);
   }, []), n;
 }
-const h_ = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"], f_ = 3, p_ = 5;
-function g_(n, e) {
-  return n === 0 ? "AUJ" : n === 1 ? "DEM" : `${h_[e.getDay()].toUpperCase()} ${e.getDate()}`;
+const g_ = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"], m_ = 3, __ = 5;
+function v_(n, e) {
+  return n === 0 ? "AUJ" : n === 1 ? "DEM" : `${g_[e.getDay()].toUpperCase()} ${e.getDate()}`;
 }
 async function Ld(n, e, t, i) {
   const s = t.toISOString(), r = i.toISOString();
@@ -24496,7 +24508,7 @@ async function Ld(n, e, t, i) {
     return [];
   }
 }
-function m_({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: s }) {
+function y_({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: s }) {
   const [r, a] = K(!1), [o, d] = K(null), c = Id(), h = [...s].sort((v, b) => v.entity_id.localeCompare(b.entity_id)).map((v) => v.entity_id).indexOf(e.entity_id), f = wd(h >= 0 ? h : 0);
   ce(() => {
     let v = !1;
@@ -24511,7 +24523,7 @@ function m_({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
       v = !0;
     };
   }, [n != null, e.entity_id, c]);
-  const p = i ? p_ : f_, g = (o ?? []).slice(0, p), _ = /* @__PURE__ */ new Date(), m = ["n-card", i ? "n-card--accent-muted" : "n-card--default", "nido-cal-widget", "nido-cal-widget--agenda"].join(" ");
+  const p = i ? __ : m_, g = (o ?? []).slice(0, p), _ = /* @__PURE__ */ new Date(), m = ["n-card", i ? "n-card--accent-muted" : "n-card--default", "nido-cal-widget", "nido-cal-widget--agenda"].join(" ");
   return /* @__PURE__ */ l(fe, { children: [
     /* @__PURE__ */ l(
       "div",
@@ -24529,7 +24541,7 @@ function m_({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
           o === null ? /* @__PURE__ */ l("div", { class: "n-muted nido-cal-widget__placeholder", children: "Chargement…" }) : g.length === 0 ? /* @__PURE__ */ l("div", { class: "n-muted nido-cal-widget__placeholder", children: "Rien à venir" }) : /* @__PURE__ */ l("ul", { class: "nido-cal-widget__agenda", children: g.map((v) => {
             const b = new Date(_);
             return b.setDate(_.getDate() + v.dayOffset), /* @__PURE__ */ l("li", { class: "nido-cal-widget__agenda-row", children: [
-              /* @__PURE__ */ l("span", { class: "nido-cal-widget__agenda-day", children: g_(v.dayOffset, b) }),
+              /* @__PURE__ */ l("span", { class: "nido-cal-widget__agenda-day", children: v_(v.dayOffset, b) }),
               /* @__PURE__ */ l("span", { class: "nido-cal-widget__agenda-time", children: v.allDay ? "Journée" : v.time }),
               /* @__PURE__ */ l("span", { class: "nido-cal-widget__agenda-title", children: v.title })
             ] }, v.id);
@@ -24538,7 +24550,7 @@ function m_({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
       }
     ),
     r && /* @__PURE__ */ l(
-      u_,
+      p_,
       {
         hass: n,
         calendarEntities: s,
@@ -24569,37 +24581,37 @@ function Dd(n, e) {
   const t = { hass: e.hass, entity: n, roomLabel: e.areaName };
   switch (n.domain) {
     case "light":
-      return /* @__PURE__ */ l(xh, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
-    case "cover":
-      return /* @__PURE__ */ l(Sh, { ...t, hero: e.hero }, n.entity_id);
-    case "switch":
       return /* @__PURE__ */ l(Th, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
+    case "cover":
+      return /* @__PURE__ */ l(Ah, { ...t, hero: e.hero }, n.entity_id);
+    case "switch":
+      return /* @__PURE__ */ l(wh, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
     case "binary_sensor":
-      return /* @__PURE__ */ l(Lh, { entity: n, roomLabel: e.areaName, hero: e.hero }, n.entity_id);
+      return /* @__PURE__ */ l(Ch, { entity: n, roomLabel: e.areaName, hero: e.hero }, n.entity_id);
     case "climate":
-      return /* @__PURE__ */ l(Ch, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(Oh, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
     case "lock":
-      return /* @__PURE__ */ l(Ph, { ...t }, n.entity_id);
+      return /* @__PURE__ */ l(Fh, { ...t }, n.entity_id);
     case "vacuum":
-      return /* @__PURE__ */ l(Oh, { ...t, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l($h, { ...t, breatheVariant: e.variant }, n.entity_id);
     case "sensor":
-      return /* @__PURE__ */ l($h, { entity: n, roomLabel: e.areaName }, n.entity_id);
+      return /* @__PURE__ */ l(Gh, { entity: n, roomLabel: e.areaName }, n.entity_id);
     case "media_player":
-      return /* @__PURE__ */ l(Uh, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(Vh, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
     case "alarm_control_panel":
-      return /* @__PURE__ */ l(Yh, { ...t }, n.entity_id);
+      return /* @__PURE__ */ l(Qh, { ...t }, n.entity_id);
     case "camera":
-      return /* @__PURE__ */ l(a_, { ...t }, n.entity_id);
+      return /* @__PURE__ */ l(c_, { ...t }, n.entity_id);
     case "fan":
-      return /* @__PURE__ */ l(o_, { ...t, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(d_, { ...t, breatheVariant: e.variant }, n.entity_id);
     case "scene":
     case "script":
-      return /* @__PURE__ */ l(l_, { ...t }, n.entity_id);
+      return /* @__PURE__ */ l(u_, { ...t }, n.entity_id);
     case "weather":
-      return /* @__PURE__ */ l(gh, { entity: n, roomLabel: e.areaName }, n.entity_id);
+      return /* @__PURE__ */ l(vh, { entity: n, roomLabel: e.areaName }, n.entity_id);
     case "calendar":
       return /* @__PURE__ */ l(
-        m_,
+        y_,
         {
           hass: e.hass,
           entity: n,
@@ -24614,14 +24626,14 @@ function Dd(n, e) {
   }
 }
 let gi = null;
-function __() {
+function b_() {
   if (typeof window > "u") return null;
   const n = window.AudioContext ?? window.webkitAudioContext;
   return n ? (gi || (gi = new n()), gi.state === "suspended" && gi.resume().catch(() => {
   }), gi) : null;
 }
 function Cd() {
-  const n = __();
+  const n = b_();
   if (!n) return;
   const e = n.currentTime, t = n.createGain();
   t.gain.value = 0.07, t.connect(n.destination);
@@ -24636,11 +24648,11 @@ function Cd() {
     a.gain.setValueAtTime(0, e + s.start), a.gain.linearRampToValueAtTime(s.gain, e + s.start + 0.012), a.gain.exponentialRampToValueAtTime(8e-4, e + s.start + s.dur), r.connect(a), a.connect(t), r.start(e + s.start), r.stop(e + s.start + s.dur + 0.05);
   }
 }
-function v_(n) {
+function x_(n) {
   return (n.hassUrl?.("") ?? "").replace(/\/$/, "");
 }
-function y_(n, e) {
-  return n ? /^https?:\/\//i.test(n) ? n : n.startsWith("/") ? `${v_(e)}${n}` : n : null;
+function E_(n, e) {
+  return n ? /^https?:\/\//i.test(n) ? n : n.startsWith("/") ? `${x_(e)}${n}` : n : null;
 }
 function Pd({ hass: n, notifications: e, onClose: t }) {
   const i = nt(t), s = async (a) => {
@@ -24706,7 +24718,7 @@ function Pd({ hass: n, notifications: e, onClose: t }) {
             /* @__PURE__ */ l("div", { class: "nido-notification-empty__icon", children: /* @__PURE__ */ l(yr, { size: 48 }) }),
             /* @__PURE__ */ l("p", { children: "Aucune notification pour le moment." })
           ] }) : /* @__PURE__ */ l("div", { class: "nido-notification-list", children: [...e].reverse().map((a) => {
-            const o = a.type === "warning" ? Wl : a.type === "success" ? uh : dh, d = `nido-notification-item--${a.type}`, u = new Date(a.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), h = y_(a.image, n);
+            const o = a.type === "warning" ? Wl : a.type === "success" ? ph : fh, d = `nido-notification-item--${a.type}`, u = new Date(a.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), h = E_(a.image, n);
             return /* @__PURE__ */ l("div", { class: `nido-notification-item ${d}`, children: [
               /* @__PURE__ */ l("div", { class: "nido-notification-item__icon", children: /* @__PURE__ */ l(o, { size: 20 }) }),
               /* @__PURE__ */ l("div", { class: "nido-notification-item__body", children: [
@@ -24745,12 +24757,12 @@ function Pd({ hass: n, notifications: e, onClose: t }) {
     )
   ] });
 }
-function b_(n) {
+function S_(n) {
   const e = n.state.attributes.brightness;
   return typeof e != "number" ? 100 : Math.round(e / 255 * 100);
 }
-function x_({ hass: n, entity: e }) {
-  const [t, i] = K(!1), s = e.state.state === "on", r = b_(e), a = async () => {
+function T_({ hass: n, entity: e }) {
+  const [t, i] = K(!1), s = e.state.state === "on", r = S_(e), a = async () => {
     i(!0);
     try {
       await n.callService("light", "toggle", { entity_id: e.entity_id });
@@ -24779,7 +24791,7 @@ function x_({ hass: n, entity: e }) {
     )
   ] });
 }
-function E_({ hass: n, lights: e, areas: t, onClose: i }) {
+function k_({ hass: n, lights: e, areas: t, onClose: i }) {
   const s = nt(i), [r, a] = K(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = gr(e, o), c = e.filter((h) => h.state.state === "on"), u = async () => {
     a(!0);
     try {
@@ -24821,7 +24833,7 @@ function E_({ hass: n, lights: e, areas: t, onClose: i }) {
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-notification-panel__scroll", children: /* @__PURE__ */ l("div", { class: "nido-lights-list", children: d.map((h) => /* @__PURE__ */ l("div", { class: "nido-lights-group", children: [
             /* @__PURE__ */ l("div", { class: "nido-lights-group__title", children: h.room }),
-            h.items.map((f) => /* @__PURE__ */ l(x_, { hass: n, entity: f }, f.entity_id))
+            h.items.map((f) => /* @__PURE__ */ l(T_, { hass: n, entity: f }, f.entity_id))
           ] }, h.room)) }) }),
           c.length > 1 && /* @__PURE__ */ l("div", { class: "nido-lights-panel__footer", children: /* @__PURE__ */ l(
             "button",
@@ -24838,7 +24850,7 @@ function E_({ hass: n, lights: e, areas: t, onClose: i }) {
     )
   ] });
 }
-function S_({ hass: n, entity: e }) {
+function A_({ hass: n, entity: e }) {
   const [t, i] = K(!1), s = pr(e), r = async (a) => {
     i(!0);
     try {
@@ -24894,7 +24906,7 @@ function S_({ hass: n, entity: e }) {
     ] })
   ] });
 }
-function T_({ hass: n, covers: e, areas: t, onClose: i }) {
+function w_({ hass: n, covers: e, areas: t, onClose: i }) {
   const s = nt(i), [r, a] = K(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = gr(e, o), c = e.filter((h) => pr(h) > 0), u = async (h) => {
     a(!0);
     try {
@@ -24934,7 +24946,7 @@ function T_({ hass: n, covers: e, areas: t, onClose: i }) {
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-notification-panel__scroll", children: /* @__PURE__ */ l("div", { class: "nido-lights-list", children: d.map((h) => /* @__PURE__ */ l("div", { class: "nido-lights-group", children: [
             /* @__PURE__ */ l("div", { class: "nido-lights-group__title", children: h.room }),
-            h.items.map((f) => /* @__PURE__ */ l(S_, { hass: n, entity: f }, f.entity_id))
+            h.items.map((f) => /* @__PURE__ */ l(A_, { hass: n, entity: f }, f.entity_id))
           ] }, h.room)) }) }),
           e.length > 1 && /* @__PURE__ */ l("div", { class: "nido-lights-panel__footer nido-covers-panel__footer", children: [
             /* @__PURE__ */ l(
@@ -24963,20 +24975,20 @@ function T_({ hass: n, covers: e, areas: t, onClose: i }) {
     )
   ] });
 }
-const k_ = {
+const I_ = {
   door: ki,
   garage_door: ki,
   window: Pi
 };
-function A_({ entity: n }) {
-  const e = n.state.state === "on", t = n.state.attributes.device_class ?? "", i = k_[t] ?? Pi;
+function L_({ entity: n }) {
+  const e = n.state.state === "on", t = n.state.attributes.device_class ?? "", i = I_[t] ?? Pi;
   return /* @__PURE__ */ l("div", { class: "nido-lights-row", children: [
     /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: /* @__PURE__ */ l(i, { size: 18 }) }),
     /* @__PURE__ */ l("div", { class: "nido-lights-row__body", children: /* @__PURE__ */ l("div", { class: "nido-lights-row__name", children: n.friendly_name }) }),
     /* @__PURE__ */ l("div", { class: `nido-openings-row__status ${e ? "is-open" : ""}`, children: e ? "Ouverte" : "Fermée" })
   ] });
 }
-function w_({ openings: n, areas: e, onClose: t }) {
+function R_({ openings: n, areas: e, onClose: t }) {
   const i = nt(t), s = new Map(e.map((o) => [o.area_id, o.name])), r = gr(n, s), a = n.filter((o) => o.state.state === "on");
   return /* @__PURE__ */ l("div", { class: "nido-lights-panel", children: [
     /* @__PURE__ */ l("div", { class: "nido-notification-panel__backdrop", onClick: t }),
@@ -25007,14 +25019,14 @@ function w_({ openings: n, areas: e, onClose: t }) {
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-notification-panel__scroll", children: /* @__PURE__ */ l("div", { class: "nido-lights-list", children: r.map((o) => /* @__PURE__ */ l("div", { class: "nido-lights-group", children: [
             /* @__PURE__ */ l("div", { class: "nido-lights-group__title", children: o.room }),
-            o.items.map((d) => /* @__PURE__ */ l(A_, { entity: d }, d.entity_id))
+            o.items.map((d) => /* @__PURE__ */ l(L_, { entity: d }, d.entity_id))
           ] }, o.room)) }) })
         ]
       }
     )
   ] });
 }
-const As = "nido.shoppingColor", Ho = "nido.shoppingSize", I_ = 600;
+const As = "nido.shoppingColor", Ho = "nido.shoppingSize", D_ = 600;
 function jo(n, e, t) {
   if (e.length < 2) return;
   n.lineWidth = t, n.lineCap = "round", n.lineJoin = "round", n.beginPath(), n.moveTo(e[0][0], e[0][1]);
@@ -25025,7 +25037,7 @@ function jo(n, e, t) {
   const i = e[e.length - 1];
   n.lineTo(i[0], i[1]), n.stroke();
 }
-function L_({ hass: n, onClose: e, topicBase: t = "shopping" }) {
+function C_({ hass: n, onClose: e, topicBase: t = "shopping" }) {
   const i = nt(e), s = he(null), r = he(null), a = he([]), o = he(null), d = he(null), c = he({ w: 0, h: 0 }), u = he(null), h = he("nido-" + Math.random().toString(36).slice(2, 8)), [f, p] = K(() => localStorage.getItem(As) || "#1a1410"), [g, _] = K(() => parseInt(localStorage.getItem(Ho) || "4", 10));
   ce(() => {
     if (localStorage.getItem(As)) return;
@@ -25054,7 +25066,7 @@ function L_({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     if (!D) return;
     const N = D.getContext("2d");
     if (!N) return;
-    const I = c.current.w / I_;
+    const I = c.current.w / D_;
     N.clearRect(0, 0, c.current.w, c.current.h);
     for (const O of a.current)
       N.strokeStyle = O.color, jo(N, O.points.map(b), O.size * I);
@@ -25466,7 +25478,7 @@ function Md({
   );
 }
 const Nn = 64, en = 80, tn = 80, Wo = 270 / 360 * 2 * Math.PI * Nn, Yo = 2 * Math.PI * Nn;
-function R_({
+function P_({
   currentPower: n,
   subscribedKva: e = 9
 }) {
@@ -25539,28 +25551,28 @@ const _i = {
   week: { label: "Semaine", bucketCount: 7, bucketHours: 24 },
   month: { label: "Mois", bucketCount: 30, bucketHours: 24 }
 };
-function D_(n) {
+function M_(n) {
   const e = new Date(n);
   return e.setMinutes(0, 0, 0), e;
 }
-function C_(n) {
+function O_(n) {
   const e = new Date(n);
   return e.setHours(0, 0, 0, 0), e;
 }
-function P_(n) {
+function F_(n) {
   if (typeof n.lu == "number") return n.lu * 1e3;
   const e = n.last_updated ?? n.last_changed;
   if (!e) return null;
   const t = Date.parse(e);
   return Number.isFinite(t) ? t : null;
 }
-function M_(n) {
+function N_(n) {
   const e = n.s ?? n.state;
   if (e == null || e === "unavailable" || e === "unknown") return null;
   const t = Number(e);
   return Number.isFinite(t) ? t : null;
 }
-function O_(n) {
+function $_(n) {
   if (typeof n.start == "number") return n.start;
   const e = Date.parse(String(n.start));
   return Number.isFinite(e) ? e : null;
@@ -25568,7 +25580,7 @@ function O_(n) {
 function qo(n, e, t, i, s) {
   const r = new Array(i).fill(0);
   if (n.length === 0) return { buckets: r, total: 0 };
-  const a = n.map((c) => ({ t: P_(c), v: M_(c) })).filter((c) => c.t !== null && c.v !== null).sort((c, u) => c.t - u.t);
+  const a = n.map((c) => ({ t: F_(c), v: N_(c) })).filter((c) => c.t !== null && c.v !== null).sort((c, u) => c.t - u.t);
   if (a.length === 0) return { buckets: r, total: 0 };
   for (let c = 0; c < a.length - 1; c += 1) {
     const u = a[c], h = a[c + 1], f = Math.max(u.t, e), p = Math.min(h.t, t);
@@ -25587,10 +25599,10 @@ function qo(n, e, t, i, s) {
   const d = r.reduce((c, u) => c + u, 0);
   return { buckets: r, total: d };
 }
-function F_(n, e, t, i) {
+function B_(n, e, t, i) {
   const s = new Array(t).fill(0);
   for (const a of n) {
-    const o = O_(a);
+    const o = $_(a);
     if (o === null) continue;
     const d = Math.floor((o - e) / i);
     if (!(d < 0 || d >= t)) {
@@ -25605,7 +25617,7 @@ function F_(n, e, t, i) {
   const r = s.reduce((a, o) => a + o, 0);
   return { buckets: s, total: r };
 }
-const N_ = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+const U_ = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
 function Xo(n, e) {
   if (n === "day")
     return {
@@ -25618,7 +25630,7 @@ function Xo(n, e) {
       const o = new Date(r);
       o.setDate(r.getDate() + a);
       const d = o.getDay() === 0 ? 6 : o.getDay() - 1;
-      s.push(N_[d]);
+      s.push(U_[d]);
     }
     return {
       axisLabels: [s[0], s[3], s[6]],
@@ -25635,11 +25647,11 @@ function Xo(n, e) {
     bucketLabel: (s) => i[s] ?? ""
   };
 }
-function $_(n, e) {
+function G_(n, e) {
   const t = Date.now(), i = _i[n], s = Math.floor((t - e) / (i.bucketHours * 36e5));
   return Math.max(0, Math.min(i.bucketCount - 1, s));
 }
-function B_({
+function K_({
   hass: n,
   powerEntityId: e,
   dailyConsumptionEntityId: t
@@ -25651,7 +25663,7 @@ function B_({
       a(!0);
       try {
         if (o === "day") {
-          const w = D_(new Date(Date.now() - 828e5)), A = /* @__PURE__ */ new Date(), P = await n.callWS({
+          const w = M_(new Date(Date.now() - 828e5)), A = /* @__PURE__ */ new Date(), P = await n.callWS({
             type: "history/history_during_period",
             start_time: w.toISOString(),
             end_time: A.toISOString(),
@@ -25677,7 +25689,7 @@ function B_({
             nowIndex: (/* @__PURE__ */ new Date()).getHours()
           });
         } else {
-          const w = o === "week" ? 7 : 30, A = C_(new Date(Date.now() - (w - 1) * 864e5)), P = /* @__PURE__ */ new Date();
+          const w = o === "week" ? 7 : 30, A = O_(new Date(Date.now() - (w - 1) * 864e5)), P = /* @__PURE__ */ new Date();
           let M = [], B = 0, H = !1;
           try {
             const D = await n.callWS({
@@ -25690,7 +25702,7 @@ function B_({
             if (T) return;
             const N = D?.[e] ?? [];
             if (N.length > 0) {
-              const I = F_(N, A.getTime(), w, 864e5);
+              const I = B_(N, A.getTime(), w, 864e5);
               M = I.buckets, B = I.total, H = !0;
             }
           } catch {
@@ -25717,7 +25729,7 @@ function B_({
             axisLabels: U.axisLabels,
             bucketLabel: U.bucketLabel,
             unit: "kWh",
-            nowIndex: $_(o, A.getTime())
+            nowIndex: G_(o, A.getTime())
           });
         }
       } catch (w) {
@@ -25784,7 +25796,7 @@ function B_({
     ] }) : /* @__PURE__ */ l("div", { class: "n-bars n-bars--empty", children: /* @__PURE__ */ l("div", { class: "n-muted", children: "Historique indisponible" }) })
   ] });
 }
-function U_({
+function V_({
   entities: n,
   primaryPowerEntityId: e,
   areas: t,
@@ -25851,8 +25863,8 @@ function U_({
     }) })
   ] });
 }
-const ct = "sensor.consommation_electrique_sinsts", $n = "sensor.conso", G_ = "sensor.conso_daily", K_ = "select.conso_hebdomadaire_2_en_eur", Qo = 9;
-function V_({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
+const ct = "sensor.consommation_electrique_sinsts", $n = "sensor.conso", z_ = "sensor.conso_daily", H_ = "select.conso_hebdomadaire_2_en_eur", Qo = 9;
+function j_({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
   const r = Q(() => new Set(t), [t]), a = Q(
     () => e.filter((S) => r.has(S.entity_id)),
     [e, r]
@@ -25864,11 +25876,11 @@ function V_({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
     if (!h) return null;
     const S = Number(h.state);
     return Number.isFinite(S) ? S : null;
-  }, [h]), p = h?.attributes.unit_of_measurement ?? "kWh", g = n.states[G_], _ = Q(() => {
+  }, [h]), p = h?.attributes.unit_of_measurement ?? "kWh", g = n.states[z_], _ = Q(() => {
     if (!g) return null;
     const S = Number(g.state);
     return Number.isFinite(S) ? S : null;
-  }, [g]), m = g?.attributes.unit_of_measurement ?? "€", v = n.states[K_], b = Q(() => {
+  }, [g]), m = g?.attributes.unit_of_measurement ?? "€", v = n.states[H_], b = Q(() => {
     if (!v) return null;
     const S = v.state;
     if (S === "unavailable" || S === "unknown") return null;
@@ -25978,7 +25990,7 @@ function V_({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
             }
           ),
           /* @__PURE__ */ l(
-            R_,
+            P_,
             {
               currentPower: c,
               subscribedKva: Qo
@@ -25992,7 +26004,7 @@ function V_({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
           /* @__PURE__ */ l("span", { class: "n-eyebrow", children: "kWh par heure" })
         ] }),
         /* @__PURE__ */ l(
-          B_,
+          K_,
           {
             hass: n,
             powerEntityId: ct,
@@ -26003,7 +26015,7 @@ function V_({ hass: n, entities: e, exposed: t, areas: i, onBack: s }) {
       /* @__PURE__ */ l("section", { class: "nido-energy__section", children: [
         /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { children: "Top consommateurs" }) }),
         /* @__PURE__ */ l(
-          U_,
+          V_,
           {
             entities: a,
             primaryPowerEntityId: ct,
@@ -26063,7 +26075,7 @@ function $d(n, e = ht) {
     n >= s.min && (i = s);
   return i;
 }
-function z_(n, e = ht) {
+function W_(n, e = ht) {
   const t = Qr(e), i = $d(n, e);
   return i.next === null ? null : t.find((s) => s.min === i.next) ?? null;
 }
@@ -26080,13 +26092,13 @@ function Ud(n = /* @__PURE__ */ new Date()) {
   const t = e.getDay(), i = t === 0 ? -6 : 1 - t;
   return e.setDate(e.getDate() + i), e.toISOString().slice(0, 10);
 }
-function H_(n) {
+function Y_(n) {
   return Zo[n % Zo.length];
 }
-function j_(n) {
+function q_(n) {
   return ar[n % ar.length];
 }
-const W_ = ar;
+const X_ = ar;
 function sn() {
   return {
     kids: [],
@@ -26100,7 +26112,7 @@ function sn() {
     updatedAt: (/* @__PURE__ */ new Date(0)).toISOString()
   };
 }
-function Y_(n) {
+function Q_(n) {
   if (!Array.isArray(n)) return Fd.slice();
   const e = [];
   for (const t of n) {
@@ -26110,7 +26122,7 @@ function Y_(n) {
   }
   return e;
 }
-function q_(n) {
+function Z_(n) {
   if (!n || typeof n != "object") return {};
   const e = {};
   for (const [t, i] of Object.entries(n)) {
@@ -26123,11 +26135,11 @@ function q_(n) {
   }
   return e;
 }
-function X_(n) {
+function J_(n) {
   const e = n && typeof n == "object" ? n : {}, t = Number.isFinite(e.silver) ? Math.max(1, Math.round(e.silver)) : ht.silver, i = Number.isFinite(e.gold) ? Math.max(t + 1, Math.round(e.gold)) : Math.max(t + 1, ht.gold), s = Number.isFinite(e.platinum) ? Math.max(i + 1, Math.round(e.platinum)) : Math.max(i + 1, ht.platinum);
   return { silver: t, gold: i, platinum: s };
 }
-function Q_(n) {
+function ev(n) {
   return { ...n, updatedAt: (/* @__PURE__ */ new Date()).toISOString() };
 }
 function Gd(n, e) {
@@ -26149,13 +26161,13 @@ function Kd(n) {
     weekStart: typeof e.weekStart == "string" ? e.weekStart : Ud(),
     completed: e.completed && typeof e.completed == "object" ? e.completed : {},
     lastWeek: e.lastWeek && typeof e.lastWeek == "object" ? e.lastWeek : {},
-    medalThresholds: X_(e.medalThresholds),
-    privileges: Y_(e.privileges),
-    activePrivileges: q_(e.activePrivileges),
+    medalThresholds: J_(e.medalThresholds),
+    privileges: Q_(e.privileges),
+    activePrivileges: Z_(e.activePrivileges),
     updatedAt: typeof e.updatedAt == "string" ? e.updatedAt : (/* @__PURE__ */ new Date(0)).toISOString()
   };
 }
-function Z_() {
+function tv() {
   const n = Bd();
   if (!n) return sn();
   const e = n.getItem(Od);
@@ -26186,18 +26198,18 @@ function el(n, e) {
   const s = {
     id: "kid_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5),
     name: t,
-    color: H_(n.kids.length),
-    emoji: j_(n.kids.length)
+    color: Y_(n.kids.length),
+    emoji: q_(n.kids.length)
   };
   return { ...n, kids: [...n.kids, s] };
 }
-function J_(n, e, t) {
+function iv(n, e, t) {
   return {
     ...n,
     kids: n.kids.map((i) => i.id === e ? { ...i, emoji: t } : i)
   };
 }
-function ev(n, e) {
+function nv(n, e) {
   const t = { ...n.completed };
   delete t[e];
   const i = { ...n.lastWeek };
@@ -26211,7 +26223,7 @@ function ev(n, e) {
     activePrivileges: s
   };
 }
-function tv(n, e, t) {
+function sv(n, e, t) {
   const i = t.trim();
   return i ? {
     ...n,
@@ -26222,13 +26234,13 @@ function Vd(n) {
   const e = Math.max(-10, Math.min(10, Math.round(n)));
   return e === 0 ? 1 : e;
 }
-function iv(n, e, t) {
+function rv(n, e, t) {
   const i = e.trim();
   if (!i) return n;
   const s = "task_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), r = Vd(t), a = r < 0 ? "⚠️" : void 0, o = { id: s, label: i, points: r, emoji: a };
   return { ...n, tasks: [...n.tasks, o] };
 }
-function nv(n, e) {
+function av(n, e) {
   const t = {};
   for (const [i, s] of Object.entries(n.completed)) {
     const { [e]: r, ...a } = s;
@@ -26254,7 +26266,7 @@ function tl(n, e, t) {
     })
   };
 }
-function sv(n, e = ht) {
+function ov(n, e = ht) {
   return n >= e.platinum;
 }
 function zd(n, e) {
@@ -26263,7 +26275,7 @@ function zd(n, e) {
   const i = n.privileges.find((s) => s.id === t.privilegeId);
   return i ? { active: t, privilege: i } : null;
 }
-function rv(n, e, t) {
+function lv(n, e, t) {
   if (!n.privileges.some((r) => r.id === t)) return n;
   const i = Gd(n, e), s = { ...n.completed };
   return delete s[e], {
@@ -26291,7 +26303,7 @@ function il(n, e, t) {
   };
   return { ...n, privileges: [...n.privileges, r] };
 }
-function av(n, e) {
+function cv(n, e) {
   const t = { ...n.activePrivileges };
   for (const [i, s] of Object.entries(t))
     s.privilegeId === e && delete t[i];
@@ -26310,10 +26322,10 @@ function nl(n, e, t, i) {
     )
   } : n;
 }
-function ov(n) {
+function dv(n) {
   return n.trim().split(/\s+/).slice(0, 2).map((t) => t[0]?.toUpperCase() ?? "").join("");
 }
-function lv({ data: n, onOpen: e, onChange: t }) {
+function uv({ data: n, onOpen: e, onChange: t }) {
   const i = Q(() => n.kids.map((a) => ({
     kid: a,
     total: or(n, a.id),
@@ -26383,7 +26395,7 @@ function lv({ data: n, onOpen: e, onChange: t }) {
                 "aria-hidden": "true",
                 children: [
                   u === 0 && o > 0 && /* @__PURE__ */ l("span", { class: "n-kids-card__crown", "aria-hidden": "true", children: "★" }),
-                  ov(a.name) || a.name[0]?.toUpperCase() || "?"
+                  dv(a.name) || a.name[0]?.toUpperCase() || "?"
                 ]
               }
             ),
@@ -26440,13 +26452,13 @@ function lv({ data: n, onOpen: e, onChange: t }) {
   );
 }
 const sl = ["#FF8A3D", "#FFD166", "#6FCF97", "#9DD3F8", "#F8A8C9", "#C7B8EA"];
-function cv({ data: n, onChange: e, onClose: t }) {
+function hv({ data: n, onChange: e, onClose: t }) {
   const i = nt(t), [s, r] = K("play"), [a, o] = K(
     n.kids[0]?.id ?? null
   ), [d, c] = K(""), [u, h] = K(""), [f, p] = K(2), [g, _] = K(null), [m, v] = K(null), [b, x] = K(null), [E, S] = K(""), [L, T] = K("🎁"), k = n.kids.find((I) => I.id === a) ?? n.kids[0], w = [...n.tasks].sort((I, O) => {
     const G = I.points < 0 ? 1 : 0, $ = O.points < 0 ? 1 : 0;
     return G !== $ ? G - $ : I.label.localeCompare(O.label, "fr", { sensitivity: "base" });
-  }), A = w.filter((I) => I.points >= 0), P = w.filter((I) => I.points < 0), M = n.medalThresholds ?? ht, B = k ? or(n, k.id) : 0, H = $d(B, M), U = z_(B, M), D = U ? Math.min(100, Math.max(0, (B - H.min) / (U.min - H.min) * 100)) : 100, N = U ? Math.max(0, U.min - B) : 0;
+  }), A = w.filter((I) => I.points >= 0), P = w.filter((I) => I.points < 0), M = n.medalThresholds ?? ht, B = k ? or(n, k.id) : 0, H = $d(B, M), U = W_(B, M), D = U ? Math.min(100, Math.max(0, (B - H.min) / (U.min - H.min) * 100)) : 100, N = U ? Math.max(0, U.min - B) : 0;
   return /* @__PURE__ */ l("div", { class: "nido-shopping-panel", children: [
     /* @__PURE__ */ l("div", { class: "nido-shopping-panel__backdrop", onClick: t }),
     /* @__PURE__ */ l(
@@ -26562,7 +26574,7 @@ function cv({ data: n, onChange: e, onClose: t }) {
                 ] }) : /* @__PURE__ */ l(fe, { children: "Médaille maximale atteinte ! 🏆" }) })
               ] }),
               (() => {
-                const I = zd(n, k.id), O = sv(B, M);
+                const I = zd(n, k.id), O = ov(B, M);
                 if (I)
                   return /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege nido-kids-panel__privilege--active", children: /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege-head", children: [
                     /* @__PURE__ */ l("span", { class: "nido-kids-panel__privilege-emoji", "aria-hidden": "true", children: I.privilege.emoji ?? "🎁" }),
@@ -26596,7 +26608,7 @@ function cv({ data: n, onChange: e, onClose: t }) {
                       type: "button",
                       class: "nido-kids-panel__privilege-choice",
                       onClick: () => {
-                        e(rv(n, k.id, $.id)), x(null);
+                        e(lv(n, k.id, $.id)), x(null);
                       },
                       children: [
                         /* @__PURE__ */ l("span", { "aria-hidden": "true", children: $.emoji ?? "🎁" }),
@@ -26701,7 +26713,7 @@ function cv({ data: n, onChange: e, onClose: t }) {
                     class: "nido-kids-panel__input",
                     value: I.name,
                     onChange: (O) => e(
-                      tv(
+                      sv(
                         n,
                         I.id,
                         O.target.value
@@ -26714,18 +26726,18 @@ function cv({ data: n, onChange: e, onClose: t }) {
                   {
                     type: "button",
                     class: "nido-kids-panel__btn nido-kids-panel__btn--danger",
-                    onClick: () => e(ev(n, I.id)),
+                    onClick: () => e(nv(n, I.id)),
                     "aria-label": "Supprimer",
                     children: /* @__PURE__ */ l(Fe, { size: 14 })
                   }
                 ),
-                g === I.id && /* @__PURE__ */ l("div", { class: "nido-kids-panel__emoji-picker", children: W_.map((O) => /* @__PURE__ */ l(
+                g === I.id && /* @__PURE__ */ l("div", { class: "nido-kids-panel__emoji-picker", children: X_.map((O) => /* @__PURE__ */ l(
                   "button",
                   {
                     type: "button",
                     class: `nido-kids-panel__emoji-choice ${I.emoji === O ? "is-active" : ""}`,
                     onClick: () => {
-                      e(J_(n, I.id, O)), _(null);
+                      e(iv(n, I.id, O)), _(null);
                     },
                     children: O
                   },
@@ -26813,7 +26825,7 @@ function cv({ data: n, onChange: e, onClose: t }) {
                   {
                     type: "button",
                     class: "nido-kids-panel__btn nido-kids-panel__btn--danger",
-                    onClick: () => e(nv(n, I.id)),
+                    onClick: () => e(av(n, I.id)),
                     "aria-label": "Supprimer",
                     children: /* @__PURE__ */ l(Fe, { size: 14 })
                   }
@@ -26869,7 +26881,7 @@ function cv({ data: n, onChange: e, onClose: t }) {
                     type: "button",
                     class: "n-pill-btn",
                     onClick: () => {
-                      u.trim() && (e(iv(n, u, f)), h(""), p(2));
+                      u.trim() && (e(rv(n, u, f)), h(""), p(2));
                     },
                     children: [
                       /* @__PURE__ */ l(Bt, { size: 14 }),
@@ -26984,7 +26996,7 @@ function cv({ data: n, onChange: e, onClose: t }) {
                   {
                     type: "button",
                     class: "nido-kids-panel__btn nido-kids-panel__btn--danger",
-                    onClick: () => e(av(n, I.id)),
+                    onClick: () => e(cv(n, I.id)),
                     "aria-label": "Supprimer",
                     children: /* @__PURE__ */ l(Fe, { size: 14 })
                   }
@@ -27054,7 +27066,7 @@ function rl({
       c.current = !0, a();
     }, 600);
   }, f = () => {
-    d.current !== null && (window.clearTimeout(d.current), d.current = null), c.current || (r(), u || dv(o.current));
+    d.current !== null && (window.clearTimeout(d.current), d.current = null), c.current || (r(), u || fv(o.current));
   }, p = () => {
     d.current !== null && (window.clearTimeout(d.current), d.current = null);
   };
@@ -27088,7 +27100,7 @@ function rl({
     }
   );
 }
-function dv(n) {
+function fv(n) {
   if (n && !(typeof window < "u" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches))
     for (let e = 0; e < 6; e++) {
       const t = document.createElement("span");
@@ -27098,8 +27110,8 @@ function dv(n) {
     }
 }
 const al = "nido/kids/state";
-function uv(n) {
-  const [e, t] = K(() => Z_()), i = he("nido-" + Math.random().toString(36).slice(2, 8)), s = he(e);
+function pv(n) {
+  const [e, t] = K(() => tv()), i = he("nido-" + Math.random().toString(36).slice(2, 8)), s = he(e);
   s.current = e;
   const r = he(n);
   r.current = n;
@@ -27165,7 +27177,7 @@ function uv(n) {
   }, [o, a]);
   const d = Ce(
     (c) => {
-      const u = Q_(c);
+      const u = ev(c);
       t(u), Jo(u), a(u);
     },
     [a]
@@ -27175,11 +27187,11 @@ function uv(n) {
 function jd(n) {
   return n >= 5 && n < 12 ? { greeting: "Bonjour", sub: "La maison se réveille doucement" } : n >= 12 && n < 18 ? { greeting: "Bel après-midi", sub: "Tout va bien à la maison" } : n >= 18 && n < 22 ? { greeting: "Bonsoir", sub: "Tout le monde est rentré" } : { greeting: "Bonne nuit", sub: "La maison veille sur vous" };
 }
-function hv(n) {
+function gv(n) {
   return n.replace(/[^\x00-\x7F]/g, "_").toLowerCase();
 }
-function fv(n, e) {
-  const t = new Map(e.map((s) => [hv(s.name), s.area_id])), i = /* @__PURE__ */ new Map();
+function mv(n, e) {
+  const t = new Map(e.map((s) => [gv(s.name), s.area_id])), i = /* @__PURE__ */ new Map();
   for (const s of Object.values(n.states)) {
     if (!s.entity_id.startsWith("sensor.")) continue;
     const r = s.state.toLowerCase(), a = t.get(r);
@@ -27193,23 +27205,23 @@ function fv(n, e) {
     Array.from(i.entries()).map(([s, r]) => [s, Array.from(r.values())])
   );
 }
-const pv = /* @__PURE__ */ new Set(["door", "garage_door", "window"]), gv = {
+const _v = /* @__PURE__ */ new Set(["door", "garage_door", "window"]), vv = {
   window: Pi,
   door: ki,
   moisture: Bl,
   smoke: kn,
   gas: kn
-}, mv = {
+}, yv = {
   presence: "Présence",
   motion: "Mouvement"
-}, _v = {
+}, bv = {
   window: "Fenêtre",
   door: "Porte",
   moisture: "Fuite",
   smoke: "Fumée",
   gas: "Gaz"
 };
-function vv(n) {
+function xv(n) {
   const e = [];
   return n.temperature && e.push({
     key: "temperature",
@@ -27231,7 +27243,7 @@ function vv(n) {
     unit: n.illuminance.unit || "lx"
   }), e;
 }
-function yv({
+function Ev({
   hass: n,
   area: e,
   entities: t,
@@ -27242,7 +27254,7 @@ function yv({
   presence: o,
   occupancy: d
 }) {
-  const c = ql(e.name), u = Il(t), h = gu(t), f = vv(u), p = h.lightsOn === 0 && h.coversOpen === 0 && !h.mediaPlaying && h.alerts.length === 0, g = s === "phone", _ = (k, w, A, P) => {
+  const c = ql(e.name), u = Il(t), h = gu(t), f = xv(u), p = h.lightsOn === 0 && h.coversOpen === 0 && !h.mediaPlaying && h.alerts.length === 0, g = s === "phone", _ = (k, w, A, P) => {
     k.stopPropagation(), P.length !== 0 && n.callService(w, A, { entity_id: P });
   }, m = d ? /* @__PURE__ */ l(
     "span",
@@ -27268,7 +27280,7 @@ function yv({
         title: d.label,
         children: [
           /* @__PURE__ */ l(Rt, { size: 13 }),
-          mv[d.kind]
+          yv[d.kind]
         ]
       }
     ),
@@ -27285,10 +27297,10 @@ function yv({
       !g && "En lecture"
     ] }),
     h.alerts.map((k) => {
-      const w = gv[k.kind];
+      const w = vv[k.kind];
       return /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--alert", children: [
         /* @__PURE__ */ l(w, { size: 13 }),
-        g ? _v[k.kind] : k.label
+        g ? bv[k.kind] : k.label
       ] }, k.label);
     }),
     p && /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--idle", children: "Tout éteint" })
@@ -27394,7 +27406,7 @@ function yv({
     }
   );
 }
-function bv({
+function Sv({
   hass: n,
   areas: e,
   entities: t,
@@ -27437,7 +27449,7 @@ function bv({
     [A]
   ), B = Q(
     () => E.filter(
-      (W) => W.domain === "binary_sensor" && pv.has(W.state.attributes.device_class)
+      (W) => W.domain === "binary_sensor" && _v.has(W.state.attributes.device_class)
     ),
     [E]
   ), H = Q(
@@ -27451,7 +27463,7 @@ function bv({
     [E]
   ), N = Q(() => S ? Object.keys(n.states).some(
     (de) => de.startsWith("sensor.") && (de.endsWith("_next_rain") || de.endsWith("_weather_alert") || de.endsWith("_uv"))
-  ) : !1, [n.states, S]), [I, O] = K(!1), [G, $] = K(!1), [V, Y] = K(!1), [ne, z] = K(!1), [q, te] = K(!1), [oe, xe] = K(!1), [ee, Ee] = K(!1), [Be, jt] = uv(n), Ue = Q(() => {
+  ) : !1, [n.states, S]), [I, O] = K(!1), [G, $] = K(!1), [V, Y] = K(!1), [ne, z] = K(!1), [q, te] = K(!1), [oe, xe] = K(!1), [ee, Ee] = K(!1), [Be, jt] = pv(n), Ue = Q(() => {
     const W = n.states["sensor.nido_notifications"];
     return !W || !W.attributes.notifications ? [] : W.attributes.notifications;
   }, [n.states["sensor.nido_notifications"]]), Oi = he(new Set(Ue.map((W) => W.id))), le = he(!0);
@@ -27477,7 +27489,7 @@ function bv({
     if (W.startsWith("http")) return W;
     const de = n.hassUrl?.("");
     return de ? de.replace(/\/$/, "") + W : W;
-  }, Ze = Q(() => Fs(E), [E]), Fi = Q(() => fv(n, e), [n.states, e]), Wt = Q(() => {
+  }, Ze = Q(() => Fs(E), [E]), Fi = Q(() => mv(n, e), [n.states, e]), Wt = Q(() => {
     const W = /* @__PURE__ */ new Map();
     for (const [de, st] of Fs(t)) {
       if (!de) continue;
@@ -27603,7 +27615,7 @@ function bv({
               onClick: () => xe(!0),
               "aria-label": "Bloc note",
               title: "Bloc note",
-              children: /* @__PURE__ */ l(fh, { size: 20 })
+              children: /* @__PURE__ */ l(mh, { size: 20 })
             }
           ),
           /* @__PURE__ */ l(
@@ -27674,7 +27686,7 @@ function bv({
           a && /* @__PURE__ */ l("section", { class: "nido-room nido-room--kids", children: [
             /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { children: "Enfants" }) }),
             /* @__PURE__ */ l("div", { class: "nido-kids-summary", children: /* @__PURE__ */ l(
-              lv,
+              uv,
               {
                 data: Be,
                 onOpen: () => Ee(!0),
@@ -27693,7 +27705,7 @@ function bv({
                 qt.containerRef.current = W;
               },
               children: Yt.map((W, de) => /* @__PURE__ */ l(
-                yv,
+                Ev,
                 {
                   hass: n,
                   area: W,
@@ -27716,7 +27728,7 @@ function bv({
       ] })
     ] }),
     I && S && /* @__PURE__ */ l(
-      _h,
+      bh,
       {
         hass: n,
         weatherEntityId: S.entity_id,
@@ -27732,7 +27744,7 @@ function bv({
       }
     ),
     V && /* @__PURE__ */ l(
-      E_,
+      k_,
       {
         hass: n,
         lights: k,
@@ -27741,7 +27753,7 @@ function bv({
       }
     ),
     ne && /* @__PURE__ */ l(
-      T_,
+      w_,
       {
         hass: n,
         covers: P,
@@ -27750,7 +27762,7 @@ function bv({
       }
     ),
     q && /* @__PURE__ */ l(
-      w_,
+      R_,
       {
         openings: H,
         areas: e,
@@ -27758,14 +27770,14 @@ function bv({
       }
     ),
     oe && /* @__PURE__ */ l(
-      L_,
+      C_,
       {
         hass: n,
         onClose: () => xe(!1)
       }
     ),
     ee && /* @__PURE__ */ l(
-      cv,
+      hv,
       {
         data: Be,
         onChange: jt,
@@ -27774,7 +27786,7 @@ function bv({
     )
   ] });
 }
-function xv({
+function Tv({
   hass: n,
   area: e,
   entities: t,
@@ -27899,7 +27911,7 @@ function xv({
           class: `n-pill-btn ${f === b ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
           onClick: () => p(b),
           children: [
-            vh[b] ?? b,
+            xh[b] ?? b,
             " · ",
             x
           ]
@@ -27965,7 +27977,7 @@ const an = 5, vi = {
   sauge: { name: "Sauge", desc: "Organique scandinave", swatches: ["#ebe7d8", "#6a7a3a", "#1a1d10"] },
   cosy: { name: "Cosy", desc: "Salon feutré", swatches: ["#f0eadd", "#b06030", "#1c1208"] }
 };
-function Ev(n) {
+function kv(n) {
   const {
     hass: e,
     entities: t,
@@ -28052,7 +28064,7 @@ function Ev(n) {
     ] }),
     /* @__PURE__ */ l("div", { class: "n-ob__body", children: [
       _ === 0 && /* @__PURE__ */ l(
-        Sv,
+        Av,
         {
           isReturning: u,
           exposedCount: S.size,
@@ -28062,9 +28074,9 @@ function Ev(n) {
           allowedUsersCount: B ? B.filter((z) => !w.has(z.id)).length : null
         }
       ),
-      _ === 1 && /* @__PURE__ */ l(Tv, { entitiesCount: t.length, areasCount: i.length }),
+      _ === 1 && /* @__PURE__ */ l(wv, { entitiesCount: t.length, areasCount: i.length }),
       _ === 2 && /* @__PURE__ */ l(
-        kv,
+        Iv,
         {
           entities: t,
           exposed: S,
@@ -28074,7 +28086,7 @@ function Ev(n) {
         }
       ),
       _ === 3 && /* @__PURE__ */ l(
-        Av,
+        Lv,
         {
           theme: v,
           mode: x,
@@ -28085,7 +28097,7 @@ function Ev(n) {
         }
       ),
       _ === 4 && /* @__PURE__ */ l(
-        wv,
+        Rv,
         {
           hass: e,
           users: B,
@@ -28143,7 +28155,7 @@ function on({ offset: n, intervalMs: e }) {
   const s = cl[t % cl.length];
   return /* @__PURE__ */ l("div", { class: "n-ob-cycle", children: /* @__PURE__ */ l(s, { size: 28 }) }, t);
 }
-function Sv(n) {
+function Av(n) {
   const { isReturning: e, exposedCount: t, favCount: i, themeLabel: s, modeLabel: r, allowedUsersCount: a } = n;
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--welcome", children: [
     /* @__PURE__ */ l("div", { class: "n-ob-step__col", children: [
@@ -28205,7 +28217,7 @@ function ln(n) {
     n.hint && /* @__PURE__ */ l("div", { class: "n-ob-recap__hint", children: n.hint })
   ] });
 }
-function Tv({ entitiesCount: n, areasCount: e }) {
+function wv({ entitiesCount: n, areasCount: e }) {
   const [t, i] = K("scanning");
   return ce(() => {
     const s = setTimeout(() => i("found"), 1100), r = setTimeout(() => i("connected"), 2200);
@@ -28279,7 +28291,7 @@ function Tv({ entitiesCount: n, areasCount: e }) {
     ] })
   ] });
 }
-function kv(n) {
+function Iv(n) {
   const { entities: e, exposed: t, favs: i, onToggleExpose: s, onToggleFav: r } = n, a = Q(() => {
     const m = /* @__PURE__ */ new Map();
     for (const v of e)
@@ -28414,7 +28426,7 @@ function kv(n) {
     ] }) })
   ] });
 }
-function Av(n) {
+function Lv(n) {
   const { theme: e, mode: t, userName: i, onPick: s, kidsEnabled: r, onToggleKidsEnabled: a } = n, o = lr[e];
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--theme", children: [
     /* @__PURE__ */ l("div", { class: "n-ob-step__col", children: [
@@ -28562,7 +28574,7 @@ function Av(n) {
     )
   ] });
 }
-function wv(n) {
+function Rv(n) {
   const { hass: e, users: t, error: i, excluded: s, onToggleUser: r } = n;
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--family", children: [
     /* @__PURE__ */ l("div", { class: "n-ob-step__col", children: [
@@ -28616,7 +28628,7 @@ const dl = /* @__PURE__ */ new Set(["light", "switch", "cover", "lock", "vacuum"
   dry: "Déshu.",
   fan_only: "Ventilation"
 };
-function Iv(n, e) {
+function Dv(n, e) {
   const [t, i] = K(void 0), s = e.map((a) => a.entity_id).join(","), r = Id();
   return ce(() => {
     if (e.length === 0) {
@@ -28642,16 +28654,16 @@ function Iv(n, e) {
     };
   }, [n != null, s, r]), t;
 }
-function Lv(n, e) {
+function Cv(n, e) {
   return n === 0 ? { top: "AUJ", num: String(e.getDate()) } : n === 1 ? { top: "DEM", num: String(e.getDate()) } : { top: ["DIM", "LUN", "MAR", "MER", "JEU", "VEN", "SAM"][e.getDay()], num: String(e.getDate()) };
 }
-function Rv(n, e) {
+function Pv(n, e) {
   if (!e) return null;
   if (e.startsWith("http")) return e;
   const t = n.hassUrl?.("");
   return t ? t.replace(/\/$/, "") + e : e;
 }
-function Dv({
+function Mv({
   hass: n,
   areas: e,
   entities: t,
@@ -28717,7 +28729,7 @@ function Dv({
   ), $ = Q(
     () => Object.values(n.states).filter((ee) => ee.entity_id.startsWith("person.")),
     [n.states]
-  ), V = $.filter((ee) => ee.state === "home").length, Y = Iv(n, A), ne = Q(() => Fs(k), [k]), z = Q(() => {
+  ), V = $.filter((ee) => ee.state === "home").length, Y = Dv(n, A), ne = Q(() => Fs(k), [k]), z = Q(() => {
     const ee = e.filter(
       (Ee) => (ne.get(Ee.area_id) ?? []).some((Be) => dl.has(Be.domain))
     );
@@ -28729,7 +28741,7 @@ function Dv({
   return /* @__PURE__ */ l("div", { class: "nido-compact", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact__shell", children: [
       /* @__PURE__ */ l(
-        Cv,
+        Ov,
         {
           view: a,
           setView: o,
@@ -28739,7 +28751,7 @@ function Dv({
       ),
       /* @__PURE__ */ l("div", { class: "nido-compact-content", children: [
         a === "glance" && /* @__PURE__ */ l(
-          Pv,
+          Fv,
           {
             hass: n,
             greeting: S,
@@ -28758,7 +28770,7 @@ function Dv({
           }
         ),
         a === "controls" && /* @__PURE__ */ l(
-          Bv,
+          Kv,
           {
             hass: n,
             areas: z,
@@ -28768,7 +28780,7 @@ function Dv({
           }
         ),
         a === "ambient" && /* @__PURE__ */ l(
-          zv,
+          Wv,
           {
             hass: n,
             timeStr: x,
@@ -28793,7 +28805,7 @@ function Dv({
     )
   ] });
 }
-function Cv({
+function Ov({
   view: n,
   setView: e,
   hasNewNotifications: t,
@@ -28835,7 +28847,7 @@ function Cv({
     ] })
   ] });
 }
-function Pv({
+function Fv({
   hass: n,
   greeting: e,
   userName: t,
@@ -28920,7 +28932,7 @@ function Pv({
           class: "nido-compact-glance__row",
           style: { gridTemplateColumns: o ? "1.35fr 1fr" : "1fr" },
           children: [
-            o && /* @__PURE__ */ l(Ov, { hass: n, entity: o }),
+            o && /* @__PURE__ */ l($v, { hass: n, entity: o }),
             /* @__PURE__ */ l(
               "div",
               {
@@ -28934,9 +28946,9 @@ function Pv({
       )
     ] }),
     /* @__PURE__ */ l("div", { class: "nido-compact-glance__side", children: [
-      h && h.state.state !== "unavailable" && /* @__PURE__ */ l(Fv, { entity: h, timeStr: s }),
-      f && /* @__PURE__ */ l(Nv, { hass: n, entity: f }),
-      /* @__PURE__ */ l($v, { nextEvent: p })
+      h && h.state.state !== "unavailable" && /* @__PURE__ */ l(Bv, { entity: h, timeStr: s }),
+      f && /* @__PURE__ */ l(Uv, { hass: n, entity: f }),
+      /* @__PURE__ */ l(Gv, { nextEvent: p })
     ] })
   ] });
 }
@@ -28963,12 +28975,12 @@ function Ds({
     ] })
   ] });
 }
-function Mv(n) {
+function Nv(n) {
   const e = n.state.attributes.brightness;
   return typeof e != "number" ? n.state.state === "on" ? 100 : 0 : Math.round(e / 255 * 100);
 }
-function Ov({ hass: n, entity: e }) {
-  const t = e.state.state === "on", [i, s] = K(null), r = i ?? Mv(e), a = () => n.callService("light", "toggle", { entity_id: e.entity_id }), o = async (d) => {
+function $v({ hass: n, entity: e }) {
+  const t = e.state.state === "on", [i, s] = K(null), r = i ?? Nv(e), a = () => n.callService("light", "toggle", { entity_id: e.entity_id }), o = async (d) => {
     s(d);
     try {
       await n.callService("light", "turn_on", {
@@ -29023,7 +29035,7 @@ function Ov({ hass: n, entity: e }) {
     ] }) : /* @__PURE__ */ l("div", { class: "n-muted", children: "Éteinte" }) })
   ] });
 }
-function Fv({ entity: n, timeStr: e }) {
+function Bv({ entity: n, timeStr: e }) {
   const { label: t, Icon: i } = Vt(n.state.state), s = n.state.attributes.temperature_unit ?? "°", r = n.state.attributes.temperature;
   return /* @__PURE__ */ l("div", { class: "nido-compact-weather", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact-weather__icon", children: /* @__PURE__ */ l(i, { size: 26 }) }),
@@ -29034,7 +29046,7 @@ function Fv({ entity: n, timeStr: e }) {
     /* @__PURE__ */ l("div", { class: "nido-compact-weather__clock", children: e })
   ] });
 }
-function Nv({ hass: n, entity: e }) {
+function Uv({ hass: n, entity: e }) {
   const t = e.state.state === "playing", i = e.state.attributes.media_title ?? e.friendly_name, s = e.state.attributes.media_artist;
   return /* @__PURE__ */ l("div", { class: "nido-compact-media", children: [
     /* @__PURE__ */ l("div", { class: `nido-compact-media__disc ${t ? "is-spinning" : ""}` }),
@@ -29054,7 +29066,7 @@ function Nv({ hass: n, entity: e }) {
     )
   ] });
 }
-function $v({ nextEvent: n }) {
+function Gv({ nextEvent: n }) {
   const e = /* @__PURE__ */ new Date();
   return /* @__PURE__ */ l("div", { class: "nido-compact-next", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact-next__label", children: "Prochain" }),
@@ -29062,7 +29074,7 @@ function $v({ nextEvent: n }) {
       /* @__PURE__ */ l("div", { class: "nido-compact-next__badge", children: (() => {
         const t = new Date(e);
         t.setDate(e.getDate() + n.dayOffset);
-        const { top: i, num: s } = Lv(n.dayOffset, t);
+        const { top: i, num: s } = Cv(n.dayOffset, t);
         return /* @__PURE__ */ l(fe, { children: [
           /* @__PURE__ */ l("span", { class: "nido-compact-next__badge-day", children: i }),
           /* @__PURE__ */ l("span", { class: "nido-compact-next__badge-num", children: s })
@@ -29075,7 +29087,7 @@ function $v({ nextEvent: n }) {
     ] })
   ] });
 }
-function Bv({ hass: n, areas: e, activeAreaId: t, onSelectArea: i, controlEntities: s }) {
+function Kv({ hass: n, areas: e, activeAreaId: t, onSelectArea: i, controlEntities: s }) {
   return e.length === 0 ? /* @__PURE__ */ l("div", { class: "nido-compact-empty", children: "Aucun appareil contrôlable pour l'instant. Exposez des lumières, prises ou volets dans « Personnaliser »." }) : /* @__PURE__ */ l("div", { class: "nido-compact-controls", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact-controls__tabs", children: e.map((r) => /* @__PURE__ */ l(
       "button",
@@ -29087,10 +29099,10 @@ function Bv({ hass: n, areas: e, activeAreaId: t, onSelectArea: i, controlEntiti
       },
       r.area_id
     )) }),
-    /* @__PURE__ */ l("div", { class: "nido-compact-controls__grid", children: s.map((r) => /* @__PURE__ */ l(Vv, { hass: n, entity: r }, r.entity_id)) })
+    /* @__PURE__ */ l("div", { class: "nido-compact-controls__grid", children: s.map((r) => /* @__PURE__ */ l(jv, { hass: n, entity: r }, r.entity_id)) })
   ] });
 }
-function Uv(n) {
+function Vv(n) {
   const e = n.state.state;
   switch (n.domain) {
     case "light":
@@ -29111,7 +29123,7 @@ function Uv(n) {
       return !1;
   }
 }
-function Gv(n) {
+function zv(n) {
   const e = n.state.state;
   switch (n.domain) {
     case "light": {
@@ -29151,7 +29163,7 @@ function Gv(n) {
       return e;
   }
 }
-async function Kv(n, e) {
+async function Hv(n, e) {
   const t = e.state.state;
   switch (e.domain) {
     case "light":
@@ -29180,8 +29192,8 @@ async function Kv(n, e) {
       return;
   }
 }
-function Vv({ hass: n, entity: e }) {
-  const [t, i] = K(!1), s = yh[e.domain] ?? Rt, r = Uv(e), a = e.state.state === "unavailable", o = e.domain !== "climate";
+function jv({ hass: n, entity: e }) {
+  const [t, i] = K(!1), s = Eh[e.domain] ?? Rt, r = Vv(e), a = e.state.state === "unavailable", o = e.domain !== "climate";
   return /* @__PURE__ */ l(
     o ? "button" : "div",
     {
@@ -29193,7 +29205,7 @@ function Vv({ hass: n, entity: e }) {
         if (!(a || t)) {
           i(!0);
           try {
-            await Kv(n, e);
+            await Hv(n, e);
           } finally {
             i(!1);
           }
@@ -29206,13 +29218,13 @@ function Vv({ hass: n, entity: e }) {
         ] }),
         /* @__PURE__ */ l("div", { children: [
           /* @__PURE__ */ l("div", { class: "nido-mini-control__name", children: e.friendly_name }),
-          /* @__PURE__ */ l("div", { class: "nido-mini-control__sub", children: a ? "Indisponible" : Gv(e) })
+          /* @__PURE__ */ l("div", { class: "nido-mini-control__sub", children: a ? "Indisponible" : zv(e) })
         ] })
       ]
     }
   );
 }
-function zv({
+function Wv({
   hass: n,
   timeStr: e,
   dateStr: t,
@@ -29242,7 +29254,7 @@ function zv({
         s.length > 0 && /* @__PURE__ */ l(fe, { children: [
           /* @__PURE__ */ l("span", { class: "nido-compact-ambient__sep" }),
           /* @__PURE__ */ l("div", { class: "nido-compact-ambient__family", children: s.map((_) => {
-            const m = _.attributes.friendly_name ?? _.entity_id, v = Rv(n, _.attributes.entity_picture), b = _.state !== "home";
+            const m = _.attributes.friendly_name ?? _.entity_id, v = Pv(n, _.attributes.entity_picture), b = _.state !== "home";
             return v ? /* @__PURE__ */ l(
               "img",
               {
@@ -29284,26 +29296,26 @@ function zv({
     ] })
   ] });
 }
-const Hv = 600, jv = 700;
+const Yv = 600, qv = 700;
 function ul() {
-  return typeof window > "u" ? !1 : window.innerHeight <= Hv && window.innerWidth >= jv;
+  return typeof window > "u" ? !1 : window.innerHeight <= Yv && window.innerWidth >= qv;
 }
-function Wv() {
+function Xv() {
   const [n, e] = K(ul);
   return ce(() => {
     const t = () => e(ul());
     return window.addEventListener("resize", t), t(), () => window.removeEventListener("resize", t);
   }, []), n;
 }
-const Yv = [
+const Qv = [
   "area_registry_updated",
   "entity_registry_updated",
   "device_registry_updated"
 ];
-function qv({ hass: n, host: e }) {
+function Zv({ hass: n, host: e }) {
   const [t, i] = K(null), [s, r] = K(null), [a, o] = K(null), [d, c] = K(null), u = Q(() => Rl(), []), [h, f] = K(() => _u()), [p, g] = K(() => vu()), [_, m] = K(() => yu()), [v, b] = K(() => ku()), [x, E] = K(() => bu()), [S, L] = K(
     () => Eu()
-  ), [T, k] = K(() => !ga()), [w, A] = K({ kind: "dashboard" }), P = Wv(), M = (Y) => {
+  ), [T, k] = K(() => !ga()), [w, A] = K({ kind: "dashboard" }), P = Xv(), M = (Y) => {
     f(Y), $s(Y);
   }, B = (Y) => {
     E(Y), xu(Y);
@@ -29333,7 +29345,7 @@ function qv({ hass: n, host: e }) {
         }
     };
     return z(), Promise.all(
-      Yv.map(
+      Qv.map(
         (q) => n.connection.subscribeEvents(() => {
           Y || z();
         }, q)
@@ -29377,7 +29389,7 @@ function qv({ hass: n, host: e }) {
   ), V = !!n.states[ct] && O.has(ct);
   return /* @__PURE__ */ l(fe, { children: [
     P && (w.kind === "dashboard" || !G) ? /* @__PURE__ */ l(
-      Dv,
+      Mv,
       {
         hass: n,
         areas: t,
@@ -29387,7 +29399,7 @@ function qv({ hass: n, host: e }) {
         roomsOrder: x
       }
     ) : w.kind === "energy" ? /* @__PURE__ */ l(
-      V_,
+      j_,
       {
         hass: n,
         entities: D,
@@ -29396,7 +29408,7 @@ function qv({ hass: n, host: e }) {
         onBack: () => A({ kind: "dashboard" })
       }
     ) : w.kind === "dashboard" || !G ? /* @__PURE__ */ l(
-      bv,
+      Sv,
       {
         hass: n,
         areas: t,
@@ -29412,7 +29424,7 @@ function qv({ hass: n, host: e }) {
         onReorderRooms: B
       }
     ) : /* @__PURE__ */ l(
-      xv,
+      Tv,
       {
         hass: n,
         area: G,
@@ -29423,7 +29435,7 @@ function qv({ hass: n, host: e }) {
       }
     ),
     T && /* @__PURE__ */ l(
-      Ev,
+      kv,
       {
         hass: n,
         entities: D,
@@ -29444,9 +29456,9 @@ function qv({ hass: n, host: e }) {
     )
   ] });
 }
-const Xv = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.006);filter:brightness(1.015)}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe 5.5s var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe 6.2s var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe 4.8s var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe 7s var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', Qv = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}@media(max-width:600px){.nido-shell{padding:0}.nido-dashboard{border-radius:0;padding:20px 16px;min-height:100vh}}.nido-topbar{display:grid;grid-template-columns:auto 1fr auto auto auto;grid-template-areas:"brand . weather utility icons";align-items:center;column-gap:12px;margin-bottom:28px}.nido-topbar__brand{grid-area:brand;display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__weather{grid-area:weather;display:flex;align-items:center}.nido-topbar__utility{grid-area:utility;display:flex;align-items:center;gap:8px}.nido-topbar__icons{grid-area:icons;display:flex;align-items:center;gap:8px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}@media(max-width:600px){.nido-hero h1{font-size:30px}}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:.85}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-cover__actions{display:flex;gap:8px;margin-top:12px}.n-cover__actions .n-pill-btn{flex:1 1 0;padding:8px 0;min-width:0}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-eyebrow{padding-top:14px}.n-card--camera .n-title{padding-bottom:9px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}.nido-camera-panel__picker{padding:16px 20px;border-top:1px solid rgba(var(--fg-rgb),.06);display:flex;flex-direction:column;gap:10px}.nido-camera-panel__picker-msg{margin:0;font-size:.85rem;color:var(--danger, #b00020)}.nido-camera-panel__picker-hint{margin:0;font-size:.85rem;color:var(--ink-2)}.nido-camera-panel__picker-row{display:flex;gap:8px;flex-wrap:wrap}.nido-camera-panel__picker-select{flex:1 1 220px;min-width:0;padding:8px 10px;border-radius:var(--r-sm);border:1px solid rgba(var(--fg-rgb),.15);background:var(--bg-inset);color:var(--fg);font:inherit}.nido-camera-panel__picker-save{padding:8px 14px;border-radius:var(--r-sm);border:0;background:var(--accent);color:var(--accent-ink, #fff);font:inherit;cursor:pointer}.nido-camera-panel__picker-save:disabled{opacity:.4;cursor:default}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin 2.4s linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn,.nido-covers-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover,.nido-covers-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active,.nido-covers-pill-btn:active{transform:scale(.96)}.nido-lights-pill,.nido-covers-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count,.nido-covers-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center}.nido-lights-panel .nido-notification-panel__content{height:auto;max-height:min(720px,calc(100% - 48px));max-width:460px;border-radius:var(--r-2xl)}.nido-lights-panel .nido-notification-panel__header{padding:18px 18px 18px 20px}.nido-lights-panel .nido-notification-panel__scroll{padding:12px 18px 18px 20px}.nido-lights-panel .nido-lights-panel__footer{padding:16px 18px 18px 20px}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:20px}.nido-lights-group{display:flex;flex-direction:column;gap:10px}.nido-lights-group__title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 4px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status.is-open{color:var(--accent-deep)}.nido-covers-row__actions{display:flex;gap:4px;flex-shrink:0}.nido-covers-row__actions .n-pill-btn{flex:0 0 auto;width:32px;height:32px;padding:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-covers-panel__footer{display:flex;gap:10px}.nido-covers-panel__footer .nido-lights-panel__all-off{width:auto;flex:1}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-widget--agenda{display:flex;flex-direction:column;gap:10px}.nido-cal-widget__head{display:flex;align-items:center;gap:8px;color:var(--cal-color, var(--ink-3))}.nido-cal-widget__head .n-eyebrow{color:var(--ink-3)}.nido-cal-widget__placeholder{padding-left:12px;border-left:2px solid color-mix(in srgb,var(--cal-color, var(--ink-3)) 35%,transparent)}.nido-cal-widget__agenda{list-style:none;margin:0;padding:2px 0 2px 12px;border-left:2px solid var(--cal-color, var(--ink-3));display:flex;flex-direction:column;gap:8px}.nido-cal-widget__agenda-row{display:grid;grid-template-columns:48px auto 1fr;align-items:start;gap:8px;font-family:var(--font-sans);font-size:12px;color:var(--ink-1);line-height:1.25}.nido-cal-widget__agenda-day{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--cal-color, var(--ink-3));font-weight:600;white-space:nowrap}.nido-cal-widget__agenda-time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.04em;white-space:nowrap}.nido-cal-widget__agenda-title{color:var(--ink-1);font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;word-break:break-word}.n-card[data-hero=true] .nido-cal-widget__agenda{gap:10px}.n-card[data-hero=true] .nido-cal-widget__agenda-row{font-size:14px;grid-template-columns:46px auto 1fr}.n-card[data-hero=true] .nido-cal-widget__agenda-day,.n-card[data-hero=true] .nido-cal-widget__agenda-time{font-size:11px}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-rooms-grid--phone{grid-template-columns:minmax(0,1fr);gap:12px}.nido-rooms-grid--touch{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:170px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--hero-dark);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__icon{position:relative}.nido-room-card__occupancy{position:absolute;top:-2px;right:-2px;width:11px;height:11px;box-sizing:border-box;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card)}.nido-room-card--accent .nido-room-card__occupancy{border-color:var(--hero-dark)}.nido-room-card__occupancy--motion{opacity:.85}.nido-room-card__occupancy:after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1.5px solid var(--accent);animation:nido-occupancy-pulse 2.6s var(--ease-out) infinite}@keyframes nido-occupancy-pulse{0%{transform:scale(.85);opacity:.75}60%{transform:scale(2.1);opacity:0}to{transform:scale(2.1);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-room-card__occupancy:after{animation:none;opacity:.35}}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__chips{display:flex;flex-wrap:wrap;gap:6px}.nido-room-card__chip{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:var(--r-pill);background:var(--bg-inset);font-family:var(--font-sans);font-size:12px;font-weight:500;line-height:1}.nido-room-card--accent .nido-room-card__chip{background:#f4ede21f}.nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--alert{background:color-mix(in srgb,var(--danger) 16%,transparent);color:var(--danger)}.nido-room-card__chip--idle{opacity:.55}.nido-room-card__band{display:flex;align-items:center;gap:12px;margin-top:12px;padding-top:11px;border-top:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);font-size:13px;font-weight:500;opacity:.8}.nido-room-card--accent .nido-room-card__band{border-top-color:#f4ede229}.nido-room-card__band-item{display:inline-flex;align-items:center;gap:5px;min-width:0}.nido-room-card__band-icon{display:flex;opacity:.65}.nido-room-card__band-label{display:none}.nido-room-card__band-unit{margin-left:1px}.nido-room-card__actions{display:flex;gap:8px;margin-top:auto;padding-top:14px}.nido-room-card__actions .n-pill-btn.is-idle{opacity:.55}.nido-room-card--accent .nido-room-card__actions .n-pill-btn,.nido-room-card--accent .nido-room-card__actions .n-icon-btn{background:#f4ede224;color:var(--hero-dark-ink)}.nido-room-card--touch{min-height:210px}.nido-room-card--touch .nido-room-card__icon{width:44px;height:44px}.nido-room-card--touch .nido-room-card__name{font-size:19px}.nido-room-card--touch .nido-room-card__band{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);opacity:1}.nido-room-card--accent.nido-room-card--touch .nido-room-card__band{border-bottom-color:#f4ede229}.nido-room-card--touch .nido-room-card__band-item{display:flex;flex-direction:column;align-items:flex-start;gap:0}.nido-room-card--touch .nido-room-card__band-icon{display:none}.nido-room-card--touch .nido-room-card__band-label{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}.nido-room-card--touch .nido-room-card__band-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;margin-top:5px}.nido-room-card--touch .nido-room-card__band-unit{font-size:11px;font-weight:500;opacity:.6;margin-left:2px}.nido-room-card--touch .n-pill-btn{height:44px;font-size:13px}.nido-room-card--touch .n-icon-btn{width:44px;height:44px}.nido-room-card--phone{min-height:96px;padding:16px;border-radius:var(--r-md);display:flex;flex-direction:column;gap:10px}.nido-room-card--phone .nido-room-card__deco{display:none}.nido-room-card__row{position:relative;display:flex;align-items:center;gap:12px}.nido-room-card--phone .nido-room-card__icon{width:36px;height:36px}.nido-room-card--phone .nido-room-card__name{flex:1;min-width:0;margin-bottom:0;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-room-card__chev{display:flex;opacity:.45;flex-shrink:0}.nido-room-card__line{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px}.nido-room-card--phone .nido-room-card__band{margin-top:0;padding-top:0;border-top:none;font-size:13.5px;font-weight:600;letter-spacing:-.02em;opacity:.85}.nido-room-card--phone .nido-room-card__chips{flex-wrap:nowrap;flex-shrink:0}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:0;overflow:hidden}.n-ob__shell{padding:16px;border-radius:0;min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__image{display:block;width:100%;max-height:240px;object-fit:cover;border-radius:var(--r-md);margin-top:10px;background:var(--bg-inset)}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__icons>.nido-bell-btn,.nido-topbar__icons>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar{grid-template-columns:1fr auto;grid-template-areas:"weather icons" "brand utility";row-gap:12px}.nido-topbar__weather{justify-content:flex-start}.nido-topbar__icons,.nido-topbar__utility{justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:0}.nido-energy-row{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.nido-energy-row>section{margin-top:0;min-width:0}@media(max-width:900px){.nido-energy-row{grid-template-columns:1fr}}.nido-energy-summary,.nido-kids-summary{display:grid;grid-template-columns:1fr;gap:16px}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}.n-kids-card{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer}.n-kids-card__deco{position:absolute;top:-20px;right:-40px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-kids-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:1}.n-kids-card__head-text{display:flex;flex-direction:column;gap:4px}.n-kids-card__head-actions{display:flex;align-items:center;gap:8px}.n-kids-card__star{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#ffffff2e;color:var(--accent-ink)}.n-kids-card__empty{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding-top:16px;position:relative;z-index:1}.n-kids-card__list{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}.n-kids-card__row{display:flex;align-items:center;gap:12px}.n-kids-card__avatar{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;position:relative;box-shadow:0 2px 6px #0000001f}.n-kids-card__crown{position:absolute;top:-8px;right:-6px;font-size:14px;color:#f6c451;text-shadow:0 1px 2px rgba(0,0,0,.25)}.n-kids-card__row-body{flex:1;min-width:0}.n-kids-card__row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.n-kids-card__name{font-weight:600;color:var(--accent-ink);font-size:14px}.n-kids-card__total{font-weight:700;font-size:18px;color:var(--accent-ink);line-height:1}.n-kids-card__total-unit{font-weight:500;font-size:11px;margin-left:3px;opacity:.7}.n-kids-card__bar{margin-top:6px;height:6px;border-radius:999px;background:#ffffff38;overflow:hidden}.n-kids-card__bar-fill{display:block;height:100%;border-radius:999px;transition:width .4s ease;min-width:6px}.n-kids-card__last{margin-top:4px;font-size:11px;color:var(--accent-ink);opacity:.65}.n-kids-card__privilege{margin-top:6px;display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 10px;border-radius:999px;background:#ffffff2e;border:1px solid rgba(255,255,255,.25);color:var(--accent-ink);font-size:12px;font-weight:600;max-width:100%}.n-kids-card__privilege-emoji{font-size:14px;line-height:1}.n-kids-card__privilege-label{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-kids-card__privilege-end{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#00000026;color:var(--accent-ink);border:none;cursor:pointer;padding:0}.n-kids-card__privilege-end:hover{background:#00000047}.nido-kids-panel{display:flex;flex-direction:column;font-family:"Baloo 2",DM Sans,system-ui,sans-serif;--kids-accent: #ff8a3d;--kids-accent-2: #ffd166;--kids-good: #6fcf97;--kids-bad: #f4736b;--kids-surface: var(--bg-card);--kids-surface-2: var(--bg-inset);--kids-pastel-1: #ffb4a2;--kids-pastel-2: #b8e0d2;--kids-pastel-3: #c7b8ea;--kids-pastel-4: #ffe08a;--kids-pastel-5: #9dd3f8;--kids-pastel-6: #f8a8c9}.nido-kids-panel__header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(135deg,var(--kids-accent),var(--kids-accent-2));color:#fff;position:relative;overflow:hidden}.nido-kids-panel__header:after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 8% 80%,rgba(255,255,255,.18) 0 12px,transparent 13px),radial-gradient(circle at 92% 25%,rgba(255,255,255,.16) 0 9px,transparent 10px),radial-gradient(circle at 50% 115%,rgba(255,255,255,.12) 0 16px,transparent 17px);pointer-events:none}.nido-kids-panel__header h2{margin:0;font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px;text-shadow:0 1px 0 rgba(0,0,0,.08)}.nido-kids-panel__header-star{display:inline-block;animation:nido-kids-spin 6s linear infinite}.nido-kids-panel__header-actions{display:flex;align-items:center;gap:8px;position:relative;z-index:1}.nido-kids-panel__iconbtn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:#ffffff40;color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s ease,background .15s ease}.nido-kids-panel__iconbtn:hover{transform:scale(1.08);background:#fff6}.nido-kids-panel__body{padding:22px 24px 28px;overflow-y:auto;flex:1}.nido-kids-panel__empty{padding:36px 0;text-align:center}.nido-kids-panel__empty-emoji{font-size:48px;margin-bottom:12px}.nido-kids-panel__tabs{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}.nido-kids-panel__tab{flex:1 1 180px;min-width:160px;background:var(--kids-surface-2);border:3px solid transparent;border-radius:22px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .18s ease,box-shadow .18s ease;font:inherit;color:var(--ink-1);text-align:left;box-sizing:border-box}.nido-kids-panel__tab:hover{transform:translateY(-2px)}.nido-kids-panel__tab.is-active{border-color:var(--kid-color, var(--kids-accent));background:var(--kids-surface);box-shadow:0 12px 28px #ff8a3d2e;transform:translateY(-2px)}.nido-kids-panel__tab.is-active .nido-kids-panel__tab-avatar{animation:nido-kids-wiggle 1.4s ease-in-out infinite}.nido-kids-panel__tab-avatar{width:56px;height:56px;border-radius:50%;background:var(--kid-color, var(--kids-pastel-1));display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:inset 0 -3px #00000014,0 3px #0000000f}.nido-kids-panel__tab-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.nido-kids-panel__tab-name{font-weight:700;font-size:17px;line-height:1.1}.nido-kids-panel__tab-pts{font-size:18px;font-weight:800;color:var(--kids-accent);display:flex;align-items:baseline;gap:4px}.nido-kids-panel__tab-pts small{font-size:12px;font-weight:600;color:var(--ink-3)}.nido-kids-panel__score{background:linear-gradient(135deg,var(--kids-pastel-4),var(--kids-pastel-2));border-radius:24px;padding:20px 22px;margin-bottom:18px;color:#2a2018;box-shadow:0 6px 20px #ffd1662e}.nido-kids-panel__score-row{display:flex;align-items:center;gap:16px}.nido-kids-panel__score-big{font-size:48px;font-weight:800;line-height:1;display:flex;align-items:baseline;gap:6px}.nido-kids-panel__score-star{font-size:32px;animation:nido-kids-bounce 1.6s ease-in-out infinite}.nido-kids-panel__score-num{font-variant-numeric:tabular-nums}.nido-kids-panel__score-unit{font-size:20px;font-weight:700}.nido-kids-panel__score-badge{margin-left:auto;background:#ffffff8c;border-radius:16px;padding:8px 14px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:inset 0 -3px #0000000f}.nido-kids-panel__progress{margin-top:14px;background:#ffffff73;border-radius:999px;height:14px;overflow:hidden}.nido-kids-panel__progress-bar{background:linear-gradient(90deg,var(--kids-accent),var(--kids-bad));height:100%;border-radius:999px;transition:width .5s cubic-bezier(.34,1.56,.64,1);box-shadow:inset 0 -3px #0000001a}.nido-kids-panel__progress-label{margin-top:6px;font-size:13px;font-weight:600;opacity:.85}.nido-kids-panel__group-title{margin:4px 0 10px;font-size:14px;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:8px;letter-spacing:.02em}.nido-kids-panel__group-title:not(:first-of-type),.nido-kids-panel__tiles+.nido-kids-panel__group-title{margin-top:18px}.nido-kids-panel__group-title--neg{color:var(--kids-bad)}.nido-kids-panel__tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}.nido-kids-panel__tile{background:var(--kids-surface-2);border:none;border-radius:20px;padding:14px 10px 12px;text-align:center;cursor:pointer;position:relative;transition:transform .12s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease;font:inherit;color:var(--ink-1);user-select:none;box-shadow:0 3px #0000000f;overflow:visible;box-sizing:border-box;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.nido-kids-panel__tile:hover{transform:translateY(-3px);box-shadow:0 6px #0000000f}.nido-kids-panel__tile:active{transform:translateY(1px) scale(.97);box-shadow:0 1px #0000000f}.nido-kids-panel__tile.is-pop{animation:nido-kids-pop .4s cubic-bezier(.34,1.56,.64,1)}.nido-kids-panel__tile.is-negative{background:#fce6e5}[data-mode=dark] .nido-kids-panel__tile.is-negative{background:#3b2422}.nido-kids-panel__tile-emoji{font-size:40px;display:block;line-height:1;margin-bottom:8px;transition:transform .2s ease}.nido-kids-panel__tile:hover .nido-kids-panel__tile-emoji{transform:scale(1.1) rotate(-3deg)}.nido-kids-panel__tile-label{font-size:13px;font-weight:600;line-height:1.2;color:var(--ink-1);min-height:32px;display:flex;align-items:center;justify-content:center}.nido-kids-panel__tile-pts{position:absolute;top:8px;right:8px;background:var(--kids-good);color:#fff;font-size:12px;font-weight:800;padding:3px 8px;border-radius:999px;box-shadow:0 2px #0000001a}.nido-kids-panel__tile.is-negative .nido-kids-panel__tile-pts{background:var(--kids-bad)}.nido-kids-panel__tile-count{position:absolute;top:8px;left:8px;background:var(--kids-accent);color:#fff;min-width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px #0000001a;transform:scale(0);transition:transform .25s cubic-bezier(.34,1.56,.64,1);padding:0 6px}.nido-kids-panel__tile-count.is-visible{transform:scale(1)}.nido-kids-panel__confetti{position:absolute;left:50%;top:40%;width:8px;height:8px;border-radius:2px;pointer-events:none;animation:nido-kids-confetti .8s ease-out forwards}.nido-kids-panel__hint{margin:14px 0 0;font-size:12px;color:var(--ink-3);text-align:center;font-family:DM Sans,system-ui,sans-serif}.nido-kids-panel__avatar-pick{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;box-shadow:inset 0 -2px #00000014}.nido-kids-panel__emoji-picker{flex:1 0 100%;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px;padding:10px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-md)}.nido-kids-panel__emoji-choice{font-size:22px;background:transparent;border:2px solid transparent;border-radius:12px;padding:6px;cursor:pointer;transition:transform .12s ease,border-color .12s ease}.nido-kids-panel__emoji-choice:hover{transform:scale(1.15)}.nido-kids-panel__emoji-choice.is-active{border-color:var(--kids-accent);background:var(--bg-inset)}.nido-kids-panel__task-emoji{font-size:22px;flex:0 0 auto}.nido-kids-panel__task-label-static{flex:1;font-weight:500;color:var(--ink-1)}.nido-kids-panel__task-pts{font-size:12px;color:var(--ink-3);font-weight:600}.nido-kids-panel__task-pts.is-negative,.nido-kids-panel__points-input .is-negative{color:var(--danger, #c45d3f)}.n-kids-card__total.is-negative{color:#ffd2c5}.nido-kids-panel__threshold-input{width:56px;padding:4px 6px;border:1px solid var(--bg-inset);border-radius:8px;background:var(--bg-1);color:var(--ink-1);font-weight:600;text-align:center;font-size:13px}.nido-kids-panel__threshold-input:focus{outline:none;border-color:var(--kids-accent)}.nido-kids-panel__threshold-input::-webkit-outer-spin-button,.nido-kids-panel__threshold-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.nido-kids-panel__threshold-input{-moz-appearance:textfield}.nido-kids-panel__emoji-input{width:48px;text-align:center;font-size:18px;flex:0 0 auto}.nido-kids-panel__privilege{margin-top:12px;padding:12px;border-radius:14px;background:var(--bg-inset);border:1px solid color-mix(in srgb,var(--kids-accent) 30%,transparent);display:flex;flex-direction:column;gap:10px}.nido-kids-panel__privilege--active{background:linear-gradient(135deg,color-mix(in srgb,var(--kids-accent) 20%,var(--bg-inset)),color-mix(in srgb,var(--kids-accent-2) 20%,var(--bg-inset)));border-color:var(--kids-accent)}.nido-kids-panel__privilege-head{display:flex;align-items:center;gap:12px}.nido-kids-panel__privilege-emoji{font-size:28px;flex:0 0 auto}.nido-kids-panel__privilege-meta{flex:1;display:flex;flex-direction:column;min-width:0}.nido-kids-panel__privilege-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);font-weight:700}.nido-kids-panel__privilege-label{font-size:15px;font-weight:700;color:var(--ink-1)}.nido-kids-panel__privilege-choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}.nido-kids-panel__privilege-choice{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--bg-card);border:1px solid var(--bg-inset);color:var(--ink-1);cursor:pointer;text-align:left;font-weight:600;font-size:13px}.nido-kids-panel__privilege-choice:hover{border-color:var(--kids-accent);background:color-mix(in srgb,var(--kids-accent) 8%,var(--bg-card))}@keyframes nido-kids-wiggle{0%,to{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes nido-kids-bounce{0%,to{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes nido-kids-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes nido-kids-pop{0%{transform:scale(1)}35%{transform:scale(1.12);box-shadow:0 12px 28px #ff8a3d4d}to{transform:scale(1)}}@keyframes nido-kids-confetti{0%{transform:translate(0) rotate(0);opacity:1}to{transform:translate(var(--cx),var(--cy)) rotate(var(--cr));opacity:0}}@media(prefers-reduced-motion:reduce){.nido-kids-panel *,.nido-kids-panel *:before,.nido-kids-panel *:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}.nido-kids-panel__btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .1s ease,opacity .15s ease}.nido-kids-panel__btn:hover:not(:disabled){background:var(--bg-inset)}.nido-kids-panel__btn:active:not(:disabled){transform:scale(.94)}.nido-kids-panel__btn:disabled{opacity:.35;cursor:not-allowed}.nido-kids-panel__btn--plus{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.nido-kids-panel__btn--plus:hover:not(:disabled){background:var(--accent);filter:brightness(1.05)}.nido-kids-panel__btn--danger{color:var(--danger, #c45d3f)}.nido-kids-panel__config{display:flex;flex-direction:column;gap:24px}.nido-kids-panel__section h3{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}.nido-kids-panel__list{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:8px}.nido-kids-panel__list-row{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-inset);border:1px solid var(--line);border-radius:var(--r-lg)}.nido-kids-panel__input{flex:1;min-width:0;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);font-size:14px;font-family:inherit;box-sizing:border-box}.nido-kids-panel__input:focus{outline:none;border-color:var(--accent)}.nido-kids-panel__add{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.nido-kids-panel__points-input{display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:999px;background:var(--bg-inset);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-2)}.nido-kids-panel__task-points-edit{display:flex;align-items:center;gap:8px}.nido-compact{width:100%;height:100%;padding:10px;box-sizing:border-box;font-family:var(--font-sans);color:var(--ink-1);overflow:hidden}.nido-compact__shell{position:relative;height:100%;background:var(--bg-shell);border-radius:var(--r-xl);overflow:hidden;display:flex}.nido-compact__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-compact__shell>*{position:relative}.nido-compact-rail{width:68px;flex-shrink:0;background:var(--bg-card);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:8px}.nido-compact-rail__brand{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;margin-bottom:6px}.nido-compact-rail__btn{width:48px;height:48px;border-radius:var(--r-md);background:transparent;color:var(--ink-2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.nido-compact-rail__btn.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-rail__bell{margin-top:auto;position:relative}.nido-compact-rail__bell-dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);pointer-events:none}.nido-compact-content{position:relative;flex:1;min-width:0;padding:16px;overflow:hidden}.nido-compact-glance{height:100%;display:grid;grid-template-columns:1fr 300px;gap:14px}.nido-compact-glance__main{display:flex;flex-direction:column;min-width:0}.nido-compact-glance__meta{display:flex;align-items:baseline;gap:10px;margin-bottom:2px}.nido-compact-glance__meta-item{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.12em;text-transform:uppercase}.nido-compact-glance__meta-dot{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-glance__title{font-family:var(--font-display);font-size:34px;font-weight:600;letter-spacing:-.035em;line-height:1;margin:6px 0 0}.nido-compact-glance__title em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-compact-glance__row{margin-top:12px;display:grid;gap:10px;flex:1;min-height:0}.nido-compact-glance__stack{display:grid;gap:10px}.nido-compact-glance__side{display:flex;flex-direction:column;gap:10px;min-width:0}.nido-compact-tile{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink-1)}.nido-compact-tile--accent{background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-compact-tile__head{position:relative;display:flex;align-items:center;justify-content:space-between}.nido-compact-tile__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}.nido-compact-tile__icon{opacity:.55}.nido-compact-tile--accent .nido-compact-tile__icon{opacity:.8}.nido-compact-tile__value{position:relative;font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:-.035em;line-height:1}.nido-compact-tile__unit{font-size:14px;opacity:.6;margin-left:2px}.nido-compact-tile__caption{font-size:13px;opacity:.85;margin-top:4px}.nido-compact-hero{position:relative;background:var(--bg-card);color:var(--ink-1);border-radius:var(--r-lg);padding:16px;overflow:hidden;display:flex;flex-direction:column}.nido-compact-hero[data-on=true]{background:var(--accent);color:var(--accent-ink)}.nido-compact-hero__glow{position:absolute;top:-50px;right:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%);pointer-events:none}.nido-compact-hero__top{position:relative;display:flex;align-items:flex-start;justify-content:space-between}.nido-compact-hero__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.nido-compact-hero__name{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.025em;margin-top:3px}.nido-compact-hero__bottom{position:relative;margin-top:auto}.nido-compact-hero__row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}.nido-compact-hero__pct{font-family:var(--font-display);font-size:26px;font-weight:600;letter-spacing:-.03em}.nido-compact-toggle{width:68px;height:44px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;flex-shrink:0}.nido-compact-toggle[data-on=true]{background:#ffffff4d}.nido-compact-toggle__thumb{position:absolute;top:4px;left:4px;width:36px;height:36px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.nido-compact-toggle[data-on=true] .nido-compact-toggle__thumb{left:28px;background:var(--accent-ink)}.nido-compact-weather{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px}.nido-compact-weather__icon{color:var(--accent);flex-shrink:0}.nido-compact-weather__temp{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-weather__cond{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-weather__clock{margin-left:auto;font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--ink-2)}.nido-compact-media{position:relative;background:var(--hero-dark);color:var(--hero-dark-ink);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px;overflow:hidden}.nido-compact-media__disc{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 45% 45%,var(--accent) 0%,var(--accent-deep) 38%,var(--hero-dark) 92%);position:relative}.nido-compact-media__disc.is-spinning{animation:nido-compact-spin 8s linear infinite}.nido-compact-media__disc:after{content:"";position:absolute;inset:17px;border-radius:50%;background:var(--hero-dark);border:1px solid rgba(244,237,226,.15)}.nido-compact-media__body{min-width:0;flex:1}.nido-compact-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-compact-media__sub{font-size:13px;color:#f4ede2c7;margin-top:2px}.nido-compact-media__play{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}@keyframes nido-compact-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.nido-compact-media__disc.is-spinning{animation:none}}.nido-compact-next{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;flex:1;min-height:0}.nido-compact-next__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}.nido-compact-next__row{display:flex;align-items:center;gap:10px}.nido-compact-next__badge{width:46px;height:46px;border-radius:var(--r-sm);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.nido-compact-next__badge-day{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.1em}.nido-compact-next__badge-num{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-next__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em}.nido-compact-next__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-compact-controls{height:100%;display:flex;flex-direction:column}.nido-compact-controls__tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;flex-shrink:0;scrollbar-width:thin}.nido-compact-tab{padding:10px 16px;min-height:44px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-2);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:-.01em;flex-shrink:0;white-space:nowrap}.nido-compact-tab.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-controls__grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:10px;flex:1;min-height:0;overflow-y:auto}.nido-mini-control{position:relative;background:var(--bg-card);border:1.5px solid transparent;border-radius:var(--r-lg);padding:14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;justify-content:space-between;min-height:88px;font-family:var(--font-sans);color:var(--ink-1);transition:background .2s,border-color .2s}.nido-mini-control.is-static{cursor:default}.nido-mini-control[data-on=true]{background:var(--accent-soft);border-color:var(--accent)}.nido-mini-control:disabled{opacity:.55;cursor:not-allowed}.nido-mini-control__top{display:flex;align-items:center;justify-content:space-between;width:100%}.nido-mini-control__icon{width:34px;height:34px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center}.nido-mini-control[data-on=true] .nido-mini-control__icon{background:var(--accent);color:var(--accent-ink)}.nido-mini-control__dot{width:8px;height:8px;border-radius:50%;background:var(--ink-4)}.nido-mini-control[data-on=true] .nido-mini-control__dot{background:var(--accent)}.nido-mini-control__name{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em}.nido-mini-control__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-mini-control[data-on=true] .nido-mini-control__sub{color:var(--accent-deep)}.nido-compact-empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink-3);font-size:14px;text-align:center;padding:0 24px}.nido-compact-ambient{height:100%;display:grid;grid-template-columns:1fr 240px;gap:18px;align-items:center}.nido-compact-ambient__date{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}.nido-compact-ambient__clock{font-family:var(--font-display);font-size:112px;font-weight:600;letter-spacing:-.05em;line-height:.86;margin-top:6px}.nido-compact-ambient__meta{display:flex;align-items:center;gap:14px;margin-top:14px}.nido-compact-ambient__weather{display:flex;align-items:center;gap:8px;color:var(--ink-2)}.nido-compact-ambient__weather-temp{font-family:var(--font-display);font-size:17px;font-weight:500}.nido-compact-ambient__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-ambient__family{display:flex}.nido-compact-ambient__avatar{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg-shell);object-fit:cover;margin-left:-8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);font-size:11px;font-weight:600;flex-shrink:0;transition:opacity .2s,filter .2s}.nido-compact-ambient__avatar:first-child{margin-left:0}.nido-compact-ambient__avatar.is-away{opacity:.4;filter:grayscale(1)}.nido-compact-ambient__side{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:10px}.nido-compact-status{background:var(--bg-card);border-radius:var(--r-lg);padding:14px}.nido-compact-status__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}.nido-compact-status__title{font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-.02em}.nido-compact-status__sub{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-next--ambient{background:var(--accent);color:var(--accent-ink);border-radius:var(--r-lg);padding:14px;position:relative;overflow:hidden}.nido-alarm-code{position:fixed;inset:0;z-index:2100;display:flex;align-items:center;justify-content:center;padding:24px}.nido-alarm-code__backdrop{position:absolute;inset:0;background:#00000080;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:fade-in .2s ease-out}.nido-alarm-code__content{position:relative;width:100%;max-width:320px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;padding:20px;display:flex;flex-direction:column;gap:14px;animation:fade-in .25s ease-out}.nido-alarm-code__content:focus{outline:none}.nido-alarm-code__header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.nido-alarm-code__title-group{display:flex;align-items:center;gap:10px;min-width:0}.nido-alarm-code__title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1)}.nido-alarm-code__subtitle{font-size:12px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-alarm-code__close{flex:none;width:30px;height:30px;border:0;border-radius:50%;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}.nido-alarm-code__close:hover{background:var(--ink-4);color:var(--ink-1)}.nido-alarm-code__display{height:48px;border-radius:var(--r-md, 12px);background:var(--bg-inset);display:flex;align-items:center;justify-content:center}.nido-alarm-code__placeholder{font-size:13px;color:var(--ink-3)}.nido-alarm-code__dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.nido-alarm-code__dot{width:10px;height:10px;border-radius:50%;background:var(--ink-1)}.nido-alarm-code__input{height:48px;border-radius:var(--r-md, 12px);border:1px solid var(--ink-4);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:16px;padding:0 14px;letter-spacing:.15em}.nido-alarm-code__input:focus{outline:none;border-color:var(--accent)}.nido-alarm-code__error{font-size:12px;color:var(--danger, #d9534f);text-align:center}.nido-alarm-code__pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.nido-alarm-code__key{height:52px;border:0;border-radius:var(--r-md, 12px);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:20px;font-weight:500;cursor:pointer;transition:background .15s}.nido-alarm-code__key:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.nido-alarm-code__key--aux{font-size:16px;color:var(--ink-2)}.nido-alarm-code__key:disabled{opacity:.4;cursor:not-allowed}.nido-alarm-code__submit{height:44px;border:0;border-radius:var(--r-md, 12px);background:var(--accent);color:var(--accent-ink);font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;transition:opacity .15s}.nido-alarm-code__submit:disabled{opacity:.45;cursor:not-allowed}@keyframes fade-in{0%{opacity:0}to{opacity:1}}', hl = "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
+const Jv = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.006);filter:brightness(1.015)}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe 5.5s var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe 6.2s var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe 4.8s var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe 7s var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', ey = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}@media(max-width:600px){.nido-shell{padding:0}.nido-dashboard{border-radius:0;padding:20px 16px;min-height:100vh}}.nido-topbar{display:grid;grid-template-columns:auto 1fr auto auto auto;grid-template-areas:"brand . weather utility icons";align-items:center;column-gap:12px;margin-bottom:28px}.nido-topbar__brand{grid-area:brand;display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__weather{grid-area:weather;display:flex;align-items:center}.nido-topbar__utility{grid-area:utility;display:flex;align-items:center;gap:8px}.nido-topbar__icons{grid-area:icons;display:flex;align-items:center;gap:8px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}@media(max-width:600px){.nido-hero h1{font-size:30px}}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:.85}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-cover__actions{display:flex;gap:8px;margin-top:12px}.n-cover__actions .n-pill-btn{flex:1 1 0;padding:8px 0;min-width:0}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-eyebrow{padding-top:14px}.n-card--camera .n-title{padding-bottom:9px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}.nido-camera-panel__picker{padding:16px 20px;border-top:1px solid rgba(var(--fg-rgb),.06);display:flex;flex-direction:column;gap:10px}.nido-camera-panel__picker-msg{margin:0;font-size:.85rem;color:var(--danger, #b00020)}.nido-camera-panel__picker-hint{margin:0;font-size:.85rem;color:var(--ink-2)}.nido-camera-panel__picker-row{display:flex;gap:8px;flex-wrap:wrap}.nido-camera-panel__picker-select{flex:1 1 220px;min-width:0;padding:8px 10px;border-radius:var(--r-sm);border:1px solid rgba(var(--fg-rgb),.15);background:var(--bg-inset);color:var(--fg);font:inherit}.nido-camera-panel__picker-save{padding:8px 14px;border-radius:var(--r-sm);border:0;background:var(--accent);color:var(--accent-ink, #fff);font:inherit;cursor:pointer}.nido-camera-panel__picker-save:disabled{opacity:.4;cursor:default}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin 2.4s linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn,.nido-covers-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover,.nido-covers-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active,.nido-covers-pill-btn:active{transform:scale(.96)}.nido-lights-pill,.nido-covers-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count,.nido-covers-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center}.nido-lights-panel .nido-notification-panel__content{height:auto;max-height:min(720px,calc(100% - 48px));max-width:460px;border-radius:var(--r-2xl)}.nido-lights-panel .nido-notification-panel__header{padding:18px 18px 18px 20px}.nido-lights-panel .nido-notification-panel__scroll{padding:12px 18px 18px 20px}.nido-lights-panel .nido-lights-panel__footer{padding:16px 18px 18px 20px}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:20px}.nido-lights-group{display:flex;flex-direction:column;gap:10px}.nido-lights-group__title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 4px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status.is-open{color:var(--accent-deep)}.nido-covers-row__actions{display:flex;gap:4px;flex-shrink:0}.nido-covers-row__actions .n-pill-btn{flex:0 0 auto;width:32px;height:32px;padding:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-covers-panel__footer{display:flex;gap:10px}.nido-covers-panel__footer .nido-lights-panel__all-off{width:auto;flex:1}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-widget--agenda{display:flex;flex-direction:column;gap:10px}.nido-cal-widget__head{display:flex;align-items:center;gap:8px;color:var(--cal-color, var(--ink-3))}.nido-cal-widget__head .n-eyebrow{color:var(--ink-3)}.nido-cal-widget__placeholder{padding-left:12px;border-left:2px solid color-mix(in srgb,var(--cal-color, var(--ink-3)) 35%,transparent)}.nido-cal-widget__agenda{list-style:none;margin:0;padding:2px 0 2px 12px;border-left:2px solid var(--cal-color, var(--ink-3));display:flex;flex-direction:column;gap:8px}.nido-cal-widget__agenda-row{display:grid;grid-template-columns:48px auto 1fr;align-items:start;gap:8px;font-family:var(--font-sans);font-size:12px;color:var(--ink-1);line-height:1.25}.nido-cal-widget__agenda-day{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--cal-color, var(--ink-3));font-weight:600;white-space:nowrap}.nido-cal-widget__agenda-time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.04em;white-space:nowrap}.nido-cal-widget__agenda-title{color:var(--ink-1);font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;word-break:break-word}.n-card[data-hero=true] .nido-cal-widget__agenda{gap:10px}.n-card[data-hero=true] .nido-cal-widget__agenda-row{font-size:14px;grid-template-columns:46px auto 1fr}.n-card[data-hero=true] .nido-cal-widget__agenda-day,.n-card[data-hero=true] .nido-cal-widget__agenda-time{font-size:11px}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-rooms-grid--phone{grid-template-columns:minmax(0,1fr);gap:12px}.nido-rooms-grid--touch{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:170px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--hero-dark);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__icon{position:relative}.nido-room-card__occupancy{position:absolute;top:-2px;right:-2px;width:11px;height:11px;box-sizing:border-box;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card)}.nido-room-card--accent .nido-room-card__occupancy{border-color:var(--hero-dark)}.nido-room-card__occupancy--motion{opacity:.85}.nido-room-card__occupancy:after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1.5px solid var(--accent);animation:nido-occupancy-pulse 2.6s var(--ease-out) infinite}@keyframes nido-occupancy-pulse{0%{transform:scale(.85);opacity:.75}60%{transform:scale(2.1);opacity:0}to{transform:scale(2.1);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-room-card__occupancy:after{animation:none;opacity:.35}}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__chips{display:flex;flex-wrap:wrap;gap:6px}.nido-room-card__chip{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:var(--r-pill);background:var(--bg-inset);font-family:var(--font-sans);font-size:12px;font-weight:500;line-height:1}.nido-room-card--accent .nido-room-card__chip{background:#f4ede21f}.nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--alert{background:color-mix(in srgb,var(--danger) 16%,transparent);color:var(--danger)}.nido-room-card__chip--idle{opacity:.55}.nido-room-card__band{display:flex;align-items:center;gap:12px;margin-top:12px;padding-top:11px;border-top:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);font-size:13px;font-weight:500;opacity:.8}.nido-room-card--accent .nido-room-card__band{border-top-color:#f4ede229}.nido-room-card__band-item{display:inline-flex;align-items:center;gap:5px;min-width:0}.nido-room-card__band-icon{display:flex;opacity:.65}.nido-room-card__band-label{display:none}.nido-room-card__band-unit{margin-left:1px}.nido-room-card__actions{display:flex;gap:8px;margin-top:auto;padding-top:14px}.nido-room-card__actions .n-pill-btn.is-idle{opacity:.55}.nido-room-card--accent .nido-room-card__actions .n-pill-btn,.nido-room-card--accent .nido-room-card__actions .n-icon-btn{background:#f4ede224;color:var(--hero-dark-ink)}.nido-room-card--touch{min-height:210px}.nido-room-card--touch .nido-room-card__icon{width:44px;height:44px}.nido-room-card--touch .nido-room-card__name{font-size:19px}.nido-room-card--touch .nido-room-card__band{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);opacity:1}.nido-room-card--accent.nido-room-card--touch .nido-room-card__band{border-bottom-color:#f4ede229}.nido-room-card--touch .nido-room-card__band-item{display:flex;flex-direction:column;align-items:flex-start;gap:0}.nido-room-card--touch .nido-room-card__band-icon{display:none}.nido-room-card--touch .nido-room-card__band-label{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}.nido-room-card--touch .nido-room-card__band-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;margin-top:5px}.nido-room-card--touch .nido-room-card__band-unit{font-size:11px;font-weight:500;opacity:.6;margin-left:2px}.nido-room-card--touch .n-pill-btn{height:44px;font-size:13px}.nido-room-card--touch .n-icon-btn{width:44px;height:44px}.nido-room-card--phone{min-height:96px;padding:16px;border-radius:var(--r-md);display:flex;flex-direction:column;gap:10px}.nido-room-card--phone .nido-room-card__deco{display:none}.nido-room-card__row{position:relative;display:flex;align-items:center;gap:12px}.nido-room-card--phone .nido-room-card__icon{width:36px;height:36px}.nido-room-card--phone .nido-room-card__name{flex:1;min-width:0;margin-bottom:0;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-room-card__chev{display:flex;opacity:.45;flex-shrink:0}.nido-room-card__line{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px}.nido-room-card--phone .nido-room-card__band{margin-top:0;padding-top:0;border-top:none;font-size:13.5px;font-weight:600;letter-spacing:-.02em;opacity:.85}.nido-room-card--phone .nido-room-card__chips{flex-wrap:nowrap;flex-shrink:0}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:0;overflow:hidden}.n-ob__shell{padding:16px;border-radius:0;min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__image{display:block;width:100%;max-height:240px;object-fit:cover;border-radius:var(--r-md);margin-top:10px;background:var(--bg-inset)}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__icons>.nido-bell-btn,.nido-topbar__icons>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar{grid-template-columns:1fr auto;grid-template-areas:"weather icons" "brand utility";row-gap:12px}.nido-topbar__weather{justify-content:flex-start}.nido-topbar__icons,.nido-topbar__utility{justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:0}.nido-energy-row{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.nido-energy-row>section{margin-top:0;min-width:0}@media(max-width:900px){.nido-energy-row{grid-template-columns:1fr}}.nido-energy-summary,.nido-kids-summary{display:grid;grid-template-columns:1fr;gap:16px}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}.n-kids-card{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer}.n-kids-card__deco{position:absolute;top:-20px;right:-40px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-kids-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:1}.n-kids-card__head-text{display:flex;flex-direction:column;gap:4px}.n-kids-card__head-actions{display:flex;align-items:center;gap:8px}.n-kids-card__star{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#ffffff2e;color:var(--accent-ink)}.n-kids-card__empty{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding-top:16px;position:relative;z-index:1}.n-kids-card__list{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}.n-kids-card__row{display:flex;align-items:center;gap:12px}.n-kids-card__avatar{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;position:relative;box-shadow:0 2px 6px #0000001f}.n-kids-card__crown{position:absolute;top:-8px;right:-6px;font-size:14px;color:#f6c451;text-shadow:0 1px 2px rgba(0,0,0,.25)}.n-kids-card__row-body{flex:1;min-width:0}.n-kids-card__row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.n-kids-card__name{font-weight:600;color:var(--accent-ink);font-size:14px}.n-kids-card__total{font-weight:700;font-size:18px;color:var(--accent-ink);line-height:1}.n-kids-card__total-unit{font-weight:500;font-size:11px;margin-left:3px;opacity:.7}.n-kids-card__bar{margin-top:6px;height:6px;border-radius:999px;background:#ffffff38;overflow:hidden}.n-kids-card__bar-fill{display:block;height:100%;border-radius:999px;transition:width .4s ease;min-width:6px}.n-kids-card__last{margin-top:4px;font-size:11px;color:var(--accent-ink);opacity:.65}.n-kids-card__privilege{margin-top:6px;display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 10px;border-radius:999px;background:#ffffff2e;border:1px solid rgba(255,255,255,.25);color:var(--accent-ink);font-size:12px;font-weight:600;max-width:100%}.n-kids-card__privilege-emoji{font-size:14px;line-height:1}.n-kids-card__privilege-label{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-kids-card__privilege-end{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#00000026;color:var(--accent-ink);border:none;cursor:pointer;padding:0}.n-kids-card__privilege-end:hover{background:#00000047}.nido-kids-panel{display:flex;flex-direction:column;font-family:"Baloo 2",DM Sans,system-ui,sans-serif;--kids-accent: #ff8a3d;--kids-accent-2: #ffd166;--kids-good: #6fcf97;--kids-bad: #f4736b;--kids-surface: var(--bg-card);--kids-surface-2: var(--bg-inset);--kids-pastel-1: #ffb4a2;--kids-pastel-2: #b8e0d2;--kids-pastel-3: #c7b8ea;--kids-pastel-4: #ffe08a;--kids-pastel-5: #9dd3f8;--kids-pastel-6: #f8a8c9}.nido-kids-panel__header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(135deg,var(--kids-accent),var(--kids-accent-2));color:#fff;position:relative;overflow:hidden}.nido-kids-panel__header:after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 8% 80%,rgba(255,255,255,.18) 0 12px,transparent 13px),radial-gradient(circle at 92% 25%,rgba(255,255,255,.16) 0 9px,transparent 10px),radial-gradient(circle at 50% 115%,rgba(255,255,255,.12) 0 16px,transparent 17px);pointer-events:none}.nido-kids-panel__header h2{margin:0;font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px;text-shadow:0 1px 0 rgba(0,0,0,.08)}.nido-kids-panel__header-star{display:inline-block;animation:nido-kids-spin 6s linear infinite}.nido-kids-panel__header-actions{display:flex;align-items:center;gap:8px;position:relative;z-index:1}.nido-kids-panel__iconbtn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:#ffffff40;color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s ease,background .15s ease}.nido-kids-panel__iconbtn:hover{transform:scale(1.08);background:#fff6}.nido-kids-panel__body{padding:22px 24px 28px;overflow-y:auto;flex:1}.nido-kids-panel__empty{padding:36px 0;text-align:center}.nido-kids-panel__empty-emoji{font-size:48px;margin-bottom:12px}.nido-kids-panel__tabs{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}.nido-kids-panel__tab{flex:1 1 180px;min-width:160px;background:var(--kids-surface-2);border:3px solid transparent;border-radius:22px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .18s ease,box-shadow .18s ease;font:inherit;color:var(--ink-1);text-align:left;box-sizing:border-box}.nido-kids-panel__tab:hover{transform:translateY(-2px)}.nido-kids-panel__tab.is-active{border-color:var(--kid-color, var(--kids-accent));background:var(--kids-surface);box-shadow:0 12px 28px #ff8a3d2e;transform:translateY(-2px)}.nido-kids-panel__tab.is-active .nido-kids-panel__tab-avatar{animation:nido-kids-wiggle 1.4s ease-in-out infinite}.nido-kids-panel__tab-avatar{width:56px;height:56px;border-radius:50%;background:var(--kid-color, var(--kids-pastel-1));display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:inset 0 -3px #00000014,0 3px #0000000f}.nido-kids-panel__tab-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.nido-kids-panel__tab-name{font-weight:700;font-size:17px;line-height:1.1}.nido-kids-panel__tab-pts{font-size:18px;font-weight:800;color:var(--kids-accent);display:flex;align-items:baseline;gap:4px}.nido-kids-panel__tab-pts small{font-size:12px;font-weight:600;color:var(--ink-3)}.nido-kids-panel__score{background:linear-gradient(135deg,var(--kids-pastel-4),var(--kids-pastel-2));border-radius:24px;padding:20px 22px;margin-bottom:18px;color:#2a2018;box-shadow:0 6px 20px #ffd1662e}.nido-kids-panel__score-row{display:flex;align-items:center;gap:16px}.nido-kids-panel__score-big{font-size:48px;font-weight:800;line-height:1;display:flex;align-items:baseline;gap:6px}.nido-kids-panel__score-star{font-size:32px;animation:nido-kids-bounce 1.6s ease-in-out infinite}.nido-kids-panel__score-num{font-variant-numeric:tabular-nums}.nido-kids-panel__score-unit{font-size:20px;font-weight:700}.nido-kids-panel__score-badge{margin-left:auto;background:#ffffff8c;border-radius:16px;padding:8px 14px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:inset 0 -3px #0000000f}.nido-kids-panel__progress{margin-top:14px;background:#ffffff73;border-radius:999px;height:14px;overflow:hidden}.nido-kids-panel__progress-bar{background:linear-gradient(90deg,var(--kids-accent),var(--kids-bad));height:100%;border-radius:999px;transition:width .5s cubic-bezier(.34,1.56,.64,1);box-shadow:inset 0 -3px #0000001a}.nido-kids-panel__progress-label{margin-top:6px;font-size:13px;font-weight:600;opacity:.85}.nido-kids-panel__group-title{margin:4px 0 10px;font-size:14px;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:8px;letter-spacing:.02em}.nido-kids-panel__group-title:not(:first-of-type),.nido-kids-panel__tiles+.nido-kids-panel__group-title{margin-top:18px}.nido-kids-panel__group-title--neg{color:var(--kids-bad)}.nido-kids-panel__tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}.nido-kids-panel__tile{background:var(--kids-surface-2);border:none;border-radius:20px;padding:14px 10px 12px;text-align:center;cursor:pointer;position:relative;transition:transform .12s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease;font:inherit;color:var(--ink-1);user-select:none;box-shadow:0 3px #0000000f;overflow:visible;box-sizing:border-box;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.nido-kids-panel__tile:hover{transform:translateY(-3px);box-shadow:0 6px #0000000f}.nido-kids-panel__tile:active{transform:translateY(1px) scale(.97);box-shadow:0 1px #0000000f}.nido-kids-panel__tile.is-pop{animation:nido-kids-pop .4s cubic-bezier(.34,1.56,.64,1)}.nido-kids-panel__tile.is-negative{background:#fce6e5}[data-mode=dark] .nido-kids-panel__tile.is-negative{background:#3b2422}.nido-kids-panel__tile-emoji{font-size:40px;display:block;line-height:1;margin-bottom:8px;transition:transform .2s ease}.nido-kids-panel__tile:hover .nido-kids-panel__tile-emoji{transform:scale(1.1) rotate(-3deg)}.nido-kids-panel__tile-label{font-size:13px;font-weight:600;line-height:1.2;color:var(--ink-1);min-height:32px;display:flex;align-items:center;justify-content:center}.nido-kids-panel__tile-pts{position:absolute;top:8px;right:8px;background:var(--kids-good);color:#fff;font-size:12px;font-weight:800;padding:3px 8px;border-radius:999px;box-shadow:0 2px #0000001a}.nido-kids-panel__tile.is-negative .nido-kids-panel__tile-pts{background:var(--kids-bad)}.nido-kids-panel__tile-count{position:absolute;top:8px;left:8px;background:var(--kids-accent);color:#fff;min-width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px #0000001a;transform:scale(0);transition:transform .25s cubic-bezier(.34,1.56,.64,1);padding:0 6px}.nido-kids-panel__tile-count.is-visible{transform:scale(1)}.nido-kids-panel__confetti{position:absolute;left:50%;top:40%;width:8px;height:8px;border-radius:2px;pointer-events:none;animation:nido-kids-confetti .8s ease-out forwards}.nido-kids-panel__hint{margin:14px 0 0;font-size:12px;color:var(--ink-3);text-align:center;font-family:DM Sans,system-ui,sans-serif}.nido-kids-panel__avatar-pick{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;box-shadow:inset 0 -2px #00000014}.nido-kids-panel__emoji-picker{flex:1 0 100%;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px;padding:10px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-md)}.nido-kids-panel__emoji-choice{font-size:22px;background:transparent;border:2px solid transparent;border-radius:12px;padding:6px;cursor:pointer;transition:transform .12s ease,border-color .12s ease}.nido-kids-panel__emoji-choice:hover{transform:scale(1.15)}.nido-kids-panel__emoji-choice.is-active{border-color:var(--kids-accent);background:var(--bg-inset)}.nido-kids-panel__task-emoji{font-size:22px;flex:0 0 auto}.nido-kids-panel__task-label-static{flex:1;font-weight:500;color:var(--ink-1)}.nido-kids-panel__task-pts{font-size:12px;color:var(--ink-3);font-weight:600}.nido-kids-panel__task-pts.is-negative,.nido-kids-panel__points-input .is-negative{color:var(--danger, #c45d3f)}.n-kids-card__total.is-negative{color:#ffd2c5}.nido-kids-panel__threshold-input{width:56px;padding:4px 6px;border:1px solid var(--bg-inset);border-radius:8px;background:var(--bg-1);color:var(--ink-1);font-weight:600;text-align:center;font-size:13px}.nido-kids-panel__threshold-input:focus{outline:none;border-color:var(--kids-accent)}.nido-kids-panel__threshold-input::-webkit-outer-spin-button,.nido-kids-panel__threshold-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.nido-kids-panel__threshold-input{-moz-appearance:textfield}.nido-kids-panel__emoji-input{width:48px;text-align:center;font-size:18px;flex:0 0 auto}.nido-kids-panel__privilege{margin-top:12px;padding:12px;border-radius:14px;background:var(--bg-inset);border:1px solid color-mix(in srgb,var(--kids-accent) 30%,transparent);display:flex;flex-direction:column;gap:10px}.nido-kids-panel__privilege--active{background:linear-gradient(135deg,color-mix(in srgb,var(--kids-accent) 20%,var(--bg-inset)),color-mix(in srgb,var(--kids-accent-2) 20%,var(--bg-inset)));border-color:var(--kids-accent)}.nido-kids-panel__privilege-head{display:flex;align-items:center;gap:12px}.nido-kids-panel__privilege-emoji{font-size:28px;flex:0 0 auto}.nido-kids-panel__privilege-meta{flex:1;display:flex;flex-direction:column;min-width:0}.nido-kids-panel__privilege-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);font-weight:700}.nido-kids-panel__privilege-label{font-size:15px;font-weight:700;color:var(--ink-1)}.nido-kids-panel__privilege-choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}.nido-kids-panel__privilege-choice{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--bg-card);border:1px solid var(--bg-inset);color:var(--ink-1);cursor:pointer;text-align:left;font-weight:600;font-size:13px}.nido-kids-panel__privilege-choice:hover{border-color:var(--kids-accent);background:color-mix(in srgb,var(--kids-accent) 8%,var(--bg-card))}@keyframes nido-kids-wiggle{0%,to{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes nido-kids-bounce{0%,to{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes nido-kids-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes nido-kids-pop{0%{transform:scale(1)}35%{transform:scale(1.12);box-shadow:0 12px 28px #ff8a3d4d}to{transform:scale(1)}}@keyframes nido-kids-confetti{0%{transform:translate(0) rotate(0);opacity:1}to{transform:translate(var(--cx),var(--cy)) rotate(var(--cr));opacity:0}}@media(prefers-reduced-motion:reduce){.nido-kids-panel *,.nido-kids-panel *:before,.nido-kids-panel *:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}.nido-kids-panel__btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .1s ease,opacity .15s ease}.nido-kids-panel__btn:hover:not(:disabled){background:var(--bg-inset)}.nido-kids-panel__btn:active:not(:disabled){transform:scale(.94)}.nido-kids-panel__btn:disabled{opacity:.35;cursor:not-allowed}.nido-kids-panel__btn--plus{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.nido-kids-panel__btn--plus:hover:not(:disabled){background:var(--accent);filter:brightness(1.05)}.nido-kids-panel__btn--danger{color:var(--danger, #c45d3f)}.nido-kids-panel__config{display:flex;flex-direction:column;gap:24px}.nido-kids-panel__section h3{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}.nido-kids-panel__list{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:8px}.nido-kids-panel__list-row{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-inset);border:1px solid var(--line);border-radius:var(--r-lg)}.nido-kids-panel__input{flex:1;min-width:0;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);font-size:14px;font-family:inherit;box-sizing:border-box}.nido-kids-panel__input:focus{outline:none;border-color:var(--accent)}.nido-kids-panel__add{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.nido-kids-panel__points-input{display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:999px;background:var(--bg-inset);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-2)}.nido-kids-panel__task-points-edit{display:flex;align-items:center;gap:8px}.nido-compact{width:100%;height:100%;padding:10px;box-sizing:border-box;font-family:var(--font-sans);color:var(--ink-1);overflow:hidden}.nido-compact__shell{position:relative;height:100%;background:var(--bg-shell);border-radius:var(--r-xl);overflow:hidden;display:flex}.nido-compact__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-compact__shell>*{position:relative}.nido-compact-rail{width:68px;flex-shrink:0;background:var(--bg-card);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:8px}.nido-compact-rail__brand{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;margin-bottom:6px}.nido-compact-rail__btn{width:48px;height:48px;border-radius:var(--r-md);background:transparent;color:var(--ink-2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.nido-compact-rail__btn.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-rail__bell{margin-top:auto;position:relative}.nido-compact-rail__bell-dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);pointer-events:none}.nido-compact-content{position:relative;flex:1;min-width:0;padding:16px;overflow:hidden}.nido-compact-glance{height:100%;display:grid;grid-template-columns:1fr 300px;gap:14px}.nido-compact-glance__main{display:flex;flex-direction:column;min-width:0}.nido-compact-glance__meta{display:flex;align-items:baseline;gap:10px;margin-bottom:2px}.nido-compact-glance__meta-item{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.12em;text-transform:uppercase}.nido-compact-glance__meta-dot{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-glance__title{font-family:var(--font-display);font-size:34px;font-weight:600;letter-spacing:-.035em;line-height:1;margin:6px 0 0}.nido-compact-glance__title em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-compact-glance__row{margin-top:12px;display:grid;gap:10px;flex:1;min-height:0}.nido-compact-glance__stack{display:grid;gap:10px}.nido-compact-glance__side{display:flex;flex-direction:column;gap:10px;min-width:0}.nido-compact-tile{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink-1)}.nido-compact-tile--accent{background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-compact-tile__head{position:relative;display:flex;align-items:center;justify-content:space-between}.nido-compact-tile__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}.nido-compact-tile__icon{opacity:.55}.nido-compact-tile--accent .nido-compact-tile__icon{opacity:.8}.nido-compact-tile__value{position:relative;font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:-.035em;line-height:1}.nido-compact-tile__unit{font-size:14px;opacity:.6;margin-left:2px}.nido-compact-tile__caption{font-size:13px;opacity:.85;margin-top:4px}.nido-compact-hero{position:relative;background:var(--bg-card);color:var(--ink-1);border-radius:var(--r-lg);padding:16px;overflow:hidden;display:flex;flex-direction:column}.nido-compact-hero[data-on=true]{background:var(--accent);color:var(--accent-ink)}.nido-compact-hero__glow{position:absolute;top:-50px;right:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%);pointer-events:none}.nido-compact-hero__top{position:relative;display:flex;align-items:flex-start;justify-content:space-between}.nido-compact-hero__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.nido-compact-hero__name{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.025em;margin-top:3px}.nido-compact-hero__bottom{position:relative;margin-top:auto}.nido-compact-hero__row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}.nido-compact-hero__pct{font-family:var(--font-display);font-size:26px;font-weight:600;letter-spacing:-.03em}.nido-compact-toggle{width:68px;height:44px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;flex-shrink:0}.nido-compact-toggle[data-on=true]{background:#ffffff4d}.nido-compact-toggle__thumb{position:absolute;top:4px;left:4px;width:36px;height:36px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.nido-compact-toggle[data-on=true] .nido-compact-toggle__thumb{left:28px;background:var(--accent-ink)}.nido-compact-weather{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px}.nido-compact-weather__icon{color:var(--accent);flex-shrink:0}.nido-compact-weather__temp{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-weather__cond{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-weather__clock{margin-left:auto;font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--ink-2)}.nido-compact-media{position:relative;background:var(--hero-dark);color:var(--hero-dark-ink);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px;overflow:hidden}.nido-compact-media__disc{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 45% 45%,var(--accent) 0%,var(--accent-deep) 38%,var(--hero-dark) 92%);position:relative}.nido-compact-media__disc.is-spinning{animation:nido-compact-spin 8s linear infinite}.nido-compact-media__disc:after{content:"";position:absolute;inset:17px;border-radius:50%;background:var(--hero-dark);border:1px solid rgba(244,237,226,.15)}.nido-compact-media__body{min-width:0;flex:1}.nido-compact-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-compact-media__sub{font-size:13px;color:#f4ede2c7;margin-top:2px}.nido-compact-media__play{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}@keyframes nido-compact-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.nido-compact-media__disc.is-spinning{animation:none}}.nido-compact-next{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;flex:1;min-height:0}.nido-compact-next__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}.nido-compact-next__row{display:flex;align-items:center;gap:10px}.nido-compact-next__badge{width:46px;height:46px;border-radius:var(--r-sm);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.nido-compact-next__badge-day{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.1em}.nido-compact-next__badge-num{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-next__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em}.nido-compact-next__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-compact-controls{height:100%;display:flex;flex-direction:column}.nido-compact-controls__tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;flex-shrink:0;scrollbar-width:thin}.nido-compact-tab{padding:10px 16px;min-height:44px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-2);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:-.01em;flex-shrink:0;white-space:nowrap}.nido-compact-tab.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-controls__grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:10px;flex:1;min-height:0;overflow-y:auto}.nido-mini-control{position:relative;background:var(--bg-card);border:1.5px solid transparent;border-radius:var(--r-lg);padding:14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;justify-content:space-between;min-height:88px;font-family:var(--font-sans);color:var(--ink-1);transition:background .2s,border-color .2s}.nido-mini-control.is-static{cursor:default}.nido-mini-control[data-on=true]{background:var(--accent-soft);border-color:var(--accent)}.nido-mini-control:disabled{opacity:.55;cursor:not-allowed}.nido-mini-control__top{display:flex;align-items:center;justify-content:space-between;width:100%}.nido-mini-control__icon{width:34px;height:34px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center}.nido-mini-control[data-on=true] .nido-mini-control__icon{background:var(--accent);color:var(--accent-ink)}.nido-mini-control__dot{width:8px;height:8px;border-radius:50%;background:var(--ink-4)}.nido-mini-control[data-on=true] .nido-mini-control__dot{background:var(--accent)}.nido-mini-control__name{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em}.nido-mini-control__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-mini-control[data-on=true] .nido-mini-control__sub{color:var(--accent-deep)}.nido-compact-empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink-3);font-size:14px;text-align:center;padding:0 24px}.nido-compact-ambient{height:100%;display:grid;grid-template-columns:1fr 240px;gap:18px;align-items:center}.nido-compact-ambient__date{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}.nido-compact-ambient__clock{font-family:var(--font-display);font-size:112px;font-weight:600;letter-spacing:-.05em;line-height:.86;margin-top:6px}.nido-compact-ambient__meta{display:flex;align-items:center;gap:14px;margin-top:14px}.nido-compact-ambient__weather{display:flex;align-items:center;gap:8px;color:var(--ink-2)}.nido-compact-ambient__weather-temp{font-family:var(--font-display);font-size:17px;font-weight:500}.nido-compact-ambient__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-ambient__family{display:flex}.nido-compact-ambient__avatar{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg-shell);object-fit:cover;margin-left:-8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);font-size:11px;font-weight:600;flex-shrink:0;transition:opacity .2s,filter .2s}.nido-compact-ambient__avatar:first-child{margin-left:0}.nido-compact-ambient__avatar.is-away{opacity:.4;filter:grayscale(1)}.nido-compact-ambient__side{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:10px}.nido-compact-status{background:var(--bg-card);border-radius:var(--r-lg);padding:14px}.nido-compact-status__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}.nido-compact-status__title{font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-.02em}.nido-compact-status__sub{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-next--ambient{background:var(--accent);color:var(--accent-ink);border-radius:var(--r-lg);padding:14px;position:relative;overflow:hidden}.nido-alarm-code{position:fixed;inset:0;z-index:2100;display:flex;align-items:center;justify-content:center;padding:24px}.nido-alarm-code__backdrop{position:absolute;inset:0;background:#00000080;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:fade-in .2s ease-out}.nido-alarm-code__content{position:relative;width:100%;max-width:320px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;padding:20px;display:flex;flex-direction:column;gap:14px;animation:fade-in .25s ease-out}.nido-alarm-code__content:focus{outline:none}.nido-alarm-code__header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.nido-alarm-code__title-group{display:flex;align-items:center;gap:10px;min-width:0}.nido-alarm-code__title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1)}.nido-alarm-code__subtitle{font-size:12px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-alarm-code__close{flex:none;width:30px;height:30px;border:0;border-radius:50%;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}.nido-alarm-code__close:hover{background:var(--ink-4);color:var(--ink-1)}.nido-alarm-code__display{height:48px;border-radius:var(--r-md, 12px);background:var(--bg-inset);display:flex;align-items:center;justify-content:center}.nido-alarm-code__placeholder{font-size:13px;color:var(--ink-3)}.nido-alarm-code__dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.nido-alarm-code__dot{width:10px;height:10px;border-radius:50%;background:var(--ink-1)}.nido-alarm-code__input{height:48px;border-radius:var(--r-md, 12px);border:1px solid var(--ink-4);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:16px;padding:0 14px;letter-spacing:.15em}.nido-alarm-code__input:focus{outline:none;border-color:var(--accent)}.nido-alarm-code__error{font-size:12px;color:var(--danger, #d9534f);text-align:center}.nido-alarm-code__pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.nido-alarm-code__key{height:52px;border:0;border-radius:var(--r-md, 12px);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:20px;font-weight:500;cursor:pointer;transition:background .15s}.nido-alarm-code__key:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.nido-alarm-code__key--aux{font-size:16px;color:var(--ink-2)}.nido-alarm-code__key:disabled{opacity:.4;cursor:not-allowed}.nido-alarm-code__submit{height:44px;border:0;border-radius:var(--r-md, 12px);background:var(--accent);color:var(--accent-ink);font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;transition:opacity .15s}.nido-alarm-code__submit:disabled{opacity:.45;cursor:not-allowed}@keyframes fade-in{0%{opacity:0}to{opacity:1}}', hl = "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
 let fl = !1;
-function Zv() {
+function ty() {
   if (fl || typeof document > "u") return;
   if (!document.head.querySelector(`link[href="${hl}"]`)) {
     const e = document.createElement("link");
@@ -29454,12 +29466,12 @@ function Zv() {
   }
   fl = !0;
 }
-class Jv extends HTMLElement {
+class iy extends HTMLElement {
   constructor() {
-    super(), this._hass = null, this._narrow = !1, this._route = { prefix: "", path: "" }, this._panel = {}, Zv();
+    super(), this._hass = null, this._narrow = !1, this._route = { prefix: "", path: "" }, this._panel = {}, ty();
     const e = this.attachShadow({ mode: "open" }), t = document.createElement("style");
-    t.textContent = `${Xv}
-${Qv}`, this._mountPoint = document.createElement("div"), this._mountPoint.className = "nido-root-mount", e.append(t, this._mountPoint);
+    t.textContent = `${Jv}
+${ey}`, this._mountPoint = document.createElement("div"), this._mountPoint.className = "nido-root-mount", e.append(t, this._mountPoint);
   }
   set hass(e) {
     this._hass = e, this._render();
@@ -29496,12 +29508,12 @@ ${Qv}`, this._mountPoint = document.createElement("div"), this._mountPoint.class
     this.setAttribute("data-theme", e), this.setAttribute("data-mode", t);
   }
   _render() {
-    na(vl(qv, { hass: this._hass, host: this }), this._mountPoint);
+    na(vl(Zv, { hass: this._hass, host: this }), this._mountPoint);
   }
 }
-customElements.get("nido-panel") || customElements.define("nido-panel", Jv);
+customElements.get("nido-panel") || customElements.define("nido-panel", iy);
 console.info(
-  "%c NIDO %c v0.3.41 ",
+  "%c NIDO %c v0.3.42 ",
   "background:#c75a2a;color:#fff;padding:2px 6px;border-radius:3px 0 0 3px;",
   "background:#1a1410;color:#fff;padding:2px 6px;border-radius:0 3px 3px 0;"
 );

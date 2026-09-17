@@ -2,7 +2,7 @@ import type { JSX } from "preact";
 import {
   IconCouch,
   IconBed,
-  IconFork,
+  IconDining,
   IconFridge,
   IconBath,
   IconToilet,
@@ -11,6 +11,9 @@ import {
   IconDesk,
   IconPlant,
   IconTeddy,
+  IconTree,
+  IconStairs,
+  IconWine,
   IconDoorRoom,
   IconHome,
   IconLightOn,
@@ -36,7 +39,7 @@ type IconCmp = (p: { size?: number }) => JSX.Element;
    spécifiques (salle à manger, chambre d'enfant, WC) passent avant les génériques. */
 export function pickAreaIcon(name: string): IconCmp {
   const n = name.toLowerCase();
-  if (/(salle ?[àa] ?manger|dining)/.test(n)) return IconFork;
+  if (/(salle ?[àa] ?manger|dining)/.test(n)) return IconDining;
   if (/(salon|séjour|sejour|living)/.test(n)) return IconCouch;
   if (/(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(n)) return IconTeddy;
   if (/(chambre|bedroom)/.test(n)) return IconBed;
@@ -45,7 +48,10 @@ export function pickAreaIcon(name: string): IconCmp {
   if (/(salle ?de ?bain|sdb|bath|douche|shower)/.test(n)) return IconBath;
   if (/(buanderie|lingerie|laundry|cellier)/.test(n)) return IconWasher;
   if (/(garage|carport|atelier)/.test(n)) return IconGarage;
-  if (/(jardin|terrasse|balcon|patio|ext[ée]rieur|garden|outdoor)/.test(n)) return IconPlant;
+  if (/(jardin|ext[ée]rieur|dehors|garden|outdoor)/.test(n)) return IconTree;
+  if (/(terrasse|balcon|patio|v[ée]randa)/.test(n)) return IconPlant;
+  if (/(cave|sous-? ?sol|basement)/.test(n)) return IconWine;
+  if (/(escalier|stairs?|mont[ée]e)/.test(n)) return IconStairs;
   if (/(bureau|office|study)/.test(n)) return IconDesk;
   if (/(entrée|entree|hall|couloir|palier|d[ée]gagement)/.test(n)) return IconDoorRoom;
   return IconHome;

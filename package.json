@@ -1,6 +1,6 @@
 {
   "name": "nido-dashboard",
-  "version": "0.3.41",
+  "version": "0.3.42",
   "description": "Nido — dashboard familial Home Assistant (custom panel)",
   "type": "module",
   "private": true,

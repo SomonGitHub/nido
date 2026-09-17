@@ -559,6 +559,38 @@ export const IconDesk = (p: P) => (
   </Icon>
 );
 
+export const IconStairs = (p: P) => (
+  <Icon {...p}>
+    <path d="M3 20.6h4.3v-4.2h4.3v-4.2h4.3V8h4.4" />
+    <path d="M20.3 8V3.8" />
+    <path d="M3 20.6V17" />
+  </Icon>
+);
+
+export const IconTree = (p: P) => (
+  <Icon {...p}>
+    <path d="M12 3.6c-2.5 0-4.4 1.7-4.6 3.8-2 .5-3 2.2-2.5 4 .4 1.6 1.8 2.8 3.5 2.8h7.2c1.7 0 3.1-1.2 3.5-2.8.5-1.8-.5-3.5-2.5-4-.2-2.1-2.1-3.8-4.6-3.8Z" />
+    <path d="M12 14.2V21" />
+    <path d="M12 18.4 9.2 15.8M12 17.2l2.6-2.2" />
+  </Icon>
+);
+
+export const IconWine = (p: P) => (
+  <Icon {...p}>
+    <path d="M10 2.8h4v3.8l2 2.8a3.2 3.2 0 0 1 .6 1.9V19a2.2 2.2 0 0 1-2.2 2.2H9.6A2.2 2.2 0 0 1 7.4 19v-7.7a3.2 3.2 0 0 1 .6-1.9l2-2.8V2.8Z" />
+    <path d="M7.4 13.4h9.2M7.4 17h9.2" />
+  </Icon>
+);
+
+export const IconDining = (p: P) => (
+  <Icon {...p}>
+    <path d="M2.8 12.6h18.4" />
+    <path d="M5.2 12.6v6.6M18.8 12.6v6.6" />
+    <path d="M7.4 12.6V9a1.7 1.7 0 0 1 1.7-1.7h1.2A1.7 1.7 0 0 1 12 9v3.6" />
+    <path d="M12 12.6V9a1.7 1.7 0 0 1 1.7-1.7h1.2A1.7 1.7 0 0 1 16.6 9v3.6" />
+  </Icon>
+);
+
 export const IconPlant = (p: P) => (
   <Icon {...p}>
     <path d="M5.6 12.6h12.8l-1.3 7.2a1.7 1.7 0 0 1-1.7 1.4H8.6a1.7 1.7 0 0 1-1.7-1.4L5.6 12.6Z" />
