@@ -113,6 +113,15 @@ export function groupByArea(
   return map;
 }
 
+/** Position d'ouverture d'un volet en % (0 = fermé, 100 = ouvert). */
+export function coverPosition(e: ResolvedEntity): number {
+  const p = e.state.attributes.current_position as number | undefined;
+  if (typeof p === "number") return p;
+  if (e.state.state === "open") return 100;
+  if (e.state.state === "closed") return 0;
+  return 50;
+}
+
 export function isEntityActive(e: ResolvedEntity): boolean {
   const s = e.state.state;
   if (s === "unavailable" || s === "unknown") return false;
@@ -197,6 +206,8 @@ export interface RoomAlert {
 export interface RoomSummary {
   lightsOn: number;
   coversOpen: number;
+  /** Position (0-100) de chaque volet ouvert, dans l'ordre des entités. */
+  coverPositions: number[];
   mediaPlaying: boolean;
   alerts: RoomAlert[];
   lightIds: string[];
@@ -217,6 +228,7 @@ export function summarizeRoom(entities: ResolvedEntity[]): RoomSummary {
   const summary: RoomSummary = {
     lightsOn: 0,
     coversOpen: 0,
+    coverPositions: [],
     mediaPlaying: false,
     alerts: [],
     lightIds: [],
@@ -233,7 +245,10 @@ export function summarizeRoom(entities: ResolvedEntity[]): RoomSummary {
         break;
       case "cover":
         summary.coverIds.push(e.entity_id);
-        if (active) summary.coversOpen++;
+        if (active) {
+          summary.coversOpen++;
+          summary.coverPositions.push(coverPosition(e));
+        }
         break;
       case "media_player":
         if (active) summary.mediaPlaying = true;

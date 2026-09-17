@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
-import { groupByRoomName, type ResolvedEntity } from "../core/entities";
+import { coverPosition, groupByRoomName, type ResolvedEntity } from "../core/entities";
 import { IconBlind, IconChevronUp, IconChevronDown, IconStop, IconX } from "../icons";
 import { useOverlay } from "../core/use-overlay";
 
@@ -10,14 +10,6 @@ interface CoversPanelProps {
   covers: ResolvedEntity[];
   areas: Area[];
   onClose: () => void;
-}
-
-function coverPosition(entity: ResolvedEntity): number {
-  const p = entity.state.attributes.current_position as number | undefined;
-  if (typeof p === "number") return p;
-  if (entity.state.state === "open") return 100;
-  if (entity.state.state === "closed") return 0;
-  return 50;
 }
 
 interface CoverRowProps {

@@ -476,18 +476,18 @@ export const IconMore = (p: P) => (
 
 export const IconCouch = (p: P) => (
   <Icon {...p}>
-    <path d="M4 14a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4H4v-4Z" />
-    <path d="M6 12V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4" />
-    <path d="M5 18v2M19 18v2" />
+    <path d="M4 12.8a1.9 1.9 0 0 1 3.8 0V15h8.4v-2.2a1.9 1.9 0 0 1 3.8 0V18H4v-5.2Z" />
+    <path d="M6.6 12.2V8.6A2.6 2.6 0 0 1 9.2 6h5.6a2.6 2.6 0 0 1 2.6 2.6v3.6" />
+    <path d="M6 18v2M18 18v2" />
   </Icon>
 );
 
 export const IconBed = (p: P) => (
   <Icon {...p}>
-    <path d="M3 17v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5" />
-    <path d="M3 14h18" />
-    <path d="M3 17v3M21 17v3" />
-    <circle cx="8" cy="11" r="1.5" />
+    <path d="M3 20V8.5" />
+    <path d="M3 13h12a6 6 0 0 1 6 6v1" />
+    <path d="M3 17h18" />
+    <rect x="4.6" y="9.6" width="5.4" height="3.4" rx="1.2" />
   </Icon>
 );
 
@@ -499,19 +499,83 @@ export const IconFork = (p: P) => (
   </Icon>
 );
 
+export const IconFridge = (p: P) => (
+  <Icon {...p}>
+    <rect x="6" y="2" width="12" height="20" rx="2" />
+    <path d="M6 9.5h12" />
+    <path d="M15 4.6v3" />
+    <path d="M15 11.6v3.4" />
+  </Icon>
+);
+
 export const IconBath = (p: P) => (
   <Icon {...p}>
-    <path d="M3 12h18v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3Z" />
-    <path d="M7 12V6a2 2 0 0 1 4 0" />
-    <path d="M3 19v2M21 19v2" />
+    <path d="M3 12.4h18v2.1a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 14.5v-2.1Z" />
+    <path d="M7 12.4V6.4A2.4 2.4 0 0 1 11.8 6" />
+    <path d="M6 19v1.8M18 19v1.8" />
   </Icon>
 );
 
 export const IconDoorRoom = (p: P) => (
   <Icon {...p}>
-    <path d="M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17" />
+    <path d="M6 21V4.4A1.4 1.4 0 0 1 7.4 3h9.2A1.4 1.4 0 0 1 18 4.4V21" />
     <path d="M3 21h18" />
-    <circle cx="15" cy="13" r="0.6" fill="currentColor" />
+    <path d="M9 7.5h6" />
+    <circle cx="15" cy="13" r="1" />
+  </Icon>
+);
+
+export const IconToilet = (p: P) => (
+  <Icon {...p}>
+    <rect x="5.4" y="2.6" width="6" height="4.6" rx="1.1" />
+    <path d="M8.4 7.2v2.2" />
+    <path d="M3.8 9.4h12.4v1.8a4.8 4.8 0 0 1-4.8 4.8H8.6a4.8 4.8 0 0 1-4.8-4.8V9.4Z" />
+    <path d="M10 16v3.6M6.8 19.6h6.4" />
+  </Icon>
+);
+
+export const IconWasher = (p: P) => (
+  <Icon {...p}>
+    <rect x="4" y="2.6" width="16" height="18.8" rx="2.2" />
+    <path d="M4 7.6h16" />
+    <circle cx="12" cy="14.6" r="4.2" />
+    <circle cx="16.6" cy="5.1" r="0.9" />
+  </Icon>
+);
+
+export const IconGarage = (p: P) => (
+  <Icon {...p}>
+    <path d="M3 21V9.6L12 4l9 5.6V21" />
+    <path d="M6.6 21v-8h10.8v8" />
+    <path d="M6.6 16.4h10.8M6.6 18.8h10.8" />
+  </Icon>
+);
+
+export const IconDesk = (p: P) => (
+  <Icon {...p}>
+    <rect x="3" y="4.2" width="18" height="11.2" rx="1.6" />
+    <path d="M12 15.4v3.2" />
+    <path d="M8 18.6h8" />
+  </Icon>
+);
+
+export const IconPlant = (p: P) => (
+  <Icon {...p}>
+    <path d="M5.6 12.6h12.8l-1.3 7.2a1.7 1.7 0 0 1-1.7 1.4H8.6a1.7 1.7 0 0 1-1.7-1.4L5.6 12.6Z" />
+    <path d="M12 12.6V6.4" />
+    <path d="M12 10.2C8.8 10.2 7.4 8 7.7 5.2c2.7-.3 4.3 1.5 4.3 5Z" />
+    <path d="M12 11c3 0 4.3-2 4-4.6-2.6-.3-4 1.4-4 4.6Z" />
+  </Icon>
+);
+
+export const IconTeddy = (p: P) => (
+  <Icon {...p}>
+    <circle cx="6.9" cy="6.9" r="2.3" />
+    <circle cx="17.1" cy="6.9" r="2.3" />
+    <circle cx="12" cy="13" r="6.2" />
+    <circle cx="9.9" cy="11.8" r="0.75" fill="currentColor" stroke="none" />
+    <circle cx="14.1" cy="11.8" r="0.75" fill="currentColor" stroke="none" />
+    <path d="M10.4 15.4a2.2 2.2 0 0 0 3.2 0" />
   </Icon>
 );
 

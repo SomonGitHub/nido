@@ -3,7 +3,14 @@ import {
   IconCouch,
   IconBed,
   IconFork,
+  IconFridge,
   IconBath,
+  IconToilet,
+  IconWasher,
+  IconGarage,
+  IconDesk,
+  IconPlant,
+  IconTeddy,
   IconDoorRoom,
   IconHome,
   IconLightOn,
@@ -25,13 +32,22 @@ import {
 
 type IconCmp = (p: { size?: number }) => JSX.Element;
 
+/* Une pièce = l'objet qui la caractérise. L'ordre compte : les libellés les plus
+   spécifiques (salle à manger, chambre d'enfant, WC) passent avant les génériques. */
 export function pickAreaIcon(name: string): IconCmp {
   const n = name.toLowerCase();
+  if (/(salle ?[àa] ?manger|dining)/.test(n)) return IconFork;
   if (/(salon|séjour|sejour|living)/.test(n)) return IconCouch;
+  if (/(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(n)) return IconTeddy;
   if (/(chambre|bedroom)/.test(n)) return IconBed;
-  if (/(cuisine|kitchen)/.test(n)) return IconFork;
-  if (/(salle ?de ?bain|sdb|bath|douche|toilette)/.test(n)) return IconBath;
-  if (/(entrée|entree|hall|couloir)/.test(n)) return IconDoorRoom;
+  if (/(cuisine|kitchen)/.test(n)) return IconFridge;
+  if (/(wc|toilette|water ?closet)/.test(n)) return IconToilet;
+  if (/(salle ?de ?bain|sdb|bath|douche|shower)/.test(n)) return IconBath;
+  if (/(buanderie|lingerie|laundry|cellier)/.test(n)) return IconWasher;
+  if (/(garage|carport|atelier)/.test(n)) return IconGarage;
+  if (/(jardin|terrasse|balcon|patio|ext[ée]rieur|garden|outdoor)/.test(n)) return IconPlant;
+  if (/(bureau|office|study)/.test(n)) return IconDesk;
+  if (/(entrée|entree|hall|couloir|palier|d[ée]gagement)/.test(n)) return IconDoorRoom;
   return IconHome;
 }
 

@@ -273,7 +273,9 @@ function RoomCard({
       {summary.coversOpen > 0 && (
         <span class="nido-room-card__chip">
           <IconBlind size={13} />
-          {summary.coversOpen}
+          {summary.coversOpen === 1
+            ? `${Math.round(summary.coverPositions[0])} %`
+            : summary.coversOpen}
         </span>
       )}
       {summary.mediaPlaying && (
