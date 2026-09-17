@@ -2251,6 +2251,37 @@
   .nido-room-detail__stats { width: 100%; box-sizing: border-box; }
 }
 
+/* Téléphone : deux entités par ligne, le hero gardant la largeur pleine.
+   Seuil aligné sur useRoomLayout, pour que la page pièce bascule en même
+   temps que les cartes du dashboard. */
+@media (max-width: 599px) {
+  .nido-room-detail__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: stretch;
+  }
+  .nido-room-detail__grid .nido-drag-item[data-hero="true"] {
+    grid-column: 1 / -1;
+  }
+  /* 166 px de carte : 20 px de marge de chaque côté mangent un quart de la
+     largeur utile. */
+  .nido-room-detail__grid .n-card { padding: 14px; }
+  /* Rangées de boutons et de mesures trop larges pour une demi-colonne :
+     elles passent à la ligne au lieu d'être rognées. */
+  .nido-room-detail__grid .n-vacuum__actions,
+  .nido-room-detail__grid .n-climate__temp {
+    flex-wrap: wrap;
+  }
+  .nido-room-detail__grid .n-alarm__modes {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+  /* `span 3` recréerait une troisième colonne implicite alors qu'auto-fit
+     n'en retient que deux à cette largeur. */
+  .nido-room-detail__grid .n-mode-btn--disarm {
+    grid-column: 1 / -1;
+  }
+}
+
 /* Empty state */
 .nido-empty {
   display: flex;
