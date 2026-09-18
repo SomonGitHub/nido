@@ -8,6 +8,12 @@ import {
   type ResolvedEntity,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
+import {
+  temperatureTint,
+  humidityTint,
+  tintStyle,
+  type MeasureTint,
+} from "../core/measure-tint";
 import { IconChevronLeft, IconMore } from "../icons";
 import { pickAreaIcon, DOMAIN_LABEL, DragItem } from "./shared";
 import { renderWidget } from "./render-widget";
@@ -147,6 +153,10 @@ export function RoomDetail({
                   label="Température"
                   value={stats.temperature.value}
                   unit={stats.temperature.unit || "°"}
+                  tint={temperatureTint(
+                    stats.temperature.value,
+                    stats.temperature.unit || "°",
+                  )}
                 />
               )}
               {stats.humidity && <Sep />}
@@ -155,6 +165,7 @@ export function RoomDetail({
                   label="Humidité"
                   value={Math.round(parseFloat(stats.humidity.value)).toString()}
                   unit={stats.humidity.unit || "%"}
+                  tint={humidityTint(stats.humidity.value)}
                 />
               )}
               {stats.illuminance && <Sep />}
@@ -214,11 +225,23 @@ export function RoomDetail({
   );
 }
 
-function Stat({ label, value, unit }: { label: string; value: string; unit: string }) {
+function Stat({
+  label,
+  value,
+  unit,
+  tint = null,
+}: {
+  label: string;
+  value: string;
+  unit: string;
+  /* Température et humidité portent le dégradé des cartes pièce ; la
+     luminosité reste neutre, il n'y a pas de « bonne » valeur à signaler. */
+  tint?: MeasureTint | null;
+}) {
   return (
-    <div class="nido-room-detail__stat">
+    <div class={`nido-room-detail__stat ${tint ? "nido-room-detail__stat--tinted" : ""}`}>
       <div class="n-eyebrow">{label}</div>
-      <div class="nido-room-detail__stat-value">
+      <div class="nido-room-detail__stat-value" style={tintStyle(tint)}>
         {value}
         <span class="nido-room-detail__stat-unit">{unit}</span>
       </div>

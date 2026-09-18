@@ -17,6 +17,12 @@ import {
   type RoomOccupancyKind,
 } from "../core/entities";
 import { applyOrder, useDragReorder } from "../core/drag-reorder";
+import {
+  temperatureTint,
+  humidityTint,
+  tintStyle,
+  type MeasureTint,
+} from "../core/measure-tint";
 import { useRoomLayout, type RoomLayout } from "../core/use-room-layout";
 import { WeatherPill } from "../widgets/weather";
 import { WeatherPanel } from "../components/weather-panel";
@@ -168,17 +174,22 @@ interface BandItem {
   label: string;
   value: string;
   unit: string;
+  /* Température et humidité portent un dégradé piloté par la valeur ; la
+     luminosité reste neutre, il n'y a pas de « bonne » valeur à signaler. */
+  tint?: MeasureTint | null;
 }
 
 function roomBandItems(stats: RoomStats): BandItem[] {
   const items: BandItem[] = [];
   if (stats.temperature) {
+    const unit = stats.temperature.unit || "°";
     items.push({
       key: "temperature",
       Icon: IconThermostat,
       label: "Temp.",
       value: stats.temperature.value,
-      unit: stats.temperature.unit || "°",
+      unit,
+      tint: temperatureTint(stats.temperature.value, unit),
     });
   }
   if (stats.humidity) {
@@ -188,6 +199,7 @@ function roomBandItems(stats: RoomStats): BandItem[] {
       label: "Humid.",
       value: Math.round(parseFloat(stats.humidity.value)).toString(),
       unit: stats.humidity.unit || "%",
+      tint: humidityTint(stats.humidity.value),
     });
   }
   if (stats.illuminance) {
@@ -339,8 +351,12 @@ function RoomCard({
   const bandEl =
     band.length > 0 ? (
       <div class="nido-room-card__band">
-        {band.map(({ key, Icon: StatIcon, label, value, unit }) => (
-          <span key={key} class="nido-room-card__band-item">
+        {band.map(({ key, Icon: StatIcon, label, value, unit, tint }) => (
+          <span
+            key={key}
+            class={`nido-room-card__band-item ${tint ? "nido-room-card__band-item--tinted" : ""}`}
+            style={tintStyle(tint ?? null)}
+          >
             <span class="nido-room-card__band-icon">
               <StatIcon size={14} />
             </span>
