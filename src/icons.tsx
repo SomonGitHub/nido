@@ -543,6 +543,13 @@ export const IconWasher = (p: P) => (
   </Icon>
 );
 
+export const IconDressing = (p: P) => (
+  <Icon {...p}>
+    <path d="M13.6 5.8a1.6 1.6 0 1 0-1.6 1.6v4.8" />
+    <path d="m12 12.2-8.4 7.4h16.8L12 12.2" />
+  </Icon>
+);
+
 export const IconGarage = (p: P) => (
   <Icon {...p}>
     <path d="M3 21V9.6L12 4l9 5.6V21" />
@@ -561,9 +568,7 @@ export const IconDesk = (p: P) => (
 
 export const IconStairs = (p: P) => (
   <Icon {...p}>
-    <path d="M3 20.6h4.3v-4.2h4.3v-4.2h4.3V8h4.4" />
-    <path d="M20.3 8V3.8" />
-    <path d="M3 20.6V17" />
+    <path d="M3 19.2v-3.6h4.5V12H12V8.4h4.5V4.8H21v14.4H3Z" />
   </Icon>
 );
 
@@ -584,10 +589,11 @@ export const IconWine = (p: P) => (
 
 export const IconDining = (p: P) => (
   <Icon {...p}>
-    <path d="M2.8 12.6h18.4" />
-    <path d="M5.2 12.6v6.6M18.8 12.6v6.6" />
-    <path d="M7.4 12.6V9a1.7 1.7 0 0 1 1.7-1.7h1.2A1.7 1.7 0 0 1 12 9v3.6" />
-    <path d="M12 12.6V9a1.7 1.7 0 0 1 1.7-1.7h1.2A1.7 1.7 0 0 1 16.6 9v3.6" />
+    <rect x="5" y="8.8" width="14" height="6.4" rx="2" />
+    <rect x="6.8" y="4.2" width="4" height="3" rx="1" />
+    <rect x="13.2" y="4.2" width="4" height="3" rx="1" />
+    <rect x="6.8" y="16.8" width="4" height="3" rx="1" />
+    <rect x="13.2" y="16.8" width="4" height="3" rx="1" />
   </Icon>
 );
 

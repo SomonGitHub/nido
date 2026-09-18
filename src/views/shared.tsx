@@ -8,6 +8,7 @@ import {
   IconBath,
   IconToilet,
   IconWasher,
+  IconDressing,
   IconGarage,
   IconDesk,
   IconPlant,
@@ -43,13 +44,14 @@ export function pickAreaIcon(name: string): IconCmp {
   if (/(salle ?[àa] ?manger|dining)/.test(n)) return IconDining;
   if (/(salon|séjour|sejour|living)/.test(n)) return IconCouch;
   if (/(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(n)) return IconTeddy;
+  if (/(dressing|penderie|placard|walk-? ?in)/.test(n)) return IconDressing;
   if (/(chambre|bedroom)/.test(n)) return IconBed;
   if (/(cuisine|kitchen)/.test(n)) return IconFridge;
   if (/(wc|toilette|water ?closet)/.test(n)) return IconToilet;
   if (/(salle ?de ?bain|sdb|bath|douche|shower)/.test(n)) return IconBath;
   if (/(buanderie|lingerie|laundry|cellier)/.test(n)) return IconWasher;
   if (/(garage|carport|atelier)/.test(n)) return IconGarage;
-  if (/(jardin|ext[ée]rieur|dehors|garden|outdoor)/.test(n)) return IconTree;
+  if (/(jardin|ext[éèe]rieur|dehors|garden|outdoor)/.test(n)) return IconTree;
   if (/(terrasse|balcon|patio|v[ée]randa)/.test(n)) return IconPlant;
   if (/(cave|sous-? ?sol|basement)/.test(n)) return IconWine;
   if (/(escalier|stairs?|mont[ée]e)/.test(n)) return IconStairs;
