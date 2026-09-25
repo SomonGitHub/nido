@@ -3,8 +3,10 @@ import type { JSX } from "preact";
 import type { HassObject } from "../types";
 import type { Area, Floor } from "../core/areas";
 import {
+  detectOccupancy,
   extractRoomStats,
   summarizeRoom,
+  type RoomOccupancy,
   type ResolvedEntity,
   type RoomAlert,
   type RoomStats,
@@ -23,6 +25,7 @@ import { loadPlanLayers, savePlanLayers, type PlanLayers } from "../core/storage
 import { durationLabel } from "../core/time-ago";
 import { useMinuteTick } from "../core/use-minute-tick";
 import {
+  IconActivity,
   IconArrowRight,
   IconBlind,
   IconEdit,
@@ -58,6 +61,9 @@ interface RoomInfo {
   opening: RoomAlert | null;
   openingSince: number | null;
   critical: RoomAlert | null;
+  occupancy: RoomOccupancy | null;
+  /** Minutes depuis que le dernier détecteur est retombé, s'il y a peu. */
+  motionAgo: number | null;
 }
 
 const PAD = 16;
@@ -71,6 +77,24 @@ const LOD_LABELS = 28;
 const LOD_DETAIL = 50;
 
 const OPENING_KINDS = new Set(["window", "door"]);
+const MOTION_CLASSES = new Set(["motion", "occupancy", "presence"]);
+/* Au-delà, la trace s'efface : « mouvement il y a 40 min » ne dit plus
+   qu'une pièce est habitée. */
+const MOTION_RECENT_MIN = 10;
+
+function motionAgo(entities: ResolvedEntity[], now: Date): number | null {
+  let ago: number | null = null;
+  for (const e of entities) {
+    if (e.domain !== "binary_sensor" || e.state.state !== "off") continue;
+    const dc = e.state.attributes.device_class as string | undefined;
+    if (!dc || !MOTION_CLASSES.has(dc)) continue;
+    const t = new Date(e.state.last_changed).getTime();
+    if (Number.isNaN(t)) continue;
+    const minutes = Math.max(0, Math.floor((now.getTime() - t) / 60_000));
+    if (minutes <= MOTION_RECENT_MIN && (ago === null || minutes < ago)) ago = minutes;
+  }
+  return ago;
+}
 const OPENING_CLASSES = new Set(["window", "door", "garage_door"]);
 
 function openingSince(entities: ResolvedEntity[], now: Date): number | null {
@@ -150,6 +174,8 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
         opening: summary.alerts.find((a) => OPENING_KINDS.has(a.kind)) ?? null,
         openingSince: openingSince(list, now),
         critical: summary.alerts.find((a) => !OPENING_KINDS.has(a.kind)) ?? null,
+        occupancy: detectOccupancy(list),
+        motionAgo: motionAgo(list, now),
       });
     }
     return map;
@@ -350,6 +376,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           ["temperature", "Température", IconThermostat],
           ["lights", "Lumières", IconLightOn],
           ["openings", "Ouvrants", IconWindow],
+          ["motion", "Mouvement", IconActivity],
         ] as const
       ).map(([key, label, Ico]) => (
         <button
@@ -538,6 +565,8 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
               {floorSummary.openings > 0
                 ? `${floorSummary.openings} ouvrant${floorSummary.openings > 1 ? "s" : ""} ouvert${floorSummary.openings > 1 ? "s" : ""}`
                 : "Tout est fermé"}
+              {floorSummary.occupied > 0 &&
+                ` · ${floorSummary.occupied} pièce${floorSummary.occupied > 1 ? "s" : ""} occupée${floorSummary.occupied > 1 ? "s" : ""}`}
               {floorSummary.avgTemp !== null && ` · Moyenne ${floorSummary.avgTemp.toLocaleString("fr-FR")} °C`}
             </div>
           </div>
@@ -574,18 +603,25 @@ function PlanOpeningMark({
   );
 }
 
-function summarizeFloor(infos: RoomInfo[]): { lights: number; openings: number; avgTemp: number | null } {
+function summarizeFloor(infos: RoomInfo[]): {
+  lights: number;
+  openings: number;
+  occupied: number;
+  avgTemp: number | null;
+} {
   let lights = 0;
   let openings = 0;
+  let occupied = 0;
   const temps: number[] = [];
   for (const r of infos) {
     lights += r.summary.lightsOn;
     if (r.opening) openings++;
+    if (r.occupancy) occupied++;
     const t = r.stats.temperature ? parseFloat(r.stats.temperature.value) : NaN;
     if (Number.isFinite(t)) temps.push(t);
   }
   const avgTemp = temps.length ? Math.round((temps.reduce((s, t) => s + t, 0) / temps.length) * 10) / 10 : null;
-  return { lights, openings, avgTemp };
+  return { lights, openings, occupied, avgTemp };
 }
 
 interface PlanRoomProps {
@@ -604,6 +640,13 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
   const opening = layers.openings ? info.opening : null;
   const alert = info.critical ?? opening;
   const tinted = layers.temperature && info.tempTint !== null;
+  const motion: "active" | "recent" | null = !layers.motion
+    ? null
+    : info.occupancy
+      ? "active"
+      : info.motionAgo !== null
+        ? "recent"
+        : null;
   /* En vue d'ensemble, une grande pièce garde son nom en petit : sans lui, un
      plan de téléphone n'est qu'une mosaïque de couleurs. Une pièce étroite
      (WC, cellier) ne loge qu'une ligne, même zoomée. */
@@ -615,6 +658,7 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
     info.area.name,
     temp ? `${formatValue(temp.value)} degrés` : null,
     info.summary.lightsOn > 0 ? statusLine(info.summary) : null,
+    info.occupancy?.label ?? null,
     alert?.label ?? null,
   ]
     .filter(Boolean)
@@ -637,14 +681,24 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
       data-alert={alert ? "true" : "false"}
       data-selected={selected ? "true" : "false"}
       data-narrow={narrow ? "true" : "false"}
+      data-motion={motion ?? "none"}
       aria-label={aria}
       aria-pressed={selected}
       style={style}
       onClick={onSelect}
     >
       {lit && <span class="nido-plan__glow" aria-hidden="true" />}
+      {motion && labelled && (
+        <span
+          class="nido-plan__motion"
+          data-state={motion}
+          aria-hidden="true"
+          style={{ "--motion-size": `${Math.max(18, Math.min(160, Math.min(rect.w, rect.h) * cell * 0.55))}px` }}
+        />
+      )}
       {labelled && lod === "overview" && (
         <span class="nido-plan__dots" aria-hidden="true">
+          {motion && <span class="nido-plan__dot nido-plan__dot--motion" data-state={motion} />}
           {lit && <span class="nido-plan__dot nido-plan__dot--light" />}
           {alert && <span class="nido-plan__dot nido-plan__dot--alert" />}
         </span>
@@ -659,8 +713,9 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
                 {info.summary.lightsOn}
               </span>
             )}
-            {narrow && (lit || alert) && (
+            {narrow && (lit || alert || motion) && (
               <span class="nido-plan__dots" aria-hidden="true">
+                {motion && <span class="nido-plan__dot nido-plan__dot--motion" data-state={motion} />}
                 {lit && <span class="nido-plan__dot nido-plan__dot--light" />}
                 {alert && <span class="nido-plan__dot nido-plan__dot--alert" />}
               </span>
@@ -673,6 +728,12 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
                 {alert === opening && info.openingSince !== null
                   ? `Ouverte · ${durationLabel(info.openingSince)}`
                   : alert.label}
+              </span>
+            )}
+            {motion && lod === "detail" && !narrow && (
+              <span class="nido-plan__motion-label">
+                <IconActivity size={11} />
+                {motion === "active" ? info.occupancy!.label : `Mouvement il y a ${durationLabel(info.motionAgo!)}`}
               </span>
             )}
             {temp && (
@@ -710,6 +771,12 @@ function RoomPanel({ info, floorLabel, compact, onToggleLights, onToggleCovers, 
           <div class="nido-plan__eyebrow">{floorLabel}</div>
           <div class="nido-plan__panel-name">{info.area.name}</div>
           <div class="nido-plan__panel-status">{statusLine(summary)}</div>
+          {(info.occupancy || info.motionAgo !== null) && (
+            <div class="nido-plan__panel-motion" data-state={info.occupancy ? "active" : "recent"}>
+              <span class="nido-plan__panel-motion-dot" aria-hidden="true" />
+              {info.occupancy ? info.occupancy.label : `Mouvement il y a ${durationLabel(info.motionAgo!)}`}
+            </div>
+          )}
         </div>
       </div>
       {alert && (

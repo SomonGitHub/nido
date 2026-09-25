@@ -146,7 +146,10 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   mur le moins partagé et liée au premier capteur libre de la pièce.
 - **Calques** (`nido.planLayers`) : Température (remplissage `oklch` piloté par
   `--measure-h/c` + `--plan-fill-l/cf` selon le mode), Lumières (halo + compteur), Ouvrants
-  (pastille « Ouverte · 25 min » ; les alertes fumée/eau/gaz s'affichent toujours).
+  (pastille « Ouverte · 25 min » ; les alertes fumée/eau/gaz s'affichent toujours),
+  Mouvement (onde accent pulsée au centre de la pièce tant qu'un binary_sensor
+  motion/occupancy/presence est actif via `detectOccupancy`, trace fixe et pâle pendant les
+  10 min qui suivent ; même langage que la pastille des cartes pièce).
 - **Zoom** : pincement, Ctrl/⌘ + molette, double-clic, boutons + / − / Ajuster. Le niveau de
   détail suit la taille d'une case en pixels (`LOD_LABELS` 28, `LOD_DETAIL` 50) ; en vue
   d'ensemble, une pièce assez grande garde son nom.

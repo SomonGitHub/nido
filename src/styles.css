@@ -7373,3 +7373,81 @@
 @media (prefers-reduced-motion: reduce) {
   .nido-plan-editor__room { transition: none; }
 }
+
+/* Calque Mouvement : même langage que la pastille des cartes pièce (accent
+   pulsé). Une onde au centre de la pièce tant qu'un détecteur est actif, une
+   trace fixe et pâle pendant les dix minutes qui suivent. */
+.nido-plan__motion {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--motion-size);
+  height: var(--motion-size);
+  margin: calc(var(--motion-size) / -2) 0 0 calc(var(--motion-size) / -2);
+  box-sizing: border-box;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.nido-plan__motion::before,
+.nido-plan__motion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+.nido-plan__motion::before {
+  inset: calc(50% - 5px);
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--bg-card);
+}
+.nido-plan__motion[data-state="active"]::after {
+  border: 2px solid var(--accent);
+  animation: nido-plan-motion 2.4s var(--ease-out) infinite;
+}
+.nido-plan__motion[data-state="recent"] { opacity: 0.45; }
+.nido-plan__motion[data-state="recent"]::after {
+  border: 1.5px dashed var(--accent);
+  transform: scale(0.6);
+}
+@keyframes nido-plan-motion {
+  0% { transform: scale(0.25); opacity: 0.85; }
+  70% { transform: scale(1); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.nido-plan__dot--motion { background: var(--accent); }
+.nido-plan__dot--motion[data-state="recent"] { opacity: 0.45; }
+.nido-plan__motion-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+:host([data-mode="dark"]) .nido-plan__motion-label { color: var(--accent); }
+.nido-plan__panel-motion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+:host([data-mode="dark"]) .nido-plan__panel-motion { color: var(--accent); }
+.nido-plan__panel-motion[data-state="recent"] { font-weight: 500; color: var(--ink-2); }
+.nido-plan__panel-motion-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.nido-plan__panel-motion[data-state="recent"] .nido-plan__panel-motion-dot { opacity: 0.45; }
+
+/* Quatre calques dans le rail Echo Show : une rangée de boutons plus étroits. */
+.nido-plan--compact .nido-plan__layers { gap: 6px; }
+.nido-plan--compact .nido-plan__layer { width: auto; flex: 1; height: 52px; border-radius: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-plan__motion[data-state="active"]::after { animation: none; transform: scale(0.7); opacity: 0.5; }
+}

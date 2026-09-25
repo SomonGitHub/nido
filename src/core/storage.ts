@@ -186,9 +186,10 @@ export interface PlanLayers {
   temperature: boolean;
   lights: boolean;
   openings: boolean;
+  motion: boolean;
 }
 
-const DEFAULT_PLAN_LAYERS: PlanLayers = { temperature: true, lights: true, openings: true };
+const DEFAULT_PLAN_LAYERS: PlanLayers = { temperature: true, lights: true, openings: true, motion: true };
 
 export function loadPlanLayers(): PlanLayers {
   const raw = safeStorage()?.getItem(KEYS.planLayers);
@@ -199,6 +200,7 @@ export function loadPlanLayers(): PlanLayers {
       temperature: parsed.temperature !== false,
       lights: parsed.lights !== false,
       openings: parsed.openings !== false,
+      motion: parsed.motion !== false,
     };
   } catch {
     return DEFAULT_PLAN_LAYERS;
