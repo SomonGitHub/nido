@@ -682,3 +682,25 @@ export const IconNotebook = (p: P) => (
     <path d="M5 7h2M5 11h2M5 15h2" />
   </Icon>
 );
+
+export const IconFloorPlan = (p: P) => (
+  <Icon {...p}>
+    <rect x="3" y="3" width="18" height="18" rx="2" />
+    <path d="M3 12h8v9M11 3v5M15 12h6" />
+  </Icon>
+);
+
+export const IconCards = (p: P) => (
+  <Icon {...p}>
+    <rect x="3" y="3" width="7.5" height="7.5" rx="2" />
+    <rect x="13.5" y="3" width="7.5" height="7.5" rx="2" />
+    <rect x="3" y="13.5" width="7.5" height="7.5" rx="2" />
+    <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2" />
+  </Icon>
+);
+
+export const IconFit = (p: P) => (
+  <Icon {...p}>
+    <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
+  </Icon>
+);

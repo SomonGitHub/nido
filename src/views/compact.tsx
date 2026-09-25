@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { JSX } from "preact";
 import type { HassObject } from "../types";
-import type { Area } from "../core/areas";
+import type { Area, Floor } from "../core/areas";
+import { FloorPlan } from "./floor-plan";
 import { groupByArea, isEntityActive, type ResolvedEntity } from "../core/entities";
 import { applyOrder } from "../core/drag-reorder";
 import { greetingFor } from "./dashboard";
@@ -25,18 +26,21 @@ import {
   IconPlay,
   IconPause,
   IconSensor,
+  IconFloorPlan,
 } from "../icons";
 
 interface CompactDashboardProps {
   hass: HassObject;
   areas: Area[];
+  floors: Floor[];
   entities: ResolvedEntity[];
   favorites: string[];
   exposed: string[];
   roomsOrder: string[];
+  onOpenRoom: (areaId: string) => void;
 }
 
-type CompactView = "glance" | "controls" | "ambient";
+type CompactView = "glance" | "controls" | "plan" | "ambient";
 
 const CONTROL_DOMAINS = new Set(["light", "switch", "cover", "lock", "vacuum", "fan", "climate"]);
 
@@ -117,10 +121,12 @@ function getPictureUrl(hass: HassObject, ent: string | undefined): string | null
 export function CompactDashboard({
   hass,
   areas,
+  floors,
   entities,
   favorites,
   exposed,
   roomsOrder,
+  onOpenRoom,
 }: CompactDashboardProps) {
   const [view, setView] = useState<CompactView>("glance");
   const [, forceTick] = useState(0);
@@ -248,6 +254,11 @@ export function CompactDashboard({
   }, [areas, byArea, roomsOrder]);
 
   const [selectedAreaId, setSelectedAreaId] = useState<string | null>(null);
+  const planAreas = useMemo(
+    () => applyOrder(areas.filter((a) => (byArea.get(a.area_id) ?? []).length > 0), roomsOrder, (a) => a.area_id),
+    [areas, byArea, roomsOrder],
+  );
+
   const activeAreaId = populatedAreas.some((a) => a.area_id === selectedAreaId)
     ? selectedAreaId
     : populatedAreas[0]?.area_id ?? null;
@@ -294,6 +305,16 @@ export function CompactDashboard({
               controlEntities={controlEntities}
             />
           )}
+          {view === "plan" && (
+            <FloorPlan
+              hass={hass}
+              areas={planAreas}
+              floors={floors}
+              byArea={byArea}
+              variant="compact"
+              onOpenRoom={onOpenRoom}
+            />
+          )}
           {view === "ambient" && (
             <CompactAmbient
               hass={hass}
@@ -335,6 +356,7 @@ function CompactRail({
   const items: { id: CompactView; label: string; Icon: (p: { size?: number }) => JSX.Element }[] = [
     { id: "glance", label: "Accueil", Icon: IconHome },
     { id: "controls", label: "Contrôles", Icon: IconLightOn },
+    { id: "plan", label: "Plan", Icon: IconFloorPlan },
     { id: "ambient", label: "Veille", Icon: IconMoon },
   ];
   return (

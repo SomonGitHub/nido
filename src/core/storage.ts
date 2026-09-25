@@ -10,6 +10,8 @@ const KEYS = {
   lastNotificationRead: "nido.lastNotificationRead",
   cameraLiveMap: "nido.cameraLiveMap",
   kidsEnabled: "nido.kidsEnabled",
+  roomsView: "nido.roomsView",
+  planLayers: "nido.planLayers",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -167,4 +169,42 @@ export function loadKidsEnabled(): boolean {
 
 export function saveKidsEnabled(value: boolean): void {
   safeStorage()?.setItem(KEYS.kidsEnabled, value ? "1" : "0");
+}
+
+export type RoomsView = "cards" | "plan";
+
+export function loadRoomsView(): RoomsView | null {
+  const raw = safeStorage()?.getItem(KEYS.roomsView);
+  return raw === "cards" || raw === "plan" ? raw : null;
+}
+
+export function saveRoomsView(view: RoomsView): void {
+  safeStorage()?.setItem(KEYS.roomsView, view);
+}
+
+export interface PlanLayers {
+  temperature: boolean;
+  lights: boolean;
+  openings: boolean;
+}
+
+const DEFAULT_PLAN_LAYERS: PlanLayers = { temperature: true, lights: true, openings: true };
+
+export function loadPlanLayers(): PlanLayers {
+  const raw = safeStorage()?.getItem(KEYS.planLayers);
+  if (!raw) return DEFAULT_PLAN_LAYERS;
+  try {
+    const parsed = JSON.parse(raw) as Partial<PlanLayers>;
+    return {
+      temperature: parsed.temperature !== false,
+      lights: parsed.lights !== false,
+      openings: parsed.openings !== false,
+    };
+  } catch {
+    return DEFAULT_PLAN_LAYERS;
+  }
+}
+
+export function savePlanLayers(layers: PlanLayers): void {
+  safeStorage()?.setItem(KEYS.planLayers, JSON.stringify(layers));
 }

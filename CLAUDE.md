@@ -39,6 +39,8 @@ nido-dashboard/                # = racine du repo HACS
     types.ts                   # HassObject, HassEntity, PanelInfo
     core/
       areas.ts                 # fetchAreas → callWS("config/area_registry/list")
+                               #   fetchFloors → "config/floor_registry/list" ([] si HA < 2024.4)
+      floor-plan.ts            # groupAreasByFloor + autoLayout (plan en cases de grille)
       entities.ts              # fetch + resolveEntities + groupByArea
                                #   isEntityActive(e) : "actif" par domaine
                                #   extractRoomStats(es) : temp/humidity/illuminance par pièce
@@ -53,6 +55,7 @@ nido-dashboard/                # = racine du repo HACS
       shared.tsx               # pickAreaIcon(name), DOMAIN_LABEL, DOMAIN_ICON
       dashboard.tsx            # hero + Favoris (widgets) + Pièces (RoomCard grid)
       room-detail.tsx          # back + hero + stats panel + filters pills + widgets grid
+      floor-plan.tsx           # vue plan : étages, calques, zoom/pan, fiche pièce (3 variantes)
     components/
       onboarding.tsx           # overlay plein écran 5 étapes (Welcome/Connect/Entities/Theme/Family)
       weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
@@ -109,6 +112,32 @@ en lecture, alertes binary_sensor window/door/moisture/smoke/gas) + bandeau temp
 humidité / luminosité (`extractRoomStats`). Les actions rapides appellent `light.turn_on|off`
 et `cover.open|close_cover` sur les entités **exposées** de la pièce, avec `stopPropagation`
 pour ne pas déclencher l'ouverture de la pièce.
+
+## Vue plan
+
+La section Pièces bascule entre **Cartes** et **Plan** (`nido.roomsView`, par appareil ;
+sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a une page
+**Plan** dans son rail. Un seul composant `FloorPlan`, trois variantes :
+
+| Variante | Où | Rendu |
+|---|---|---|
+| `wide` | tablette + desktop | plan + fiche pièce à droite + résumé d'étage |
+| `phone` | `(max-width: 599px)` | plan 300 px, zoom en surimpression, fiche dessous |
+| `compact` | Echo Show | rail (étages, calques, pièce choisie + Ouvrir) + plan |
+
+- **Étages** : registre HA (`floor_id` des pièces). Pièces sans étage → onglet « Autres
+  pièces » (ou « Maison » s'il n'y a aucun étage).
+- **Placement** : `autoLayout` range les pièces en rangées de 18 cases, largeur selon le
+  nombre d'entités exposées. Coordonnées en cases, jamais en pixels. L'éditeur (étape 2)
+  stockera des `PlanRect[]` par pièce côté HA (topic MQTT retain, comme `kids-sync`).
+- **Calques** (`nido.planLayers`) : Température (remplissage `oklch` piloté par
+  `--measure-h/c` + `--plan-fill-l/cf` selon le mode), Lumières (halo + compteur), Ouvrants
+  (pastille « Ouverte · 25 min » ; les alertes fumée/eau/gaz s'affichent toujours).
+- **Zoom** : pincement, Ctrl/⌘ + molette, double-clic, boutons + / − / Ajuster. Le niveau de
+  détail suit la taille d'une case en pixels (`LOD_LABELS` 28, `LOD_DETAIL` 50) ; en vue
+  d'ensemble, une pièce assez grande garde son nom.
+- Le déplacement ne capture le pointeur qu'au-delà de 6 px : capturer dès le `pointerdown`
+  enverrait le `click` au viewport au lieu de la pièce.
 
 ## Routing (sans router)
 

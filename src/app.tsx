@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { HassObject } from "./types";
-import { fetchAreas, type Area } from "./core/areas";
+import { fetchAreas, fetchFloors, type Area, type Floor } from "./core/areas";
 import {
   fetchDeviceRegistry,
   fetchEntityRegistry,
@@ -43,10 +43,12 @@ const REGISTRY_EVENTS = [
   "area_registry_updated",
   "entity_registry_updated",
   "device_registry_updated",
+  "floor_registry_updated",
 ] as const;
 
 export function App({ hass, host }: AppProps) {
   const [areas, setAreas] = useState<Area[] | null>(null);
+  const [floors, setFloors] = useState<Floor[]>([]);
   const [registry, setRegistry] = useState<EntityRegistryEntry[] | null>(null);
   const [devices, setDevices] = useState<DeviceRegistryEntry[] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -94,13 +96,15 @@ export function App({ hass, host }: AppProps) {
       const ref = hassRef.current;
       if (!ref) return;
       try {
-        const [a, e, d] = await Promise.all([
+        const [a, e, d, f] = await Promise.all([
           fetchAreas(ref),
           fetchEntityRegistry(ref),
           fetchDeviceRegistry(ref),
+          fetchFloors(ref),
         ]);
         if (cancelled) return;
         setAreas(a);
+        setFloors(f);
         setRegistry(e);
         setDevices(d);
       } catch (err: unknown) {
@@ -192,10 +196,12 @@ export function App({ hass, host }: AppProps) {
         <CompactDashboard
           hass={hass}
           areas={areas}
+          floors={floors}
           entities={entities}
           favorites={favorites}
           exposed={exposed}
           roomsOrder={roomsOrder}
+          onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
         />
       ) : view.kind === "energy" ? (
         <EnergyPage
@@ -209,6 +215,7 @@ export function App({ hass, host }: AppProps) {
         <Dashboard
           hass={hass}
           areas={areas}
+          floors={floors}
           entities={entities}
           favorites={favorites}
           exposed={exposed}

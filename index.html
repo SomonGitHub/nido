@@ -50,6 +50,11 @@
 
         "sensor.salon_temperature": { entity_id: "sensor.salon_temperature", state: "21.4",  attributes: { friendly_name: "Température salon",  device_class: "temperature", unit_of_measurement: "°C" }, last_changed: now, last_updated: now },
         "sensor.salon_humidite":    { entity_id: "sensor.salon_humidite",    state: "47",    attributes: { friendly_name: "Humidité salon",     device_class: "humidity",    unit_of_measurement: "%" },  last_changed: now, last_updated: now },
+        "sensor.cuisine_temperature": { entity_id: "sensor.cuisine_temperature", state: "22.1", attributes: { friendly_name: "Température cuisine", device_class: "temperature", unit_of_measurement: "°C" }, last_changed: now, last_updated: now },
+        "sensor.chambre_temperature": { entity_id: "sensor.chambre_temperature", state: "18.4", attributes: { friendly_name: "Température chambre", device_class: "temperature", unit_of_measurement: "°C" }, last_changed: now, last_updated: now },
+        "sensor.sdb_temperature":     { entity_id: "sensor.sdb_temperature",     state: "24.6", attributes: { friendly_name: "Température salle de bain", device_class: "temperature", unit_of_measurement: "°C" }, last_changed: now, last_updated: now },
+        "sensor.sdb_humidite":        { entity_id: "sensor.sdb_humidite",        state: "71",   attributes: { friendly_name: "Humidité salle de bain", device_class: "humidity", unit_of_measurement: "%" }, last_changed: now, last_updated: now },
+        "sensor.entree_temperature":  { entity_id: "sensor.entree_temperature",  state: "17.2", attributes: { friendly_name: "Température entrée", device_class: "temperature", unit_of_measurement: "°C" }, last_changed: now, last_updated: now },
         "sensor.cuisine_power":     { entity_id: "sensor.cuisine_power",     state: "1240",  attributes: { friendly_name: "Conso cuisine",      device_class: "power",       unit_of_measurement: "W" },  last_changed: now, last_updated: now },
         "sensor.entree_lux":        { entity_id: "sensor.entree_lux",        state: "320",   attributes: { friendly_name: "Luminosité entrée",  device_class: "illuminance", unit_of_measurement: "lx" }, last_changed: now, last_updated: now },
 
@@ -90,11 +95,15 @@
       };
 
       const areas = [
-        { area_id: "salon",   name: "Salon",   icon: null, picture: null },
-        { area_id: "cuisine", name: "Cuisine", icon: null, picture: null },
-        { area_id: "chambre", name: "Chambre", icon: null, picture: null },
-        { area_id: "entree",  name: "Entrée",  icon: null, picture: null },
-        { area_id: "sdb",     name: "Salle de bain", icon: null, picture: null },
+        { area_id: "salon",   name: "Salon",   icon: null, picture: null, floor_id: "rdc" },
+        { area_id: "cuisine", name: "Cuisine", icon: null, picture: null, floor_id: "rdc" },
+        { area_id: "chambre", name: "Chambre", icon: null, picture: null, floor_id: "etage" },
+        { area_id: "entree",  name: "Entrée",  icon: null, picture: null, floor_id: "rdc" },
+        { area_id: "sdb",     name: "Salle de bain", icon: null, picture: null, floor_id: "etage" },
+      ];
+      const floors = [
+        { floor_id: "rdc",   name: "Rez-de-chaussée", level: 0, icon: null },
+        { floor_id: "etage", name: "Étage",           level: 1, icon: null },
       ];
 
       const mk = (id, area) => ({ entity_id: id, device_id: id, area_id: area, name: null, original_name: null, platform: "demo", disabled_by: null, hidden_by: null });
@@ -122,6 +131,11 @@
         mk("sensor.salon_temperature", "salon"),
         mk("sensor.salon_humidite", "salon"),
         mk("sensor.cuisine_power", "cuisine"),
+        mk("sensor.cuisine_temperature", "cuisine"),
+        mk("sensor.chambre_temperature", "chambre"),
+        mk("sensor.sdb_temperature", "sdb"),
+        mk("sensor.sdb_humidite", "sdb"),
+        mk("sensor.entree_temperature", "entree"),
         mk("sensor.entree_lux", "entree"),
         mk("media_player.salon", "salon"),
         mk("alarm_control_panel.maison", "entree"),
@@ -153,6 +167,7 @@
 
       const wsHandlers = {
         "config/area_registry/list":   () => areas,
+        "config/floor_registry/list":  () => floors,
         "config/entity_registry/list": () => entityRegistry,
         "config/device_registry/list": () => deviceRegistry,
       };
@@ -165,6 +180,10 @@
         language: "fr",
         callService: async (domain, service, data) => {
           console.log("callService", domain, service, data);
+          if (Array.isArray(data?.entity_id)) {
+            for (const one of data.entity_id) await fakeHass.callService(domain, service, { ...data, entity_id: one });
+            return;
+          }
           const id = data?.entity_id;
           if (!id || !states[id]) return;
           if (domain === "light" && service === "toggle") states[id].state = states[id].state === "on" ? "off" : "on";

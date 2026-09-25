@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { JSX } from "preact";
 import type { HassObject } from "../types";
-import type { Area } from "../core/areas";
+import type { Area, Floor } from "../core/areas";
 import {
   groupByArea,
   isEntityActive,
@@ -42,10 +42,19 @@ import {
   IconHumidity,
   IconSun,
   IconSensor,
+  IconCards,
+  IconFloorPlan,
 } from "../icons";
 import { pickAreaIcon, DragItem } from "./shared";
 import { renderWidget, SUPPORTED_DOMAINS } from "./render-widget";
-import { loadLastNotificationRead, saveLastNotificationRead } from "../core/storage";
+import {
+  loadLastNotificationRead,
+  loadRoomsView,
+  saveLastNotificationRead,
+  saveRoomsView,
+  type RoomsView,
+} from "../core/storage";
+import { FloorPlan } from "./floor-plan";
 import { playNotificationSound } from "../core/notification-sound";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 import { LightsPanel } from "../components/lights-panel";
@@ -65,6 +74,7 @@ import { durationLabel } from "../core/time-ago";
 interface DashboardProps {
   hass: HassObject;
   areas: Area[];
+  floors: Floor[];
   entities: ResolvedEntity[];
   favorites: string[];
   exposed: string[];
@@ -485,6 +495,7 @@ function RoomCard({
 export function Dashboard({
   hass,
   areas,
+  floors,
   entities,
   favorites,
   exposed,
@@ -668,6 +679,14 @@ export function Dashboard({
     return map;
   }, [byArea, now]);
   const roomLayout = useRoomLayout();
+  /* Sans choix explicite, la tablette murale ouvre sur le plan : c'est l'écran
+     qu'on regarde de loin, où la maison d'un coup d'œil vaut mieux qu'une liste. */
+  const [storedRoomsView, setStoredRoomsView] = useState<RoomsView | null>(() => loadRoomsView());
+  const roomsView: RoomsView = storedRoomsView ?? (roomLayout === "touch" ? "plan" : "cards");
+  const chooseRoomsView = (next: RoomsView) => {
+    setStoredRoomsView(next);
+    saveRoomsView(next);
+  };
 
   const favoriteEntities = useMemo(() => {
     const byId = new Map(exposedEntities.map((e) => [e.entity_id, e]));
@@ -922,7 +941,37 @@ export function Dashboard({
               <section class="nido-rooms-section">
                 <div class="nido-section-title">
                   <h2>Pièces</h2>
+                  <div class="nido-rooms-view" role="group" aria-label="Affichage des pièces">
+                    <button
+                      type="button"
+                      class={`nido-rooms-view__btn ${roomsView === "cards" ? "is-active" : ""}`}
+                      aria-pressed={roomsView === "cards"}
+                      onClick={() => chooseRoomsView("cards")}
+                    >
+                      <IconCards size={16} />
+                      <span>Cartes</span>
+                    </button>
+                    <button
+                      type="button"
+                      class={`nido-rooms-view__btn ${roomsView === "plan" ? "is-active" : ""}`}
+                      aria-pressed={roomsView === "plan"}
+                      onClick={() => chooseRoomsView("plan")}
+                    >
+                      <IconFloorPlan size={16} />
+                      <span>Plan</span>
+                    </button>
+                  </div>
                 </div>
+                {roomsView === "plan" ? (
+                  <FloorPlan
+                    hass={hass}
+                    areas={populatedAreas}
+                    floors={floors}
+                    byArea={byArea}
+                    variant={roomLayout === "phone" ? "phone" : "wide"}
+                    onOpenRoom={onOpenRoom}
+                  />
+                ) : (
                 <div
                   class={`nido-rooms-grid nido-rooms-grid--${roomLayout} ${roomsDrag.isDragging ? "is-dragging" : ""}`}
                   ref={(el) => {
@@ -945,6 +994,7 @@ export function Dashboard({
                     />
                   ))}
                 </div>
+                )}
               </section>
             )}
           </>

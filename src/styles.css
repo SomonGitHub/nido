@@ -6364,3 +6364,572 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* ─── Vue plan ───────────────────────────────────────────────────────────
+   Les pièces sont des boutons positionnés en absolu dans `.nido-plan__house`,
+   dont les dimensions viennent du composant (cases de grille × zoom). Le
+   remplissage suit le dégradé température des cartes : --measure-h/c pilotent
+   teinte et chroma, --plan-fill-l/cf la luminosité, réglée par le mode. */
+
+.nido-rooms-view {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+}
+.nido-rooms-view__btn {
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-rooms-view__btn.is-active {
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+}
+@media (pointer: coarse) {
+  .nido-rooms-view__btn { height: 40px; }
+}
+
+.nido-plan {
+  --plan-fill-l: 93%;
+  --plan-fill-cf: 0.5;
+  --plan-ink-l: 47%;
+  --plan-glow: rgba(255, 180, 84, 0.6);
+  --plan-wall: var(--ink-1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--ink-1);
+}
+:host([data-mode="dark"]) .nido-plan {
+  --plan-fill-l: 34%;
+  --plan-fill-cf: 0.6;
+  --plan-ink-l: 84%;
+  --plan-glow: rgba(255, 170, 80, 0.36);
+}
+
+.nido-plan__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nido-plan__floors,
+.nido-plan__layers {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.nido-plan__floor {
+  height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.nido-plan__floor.is-active {
+  background: var(--ink-1);
+  color: var(--bg-shell);
+}
+.nido-plan__layer {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1.5px dashed var(--ink-4);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-plan__layer.is-on {
+  border: 1.5px solid var(--accent);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-weight: 600;
+}
+.nido-plan--phone .nido-plan__layer { width: 40px; padding: 0; }
+.nido-plan--phone .nido-plan__floor { height: 40px; padding: 0 16px; }
+
+/* Plan */
+.nido-plan__stage {
+  position: relative;
+  min-height: 0;
+}
+.nido-plan__viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.nido-plan__viewport.is-zoomed {
+  touch-action: none;
+  cursor: grab;
+}
+.nido-plan__house {
+  position: absolute;
+  box-shadow: 0 0 0 1.5px var(--plan-wall);
+  transition: left 0.18s var(--ease-out), top 0.18s var(--ease-out);
+}
+.nido-plan__viewport.is-zoomed .nido-plan__house { transition: none; }
+
+.nido-plan__room {
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 4px;
+  overflow: hidden;
+  border: 1.5px solid var(--plan-wall);
+  border-radius: 0;
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease-out);
+}
+.nido-plan__room[data-tinted="true"] {
+  background: oklch(var(--plan-fill-l) calc(var(--measure-c) * var(--plan-fill-cf)) var(--measure-h));
+}
+.nido-plan__room[data-selected="true"] {
+  box-shadow: inset 0 0 0 3px var(--accent);
+  z-index: 2;
+}
+.nido-plan__room[data-narrow="true"] { padding: 6px; }
+.nido-plan__house[data-lod="overview"] .nido-plan__room { padding: 4px; }
+.nido-plan__room:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.nido-plan__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 45%, var(--plan-glow) 0%, transparent 72%);
+}
+.nido-plan__room > :not(.nido-plan__glow) { position: relative; }
+
+.nido-plan__room-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px;
+}
+.nido-plan__room-name {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nido-plan__room[data-narrow="true"] .nido-plan__room-name { font-size: 11px; }
+.nido-plan__house[data-lod="detail"] .nido-plan__room-name { font-size: 15px; }
+.nido-plan__bulb {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 7px 2px 4px;
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  font-size: 11px;
+  font-weight: 600;
+}
+.nido-plan__room-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.nido-plan__alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 3px 8px 3px 6px;
+  border-radius: var(--r-pill);
+  background: var(--danger);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nido-plan__temp {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.nido-plan__temp-value {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.nido-plan__room[data-tinted="true"] .nido-plan__temp-value {
+  color: oklch(var(--plan-ink-l) var(--measure-c) var(--measure-h));
+}
+.nido-plan__room[data-narrow="true"] .nido-plan__temp-value { font-size: 13px; }
+.nido-plan__house[data-lod="detail"] .nido-plan__temp-value { font-size: 26px; }
+.nido-plan__hum { font-size: 12px; color: var(--ink-2); }
+
+.nido-plan__dots {
+  display: flex;
+  justify-content: flex-end;
+  gap: 3px;
+}
+.nido-plan__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--bg-card);
+}
+.nido-plan__dot--light { background: #f0a640; }
+.nido-plan__dot--alert { background: var(--danger); }
+
+.nido-plan__zoom {
+  display: flex;
+  gap: 6px;
+}
+.nido-plan__zoom-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nido-plan__zoom-btn:disabled { opacity: 0.4; cursor: default; }
+.nido-plan__zoom-label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 5;
+  padding: 5px 10px;
+  border-radius: var(--r-pill);
+  background: var(--bg-shell);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  pointer-events: none;
+}
+
+/* Tablette et bureau : plan + fiche à droite */
+.nido-plan__body {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+.nido-plan__card {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+}
+.nido-plan--wide .nido-plan__stage {
+  height: clamp(340px, 56vh, 640px);
+}
+.nido-plan__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.nido-plan__legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.nido-plan__legend-bar {
+  width: 180px;
+  height: 10px;
+  border-radius: var(--r-pill);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink-1) 12%, transparent);
+}
+.nido-plan__side {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (max-width: 899px) {
+  .nido-plan__body { flex-direction: column; }
+  .nido-plan__side { width: auto; flex-direction: row; flex-wrap: wrap; }
+  .nido-plan__side > * { flex: 1 1 260px; }
+}
+
+.nido-plan__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.nido-plan__panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+}
+.nido-plan__panel-name {
+  margin-top: 4px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.nido-plan__panel-status {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.nido-plan__panel-alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--danger) 14%, transparent);
+  color: var(--danger);
+  font-size: 13px;
+  font-weight: 600;
+}
+.nido-plan__panel-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid color-mix(in srgb, var(--ink-4) 55%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink-4) 55%, transparent);
+}
+.nido-plan__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.nido-plan__stat-value {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.nido-plan__stat-value small {
+  margin-left: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+.nido-plan__stat[data-tinted="true"] .nido-plan__stat-value {
+  color: oklch(var(--plan-ink-l) var(--measure-c) var(--measure-h));
+}
+.nido-plan__panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nido-plan__action {
+  flex: 1;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-plan__action--icon {
+  flex: 0 0 44px;
+  width: 44px;
+  padding: 0;
+}
+.nido-plan__open {
+  flex: 1 1 100%;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.nido-plan__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  border-radius: var(--r-lg);
+  background: var(--hero-dark);
+  color: var(--hero-dark-ink);
+}
+.nido-plan__summary .nido-plan__eyebrow { color: inherit; opacity: 0.7; }
+.nido-plan__summary-main {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14px;
+}
+.nido-plan__summary-main > span:last-child { opacity: 0.8; }
+.nido-plan__summary-value {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.nido-plan__summary-sub { font-size: 13px; opacity: 0.8; }
+
+/* Téléphone : plan pleine largeur, fiche dessous */
+.nido-plan--phone .nido-plan__stage {
+  height: 300px;
+  border-radius: 24px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.nido-plan--phone .nido-plan__zoom,
+.nido-plan--compact .nido-plan__zoom {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 5;
+  flex-direction: column;
+}
+.nido-plan--phone .nido-plan__zoom-btn,
+.nido-plan--compact .nido-plan__zoom-btn {
+  background: var(--bg-shell);
+  box-shadow: 0 2px 8px rgba(40, 25, 15, 0.14);
+}
+.nido-plan--phone .nido-plan__zoom-btn:disabled,
+.nido-plan--compact .nido-plan__zoom-btn:disabled { display: none; }
+.nido-plan__panel--sheet { padding: 18px 20px; }
+.nido-plan__panel--sheet .nido-plan__panel-name { font-size: 22px; }
+
+/* Echo Show : rail d'étages à gauche, plan à droite, tout en grand */
+.nido-plan--compact {
+  height: 100%;
+  flex-direction: row;
+  gap: 16px;
+}
+.nido-plan__rail {
+  width: 184px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nido-plan--compact .nido-plan__floors { flex-direction: column; flex-wrap: nowrap; }
+.nido-plan--compact .nido-plan__floor {
+  height: 56px;
+  border-radius: 18px;
+  font-size: 17px;
+  text-align: left;
+}
+.nido-plan--compact .nido-plan__layers { flex-wrap: nowrap; }
+.nido-plan--compact .nido-plan__layer {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 18px;
+}
+.nido-plan--compact .nido-plan__stage {
+  flex: 1;
+  min-width: 0;
+  border-radius: 24px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.nido-plan__mini {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 22px;
+  background: var(--hero-dark);
+  color: var(--hero-dark-ink);
+}
+.nido-plan__mini-name { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+.nido-plan__mini-temp {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.nido-plan__mini-temp span { font-size: 12px; font-weight: 500; opacity: 0.75; letter-spacing: 0; }
+.nido-plan__mini .nido-plan__open { flex: 0 0 auto; margin-top: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-plan__house,
+  .nido-plan__room { transition: none; }
+}
