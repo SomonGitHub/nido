@@ -15,6 +15,7 @@ import {
 import {
   groupAreasByFloor,
   openingSegment,
+  floorKind,
   resolveLayout,
   roomWalls,
   wallStyle,
@@ -26,7 +27,14 @@ import { isEntityActive } from "../core/entities";
 import { DOMAIN_ICON } from "./shared";
 import type { HousePlan, WallSide } from "../core/plan-store";
 import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-tint";
-import { loadPlanLayers, savePlanLayers, type PlanLayers } from "../core/storage";
+import {
+  loadPlanLayers,
+  loadPlanTime,
+  savePlanLayers,
+  savePlanTime,
+  type PlanLayers,
+  type PlanTime,
+} from "../core/storage";
 import { durationLabel } from "../core/time-ago";
 import { useMinuteTick } from "../core/use-minute-tick";
 import { POWER_ENTITY_ID } from "./energy";
@@ -39,7 +47,9 @@ import {
   IconFit,
   IconLightOn,
   IconMinus,
+  IconMoon,
   IconPlus,
+  IconSun,
   IconThermostat,
   IconWindow,
 } from "../icons";
@@ -196,6 +206,15 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
   const floor = planFloors.find((f) => f.key === floorKey) ?? planFloors[0];
   const [selected, setSelected] = useState<string | null>(null);
   const [layers, setLayers] = useState<PlanLayers>(() => loadPlanLayers());
+  const [planTime, setPlanTime] = useState<PlanTime>(() => loadPlanTime());
+  /* La nuit suit le soleil de HA ; sans l'intégration Soleil, on reste en jour. */
+  const sunDown = hass.states["sun.sun"]?.state === "below_horizon";
+  const night = planTime === "night" || (planTime === "auto" && sunDown);
+  const cyclePlanTime = () => {
+    const next: PlanTime = planTime === "auto" ? (night ? "day" : "night") : planTime === "day" ? "night" : "auto";
+    setPlanTime(next);
+    savePlanTime(next);
+  };
 
   const layout = useMemo(
     () =>
@@ -423,6 +442,21 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
     </div>
   );
 
+  const timeLabel =
+    planTime === "auto" ? `Auto · ${night ? "nuit" : "jour"}` : planTime === "night" ? "Nuit" : "Jour";
+  const timeButton = (
+    <button
+      type="button"
+      class={`nido-plan__time ${planTime === "auto" ? "" : "is-forced"}`}
+      aria-label={`Ambiance du plan : ${timeLabel}. Toucher pour changer`}
+      title={`Ambiance : ${timeLabel}`}
+      onClick={cyclePlanTime}
+    >
+      {night ? <IconMoon size={variant === "compact" ? 20 : 16} /> : <IconSun size={variant === "compact" ? 20 : 16} />}
+      {variant !== "phone" && <span>{timeLabel}</span>}
+    </button>
+  );
+
   const layerButtons = (
     <div class="nido-plan__layers" role="group" aria-label="Calques">
       {(
@@ -481,7 +515,13 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           class="nido-plan__house"
           data-lod={lod}
           data-custom={layout.custom ? "true" : "false"}
-          style={{ left: `${originX}px`, top: `${originY}px`, width: `${planW}px`, height: `${planH}px` }}
+          style={{
+            left: `${originX}px`,
+            top: `${originY}px`,
+            width: `${planW}px`,
+            height: `${planH}px`,
+            "--cell": `${cell}px`,
+          }}
         >
           {layout.rooms.map((r) => {
             const info = rooms.get(r.area.area_id)!;
@@ -500,17 +540,30 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
             ));
           })}
           {layout.rooms.map((r) => {
-            const selectedRoom = r.area.area_id === selectedId;
-            return roomWalls(r.rects).map((w, i) => (
+            const neighbours = layout.rooms.filter((o) => o !== r).flatMap((o) => o.rects);
+            return roomWalls(r.rects, neighbours).map((w, i) => (
               <span
                 key={`${r.area.area_id}-w${i}`}
                 class="nido-plan__wall"
-                data-selected={selectedRoom ? "true" : "false"}
-                style={wallStyle(w, cell, selectedRoom ? 4 : 3)}
+                data-exterior={w.exterior ? "true" : "false"}
+                style={wallStyle(w, cell, w.exterior ? facadeThickness(cell) : 3)}
                 aria-hidden="true"
               />
             ));
           })}
+          {layout.rooms
+            .filter((r) => r.area.area_id === selectedId)
+            .flatMap((r) =>
+              roomWalls(r.rects).map((w, i) => (
+                <span
+                  key={`${r.area.area_id}-sel${i}`}
+                  class="nido-plan__wall"
+                  data-selected="true"
+                  style={wallStyle(w, cell, 3)}
+                  aria-hidden="true"
+                />
+              )),
+            )}
           {lod !== "overview" &&
             layout.devices.map((d) => {
               const entity = (byArea.get(d.area_id) ?? []).find((e) => e.entity_id === d.entity_id);
@@ -521,13 +574,19 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           {layout.openings.map((o) => {
             const room = layout.rooms.find((r) => r.area.area_id === o.area_id);
             const rect = room?.rects[o.rect] ?? room?.rects[0];
-            if (!rect) return null;
+            if (!room || !rect) return null;
+            const neighbours = layout.rooms.filter((x) => x !== room).flatMap((x) => x.rects);
+            const exterior = roomWalls([rect], neighbours).some(
+              (w) => w.exterior && onSide(w, rect, o.side),
+            );
             return (
               <PlanOpeningMark
                 key={o.id}
                 opening={o}
                 rect={rect}
                 cell={cell}
+                wall={exterior ? facadeThickness(cell) : 3}
+                lit={layers.lights && (rooms.get(o.area_id)?.summary.lightsOn ?? 0) > 0}
                 open={layers.openings && !!o.entity_id && hass.states[o.entity_id]?.state === "on"}
               />
             );
@@ -540,10 +599,11 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
 
   if (variant === "compact") {
     return (
-      <div class="nido-plan nido-plan--compact">
+      <div class="nido-plan nido-plan--compact" data-night={night ? "true" : "false"}>
         <div class="nido-plan__rail">
           {floorTabs}
           {layerButtons}
+          {timeButton}
           {selectedRoom && (
             <div class="nido-plan__mini">
               <div class="nido-plan__mini-name">{selectedRoom.area.name}</div>
@@ -582,10 +642,13 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
 
   if (variant === "phone") {
     return (
-      <div class="nido-plan nido-plan--phone">
+      <div class="nido-plan nido-plan--phone" data-night={night ? "true" : "false"}>
         <div class="nido-plan__bar">
           {floorTabs}
-          {layerButtons}
+          <div class="nido-plan__bar-end">
+            {layerButtons}
+            {timeButton}
+          </div>
         </div>
         <div class="nido-plan__stage">
           {planView}
@@ -598,10 +661,11 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
 
   const floorSummary = summarizeFloor([...rooms.values()]);
   return (
-    <div class="nido-plan nido-plan--wide">
+    <div class="nido-plan nido-plan--wide" data-night={night ? "true" : "false"}>
       <div class="nido-plan__bar">
         {layerButtons}
         <div class="nido-plan__bar-end">
+          {timeButton}
           {onEdit && (
             <button type="button" class="nido-plan__edit" onClick={() => onEdit(floor.key)}>
               <IconEdit size={16} />
@@ -754,19 +818,43 @@ export function DoorSwing({
   );
 }
 
+/* Épaisseur des murs de façade : trois fois une cloison, bornée pour rester
+   lisible en vue d'ensemble comme au zoom maximal. */
+function facadeThickness(cell: number): number {
+  return Math.round(Math.max(5, Math.min(10, cell * 0.22)));
+}
+
+function onSide(w: { x: number; y: number; horizontal: boolean }, rect: PlanRect, side: WallSide): boolean {
+  switch (side) {
+    case "top":
+      return w.horizontal && w.y === rect.y;
+    case "bottom":
+      return w.horizontal && w.y === rect.y + rect.h;
+    case "left":
+      return !w.horizontal && w.x === rect.x;
+    default:
+      return !w.horizontal && w.x === rect.x + rect.w;
+  }
+}
+
 function PlanOpeningMark({
   opening,
   rect,
   cell,
+  wall,
+  lit,
   open,
 }: {
   opening: PlacedOpening;
   rect: PlanRect;
   cell: number;
+  /** Épaisseur du mur porteur : l'ouvrant la reprend, le trou d'une porte la dépasse. */
+  wall: number;
+  lit: boolean;
   open: boolean;
 }) {
   const seg = openingSegment(rect, opening);
-  const thick = opening.kind === "door" ? 8 : open ? 7 : 6;
+  const thick = opening.kind === "door" ? wall + 2 : Math.max(6, wall);
   const style = seg.horizontal
     ? { left: `${seg.x * cell}px`, top: `${seg.y * cell - thick / 2}px`, width: `${seg.length * cell}px`, height: `${thick}px` }
     : { left: `${seg.x * cell - thick / 2}px`, top: `${seg.y * cell}px`, width: `${thick}px`, height: `${seg.length * cell}px` };
@@ -775,6 +863,8 @@ function PlanOpeningMark({
       class="nido-plan__opening"
       data-kind={opening.kind}
       data-open={open ? "true" : "false"}
+      data-lit={lit ? "true" : "false"}
+      data-horizontal={seg.horizontal ? "true" : "false"}
       style={style}
       aria-hidden="true"
     />
@@ -880,6 +970,7 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
       data-selected={selected ? "true" : "false"}
       data-narrow={narrow ? "true" : "false"}
       data-motion={motion ?? "none"}
+      data-floor={floorKind(info.area.name)}
       aria-label={aria}
       aria-pressed={selected}
       style={style}
@@ -944,7 +1035,10 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
             )}
             {temp && !(layers.energy && info.power) && (
               <span class="nido-plan__temp">
-                <span class="nido-plan__temp-value">{formatValue(temp.value)}°</span>
+                <span class="nido-plan__temp-value">
+                  {!narrow && <span class="nido-plan__temp-dot" aria-hidden="true" />}
+                  {formatValue(temp.value)}°
+                </span>
                 {lod === "detail" && !narrow && info.stats.humidity && (
                   <span class="nido-plan__hum">{formatValue(info.stats.humidity.value)} %</span>
                 )}

@@ -12,6 +12,7 @@ const KEYS = {
   kidsEnabled: "nido.kidsEnabled",
   roomsView: "nido.roomsView",
   planLayers: "nido.planLayers",
+  planTime: "nido.planTime",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -218,4 +219,16 @@ export function loadPlanLayers(): PlanLayers {
 
 export function savePlanLayers(layers: PlanLayers): void {
   safeStorage()?.setItem(KEYS.planLayers, JSON.stringify(layers));
+}
+
+/** Ambiance du plan : `auto` suit le soleil de HA (`sun.sun`). */
+export type PlanTime = "auto" | "day" | "night";
+
+export function loadPlanTime(): PlanTime {
+  const raw = safeStorage()?.getItem(KEYS.planTime);
+  return raw === "day" || raw === "night" ? raw : "auto";
+}
+
+export function savePlanTime(value: PlanTime): void {
+  safeStorage()?.setItem(KEYS.planTime, value);
 }

@@ -145,7 +145,16 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   (Maj = taille), refus des chevauchements, pièces « À placer », fenêtre/porte posée sur le
   mur le moins partagé et liée au premier capteur libre de la pièce.
 - **Murs** : tracés d'après le contour de chaque pièce (`roomWalls`), pas par une bordure
-  de rectangle — une pièce en L n'a pas de trait intérieur. Portes : trou dans le mur +
+  de rectangle — une pièce en L n'a pas de trait intérieur. Avec les rectangles des pièces
+  voisines, chaque segment est classé façade (épais, `facadeThickness`) ou cloison (3 px) ;
+  fenêtres dans l'épaisseur du mur (double trait + vitrage).
+- **Style architecte** : sol deviné du nom (`floorKind` → parquet / carrelage / béton, motif
+  CSS sur `data-floor`, taille via `--cell`), noms en petites capitales mono, température
+  en pastille, couleurs adoucies, ombre portée (`--plan-house-shadow`) et ombre intérieure.
+- **Nuit** (`nido.planTime` : auto / jour / nuit, bouton soleil-lune) : auto = `sun.sun`
+  sous l'horizon. `data-night` sur `.nido-plan` : pièces sombres, pièces allumées chaudes
+  et halo fort, fenêtres des pièces allumées qui brillent. Seul le plan passe en nuit, la
+  fiche pièce garde le thème. Portes : trou dans le mur +
   battant et arc d'ouverture côté pièce (`DoorSwing`, partagé avec l'éditeur).
 - **Appareils posés** (`devices[area_id]: PlanDevice[]`, centre en cases relatif au 1er
   rectangle : l'icône suit la pièce) : `PLACEABLE_DOMAINS` = light, switch, fan, cover,

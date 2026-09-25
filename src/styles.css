@@ -7640,3 +7640,167 @@
 .nido-plan__door[data-open="true"] .door-arc { stroke: var(--danger); opacity: 1; }
 .nido-plan-editor__door[data-open="true"] .door-leaf,
 .nido-plan-editor__door[data-open="true"] .door-arc { stroke: var(--accent); opacity: 1; }
+
+/* ─── Plan d'architecte ───────────────────────────────────────────────────
+   Façades épaisses et cloisons fines (roomWalls classe chaque segment), sols
+   texturés selon le type de pièce, étiquettes en petites capitales, couleurs
+   adoucies, ombre portée. La nuit (sun.sun sous l'horizon, ou forcée), la
+   maison s'assombrit et les pièces allumées rayonnent. */
+.nido-plan {
+  --plan-fill-l: 95.5%;
+  --plan-fill-cf: 0.32;
+  --plan-gap: var(--bg-card);
+  --plan-tex: rgba(70, 45, 25, 0.075);
+  --plan-label: var(--ink-2);
+  --plan-pill: color-mix(in srgb, var(--bg-card) 86%, transparent);
+  --plan-inner: rgba(60, 38, 20, 0.1);
+  --plan-house-shadow: drop-shadow(0 22px 26px rgba(70, 40, 18, 0.2));
+}
+:host([data-mode="dark"]) .nido-plan {
+  --plan-fill-l: 33%;
+  --plan-fill-cf: 0.45;
+  --plan-tex: rgba(255, 238, 215, 0.05);
+  --plan-inner: rgba(0, 0, 0, 0.35);
+  --plan-house-shadow: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.5));
+}
+.nido-plan[data-night="true"] {
+  --plan-wall: #d8c7b1;
+  --plan-gap: #16110d;
+  --plan-tex: rgba(255, 238, 215, 0.045);
+  --plan-label: #b9a58f;
+  --plan-pill: rgba(22, 17, 13, 0.72);
+  --plan-inner: rgba(0, 0, 0, 0.45);
+  --plan-house-shadow: drop-shadow(0 0 36px rgba(255, 170, 80, 0.14)) drop-shadow(0 22px 30px rgba(0, 0, 0, 0.55));
+}
+
+.nido-plan__house { filter: var(--plan-house-shadow); }
+.nido-plan__room { box-shadow: inset 0 0 calc(var(--cell, 40px) * 0.4) var(--plan-inner); }
+
+/* Sols : motif en surimpression de la couleur du calque. */
+.nido-plan__room[data-floor="wood"] {
+  background-image:
+    repeating-linear-gradient(0deg, var(--plan-tex) 0 1px, transparent 1px calc(var(--cell, 40px) * 0.28)),
+    repeating-linear-gradient(90deg, var(--plan-tex) 0 1px, transparent 1px calc(var(--cell, 40px) * 1.3));
+}
+.nido-plan__room[data-floor="tile"] {
+  background-image:
+    linear-gradient(var(--plan-tex) 1px, transparent 1px),
+    linear-gradient(90deg, var(--plan-tex) 1px, transparent 1px);
+  background-size: calc(var(--cell, 40px) * 0.5) calc(var(--cell, 40px) * 0.5);
+}
+.nido-plan__room[data-floor="concrete"] {
+  background-image:
+    radial-gradient(var(--plan-tex) 1px, transparent 1.3px),
+    radial-gradient(var(--plan-tex) 1px, transparent 1.3px);
+  background-size: 7px 7px, 9px 9px;
+  background-position: 0 0, 3px 4px;
+}
+.nido-plan__house[data-lod="overview"] .nido-plan__room { background-image: none; }
+
+/* Étiquettes façon architecte */
+.nido-plan__room-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--plan-label);
+  line-height: 1.3;
+}
+.nido-plan__room[data-narrow="true"] .nido-plan__room-name { font-size: 8.5px; letter-spacing: 0.1em; }
+.nido-plan__house[data-lod="detail"] .nido-plan__room-name { font-size: 11px; }
+.nido-plan__temp-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px 3px 6px;
+  border-radius: var(--r-pill);
+  background: var(--plan-pill);
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+.nido-plan__room[data-narrow="true"] .nido-plan__temp-value { padding: 2px 6px; font-size: 11px; }
+.nido-plan__house[data-lod="detail"] .nido-plan__temp-value { font-size: 14px; padding: 4px 10px 4px 7px; }
+.nido-plan__temp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Murs */
+.nido-plan__wall[data-exterior="true"] { border-radius: 1px; }
+.nido-plan__wall[data-selected="true"] { z-index: 4; background: var(--accent); }
+
+/* Fenêtres dans l'épaisseur du mur : double trait et vitrage au milieu. */
+.nido-plan__opening[data-kind="window"] {
+  border: none;
+  border-radius: 0;
+  background-color: var(--plan-gap);
+}
+.nido-plan__opening[data-kind="window"][data-horizontal="true"] {
+  border-top: 1.5px solid var(--plan-wall);
+  border-bottom: 1.5px solid var(--plan-wall);
+  background-image: linear-gradient(to bottom, transparent calc(50% - 0.75px), var(--plan-wall) calc(50% - 0.75px), var(--plan-wall) calc(50% + 0.75px), transparent calc(50% + 0.75px));
+}
+.nido-plan__opening[data-kind="window"][data-horizontal="false"] {
+  border-left: 1.5px solid var(--plan-wall);
+  border-right: 1.5px solid var(--plan-wall);
+  background-image: linear-gradient(to right, transparent calc(50% - 0.75px), var(--plan-wall) calc(50% - 0.75px), var(--plan-wall) calc(50% + 0.75px), transparent calc(50% + 0.75px));
+}
+.nido-plan__opening[data-kind="window"][data-open="true"] {
+  background-color: var(--danger);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--danger) 28%, transparent);
+}
+.nido-plan__opening[data-kind="door"] { background: var(--plan-gap); }
+
+/* Nuit */
+.nido-plan[data-night="true"] .nido-plan__card,
+.nido-plan--phone[data-night="true"] .nido-plan__stage,
+.nido-plan--compact[data-night="true"] .nido-plan__stage {
+  background: #16110d;
+  color: #f4ede2;
+  transition: background-color 0.6s var(--ease-out);
+}
+.nido-plan[data-night="true"] .nido-plan__legend { color: #b9a58f; }
+/* Seul le plan passe en nuit : la fiche pièce garde les couleurs du thème. */
+.nido-plan[data-night="true"] .nido-plan__house { --plan-ink-l: 82%; }
+.nido-plan[data-night="true"] .nido-plan__zoom-btn { background: #2a2018; color: #f4ede2; }
+.nido-plan[data-night="true"] .nido-plan__room:not([data-energy="true"]) { background-color: oklch(0.215 0.012 60); }
+.nido-plan[data-night="true"] .nido-plan__room[data-lit="true"]:not([data-energy="true"]) { background-color: oklch(0.31 0.035 70); }
+.nido-plan[data-night="true"] .nido-plan__room { color: #f4ede2; }
+.nido-plan[data-night="true"] .nido-plan__glow {
+  background: radial-gradient(ellipse at 50% 50%, rgba(255, 186, 104, 0.55) 0%, rgba(255, 170, 90, 0.18) 45%, transparent 75%);
+}
+.nido-plan[data-night="true"] .nido-plan__bulb { background: rgba(255, 186, 104, 0.2); color: #ffcf94; }
+.nido-plan[data-night="true"] .nido-plan__opening[data-kind="window"][data-lit="true"]:not([data-open="true"]) {
+  background-color: #ffd9a0;
+  box-shadow: 0 0 16px 4px rgba(255, 186, 104, 0.55);
+}
+.nido-plan[data-night="true"] .nido-plan__device:not([data-on="true"]) { background: #2a2018; color: #c4ad95; }
+
+.nido-plan__time {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 14px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nido-plan__time.is-forced { color: var(--ink-1); font-weight: 600; }
+.nido-plan--phone .nido-plan__time { width: 40px; padding: 0; }
+.nido-plan--compact .nido-plan__time { height: 48px; border-radius: 16px; font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-plan[data-night="true"] .nido-plan__card { transition: none; }
+}

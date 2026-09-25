@@ -178,6 +178,18 @@ export interface WallSegment {
   y: number;
   length: number;
   horizontal: boolean;
+  /** Mur de façade : aucune autre pièce de l'autre côté. */
+  exterior: boolean;
+}
+
+export type FloorKind = "wood" | "tile" | "concrete";
+
+/** Revêtement de sol deviné d'après le nom de la pièce, comme `pickAreaIcon`. */
+export function floorKind(name: string): FloorKind {
+  const n = name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  if (/garage|cellier|cave|buanderie|atelier|chaufferie|local|terrasse|balcon|abri/.test(n)) return "concrete";
+  if (/cuisine|bain|sdb|douche|wc|toilette|entree|hall|lingerie/.test(n)) return "tile";
+  return "wood";
 }
 
 function subtract(intervals: [number, number][], cut: [number, number]): [number, number][] {
@@ -196,7 +208,7 @@ function subtract(intervals: [number, number][], cut: [number, number]): [number
 /** Contour d'une pièce, en cases. Un côté de rectangle n'est un mur que là où
  *  la case voisine, hors du rectangle, n'appartient pas à la même pièce : deux
  *  rectangles d'une pièce en L ne sont séparés par aucun trait. */
-export function roomWalls(rects: PlanRect[]): WallSegment[] {
+export function roomWalls(rects: PlanRect[], neighbours: PlanRect[] = []): WallSegment[] {
   const walls: WallSegment[] = [];
   rects.forEach((r, i) => {
     const others = rects.filter((_, j) => j !== i);
@@ -212,12 +224,24 @@ export function roomWalls(rects: PlanRect[]): WallSegment[] {
         if (!side.covers(o)) continue;
         parts = subtract(parts, side.horizontal ? [o.x, o.x + o.w] : [o.y, o.y + o.h]);
       }
-      for (const [a, b] of parts) {
+      /* Ce qui reste est un mur ; il est intérieur là où une pièce voisine
+         occupe l'autre côté, de façade ailleurs. */
+      const emit = (a: number, b: number, exterior: boolean) =>
         walls.push(
           side.horizontal
-            ? { x: a, y: side.at, length: b - a, horizontal: true }
-            : { x: side.at, y: a, length: b - a, horizontal: false },
+            ? { x: a, y: side.at, length: b - a, horizontal: true, exterior }
+            : { x: side.at, y: a, length: b - a, horizontal: false, exterior },
         );
+      for (const part of parts) {
+        let outside: [number, number][] = [part];
+        for (const o of neighbours) {
+          if (!side.covers(o)) continue;
+          outside = subtract(outside, side.horizontal ? [o.x, o.x + o.w] : [o.y, o.y + o.h]);
+        }
+        let inside: [number, number][] = [part];
+        for (const e of outside) inside = subtract(inside, e);
+        for (const [a, b] of outside) emit(a, b, true);
+        for (const [a, b] of inside) emit(a, b, false);
       }
     }
   });
