@@ -50,6 +50,14 @@ export interface FloorLayout {
 
 export const NO_FLOOR = "__none";
 
+/** Pièces affichées sur un étage : celles que HA y range, plus celles d'un
+ *  autre étage que le plan y a aussi dessinées (un escalier, une mezzanine). */
+export function areasOnFloor(floor: PlanFloor, allAreas: Area[], stored: StoredFloor | undefined): Area[] {
+  if (!stored) return floor.areas;
+  const guests = allAreas.filter((a) => !floor.areas.includes(a) && stored.rooms[a.area_id]);
+  return guests.length > 0 ? [...floor.areas, ...guests] : floor.areas;
+}
+
 const ROW_UNITS = 18;
 const ROW_HEIGHT = 5;
 const MIN_ROOM_WIDTH = 3;

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { JSX } from "preact";
 import type { ResolvedEntity } from "../core/entities";
 import {
+  areasOnFloor,
   autoLayout,
   clampToRoom,
   floorKind,
@@ -179,15 +180,27 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   useEffect(() => () => window.clearTimeout(toastTimer.current), []);
 
   const stored = draft[floor.key];
-  const areaById = useMemo(() => new Map(floor.areas.map((a) => [a.area_id, a])), [floor]);
-  /* Seules les pièces peuplées de l'étage comptent : une pièce masquée garde
-     son dessin mais ne gêne ni l'affichage ni les déplacements. */
+  const allAreas = useMemo(() => floors.flatMap((f) => f.areas), [floors]);
+  const homeFloor = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const f of floors) for (const a of f.areas) map.set(a.area_id, f.label);
+    return map;
+  }, [floors]);
+  /* Pièces de l'étage selon HA, plus celles d'un autre étage dessinées ici
+     aussi (un escalier présent sur deux niveaux). */
+  const floorAreas = useMemo(() => areasOnFloor(floor, allAreas, stored), [floor, allAreas, stored]);
+  const areaById = useMemo(() => new Map(floorAreas.map((a) => [a.area_id, a])), [floorAreas]);
+  /* Seules les pièces peuplées comptent : une pièce masquée garde son dessin
+     mais ne gêne ni l'affichage ni les déplacements. */
   const placed: Rooms = useMemo(() => {
     const out: Rooms = {};
-    for (const a of floor.areas) if (stored.rooms[a.area_id]) out[a.area_id] = stored.rooms[a.area_id];
+    for (const a of floorAreas) if (stored.rooms[a.area_id]) out[a.area_id] = stored.rooms[a.area_id];
     return out;
-  }, [floor, stored]);
+  }, [floorAreas, stored]);
   const unplaced = floor.areas.filter((a) => !placed[a.area_id]);
+  const guestCandidates = allAreas.filter((a) => !floor.areas.includes(a) && !placed[a.area_id]);
+  const isGuest = (areaId: string) => !floor.areas.some((a) => a.area_id === areaId);
+  const nameOf = (areaId: string) => allAreas.find((a) => a.area_id === areaId)?.name ?? areaId;
 
   const allRects = Object.values(placed).flat();
   const cols = Math.max(MIN_COLS, ...allRects.map((r) => r.x + r.w + MARGIN));
@@ -200,8 +213,13 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
         Object.entries(rooms).every(([id, others]) => id === areaId || others.every((o) => !rectsOverlap(q, o))),
     );
 
-  const preview: Rooms = drag && (drag.dx || drag.dy) ? { ...placed, [drag.areaId]: applyDrag(placed[drag.areaId], drag) } : placed;
-  const previewValid = !drag || fits(preview, drag.areaId, preview[drag.areaId]);
+  /* Un glisser peut viser une pièce qui vient d'être retirée : on l'ignore. */
+  const activeDrag = drag && placed[drag.areaId] ? drag : null;
+  const preview: Rooms =
+    activeDrag && (activeDrag.dx || activeDrag.dy)
+      ? { ...placed, [activeDrag.areaId]: applyDrag(placed[activeDrag.areaId], activeDrag) }
+      : placed;
+  const previewValid = !activeDrag || fits(preview, activeDrag.areaId, preview[activeDrag.areaId]);
 
   const updateFloor = (patch: Partial<StoredFloor>) => {
     setDraft((prev) => ({ ...prev, [floor.key]: { ...prev[floor.key], ...patch } }));
@@ -305,7 +323,11 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
     }
     setRooms({ [areaId]: [spot] });
     setSel({ kind: "room", areaId, rect: 0 });
-    flash(`Nouvelle pièce sur le plan : ${areaById.get(areaId)?.name}. Glisse-la à sa place`);
+    flash(
+      isGuest(areaId)
+        ? `${nameOf(areaId)} ajoutée aussi à cet étage. Glisse-la à sa place`
+        : `Nouvelle pièce sur le plan : ${nameOf(areaId)}. Glisse-la à sa place`,
+    );
   };
 
   const addRect = (areaId: string) => {
@@ -346,7 +368,8 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
     delete devices[areaId];
     updateFloor({ rooms, openings, devices });
     setSel(null);
-    flash(`Pièce retirée du plan : ${areaById.get(areaId)?.name}`);
+    setDrag(null);
+    flash(isGuest(areaId) ? `${nameOf(areaId)} retirée de cet étage` : `Pièce retirée du plan : ${nameOf(areaId)}`);
   };
 
   const sensorsFor = (areaId: string, kind: OpeningKind) =>
@@ -749,6 +772,12 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
               <div class="nido-plan-editor__card">
                 <div class="nido-plan__eyebrow">Pièce sélectionnée</div>
                 <div class="nido-plan-editor__card-title">{areaById.get(sel.areaId)?.name}</div>
+                {isGuest(sel.areaId) && (
+                  <p class="nido-plan-editor__muted">
+                    Pièce de l'étage « {homeFloor.get(sel.areaId)} », affichée aussi ici. Ses appareils et
+                    capteurs sont les mêmes sur les deux étages.
+                  </p>
+                )}
                 <label class="nido-plan-editor__field-label" for="plan-surface">
                   Sol
                 </label>
@@ -873,6 +902,34 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                 </button>
               ))}
             </div>
+
+            {floors.length > 1 && guestCandidates.length > 0 && (
+              <div class="nido-plan-editor__card">
+                <div class="nido-plan__eyebrow">Sur plusieurs étages</div>
+                <p class="nido-plan-editor__muted">
+                  Un escalier ou une mezzanine se voit à deux niveaux : ajoute ici une pièce d'un autre étage.
+                </p>
+                <label class="nido-plan-editor__field-label" for="plan-guest-room">
+                  Pièce d'un autre étage
+                </label>
+                <select
+                  id="plan-guest-room"
+                  class="nido-plan-editor__select"
+                  value=""
+                  onChange={(e) => {
+                    const v = (e.currentTarget as HTMLSelectElement).value;
+                    if (v) placeRoom(v);
+                  }}
+                >
+                  <option value="">Choisir…</option>
+                  {guestCandidates.map((a) => (
+                    <option key={a.area_id} value={a.area_id}>
+                      {a.name} · {homeFloor.get(a.area_id)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             <p class="nido-plan-editor__note">
               {synced

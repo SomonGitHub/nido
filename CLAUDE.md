@@ -160,6 +160,10 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   et halo fort, fenêtres des pièces allumées qui brillent. Seul le plan passe en nuit, la
   fiche pièce garde le thème. Portes : trou dans le mur +
   battant et arc d'ouverture côté pièce (`DoorSwing`, partagé avec l'éditeur).
+- **Pièce sur plusieurs étages** (escalier, mezzanine) : `areasOnFloor` = pièces de l'étage
+  selon HA + pièces d'autres étages dessinées dans `rooms` de cet étage. Dans l'éditeur,
+  carte « Sur plusieurs étages » ; « Retirer du plan » sur une pièce invitée ne la retire
+  que de cet étage. Mêmes appareils et capteurs sur chaque étage.
 - **« Vous êtes ici »** (`nido.youAreHere`, **par appareil**, pas dans le plan partagé) :
   lien dans la fiche pièce / bouton épingle du rail Echo Show → mode placement, le toucher
   suivant sur une pièce pose la pastille à l'endroit exact (`dx`/`dy` relatifs au 1er

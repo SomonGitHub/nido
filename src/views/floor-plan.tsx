@@ -13,6 +13,7 @@ import {
   type RoomSummary,
 } from "../core/entities";
 import {
+  areasOnFloor,
   clampToRoom,
   groupAreasByFloor,
   openingSegment,
@@ -227,10 +228,12 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
 
   const layout = useMemo(
     () =>
-      resolveLayout(floor?.areas ?? [], floor ? plan.floors[floor.key] : undefined, (a) =>
-        byArea.get(a.area_id)?.length ?? 1,
+      resolveLayout(
+        floor ? areasOnFloor(floor, areas, plan.floors[floor.key]) : [],
+        floor ? plan.floors[floor.key] : undefined,
+        (a) => byArea.get(a.area_id)?.length ?? 1,
       ),
-    [floor, plan, byArea],
+    [floor, areas, plan, byArea],
   );
 
   const rooms = useMemo(() => {
