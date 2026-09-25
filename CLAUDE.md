@@ -40,7 +40,12 @@ nido-dashboard/                # = racine du repo HACS
     core/
       areas.ts                 # fetchAreas → callWS("config/area_registry/list")
                                #   fetchFloors → "config/floor_registry/list" ([] si HA < 2024.4)
-      floor-plan.ts            # groupAreasByFloor + autoLayout (plan en cases de grille)
+      floor-plan.ts            # groupAreasByFloor, autoLayout, resolveLayout (plan dessiné ou auto),
+                               #   géométrie des murs (openingSegment)
+      plan-store.ts            # HousePlan (rects + ouvrants par pièce et étage), parse défensif,
+                               #   usePlanSync → topic MQTT retain nido/floorplan/state
+      mqtt-sync.ts             # useRetainedSync<T> : état partagé via MQTT retain, le plus
+                               #   récent updatedAt gagne, cache localStorage (kids + plan)
       entities.ts              # fetch + resolveEntities + groupByArea
                                #   isEntityActive(e) : "actif" par domaine
                                #   extractRoomStats(es) : temp/humidity/illuminance par pièce
@@ -60,6 +65,7 @@ nido-dashboard/                # = racine du repo HACS
       onboarding.tsx           # overlay plein écran 5 étapes (Welcome/Connect/Entities/Theme/Family)
       weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
       notification-panel.tsx   # panneau notifications Nido (sensor.nido_notifications, dismiss via fire_event)
+      plan-editor.tsx          # éditeur plein écran du plan (pièces, pièces en L, fenêtres/portes)
     widgets/                   # 1 fichier = 1 domaine HA (15 fichiers)
       light, cover, switch, binary-sensor, climate, lock, vacuum,
       sensor, media-player, alarm, camera, fan, scene-script, weather
@@ -127,9 +133,17 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
 
 - **Étages** : registre HA (`floor_id` des pièces). Pièces sans étage → onglet « Autres
   pièces » (ou « Maison » s'il n'y a aucun étage).
-- **Placement** : `autoLayout` range les pièces en rangées de 18 cases, largeur selon le
-  nombre d'entités exposées. Coordonnées en cases, jamais en pixels. L'éditeur (étape 2)
-  stockera des `PlanRect[]` par pièce côté HA (topic MQTT retain, comme `kids-sync`).
+- **Placement** : `resolveLayout` prend le plan dessiné s'il existe, sinon `autoLayout`
+  (rangées de 18 cases, largeur selon le nombre d'entités exposées). Coordonnées en cases,
+  jamais en pixels. Une pièce apparue depuis le dernier dessin est posée sous le plan.
+- **Stockage** : `HousePlan` = par étage, `rooms[area_id]: PlanRect[]` (plusieurs = pièce en
+  L) et `openings[area_id]: PlanOpening[]` (mur, décalage et largeur en cases, `entity_id`
+  du binary_sensor). Partagé via MQTT retain (`nido/floorplan/state`) par `useRetainedSync`,
+  commun avec les points enfants. Sans MQTT, le plan reste local et l'éditeur le dit.
+- **Éditeur** (`PlanEditor`) : réservé aux admins HA, pas sur téléphone. Un étage jamais
+  dessiné part du placement auto. Glisser pour déplacer, 8 poignées, flèches du clavier
+  (Maj = taille), refus des chevauchements, pièces « À placer », fenêtre/porte posée sur le
+  mur le moins partagé et liée au premier capteur libre de la pièce.
 - **Calques** (`nido.planLayers`) : Température (remplissage `oklch` piloté par
   `--measure-h/c` + `--plan-fill-l/cf` selon le mode), Lumières (halo + compteur), Ouvrants
   (pastille « Ouverte · 25 min » ; les alertes fumée/eau/gaz s'affichent toujours).

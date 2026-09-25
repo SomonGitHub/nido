@@ -55,6 +55,9 @@ import {
   type RoomsView,
 } from "../core/storage";
 import { FloorPlan } from "./floor-plan";
+import { PlanEditor } from "../components/plan-editor";
+import { groupAreasByFloor } from "../core/floor-plan";
+import type { HousePlan } from "../core/plan-store";
 import { playNotificationSound } from "../core/notification-sound";
 import { NotificationPanel, type NidoNotification } from "../components/notification-panel";
 import { LightsPanel } from "../components/lights-panel";
@@ -79,6 +82,9 @@ interface DashboardProps {
   favorites: string[];
   exposed: string[];
   roomsOrder: string[];
+  plan: HousePlan;
+  planSynced: boolean;
+  onSavePlan: (plan: HousePlan) => void;
   kidsEnabled: boolean;
   onConfigure: () => void;
   onOpenRoom: (areaId: string) => void;
@@ -500,6 +506,9 @@ export function Dashboard({
   favorites,
   exposed,
   roomsOrder,
+  plan,
+  planSynced,
+  onSavePlan,
   kidsEnabled,
   onConfigure,
   onOpenRoom,
@@ -683,6 +692,10 @@ export function Dashboard({
      qu'on regarde de loin, où la maison d'un coup d'œil vaut mieux qu'une liste. */
   const [storedRoomsView, setStoredRoomsView] = useState<RoomsView | null>(() => loadRoomsView());
   const roomsView: RoomsView = storedRoomsView ?? (roomLayout === "touch" ? "plan" : "cards");
+  const [editingFloor, setEditingFloor] = useState<string | null>(null);
+  /* Le plan est commun à toute la famille : seul un admin HA le modifie, et pas
+     depuis un téléphone, trop petit pour dessiner. */
+  const canEditPlan = !!hass.user?.is_admin && roomLayout !== "phone";
   const chooseRoomsView = (next: RoomsView) => {
     setStoredRoomsView(next);
     saveRoomsView(next);
@@ -969,7 +982,9 @@ export function Dashboard({
                     floors={floors}
                     byArea={byArea}
                     variant={roomLayout === "phone" ? "phone" : "wide"}
+                    plan={plan}
                     onOpenRoom={onOpenRoom}
+                    onEdit={canEditPlan ? setEditingFloor : undefined}
                   />
                 ) : (
                 <div
@@ -1010,6 +1025,18 @@ export function Dashboard({
           </div>
         )}
       </div>
+
+      {editingFloor !== null && (
+        <PlanEditor
+          floors={groupAreasByFloor(populatedAreas, floors)}
+          byArea={byArea}
+          plan={plan}
+          initialFloor={editingFloor}
+          synced={planSynced}
+          onSave={onSavePlan}
+          onClose={() => setEditingFloor(null)}
+        />
+      )}
 
       {showWeatherPanel && weatherEntity && (
         <WeatherPanel

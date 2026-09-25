@@ -704,3 +704,22 @@ export const IconFit = (p: P) => (
     <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
   </Icon>
 );
+
+export const IconEdit = (p: P) => (
+  <Icon {...p}>
+    <path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z" />
+    <path d="m13.5 6.5 4 4" />
+  </Icon>
+);
+
+export const IconTrash = (p: P) => (
+  <Icon {...p}>
+    <path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" />
+  </Icon>
+);
+
+export const IconLShape = (p: P) => (
+  <Icon {...p}>
+    <path d="M3 3h10v8h8v10H3z" />
+  </Icon>
+);

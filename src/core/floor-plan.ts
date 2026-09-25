@@ -1,4 +1,5 @@
 import type { Area, Floor } from "./areas";
+import type { PlanOpening, StoredFloor } from "./plan-store";
 
 /** Rectangle en cases de grille (pas en pixels) : le même plan sert tous les écrans. */
 export interface PlanRect {
@@ -20,10 +21,17 @@ export interface PlacedRoom {
   rects: PlanRect[];
 }
 
+export interface PlacedOpening extends PlanOpening {
+  area_id: string;
+}
+
 export interface FloorLayout {
   rooms: PlacedRoom[];
   cols: number;
   rows: number;
+  openings: PlacedOpening[];
+  /** Faux tant que l'étage n'a jamais été dessiné : placement automatique. */
+  custom: boolean;
 }
 
 export const NO_FLOOR = "__none";
@@ -73,7 +81,7 @@ function rowWidths(weights: number[]): number[] {
 /** Plan généré sans intervention : rangées de pièces dont la largeur suit le
  *  nombre d'appareils. Point de départ tant que le plan n'a pas été dessiné. */
 export function autoLayout(areas: Area[], weightOf: (a: Area) => number): FloorLayout {
-  if (areas.length === 0) return { rooms: [], cols: ROW_UNITS, rows: ROW_HEIGHT };
+  if (areas.length === 0) return { rooms: [], cols: ROW_UNITS, rows: ROW_HEIGHT, openings: [], custom: false };
   const rooms: PlacedRoom[] = [];
   let index = 0;
   const counts = splitRows(areas.length);
@@ -87,5 +95,79 @@ export function autoLayout(areas: Area[], weightOf: (a: Area) => number): FloorL
       x += widths[i];
     });
   });
-  return { rooms, cols: ROW_UNITS, rows: counts.length * ROW_HEIGHT };
+  return { rooms, cols: ROW_UNITS, rows: counts.length * ROW_HEIGHT, openings: [], custom: false };
+}
+
+const NEW_ROOM = { w: 4, h: 3 };
+
+/** Plan dessiné s'il existe, sinon placement automatique. Une pièce apparue
+ *  depuis le dernier dessin est posée sous le plan, pour rester visible
+ *  jusqu'à ce qu'on la place. Le plan est recalé en (0, 0) pour l'affichage. */
+export function resolveLayout(
+  areas: Area[],
+  stored: StoredFloor | undefined,
+  weightOf: (a: Area) => number,
+): FloorLayout {
+  const drawn = stored ? areas.filter((a) => stored.rooms[a.area_id]) : [];
+  if (!stored || drawn.length === 0) return autoLayout(areas, weightOf);
+
+  const all = drawn.flatMap((a) => stored.rooms[a.area_id]);
+  const minX = Math.min(...all.map((r) => r.x));
+  const minY = Math.min(...all.map((r) => r.y));
+  const rooms: PlacedRoom[] = drawn.map((area) => ({
+    area,
+    rects: stored.rooms[area.area_id].map((r) => ({ x: r.x - minX, y: r.y - minY, w: r.w, h: r.h })),
+  }));
+  let cols = Math.max(...all.map((r) => r.x + r.w)) - minX;
+  let rows = Math.max(...all.map((r) => r.y + r.h)) - minY;
+
+  const missing = areas.filter((a) => !stored.rooms[a.area_id]);
+  if (missing.length > 0) {
+    cols = Math.max(cols, NEW_ROOM.w * Math.min(3, missing.length));
+    let x = 0;
+    let y = rows;
+    for (const area of missing) {
+      if (x + NEW_ROOM.w > cols) {
+        x = 0;
+        y += NEW_ROOM.h;
+      }
+      rooms.push({ area, rects: [{ x, y, w: NEW_ROOM.w, h: NEW_ROOM.h }] });
+      x += NEW_ROOM.w;
+    }
+    rows = y + NEW_ROOM.h;
+  }
+
+  const openings = drawn.flatMap((a) =>
+    (stored.openings[a.area_id] ?? []).map((o) => ({ ...o, area_id: a.area_id })),
+  );
+  return { rooms, cols, rows, openings, custom: true };
+}
+
+export function rectsOverlap(a: PlanRect, b: PlanRect): boolean {
+  return a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
+}
+
+/** Longueur du mur `side` d'un rectangle, en cases. */
+export function wallLength(rect: PlanRect, side: PlanOpening["side"]): number {
+  return side === "top" || side === "bottom" ? rect.w : rect.h;
+}
+
+/** Segment occupé par un ouvrant, en cases, recadré si la pièce a rétréci. */
+export function openingSegment(
+  rect: PlanRect,
+  o: Pick<PlanOpening, "side" | "offset" | "length">,
+): { x: number; y: number; horizontal: boolean; length: number } {
+  const wall = wallLength(rect, o.side);
+  const length = Math.min(o.length, wall);
+  const offset = Math.max(0, Math.min(o.offset, wall - length));
+  switch (o.side) {
+    case "top":
+      return { x: rect.x + offset, y: rect.y, horizontal: true, length };
+    case "bottom":
+      return { x: rect.x + offset, y: rect.y + rect.h, horizontal: true, length };
+    case "left":
+      return { x: rect.x, y: rect.y + offset, horizontal: false, length };
+    default:
+      return { x: rect.x + rect.w, y: rect.y + offset, horizontal: false, length };
+  }
 }

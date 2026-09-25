@@ -10,7 +10,14 @@ import {
   type RoomStats,
   type RoomSummary,
 } from "../core/entities";
-import { autoLayout, groupAreasByFloor, type PlanRect } from "../core/floor-plan";
+import {
+  groupAreasByFloor,
+  openingSegment,
+  resolveLayout,
+  type PlacedOpening,
+  type PlanRect,
+} from "../core/floor-plan";
+import type { HousePlan } from "../core/plan-store";
 import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-tint";
 import { loadPlanLayers, savePlanLayers, type PlanLayers } from "../core/storage";
 import { durationLabel } from "../core/time-ago";
@@ -18,6 +25,7 @@ import { useMinuteTick } from "../core/use-minute-tick";
 import {
   IconArrowRight,
   IconBlind,
+  IconEdit,
   IconFit,
   IconLightOn,
   IconMinus,
@@ -36,7 +44,10 @@ interface FloorPlanProps {
   /** Entités exposées, groupées par pièce. */
   byArea: Map<string | null, ResolvedEntity[]>;
   variant: FloorPlanVariant;
+  plan: HousePlan;
   onOpenRoom: (areaId: string) => void;
+  /** Absent : pas de bouton « Modifier le plan » (téléphone, Echo Show, non-admin). */
+  onEdit?: (floorKey: string) => void;
 }
 
 interface RoomInfo {
@@ -109,7 +120,7 @@ function legendGradient(): string {
   return `linear-gradient(90deg, ${stops.join(", ")})`;
 }
 
-export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: FloorPlanProps) {
+export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRoom, onEdit }: FloorPlanProps) {
   const now = useMinuteTick();
   const planFloors = useMemo(() => groupAreasByFloor(areas, floors), [areas, floors]);
   const [floorKey, setFloorKey] = useState<string | null>(null);
@@ -118,8 +129,11 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
   const [layers, setLayers] = useState<PlanLayers>(() => loadPlanLayers());
 
   const layout = useMemo(
-    () => autoLayout(floor?.areas ?? [], (a) => byArea.get(a.area_id)?.length ?? 1),
-    [floor, byArea],
+    () =>
+      resolveLayout(floor?.areas ?? [], floor ? plan.floors[floor.key] : undefined, (a) =>
+        byArea.get(a.area_id)?.length ?? 1,
+      ),
+    [floor, plan, byArea],
   );
 
   const rooms = useMemo(() => {
@@ -158,7 +172,11 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
 
   useEffect(() => {
     const el = viewportRef.current;
-    if (!el || typeof ResizeObserver === "undefined") return;
+    if (!el) return;
+    /* Mesure immédiate : un onglet en arrière-plan ne rend aucune image, et
+       ResizeObserver n'y rappelle qu'au premier rendu visible. */
+    setSize({ w: el.clientWidth, h: el.clientHeight });
+    if (typeof ResizeObserver === "undefined") return;
     const ro = new ResizeObserver(([entry]) => {
       setSize({ w: entry.contentRect.width, h: entry.contentRect.height });
     });
@@ -253,7 +271,11 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
     const dy = e.clientY - g.sy;
     if (!g.moved && Math.hypot(dx, dy) > DRAG_THRESHOLD) {
       g.moved = true;
-      viewportRef.current?.setPointerCapture?.(e.pointerId);
+      try {
+        viewportRef.current?.setPointerCapture(e.pointerId);
+      } catch {
+        /* pointeur déjà relâché */
+      }
     }
     if (g.moved && g.z > 1) setView({ z: g.z, x: g.ox + dx, y: g.oy + dy });
   };
@@ -360,7 +382,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
     </div>
   );
 
-  const plan = (
+  const planView = (
     <div
       class={`nido-plan__viewport ${view ? "is-zoomed" : ""}`}
       ref={viewportRef}
@@ -376,6 +398,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
         <div
           class="nido-plan__house"
           data-lod={lod}
+          data-custom={layout.custom ? "true" : "false"}
           style={{ left: `${originX}px`, top: `${originY}px`, width: `${planW}px`, height: `${planH}px` }}
         >
           {layout.rooms.map((r) => {
@@ -393,6 +416,20 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
                 onSelect={() => setSelected(r.area.area_id)}
               />
             ));
+          })}
+          {layout.openings.map((o) => {
+            const room = layout.rooms.find((r) => r.area.area_id === o.area_id);
+            const rect = room?.rects[o.rect] ?? room?.rects[0];
+            if (!rect) return null;
+            return (
+              <PlanOpeningMark
+                key={o.id}
+                opening={o}
+                rect={rect}
+                cell={cell}
+                open={layers.openings && !!o.entity_id && hass.states[o.entity_id]?.state === "on"}
+              />
+            );
           })}
         </div>
       )}
@@ -424,7 +461,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
           )}
         </div>
         <div class="nido-plan__stage">
-          {plan}
+          {planView}
           {zoomButtons}
         </div>
       </div>
@@ -450,7 +487,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
           {layerButtons}
         </div>
         <div class="nido-plan__stage">
-          {plan}
+          {planView}
           {zoomButtons}
         </div>
         {panel}
@@ -463,11 +500,19 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
     <div class="nido-plan nido-plan--wide">
       <div class="nido-plan__bar">
         {layerButtons}
-        {floorTabs}
+        <div class="nido-plan__bar-end">
+          {onEdit && (
+            <button type="button" class="nido-plan__edit" onClick={() => onEdit(floor.key)}>
+              <IconEdit size={16} />
+              Modifier le plan
+            </button>
+          )}
+          {floorTabs}
+        </div>
       </div>
       <div class="nido-plan__body">
         <div class="nido-plan__card">
-          <div class="nido-plan__stage">{plan}</div>
+          <div class="nido-plan__stage">{planView}</div>
           <div class="nido-plan__footer">
             {layers.temperature ? (
               <div class="nido-plan__legend">
@@ -499,6 +544,33 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, onOpenRoom }: 
         </div>
       </div>
     </div>
+  );
+}
+
+function PlanOpeningMark({
+  opening,
+  rect,
+  cell,
+  open,
+}: {
+  opening: PlacedOpening;
+  rect: PlanRect;
+  cell: number;
+  open: boolean;
+}) {
+  const seg = openingSegment(rect, opening);
+  const thick = open ? 7 : 6;
+  const style = seg.horizontal
+    ? { left: `${seg.x * cell}px`, top: `${seg.y * cell - thick / 2}px`, width: `${seg.length * cell}px`, height: `${thick}px` }
+    : { left: `${seg.x * cell - thick / 2}px`, top: `${seg.y * cell}px`, width: `${thick}px`, height: `${seg.length * cell}px` };
+  return (
+    <span
+      class="nido-plan__opening"
+      data-kind={opening.kind}
+      data-open={open ? "true" : "false"}
+      style={style}
+      aria-hidden="true"
+    />
   );
 }
 

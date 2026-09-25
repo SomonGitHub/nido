@@ -165,6 +165,9 @@
       ];
       const deviceRegistry = entityRegistry.map(e => ({ id: e.device_id, area_id: e.area_id, name: null, name_by_user: null }));
 
+      const mqttRetained = {};
+      const mqttSubs = {};
+
       const wsHandlers = {
         "config/area_registry/list":   () => areas,
         "config/floor_registry/list":  () => floors,
@@ -180,6 +183,11 @@
         language: "fr",
         callService: async (domain, service, data) => {
           console.log("callService", domain, service, data);
+          if (domain === "mqtt" && service === "publish") {
+            if (data.retain) mqttRetained[data.topic] = data.payload;
+            for (const cb of mqttSubs[data.topic] ?? []) cb({ topic: data.topic, payload: data.payload });
+            return;
+          }
           if (Array.isArray(data?.entity_id)) {
             for (const one of data.entity_id) await fakeHass.callService(domain, service, { ...data, entity_id: one });
             return;
@@ -324,7 +332,16 @@
           if (!handler) { console.warn("unhandled WS", msg); return []; }
           return handler();
         },
-        connection: { subscribeEvents: async () => () => {} },
+        connection: {
+          subscribeEvents: async () => () => {},
+          subscribeMessage: async (cb, msg) => {
+            if (msg.type !== "mqtt/subscribe") throw new Error("unsupported");
+            const list = (mqttSubs[msg.topic] ??= []);
+            list.push(cb);
+            if (mqttRetained[msg.topic] !== undefined) setTimeout(() => cb({ topic: msg.topic, payload: mqttRetained[msg.topic] }), 0);
+            return () => { mqttSubs[msg.topic] = list.filter((f) => f !== cb); };
+          },
+        },
       };
 
       customElements.whenDefined("nido-panel").then(refresh);

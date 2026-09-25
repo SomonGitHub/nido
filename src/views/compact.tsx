@@ -3,6 +3,7 @@ import type { JSX } from "preact";
 import type { HassObject } from "../types";
 import type { Area, Floor } from "../core/areas";
 import { FloorPlan } from "./floor-plan";
+import type { HousePlan } from "../core/plan-store";
 import { groupByArea, isEntityActive, type ResolvedEntity } from "../core/entities";
 import { applyOrder } from "../core/drag-reorder";
 import { greetingFor } from "./dashboard";
@@ -37,6 +38,7 @@ interface CompactDashboardProps {
   favorites: string[];
   exposed: string[];
   roomsOrder: string[];
+  plan: HousePlan;
   onOpenRoom: (areaId: string) => void;
 }
 
@@ -126,6 +128,7 @@ export function CompactDashboard({
   favorites,
   exposed,
   roomsOrder,
+  plan,
   onOpenRoom,
 }: CompactDashboardProps) {
   const [view, setView] = useState<CompactView>("glance");
@@ -312,6 +315,7 @@ export function CompactDashboard({
               floors={floors}
               byArea={byArea}
               variant="compact"
+              plan={plan}
               onOpenRoom={onOpenRoom}
             />
           )}

@@ -6500,6 +6500,10 @@
   transition: left 0.18s var(--ease-out), top 0.18s var(--ease-out);
 }
 .nido-plan__viewport.is-zoomed .nido-plan__house { transition: none; }
+/* Un plan dessiné n'est pas forcément rectangulaire : le cadre englobant
+   enfermerait les vides. Chaque pièce porte alors ses propres murs. */
+.nido-plan__house[data-custom="true"] { box-shadow: none; }
+.nido-plan__house[data-custom="true"] .nido-plan__room { border-width: 2px; }
 
 .nido-plan__room {
   position: absolute;
@@ -6932,4 +6936,440 @@
 @media (prefers-reduced-motion: reduce) {
   .nido-plan__house,
   .nido-plan__room { transition: none; }
+}
+
+/* Ouvrants dessinés sur les murs du plan */
+.nido-plan__opening {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 3;
+  pointer-events: none;
+  border-radius: 2px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--plan-wall);
+}
+.nido-plan__opening[data-kind="door"] {
+  border: none;
+  border-radius: 0;
+}
+.nido-plan__opening[data-open="true"] {
+  border: none;
+  background: var(--danger);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--danger) 28%, transparent);
+}
+
+.nido-plan__bar-end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.nido-plan__edit {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-plan__edit:hover { background: var(--bg-inset); color: var(--ink-1); }
+
+/* ─── Éditeur de plan (plein écran) ─── */
+.nido-plan-editor {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  padding: 16px;
+  background: var(--bg-canvas);
+  font-family: var(--font-sans);
+  color: var(--ink-1);
+}
+.nido-plan-editor__shell {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: var(--r-xl);
+  background: var(--bg-shell);
+}
+.nido-plan-editor__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.nido-plan-editor__title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.nido-plan-editor__title h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.nido-plan-editor__back {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nido-plan-editor__actions { display: flex; gap: 8px; }
+.nido-plan-editor__ghost,
+.nido-plan-editor__primary {
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--r-pill);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.nido-plan-editor__ghost { background: var(--bg-inset); color: var(--ink-1); font-weight: 500; }
+.nido-plan-editor__primary { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+
+.nido-plan-editor__hint {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.nido-plan-editor__status { font-weight: 600; }
+.nido-plan-editor__status.is-dirty { color: var(--accent-deep); }
+:host([data-mode="dark"]) .nido-plan-editor__status.is-dirty { color: var(--accent); }
+
+.nido-plan-editor__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 20px;
+}
+.nido-plan-editor__canvas {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+  display: flex;
+}
+.nido-plan-editor__field-box {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+.nido-plan-editor__field {
+  position: relative;
+  flex-shrink: 0;
+  background-image: radial-gradient(circle, var(--ink-4) 1.3px, transparent 1.6px);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.nido-plan-editor__room {
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  overflow: hidden;
+  border: 2px solid var(--ink-1);
+  border-radius: 0;
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-family: inherit;
+  text-align: left;
+  cursor: grab;
+  touch-action: none;
+  z-index: 1;
+  transition: left 0.15s var(--ease-out), top 0.15s var(--ease-out),
+    width 0.15s var(--ease-out), height 0.15s var(--ease-out);
+}
+.nido-plan-editor__room[data-selected="true"] {
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+}
+.nido-plan-editor__room[data-active="true"] {
+  cursor: grabbing;
+  z-index: 4;
+  transition: none;
+}
+.nido-plan-editor__room[data-bad="true"] {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 22%, var(--bg-card));
+}
+.nido-plan-editor__room:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+.nido-plan-editor__room-name {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  pointer-events: none;
+}
+.nido-plan-editor__room-dims {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  pointer-events: none;
+}
+
+.nido-plan-editor__opening {
+  position: absolute;
+  z-index: 5;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 3px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+}
+.nido-plan-editor__opening span {
+  flex: 1;
+  border-radius: 2px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--ink-1);
+}
+.nido-plan-editor__opening[data-kind="door"] span {
+  border-style: dashed;
+}
+.nido-plan-editor__opening[data-selected="true"] span {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.nido-plan-editor__handle {
+  position: absolute;
+  z-index: 8;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: var(--bg-card);
+  border: 2.5px solid var(--accent);
+  touch-action: none;
+}
+.nido-plan-editor__badge {
+  position: absolute;
+  z-index: 9;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.nido-plan-editor__badge[data-bad="true"] { background: var(--danger); color: #ffffff; }
+
+.nido-plan-editor__toast {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 20;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  background: var(--hero-dark);
+  color: var(--hero-dark-ink);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(20, 12, 6, 0.25);
+}
+
+.nido-plan-editor__side {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+}
+.nido-plan-editor__card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+}
+.nido-plan-editor__card-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.nido-plan-editor__muted {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+.nido-plan-editor__row { display: flex; gap: 8px; }
+.nido-plan-editor__row .nido-plan-editor__btn { flex: 1; }
+.nido-plan-editor__btn {
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: none;
+  border-radius: var(--r-sm);
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+}
+.nido-plan-editor__btn--danger { background: transparent; color: var(--danger); }
+.nido-plan-editor__unplaced {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1.5px dashed var(--accent);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--ink-1);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.nido-plan-editor__link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.nido-plan-editor__field-label {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.nido-plan-editor__segmented {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--r-sm);
+  background: var(--bg-inset);
+}
+.nido-plan-editor__segmented button {
+  flex: 1;
+  min-height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-plan-editor__segmented button.is-active {
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+}
+.nido-plan-editor__steppers { display: flex; gap: 10px; }
+.nido-plan-editor__stepper { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.nido-plan-editor__stepper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  border-radius: var(--r-sm);
+  background: var(--bg-inset);
+}
+.nido-plan-editor__stepper-row button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: var(--bg-card);
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nido-plan-editor__stepper-row span { font-size: 14px; font-weight: 600; }
+.nido-plan-editor__select {
+  height: 44px;
+  padding: 0 12px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--ink-4);
+  background: var(--bg-shell);
+  color: var(--ink-1);
+  font-family: inherit;
+  font-size: 14px;
+}
+.nido-plan-editor__note {
+  margin: 0;
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+@media (max-width: 899px) {
+  .nido-plan-editor__body { flex-direction: column; overflow-y: auto; }
+  .nido-plan-editor__canvas { min-height: 420px; }
+  .nido-plan-editor__side { width: auto; overflow: visible; }
+  .nido-plan-editor__tips { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-plan-editor__room { transition: none; }
 }

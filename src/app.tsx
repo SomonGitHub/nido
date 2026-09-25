@@ -29,6 +29,7 @@ import { EnergyPage, POWER_ENTITY_ID } from "./views/energy";
 import { Onboarding } from "./components/onboarding";
 import { CompactDashboard } from "./views/compact";
 import { useCompactLayout } from "./core/use-compact-layout";
+import { usePlanSync } from "./core/plan-store";
 
 interface PanelHost {
   applyTheme?: (theme: string, mode: string) => void;
@@ -67,6 +68,7 @@ export function App({ hass, host }: AppProps) {
     { kind: "dashboard" } | { kind: "room"; areaId: string } | { kind: "energy" }
   >({ kind: "dashboard" });
   const compact = useCompactLayout();
+  const [housePlan, saveHousePlan, planSynced] = usePlanSync(hass);
 
   const reorderFavorites = (ids: string[]) => {
     setFavorites(ids);
@@ -201,6 +203,7 @@ export function App({ hass, host }: AppProps) {
           favorites={favorites}
           exposed={exposed}
           roomsOrder={roomsOrder}
+          plan={housePlan}
           onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
         />
       ) : view.kind === "energy" ? (
@@ -220,6 +223,9 @@ export function App({ hass, host }: AppProps) {
           favorites={favorites}
           exposed={exposed}
           roomsOrder={roomsOrder}
+          plan={housePlan}
+          planSynced={planSynced}
+          onSavePlan={saveHousePlan}
           kidsEnabled={kidsEnabled}
           onConfigure={() => setShowOnboarding(true)}
           onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
