@@ -19,6 +19,7 @@ import {
   resolveLayout,
   roomWalls,
   wallStyle,
+  type FloorKind,
   type PlacedDevice,
   type PlacedOpening,
   type PlanRect,
@@ -531,6 +532,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
                 info={info}
                 rect={rect}
                 cell={cell}
+                surface={r.surface ?? floorKind(r.area.name)}
                 labelled={i === 0}
                 lod={lod}
                 layers={layers}
@@ -773,21 +775,24 @@ function PlanDeviceButton({
 }
 
 /* Symbole d'architecte : le battant part de la charnière vers l'intérieur de
-   la pièce, l'arc montre le débattement. Coordonnées locales à un carré de
-   côté `size` posé contre le mur, côté pièce. */
-const DOOR_GEOMETRY: Record<WallSide, { leaf: string; arc: (s: number) => string }> = {
-  top: { leaf: "M0 0 V{s}", arc: (s) => `M0 ${s} A${s} ${s} 0 0 0 ${s} 0` },
-  bottom: { leaf: "M0 {s} V0", arc: (s) => `M0 0 A${s} ${s} 0 0 1 ${s} ${s}` },
-  left: { leaf: "M0 0 H{s}", arc: (s) => `M${s} 0 A${s} ${s} 0 0 1 0 ${s}` },
-  right: { leaf: "M{s} 0 H0", arc: (s) => `M0 0 A${s} ${s} 0 0 0 ${s} ${s}` },
+   la pièce, l'arc montre le débattement. Dessiné une fois dans un repère
+   « mur en haut » (u le long du mur, v vers la pièce), puis tourné selon le
+   mur par une matrice : les quatre orientations restent cohérentes. */
+const SIDE_MATRIX: Record<WallSide, (depth: number) => string> = {
+  top: () => "matrix(1 0 0 1 0 0)",
+  bottom: (d) => `matrix(1 0 0 -1 0 ${d})`,
+  left: () => "matrix(0 1 1 0 0 0)",
+  right: (d) => `matrix(0 1 -1 0 ${d} 0)`,
 };
 
-/** Battant et arc d'une porte, à poser à côté du trou dans le mur. */
+/** Battant(s) et arc(s) d'une porte, à poser contre le trou dans le mur.
+ *  `double` : porte-fenêtre à deux vantaux, qui se rejoignent au milieu. */
 export function DoorSwing({
   side,
   x,
   y,
   size,
+  double,
   open,
   className,
 }: {
@@ -795,25 +800,37 @@ export function DoorSwing({
   /** Début du segment de porte, en pixels (coin haut-gauche du trou). */
   x: number;
   y: number;
+  /** Largeur du passage, en pixels. */
   size: number;
+  double?: boolean;
   open?: boolean;
   className: string;
 }) {
-  const left = side === "right" ? x - size : x;
-  const top = side === "bottom" ? y - size : y;
-  const g = DOOR_GEOMETRY[side];
+  const L = size;
+  const d = double ? L / 2 : L;
+  const horizontal = side === "top" || side === "bottom";
+  const width = horizontal ? L : d;
+  const height = horizontal ? d : L;
+  const left = side === "right" ? x - d : x;
+  const top = side === "bottom" ? y - d : y;
+  const leaves = double ? `M0 0 V${d} M${L} 0 V${d}` : `M0 0 V${L}`;
+  const arcs = double
+    ? `M0 ${d} A${d} ${d} 0 0 0 ${d} 0 M${L} ${d} A${d} ${d} 0 0 1 ${d} 0`
+    : `M0 ${L} A${L} ${L} 0 0 0 ${L} 0`;
   return (
     <svg
       class={className}
       data-open={open ? "true" : "false"}
-      width={size}
-      height={size}
-      viewBox={`0 0 ${size} ${size}`}
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
       style={{ left: `${left}px`, top: `${top}px` }}
       aria-hidden="true"
     >
-      <path class="door-arc" d={g.arc(size)} />
-      <path class="door-leaf" d={g.leaf.replace("{s}", String(size))} />
+      <g transform={SIDE_MATRIX[side](d)}>
+        <path class="door-arc" d={arcs} />
+        <path class="door-leaf" d={leaves} />
+      </g>
     </svg>
   );
 }
@@ -869,7 +886,7 @@ function PlanOpeningMark({
       aria-hidden="true"
     />
   );
-  if (opening.kind !== "door") return mark;
+  if (opening.kind === "window") return mark;
   return (
     <>
       {mark}
@@ -878,6 +895,7 @@ function PlanOpeningMark({
         x={seg.x * cell}
         y={seg.y * cell}
         size={seg.length * cell}
+        double={opening.kind === "french"}
         open={open}
         className="nido-plan__door"
       />
@@ -913,6 +931,7 @@ interface PlanRoomProps {
   info: RoomInfo;
   rect: PlanRect;
   cell: number;
+  surface: FloorKind;
   labelled: boolean;
   lod: "overview" | "labels" | "detail";
   layers: PlanLayers;
@@ -920,7 +939,7 @@ interface PlanRoomProps {
   onSelect: () => void;
 }
 
-function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, onSelect }: PlanRoomProps) {
+function PlanRoom({ info, rect, cell, surface, labelled, lod: planLod, layers, selected, onSelect }: PlanRoomProps) {
   const lit = layers.lights && info.summary.lightsOn > 0;
   const opening = layers.openings ? info.opening : null;
   const alert = info.critical ?? opening;
@@ -970,7 +989,7 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
       data-selected={selected ? "true" : "false"}
       data-narrow={narrow ? "true" : "false"}
       data-motion={motion ?? "none"}
-      data-floor={floorKind(info.area.name)}
+      data-floor={surface}
       aria-label={aria}
       aria-pressed={selected}
       style={style}

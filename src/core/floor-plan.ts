@@ -19,6 +19,8 @@ export interface PlacedRoom {
   area: Area;
   /** Plusieurs rectangles = pièce en L. Le premier porte le libellé. */
   rects: PlanRect[];
+  /** Sol choisi dans l'éditeur, sinon deviné (`floorKind`). */
+  surface?: FloorKind;
 }
 
 export interface PlacedOpening extends PlanOpening {
@@ -129,6 +131,7 @@ export function resolveLayout(
   const rooms: PlacedRoom[] = drawn.map((area) => ({
     area,
     rects: stored.rooms[area.area_id].map((r) => ({ x: r.x - minX, y: r.y - minY, w: r.w, h: r.h })),
+    surface: stored.surfaces?.[area.area_id],
   }));
   let cols = Math.max(...all.map((r) => r.x + r.w)) - minX;
   let rows = Math.max(...all.map((r) => r.y + r.h)) - minY;

@@ -7804,3 +7804,53 @@
 @media (prefers-reduced-motion: reduce) {
   .nido-plan[data-night="true"] .nido-plan__card { transition: none; }
 }
+
+/* Porte-fenêtre : vitrage dans le mur comme une fenêtre, deux vantaux. */
+.nido-plan__opening[data-kind="french"] {
+  border: none;
+  border-radius: 0;
+  background-color: var(--plan-gap);
+}
+.nido-plan__opening[data-kind="french"][data-horizontal="true"] {
+  border-top: 1.5px solid var(--plan-wall);
+  border-bottom: 1.5px solid var(--plan-wall);
+  background-image: linear-gradient(to bottom, transparent calc(50% - 0.75px), var(--plan-wall) calc(50% - 0.75px), var(--plan-wall) calc(50% + 0.75px), transparent calc(50% + 0.75px));
+}
+.nido-plan__opening[data-kind="french"][data-horizontal="false"] {
+  border-left: 1.5px solid var(--plan-wall);
+  border-right: 1.5px solid var(--plan-wall);
+  background-image: linear-gradient(to right, transparent calc(50% - 0.75px), var(--plan-wall) calc(50% - 0.75px), var(--plan-wall) calc(50% + 0.75px), transparent calc(50% + 0.75px));
+}
+.nido-plan__opening[data-kind="french"][data-open="true"] {
+  background-color: var(--danger);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--danger) 28%, transparent);
+}
+.nido-plan[data-night="true"] .nido-plan__opening[data-kind="french"][data-lit="true"]:not([data-open="true"]) {
+  background-color: #ffd9a0;
+  box-shadow: 0 0 16px 4px rgba(255, 186, 104, 0.55);
+}
+.nido-plan-editor__opening[data-kind="french"] span {
+  border-width: 1.5px 0;
+  background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box, var(--ink-1);
+}
+.nido-plan-editor__opening[data-kind="french"][data-selected="true"] span { background: var(--accent); }
+
+/* Sol visible dans l'éditeur, en motif très léger. */
+.nido-plan-editor__room[data-floor="wood"] {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(70, 45, 25, 0.07) 0 1px, transparent 1px 10px),
+    repeating-linear-gradient(90deg, rgba(70, 45, 25, 0.05) 0 1px, transparent 1px 46px);
+}
+.nido-plan-editor__room[data-floor="tile"] {
+  background-image:
+    linear-gradient(rgba(70, 45, 25, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(70, 45, 25, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.nido-plan-editor__room[data-floor="concrete"] {
+  background-image: radial-gradient(rgba(70, 45, 25, 0.09) 1px, transparent 1.3px);
+  background-size: 7px 7px;
+}
+
+.nido-plan-editor__row--wrap { flex-wrap: wrap; }
+.nido-plan-editor__row--wrap .nido-plan-editor__btn { flex: 1 1 110px; }

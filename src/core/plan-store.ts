@@ -1,9 +1,10 @@
 import type { HassObject } from "../types";
-import type { PlanRect } from "./floor-plan";
+import type { FloorKind, PlanRect } from "./floor-plan";
 import { useRetainedSync } from "./mqtt-sync";
 
 export type WallSide = "top" | "right" | "bottom" | "left";
-export type OpeningKind = "window" | "door";
+/** `french` : porte-fenêtre — vitrée comme une fenêtre, à deux vantaux. */
+export type OpeningKind = "window" | "door" | "french";
 
 /** Fenêtre ou porte posée sur un mur d'un rectangle de pièce. `offset` et
  *  `length` sont en cases, comptées depuis le début du mur (gauche ou haut). */
@@ -31,6 +32,8 @@ export interface StoredFloor {
   rooms: Record<string, PlanRect[]>;
   openings: Record<string, PlanOpening[]>;
   devices: Record<string, PlanDevice[]>;
+  /** Sol choisi dans l'éditeur ; absent = deviné d'après le nom de la pièce. */
+  surfaces: Record<string, FloorKind>;
 }
 
 export interface HousePlan {
@@ -41,6 +44,7 @@ export interface HousePlan {
 
 const KEY = "nido.floorPlan";
 const SIDES: readonly WallSide[] = ["top", "right", "bottom", "left"];
+const SURFACES: readonly FloorKind[] = ["wood", "tile", "concrete"];
 const MAX_CELLS = 200;
 
 export function emptyPlan(): HousePlan {
@@ -72,7 +76,7 @@ function parseOpening(raw: unknown): PlanOpening | null {
   if (!SIDES.includes(o.side as WallSide)) return null;
   return {
     id: o.id,
-    kind: o.kind === "door" ? "door" : "window",
+    kind: o.kind === "door" || o.kind === "french" ? o.kind : "window",
     rect: Math.round(rect),
     side: o.side as WallSide,
     offset,
@@ -118,7 +122,11 @@ export function parseHousePlan(raw: unknown): HousePlan | null {
       const parsed = list.map(parseDevice).filter((d): d is PlanDevice => d !== null);
       if (parsed.length > 0) devices[areaId] = parsed;
     }
-    floors[key] = { rooms, openings, devices };
+    const surfaces: Record<string, FloorKind> = {};
+    for (const [areaId, kind] of Object.entries((f.surfaces as Record<string, unknown>) ?? {})) {
+      if (SURFACES.includes(kind as FloorKind)) surfaces[areaId] = kind as FloorKind;
+    }
+    floors[key] = { rooms, openings, devices, surfaces };
   }
   return {
     version: 1,

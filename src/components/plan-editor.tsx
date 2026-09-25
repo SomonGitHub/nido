@@ -4,12 +4,14 @@ import type { ResolvedEntity } from "../core/entities";
 import {
   autoLayout,
   clampToRoom,
+  floorKind,
   openingSegment,
   PLACEABLE_DOMAINS,
   rectsOverlap,
   roomWalls,
   wallLength,
   wallStyle,
+  type FloorKind,
   type PlanFloor,
   type PlanRect,
 } from "../core/floor-plan";
@@ -88,7 +90,10 @@ const SIDE_LABEL: Record<WallSide, string> = { top: "Haut", right: "Droite", bot
 const OPENING_CLASSES: Record<OpeningKind, Set<string>> = {
   window: new Set(["window"]),
   door: new Set(["door", "garage_door"]),
+  french: new Set(["door", "window"]),
 };
+const OPENING_LABEL: Record<OpeningKind, string> = { window: "Fenêtre", door: "Porte", french: "Porte-fenêtre" };
+const SURFACE_LABEL: Record<FloorKind, string> = { wood: "Parquet", tile: "Carrelage", concrete: "Béton" };
 
 function seedDraft(
   floors: PlanFloor[],
@@ -99,7 +104,12 @@ function seedDraft(
   for (const f of floors) {
     const stored = plan.floors[f.key];
     if (stored && f.areas.some((a) => stored.rooms[a.area_id])) {
-      out[f.key] = { rooms: { ...stored.rooms }, openings: { ...stored.openings }, devices: { ...stored.devices } };
+      out[f.key] = {
+        rooms: { ...stored.rooms },
+        openings: { ...stored.openings },
+        devices: { ...stored.devices },
+        surfaces: { ...stored.surfaces },
+      };
       continue;
     }
     /* Un étage jamais dessiné part du placement automatique : on ajuste un plan
@@ -109,6 +119,7 @@ function seedDraft(
       rooms: Object.fromEntries(auto.rooms.map((r) => [r.area.area_id, r.rects])),
       openings: stored?.openings ?? {},
       devices: stored?.devices ?? {},
+      surfaces: stored?.surfaces ?? {},
     };
   }
   return out;
@@ -319,6 +330,13 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
     setSel({ kind: "room", areaId, rect: 0 });
   };
 
+  const setSurface = (areaId: string, kind: FloorKind | "") => {
+    const surfaces = { ...stored.surfaces };
+    if (kind) surfaces[areaId] = kind;
+    else delete surfaces[areaId];
+    updateFloor({ surfaces });
+  };
+
   const removeRoom = (areaId: string) => {
     const rooms = { ...stored.rooms };
     const openings = { ...stored.openings };
@@ -353,7 +371,7 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
     const r = placed[areaId][rect];
     const side = bestSide(areaId, r);
     const wall = wallLength(r, side);
-    const length = Math.min(wall, kind === "door" ? 1 : Math.max(1, Math.round(wall / 3)));
+    const length = Math.min(wall, kind === "door" ? 1 : kind === "french" ? 2 : Math.max(1, Math.round(wall / 3)));
     const linked = new Set((stored.openings[areaId] ?? []).map((o) => o.entity_id));
     const sensor = sensorsFor(areaId, kind).find((e) => !linked.has(e.entity_id));
     const opening: PlanOpening = {
@@ -569,6 +587,7 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                         class="nido-plan-editor__room"
                         data-selected={sel?.areaId === areaId ? "true" : "false"}
                         data-bad={bad ? "true" : "false"}
+                        data-floor={stored.surfaces[areaId] ?? floorKind(area.name)}
                         data-active={active ? "true" : "false"}
                         aria-label={`${area.name}, ${q.w} × ${q.h} cases. Flèches pour déplacer, Maj + flèches pour redimensionner`}
                         style={{ left: `${q.x * cell}px`, top: `${q.y * cell}px`, width: `${q.w * cell}px`, height: `${q.h * cell}px` }}
@@ -609,13 +628,14 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                             ? { left: `${seg.x * cell}px`, top: `${seg.y * cell - t / 2}px`, width: `${seg.length * cell}px`, height: `${t}px` }
                             : { left: `${seg.x * cell - t / 2}px`, top: `${seg.y * cell}px`, width: `${t}px`, height: `${seg.length * cell}px` };
                           const swing =
-                            o.kind === "door" ? (
+                            o.kind !== "window" ? (
                               <DoorSwing
                                 key={`${o.id}-swing`}
                                 side={o.side}
                                 x={seg.x * cell}
                                 y={seg.y * cell}
                                 size={seg.length * cell}
+                                double={o.kind === "french"}
                                 open={sel?.kind === "opening" && sel.id === o.id}
                                 className="nido-plan-editor__door"
                               />
@@ -628,7 +648,7 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                               class="nido-plan-editor__opening"
                               data-kind={o.kind}
                               data-selected={sel?.kind === "opening" && sel.id === o.id ? "true" : "false"}
-                              aria-label={`${o.kind === "door" ? "Porte" : "Fenêtre"} de ${areaById.get(areaId)?.name}`}
+                              aria-label={`${OPENING_LABEL[o.kind]} de ${areaById.get(areaId)?.name}`}
                               style={style}
                               onPointerDown={(e) => {
                                 e.stopPropagation();
@@ -729,12 +749,34 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
               <div class="nido-plan-editor__card">
                 <div class="nido-plan__eyebrow">Pièce sélectionnée</div>
                 <div class="nido-plan-editor__card-title">{areaById.get(sel.areaId)?.name}</div>
-                <div class="nido-plan-editor__row">
+                <label class="nido-plan-editor__field-label" for="plan-surface">
+                  Sol
+                </label>
+                <select
+                  id="plan-surface"
+                  class="nido-plan-editor__select"
+                  value={stored.surfaces[sel.areaId] ?? ""}
+                  onChange={(e) => setSurface(sel.areaId, (e.currentTarget as HTMLSelectElement).value as FloorKind | "")}
+                >
+                  <option value="">
+                    Automatique ({SURFACE_LABEL[floorKind(areaById.get(sel.areaId)?.name ?? "")].toLowerCase()})
+                  </option>
+                  {(["wood", "tile", "concrete"] as const).map((k) => (
+                    <option key={k} value={k}>
+                      {SURFACE_LABEL[k]}
+                    </option>
+                  ))}
+                </select>
+                <div class="nido-plan-editor__field-label">Ajouter</div>
+                <div class="nido-plan-editor__row nido-plan-editor__row--wrap">
                   <button type="button" class="nido-plan-editor__btn" onClick={() => addOpening(sel.areaId, selRectIndex, "window")}>
                     <IconWindow size={16} /> Fenêtre
                   </button>
                   <button type="button" class="nido-plan-editor__btn" onClick={() => addOpening(sel.areaId, selRectIndex, "door")}>
                     <IconDoor size={16} /> Porte
+                  </button>
+                  <button type="button" class="nido-plan-editor__btn" onClick={() => addOpening(sel.areaId, selRectIndex, "french")}>
+                    <IconDoor size={16} /> Porte-fenêtre
                   </button>
                 </div>
                 {placeableFor(sel.areaId).length > 0 && (
@@ -859,7 +901,7 @@ function OpeningCard({
   onRemove: () => void;
   onBack: () => void;
 }) {
-  const kindLabel = opening.kind === "door" ? "Porte" : "Fenêtre";
+  const kindLabel = OPENING_LABEL[opening.kind];
   return (
     <div class="nido-plan-editor__card">
       <button type="button" class="nido-plan-editor__link" onClick={onBack}>
@@ -869,7 +911,7 @@ function OpeningCard({
 
       <div class="nido-plan-editor__field-label">Type</div>
       <div class="nido-plan-editor__segmented" role="group" aria-label="Type d'ouvrant">
-        {(["window", "door"] as const).map((k) => (
+        {(["window", "door", "french"] as const).map((k) => (
           <button
             key={k}
             type="button"
@@ -877,7 +919,7 @@ function OpeningCard({
             aria-pressed={opening.kind === k}
             onClick={() => onPatch({ kind: k, entity_id: null })}
           >
-            {k === "door" ? "Porte" : "Fenêtre"}
+            {OPENING_LABEL[k]}
           </button>
         ))}
       </div>

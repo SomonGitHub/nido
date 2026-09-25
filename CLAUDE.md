@@ -148,7 +148,11 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   de rectangle — une pièce en L n'a pas de trait intérieur. Avec les rectangles des pièces
   voisines, chaque segment est classé façade (épais, `facadeThickness`) ou cloison (3 px) ;
   fenêtres dans l'épaisseur du mur (double trait + vitrage).
-- **Style architecte** : sol deviné du nom (`floorKind` → parquet / carrelage / béton, motif
+- **Ouvrants** : `kind` = window | door | french (porte-fenêtre : vitrage dans le mur + deux
+  vantaux). `DoorSwing` dessine dans un repère « mur en haut » puis tourne via une matrice
+  SVG selon le mur — une seule géométrie pour les 4 orientations, simple ou double vantail.
+- **Style architecte** : sol choisi dans l'éditeur (`surfaces[area_id]`) ou deviné du nom
+  (`floorKind` → parquet / carrelage / béton, motif
   CSS sur `data-floor`, taille via `--cell`), noms en petites capitales mono, température
   en pastille, couleurs adoucies, ombre portée (`--plan-house-shadow`) et ombre intérieure.
 - **Nuit** (`nido.planTime` : auto / jour / nuit, bouton soleil-lune) : auto = `sun.sun`
