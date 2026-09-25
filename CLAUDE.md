@@ -149,7 +149,10 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   (pastille « Ouverte · 25 min » ; les alertes fumée/eau/gaz s'affichent toujours),
   Mouvement (onde accent pulsée au centre de la pièce tant qu'un binary_sensor
   motion/occupancy/presence est actif via `detectOccupancy`, trace fixe et pâle pendant les
-  10 min qui suivent ; même langage que la pastille des cartes pièce).
+  10 min qui suivent ; même langage que la pastille des cartes pièce), Énergie (somme des
+  sensors `device_class: power` de la pièce, W ou kW, compteur général `POWER_ENTITY_ID`
+  exclu ; fond ambre → orange sur échelle log 10 W – 3 kW via `--energy-t`). Température et
+  Énergie sont **exclusifs** : les deux colorent le fond, activer l'un coupe l'autre.
 - **Zoom** : pincement, Ctrl/⌘ + molette, double-clic, boutons + / − / Ajuster. Le niveau de
   détail suit la taille d'une case en pixels (`LOD_LABELS` 28, `LOD_DETAIL` 50) ; en vue
   d'ensemble, une pièce assez grande garde son nom.

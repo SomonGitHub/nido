@@ -24,10 +24,12 @@ import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-ti
 import { loadPlanLayers, savePlanLayers, type PlanLayers } from "../core/storage";
 import { durationLabel } from "../core/time-ago";
 import { useMinuteTick } from "../core/use-minute-tick";
+import { POWER_ENTITY_ID } from "./energy";
 import {
   IconActivity,
   IconArrowRight,
   IconBlind,
+  IconBolt,
   IconEdit,
   IconFit,
   IconLightOn,
@@ -64,6 +66,12 @@ interface RoomInfo {
   occupancy: RoomOccupancy | null;
   /** Minutes depuis que le dernier détecteur est retombé, s'il y a peu. */
   motionAgo: number | null;
+  power: RoomPower | null;
+}
+
+interface RoomPower {
+  watts: number;
+  top: { name: string; watts: number };
 }
 
 const PAD = 16;
@@ -81,6 +89,38 @@ const MOTION_CLASSES = new Set(["motion", "occupancy", "presence"]);
 /* Au-delà, la trace s'efface : « mouvement il y a 40 min » ne dit plus
    qu'une pièce est habitée. */
 const MOTION_RECENT_MIN = 10;
+/* Échelle logarithmique : un frigo (150 W) doit déjà se voir, un four (3 kW)
+   sature. En linéaire, tout ce qui n'est pas un gros appareil resterait blanc. */
+const ENERGY_FLOOR_W = 10;
+const ENERGY_MAX_W = 3000;
+
+/* Somme des capteurs de puissance de la pièce, compteur général exclu (il
+   mesure toute la maison, pas la pièce où il est rangé). */
+function roomPower(entities: ResolvedEntity[]): RoomPower | null {
+  let watts = 0;
+  let top: RoomPower["top"] | null = null;
+  for (const e of entities) {
+    if (e.domain !== "sensor" || e.entity_id === POWER_ENTITY_ID) continue;
+    if (e.state.attributes.device_class !== "power") continue;
+    const raw = parseFloat(e.state.state);
+    if (!Number.isFinite(raw)) continue;
+    const unit = String(e.state.attributes.unit_of_measurement ?? "W");
+    const w = Math.max(0, /^kw$/i.test(unit) ? raw * 1000 : raw);
+    watts += w;
+    if (!top || w > top.watts) top = { name: e.friendly_name, watts: w };
+  }
+  return top ? { watts, top } : null;
+}
+
+function energyLevel(watts: number): number {
+  const t = Math.log10(1 + watts / ENERGY_FLOOR_W) / Math.log10(1 + ENERGY_MAX_W / ENERGY_FLOOR_W);
+  return Math.max(0, Math.min(1, t));
+}
+
+function formatWatts(watts: number): string {
+  if (watts >= 1000) return `${(Math.round(watts / 100) / 10).toLocaleString("fr-FR")} kW`;
+  return `${Math.round(watts).toLocaleString("fr-FR")} W`;
+}
 
 function motionAgo(entities: ResolvedEntity[], now: Date): number | null {
   let ago: number | null = null;
@@ -176,6 +216,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
         critical: summary.alerts.find((a) => !OPENING_KINDS.has(a.kind)) ?? null,
         occupancy: detectOccupancy(list),
         motionAgo: motionAgo(list, now),
+        power: roomPower(list),
       });
     }
     return map;
@@ -187,6 +228,8 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
 
   const toggleLayer = (key: keyof PlanLayers) => {
     const next = { ...layers, [key]: !layers[key] };
+    if (key === "temperature" && next.temperature) next.energy = false;
+    if (key === "energy" && next.energy) next.temperature = false;
     setLayers(next);
     savePlanLayers(next);
   };
@@ -377,6 +420,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           ["lights", "Lumières", IconLightOn],
           ["openings", "Ouvrants", IconWindow],
           ["motion", "Mouvement", IconActivity],
+          ["energy", "Énergie", IconBolt],
         ] as const
       ).map(([key, label, Ico]) => (
         <button
@@ -547,8 +591,14 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
                 <span class="nido-plan__legend-bar" style={{ background: legendGradient() }} aria-hidden="true" />
                 <span>28°</span>
               </div>
+            ) : layers.energy ? (
+              <div class="nido-plan__legend">
+                <span>0 W</span>
+                <span class="nido-plan__legend-bar nido-plan__legend-bar--energy" aria-hidden="true" />
+                <span>3 kW et +</span>
+              </div>
             ) : (
-              <span class="nido-plan__legend">Calque température masqué</span>
+              <span class="nido-plan__legend">Aucun calque de couleur</span>
             )}
             {zoomButtons}
           </div>
@@ -565,6 +615,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
               {floorSummary.openings > 0
                 ? `${floorSummary.openings} ouvrant${floorSummary.openings > 1 ? "s" : ""} ouvert${floorSummary.openings > 1 ? "s" : ""}`
                 : "Tout est fermé"}
+              {layers.energy && floorSummary.watts !== null && ` · ${formatWatts(floorSummary.watts)} consommés`}
               {floorSummary.occupied > 0 &&
                 ` · ${floorSummary.occupied} pièce${floorSummary.occupied > 1 ? "s" : ""} occupée${floorSummary.occupied > 1 ? "s" : ""}`}
               {floorSummary.avgTemp !== null && ` · Moyenne ${floorSummary.avgTemp.toLocaleString("fr-FR")} °C`}
@@ -607,21 +658,24 @@ function summarizeFloor(infos: RoomInfo[]): {
   lights: number;
   openings: number;
   occupied: number;
+  watts: number | null;
   avgTemp: number | null;
 } {
   let lights = 0;
   let openings = 0;
   let occupied = 0;
+  let watts: number | null = null;
   const temps: number[] = [];
   for (const r of infos) {
     lights += r.summary.lightsOn;
     if (r.opening) openings++;
     if (r.occupancy) occupied++;
+    if (r.power) watts = (watts ?? 0) + r.power.watts;
     const t = r.stats.temperature ? parseFloat(r.stats.temperature.value) : NaN;
     if (Number.isFinite(t)) temps.push(t);
   }
   const avgTemp = temps.length ? Math.round((temps.reduce((s, t) => s + t, 0) / temps.length) * 10) / 10 : null;
-  return { lights, openings, occupied, avgTemp };
+  return { lights, openings, occupied, watts, avgTemp };
 }
 
 interface PlanRoomProps {
@@ -640,6 +694,7 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
   const opening = layers.openings ? info.opening : null;
   const alert = info.critical ?? opening;
   const tinted = layers.temperature && info.tempTint !== null;
+  const energy = layers.energy && info.power !== null;
   const motion: "active" | "recent" | null = !layers.motion
     ? null
     : info.occupancy
@@ -670,6 +725,7 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
     width: `${rect.w * cell}px`,
     height: `${rect.h * cell}px`,
     ...(tinted ? tintStyle(info.tempTint) : {}),
+    ...(energy ? { "--energy-t": energyLevel(info.power!.watts).toFixed(3) } : {}),
   };
 
   return (
@@ -677,6 +733,7 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
       type="button"
       class="nido-plan__room"
       data-tinted={tinted ? "true" : "false"}
+      data-energy={energy ? "true" : "false"}
       data-lit={lit ? "true" : "false"}
       data-alert={alert ? "true" : "false"}
       data-selected={selected ? "true" : "false"}
@@ -736,7 +793,15 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
                 {motion === "active" ? info.occupancy!.label : `Mouvement il y a ${durationLabel(info.motionAgo!)}`}
               </span>
             )}
-            {temp && (
+            {layers.energy && info.power && (
+              <span class="nido-plan__temp">
+                <span class="nido-plan__temp-value nido-plan__power-value">{formatWatts(info.power.watts)}</span>
+                {lod === "detail" && !narrow && temp && (
+                  <span class="nido-plan__hum">{formatValue(temp.value)}°</span>
+                )}
+              </span>
+            )}
+            {temp && !(layers.energy && info.power) && (
               <span class="nido-plan__temp">
                 <span class="nido-plan__temp-value">{formatValue(temp.value)}°</span>
                 {lod === "detail" && !narrow && info.stats.humidity && (
@@ -810,6 +875,19 @@ function RoomPanel({ info, floorLabel, compact, onToggleLights, onToggleCovers, 
           </span>
         </div>
       </div>
+      {info.power && (
+        <div class="nido-plan__panel-power">
+          <IconBolt size={16} />
+          <span>
+            <strong>{formatWatts(info.power.watts)}</strong>
+            {info.power.top.watts > 0 && info.power.top.watts < info.power.watts
+              ? ` · dont ${info.power.top.name} ${formatWatts(info.power.top.watts)}`
+              : info.power.top.watts > 0
+                ? ` · ${info.power.top.name}`
+                : " · rien ne consomme"}
+          </span>
+        </div>
+      )}
       <div class="nido-plan__panel-actions">
         {summary.lightIds.length > 0 && (
           <button type="button" class="nido-plan__action" onClick={onToggleLights}>

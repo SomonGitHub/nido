@@ -7451,3 +7451,53 @@
 @media (prefers-reduced-motion: reduce) {
   .nido-plan__motion[data-state="active"]::after { animation: none; transform: scale(0.7); opacity: 0.5; }
 }
+
+/* Calque Énergie : remplace le dégradé température (un seul calque colore le
+   fond). Ambre → orange, la clarté baisse avec la puissance ; --energy-t
+   (0-1, échelle log) vient du composant. */
+.nido-plan {
+  --energy-l0: 0.965;
+  --energy-l1: 0.74;
+  --energy-c0: 0.02;
+  --energy-c1: 0.15;
+}
+:host([data-mode="dark"]) .nido-plan {
+  --energy-l0: 0.3;
+  --energy-l1: 0.46;
+  --energy-c0: 0.03;
+  --energy-c1: 0.13;
+}
+.nido-plan__room[data-energy="true"] {
+  background: oklch(
+    calc(var(--energy-l0) + (var(--energy-l1) - var(--energy-l0)) * var(--energy-t))
+    calc(var(--energy-c0) + (var(--energy-c1) - var(--energy-c0)) * var(--energy-t))
+    calc(75 - 30 * var(--energy-t))
+  );
+}
+.nido-plan__power-value { font-variant-numeric: tabular-nums; }
+.nido-plan__room[data-narrow="true"] .nido-plan__power-value { font-size: 12px; }
+.nido-plan__legend-bar--energy {
+  background: linear-gradient(
+    90deg,
+    oklch(var(--energy-l0) var(--energy-c0) 75),
+    oklch(calc((var(--energy-l0) + var(--energy-l1)) / 2) calc((var(--energy-c0) + var(--energy-c1)) / 2) 60),
+    oklch(var(--energy-l1) var(--energy-c1) 45)
+  );
+}
+.nido-plan__panel-power {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.nido-plan__panel-power svg { flex-shrink: 0; margin-top: 1px; color: var(--accent); }
+.nido-plan__panel-power strong { color: var(--ink-1); font-weight: 600; }
+
+/* Cinq calques dans le rail Echo Show : grille de trois colonnes. */
+.nido-plan--compact .nido-plan__layers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.nido-plan--compact .nido-plan__layer { width: auto; height: 48px; }

@@ -187,9 +187,17 @@ export interface PlanLayers {
   lights: boolean;
   openings: boolean;
   motion: boolean;
+  /** Exclusif avec `temperature` : les deux colorent le fond des pièces. */
+  energy: boolean;
 }
 
-const DEFAULT_PLAN_LAYERS: PlanLayers = { temperature: true, lights: true, openings: true, motion: true };
+const DEFAULT_PLAN_LAYERS: PlanLayers = {
+  temperature: true,
+  lights: true,
+  openings: true,
+  motion: true,
+  energy: false,
+};
 
 export function loadPlanLayers(): PlanLayers {
   const raw = safeStorage()?.getItem(KEYS.planLayers);
@@ -201,6 +209,7 @@ export function loadPlanLayers(): PlanLayers {
       lights: parsed.lights !== false,
       openings: parsed.openings !== false,
       motion: parsed.motion !== false,
+      energy: parsed.energy === true && parsed.temperature === false,
     };
   } catch {
     return DEFAULT_PLAN_LAYERS;
