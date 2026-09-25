@@ -144,6 +144,9 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   dessiné part du placement auto. Glisser pour déplacer, 8 poignées, flèches du clavier
   (Maj = taille), refus des chevauchements, pièces « À placer », fenêtre/porte posée sur le
   mur le moins partagé et liée au premier capteur libre de la pièce.
+- **Murs** : tracés d'après le contour de chaque pièce (`roomWalls`), pas par une bordure
+  de rectangle — une pièce en L n'a pas de trait intérieur. Portes : trou dans le mur +
+  battant et arc d'ouverture côté pièce (`DoorSwing`, partagé avec l'éditeur).
 - **Appareils posés** (`devices[area_id]: PlanDevice[]`, centre en cases relatif au 1er
   rectangle : l'icône suit la pièce) : `PLACEABLE_DOMAINS` = light, switch, fan, cover,
   media_player — serrures et alarmes exclues exprès. Sur le plan, un toucher bascule

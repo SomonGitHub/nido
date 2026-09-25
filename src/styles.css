@@ -7571,3 +7571,72 @@
   .nido-plan__device { transition: none; }
   .nido-plan__device:active { transform: none; }
 }
+
+/* Murs tracés d'après le contour de chaque pièce (roomWalls) plutôt que par
+   une bordure de rectangle : une pièce en L n'a pas de trait intérieur. Un mur
+   entre deux pièces est dessiné par chacune, au même endroit. */
+.nido-plan__house,
+.nido-plan__house[data-custom="true"] { box-shadow: none; }
+.nido-plan__room,
+.nido-plan__house[data-custom="true"] .nido-plan__room { border: none; }
+.nido-plan__room[data-selected="true"] { box-shadow: none; }
+.nido-plan__wall {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background: var(--plan-wall);
+}
+.nido-plan__wall[data-selected="true"] {
+  z-index: 4;
+  background: var(--accent);
+}
+.nido-plan__opening { z-index: 5; }
+.nido-plan__device { z-index: 6; }
+
+.nido-plan-editor__room,
+.nido-plan-editor__room[data-bad="true"] { border: none; }
+.nido-plan-editor__wall {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background: var(--ink-1);
+}
+.nido-plan-editor__wall[data-state="selected"] { z-index: 4; background: var(--accent); }
+.nido-plan-editor__wall[data-state="bad"] { z-index: 4; background: var(--danger); }
+
+/* Portes : trou dans le mur (même fond que la carte) + battant et arc
+   d'ouverture côté pièce. En rouge quand le capteur signale la porte ouverte. */
+.nido-plan__opening[data-kind="door"] {
+  border: none;
+  border-radius: 0;
+  background: var(--bg-card);
+  box-shadow: none;
+}
+.nido-plan__opening[data-kind="door"][data-open="true"] {
+  background: color-mix(in srgb, var(--danger) 30%, var(--bg-card));
+}
+.nido-plan__door,
+.nido-plan-editor__door {
+  position: absolute;
+  z-index: 5;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+}
+.nido-plan__door .door-leaf,
+.nido-plan-editor__door .door-leaf {
+  stroke: var(--plan-wall, var(--ink-1));
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.nido-plan__door .door-arc,
+.nido-plan-editor__door .door-arc {
+  stroke: var(--plan-wall, var(--ink-1));
+  stroke-width: 1.2;
+  stroke-dasharray: 3 3;
+  opacity: 0.7;
+}
+.nido-plan__door[data-open="true"] .door-leaf,
+.nido-plan__door[data-open="true"] .door-arc { stroke: var(--danger); opacity: 1; }
+.nido-plan-editor__door[data-open="true"] .door-leaf,
+.nido-plan-editor__door[data-open="true"] .door-arc { stroke: var(--accent); opacity: 1; }

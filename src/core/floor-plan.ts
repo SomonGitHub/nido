@@ -173,6 +173,66 @@ export function clampToRoom(rects: PlanRect[], x: number, y: number): { x: numbe
   };
 }
 
+export interface WallSegment {
+  x: number;
+  y: number;
+  length: number;
+  horizontal: boolean;
+}
+
+function subtract(intervals: [number, number][], cut: [number, number]): [number, number][] {
+  const out: [number, number][] = [];
+  for (const [a, b] of intervals) {
+    if (cut[1] <= a || cut[0] >= b) {
+      out.push([a, b]);
+      continue;
+    }
+    if (cut[0] > a) out.push([a, cut[0]]);
+    if (cut[1] < b) out.push([cut[1], b]);
+  }
+  return out;
+}
+
+/** Contour d'une pièce, en cases. Un côté de rectangle n'est un mur que là où
+ *  la case voisine, hors du rectangle, n'appartient pas à la même pièce : deux
+ *  rectangles d'une pièce en L ne sont séparés par aucun trait. */
+export function roomWalls(rects: PlanRect[]): WallSegment[] {
+  const walls: WallSegment[] = [];
+  rects.forEach((r, i) => {
+    const others = rects.filter((_, j) => j !== i);
+    const sides: { horizontal: boolean; at: number; from: number; to: number; covers: (o: PlanRect) => boolean }[] = [
+      { horizontal: true, at: r.y, from: r.x, to: r.x + r.w, covers: (o) => o.y < r.y && o.y + o.h >= r.y },
+      { horizontal: true, at: r.y + r.h, from: r.x, to: r.x + r.w, covers: (o) => o.y <= r.y + r.h && o.y + o.h > r.y + r.h },
+      { horizontal: false, at: r.x, from: r.y, to: r.y + r.h, covers: (o) => o.x < r.x && o.x + o.w >= r.x },
+      { horizontal: false, at: r.x + r.w, from: r.y, to: r.y + r.h, covers: (o) => o.x <= r.x + r.w && o.x + o.w > r.x + r.w },
+    ];
+    for (const side of sides) {
+      let parts: [number, number][] = [[side.from, side.to]];
+      for (const o of others) {
+        if (!side.covers(o)) continue;
+        parts = subtract(parts, side.horizontal ? [o.x, o.x + o.w] : [o.y, o.y + o.h]);
+      }
+      for (const [a, b] of parts) {
+        walls.push(
+          side.horizontal
+            ? { x: a, y: side.at, length: b - a, horizontal: true }
+            : { x: side.at, y: a, length: b - a, horizontal: false },
+        );
+      }
+    }
+  });
+  return walls;
+}
+
+/** Style d'un segment de mur centré sur sa ligne, prolongé d'une demi-épaisseur
+ *  à chaque bout pour que les angles se rejoignent. */
+export function wallStyle(w: WallSegment, cell: number, thick: number): Record<string, string> {
+  const half = thick / 2;
+  return w.horizontal
+    ? { left: `${w.x * cell - half}px`, top: `${w.y * cell - half}px`, width: `${w.length * cell + thick}px`, height: `${thick}px` }
+    : { left: `${w.x * cell - half}px`, top: `${w.y * cell - half}px`, width: `${thick}px`, height: `${w.length * cell + thick}px` };
+}
+
 export function rectsOverlap(a: PlanRect, b: PlanRect): boolean {
   return a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
 }

@@ -7,12 +7,15 @@ import {
   openingSegment,
   PLACEABLE_DOMAINS,
   rectsOverlap,
+  roomWalls,
   wallLength,
+  wallStyle,
   type PlanFloor,
   type PlanRect,
 } from "../core/floor-plan";
 import type { HousePlan, OpeningKind, PlanDevice, PlanOpening, StoredFloor, WallSide } from "../core/plan-store";
 import { DOMAIN_ICON, DOMAIN_LABEL } from "../views/shared";
+import { DoorSwing } from "../views/floor-plan";
 import {
   IconArrowLeft,
   IconCheck,
@@ -130,6 +133,16 @@ function applyDrag(rects: PlanRect[], d: Drag): PlanRect[] {
     if (d.handle.includes("s")) h = Math.max(1, h + d.dy);
     return { x, y, w, h };
   });
+}
+
+/* Côte à côte sur un vrai morceau de côté : un simple coin commun donnerait une
+   pièce « en diagonale ». */
+function sharesEdge(a: PlanRect, b: PlanRect): boolean {
+  const overlapX = a.x < b.x + b.w && b.x < a.x + a.w;
+  const overlapY = a.y < b.y + b.h && b.y < a.y + a.h;
+  const sideBySide = (a.x + a.w === b.x || b.x + b.w === a.x) && overlapY;
+  const stacked = (a.y + a.h === b.y || b.y + b.h === a.y) && overlapX;
+  return sideBySide || stacked;
 }
 
 function newId(): string {
@@ -255,15 +268,22 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
 
   /* ─── Actions de la fiche ─── */
   const freeSpot = (w: number, h: number, near?: PlanRect): PlanRect | null => {
+    let fallback: PlanRect | null = null;
     for (let y = 0; y + h <= rows; y++) {
       for (let x = 0; x + w <= cols; x++) {
         const q = { x, y, w, h };
         if (!fits(placed, "", [q])) continue;
-        if (near && !(q.x <= near.x + near.w && near.x <= q.x + q.w && q.y <= near.y + near.h && near.y <= q.y + q.h)) continue;
-        return q;
+        if (!near) return q;
+        if (!sharesEdge(q, near)) continue;
+        /* Aligné sur un bord de la pièce, le rectangle ajouté forme un vrai L ;
+           sinon il dépasserait d'une case, à rectifier à la main. */
+        const aligned =
+          q.y === near.y || q.y + q.h === near.y + near.h || q.x === near.x || q.x + q.w === near.x + near.w;
+        if (aligned) return q;
+        fallback ??= q;
       }
     }
-    return null;
+    return fallback;
   };
 
   const placeRoom = (areaId: string) => {
@@ -565,6 +585,21 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                     ));
                   })}
 
+                  {Object.entries(preview).flatMap(([areaId, rects]) => {
+                    if (!areaById.has(areaId)) return [];
+                    const state =
+                      drag?.areaId === areaId && !previewValid ? "bad" : sel?.areaId === areaId ? "selected" : "idle";
+                    return roomWalls(rects).map((w, i) => (
+                      <span
+                        key={`${areaId}-w${i}`}
+                        class="nido-plan-editor__wall"
+                        data-state={state}
+                        style={wallStyle(w, cell, state === "idle" ? 3 : 4)}
+                        aria-hidden="true"
+                      />
+                    ));
+                  })}
+
                   {Object.entries(preview).flatMap(([areaId, rects]) =>
                     areaById.has(areaId)
                       ? (stored.openings[areaId] ?? []).map((o) => {
@@ -573,7 +608,20 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                           const style = seg.horizontal
                             ? { left: `${seg.x * cell}px`, top: `${seg.y * cell - t / 2}px`, width: `${seg.length * cell}px`, height: `${t}px` }
                             : { left: `${seg.x * cell - t / 2}px`, top: `${seg.y * cell}px`, width: `${t}px`, height: `${seg.length * cell}px` };
-                          return (
+                          const swing =
+                            o.kind === "door" ? (
+                              <DoorSwing
+                                key={`${o.id}-swing`}
+                                side={o.side}
+                                x={seg.x * cell}
+                                y={seg.y * cell}
+                                size={seg.length * cell}
+                                open={sel?.kind === "opening" && sel.id === o.id}
+                                className="nido-plan-editor__door"
+                              />
+                            ) : null;
+                          return [
+                            swing,
                             <button
                               key={o.id}
                               type="button"
@@ -588,8 +636,8 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                               }}
                             >
                               <span />
-                            </button>
-                          );
+                            </button>,
+                          ];
                         })
                       : [],
                   )}

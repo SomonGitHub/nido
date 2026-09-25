@@ -16,13 +16,15 @@ import {
   groupAreasByFloor,
   openingSegment,
   resolveLayout,
+  roomWalls,
+  wallStyle,
   type PlacedDevice,
   type PlacedOpening,
   type PlanRect,
 } from "../core/floor-plan";
 import { isEntityActive } from "../core/entities";
 import { DOMAIN_ICON } from "./shared";
-import type { HousePlan } from "../core/plan-store";
+import type { HousePlan, WallSide } from "../core/plan-store";
 import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-tint";
 import { loadPlanLayers, savePlanLayers, type PlanLayers } from "../core/storage";
 import { durationLabel } from "../core/time-ago";
@@ -497,6 +499,18 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
               />
             ));
           })}
+          {layout.rooms.map((r) => {
+            const selectedRoom = r.area.area_id === selectedId;
+            return roomWalls(r.rects).map((w, i) => (
+              <span
+                key={`${r.area.area_id}-w${i}`}
+                class="nido-plan__wall"
+                data-selected={selectedRoom ? "true" : "false"}
+                style={wallStyle(w, cell, selectedRoom ? 4 : 3)}
+                aria-hidden="true"
+              />
+            ));
+          })}
           {lod !== "overview" &&
             layout.devices.map((d) => {
               const entity = (byArea.get(d.area_id) ?? []).find((e) => e.entity_id === d.entity_id);
@@ -694,6 +708,52 @@ function PlanDeviceButton({
   );
 }
 
+/* Symbole d'architecte : le battant part de la charnière vers l'intérieur de
+   la pièce, l'arc montre le débattement. Coordonnées locales à un carré de
+   côté `size` posé contre le mur, côté pièce. */
+const DOOR_GEOMETRY: Record<WallSide, { leaf: string; arc: (s: number) => string }> = {
+  top: { leaf: "M0 0 V{s}", arc: (s) => `M0 ${s} A${s} ${s} 0 0 0 ${s} 0` },
+  bottom: { leaf: "M0 {s} V0", arc: (s) => `M0 0 A${s} ${s} 0 0 1 ${s} ${s}` },
+  left: { leaf: "M0 0 H{s}", arc: (s) => `M${s} 0 A${s} ${s} 0 0 1 0 ${s}` },
+  right: { leaf: "M{s} 0 H0", arc: (s) => `M0 0 A${s} ${s} 0 0 0 ${s} ${s}` },
+};
+
+/** Battant et arc d'une porte, à poser à côté du trou dans le mur. */
+export function DoorSwing({
+  side,
+  x,
+  y,
+  size,
+  open,
+  className,
+}: {
+  side: WallSide;
+  /** Début du segment de porte, en pixels (coin haut-gauche du trou). */
+  x: number;
+  y: number;
+  size: number;
+  open?: boolean;
+  className: string;
+}) {
+  const left = side === "right" ? x - size : x;
+  const top = side === "bottom" ? y - size : y;
+  const g = DOOR_GEOMETRY[side];
+  return (
+    <svg
+      class={className}
+      data-open={open ? "true" : "false"}
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+      style={{ left: `${left}px`, top: `${top}px` }}
+      aria-hidden="true"
+    >
+      <path class="door-arc" d={g.arc(size)} />
+      <path class="door-leaf" d={g.leaf.replace("{s}", String(size))} />
+    </svg>
+  );
+}
+
 function PlanOpeningMark({
   opening,
   rect,
@@ -706,11 +766,11 @@ function PlanOpeningMark({
   open: boolean;
 }) {
   const seg = openingSegment(rect, opening);
-  const thick = open ? 7 : 6;
+  const thick = opening.kind === "door" ? 8 : open ? 7 : 6;
   const style = seg.horizontal
     ? { left: `${seg.x * cell}px`, top: `${seg.y * cell - thick / 2}px`, width: `${seg.length * cell}px`, height: `${thick}px` }
     : { left: `${seg.x * cell - thick / 2}px`, top: `${seg.y * cell}px`, width: `${thick}px`, height: `${seg.length * cell}px` };
-  return (
+  const mark = (
     <span
       class="nido-plan__opening"
       data-kind={opening.kind}
@@ -718,6 +778,20 @@ function PlanOpeningMark({
       style={style}
       aria-hidden="true"
     />
+  );
+  if (opening.kind !== "door") return mark;
+  return (
+    <>
+      {mark}
+      <DoorSwing
+        side={opening.side}
+        x={seg.x * cell}
+        y={seg.y * cell}
+        size={seg.length * cell}
+        open={open}
+        className="nido-plan__door"
+      />
+    </>
   );
 }
 
@@ -811,7 +885,7 @@ function PlanRoom({ info, rect, cell, labelled, lod: planLod, layers, selected, 
       style={style}
       onClick={onSelect}
     >
-      {lit && <span class="nido-plan__glow" aria-hidden="true" />}
+      {lit && labelled && <span class="nido-plan__glow" aria-hidden="true" />}
       {motion && labelled && (
         <span
           class="nido-plan__motion"
