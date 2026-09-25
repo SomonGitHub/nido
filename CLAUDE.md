@@ -160,6 +160,11 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   et halo fort, fenêtres des pièces allumées qui brillent. Seul le plan passe en nuit, la
   fiche pièce garde le thème. Portes : trou dans le mur +
   battant et arc d'ouverture côté pièce (`DoorSwing`, partagé avec l'éditeur).
+- **« Vous êtes ici »** (`nido.youAreHere`, **par appareil**, pas dans le plan partagé) :
+  lien dans la fiche pièce / bouton épingle du rail Echo Show → mode placement, le toucher
+  suivant sur une pièce pose la pastille à l'endroit exact (`dx`/`dy` relatifs au 1er
+  rectangle, elle suit la pièce). Le plan s'ouvre sur l'étage et la pièce de la pastille.
+  Le bandeau de placement est dans le viewport : son `onClickCapture` ignore ses boutons.
 - **Appareils posés** (`devices[area_id]: PlanDevice[]`, centre en cases relatif au 1er
   rectangle : l'icône suit la pièce) : `PLACEABLE_DOMAINS` = light, switch, fan, cover,
   media_player — serrures et alarmes exclues exprès. Sur le plan, un toucher bascule

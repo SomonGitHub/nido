@@ -7854,3 +7854,109 @@
 
 .nido-plan-editor__row--wrap { flex-wrap: wrap; }
 .nido-plan-editor__row--wrap .nido-plan-editor__btn { flex: 1 1 110px; }
+
+/* Pastille « Vous êtes ici » : propre à l'appareil. Étiquette sombre au-dessus
+   d'une épingle ; la pointe est l'endroit touché. */
+.nido-plan__here {
+  position: absolute;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transform: translate(-50%, calc(-100% + 8px));
+  pointer-events: none;
+}
+.nido-plan__here-label {
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--hero-dark);
+  color: var(--hero-dark-ink);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(20, 12, 6, 0.25);
+}
+.nido-plan__here-pin {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg-card);
+  box-shadow: 0 0 0 1.5px var(--hero-dark), 0 2px 6px rgba(20, 12, 6, 0.3);
+}
+.nido-plan__here[data-lod="overview"] .nido-plan__here-pin { width: 12px; height: 12px; border-width: 2px; }
+.nido-plan[data-night="true"] .nido-plan__here-label { background: #f4ede2; color: #1a1410; }
+
+.nido-plan__viewport.is-placing { cursor: crosshair; }
+.nido-plan__viewport.is-placing .nido-plan__room { cursor: crosshair; }
+.nido-plan__placing {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  z-index: 9;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 24px);
+  box-sizing: border-box;
+  padding: 6px 6px 6px 14px;
+  border-radius: var(--r-pill);
+  background: var(--hero-dark);
+  color: var(--hero-dark-ink);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(20, 12, 6, 0.3);
+}
+.nido-plan__placing span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nido-plan__placing button {
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 0 14px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: rgba(244, 237, 226, 0.14);
+  color: inherit;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nido-plan__here-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 4px;
+  border: none;
+  background: none;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-plan__here-link.is-active { color: var(--accent-deep); font-weight: 600; }
+:host([data-mode="dark"]) .nido-plan__here-link.is-active { color: var(--accent); }
+
+.nido-plan__mini-actions { display: flex; gap: 6px; margin-top: 4px; }
+.nido-plan__mini-actions .nido-plan__open { flex: 1; margin-top: 0; }
+.nido-plan__here-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(244, 237, 226, 0.14);
+  color: var(--hero-dark-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nido-plan__here-btn.is-active { background: var(--accent); color: var(--accent-ink); }

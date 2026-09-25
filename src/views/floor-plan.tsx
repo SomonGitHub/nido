@@ -13,6 +13,7 @@ import {
   type RoomSummary,
 } from "../core/entities";
 import {
+  clampToRoom,
   groupAreasByFloor,
   openingSegment,
   floorKind,
@@ -31,10 +32,13 @@ import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-ti
 import {
   loadPlanLayers,
   loadPlanTime,
+  loadYouAreHere,
   savePlanLayers,
   savePlanTime,
+  saveYouAreHere,
   type PlanLayers,
   type PlanTime,
+  type YouAreHere,
 } from "../core/storage";
 import { durationLabel } from "../core/time-ago";
 import { useMinuteTick } from "../core/use-minute-tick";
@@ -49,6 +53,7 @@ import {
   IconLightOn,
   IconMinus,
   IconMoon,
+  IconPin,
   IconPlus,
   IconSun,
   IconThermostat,
@@ -203,9 +208,12 @@ function legendGradient(): string {
 export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRoom, onEdit }: FloorPlanProps) {
   const now = useMinuteTick();
   const planFloors = useMemo(() => groupAreasByFloor(areas, floors), [areas, floors]);
-  const [floorKey, setFloorKey] = useState<string | null>(null);
+  const [here, setHere] = useState<YouAreHere | null>(() => loadYouAreHere());
+  const [placing, setPlacing] = useState(false);
+  /* On ouvre sur l'étage et la pièce où se trouve cet écran. */
+  const [floorKey, setFloorKey] = useState<string | null>(() => here?.floor ?? null);
   const floor = planFloors.find((f) => f.key === floorKey) ?? planFloors[0];
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(() => here?.area ?? null);
   const [layers, setLayers] = useState<PlanLayers>(() => loadPlanLayers());
   const [planTime, setPlanTime] = useState<PlanTime>(() => loadPlanTime());
   /* La nuit suit le soleil de HA ; sans l'intégration Soleil, on reste en jour. */
@@ -279,6 +287,12 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
   }, []);
 
   useEffect(() => setView(null), [floor?.key]);
+  useEffect(() => {
+    if (!placing) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setPlacing(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [placing]);
 
   const fit =
     size.w > 0 && size.h > 0
@@ -383,10 +397,33 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
   };
 
   const onClickCapture = (e: JSX.TargetedMouseEvent<HTMLDivElement>) => {
-    if (!suppressClick.current) return;
-    suppressClick.current = false;
+    if (suppressClick.current) {
+      suppressClick.current = false;
+      e.stopPropagation();
+      e.preventDefault();
+      return;
+    }
+    /* Les boutons du bandeau (Retirer, Annuler) sont dans le viewport : leur
+       clic ne doit pas être pris pour un placement. */
+    if (!placing || (e.target as Element).closest?.(".nido-plan__placing")) return;
     e.stopPropagation();
     e.preventDefault();
+    const p = local(e.clientX, e.clientY);
+    const u = (p.x - originX) / cell;
+    const v = (p.y - originY) / cell;
+    const room = layout.rooms.find((r) => r.rects.some((q) => u >= q.x && u <= q.x + q.w && v >= q.y && v <= q.y + q.h));
+    if (!room) return;
+    const next = { floor: floor!.key, area: room.area.area_id, dx: u - room.rects[0].x, dy: v - room.rects[0].y };
+    setHere(next);
+    saveYouAreHere(next);
+    setPlacing(false);
+    setSelected(room.area.area_id);
+  };
+
+  const removeHere = () => {
+    setHere(null);
+    saveYouAreHere(null);
+    setPlacing(false);
   };
 
   const onWheel = (e: JSX.TargetedWheelEvent<HTMLDivElement>) => {
@@ -499,9 +536,12 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
     </div>
   );
 
+  const hereRoom = here && here.floor === floor?.key ? layout.rooms.find((r) => r.area.area_id === here.area) : undefined;
+  const herePos = hereRoom && here ? clampToRoom(hereRoom.rects, hereRoom.rects[0].x + here.dx, hereRoom.rects[0].y + here.dy) : null;
+
   const planView = (
     <div
-      class={`nido-plan__viewport ${view ? "is-zoomed" : ""}`}
+      class={`nido-plan__viewport ${view ? "is-zoomed" : ""} ${placing ? "is-placing" : ""}`}
       ref={viewportRef}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
@@ -573,6 +613,18 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
                 <PlanDeviceButton key={d.id} device={d} entity={entity} cell={cell} onToggle={() => toggleDevice(entity)} />
               ) : null;
             })}
+          {herePos && (
+            <span
+              class="nido-plan__here"
+              data-lod={lod}
+              role="img"
+              aria-label="Vous êtes ici"
+              style={{ left: `${herePos.x * cell}px`, top: `${herePos.y * cell}px` }}
+            >
+              {lod !== "overview" && <span class="nido-plan__here-label">Vous êtes ici</span>}
+              <span class="nido-plan__here-pin" />
+            </span>
+          )}
           {layout.openings.map((o) => {
             const room = layout.rooms.find((r) => r.area.area_id === o.area_id);
             const rect = room?.rects[o.rect] ?? room?.rects[0];
@@ -595,7 +647,21 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           })}
         </div>
       )}
-      {view && <span class="nido-plan__zoom-label">Zoom × {zoom.toFixed(1).replace(".", ",")}</span>}
+      {placing && (
+        <div class="nido-plan__placing" role="status">
+          <IconPin size={16} />
+          <span>Touchez l'endroit où se trouve cet écran</span>
+          {here && (
+            <button type="button" onClick={removeHere}>
+              Retirer
+            </button>
+          )}
+          <button type="button" onClick={() => setPlacing(false)}>
+            Annuler
+          </button>
+        </div>
+      )}
+      {view && !placing && <span class="nido-plan__zoom-label">Zoom × {zoom.toFixed(1).replace(".", ",")}</span>}
     </div>
   );
 
@@ -617,9 +683,21 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
                   )}
                 </div>
               )}
-              <button type="button" class="nido-plan__open" onClick={() => onOpenRoom(selectedRoom.area.area_id)}>
-                Ouvrir <IconArrowRight size={16} />
-              </button>
+              <div class="nido-plan__mini-actions">
+                <button type="button" class="nido-plan__open" onClick={() => onOpenRoom(selectedRoom.area.area_id)}>
+                  Ouvrir <IconArrowRight size={16} />
+                </button>
+                <button
+                  type="button"
+                  class={`nido-plan__here-btn ${placing ? "is-active" : ""}`}
+                  aria-label="Placer la pastille « Vous êtes ici »"
+                  aria-pressed={placing}
+                  title="Vous êtes ici"
+                  onClick={() => setPlacing(!placing)}
+                >
+                  <IconPin size={18} />
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -639,6 +717,9 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
       onToggleLights={() => toggleLights(selectedRoom)}
       onToggleCovers={() => toggleCovers(selectedRoom)}
       onOpen={() => onOpenRoom(selectedRoom.area.area_id)}
+      placing={placing}
+      hasHere={!!here}
+      onPlaceHere={() => setPlacing(!placing)}
     />
   );
 
@@ -1077,9 +1158,22 @@ interface RoomPanelProps {
   onToggleLights: () => void;
   onToggleCovers: () => void;
   onOpen: () => void;
+  placing: boolean;
+  hasHere: boolean;
+  onPlaceHere: () => void;
 }
 
-function RoomPanel({ info, floorLabel, compact, onToggleLights, onToggleCovers, onOpen }: RoomPanelProps) {
+function RoomPanel({
+  info,
+  floorLabel,
+  compact,
+  onToggleLights,
+  onToggleCovers,
+  onOpen,
+  placing,
+  hasHere,
+  onPlaceHere,
+}: RoomPanelProps) {
   const { summary, stats } = info;
   const alert = info.critical ?? info.opening;
   const tempStyle = info.tempTint ? tintStyle(info.tempTint) : undefined;
@@ -1164,6 +1258,15 @@ function RoomPanel({ info, floorLabel, compact, onToggleLights, onToggleCovers, 
           Ouvrir la pièce <IconArrowRight size={16} />
         </button>
       </div>
+      <button
+        type="button"
+        class={`nido-plan__here-link ${placing ? "is-active" : ""}`}
+        aria-pressed={placing}
+        onClick={onPlaceHere}
+      >
+        <IconPin size={15} />
+        {placing ? "Touchez le plan pour placer la pastille" : hasHere ? "Déplacer « Vous êtes ici »" : "Placer « Vous êtes ici »"}
+      </button>
     </div>
   );
 }

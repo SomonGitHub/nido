@@ -13,6 +13,7 @@ const KEYS = {
   roomsView: "nido.roomsView",
   planLayers: "nido.planLayers",
   planTime: "nido.planTime",
+  youAreHere: "nido.youAreHere",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -231,4 +232,34 @@ export function loadPlanTime(): PlanTime {
 
 export function savePlanTime(value: PlanTime): void {
   safeStorage()?.setItem(KEYS.planTime, value);
+}
+
+/** Pastille « Vous êtes ici » : propre à cet appareil (une tablette murale ne
+ *  bouge pas, un téléphone si), donc en localStorage et non dans le plan
+ *  partagé. `dx`/`dy` en cases depuis le 1er rectangle : elle suit la pièce. */
+export interface YouAreHere {
+  floor: string;
+  area: string;
+  dx: number;
+  dy: number;
+}
+
+export function loadYouAreHere(): YouAreHere | null {
+  const raw = safeStorage()?.getItem(KEYS.youAreHere);
+  if (!raw) return null;
+  try {
+    const p = JSON.parse(raw) as Partial<YouAreHere>;
+    if (typeof p.floor !== "string" || typeof p.area !== "string") return null;
+    if (typeof p.dx !== "number" || typeof p.dy !== "number" || !Number.isFinite(p.dx) || !Number.isFinite(p.dy)) return null;
+    return { floor: p.floor, area: p.area, dx: p.dx, dy: p.dy };
+  } catch {
+    return null;
+  }
+}
+
+export function saveYouAreHere(value: YouAreHere | null): void {
+  const s = safeStorage();
+  if (!s) return;
+  if (value) s.setItem(KEYS.youAreHere, JSON.stringify(value));
+  else s.removeItem(KEYS.youAreHere);
 }

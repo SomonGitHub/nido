@@ -723,3 +723,10 @@ export const IconLShape = (p: P) => (
     <path d="M3 3h10v8h8v10H3z" />
   </Icon>
 );
+
+export const IconPin = (p: P) => (
+  <Icon {...p}>
+    <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" />
+    <circle cx="12" cy="9.5" r="2.5" />
+  </Icon>
+);
