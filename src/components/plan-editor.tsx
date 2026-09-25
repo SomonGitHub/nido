@@ -3,13 +3,16 @@ import type { JSX } from "preact";
 import type { ResolvedEntity } from "../core/entities";
 import {
   autoLayout,
+  clampToRoom,
   openingSegment,
+  PLACEABLE_DOMAINS,
   rectsOverlap,
   wallLength,
   type PlanFloor,
   type PlanRect,
 } from "../core/floor-plan";
-import type { HousePlan, OpeningKind, PlanOpening, StoredFloor, WallSide } from "../core/plan-store";
+import type { HousePlan, OpeningKind, PlanDevice, PlanOpening, StoredFloor, WallSide } from "../core/plan-store";
+import { DOMAIN_ICON, DOMAIN_LABEL } from "../views/shared";
 import {
   IconArrowLeft,
   IconCheck,
@@ -37,7 +40,19 @@ type Handle = "nw" | "n" | "ne" | "e" | "se" | "s" | "sw" | "w";
 
 type Selection =
   | { kind: "room"; areaId: string; rect: number }
-  | { kind: "opening"; areaId: string; id: string };
+  | { kind: "opening"; areaId: string; id: string }
+  | { kind: "device"; areaId: string; id: string };
+
+interface DeviceDrag {
+  areaId: string;
+  id: string;
+  sx: number;
+  sy: number;
+  dx: number;
+  dy: number;
+}
+
+const DEVICE_STEP = 0.5;
 
 interface Drag {
   mode: "move" | "resize";
@@ -81,7 +96,7 @@ function seedDraft(
   for (const f of floors) {
     const stored = plan.floors[f.key];
     if (stored && f.areas.some((a) => stored.rooms[a.area_id])) {
-      out[f.key] = { rooms: { ...stored.rooms }, openings: { ...stored.openings } };
+      out[f.key] = { rooms: { ...stored.rooms }, openings: { ...stored.openings }, devices: { ...stored.devices } };
       continue;
     }
     /* Un étage jamais dessiné part du placement automatique : on ajuste un plan
@@ -90,6 +105,7 @@ function seedDraft(
     out[f.key] = {
       rooms: Object.fromEntries(auto.rooms.map((r) => [r.area.area_id, r.rects])),
       openings: stored?.openings ?? {},
+      devices: stored?.devices ?? {},
     };
   }
   return out;
@@ -126,6 +142,7 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   const floor = floors.find((f) => f.key === floorKey) ?? floors[0];
   const [sel, setSel] = useState<Selection | null>(null);
   const [drag, setDrag] = useState<Drag | null>(null);
+  const [devDrag, setDevDrag] = useState<DeviceDrag | null>(null);
   const [dirty, setDirty] = useState(false);
   const [toast, setToast] = useState("");
   const toastTimer = useRef<number | undefined>(undefined);
@@ -285,9 +302,11 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   const removeRoom = (areaId: string) => {
     const rooms = { ...stored.rooms };
     const openings = { ...stored.openings };
+    const devices = { ...stored.devices };
     delete rooms[areaId];
     delete openings[areaId];
-    updateFloor({ rooms, openings });
+    delete devices[areaId];
+    updateFloor({ rooms, openings, devices });
     setSel(null);
     flash(`Pièce retirée du plan : ${areaById.get(areaId)?.name}`);
   };
@@ -347,6 +366,83 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
     setSel({ kind: "room", areaId, rect: 0 });
   };
 
+  /* ─── Appareils ─── */
+  const devicesOf = (areaId: string) => stored.devices[areaId] ?? [];
+  const placeableFor = (areaId: string) => {
+    const taken = new Set(devicesOf(areaId).map((d) => d.entity_id));
+    return (byArea.get(areaId) ?? []).filter((e) => PLACEABLE_DOMAINS.has(e.domain) && !taken.has(e.entity_id));
+  };
+
+  const addDevice = (areaId: string, entityId: string) => {
+    const r0 = placed[areaId][0];
+    const others = devicesOf(areaId);
+    /* Au centre de la pièce, décalé d'un cran par appareil déjà posé pour ne
+       pas empiler les icônes. */
+    const n = others.length;
+    const pos = clampToRoom(placed[areaId], r0.x + r0.w / 2 + (n % 3) * 0.75, r0.y + r0.h / 2 + Math.floor(n / 3) * 0.75);
+    const device: PlanDevice = { id: newId(), entity_id: entityId, dx: pos.x - r0.x, dy: pos.y - r0.y };
+    updateFloor({ devices: { ...stored.devices, [areaId]: [...others, device] } });
+    setSel({ kind: "device", areaId, id: device.id });
+  };
+
+  const moveDevice = (areaId: string, id: string, dx: number, dy: number) => {
+    const rects = placed[areaId];
+    const d = devicesOf(areaId).find((x) => x.id === id);
+    if (!d) return;
+    const x = rects[0].x + d.dx + dx;
+    const y = rects[0].y + d.dy + dy;
+    if (!rects.some((r) => x > r.x && x < r.x + r.w && y > r.y && y < r.y + r.h)) {
+      flash("Un appareil reste dans sa pièce");
+      return;
+    }
+    updateFloor({
+      devices: {
+        ...stored.devices,
+        [areaId]: devicesOf(areaId).map((o) => (o.id === id ? { ...o, dx: o.dx + dx, dy: o.dy + dy } : o)),
+      },
+    });
+  };
+
+  const removeDevice = (areaId: string, id: string) => {
+    updateFloor({ devices: { ...stored.devices, [areaId]: devicesOf(areaId).filter((d) => d.id !== id) } });
+    setSel({ kind: "room", areaId, rect: 0 });
+  };
+
+  const startDeviceDrag = (e: JSX.TargetedPointerEvent<HTMLElement>, areaId: string, id: string) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      /* pointeur déjà relâché */
+    }
+    setSel({ kind: "device", areaId, id });
+    setDevDrag({ areaId, id, sx: e.clientX, sy: e.clientY, dx: 0, dy: 0 });
+  };
+  const moveDeviceDrag = (e: JSX.TargetedPointerEvent<HTMLElement>) => {
+    if (!devDrag || cell === 0) return;
+    const snap = (v: number) => Math.round(v / cell / DEVICE_STEP) * DEVICE_STEP;
+    const dx = snap(e.clientX - devDrag.sx);
+    const dy = snap(e.clientY - devDrag.sy);
+    if (dx !== devDrag.dx || dy !== devDrag.dy) setDevDrag({ ...devDrag, dx, dy });
+  };
+  const endDeviceDrag = () => {
+    if (!devDrag) return;
+    if (devDrag.dx || devDrag.dy) moveDevice(devDrag.areaId, devDrag.id, devDrag.dx, devDrag.dy);
+    setDevDrag(null);
+  };
+
+  const onDeviceKey = (e: JSX.TargetedKeyboardEvent<HTMLElement>, areaId: string, id: string) => {
+    const delta: Record<string, [number, number]> = {
+      ArrowLeft: [-DEVICE_STEP, 0], ArrowRight: [DEVICE_STEP, 0], ArrowUp: [0, -DEVICE_STEP], ArrowDown: [0, DEVICE_STEP],
+    };
+    const d = delta[e.key];
+    if (!d) return;
+    e.preventDefault();
+    moveDevice(areaId, id, d[0], d[1]);
+  };
+
   const save = () => {
     onSave({ ...plan, floors: { ...plan.floors, ...draft } });
     setDirty(false);
@@ -366,6 +462,11 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   /* ─── Rendu ─── */
   const selRoom = sel ? placed[sel.areaId] : undefined;
   const selRectIndex = sel?.kind === "room" && selRoom ? Math.min(sel.rect, selRoom.length - 1) : 0;
+  const selDevice =
+    sel?.kind === "device" ? devicesOf(sel.areaId).find((d) => d.id === sel.id) ?? null : null;
+  const selDeviceEntity = selDevice
+    ? (byArea.get(sel!.areaId) ?? []).find((e) => e.entity_id === selDevice.entity_id) ?? null
+    : null;
   const selOpening =
     sel?.kind === "opening" ? (stored.openings[sel.areaId] ?? []).find((o) => o.id === sel.id) ?? null : null;
   const selPreviewRect = sel?.kind === "room" && preview[sel.areaId] ? preview[sel.areaId][selRectIndex] : null;
@@ -493,6 +594,46 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                       : [],
                   )}
 
+                  {Object.entries(preview).flatMap(([areaId, rects]) =>
+                    areaById.has(areaId)
+                      ? devicesOf(areaId).map((d) => {
+                          const entity = (byArea.get(areaId) ?? []).find((e) => e.entity_id === d.entity_id);
+                          const moving = devDrag?.id === d.id;
+                          const pos = clampToRoom(
+                            rects,
+                            rects[0].x + d.dx + (moving ? devDrag!.dx : 0),
+                            rects[0].y + d.dy + (moving ? devDrag!.dy : 0),
+                          );
+                          const size = Math.round(Math.max(26, Math.min(36, cell * 0.8)));
+                          const Ico = entity ? DOMAIN_ICON[entity.domain] : undefined;
+                          return (
+                            <button
+                              key={d.id}
+                              type="button"
+                              class="nido-plan-editor__device"
+                              data-selected={sel?.kind === "device" && sel.id === d.id ? "true" : "false"}
+                              data-active={moving ? "true" : "false"}
+                              aria-label={`${entity?.friendly_name ?? d.entity_id}. Flèches pour déplacer`}
+                              title={entity?.friendly_name ?? d.entity_id}
+                              style={{
+                                left: `${pos.x * cell - size / 2}px`,
+                                top: `${pos.y * cell - size / 2}px`,
+                                width: `${size}px`,
+                                height: `${size}px`,
+                              }}
+                              onPointerDown={(e) => startDeviceDrag(e, areaId, d.id)}
+                              onPointerMove={moveDeviceDrag}
+                              onPointerUp={endDeviceDrag}
+                              onPointerCancel={endDeviceDrag}
+                              onKeyDown={(e) => onDeviceKey(e, areaId, d.id)}
+                            >
+                              {Ico && <Ico size={Math.round(size * 0.5)} />}
+                            </button>
+                          );
+                        })
+                      : [],
+                  )}
+
                   {selPreviewRect && sel?.kind === "room" && (
                     <>
                       <span
@@ -548,6 +689,29 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                     <IconDoor size={16} /> Porte
                   </button>
                 </div>
+                {placeableFor(sel.areaId).length > 0 && (
+                  <>
+                    <label class="nido-plan-editor__field-label" for="plan-add-device">
+                      Poser un appareil
+                    </label>
+                    <select
+                      id="plan-add-device"
+                      class="nido-plan-editor__select"
+                      value=""
+                      onChange={(e) => {
+                        const v = (e.currentTarget as HTMLSelectElement).value;
+                        if (v) addDevice(sel.areaId, v);
+                      }}
+                    >
+                      <option value="">Choisir…</option>
+                      {placeableFor(sel.areaId).map((e) => (
+                        <option key={e.entity_id} value={e.entity_id}>
+                          {e.friendly_name} · {DOMAIN_LABEL[e.domain] ?? e.domain}
+                        </option>
+                      ))}
+                    </select>
+                  </>
+                )}
                 <button type="button" class="nido-plan-editor__btn" onClick={() => addRect(sel.areaId)}>
                   <IconLShape size={16} /> Ajouter un rectangle (pièce en L)
                 </button>
@@ -557,6 +721,30 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                   onClick={() => (selRectIndex > 0 ? removeRect(sel.areaId, selRectIndex) : removeRoom(sel.areaId))}
                 >
                   <IconTrash size={16} /> {selRectIndex > 0 ? "Supprimer ce rectangle" : "Retirer du plan"}
+                </button>
+              </div>
+            )}
+
+            {sel?.kind === "device" && selDevice && (
+              <div class="nido-plan-editor__card">
+                <button
+                  type="button"
+                  class="nido-plan-editor__link"
+                  onClick={() => setSel({ kind: "room", areaId: sel.areaId, rect: 0 })}
+                >
+                  <IconArrowLeft size={14} /> {areaById.get(sel.areaId)?.name}
+                </button>
+                <div class="nido-plan-editor__card-title">{selDeviceEntity?.friendly_name ?? selDevice.entity_id}</div>
+                <p class="nido-plan-editor__muted">
+                  {selDeviceEntity ? DOMAIN_LABEL[selDeviceEntity.domain] : "Appareil introuvable"} · glisse l'icône
+                  pour la placer, ou utilise les flèches du clavier. Sur le plan, un toucher l'allume ou l'éteint.
+                </p>
+                <button
+                  type="button"
+                  class="nido-plan-editor__btn nido-plan-editor__btn--danger"
+                  onClick={() => removeDevice(sel.areaId, selDevice.id)}
+                >
+                  <IconTrash size={16} /> Retirer du plan
                 </button>
               </div>
             )}

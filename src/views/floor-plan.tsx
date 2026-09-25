@@ -16,9 +16,12 @@ import {
   groupAreasByFloor,
   openingSegment,
   resolveLayout,
+  type PlacedDevice,
   type PlacedOpening,
   type PlanRect,
 } from "../core/floor-plan";
+import { isEntityActive } from "../core/entities";
+import { DOMAIN_ICON } from "./shared";
 import type { HousePlan } from "../core/plan-store";
 import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-tint";
 import { loadPlanLayers, savePlanLayers, type PlanLayers } from "../core/storage";
@@ -385,6 +388,12 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
     if (ids.length === 0) return;
     hass.callService("light", info.summary.lightsOn > 0 ? "turn_off" : "turn_on", { entity_id: ids });
   };
+  const toggleDevice = (e: ResolvedEntity) => {
+    const on = isEntityActive(e);
+    if (e.domain === "cover") hass.callService("cover", on ? "close_cover" : "open_cover", { entity_id: e.entity_id });
+    else if (e.domain === "media_player") hass.callService("media_player", "media_play_pause", { entity_id: e.entity_id });
+    else hass.callService(e.domain, "toggle", { entity_id: e.entity_id });
+  };
   const toggleCovers = (info: RoomInfo) => {
     const ids = info.summary.coverIds;
     if (ids.length === 0) return;
@@ -488,6 +497,13 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
               />
             ));
           })}
+          {lod !== "overview" &&
+            layout.devices.map((d) => {
+              const entity = (byArea.get(d.area_id) ?? []).find((e) => e.entity_id === d.entity_id);
+              return entity ? (
+                <PlanDeviceButton key={d.id} device={d} entity={entity} cell={cell} onToggle={() => toggleDevice(entity)} />
+              ) : null;
+            })}
           {layout.openings.map((o) => {
             const room = layout.rooms.find((r) => r.area.area_id === o.area_id);
             const rect = room?.rects[o.rect] ?? room?.rects[0];
@@ -624,6 +640,57 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
         </div>
       </div>
     </div>
+  );
+}
+
+function deviceStateLabel(e: ResolvedEntity): string {
+  const on = isEntityActive(e);
+  switch (e.domain) {
+    case "cover":
+      return on ? "ouvert" : "fermé";
+    case "media_player":
+      return on ? "en lecture" : "en pause";
+    default:
+      return on ? "allumé" : "éteint";
+  }
+}
+
+function PlanDeviceButton({
+  device,
+  entity,
+  cell,
+  onToggle,
+}: {
+  device: PlacedDevice;
+  entity: ResolvedEntity;
+  cell: number;
+  onToggle: () => void;
+}) {
+  const size = Math.round(Math.max(28, Math.min(40, cell * 0.75)));
+  const Ico = DOMAIN_ICON[entity.domain];
+  const on = isEntityActive(entity);
+  return (
+    <button
+      type="button"
+      class="nido-plan__device"
+      data-on={on ? "true" : "false"}
+      data-domain={entity.domain}
+      aria-label={`${entity.friendly_name}, ${deviceStateLabel(entity)}. Toucher pour basculer`}
+      aria-pressed={on}
+      title={entity.friendly_name}
+      style={{
+        left: `${device.x * cell - size / 2}px`,
+        top: `${device.y * cell - size / 2}px`,
+        width: `${size}px`,
+        height: `${size}px`,
+      }}
+      onClick={(e) => {
+        e.stopPropagation();
+        onToggle();
+      }}
+    >
+      {Ico && <Ico size={Math.round(size * 0.5)} />}
+    </button>
   );
 }
 

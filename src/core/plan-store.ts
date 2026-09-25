@@ -18,9 +18,19 @@ export interface PlanOpening {
   entity_id: string | null;
 }
 
+/** Appareil posé dans une pièce. `dx`/`dy` : centre de l'icône, en cases,
+ *  depuis le coin haut-gauche du premier rectangle — il suit la pièce. */
+export interface PlanDevice {
+  id: string;
+  entity_id: string;
+  dx: number;
+  dy: number;
+}
+
 export interface StoredFloor {
   rooms: Record<string, PlanRect[]>;
   openings: Record<string, PlanOpening[]>;
+  devices: Record<string, PlanDevice[]>;
 }
 
 export interface HousePlan {
@@ -71,6 +81,15 @@ function parseOpening(raw: unknown): PlanOpening | null {
   };
 }
 
+function parseDevice(raw: unknown): PlanDevice | null {
+  if (!raw || typeof raw !== "object") return null;
+  const d = raw as Record<string, unknown>;
+  const dx = num(d.dx, -MAX_CELLS, MAX_CELLS);
+  const dy = num(d.dy, -MAX_CELLS, MAX_CELLS);
+  if (typeof d.id !== "string" || typeof d.entity_id !== "string" || dx === null || dy === null) return null;
+  return { id: d.id, entity_id: d.entity_id, dx, dy };
+}
+
 /* Le plan arrive d'un topic MQTT que n'importe quel client peut écrire : tout
    ce qui n'a pas la bonne forme est écarté plutôt que de casser l'affichage. */
 export function parseHousePlan(raw: unknown): HousePlan | null {
@@ -93,7 +112,13 @@ export function parseHousePlan(raw: unknown): HousePlan | null {
       const parsed = list.map(parseOpening).filter((o): o is PlanOpening => o !== null);
       if (parsed.length > 0) openings[areaId] = parsed;
     }
-    floors[key] = { rooms, openings };
+    const devices: Record<string, PlanDevice[]> = {};
+    for (const [areaId, list] of Object.entries((f.devices as Record<string, unknown>) ?? {})) {
+      if (!Array.isArray(list)) continue;
+      const parsed = list.map(parseDevice).filter((d): d is PlanDevice => d !== null);
+      if (parsed.length > 0) devices[areaId] = parsed;
+    }
+    floors[key] = { rooms, openings, devices };
   }
   return {
     version: 1,

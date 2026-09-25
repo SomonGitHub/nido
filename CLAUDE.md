@@ -144,6 +144,13 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   dessiné part du placement auto. Glisser pour déplacer, 8 poignées, flèches du clavier
   (Maj = taille), refus des chevauchements, pièces « À placer », fenêtre/porte posée sur le
   mur le moins partagé et liée au premier capteur libre de la pièce.
+- **Appareils posés** (`devices[area_id]: PlanDevice[]`, centre en cases relatif au 1er
+  rectangle : l'icône suit la pièce) : `PLACEABLE_DOMAINS` = light, switch, fan, cover,
+  media_player — serrures et alarmes exclues exprès. Sur le plan, un toucher bascule
+  (`toggle`, `open|close_cover`, `media_play_pause`) avec `stopPropagation` pour ne pas
+  sélectionner la pièce ; icônes masquées en vue d'ensemble, cible tactile 44 px via `::before`.
+  Dans l'éditeur : liste « Poser un appareil », glisser par pas de 0,5 case, flèches, refus
+  hors de la pièce.
 - **Calques** (`nido.planLayers`) : Température (remplissage `oklch` piloté par
   `--measure-h/c` + `--plan-fill-l/cf` selon le mode), Lumières (halo + compteur), Ouvrants
   (pastille « Ouverte · 25 min » ; les alertes fumée/eau/gaz s'affichent toujours),

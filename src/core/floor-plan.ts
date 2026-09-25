@@ -1,5 +1,5 @@
 import type { Area, Floor } from "./areas";
-import type { PlanOpening, StoredFloor } from "./plan-store";
+import type { PlanDevice, PlanOpening, StoredFloor } from "./plan-store";
 
 /** Rectangle en cases de grille (pas en pixels) : le même plan sert tous les écrans. */
 export interface PlanRect {
@@ -25,11 +25,23 @@ export interface PlacedOpening extends PlanOpening {
   area_id: string;
 }
 
+export interface PlacedDevice extends PlanDevice {
+  area_id: string;
+  /** Centre de l'icône en cases, dans le repère du plan affiché. */
+  x: number;
+  y: number;
+}
+
+/** Domaines qu'on peut poser sur le plan : un toucher les bascule. Serrures et
+ *  alarmes en sont exclues — un doigt qui frôle la tablette n'ouvre pas la porte. */
+export const PLACEABLE_DOMAINS = new Set(["light", "switch", "fan", "cover", "media_player"]);
+
 export interface FloorLayout {
   rooms: PlacedRoom[];
   cols: number;
   rows: number;
   openings: PlacedOpening[];
+  devices: PlacedDevice[];
   /** Faux tant que l'étage n'a jamais été dessiné : placement automatique. */
   custom: boolean;
 }
@@ -81,7 +93,7 @@ function rowWidths(weights: number[]): number[] {
 /** Plan généré sans intervention : rangées de pièces dont la largeur suit le
  *  nombre d'appareils. Point de départ tant que le plan n'a pas été dessiné. */
 export function autoLayout(areas: Area[], weightOf: (a: Area) => number): FloorLayout {
-  if (areas.length === 0) return { rooms: [], cols: ROW_UNITS, rows: ROW_HEIGHT, openings: [], custom: false };
+  if (areas.length === 0) return { rooms: [], cols: ROW_UNITS, rows: ROW_HEIGHT, openings: [], devices: [], custom: false };
   const rooms: PlacedRoom[] = [];
   let index = 0;
   const counts = splitRows(areas.length);
@@ -95,7 +107,7 @@ export function autoLayout(areas: Area[], weightOf: (a: Area) => number): FloorL
       x += widths[i];
     });
   });
-  return { rooms, cols: ROW_UNITS, rows: counts.length * ROW_HEIGHT, openings: [], custom: false };
+  return { rooms, cols: ROW_UNITS, rows: counts.length * ROW_HEIGHT, openings: [], devices: [], custom: false };
 }
 
 const NEW_ROOM = { w: 4, h: 3 };
@@ -140,7 +152,25 @@ export function resolveLayout(
   const openings = drawn.flatMap((a) =>
     (stored.openings[a.area_id] ?? []).map((o) => ({ ...o, area_id: a.area_id })),
   );
-  return { rooms, cols, rows, openings, custom: true };
+  const devices = drawn.flatMap((a) => {
+    const rects = rooms.find((r) => r.area.area_id === a.area_id)!.rects;
+    return (stored.devices?.[a.area_id] ?? []).map((d) => ({
+      ...d,
+      area_id: a.area_id,
+      ...clampToRoom(rects, rects[0].x + d.dx, rects[0].y + d.dy),
+    }));
+  });
+  return { rooms, cols, rows, openings, devices, custom: true };
+}
+
+/** Ramène un point dans l'emprise de la pièce (après un redimensionnement). */
+export function clampToRoom(rects: PlanRect[], x: number, y: number): { x: number; y: number } {
+  if (rects.some((r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h)) return { x, y };
+  const r = rects[0];
+  return {
+    x: Math.min(r.x + r.w - 0.5, Math.max(r.x + 0.5, x)),
+    y: Math.min(r.y + r.h - 0.5, Math.max(r.y + 0.5, y)),
+  };
 }
 
 export function rectsOverlap(a: PlanRect, b: PlanRect): boolean {
