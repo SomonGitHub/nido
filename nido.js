@@ -1,19 +1,19 @@
-var ir, Le, tc, Gt, Fa, ic, nc, Er, Sn, Fi, rc, Bs, os, ls, On = {}, Fn = [], ah = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, nr = Array.isArray;
+var nr, Le, nc, Vt, Na, rc, sc, Sr, Sn, Fi, ac, Us, ls, cs, On = {}, Fn = [], lh = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, rr = Array.isArray;
 function Ft(n, e) {
   for (var t in e) n[t] = e[t];
   return n;
 }
-function Us(n) {
+function Gs(n) {
   n && n.parentNode && n.parentNode.removeChild(n);
 }
-function sc(n, e, t) {
+function oc(n, e, t) {
   var i, r, s, a = {};
   for (s in e) s == "key" ? i = e[s] : s == "ref" ? r = e[s] : a[s] = e[s];
-  if (arguments.length > 2 && (a.children = arguments.length > 3 ? ir.call(arguments, 2) : t), typeof n == "function" && n.defaultProps != null) for (s in n.defaultProps) a[s] === void 0 && (a[s] = n.defaultProps[s]);
+  if (arguments.length > 2 && (a.children = arguments.length > 3 ? nr.call(arguments, 2) : t), typeof n == "function" && n.defaultProps != null) for (s in n.defaultProps) a[s] === void 0 && (a[s] = n.defaultProps[s]);
   return Tn(n, a, i, r, null);
 }
 function Tn(n, e, t, i, r) {
-  var s = { type: n, props: e, key: t, ref: i, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: r ?? ++tc, __i: -1, __u: 0 };
+  var s = { type: n, props: e, key: t, ref: i, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: r ?? ++nc, __i: -1, __u: 0 };
   return r == null && Le.vnode != null && Le.vnode(s), s;
 }
 function Se(n) {
@@ -27,42 +27,42 @@ function Si(n, e) {
   for (var t; e < n.__k.length; e++) if ((t = n.__k[e]) != null && t.__e != null) return t.__e;
   return typeof n.type == "function" ? Si(n) : null;
 }
-function oh(n) {
+function ch(n) {
   if (n.__P && n.__d) {
     var e = n.__v, t = e.__e, i = [], r = [], s = Ft({}, e);
-    s.__v = e.__v + 1, Le.vnode && Le.vnode(s), Gs(n.__P, s, e, n.__n, n.__P.namespaceURI, 32 & e.__u ? [t] : null, i, t ?? Si(e), !!(32 & e.__u), r), s.__v = e.__v, s.__.__k[s.__i] = s, cc(i, s, r), e.__e = e.__ = null, s.__e != t && ac(s);
+    s.__v = e.__v + 1, Le.vnode && Le.vnode(s), zs(n.__P, s, e, n.__n, n.__P.namespaceURI, 32 & e.__u ? [t] : null, i, t ?? Si(e), !!(32 & e.__u), r), s.__v = e.__v, s.__.__k[s.__i] = s, uc(i, s, r), e.__e = e.__ = null, s.__e != t && lc(s);
   }
 }
-function ac(n) {
+function lc(n) {
   if ((n = n.__) != null && n.__c != null) return n.__e = n.__c.base = null, n.__k.some(function(e) {
     if (e != null && e.__e != null) return n.__e = n.__c.base = e.__e;
-  }), ac(n);
+  }), lc(n);
 }
-function Na(n) {
-  (!n.__d && (n.__d = !0) && Gt.push(n) && !Nn.__r++ || Fa != Le.debounceRendering) && ((Fa = Le.debounceRendering) || ic)(Nn);
+function $a(n) {
+  (!n.__d && (n.__d = !0) && Vt.push(n) && !Nn.__r++ || Na != Le.debounceRendering) && ((Na = Le.debounceRendering) || rc)(Nn);
 }
 function Nn() {
   try {
-    for (var n, e = 1; Gt.length; ) Gt.length > e && Gt.sort(nc), n = Gt.shift(), e = Gt.length, oh(n);
+    for (var n, e = 1; Vt.length; ) Vt.length > e && Vt.sort(sc), n = Vt.shift(), e = Vt.length, ch(n);
   } finally {
-    Gt.length = Nn.__r = 0;
+    Vt.length = Nn.__r = 0;
   }
 }
-function oc(n, e, t, i, r, s, a, o, d, c, u) {
+function cc(n, e, t, i, r, s, a, o, d, c, u) {
   var h, f, p, g, _, m, v, b = i && i.__k || Fn, x = e.length;
-  for (d = lh(t, e, b, d, x), h = 0; h < x; h++) (p = t.__k[h]) != null && (f = p.__i != -1 && b[p.__i] || On, p.__i = h, m = Gs(n, p, f, r, s, a, o, d, c, u), g = p.__e, p.ref && f.ref != p.ref && (f.ref && zs(f.ref, null, p), u.push(p.ref, p.__c || g, p)), _ == null && g != null && (_ = g), (v = !!(4 & p.__u)) || f.__k === p.__k ? (d = lc(p, d, n, v), v && f.__e && (f.__e = null)) : typeof p.type == "function" && m !== void 0 ? d = m : g && (d = g.nextSibling), p.__u &= -7);
+  for (d = dh(t, e, b, d, x), h = 0; h < x; h++) (p = t.__k[h]) != null && (f = p.__i != -1 && b[p.__i] || On, p.__i = h, m = zs(n, p, f, r, s, a, o, d, c, u), g = p.__e, p.ref && f.ref != p.ref && (f.ref && Vs(f.ref, null, p), u.push(p.ref, p.__c || g, p)), _ == null && g != null && (_ = g), (v = !!(4 & p.__u)) || f.__k === p.__k ? (d = dc(p, d, n, v), v && f.__e && (f.__e = null)) : typeof p.type == "function" && m !== void 0 ? d = m : g && (d = g.nextSibling), p.__u &= -7);
   return t.__e = _, d;
 }
-function lh(n, e, t, i, r) {
+function dh(n, e, t, i, r) {
   var s, a, o, d, c, u = t.length, h = u, f = 0;
-  for (n.__k = new Array(r), s = 0; s < r; s++) (a = e[s]) != null && typeof a != "boolean" && typeof a != "function" ? (typeof a == "string" || typeof a == "number" || typeof a == "bigint" || a.constructor == String ? a = n.__k[s] = Tn(null, a, null, null, null) : nr(a) ? a = n.__k[s] = Tn(Se, { children: a }, null, null, null) : a.constructor === void 0 && a.__b > 0 ? a = n.__k[s] = Tn(a.type, a.props, a.key, a.ref ? a.ref : null, a.__v) : n.__k[s] = a, d = s + f, a.__ = n, a.__b = n.__b + 1, o = null, (c = a.__i = ch(a, t, d, h)) != -1 && (h--, (o = t[c]) && (o.__u |= 2)), o == null || o.__v == null ? (c == -1 && (r > u ? f-- : r < u && f++), typeof a.type != "function" && (a.__u |= 4)) : c != d && (c == d - 1 ? f-- : c == d + 1 ? f++ : (c > d ? f-- : f++, a.__u |= 4))) : n.__k[s] = null;
-  if (h) for (s = 0; s < u; s++) (o = t[s]) != null && (2 & o.__u) == 0 && (o.__e == i && (i = Si(o)), uc(o, o));
+  for (n.__k = new Array(r), s = 0; s < r; s++) (a = e[s]) != null && typeof a != "boolean" && typeof a != "function" ? (typeof a == "string" || typeof a == "number" || typeof a == "bigint" || a.constructor == String ? a = n.__k[s] = Tn(null, a, null, null, null) : rr(a) ? a = n.__k[s] = Tn(Se, { children: a }, null, null, null) : a.constructor === void 0 && a.__b > 0 ? a = n.__k[s] = Tn(a.type, a.props, a.key, a.ref ? a.ref : null, a.__v) : n.__k[s] = a, d = s + f, a.__ = n, a.__b = n.__b + 1, o = null, (c = a.__i = uh(a, t, d, h)) != -1 && (h--, (o = t[c]) && (o.__u |= 2)), o == null || o.__v == null ? (c == -1 && (r > u ? f-- : r < u && f++), typeof a.type != "function" && (a.__u |= 4)) : c != d && (c == d - 1 ? f-- : c == d + 1 ? f++ : (c > d ? f-- : f++, a.__u |= 4))) : n.__k[s] = null;
+  if (h) for (s = 0; s < u; s++) (o = t[s]) != null && (2 & o.__u) == 0 && (o.__e == i && (i = Si(o)), fc(o, o));
   return i;
 }
-function lc(n, e, t, i) {
+function dc(n, e, t, i) {
   var r, s;
   if (typeof n.type == "function") {
-    for (r = n.__k, s = 0; r && s < r.length; s++) r[s] && (r[s].__ = n, e = lc(r[s], e, t, i));
+    for (r = n.__k, s = 0; r && s < r.length; s++) r[s] && (r[s].__ = n, e = dc(r[s], e, t, i));
     return e;
   }
   n.__e != e && (i && (e && n.type && !e.parentNode && (e = Si(n)), t.insertBefore(n.__e, e || null)), e = n.__e);
@@ -71,7 +71,7 @@ function lc(n, e, t, i) {
   while (e != null && e.nodeType == 8);
   return e;
 }
-function ch(n, e, t, i) {
+function uh(n, e, t, i) {
   var r, s, a, o = n.key, d = n.type, c = e[t], u = c != null && (2 & c.__u) == 0;
   if (c === null && o == null || u && o == c.key && d == c.type) return t;
   if (i > (u ? 1 : 0)) {
@@ -79,17 +79,17 @@ function ch(n, e, t, i) {
   }
   return -1;
 }
-function $a(n, e, t) {
-  e[0] == "-" ? n.setProperty(e, t ?? "") : n[e] = t == null ? "" : typeof t != "number" || ah.test(e) ? t : t + "px";
+function Ba(n, e, t) {
+  e[0] == "-" ? n.setProperty(e, t ?? "") : n[e] = t == null ? "" : typeof t != "number" || lh.test(e) ? t : t + "px";
 }
 function Zi(n, e, t, i, r) {
   var s, a;
   e: if (e == "style") if (typeof t == "string") n.style.cssText = t;
   else {
-    if (typeof i == "string" && (n.style.cssText = i = ""), i) for (e in i) t && e in t || $a(n.style, e, "");
-    if (t) for (e in t) i && t[e] == i[e] || $a(n.style, e, t[e]);
+    if (typeof i == "string" && (n.style.cssText = i = ""), i) for (e in i) t && e in t || Ba(n.style, e, "");
+    if (t) for (e in t) i && t[e] == i[e] || Ba(n.style, e, t[e]);
   }
-  else if (e[0] == "o" && e[1] == "n") s = e != (e = e.replace(rc, "$1")), a = e.toLowerCase(), e = a in n || e == "onFocusOut" || e == "onFocusIn" ? a.slice(2) : e.slice(2), n.l || (n.l = {}), n.l[e + s] = t, t ? i ? t[Fi] = i[Fi] : (t[Fi] = Bs, n.addEventListener(e, s ? ls : os, s)) : n.removeEventListener(e, s ? ls : os, s);
+  else if (e[0] == "o" && e[1] == "n") s = e != (e = e.replace(ac, "$1")), a = e.toLowerCase(), e = a in n || e == "onFocusOut" || e == "onFocusIn" ? a.slice(2) : e.slice(2), n.l || (n.l = {}), n.l[e + s] = t, t ? i ? t[Fi] = i[Fi] : (t[Fi] = Us, n.addEventListener(e, s ? cs : ls, s)) : n.removeEventListener(e, s ? cs : ls, s);
   else {
     if (r == "http://www.w3.org/2000/svg") e = e.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
     else if (e != "width" && e != "height" && e != "href" && e != "list" && e != "form" && e != "tabIndex" && e != "download" && e != "rowSpan" && e != "colSpan" && e != "role" && e != "popover" && e in n) try {
@@ -100,22 +100,22 @@ function Zi(n, e, t, i, r) {
     typeof t == "function" || (t == null || t === !1 && e[4] != "-" ? n.removeAttribute(e) : n.setAttribute(e, e == "popover" && t == 1 ? "" : t));
   }
 }
-function Ba(n) {
+function Ua(n) {
   return function(e) {
     if (this.l) {
       var t = this.l[e.type + n];
-      if (e[Sn] == null) e[Sn] = Bs++;
+      if (e[Sn] == null) e[Sn] = Us++;
       else if (e[Sn] < t[Fi]) return;
       return t(Le.event ? Le.event(e) : e);
     }
   };
 }
-function Gs(n, e, t, i, r, s, a, o, d, c) {
+function zs(n, e, t, i, r, s, a, o, d, c) {
   var u, h, f, p, g, _, m, v, b, x, E, T, w, S, k, I = e.type;
   if (e.constructor !== void 0) return null;
   128 & t.__u && (d = !!(32 & t.__u), s = [o = e.__e = t.__e]), (u = Le.__b) && u(e);
   e: if (typeof I == "function") try {
-    if (v = e.props, b = I.prototype && I.prototype.render, x = (u = I.contextType) && i[u.__c], E = u ? x ? x.props.value : u.__ : i, t.__c ? m = (h = e.__c = t.__c).__ = h.__E : (b ? e.__c = h = new I(v, E) : (e.__c = h = new kn(v, E), h.constructor = I, h.render = uh), x && x.sub(h), h.state || (h.state = {}), h.__n = i, f = h.__d = !0, h.__h = [], h._sb = []), b && h.__s == null && (h.__s = h.state), b && I.getDerivedStateFromProps != null && (h.__s == h.state && (h.__s = Ft({}, h.__s)), Ft(h.__s, I.getDerivedStateFromProps(v, h.__s))), p = h.props, g = h.state, h.__v = e, f) b && I.getDerivedStateFromProps == null && h.componentWillMount != null && h.componentWillMount(), b && h.componentDidMount != null && h.__h.push(h.componentDidMount);
+    if (v = e.props, b = I.prototype && I.prototype.render, x = (u = I.contextType) && i[u.__c], E = u ? x ? x.props.value : u.__ : i, t.__c ? m = (h = e.__c = t.__c).__ = h.__E : (b ? e.__c = h = new I(v, E) : (e.__c = h = new kn(v, E), h.constructor = I, h.render = fh), x && x.sub(h), h.state || (h.state = {}), h.__n = i, f = h.__d = !0, h.__h = [], h._sb = []), b && h.__s == null && (h.__s = h.state), b && I.getDerivedStateFromProps != null && (h.__s == h.state && (h.__s = Ft({}, h.__s)), Ft(h.__s, I.getDerivedStateFromProps(v, h.__s))), p = h.props, g = h.state, h.__v = e, f) b && I.getDerivedStateFromProps == null && h.componentWillMount != null && h.componentWillMount(), b && h.componentDidMount != null && h.__h.push(h.componentDidMount);
     else {
       if (b && I.getDerivedStateFromProps == null && v !== p && h.componentWillReceiveProps != null && h.componentWillReceiveProps(v, E), e.__v == t.__v || !h.__e && h.shouldComponentUpdate != null && h.shouldComponentUpdate(v, h.__s, E) === !1) {
         e.__v != t.__v && (h.props = v, h.state = h.__s, h.__d = !1), e.__e = t.__e, e.__k = t.__k, e.__k.some(function(A) {
@@ -131,26 +131,26 @@ function Gs(n, e, t, i, r, s, a, o, d, c) {
     else do
       h.__d = !1, T && T(e), u = h.render(h.props, h.state, h.context), h.state = h.__s;
     while (h.__d && ++w < 25);
-    h.state = h.__s, h.getChildContext != null && (i = Ft(Ft({}, i), h.getChildContext())), b && !f && h.getSnapshotBeforeUpdate != null && (_ = h.getSnapshotBeforeUpdate(p, g)), S = u != null && u.type === Se && u.key == null ? dc(u.props.children) : u, o = oc(n, nr(S) ? S : [S], e, t, i, r, s, a, o, d, c), h.base = e.__e, e.__u &= -161, h.__h.length && a.push(h), m && (h.__E = h.__ = null);
+    h.state = h.__s, h.getChildContext != null && (i = Ft(Ft({}, i), h.getChildContext())), b && !f && h.getSnapshotBeforeUpdate != null && (_ = h.getSnapshotBeforeUpdate(p, g)), S = u != null && u.type === Se && u.key == null ? hc(u.props.children) : u, o = cc(n, rr(S) ? S : [S], e, t, i, r, s, a, o, d, c), h.base = e.__e, e.__u &= -161, h.__h.length && a.push(h), m && (h.__E = h.__ = null);
   } catch (A) {
     if (e.__v = null, d || s != null) if (A.then) {
       for (e.__u |= d ? 160 : 128; o && o.nodeType == 8 && o.nextSibling; ) o = o.nextSibling;
       s[s.indexOf(o)] = null, e.__e = o;
     } else {
-      for (k = s.length; k--; ) Us(s[k]);
-      cs(e);
+      for (k = s.length; k--; ) Gs(s[k]);
+      ds(e);
     }
-    else e.__e = t.__e, e.__k = t.__k, A.then || cs(e);
+    else e.__e = t.__e, e.__k = t.__k, A.then || ds(e);
     Le.__e(A, e, t);
   }
-  else s == null && e.__v == t.__v ? (e.__k = t.__k, e.__e = t.__e) : o = e.__e = dh(t.__e, e, t, i, r, s, a, d, c);
+  else s == null && e.__v == t.__v ? (e.__k = t.__k, e.__e = t.__e) : o = e.__e = hh(t.__e, e, t, i, r, s, a, d, c);
   return (u = Le.diffed) && u(e), 128 & e.__u ? void 0 : o;
 }
-function cs(n) {
-  n && (n.__c && (n.__c.__e = !0), n.__k && n.__k.some(cs));
+function ds(n) {
+  n && (n.__c && (n.__c.__e = !0), n.__k && n.__k.some(ds));
 }
-function cc(n, e, t) {
-  for (var i = 0; i < t.length; i++) zs(t[i], t[++i], t[++i]);
+function uc(n, e, t) {
+  for (var i = 0; i < t.length; i++) Vs(t[i], t[++i], t[++i]);
   Le.__c && Le.__c(e, n), n.some(function(r) {
     try {
       n = r.__h, r.__h = [], n.some(function(s) {
@@ -161,10 +161,10 @@ function cc(n, e, t) {
     }
   });
 }
-function dc(n) {
-  return typeof n != "object" || n == null || n.__b > 0 ? n : nr(n) ? n.map(dc) : Ft({}, n);
+function hc(n) {
+  return typeof n != "object" || n == null || n.__b > 0 ? n : rr(n) ? n.map(hc) : Ft({}, n);
 }
-function dh(n, e, t, i, r, s, a, o, d) {
+function hh(n, e, t, i, r, s, a, o, d) {
   var c, u, h, f, p, g, _, m = t.props || On, v = e.props, b = e.type;
   if (b == "svg" ? r = "http://www.w3.org/2000/svg" : b == "math" ? r = "http://www.w3.org/1998/Math/MathML" : r || (r = "http://www.w3.org/1999/xhtml"), s != null) {
     for (c = 0; c < s.length; c++) if ((p = s[c]) && "setAttribute" in p == !!b && (b ? p.localName == b : p.nodeType == 3)) {
@@ -178,16 +178,16 @@ function dh(n, e, t, i, r, s, a, o, d) {
   }
   if (b == null) m === v || o && n.data == v || (n.data = v);
   else {
-    if (s = s && ir.call(n.childNodes), !o && s != null) for (m = {}, c = 0; c < n.attributes.length; c++) m[(p = n.attributes[c]).name] = p.value;
+    if (s = s && nr.call(n.childNodes), !o && s != null) for (m = {}, c = 0; c < n.attributes.length; c++) m[(p = n.attributes[c]).name] = p.value;
     for (c in m) p = m[c], c == "dangerouslySetInnerHTML" ? h = p : c == "children" || c in v || c == "value" && "defaultValue" in v || c == "checked" && "defaultChecked" in v || Zi(n, c, null, p, r);
     for (c in v) p = v[c], c == "children" ? f = p : c == "dangerouslySetInnerHTML" ? u = p : c == "value" ? g = p : c == "checked" ? _ = p : o && typeof p != "function" || m[c] === p || Zi(n, c, p, m[c], r);
     if (u) o || h && (u.__html == h.__html || u.__html == n.innerHTML) || (n.innerHTML = u.__html), e.__k = [];
-    else if (h && (n.innerHTML = ""), oc(e.type == "template" ? n.content : n, nr(f) ? f : [f], e, t, i, b == "foreignObject" ? "http://www.w3.org/1999/xhtml" : r, s, a, s ? s[0] : t.__k && Si(t, 0), o, d), s != null) for (c = s.length; c--; ) Us(s[c]);
+    else if (h && (n.innerHTML = ""), cc(e.type == "template" ? n.content : n, rr(f) ? f : [f], e, t, i, b == "foreignObject" ? "http://www.w3.org/1999/xhtml" : r, s, a, s ? s[0] : t.__k && Si(t, 0), o, d), s != null) for (c = s.length; c--; ) Gs(s[c]);
     o || (c = "value", b == "progress" && g == null ? n.removeAttribute("value") : g != null && (g !== n[c] || b == "progress" && !g || b == "option" && g != m[c]) && Zi(n, c, g, m[c], r), c = "checked", _ != null && _ != n[c] && Zi(n, c, _, m[c], r));
   }
   return n;
 }
-function zs(n, e, t) {
+function Vs(n, e, t) {
   try {
     if (typeof n == "function") {
       var i = typeof n.__u == "function";
@@ -197,9 +197,9 @@ function zs(n, e, t) {
     Le.__e(r, t);
   }
 }
-function uc(n, e, t) {
+function fc(n, e, t) {
   var i, r;
-  if (Le.unmount && Le.unmount(n), (i = n.ref) && (i.current && i.current != n.__e || zs(i, null, e)), (i = n.__c) != null) {
+  if (Le.unmount && Le.unmount(n), (i = n.ref) && (i.current && i.current != n.__e || Vs(i, null, e)), (i = n.__c) != null) {
     if (i.componentWillUnmount) try {
       i.componentWillUnmount();
     } catch (s) {
@@ -207,52 +207,52 @@ function uc(n, e, t) {
     }
     i.base = i.__P = null;
   }
-  if (i = n.__k) for (r = 0; r < i.length; r++) i[r] && uc(i[r], e, t || typeof n.type != "function");
-  t || Us(n.__e), n.__c = n.__ = n.__e = void 0;
+  if (i = n.__k) for (r = 0; r < i.length; r++) i[r] && fc(i[r], e, t || typeof n.type != "function");
+  t || Gs(n.__e), n.__c = n.__ = n.__e = void 0;
 }
-function uh(n, e, t) {
+function fh(n, e, t) {
   return this.constructor(n, t);
 }
-function Ua(n, e, t) {
+function Ga(n, e, t) {
   var i, r, s, a;
-  e == document && (e = document.documentElement), Le.__ && Le.__(n, e), r = (i = !1) ? null : e.__k, s = [], a = [], Gs(e, n = e.__k = sc(Se, null, [n]), r || On, On, e.namespaceURI, r ? null : e.firstChild ? ir.call(e.childNodes) : null, s, r ? r.__e : e.firstChild, i, a), cc(s, n, a);
+  e == document && (e = document.documentElement), Le.__ && Le.__(n, e), r = (i = !1) ? null : e.__k, s = [], a = [], zs(e, n = e.__k = oc(Se, null, [n]), r || On, On, e.namespaceURI, r ? null : e.firstChild ? nr.call(e.childNodes) : null, s, r ? r.__e : e.firstChild, i, a), uc(s, n, a);
 }
-ir = Fn.slice, Le = { __e: function(n, e, t, i) {
+nr = Fn.slice, Le = { __e: function(n, e, t, i) {
   for (var r, s, a; e = e.__; ) if ((r = e.__c) && !r.__) try {
     if ((s = r.constructor) && s.getDerivedStateFromError != null && (r.setState(s.getDerivedStateFromError(n)), a = r.__d), r.componentDidCatch != null && (r.componentDidCatch(n, i || {}), a = r.__d), a) return r.__E = r;
   } catch (o) {
     n = o;
   }
   throw n;
-} }, tc = 0, kn.prototype.setState = function(n, e) {
+} }, nc = 0, kn.prototype.setState = function(n, e) {
   var t;
-  t = this.__s != null && this.__s != this.state ? this.__s : this.__s = Ft({}, this.state), typeof n == "function" && (n = n(Ft({}, t), this.props)), n && Ft(t, n), n != null && this.__v && (e && this._sb.push(e), Na(this));
+  t = this.__s != null && this.__s != this.state ? this.__s : this.__s = Ft({}, this.state), typeof n == "function" && (n = n(Ft({}, t), this.props)), n && Ft(t, n), n != null && this.__v && (e && this._sb.push(e), $a(this));
 }, kn.prototype.forceUpdate = function(n) {
-  this.__v && (this.__e = !0, n && this.__h.push(n), Na(this));
-}, kn.prototype.render = Se, Gt = [], ic = typeof Promise == "function" ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, nc = function(n, e) {
+  this.__v && (this.__e = !0, n && this.__h.push(n), $a(this));
+}, kn.prototype.render = Se, Vt = [], rc = typeof Promise == "function" ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, sc = function(n, e) {
   return n.__v.__b - e.__v.__b;
-}, Nn.__r = 0, Er = Math.random().toString(8), Sn = "__d" + Er, Fi = "__a" + Er, rc = /(PointerCapture)$|Capture$/i, Bs = 0, os = Ba(!1), ls = Ba(!0);
-var hh = 0;
+}, Nn.__r = 0, Sr = Math.random().toString(8), Sn = "__d" + Sr, Fi = "__a" + Sr, ac = /(PointerCapture)$|Capture$/i, Us = 0, ls = Ua(!1), cs = Ua(!0);
+var ph = 0;
 function l(n, e, t, i, r, s) {
   e || (e = {});
   var a, o, d = e;
   if ("ref" in d) for (o in d = {}, e) o == "ref" ? a = e[o] : d[o] = e[o];
-  var c = { type: n, props: d, key: t, ref: a, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --hh, __i: -1, __u: 0, __source: r, __self: s };
+  var c = { type: n, props: d, key: t, ref: a, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --ph, __i: -1, __u: 0, __source: r, __self: s };
   if (typeof n == "function" && (a = n.defaultProps)) for (o in a) d[o] === void 0 && (d[o] = a[o]);
   return Le.vnode && Le.vnode(c), c;
 }
-var Gi, Ue, Sr, Ga, zi = 0, hc = [], Ve = Le, za = Ve.__b, Va = Ve.__r, Ka = Ve.diffed, Ha = Ve.__c, ja = Ve.unmount, Wa = Ve.__;
-function Vs(n, e) {
+var Gi, Ue, Tr, za, zi = 0, pc = [], Ve = Le, Va = Ve.__b, Ka = Ve.__r, Ha = Ve.diffed, ja = Ve.__c, Wa = Ve.unmount, Ya = Ve.__;
+function Ks(n, e) {
   Ve.__h && Ve.__h(Ue, n, zi || e), zi = 0;
   var t = Ue.__H || (Ue.__H = { __: [], __h: [] });
   return n >= t.__.length && t.__.push({}), t.__[n];
 }
 function z(n) {
-  return zi = 1, fh(pc, n);
+  return zi = 1, gh(mc, n);
 }
-function fh(n, e, t) {
-  var i = Vs(Gi++, 2);
-  if (i.t = n, !i.__c && (i.__ = [pc(void 0, e), function(o) {
+function gh(n, e, t) {
+  var i = Ks(Gi++, 2);
+  if (i.t = n, !i.__c && (i.__ = [mc(void 0, e), function(o) {
     var d = i.__N ? i.__N[0] : i.__[0], c = i.t(d, o);
     d !== c && (i.__N = [c, i.__[1]], i.__c.setState({}));
   }], i.__c = Ue, !Ue.__f)) {
@@ -285,8 +285,8 @@ function fh(n, e, t) {
   return i.__N || i.__;
 }
 function me(n, e) {
-  var t = Vs(Gi++, 3);
-  !Ve.__s && fc(t.__H, e) && (t.__ = n, t.u = e, Ue.__H.__h.push(t));
+  var t = Ks(Gi++, 3);
+  !Ve.__s && gc(t.__H, e) && (t.__ = n, t.u = e, Ue.__H.__h.push(t));
 }
 function xe(n) {
   return zi = 5, Z(function() {
@@ -294,54 +294,54 @@ function xe(n) {
   }, []);
 }
 function Z(n, e) {
-  var t = Vs(Gi++, 7);
-  return fc(t.__H, e) && (t.__ = n(), t.__H = e, t.__h = n), t.__;
+  var t = Ks(Gi++, 7);
+  return gc(t.__H, e) && (t.__ = n(), t.__H = e, t.__h = n), t.__;
 }
 function qe(n, e) {
   return zi = 8, Z(function() {
     return n;
   }, e);
 }
-function ph() {
-  for (var n; n = hc.shift(); ) {
+function mh() {
+  for (var n; n = pc.shift(); ) {
     var e = n.__H;
     if (n.__P && e) try {
-      e.__h.some(wn), e.__h.some(ds), e.__h = [];
+      e.__h.some(wn), e.__h.some(us), e.__h = [];
     } catch (t) {
       e.__h = [], Ve.__e(t, n.__v);
     }
   }
 }
 Ve.__b = function(n) {
-  Ue = null, za && za(n);
+  Ue = null, Va && Va(n);
 }, Ve.__ = function(n, e) {
-  n && e.__k && e.__k.__m && (n.__m = e.__k.__m), Wa && Wa(n, e);
+  n && e.__k && e.__k.__m && (n.__m = e.__k.__m), Ya && Ya(n, e);
 }, Ve.__r = function(n) {
-  Va && Va(n), Gi = 0;
+  Ka && Ka(n), Gi = 0;
   var e = (Ue = n.__c).__H;
-  e && (Sr === Ue ? (e.__h = [], Ue.__h = [], e.__.some(function(t) {
+  e && (Tr === Ue ? (e.__h = [], Ue.__h = [], e.__.some(function(t) {
     t.__N && (t.__ = t.__N), t.u = t.__N = void 0;
-  })) : (e.__h.some(wn), e.__h.some(ds), e.__h = [], Gi = 0)), Sr = Ue;
+  })) : (e.__h.some(wn), e.__h.some(us), e.__h = [], Gi = 0)), Tr = Ue;
 }, Ve.diffed = function(n) {
-  Ka && Ka(n);
+  Ha && Ha(n);
   var e = n.__c;
-  e && e.__H && (e.__H.__h.length && (hc.push(e) !== 1 && Ga === Ve.requestAnimationFrame || ((Ga = Ve.requestAnimationFrame) || gh)(ph)), e.__H.__.some(function(t) {
+  e && e.__H && (e.__H.__h.length && (pc.push(e) !== 1 && za === Ve.requestAnimationFrame || ((za = Ve.requestAnimationFrame) || _h)(mh)), e.__H.__.some(function(t) {
     t.u && (t.__H = t.u), t.u = void 0;
-  })), Sr = Ue = null;
+  })), Tr = Ue = null;
 }, Ve.__c = function(n, e) {
   e.some(function(t) {
     try {
       t.__h.some(wn), t.__h = t.__h.filter(function(i) {
-        return !i.__ || ds(i);
+        return !i.__ || us(i);
       });
     } catch (i) {
       e.some(function(r) {
         r.__h && (r.__h = []);
       }), e = [], Ve.__e(i, t.__v);
     }
-  }), Ha && Ha(n, e);
+  }), ja && ja(n, e);
 }, Ve.unmount = function(n) {
-  ja && ja(n);
+  Wa && Wa(n);
   var e, t = n.__c;
   t && t.__H && (t.__H.__.some(function(i) {
     try {
@@ -351,33 +351,33 @@ Ve.__b = function(n) {
     }
   }), t.__H = void 0, e && Ve.__e(e, t.__v));
 };
-var Ya = typeof requestAnimationFrame == "function";
-function gh(n) {
+var qa = typeof requestAnimationFrame == "function";
+function _h(n) {
   var e, t = function() {
-    clearTimeout(i), Ya && cancelAnimationFrame(e), setTimeout(n);
+    clearTimeout(i), qa && cancelAnimationFrame(e), setTimeout(n);
   }, i = setTimeout(t, 35);
-  Ya && (e = requestAnimationFrame(t));
+  qa && (e = requestAnimationFrame(t));
 }
 function wn(n) {
   var e = Ue, t = n.__c;
   typeof t == "function" && (n.__c = void 0, t()), Ue = e;
 }
-function ds(n) {
+function us(n) {
   var e = Ue;
   n.__c = n.__(), Ue = e;
 }
-function fc(n, e) {
+function gc(n, e) {
   return !n || n.length !== e.length || e.some(function(t, i) {
     return t !== n[i];
   });
 }
-function pc(n, e) {
+function mc(n, e) {
   return typeof e == "function" ? e(n) : e;
 }
-async function mh(n) {
+async function vh(n) {
   return [...await n.callWS({ type: "config/area_registry/list" })].sort((t, i) => t.name.localeCompare(i.name, "fr"));
 }
-async function _h(n) {
+async function yh(n) {
   try {
     return [...await n.callWS({ type: "config/floor_registry/list" })].sort(
       (t, i) => (t.level ?? 0) - (i.level ?? 0) || t.name.localeCompare(i.name, "fr")
@@ -386,20 +386,20 @@ async function _h(n) {
     return [];
   }
 }
-async function vh(n) {
+async function bh(n) {
   return n.callWS({
     type: "config/entity_registry/list"
   });
 }
-async function yh(n) {
+async function xh(n) {
   return n.callWS({
     type: "config/device_registry/list"
   });
 }
-function bh(n) {
+function Eh(n) {
   return n.split(".")[0] ?? "";
 }
-function xh(n, e, t) {
+function Sh(n, e, t) {
   const i = new Map(t.map((a) => [a.id, a.area_id])), r = new Map(e.map((a) => [a.entity_id, a])), s = [];
   for (const [a, o] of Object.entries(n.states)) {
     const d = r.get(a);
@@ -407,7 +407,7 @@ function xh(n, e, t) {
     const c = d?.area_id ?? (d?.device_id ? i.get(d.device_id) ?? null : null), u = d?.name ?? o.attributes.friendly_name ?? d?.original_name ?? a;
     s.push({
       entity_id: a,
-      domain: bh(a),
+      domain: Eh(a),
       area_id: c,
       friendly_name: u,
       state: o
@@ -415,7 +415,7 @@ function xh(n, e, t) {
   }
   return s;
 }
-function gc(n) {
+function _c(n) {
   const e = /* @__PURE__ */ new Map();
   for (const t of n) {
     const i = e.get(t.area_id) ?? [];
@@ -423,11 +423,11 @@ function gc(n) {
   }
   return e;
 }
-function Ks(n) {
+function Hs(n) {
   const e = n.state.attributes.current_position;
   return typeof e == "number" ? e : n.state.state === "open" ? 100 : n.state.state === "closed" ? 0 : 50;
 }
-function vt(n) {
+function yt(n) {
   const e = n.state.state;
   if (e === "unavailable" || e === "unknown") return !1;
   switch (n.domain) {
@@ -456,27 +456,27 @@ function vt(n) {
       return !1;
   }
 }
-const Eh = {
+const Th = {
   occupancy: "presence",
   presence: "presence",
   motion: "motion"
-}, qa = {
+}, Xa = {
   presence: "Présence détectée",
   motion: "Mouvement détecté"
 };
-function mc(n) {
+function vc(n) {
   let e = null;
   for (const t of n) {
     if (t.domain !== "binary_sensor" || t.state.state !== "on") continue;
-    const i = t.state.attributes.device_class, r = i ? Eh[i] : void 0;
+    const i = t.state.attributes.device_class, r = i ? Th[i] : void 0;
     if (r) {
-      if (r === "presence") return { kind: r, label: qa.presence };
+      if (r === "presence") return { kind: r, label: Xa.presence };
       e = r;
     }
   }
-  return e ? { kind: e, label: qa[e] } : null;
+  return e ? { kind: e, label: Xa[e] } : null;
 }
-const Sh = /* @__PURE__ */ new Set(["motion", "occupancy", "presence"]), Th = /* @__PURE__ */ new Set(["door", "window", "garage_door"]), kh = /* @__PURE__ */ new Set([
+const kh = /* @__PURE__ */ new Set(["motion", "occupancy", "presence"]), wh = /* @__PURE__ */ new Set(["door", "window", "garage_door"]), Ah = /* @__PURE__ */ new Set([
   "light",
   "cover",
   "media_player",
@@ -484,20 +484,20 @@ const Sh = /* @__PURE__ */ new Set(["motion", "occupancy", "presence"]), Th = /*
   "fan",
   "lock",
   "vacuum"
-]), wh = 1440;
-function _c(n, e) {
+]), Ih = 1440;
+function yc(n, e) {
   let t = null;
   for (const i of n) {
     const r = new Date(i.state.last_changed).getTime();
     if (Number.isNaN(r)) continue;
     const s = Math.floor((e.getTime() - r) / 6e4);
     if (s < 0) continue;
-    const a = i.state.attributes.device_class, o = i.domain === "binary_sensor" && !!a && (Sh.has(a) || Th.has(a));
-    !kh.has(i.domain) && !o || (t === null || s < t) && (t = s);
+    const a = i.state.attributes.device_class, o = i.domain === "binary_sensor" && !!a && (kh.has(a) || wh.has(a));
+    !Ah.has(i.domain) && !o || (t === null || s < t) && (t = s);
   }
-  return t !== null && t <= wh ? t : null;
+  return t !== null && t <= Ih ? t : null;
 }
-const Ah = {
+const Lh = {
   window: { kind: "window", label: "Fenêtre ouverte" },
   door: { kind: "door", label: "Porte ouverte" },
   garage_door: { kind: "door", label: "Garage ouvert" },
@@ -506,7 +506,7 @@ const Ah = {
   gas: { kind: "gas", label: "Gaz détecté" },
   carbon_monoxide: { kind: "gas", label: "CO détecté" }
 };
-function vc(n) {
+function bc(n) {
   const e = {
     lightsOn: 0,
     coversOpen: 0,
@@ -517,20 +517,20 @@ function vc(n) {
     coverIds: []
   }, t = /* @__PURE__ */ new Set();
   for (const i of n) {
-    const r = vt(i);
+    const r = yt(i);
     switch (i.domain) {
       case "light":
         e.lightIds.push(i.entity_id), r && e.lightsOn++;
         break;
       case "cover":
-        e.coverIds.push(i.entity_id), r && (e.coversOpen++, e.coverPositions.push(Ks(i)));
+        e.coverIds.push(i.entity_id), r && (e.coversOpen++, e.coverPositions.push(Hs(i)));
         break;
       case "media_player":
         r && (e.mediaPlaying = !0);
         break;
       case "binary_sensor": {
         if (!r) break;
-        const s = i.state.attributes.device_class, a = s ? Ah[s] : void 0;
+        const s = i.state.attributes.device_class, a = s ? Lh[s] : void 0;
         a && !t.has(a.label) && (t.add(a.label), e.alerts.push(a));
         break;
       }
@@ -539,27 +539,27 @@ function vc(n) {
   return e;
 }
 const gi = "Autres";
-function us(n, e) {
+function hs(n, e) {
   return n.area_id ? e.get(n.area_id) ?? gi : gi;
 }
-function Tr(n, e) {
+function kr(n, e) {
   return [...n].sort((t, i) => {
-    const r = us(t, e), s = us(i, e);
+    const r = hs(t, e), s = hs(i, e);
     if (r === gi && s !== gi) return 1;
     if (s === gi && r !== gi) return -1;
     const a = r.localeCompare(s);
     return a !== 0 ? a : t.friendly_name.localeCompare(i.friendly_name);
   });
 }
-function Hs(n, e) {
+function js(n, e) {
   const t = [];
   for (const i of n) {
-    const r = us(i, e), s = t[t.length - 1];
+    const r = hs(i, e), s = t[t.length - 1];
     s && s.room === r ? s.items.push(i) : t.push({ room: r, items: [i] });
   }
   return t;
 }
-function js(n) {
+function Ws(n) {
   const e = {};
   for (const t of n) {
     if (t.domain !== "sensor") continue;
@@ -582,7 +582,7 @@ const Ce = {
   kidsEnabled: "nido.kidsEnabled",
   roomsView: "nido.roomsView",
   planLayers: "nido.planLayers"
-}, yc = ["terracotta", "miel", "sauge", "cosy"], Ih = ["light", "dark"];
+}, xc = ["terracotta", "miel", "sauge", "cosy"], Rh = ["light", "dark"];
 function Ke() {
   try {
     return typeof localStorage < "u" ? localStorage : null;
@@ -590,7 +590,7 @@ function Ke() {
     return null;
   }
 }
-function Lh() {
+function Ch() {
   const n = Ke();
   if (!n) return [];
   const e = n.getItem(Ce.favorites);
@@ -602,11 +602,11 @@ function Lh() {
     return [];
   }
 }
-function hs(n) {
+function fs(n) {
   const e = Ke();
   e && e.setItem(Ce.favorites, JSON.stringify(n));
 }
-function Ws(n) {
+function Ys(n) {
   const e = Ke();
   if (!e) return [];
   const t = e.getItem(n);
@@ -618,12 +618,12 @@ function Ws(n) {
     return [];
   }
 }
-function Ys(n, e) {
+function qs(n, e) {
   const t = Ke();
   t && t.setItem(n, JSON.stringify(e));
 }
-const Rh = () => Ws(Ce.exposed), Xa = (n) => Ys(Ce.exposed, n), Ch = () => Ws(Ce.excludedUsers), Qa = (n) => Ys(Ce.excludedUsers, n), Dh = () => Ws(Ce.roomsOrder), Ph = (n) => Ys(Ce.roomsOrder, n);
-function Mh() {
+const Dh = () => Ys(Ce.exposed), Qa = (n) => qs(Ce.exposed, n), Ph = () => Ys(Ce.excludedUsers), Za = (n) => qs(Ce.excludedUsers, n), Mh = () => Ys(Ce.roomsOrder), Oh = (n) => qs(Ce.roomsOrder, n);
+function Fh() {
   const n = Ke();
   if (!n) return {};
   const e = n.getItem(Ce.roomEntitiesOrder);
@@ -639,35 +639,35 @@ function Mh() {
     return {};
   }
 }
-function Oh(n) {
+function Nh(n) {
   const e = Ke();
   e && e.setItem(Ce.roomEntitiesOrder, JSON.stringify(n));
 }
-function Za() {
+function Ja() {
   return Ke()?.getItem(Ce.onboarded) === "1";
 }
-function Ja(n) {
+function eo(n) {
   const e = Ke();
   e && e.setItem(Ce.onboarded, "1");
 }
-function bc() {
+function Ec() {
   const n = Ke(), e = n?.getItem(Ce.theme), t = n?.getItem(Ce.mode);
   return {
-    theme: yc.includes(e) ? e : "terracotta",
-    mode: Ih.includes(t) ? t : "light"
+    theme: xc.includes(e) ? e : "terracotta",
+    mode: Rh.includes(t) ? t : "light"
   };
 }
-function eo(n, e) {
+function to(n, e) {
   const t = Ke();
   t && (t.setItem(Ce.theme, n), t.setItem(Ce.mode, e));
 }
-function xc() {
+function Sc() {
   return Ke()?.getItem(Ce.lastNotificationRead) ?? null;
 }
-function Ec(n) {
+function Tc(n) {
   Ke()?.setItem(Ce.lastNotificationRead, n);
 }
-function Sc() {
+function kc() {
   const n = Ke();
   if (!n) return {};
   const e = n.getItem(Ce.cameraLiveMap);
@@ -683,47 +683,54 @@ function Sc() {
     return {};
   }
 }
-function Fh(n, e) {
+function $h(n, e) {
   const t = Ke();
   if (!t) return;
-  const i = Sc();
+  const i = kc();
   i[n] = e, t.setItem(Ce.cameraLiveMap, JSON.stringify(i));
 }
-function Nh() {
+function Bh() {
   const n = Ke()?.getItem(Ce.kidsEnabled);
   return n == null ? !0 : n === "1";
 }
-function to(n) {
+function io(n) {
   Ke()?.setItem(Ce.kidsEnabled, n ? "1" : "0");
 }
-function $h() {
+function Uh() {
   const n = Ke()?.getItem(Ce.roomsView);
   return n === "cards" || n === "plan" ? n : null;
 }
-function Bh(n) {
+function Gh(n) {
   Ke()?.setItem(Ce.roomsView, n);
 }
-const io = { temperature: !0, lights: !0, openings: !0, motion: !0 };
-function Uh() {
+const no = {
+  temperature: !0,
+  lights: !0,
+  openings: !0,
+  motion: !0,
+  energy: !1
+};
+function zh() {
   const n = Ke()?.getItem(Ce.planLayers);
-  if (!n) return io;
+  if (!n) return no;
   try {
     const e = JSON.parse(n);
     return {
       temperature: e.temperature !== !1,
       lights: e.lights !== !1,
       openings: e.openings !== !1,
-      motion: e.motion !== !1
+      motion: e.motion !== !1,
+      energy: e.energy === !0 && e.temperature === !1
     };
   } catch {
-    return io;
+    return no;
   }
 }
-function Gh(n) {
+function Vh(n) {
   Ke()?.setItem(Ce.planLayers, JSON.stringify(n));
 }
-const zh = 6, Vh = 20;
-function Kh(n, e) {
+const Kh = 6, Hh = 20;
+function jh(n, e) {
   if (!(n instanceof Element)) return !1;
   let t = n;
   for (; t && t !== e; ) {
@@ -749,7 +756,7 @@ function $n(n, e, t) {
   }
   return s;
 }
-function fs(n, e, t) {
+function ps(n, e, t) {
   const [i, r] = z({ draggingId: null, overId: null }), s = xe(null), a = xe(null), o = xe(n);
   o.current = n;
   const d = xe(t);
@@ -778,7 +785,7 @@ function fs(n, e, t) {
       const v = _.touches[0];
       if (!v) return;
       const b = v.clientX - m.x, x = v.clientY - m.y;
-      Math.hypot(b, x) <= Vh ? _.preventDefault() : (m.timerId && clearTimeout(m.timerId), s.current = null);
+      Math.hypot(b, x) <= Hh ? _.preventDefault() : (m.timerId && clearTimeout(m.timerId), s.current = null);
     }, p = (_) => {
       const m = s.current;
       if (!m) return;
@@ -787,7 +794,7 @@ function fs(n, e, t) {
           return;
       } else if (!m.entered) {
         const b = _.clientX - m.x, x = _.clientY - m.y;
-        if (Math.hypot(b, x) < zh) return;
+        if (Math.hypot(b, x) < Kh) return;
         m.entered = !0, r({ draggingId: m.id, overId: null });
       }
       const v = u(_.clientX, _.clientY);
@@ -824,7 +831,7 @@ function fs(n, e, t) {
         onPointerDown: (_) => {
           if (_.button !== void 0 && _.button !== 0) return;
           const m = _.currentTarget;
-          if (!Kh(_.target, m))
+          if (!jh(_.target, m))
             if (_.pointerType === "touch") {
               const v = window.setTimeout(() => {
                 const b = s.current;
@@ -844,7 +851,7 @@ function fs(n, e, t) {
     isDragging: i.draggingId !== null
   };
 }
-const Hh = [
+const Wh = [
   [12, 252, 0.1],
   [16, 226, 0.09],
   [19, 158, 0.085],
@@ -852,7 +859,7 @@ const Hh = [
   [25, 78, 0.125],
   [28, 46, 0.15],
   [32, 28, 0.17]
-], jh = [
+], Yh = [
   [20, 46, 0.145],
   [32, 78, 0.115],
   [40, 152, 0.085],
@@ -860,7 +867,7 @@ const Hh = [
   [70, 214, 0.11],
   [82, 250, 0.145]
 ];
-function Tc(n, e) {
+function wc(n, e) {
   const t = n[0], i = n[n.length - 1];
   if (e <= t[0]) return { hue: t[1], chroma: t[2] };
   if (e >= i[0]) return { hue: i[1], chroma: i[2] };
@@ -872,33 +879,33 @@ function Tc(n, e) {
   }
   return { hue: i[1], chroma: i[2] };
 }
-function Wh(n, e) {
+function qh(n, e) {
   return /f/i.test(e) ? (n - 32) * 5 / 9 : n;
 }
-function rr(n, e) {
+function sr(n, e) {
   const t = parseFloat(n);
-  return Number.isFinite(t) ? Tc(Hh, Wh(t, e)) : null;
+  return Number.isFinite(t) ? wc(Wh, qh(t, e)) : null;
 }
-function kc(n) {
+function Ac(n) {
   const e = parseFloat(n);
-  return Number.isFinite(e) ? Tc(jh, e) : null;
+  return Number.isFinite(e) ? wc(Yh, e) : null;
 }
-function sr(n) {
+function ar(n) {
   if (n)
     return {
       "--measure-h": n.hue.toFixed(1),
       "--measure-c": n.chroma.toFixed(3)
     };
 }
-const wc = "(max-width: 599px)", Ac = "(pointer: coarse) and (min-width: 600px)";
-function no() {
-  return typeof window > "u" || !window.matchMedia ? "desktop" : window.matchMedia(wc).matches ? "phone" : window.matchMedia(Ac).matches ? "touch" : "desktop";
+const Ic = "(max-width: 599px)", Lc = "(pointer: coarse) and (min-width: 600px)";
+function ro() {
+  return typeof window > "u" || !window.matchMedia ? "desktop" : window.matchMedia(Ic).matches ? "phone" : window.matchMedia(Lc).matches ? "touch" : "desktop";
 }
-function Yh() {
-  const [n, e] = z(no);
+function Xh() {
+  const [n, e] = z(ro);
   return me(() => {
     if (!window.matchMedia) return;
-    const t = [window.matchMedia(wc), window.matchMedia(Ac)], i = () => e(no());
+    const t = [window.matchMedia(Ic), window.matchMedia(Lc)], i = () => e(ro());
     for (const r of t) r.addEventListener("change", i);
     return i(), () => {
       for (const r of t) r.removeEventListener("change", i);
@@ -919,7 +926,7 @@ const X = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
     style: r,
     children: n
   }
-), qh = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+), Qh = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M9 18h6" }),
   /* @__PURE__ */ l("path", { d: "M10 21h4" }),
   /* @__PURE__ */ l("path", { d: "M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z" })
@@ -928,18 +935,18 @@ const X = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
   /* @__PURE__ */ l("path", { d: "M10 21h4" }),
   /* @__PURE__ */ l("path", { d: "M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z" }),
   /* @__PURE__ */ l("path", { d: "M12 1v1M3 5l.5.5M21 5l-.5.5M19 11h1M4 11h1", "stroke-width": "1.2" })
-] }), qs = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Xs = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M6 9a6 6 0 1 1 12 0c0 4 1.5 5.5 2 6H4c.5-.5 2-2 2-6Z" }),
   /* @__PURE__ */ l("path", { d: "M10 19a2 2 0 0 0 4 0" })
-] }), Xs = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Qs = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "3" }),
   /* @__PURE__ */ l("path", { d: "M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z" })
-] }), ps = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m9 6 6 6-6 6" }) }), Ic = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m6 15 6-6 6 6" }) }), Lc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m6 9 6 6 6-6" }) }), Rc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("rect", { x: "6", y: "6", width: "12", height: "12", rx: "1.5" }) }), Nt = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), gs = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m9 6 6 6-6 6" }) }), Rc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m6 15 6-6 6 6" }) }), Cc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m6 9 6 6 6-6" }) }), Dc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("rect", { x: "6", y: "6", width: "12", height: "12", rx: "1.5" }) }), Bt = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "4", y: "3", width: "16", height: "2", rx: "1" }),
   /* @__PURE__ */ l("path", { d: "M5 7h14M5 11h14M5 15h14" }),
   /* @__PURE__ */ l("path", { d: "M12 19v2" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "22", r: "1" })
-] }), ar = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), or = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M9 8V4M15 8V4" }),
   /* @__PURE__ */ l("path", { d: "M6 8h12v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" }),
   /* @__PURE__ */ l("path", { d: "M12 16v5" })
@@ -951,259 +958,259 @@ const X = ({ children: n, size: e = 24, stroke: t = 1.5, fill: i = "none", style
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "9" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "4", "stroke-dasharray": "1 2" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "0.8", fill: "currentColor" })
-] }), Cc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Pc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11Z" }),
   /* @__PURE__ */ l("path", { d: "M9 14a3 3 0 0 0 3 3", "stroke-width": "1.2" })
-] }), Kt = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), jt = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "3" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "7", "stroke-dasharray": "2 3" }),
   /* @__PURE__ */ l("path", { d: "M12 2v2M12 20v2M2 12h2M20 12h2" })
 ] }), ht = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0Z" }),
   /* @__PURE__ */ l("path", { d: "M12 18a1 1 0 1 0-1-1" })
-] }), Dc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11Z" }) }), $t = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Mc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11Z" }) }), Ut = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "4", y: "4", width: "16", height: "16", rx: "1" }),
   /* @__PURE__ */ l("path", { d: "M12 4v16M4 12h16" })
-] }), Wt = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }) }), or = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Yt = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }) }), lr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "5", y: "11", width: "14", height: "10", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M8 11V7a4 4 0 0 1 8 0v4" })
-] }), Xh = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Zh = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "5", y: "11", width: "14", height: "10", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M8 11V7a4 4 0 0 1 7.5-2" })
-] }), lr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), cr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "8" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "3" }),
   /* @__PURE__ */ l("path", { d: "M12 5v3" })
-] }), Qh = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3c1 3-2 4-2 7a4 4 0 0 0 8 0c0-1-.5-2-1-3 0 2-1 3-2 3 1-3-1-5-3-7Z" }) }), Zh = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Jh = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 3c1 3-2 4-2 7a4 4 0 0 0 8 0c0-1-.5-2-1-3 0 2-1 3-2 3 1-3-1-5-3-7Z" }) }), ef = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 2v20M4 6l16 12M4 18 20 6" }),
   /* @__PURE__ */ l("path", { d: "M9 4l3 2 3-2M9 20l3-2 3 2", "stroke-width": "1.2" })
-] }), vi = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M5 12h14" }) }), St = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 5v14M5 12h14" }) }), Yt = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M7 5v14l12-7Z" }) }), Qs = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), vi = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M5 12h14" }) }), Tt = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M12 5v14M5 12h14" }) }), qt = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M7 5v14l12-7Z" }) }), Zs = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "m3 12 9-8 9 8" }),
   /* @__PURE__ */ l("path", { d: "M5 10v10h14V10" })
-] }), Pc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Oc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "8", width: "16", height: "8", rx: "1.5" }),
   /* @__PURE__ */ l("path", { d: "M21 11v2" })
-] }), ni = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m13 2-9 12h7l-2 8 9-12h-7l2-8Z" }) }), cr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Nt = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m13 2-9 12h7l-2 8 9-12h-7l2-8Z" }) }), dr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "4" }),
   /* @__PURE__ */ l("path", { d: "M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5" })
-] }), Mc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M7 18a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 9.5 4.5 4.5 0 0 1 17 18H7Z" }) }), Zs = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Fc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M7 18a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 9.5 4.5 4.5 0 0 1 17 18H7Z" }) }), Js = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "8", cy: "8", r: "3" }),
   /* @__PURE__ */ l("path", { d: "M8 2v1.5M8 12.5V14M2 8h1.5M12.5 8H14M3.5 3.5l1 1M11.5 3.5l-1 1" }),
   /* @__PURE__ */ l("path", { d: "M11 18a3.5 3.5 0 0 1-.7-6.93A5 5 0 0 1 19.6 11.5 3.8 3.8 0 0 1 19 18H11Z" })
-] }), ro = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), so = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" }),
   /* @__PURE__ */ l("path", { d: "M9 18v2M13 18v3M17 18v2" })
-] }), kr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
-  /* @__PURE__ */ l("path", { d: "M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" }),
-  /* @__PURE__ */ l("path", { d: "M8 19h.01M12 19h.01M16 19h.01M10 22h.01M14 22h.01" })
 ] }), wr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" }),
+  /* @__PURE__ */ l("path", { d: "M8 19h.01M12 19h.01M16 19h.01M10 22h.01M14 22h.01" })
+] }), Ar = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+  /* @__PURE__ */ l("path", { d: "M7 15a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 6.5 4.5 4.5 0 0 1 17 15H7Z" }),
   /* @__PURE__ */ l("path", { d: "m12 17-2 4h3l-1 3" })
-] }), Jh = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), tf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 13a4 4 0 0 1-.8-7.92A6 6 0 0 1 17.6 4.5 4.5 4.5 0 0 1 17 13H7Z" }),
   /* @__PURE__ */ l("path", { d: "M5 17h14M3 21h18" })
-] }), so = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), ao = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M3 8h12a3 3 0 1 0-3-3" }),
   /* @__PURE__ */ l("path", { d: "M3 13h17a3 3 0 1 1-3 3" }),
   /* @__PURE__ */ l("path", { d: "M3 18h9" })
-] }), ef = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), nf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M4 16a8 8 0 1 1 16 0" }),
   /* @__PURE__ */ l("path", { d: "m12 16 4-5" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "16", r: "0.8", fill: "currentColor" })
-] }), Js = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M3 12h4l3-8 4 16 3-8h4" }) }), Xi = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), ea = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M3 12h4l3-8 4 16 3-8h4" }) }), Xi = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M9 18V5l11-2v13" }),
   /* @__PURE__ */ l("circle", { cx: "6", cy: "18", r: "3" }),
   /* @__PURE__ */ l("circle", { cx: "17", cy: "16", r: "3" })
-] }), Oc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Nc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "6", y: "5", width: "4", height: "14", rx: "1" }),
   /* @__PURE__ */ l("rect", { x: "14", y: "5", width: "4", height: "14", rx: "1" })
-] }), tf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), rf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M19 5 9 12l10 7V5Z" }),
   /* @__PURE__ */ l("path", { d: "M5 5v14" })
-] }), nf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), sf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M5 5l10 7-10 7V5Z" }),
   /* @__PURE__ */ l("path", { d: "M19 5v14" })
-] }), rf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), af = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M4 9v6h4l5 4V5L8 9H4Z" }),
   /* @__PURE__ */ l("path", { d: "M16 8a5 5 0 0 1 0 8" })
-] }), sf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), of = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }),
   /* @__PURE__ */ l("path", { d: "m9 12 2 2 4-4" })
-] }), af = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), lf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "11", r: "2" }),
   /* @__PURE__ */ l("path", { d: "M8 17a4 4 0 0 1 8 0" })
-] }), of = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), cf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }),
   /* @__PURE__ */ l("path", { d: "M14 9a3 3 0 1 0 0 6 3 3 0 0 1-3-3 3 3 0 0 1 3-3Z" })
-] }), dr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), ur = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "3.5" })
-] }), ur = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), hr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "1.5" }),
   /* @__PURE__ */ l("path", { d: "M12 10.5c0-3 1-6 4-6 2 0 3 1.5 3 3 0 2-1.5 3-3 3" }),
   /* @__PURE__ */ l("path", { d: "M13.5 12c3 0 6 1 6 4 0 2-1.5 3-3 3-2 0-3-1.5-3-3" }),
   /* @__PURE__ */ l("path", { d: "M12 13.5c0 3-1 6-4 6-2 0-3-1.5-3-3 0-2 1.5-3 3-3" }),
   /* @__PURE__ */ l("path", { d: "M10.5 12c-3 0-6-1-6-4 0-2 1.5-3 3-3 2 0 3 1.5 3 3" })
-] }), hr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), fr = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3v4M12 17v4M3 12h4M17 12h4" }),
   /* @__PURE__ */ l("path", { d: "m6 6 2 2M16 16l2 2M6 18l2-2M16 8l2-2" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "2" })
-] }), Un = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M5 12h14M13 6l6 6-6 6" }) }), ea = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Un = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M5 12h14M13 6l6 6-6 6" }) }), ta = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M7 17 17 7" }),
   /* @__PURE__ */ l("path", { d: "M8 7h9v9" })
-] }), ta = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M19 12H5M11 6l-6 6 6 6" }) }), Fc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m5 12 5 5 9-11" }) }), lf = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), cf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), ia = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M19 12H5M11 6l-6 6 6 6" }) }), $c = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m5 12 5 5 9-11" }) }), df = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), uf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "11", cy: "11", r: "7" }),
   /* @__PURE__ */ l("path", { d: "m20 20-3.5-3.5" })
-] }), et = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M6 6l12 12M18 6 6 18" }) }), df = (n) => /* @__PURE__ */ l(X, { ...n, fill: "currentColor", children: /* @__PURE__ */ l("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), ia = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M20 14a8 8 0 1 1-9.5-9.5A6 6 0 0 0 20 14Z" }) }), uf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), et = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M6 6l12 12M18 6 6 18" }) }), hf = (n) => /* @__PURE__ */ l(X, { ...n, fill: "currentColor", children: /* @__PURE__ */ l("path", { d: "m12 3 2.7 5.7 6.3.9-4.5 4.4 1 6.3-5.5-2.9-5.5 2.9 1-6.3L3 9.6l6.3-.9L12 3Z" }) }), na = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M20 14a8 8 0 1 1-9.5-9.5A6 6 0 0 0 20 14Z" }) }), ff = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6l-7-3Z" }),
   /* @__PURE__ */ l("path", { d: "m9 12 2 2 4-4" })
-] }), Nc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Bc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "8", r: "4" }),
   /* @__PURE__ */ l("path", { d: "M4 21a8 8 0 0 1 16 0" })
-] }), hf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), pf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M3 16c2-3 6-5 9-5s7 2 9 5" }),
   /* @__PURE__ */ l("path", { d: "M5 16c1.5-2.5 4-4 7-4s5.5 1.5 7 4" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "1.5", fill: "currentColor" })
-] }), $c = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m15 6-6 6 6 6" }) }), Bc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Uc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "m15 6-6 6 6 6" }) }), Gc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "6", cy: "12", r: "1.2", fill: "currentColor" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "1.2", fill: "currentColor" }),
   /* @__PURE__ */ l("circle", { cx: "18", cy: "12", r: "1.2", fill: "currentColor" })
-] }), ff = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), gf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M4 12.8a1.9 1.9 0 0 1 3.8 0V15h8.4v-2.2a1.9 1.9 0 0 1 3.8 0V18H4v-5.2Z" }),
   /* @__PURE__ */ l("path", { d: "M6.6 12.2V8.6A2.6 2.6 0 0 1 9.2 6h5.6a2.6 2.6 0 0 1 2.6 2.6v3.6" }),
   /* @__PURE__ */ l("path", { d: "M6 18v2M18 18v2" })
-] }), pf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), mf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M3 20V8.5" }),
   /* @__PURE__ */ l("path", { d: "M3 13h12a6 6 0 0 1 6 6v1" }),
   /* @__PURE__ */ l("path", { d: "M3 17h18" }),
   /* @__PURE__ */ l("rect", { x: "4.6", y: "9.6", width: "5.4", height: "3.4", rx: "1.2" })
-] }), gf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), _f = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "6", y: "2", width: "12", height: "20", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M6 9.5h12" }),
   /* @__PURE__ */ l("path", { d: "M15 4.6v3" }),
   /* @__PURE__ */ l("path", { d: "M15 11.6v3.4" })
-] }), mf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), vf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M3 12.4h18v2.1a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 14.5v-2.1Z" }),
   /* @__PURE__ */ l("path", { d: "M7 12.4V6.4A2.4 2.4 0 0 1 11.8 6" }),
   /* @__PURE__ */ l("path", { d: "M6 19v1.8M18 19v1.8" })
-] }), _f = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), yf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M6 21V4.4A1.4 1.4 0 0 1 7.4 3h9.2A1.4 1.4 0 0 1 18 4.4V21" }),
   /* @__PURE__ */ l("path", { d: "M3 21h18" }),
   /* @__PURE__ */ l("path", { d: "M9 7.5h6" }),
   /* @__PURE__ */ l("circle", { cx: "15", cy: "13", r: "1" })
-] }), vf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), bf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "5.4", y: "2.6", width: "6", height: "4.6", rx: "1.1" }),
   /* @__PURE__ */ l("path", { d: "M8.4 7.2v2.2" }),
   /* @__PURE__ */ l("path", { d: "M3.8 9.4h12.4v1.8a4.8 4.8 0 0 1-4.8 4.8H8.6a4.8 4.8 0 0 1-4.8-4.8V9.4Z" }),
   /* @__PURE__ */ l("path", { d: "M10 16v3.6M6.8 19.6h6.4" })
-] }), yf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), xf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "4", y: "2.6", width: "16", height: "18.8", rx: "2.2" }),
   /* @__PURE__ */ l("path", { d: "M4 7.6h16" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "14.6", r: "4.2" }),
   /* @__PURE__ */ l("circle", { cx: "16.6", cy: "5.1", r: "0.9" })
-] }), bf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Ef = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M13.6 5.8a1.6 1.6 0 1 0-1.6 1.6v4.8" }),
   /* @__PURE__ */ l("path", { d: "m12 12.2-8.4 7.4h16.8L12 12.2" })
-] }), xf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Sf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M3 21V9.6L12 4l9 5.6V21" }),
   /* @__PURE__ */ l("path", { d: "M6.6 21v-8h10.8v8" }),
   /* @__PURE__ */ l("path", { d: "M6.6 16.4h10.8M6.6 18.8h10.8" })
-] }), Ef = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Tf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "4.2", width: "18", height: "11.2", rx: "1.6" }),
   /* @__PURE__ */ l("path", { d: "M12 15.4v3.2" }),
   /* @__PURE__ */ l("path", { d: "M8 18.6h8" })
-] }), Sf = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M3 19.2v-3.6h4.5V12H12V8.4h4.5V4.8H21v14.4H3Z" }) }), Tf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), kf = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M3 19.2v-3.6h4.5V12H12V8.4h4.5V4.8H21v14.4H3Z" }) }), wf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M12 3.6c-2.5 0-4.4 1.7-4.6 3.8-2 .5-3 2.2-2.5 4 .4 1.6 1.8 2.8 3.5 2.8h7.2c1.7 0 3.1-1.2 3.5-2.8.5-1.8-.5-3.5-2.5-4-.2-2.1-2.1-3.8-4.6-3.8Z" }),
   /* @__PURE__ */ l("path", { d: "M12 14.2V21" }),
   /* @__PURE__ */ l("path", { d: "M12 18.4 9.2 15.8M12 17.2l2.6-2.2" })
-] }), kf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Af = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M10 2.8h4v3.8l2 2.8a3.2 3.2 0 0 1 .6 1.9V19a2.2 2.2 0 0 1-2.2 2.2H9.6A2.2 2.2 0 0 1 7.4 19v-7.7a3.2 3.2 0 0 1 .6-1.9l2-2.8V2.8Z" }),
   /* @__PURE__ */ l("path", { d: "M7.4 13.4h9.2M7.4 17h9.2" })
-] }), wf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), If = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "5", y: "8.8", width: "14", height: "6.4", rx: "2" }),
   /* @__PURE__ */ l("rect", { x: "6.8", y: "4.2", width: "4", height: "3", rx: "1" }),
   /* @__PURE__ */ l("rect", { x: "13.2", y: "4.2", width: "4", height: "3", rx: "1" }),
   /* @__PURE__ */ l("rect", { x: "6.8", y: "16.8", width: "4", height: "3", rx: "1" }),
   /* @__PURE__ */ l("rect", { x: "13.2", y: "16.8", width: "4", height: "3", rx: "1" })
-] }), Af = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Lf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M5.6 12.6h12.8l-1.3 7.2a1.7 1.7 0 0 1-1.7 1.4H8.6a1.7 1.7 0 0 1-1.7-1.4L5.6 12.6Z" }),
   /* @__PURE__ */ l("path", { d: "M12 12.6V6.4" }),
   /* @__PURE__ */ l("path", { d: "M12 10.2C8.8 10.2 7.4 8 7.7 5.2c2.7-.3 4.3 1.5 4.3 5Z" }),
   /* @__PURE__ */ l("path", { d: "M12 11c3 0 4.3-2 4-4.6-2.6-.3-4 1.4-4 4.6Z" })
-] }), If = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Rf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "6.9", cy: "6.9", r: "2.3" }),
   /* @__PURE__ */ l("circle", { cx: "17.1", cy: "6.9", r: "2.3" }),
   /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "6.2" }),
   /* @__PURE__ */ l("circle", { cx: "9.9", cy: "11.8", r: "0.75", fill: "currentColor", stroke: "none" }),
   /* @__PURE__ */ l("circle", { cx: "14.1", cy: "11.8", r: "0.75", fill: "currentColor", stroke: "none" }),
   /* @__PURE__ */ l("path", { d: "M10.4 15.4a2.2 2.2 0 0 0 3.2 0" })
-] }), Uc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), zc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" }),
   /* @__PURE__ */ l("path", { d: "M12 9v4" }),
   /* @__PURE__ */ l("path", { d: "M12 17h.01" })
-] }), Lf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Cf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M22 12a10.06 10.06 1 0 0-20 0Z" }),
   /* @__PURE__ */ l("path", { d: "M12 12v8a2 2 0 0 0 4 0" }),
   /* @__PURE__ */ l("path", { d: "M12 2v1" })
-] }), Rf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Df = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "4" }),
   /* @__PURE__ */ l("path", { d: "M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" })
-] }), Cf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Pf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "10" }),
   /* @__PURE__ */ l("path", { d: "M12 16v-4" }),
   /* @__PURE__ */ l("path", { d: "M12 8h.01" })
-] }), Df = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Mf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("circle", { cx: "12", cy: "12", r: "10" }),
   /* @__PURE__ */ l("path", { d: "m9 12 2 2 4-4" })
-] }), na = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), ra = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "4", width: "18", height: "18", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M16 2v4M8 2v4M3 10h18" })
-] }), Pf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Of = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M18.36 6.64a9 9 0 1 1-12.73 0" }),
   /* @__PURE__ */ l("line", { x1: "12", y1: "2", x2: "12", y2: "12" })
-] }), Mf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Ff = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" }),
   /* @__PURE__ */ l("path", { d: "M9 7h6M9 11h6M9 15h4" }),
   /* @__PURE__ */ l("path", { d: "M5 7h2M5 11h2M5 15h2" })
-] }), Gc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Vc = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "3", width: "18", height: "18", rx: "2" }),
   /* @__PURE__ */ l("path", { d: "M3 12h8v9M11 3v5M15 12h6" })
-] }), Of = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), Nf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("rect", { x: "3", y: "3", width: "7.5", height: "7.5", rx: "2" }),
   /* @__PURE__ */ l("rect", { x: "13.5", y: "3", width: "7.5", height: "7.5", rx: "2" }),
   /* @__PURE__ */ l("rect", { x: "3", y: "13.5", width: "7.5", height: "7.5", rx: "2" }),
   /* @__PURE__ */ l("rect", { x: "13.5", y: "13.5", width: "7.5", height: "7.5", rx: "2" })
-] }), Ff = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" }) }), Nf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
+] }), $f = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" }) }), Bf = (n) => /* @__PURE__ */ l(X, { ...n, children: [
   /* @__PURE__ */ l("path", { d: "M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z" }),
   /* @__PURE__ */ l("path", { d: "m13.5 6.5 4 4" })
-] }), zc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" }) }), $f = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M3 3h10v8h8v10H3z" }) }), Bf = {
-  "clear-night": { label: "Nuit claire", Icon: ia },
-  cloudy: { label: "Nuageux", Icon: Mc },
-  exceptional: { label: "Conditions extrêmes", Icon: wr },
-  fog: { label: "Brouillard", Icon: Jh },
-  hail: { label: "Grêle", Icon: kr },
-  lightning: { label: "Orage", Icon: wr },
-  "lightning-rainy": { label: "Orage pluvieux", Icon: wr },
-  partlycloudy: { label: "Éclaircies", Icon: Zs },
-  pouring: { label: "Pluie battante", Icon: ro },
-  rainy: { label: "Pluvieux", Icon: ro },
-  snowy: { label: "Neigeux", Icon: kr },
-  "snowy-rainy": { label: "Neige et pluie", Icon: kr },
-  sunny: { label: "Ensoleillé", Icon: cr },
-  windy: { label: "Venteux", Icon: so },
-  "windy-variant": { label: "Venteux", Icon: so }
+] }), Kc = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" }) }), Uf = (n) => /* @__PURE__ */ l(X, { ...n, children: /* @__PURE__ */ l("path", { d: "M3 3h10v8h8v10H3z" }) }), Gf = {
+  "clear-night": { label: "Nuit claire", Icon: na },
+  cloudy: { label: "Nuageux", Icon: Fc },
+  exceptional: { label: "Conditions extrêmes", Icon: Ar },
+  fog: { label: "Brouillard", Icon: tf },
+  hail: { label: "Grêle", Icon: wr },
+  lightning: { label: "Orage", Icon: Ar },
+  "lightning-rainy": { label: "Orage pluvieux", Icon: Ar },
+  partlycloudy: { label: "Éclaircies", Icon: Js },
+  pouring: { label: "Pluie battante", Icon: so },
+  rainy: { label: "Pluvieux", Icon: so },
+  snowy: { label: "Neigeux", Icon: wr },
+  "snowy-rainy": { label: "Neige et pluie", Icon: wr },
+  sunny: { label: "Ensoleillé", Icon: dr },
+  windy: { label: "Venteux", Icon: ao },
+  "windy-variant": { label: "Venteux", Icon: ao }
 };
 function si(n) {
-  return Bf[n] ?? { label: n || "—", Icon: Mc };
+  return Gf[n] ?? { label: n || "—", Icon: Fc };
 }
-function Vc(n, e) {
+function Hc(n, e) {
   if (n == null || n === "") return "—";
   const t = Number(n);
   return Number.isFinite(t) ? `${n}${e}` : "—";
 }
-function Uf({ entity: n, roomLabel: e }) {
-  const t = n.state.state === "unavailable" || n.state.state === "unknown", { label: i, Icon: r } = si(n.state.state), s = n.state.attributes.temperature_unit ?? "°", a = Vc(n.state.attributes.temperature, s), o = n.state.attributes.humidity;
+function zf({ entity: n, roomLabel: e }) {
+  const t = n.state.state === "unavailable" || n.state.state === "unknown", { label: i, Icon: r } = si(n.state.state), s = n.state.attributes.temperature_unit ?? "°", a = Hc(n.state.attributes.temperature, s), o = n.state.attributes.humidity;
   return /* @__PURE__ */ l("div", { class: "n-card n-card--compact n-weather", "data-status": t ? "indisponible" : "off", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: /* @__PURE__ */ l("div", { class: "n-icon-bubble n-weather__icon", children: /* @__PURE__ */ l(r, { size: 20 }) }) }),
     e && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: e }),
@@ -1221,9 +1228,9 @@ function Uf({ entity: n, roomLabel: e }) {
     ] })
   ] });
 }
-function ao({ entity: n }) {
+function oo({ entity: n }) {
   if (n.state.state === "unavailable" || n.state.state === "unknown") return null;
-  const { label: e, Icon: t } = si(n.state.state), i = n.state.attributes.temperature_unit ?? "°", r = Vc(n.state.attributes.temperature, i);
+  const { label: e, Icon: t } = si(n.state.state), i = n.state.attributes.temperature_unit ?? "°", r = Hc(n.state.attributes.temperature, i);
   return /* @__PURE__ */ l("div", { class: "nido-weather-pill", title: n.friendly_name, children: [
     /* @__PURE__ */ l("span", { class: "nido-weather-pill__icon", children: /* @__PURE__ */ l(t, { size: 18 }) }),
     /* @__PURE__ */ l("span", { class: "nido-weather-pill__temp", children: r }),
@@ -1231,7 +1238,7 @@ function ao({ entity: n }) {
     /* @__PURE__ */ l("span", { class: "nido-weather-pill__label", children: e })
   ] });
 }
-function yt(n) {
+function bt(n) {
   const e = xe(null);
   return me(() => {
     const t = (i) => {
@@ -1250,15 +1257,15 @@ function yt(n) {
     }
   }, []), e;
 }
-function Gf(n, e) {
+function Vf(n, e) {
   const t = e.split(".")[1] || "", i = Object.values(n.states).filter((o) => o.entity_id.startsWith("sensor."));
   let r, s, a;
   for (const o of i)
     o.entity_id.endsWith("_next_rain") && (o.entity_id.includes(t) || !r) && (r = o), o.entity_id.endsWith("_weather_alert") && (o.entity_id.includes(t) || !s) && (s = o), o.entity_id.endsWith("_uv") && (o.entity_id.includes(t) || !a) && (a = o);
   return { nextRain: r, weatherAlert: s, uvIndex: a };
 }
-function zf({ hass: n, weatherEntityId: e, onClose: t }) {
-  const i = yt(t), [r, s] = z([]), [a, o] = z([]), d = n.states[e], { nextRain: c, weatherAlert: u, uvIndex: h } = Gf(n, e);
+function Kf({ hass: n, weatherEntityId: e, onClose: t }) {
+  const i = bt(t), [r, s] = z([]), [a, o] = z([]), d = n.states[e], { nextRain: c, weatherAlert: u, uvIndex: h } = Vf(n, e);
   if (me(() => {
     let b = !1;
     async function x() {
@@ -1319,20 +1326,20 @@ function zf({ hass: n, weatherEntityId: e, onClose: t }) {
               ] })
             ] }),
             _ && /* @__PURE__ */ l("div", { class: "nido-wp-alert", style: { backgroundColor: `${_}22`, color: _, border: `1px solid ${_}55` }, children: [
-              /* @__PURE__ */ l(Uc, { size: 20 }),
+              /* @__PURE__ */ l(zc, { size: 20 }),
               /* @__PURE__ */ l("span", { children: v })
             ] }),
             /* @__PURE__ */ l("div", { class: "nido-wp-grid", children: [
               c && /* @__PURE__ */ l("div", { class: "nido-wp-card", children: [
                 /* @__PURE__ */ l("div", { class: "nido-wp-card-head", children: [
-                  /* @__PURE__ */ l(Lf, { size: 18 }),
+                  /* @__PURE__ */ l(Cf, { size: 18 }),
                   /* @__PURE__ */ l("span", { children: "Pluie dans l'heure" })
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-wp-card-val", children: c.state === "unknown" ? "Pas de pluie prévue" : new Date(c.state).getTime() > Date.now() ? `Prévue à ${new Date(c.state).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}` : "Pas de pluie prévue" })
               ] }),
               h && /* @__PURE__ */ l("div", { class: "nido-wp-card", children: [
                 /* @__PURE__ */ l("div", { class: "nido-wp-card-head", children: [
-                  /* @__PURE__ */ l(Rf, { size: 18 }),
+                  /* @__PURE__ */ l(Df, { size: 18 }),
                   /* @__PURE__ */ l("span", { children: "Index UV" })
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-wp-card-val", children: h.state })
@@ -1386,21 +1393,21 @@ function zf({ hass: n, weatherEntityId: e, onClose: t }) {
     )
   ] });
 }
-const Vf = 900;
-function Kc(n) {
+const Hf = 900;
+function jc(n) {
   const e = xe(n), [t, i] = z(!1);
   return me(() => {
     if (e.current === n) return;
     e.current = n, i(!0);
-    const r = window.setTimeout(() => i(!1), Vf);
+    const r = window.setTimeout(() => i(!1), Hf);
     return () => window.clearTimeout(r);
   }, [n]), t;
 }
-function Hc(n) {
+function Wc(n) {
   const e = n.toLowerCase();
-  return /(salle ?[àa] ?manger|dining)/.test(e) ? wf : /(salon|séjour|sejour|living)/.test(e) ? ff : /(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(e) ? If : /(dressing|penderie|placard|walk-? ?in)/.test(e) ? bf : /(chambre|bedroom)/.test(e) ? pf : /(cuisine|kitchen)/.test(e) ? gf : /(wc|toilette|water ?closet)/.test(e) ? vf : /(salle ?de ?bain|sdb|bath|douche|shower)/.test(e) ? mf : /(buanderie|lingerie|laundry|cellier)/.test(e) ? yf : /(garage|carport|atelier)/.test(e) ? xf : /(jardin|ext[éèe]rieur|dehors|garden|outdoor)/.test(e) ? Tf : /(terrasse|balcon|patio|v[ée]randa)/.test(e) ? Af : /(cave|sous-? ?sol|basement)/.test(e) ? kf : /(escalier|stairs?|mont[ée]e)/.test(e) ? Sf : /(bureau|office|study)/.test(e) ? Ef : /(entrée|entree|hall|couloir|palier|d[ée]gagement)/.test(e) ? _f : Qs;
+  return /(salle ?[àa] ?manger|dining)/.test(e) ? If : /(salon|séjour|sejour|living)/.test(e) ? gf : /(enfant|b[ée]b[ée]|kids?|nursery|jeux|playroom)/.test(e) ? Rf : /(dressing|penderie|placard|walk-? ?in)/.test(e) ? Ef : /(chambre|bedroom)/.test(e) ? mf : /(cuisine|kitchen)/.test(e) ? _f : /(wc|toilette|water ?closet)/.test(e) ? bf : /(salle ?de ?bain|sdb|bath|douche|shower)/.test(e) ? vf : /(buanderie|lingerie|laundry|cellier)/.test(e) ? xf : /(garage|carport|atelier)/.test(e) ? Sf : /(jardin|ext[éèe]rieur|dehors|garden|outdoor)/.test(e) ? wf : /(terrasse|balcon|patio|v[ée]randa)/.test(e) ? Lf : /(cave|sous-? ?sol|basement)/.test(e) ? Af : /(escalier|stairs?|mont[ée]e)/.test(e) ? kf : /(bureau|office|study)/.test(e) ? Tf : /(entrée|entree|hall|couloir|palier|d[ée]gagement)/.test(e) ? yf : Zs;
 }
-const Kf = {
+const jf = {
   light: "Lumières",
   switch: "Prises",
   cover: "Volets",
@@ -1417,31 +1424,31 @@ const Kf = {
   script: "Scripts",
   weather: "Météo",
   calendar: "Calendriers"
-}, Hf = {
+}, Wf = {
   light: dt,
-  switch: ar,
-  cover: Nt,
-  binary_sensor: Wt,
+  switch: or,
+  cover: Bt,
+  binary_sensor: Yt,
   climate: ht,
-  lock: or,
-  vacuum: lr,
-  sensor: Kt,
+  lock: lr,
+  vacuum: cr,
+  sensor: jt,
   media_player: Xi,
-  alarm_control_panel: Wt,
-  camera: dr,
-  fan: ur,
-  scene: hr,
-  script: Yt,
-  weather: Zs,
-  calendar: na
+  alarm_control_panel: Yt,
+  camera: ur,
+  fan: hr,
+  scene: fr,
+  script: qt,
+  weather: Js,
+  calendar: ra
 };
-function jc({
+function Yc({
   signature: n,
   hero: e,
   dragProps: t,
   children: i
 }) {
-  const r = Kc(n);
+  const r = jc(n);
   return /* @__PURE__ */ l(
     "div",
     {
@@ -1453,20 +1460,20 @@ function jc({
     }
   );
 }
-const fr = (n) => Math.min(1, Math.max(0, n));
-function pr(n) {
-  const e = fr(n);
+const pr = (n) => Math.min(1, Math.max(0, n));
+function gr(n) {
+  const e = pr(n);
   return {
     "--breathe-scale": (1 + 6e-3 + 0.012 * e).toFixed(4),
     "--breathe-bright": (1 + 0.02 + 0.045 * e).toFixed(3)
   };
 }
-function jf(n, e = 7, t = 2.8) {
-  const i = fr(n);
+function Yf(n, e = 7, t = 2.8) {
+  const i = pr(n);
   return { "--breathe-speed": `${(e - (e - t) * i).toFixed(2)}s` };
 }
-function ra(n) {
-  const e = fr(n), t = 0.25 + 0.6 * e;
+function sa(n) {
+  const e = pr(n), t = 0.25 + 0.6 * e;
   return {
     "--glow-size": `${Math.round(90 + 95 * e)}px`,
     "--glow-base": t.toFixed(2),
@@ -1474,21 +1481,21 @@ function ra(n) {
     "--glow-max": (1 + 0.14 * e).toFixed(3)
   };
 }
-function Wf(n) {
-  return { "--fan-speed": `${(3.4 - 2.6 * fr(n / 100)).toFixed(2)}s` };
+function qf(n) {
+  return { "--fan-speed": `${(3.4 - 2.6 * pr(n / 100)).toFixed(2)}s` };
 }
-function Yf(n) {
+function Xf(n) {
   const e = n.attributes.brightness;
   return typeof e != "number" ? n.state === "on" ? 100 : 0 : Math.round(e / 255 * 100);
 }
-function qf({
+function Qf({
   hass: n,
   entity: e,
   hero: t = !1,
   breatheVariant: i = 1,
   roomLabel: r
 }) {
-  const s = e.state.state === "on", a = e.state.state === "unavailable", [o, d] = z(!1), [c, u] = z(null), h = c ?? Yf(e.state), f = async () => {
+  const s = e.state.state === "on", a = e.state.state === "unavailable", [o, d] = z(!1), [c, u] = z(null), h = c ?? Xf(e.state), f = async () => {
     if (!a) {
       d(!0);
       try {
@@ -1512,7 +1519,7 @@ function qf({
     t ? s ? "n-card--accent" : "n-card--accent-muted" : "n-card--default",
     s ? `breathe-${i}` : "",
     o ? "is-pending" : ""
-  ].filter(Boolean).join(" "), m = s ? { ...pr(h / 100), ...ra(h / 100) } : void 0;
+  ].filter(Boolean).join(" "), m = s ? { ...gr(h / 100), ...sa(h / 100) } : void 0;
   return /* @__PURE__ */ l(
     "div",
     {
@@ -1567,12 +1574,12 @@ function qf({
     }
   );
 }
-function Xf(n) {
+function Zf(n) {
   const e = n.attributes.current_position;
   return typeof e == "number" ? e : n.state === "open" ? 100 : n.state === "closed" ? 0 : 50;
 }
-function Qf({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
-  const r = e.state.state === "unavailable", [s, a] = z(null), o = s ?? Xf(e.state), d = o > 0, c = async (f) => {
+function Jf({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
+  const r = e.state.state === "unavailable", [s, a] = z(null), o = s ?? Zf(e.state), d = o > 0, c = async (f) => {
     a(f);
     try {
       await n.callService("cover", "set_cover_position", {
@@ -1585,7 +1592,7 @@ function Qf({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
   }, h = ["n-card", i ? d ? "n-card--accent" : "n-card--accent-muted" : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ l("div", { class: "n-cover-glow-wrap", "data-active": d ? "true" : "false", children: /* @__PURE__ */ l("div", { class: h, "data-hero": i ? "true" : "false", "data-on": d ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-      /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Nt, { size: 20 }) }),
+      /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Bt, { size: 20 }) }),
       /* @__PURE__ */ l("div", { class: "n-blinds", children: [0, 1, 2, 3, 4, 5].map((f) => /* @__PURE__ */ l(
         "span",
         {
@@ -1627,7 +1634,7 @@ function Qf({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
             "aria-label": "Descendre",
             title: "Descendre",
             onClick: () => n.callService("cover", "close_cover", { entity_id: e.entity_id }),
-            children: /* @__PURE__ */ l(Lc, { size: 18 })
+            children: /* @__PURE__ */ l(Cc, { size: 18 })
           }
         ),
         /* @__PURE__ */ l(
@@ -1638,7 +1645,7 @@ function Qf({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
             "aria-label": "Stop",
             title: "Stop",
             onClick: () => n.callService("cover", "stop_cover", { entity_id: e.entity_id }),
-            children: /* @__PURE__ */ l(Rc, { size: 18 })
+            children: /* @__PURE__ */ l(Dc, { size: 18 })
           }
         ),
         /* @__PURE__ */ l(
@@ -1649,7 +1656,7 @@ function Qf({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
             "aria-label": "Monter",
             title: "Monter",
             onClick: () => n.callService("cover", "open_cover", { entity_id: e.entity_id }),
-            children: /* @__PURE__ */ l(Ic, { size: 18 })
+            children: /* @__PURE__ */ l(Rc, { size: 18 })
           }
         )
       ] })
@@ -1657,7 +1664,7 @@ function Qf({ hass: n, entity: e, roomLabel: t, hero: i = !1 }) {
     r && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] }) });
 }
-function Zf({
+function ep({
   hass: n,
   entity: e,
   roomLabel: t,
@@ -1676,7 +1683,7 @@ function Zf({
   }, f = ["n-card", r ? s ? "n-card--accent" : "n-card--accent-muted" : "", s ? `breathe-${i}` : "", o ? "is-pending" : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ l("div", { class: f, "data-hero": r ? "true" : "false", "data-on": s ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-      /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(ar, { size: 18 }) }),
+      /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(or, { size: 18 }) }),
       /* @__PURE__ */ l(
         "button",
         {
@@ -1699,17 +1706,17 @@ function Zf({
     a && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] });
 }
-const Jf = {
+const tp = {
   door: Ti,
   garage_door: Ti,
-  window: $t,
+  window: Ut,
   smoke: Bn,
   gas: Bn,
-  moisture: Cc,
-  motion: Kt,
-  occupancy: Kt,
-  presence: Kt
-}, ep = {
+  moisture: Pc,
+  motion: jt,
+  occupancy: jt,
+  presence: jt
+}, ip = {
   door: { on: "Ouverte", off: "Fermée" },
   garage_door: { on: "Ouverte", off: "Fermée" },
   window: { on: "Ouverte", off: "Fermée" },
@@ -1719,9 +1726,9 @@ const Jf = {
   motion: { on: "Mouvement", off: "Calme" },
   occupancy: { on: "Présence", off: "Vide" },
   presence: { on: "Présence", off: "Vide" }
-}, tp = /* @__PURE__ */ new Set(["smoke", "gas", "moisture"]), ip = /* @__PURE__ */ new Set(["door", "garage_door", "window"]);
-function np({ entity: n, roomLabel: e, hero: t = !1 }) {
-  const i = n.state.attributes.device_class ?? "", r = n.state.state === "on", s = n.state.state === "unavailable", a = Jf[i] ?? Wt, o = ep[i] ?? { on: "Actif", off: "Inactif" }, d = tp.has(i), c = ip.has(i), u = s ? "indisponible" : r ? "on" : "off", f = ["n-card", t ? r ? "n-card--accent" : "n-card--accent-muted" : "n-card--compact"].filter(Boolean).join(" "), p = /* @__PURE__ */ l("div", { class: f, "data-hero": t ? "true" : "false", "data-status": u, "data-alert": d ? "true" : "false", children: [
+}, np = /* @__PURE__ */ new Set(["smoke", "gas", "moisture"]), rp = /* @__PURE__ */ new Set(["door", "garage_door", "window"]);
+function sp({ entity: n, roomLabel: e, hero: t = !1 }) {
+  const i = n.state.attributes.device_class ?? "", r = n.state.state === "on", s = n.state.state === "unavailable", a = tp[i] ?? Yt, o = ip[i] ?? { on: "Actif", off: "Inactif" }, d = np.has(i), c = rp.has(i), u = s ? "indisponible" : r ? "on" : "off", f = ["n-card", t ? r ? "n-card--accent" : "n-card--accent-muted" : "n-card--compact"].filter(Boolean).join(" "), p = /* @__PURE__ */ l("div", { class: f, "data-hero": t ? "true" : "false", "data-status": u, "data-alert": d ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
       /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(a, { size: t ? 22 : 18 }) }),
       /* @__PURE__ */ l("span", { class: "n-dot", "aria-hidden": "true" })
@@ -1732,7 +1739,7 @@ function np({ entity: n, roomLabel: e, hero: t = !1 }) {
   ] });
   return c ? /* @__PURE__ */ l("div", { class: "n-cover-glow-wrap", "data-active": r ? "true" : "false", children: p }) : p;
 }
-const rp = {
+const ap = {
   off: "Éteint",
   heat: "Chauffage",
   cool: "Climatisation",
@@ -1740,15 +1747,15 @@ const rp = {
   auto: "Auto",
   dry: "Déshu.",
   fan_only: "Ventilation"
-}, sp = {
-  heat: Qh,
-  cool: Zh,
+}, op = {
+  heat: Jh,
+  cool: ef,
   heat_cool: ht,
   auto: ht,
   dry: ht,
   fan_only: ht
 };
-function ap({
+function lp({
   hass: n,
   entity: e,
   roomLabel: t,
@@ -1766,7 +1773,7 @@ function ap({
     } finally {
       setTimeout(() => g(null), 50);
     }
-  }, v = sp[a] ?? ht, x = ["n-card", r ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${i}` : ""].filter(Boolean).join(" "), E = typeof d == "number" && typeof c == "number" ? Math.abs(c - d) : 0, T = Math.min(1, E / 3), w = o ? { ...pr(T), ...jf(T), ...ra(T) } : void 0;
+  }, v = op[a] ?? ht, x = ["n-card", r ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${i}` : ""].filter(Boolean).join(" "), E = typeof d == "number" && typeof c == "number" ? Math.abs(c - d) : 0, T = Math.min(1, E / 3), w = o ? { ...gr(T), ...Yf(T), ...sa(T) } : void 0;
   return /* @__PURE__ */ l(
     "div",
     {
@@ -1778,7 +1785,7 @@ function ap({
         o && /* @__PURE__ */ l("div", { class: "n-light__glow", "aria-hidden": "true" }),
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
           /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(v, { size: 18 }) }),
-          /* @__PURE__ */ l("span", { class: "n-eyebrow", children: rp[a] ?? a })
+          /* @__PURE__ */ l("span", { class: "n-eyebrow", children: ap[a] ?? a })
         ] }),
         t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
         /* @__PURE__ */ l("div", { class: `n-title ${r ? "n-title--xl" : ""}`, children: e.friendly_name }),
@@ -1814,7 +1821,7 @@ function ap({
                 "aria-label": "Augmenter",
                 onClick: () => m(_ + f),
                 disabled: _ + f > h,
-                children: /* @__PURE__ */ l(St, { size: 16 })
+                children: /* @__PURE__ */ l(Tt, { size: 16 })
               }
             )
           ] })
@@ -1824,7 +1831,7 @@ function ap({
     }
   );
 }
-function op({ hass: n, entity: e, roomLabel: t }) {
+function cp({ hass: n, entity: e, roomLabel: t }) {
   const i = e.state.state, r = i === "unavailable", s = i === "locked", a = i === "jammed", o = i === "locking" || i === "unlocking", [d, c] = z(!1), u = async () => {
     if (!(r || o || d)) {
       c(!0);
@@ -1845,7 +1852,7 @@ function op({ hass: n, entity: e, roomLabel: t }) {
       "data-alert": a ? "true" : "false",
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(s ? or : Xh, { size: 20 }) }),
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(s ? lr : Zh, { size: 20 }) }),
           /* @__PURE__ */ l(
             "button",
             {
@@ -1866,7 +1873,7 @@ function op({ hass: n, entity: e, roomLabel: t }) {
     }
   );
 }
-const lp = {
+const dp = {
   cleaning: "Nettoyage",
   docked: "À la base",
   returning: "Retour base",
@@ -1874,7 +1881,7 @@ const lp = {
   paused: "En pause",
   error: "Erreur"
 };
-function cp({
+function up({
   hass: n,
   entity: e,
   roomLabel: t,
@@ -1898,9 +1905,9 @@ function cp({
       "data-alert": o ? "true" : "false",
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(lr, { size: 20 }) }),
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(cr, { size: 20 }) }),
           typeof d == "number" && /* @__PURE__ */ l("span", { class: "n-battery", children: [
-            /* @__PURE__ */ l(Pc, { size: 14 }),
+            /* @__PURE__ */ l(Oc, { size: 14 }),
             /* @__PURE__ */ l("span", { children: [
               Math.round(d),
               "%"
@@ -1909,7 +1916,7 @@ function cp({
         ] }),
         t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
         /* @__PURE__ */ l("div", { class: "n-title", children: e.friendly_name }),
-        /* @__PURE__ */ l("div", { class: "n-binary-state", children: lp[r] ?? r }),
+        /* @__PURE__ */ l("div", { class: "n-binary-state", children: dp[r] ?? r }),
         !s && /* @__PURE__ */ l("div", { class: "n-vacuum__actions", children: [
           /* @__PURE__ */ l(
             "button",
@@ -1919,7 +1926,7 @@ function cp({
               disabled: c || a,
               onClick: () => h("start"),
               children: [
-                /* @__PURE__ */ l(Yt, { size: 14 }),
+                /* @__PURE__ */ l(qt, { size: 14 }),
                 /* @__PURE__ */ l("span", { children: "Lancer" })
               ]
             }
@@ -1932,7 +1939,7 @@ function cp({
               disabled: c || r === "docked",
               onClick: () => h("return_to_base"),
               children: [
-                /* @__PURE__ */ l(Qs, { size: 14 }),
+                /* @__PURE__ */ l(Zs, { size: 14 }),
                 /* @__PURE__ */ l("span", { children: "Base" })
               ]
             }
@@ -1942,25 +1949,25 @@ function cp({
     }
   );
 }
-const dp = {
+const hp = {
   temperature: ht,
-  humidity: Dc,
-  power: ni,
-  energy: ni,
-  current: ni,
-  voltage: ni,
-  illuminance: cr,
-  pressure: ef,
-  battery: Pc
+  humidity: Mc,
+  power: Nt,
+  energy: Nt,
+  current: Nt,
+  voltage: Nt,
+  illuminance: dr,
+  pressure: nf,
+  battery: Oc
 };
-function up(n, e, t) {
+function fp(n, e, t) {
   if (n === "unavailable" || n === "unknown") return { value: "—", unit: "" };
   if (t === "temperature") return { value: n, unit: e ?? "" };
   const i = Number(n);
   return Number.isFinite(i) ? { value: Math.abs(i) >= 100 ? Math.round(i).toString() : (Math.round(i * 10) / 10).toString(), unit: e ?? "" } : { value: n, unit: e ?? "" };
 }
-function hp({ entity: n, roomLabel: e }) {
-  const t = n.state.attributes.device_class ?? "", i = n.state.attributes.unit_of_measurement, r = dp[t] ?? Js, s = n.state.state === "unavailable", { value: a, unit: o } = up(n.state.state, i, t);
+function pp({ entity: n, roomLabel: e }) {
+  const t = n.state.attributes.device_class ?? "", i = n.state.attributes.unit_of_measurement, r = hp[t] ?? ea, s = n.state.state === "unavailable", { value: a, unit: o } = fp(n.state.state, i, t);
   return /* @__PURE__ */ l("div", { class: "n-card n-card--compact", "data-status": s ? "indisponible" : "off", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(r, { size: 18 }) }) }),
     e && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: e }),
@@ -1971,7 +1978,7 @@ function hp({ entity: n, roomLabel: e }) {
     ] })
   ] });
 }
-const fp = {
+const gp = {
   playing: "En lecture",
   paused: "En pause",
   idle: "Au repos",
@@ -1980,7 +1987,7 @@ const fp = {
   standby: "Veille",
   buffering: "Mise en mémoire"
 };
-function pp({
+function mp({
   hass: n,
   entity: e,
   roomLabel: t,
@@ -1999,7 +2006,7 @@ function pp({
     } finally {
       setTimeout(() => _(null), 50);
     }
-  }, E = ["n-card", i ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${r}` : ""].filter(Boolean).join(" "), T = o ? { ...pr(m), ...ra(m) } : void 0;
+  }, E = ["n-card", i ? o ? "n-card--accent" : "n-card--accent-muted" : "", o ? `breathe-${r}` : ""].filter(Boolean).join(" "), T = o ? { ...gr(m), ...sa(m) } : void 0;
   return /* @__PURE__ */ l(
     "div",
     {
@@ -2016,7 +2023,7 @@ function pp({
         /* @__PURE__ */ l("div", { class: "n-card__head", style: { alignItems: "center" }, children: [
           /* @__PURE__ */ l("div", { style: { display: "flex", alignItems: "center", gap: "10px" }, children: [
             /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Xi, { size: 20 }) }),
-            /* @__PURE__ */ l("span", { class: "n-eyebrow", children: fp[s] ?? s })
+            /* @__PURE__ */ l("span", { class: "n-eyebrow", children: gp[s] ?? s })
           ] }),
           /* @__PURE__ */ l(
             "button",
@@ -2028,7 +2035,7 @@ function pp({
               onClick: (w) => {
                 w.stopPropagation(), v("toggle");
               },
-              children: /* @__PURE__ */ l(Pf, { size: 18 })
+              children: /* @__PURE__ */ l(Of, { size: 18 })
             }
           )
         ] }),
@@ -2048,7 +2055,7 @@ function pp({
                 class: "n-icon-btn",
                 "aria-label": "Précédent",
                 onClick: () => v("media_previous_track"),
-                children: /* @__PURE__ */ l(tf, { size: i ? 20 : 16 })
+                children: /* @__PURE__ */ l(rf, { size: i ? 20 : 16 })
               }
             ),
             /* @__PURE__ */ l(
@@ -2058,7 +2065,7 @@ function pp({
                 class: "n-icon-btn n-icon-btn--primary",
                 "aria-label": o ? "Pause" : "Lecture",
                 onClick: () => v("media_play_pause"),
-                children: o ? /* @__PURE__ */ l(Oc, { size: i ? 24 : 18 }) : /* @__PURE__ */ l(Yt, { size: i ? 24 : 18 })
+                children: o ? /* @__PURE__ */ l(Nc, { size: i ? 24 : 18 }) : /* @__PURE__ */ l(qt, { size: i ? 24 : 18 })
               }
             ),
             /* @__PURE__ */ l(
@@ -2068,12 +2075,12 @@ function pp({
                 class: "n-icon-btn",
                 "aria-label": "Suivant",
                 onClick: () => v("media_next_track"),
-                children: /* @__PURE__ */ l(nf, { size: i ? 20 : 16 })
+                children: /* @__PURE__ */ l(sf, { size: i ? 20 : 16 })
               }
             )
           ] }),
           typeof f == "number" && /* @__PURE__ */ l("div", { class: "n-media__volume", children: [
-            /* @__PURE__ */ l(rf, { size: 14 }),
+            /* @__PURE__ */ l(af, { size: 14 }),
             /* @__PURE__ */ l(
               "input",
               {
@@ -2094,8 +2101,8 @@ function pp({
     }
   );
 }
-const gp = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], mp = 16;
-function _p({
+const _p = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], vp = 16;
+function yp({
   title: n,
   format: e,
   pending: t,
@@ -2103,7 +2110,7 @@ function _p({
   onSubmit: r,
   onClose: s
 }) {
-  const a = yt(s), o = xe(null), [d, c] = z("");
+  const a = bt(s), o = xe(null), [d, c] = z("");
   me(() => {
     i && c("");
   }, [i]), me(() => {
@@ -2112,7 +2119,7 @@ function _p({
   const u = () => {
     t || d.length === 0 || r(d);
   }, h = (p) => {
-    t || c((g) => g.length >= mp ? g : g + p);
+    t || c((g) => g.length >= vp ? g : g + p);
   };
   return /* @__PURE__ */ l("div", { class: "nido-alarm-code", "data-no-drag": !0, children: [
     /* @__PURE__ */ l("div", { class: "nido-alarm-code__backdrop", onClick: s }),
@@ -2130,7 +2137,7 @@ function _p({
         children: [
           /* @__PURE__ */ l("header", { class: "nido-alarm-code__header", children: [
             /* @__PURE__ */ l("div", { class: "nido-alarm-code__title-group", children: [
-              /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Wt, { size: 18 }) }),
+              /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Yt, { size: 18 }) }),
               /* @__PURE__ */ l("div", { children: [
                 /* @__PURE__ */ l("div", { class: "nido-alarm-code__title", children: "Code de désarmement" }),
                 /* @__PURE__ */ l("div", { class: "nido-alarm-code__subtitle", children: n })
@@ -2167,7 +2174,7 @@ function _p({
           ),
           i && /* @__PURE__ */ l("div", { class: "nido-alarm-code__error", role: "alert", children: i }),
           e === "number" && /* @__PURE__ */ l("div", { class: "nido-alarm-code__pad", children: [
-            gp.map((p) => /* @__PURE__ */ l(
+            _p.map((p) => /* @__PURE__ */ l(
               "button",
               {
                 type: "button",
@@ -2225,7 +2232,7 @@ function _p({
     )
   ] });
 }
-const vp = {
+const bp = {
   disarmed: "Désarmée",
   armed_home: "Présence",
   armed_away: "Absence",
@@ -2236,16 +2243,16 @@ const vp = {
   arming: "Armement…",
   disarming: "Désarmement…",
   triggered: "Déclenchée"
-}, yp = [
-  { id: "armed_home", service: "alarm_arm_home", label: "Présence", Icon: sf },
-  { id: "armed_away", service: "alarm_arm_away", label: "Absence", Icon: af },
-  { id: "armed_night", service: "alarm_arm_night", label: "Nuit", Icon: of }
-], bp = 6e3;
-function xp(n) {
+}, xp = [
+  { id: "armed_home", service: "alarm_arm_home", label: "Présence", Icon: of },
+  { id: "armed_away", service: "alarm_arm_away", label: "Absence", Icon: lf },
+  { id: "armed_night", service: "alarm_arm_night", label: "Nuit", Icon: cf }
+], Ep = 6e3;
+function Sp(n) {
   const e = n?.message;
   return typeof e == "string" && e.trim() ? e.trim() : null;
 }
-function Ep({ hass: n, entity: e, roomLabel: t }) {
+function Tp({ hass: n, entity: e, roomLabel: t }) {
   const i = e.state.state, r = i === "unavailable", s = i === "triggered", a = i.startsWith("armed_"), o = i === "pending" || i === "arming" || i === "disarming", [d, c] = z(!1), u = e.state.attributes.code_format, h = u === "number" || u === "text" ? u : null, [f, p] = z(!1), [g, _] = z(null), [m, v] = z(!1), b = async (w) => {
     if (!(r || d)) {
       c(!0);
@@ -2272,7 +2279,7 @@ function Ep({ hass: n, entity: e, roomLabel: t }) {
       });
     } catch (S) {
       v(!1);
-      const k = xp(S);
+      const k = Sp(S);
       _(k ? `Code refusé — ${k}` : "Code incorrect.");
     }
   };
@@ -2284,7 +2291,7 @@ function Ep({ hass: n, entity: e, roomLabel: t }) {
     }
     const w = window.setTimeout(() => {
       v(!1), _("Code incorrect.");
-    }, bp);
+    }, Ep);
     return () => window.clearTimeout(w);
   }, [m, i]);
   const T = () => {
@@ -2298,13 +2305,13 @@ function Ep({ hass: n, entity: e, roomLabel: t }) {
       "data-alert": s ? "true" : "false",
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Wt, { size: 20 }) }),
-          /* @__PURE__ */ l("span", { class: "n-eyebrow", children: vp[i] ?? i })
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: /* @__PURE__ */ l(Yt, { size: 20 }) }),
+          /* @__PURE__ */ l("span", { class: "n-eyebrow", children: bp[i] ?? i })
         ] }),
         t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
         /* @__PURE__ */ l("div", { class: "n-title", children: e.friendly_name }),
         !r && /* @__PURE__ */ l("div", { class: "n-alarm__modes", children: [
-          yp.map(({ id: w, service: S, label: k, Icon: I }) => /* @__PURE__ */ l(
+          xp.map(({ id: w, service: S, label: k, Icon: I }) => /* @__PURE__ */ l(
             "button",
             {
               type: "button",
@@ -2331,7 +2338,7 @@ function Ep({ hass: n, entity: e, roomLabel: t }) {
           )
         ] }),
         f && h && /* @__PURE__ */ l(
-          _p,
+          yp,
           {
             title: e.friendly_name,
             format: h,
@@ -2347,9 +2354,9 @@ function Ep({ hass: n, entity: e, roomLabel: t }) {
 }
 const ee = Number.isFinite || function(n) {
   return typeof n == "number" && isFinite(n);
-}, Sp = Number.isSafeInteger || function(n) {
-  return typeof n == "number" && Math.abs(n) <= Tp;
-}, Tp = Number.MAX_SAFE_INTEGER || 9007199254740991;
+}, kp = Number.isSafeInteger || function(n) {
+  return typeof n == "number" && Math.abs(n) <= wp;
+}, wp = Number.MAX_SAFE_INTEGER || 9007199254740991;
 let re = /* @__PURE__ */ (function(n) {
   return n.NETWORK_ERROR = "networkError", n.MEDIA_ERROR = "mediaError", n.KEY_SYSTEM_ERROR = "keySystemError", n.MUX_ERROR = "muxError", n.OTHER_ERROR = "otherError", n;
 })({}), P = /* @__PURE__ */ (function(n) {
@@ -2357,7 +2364,7 @@ let re = /* @__PURE__ */ (function(n) {
 })({}), y = /* @__PURE__ */ (function(n) {
   return n.MEDIA_ATTACHING = "hlsMediaAttaching", n.MEDIA_ATTACHED = "hlsMediaAttached", n.MEDIA_DETACHING = "hlsMediaDetaching", n.MEDIA_DETACHED = "hlsMediaDetached", n.MEDIA_ENDED = "hlsMediaEnded", n.STALL_RESOLVED = "hlsStallResolved", n.BUFFER_RESET = "hlsBufferReset", n.BUFFER_CODECS = "hlsBufferCodecs", n.BUFFER_CREATED = "hlsBufferCreated", n.BUFFER_APPENDING = "hlsBufferAppending", n.BUFFER_APPENDED = "hlsBufferAppended", n.BUFFER_EOS = "hlsBufferEos", n.BUFFERED_TO_END = "hlsBufferedToEnd", n.BUFFER_FLUSHING = "hlsBufferFlushing", n.BUFFER_FLUSHED = "hlsBufferFlushed", n.MANIFEST_LOADING = "hlsManifestLoading", n.MANIFEST_LOADED = "hlsManifestLoaded", n.MANIFEST_PARSED = "hlsManifestParsed", n.LEVEL_SWITCHING = "hlsLevelSwitching", n.LEVEL_SWITCHED = "hlsLevelSwitched", n.LEVEL_LOADING = "hlsLevelLoading", n.LEVEL_LOADED = "hlsLevelLoaded", n.LEVEL_UPDATED = "hlsLevelUpdated", n.LEVEL_PTS_UPDATED = "hlsLevelPtsUpdated", n.LEVELS_UPDATED = "hlsLevelsUpdated", n.AUDIO_TRACKS_UPDATED = "hlsAudioTracksUpdated", n.AUDIO_TRACK_SWITCHING = "hlsAudioTrackSwitching", n.AUDIO_TRACK_SWITCHED = "hlsAudioTrackSwitched", n.AUDIO_TRACK_LOADING = "hlsAudioTrackLoading", n.AUDIO_TRACK_LOADED = "hlsAudioTrackLoaded", n.AUDIO_TRACK_UPDATED = "hlsAudioTrackUpdated", n.SUBTITLE_TRACKS_UPDATED = "hlsSubtitleTracksUpdated", n.SUBTITLE_TRACKS_CLEARED = "hlsSubtitleTracksCleared", n.SUBTITLE_TRACK_SWITCH = "hlsSubtitleTrackSwitch", n.SUBTITLE_TRACK_LOADING = "hlsSubtitleTrackLoading", n.SUBTITLE_TRACK_LOADED = "hlsSubtitleTrackLoaded", n.SUBTITLE_TRACK_UPDATED = "hlsSubtitleTrackUpdated", n.SUBTITLE_FRAG_PROCESSED = "hlsSubtitleFragProcessed", n.CUES_PARSED = "hlsCuesParsed", n.NON_NATIVE_TEXT_TRACKS_FOUND = "hlsNonNativeTextTracksFound", n.INIT_PTS_FOUND = "hlsInitPtsFound", n.FRAG_LOADING = "hlsFragLoading", n.FRAG_LOAD_EMERGENCY_ABORTED = "hlsFragLoadEmergencyAborted", n.FRAG_LOADED = "hlsFragLoaded", n.FRAG_DECRYPTED = "hlsFragDecrypted", n.FRAG_PARSING_INIT_SEGMENT = "hlsFragParsingInitSegment", n.FRAG_PARSING_USERDATA = "hlsFragParsingUserdata", n.FRAG_PARSING_METADATA = "hlsFragParsingMetadata", n.FRAG_PARSED = "hlsFragParsed", n.FRAG_BUFFERED = "hlsFragBuffered", n.FRAG_CHANGED = "hlsFragChanged", n.FPS_DROP = "hlsFpsDrop", n.FPS_DROP_LEVEL_CAPPING = "hlsFpsDropLevelCapping", n.MAX_AUTO_LEVEL_UPDATED = "hlsMaxAutoLevelUpdated", n.ERROR = "hlsError", n.DESTROYING = "hlsDestroying", n.KEY_LOADING = "hlsKeyLoading", n.KEY_LOADED = "hlsKeyLoaded", n.LIVE_BACK_BUFFER_REACHED = "hlsLiveBackBufferReached", n.BACK_BUFFER_REACHED = "hlsBackBufferReached", n.STEERING_MANIFEST_LOADED = "hlsSteeringManifestLoaded", n.ASSET_LIST_LOADING = "hlsAssetListLoading", n.ASSET_LIST_LOADED = "hlsAssetListLoaded", n.INTERSTITIALS_UPDATED = "hlsInterstitialsUpdated", n.INTERSTITIALS_BUFFERED_TO_BOUNDARY = "hlsInterstitialsBufferedToBoundary", n.INTERSTITIAL_ASSET_PLAYER_CREATED = "hlsInterstitialAssetPlayerCreated", n.INTERSTITIAL_STARTED = "hlsInterstitialStarted", n.INTERSTITIAL_ASSET_STARTED = "hlsInterstitialAssetStarted", n.INTERSTITIAL_ASSET_ENDED = "hlsInterstitialAssetEnded", n.INTERSTITIAL_ASSET_ERROR = "hlsInterstitialAssetError", n.INTERSTITIAL_ENDED = "hlsInterstitialEnded", n.INTERSTITIALS_PRIMARY_RESUMED = "hlsInterstitialsPrimaryResumed", n.PLAYOUT_LIMIT_REACHED = "hlsPlayoutLimitReached", n.EVENT_CUE_ENTER = "hlsEventCueEnter", n;
 })({});
-var ve = {
+var ye = {
   MANIFEST: "manifest",
   LEVEL: "level",
   AUDIO_TRACK: "audioTrack",
@@ -2388,7 +2395,7 @@ class li {
     return this.estimate_;
   }
 }
-class kp {
+class Ap {
   constructor(e, t, i, r = 100) {
     this.defaultEstimate_ = void 0, this.minWeight_ = void 0, this.minDelayMs_ = void 0, this.slow_ = void 0, this.fast_ = void 0, this.defaultTTFB_ = void 0, this.ttfb_ = void 0, this.defaultEstimate_ = i, this.minWeight_ = 1e-3, this.minDelayMs_ = 50, this.slow_ = new li(e), this.fast_ = new li(t), this.defaultTTFB_ = r, this.ttfb_ = new li(e);
   }
@@ -2424,8 +2431,8 @@ class kp {
   destroy() {
   }
 }
-function wp(n, e, t) {
-  return (e = Ip(e)) in n ? Object.defineProperty(n, e, {
+function Ip(n, e, t) {
+  return (e = Rp(e)) in n ? Object.defineProperty(n, e, {
     value: t,
     enumerable: !0,
     configurable: !0,
@@ -2441,7 +2448,7 @@ function Ae() {
     return n;
   }, Ae.apply(null, arguments);
 }
-function oo(n, e) {
+function lo(n, e) {
   var t = Object.keys(n);
   if (Object.getOwnPropertySymbols) {
     var i = Object.getOwnPropertySymbols(n);
@@ -2454,15 +2461,15 @@ function oo(n, e) {
 function ke(n) {
   for (var e = 1; e < arguments.length; e++) {
     var t = arguments[e] != null ? arguments[e] : {};
-    e % 2 ? oo(Object(t), !0).forEach(function(i) {
-      wp(n, i, t[i]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(n, Object.getOwnPropertyDescriptors(t)) : oo(Object(t)).forEach(function(i) {
+    e % 2 ? lo(Object(t), !0).forEach(function(i) {
+      Ip(n, i, t[i]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(n, Object.getOwnPropertyDescriptors(t)) : lo(Object(t)).forEach(function(i) {
       Object.defineProperty(n, i, Object.getOwnPropertyDescriptor(t, i));
     });
   }
   return n;
 }
-function Ap(n, e) {
+function Lp(n, e) {
   if (typeof n != "object" || !n) return n;
   var t = n[Symbol.toPrimitive];
   if (t !== void 0) {
@@ -2472,39 +2479,39 @@ function Ap(n, e) {
   }
   return (e === "string" ? String : Number)(n);
 }
-function Ip(n) {
-  var e = Ap(n, "string");
+function Rp(n) {
+  var e = Lp(n, "string");
   return typeof e == "symbol" ? e : e + "";
 }
 class pt {
   constructor(e, t) {
     this.trace = void 0, this.debug = void 0, this.log = void 0, this.warn = void 0, this.info = void 0, this.error = void 0;
     const i = `[${e}]:`;
-    this.trace = zt, this.debug = t.debug.bind(null, i), this.log = t.log.bind(null, i), this.warn = t.warn.bind(null, i), this.info = t.info.bind(null, i), this.error = t.error.bind(null, i);
+    this.trace = Kt, this.debug = t.debug.bind(null, i), this.log = t.log.bind(null, i), this.warn = t.warn.bind(null, i), this.info = t.info.bind(null, i), this.error = t.error.bind(null, i);
   }
 }
-const zt = function() {
-}, Lp = {
-  trace: zt,
-  debug: zt,
-  log: zt,
-  warn: zt,
-  info: zt,
-  error: zt
+const Kt = function() {
+}, Cp = {
+  trace: Kt,
+  debug: Kt,
+  log: Kt,
+  warn: Kt,
+  info: Kt,
+  error: Kt
 };
-function gs() {
-  return Ae({}, Lp);
+function ms() {
+  return Ae({}, Cp);
 }
-function Rp(n, e) {
+function Dp(n, e) {
   const t = self.console[n];
-  return t ? t.bind(self.console, `${e ? "[" + e + "] " : ""}[${n}] >`) : zt;
+  return t ? t.bind(self.console, `${e ? "[" + e + "] " : ""}[${n}] >`) : Kt;
 }
-function lo(n, e, t) {
-  return e[n] ? e[n].bind(e) : Rp(n, t);
+function co(n, e, t) {
+  return e[n] ? e[n].bind(e) : Dp(n, t);
 }
-const ms = gs();
-function Cp(n, e, t) {
-  const i = gs();
+const _s = ms();
+function Pp(n, e, t) {
+  const i = ms();
   if (typeof console == "object" && n === !0 || typeof n == "object") {
     const r = [
       // Remove out from list here to hard-disable a log-level
@@ -2516,28 +2523,28 @@ function Cp(n, e, t) {
       "error"
     ];
     r.forEach((s) => {
-      i[s] = lo(s, n, t);
+      i[s] = co(s, n, t);
     });
     try {
       i.log(`Debug logs enabled for "${e}" in hls.js version 1.6.16`);
     } catch {
-      return gs();
+      return ms();
     }
     r.forEach((s) => {
-      ms[s] = lo(s, n);
+      _s[s] = co(s, n);
     });
   } else
-    Ae(ms, i);
+    Ae(_s, i);
   return i;
 }
-const we = ms;
-function qt(n = !0) {
+const we = _s;
+function Xt(n = !0) {
   return typeof self > "u" ? void 0 : (n || !self.MediaSource) && self.ManagedMediaSource || self.MediaSource || self.WebKitMediaSource;
 }
-function Dp(n) {
+function Mp(n) {
   return typeof self < "u" && n === self.ManagedMediaSource;
 }
-function Wc(n, e) {
+function qc(n, e) {
   const t = Object.keys(n), i = Object.keys(e), r = t.length, s = i.length;
   return !r || !s || r === s && !t.some((a) => i.indexOf(a) === -1);
 }
@@ -2587,15 +2594,15 @@ function Ze(n) {
   }
   return e;
 }
-function Yc(n) {
+function Xc(n) {
   return Uint8Array.from(n.replace(/^0x/, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" ")).buffer;
 }
-function Pp(n) {
+function Op(n) {
   return n && n.__esModule && Object.prototype.hasOwnProperty.call(n, "default") ? n.default : n;
 }
-var Ar = { exports: {} }, co;
-function Mp() {
-  return co || (co = 1, (function(n, e) {
+var Ir = { exports: {} }, uo;
+function Fp() {
+  return uo || (uo = 1, (function(n, e) {
     (function(t) {
       var i = /^(?=((?:[a-zA-Z0-9+\-.]+:)?))\1(?=((?:\/\/[^\/?#]*)?))\2(?=((?:(?:[^?#\/]*\/)*[^;?#\/]*)?))\3((?:;[^?#]*)?)(\?[^#]*)?(#[^]*)?$/, r = /^(?=([^\/?#]*))\1([^]*)$/, s = /(?:\/|^)\.(?=\/)/g, a = /(?:\/|^)\.\.\/(?!\.\.\/)[^\/]*(?=\/)/g, o = {
         // If opts.alwaysNormalize is true then the path will always be normalized even when it starts with / or //
@@ -2669,10 +2676,10 @@ function Mp() {
       };
       n.exports = o;
     })();
-  })(Ar)), Ar.exports;
+  })(Ir)), Ir.exports;
 }
-var sa = Mp();
-class aa {
+var aa = Fp();
+class oa {
   constructor() {
     this.aborted = !1, this.loaded = 0, this.retry = 0, this.total = 0, this.chunkCount = 0, this.bwEstimate = 0, this.loading = {
       start: 0,
@@ -2693,11 +2700,11 @@ var Ie = {
   VIDEO: "video",
   AUDIOVIDEO: "audiovideo"
 };
-class qc {
+class Qc {
   constructor(e) {
     this._byteRange = null, this._url = null, this._stats = null, this._streams = null, this.base = void 0, this.relurl = void 0, typeof e == "string" && (e = {
       url: e
-    }), this.base = e, Fp(this, "stats");
+    }), this.base = e, $p(this, "stats");
   }
   // setByteRange converts a EXT-X-BYTERANGE attribute into a two element array
   setByteRange(e, t) {
@@ -2734,13 +2741,13 @@ class qc {
     return this._streams !== null;
   }
   get stats() {
-    return this._stats === null && (this._stats = new aa()), this._stats;
+    return this._stats === null && (this._stats = new oa()), this._stats;
   }
   set stats(e) {
     this._stats = e;
   }
   get url() {
-    return !this._url && this.baseurl && this.relurl && (this._url = sa.buildAbsoluteURL(this.baseurl, this.relurl, {
+    return !this._url && this.baseurl && this.relurl && (this._url = aa.buildAbsoluteURL(this.baseurl, this.relurl, {
       alwaysNormalize: !0
     })), this._url || "";
   }
@@ -2757,7 +2764,7 @@ class qc {
 function Ge(n) {
   return n.sn !== "initSegment";
 }
-class Ir extends qc {
+class Lr extends Qc {
   constructor(e, t) {
     super(t), this._decryptdata = null, this._programDateTime = null, this._ref = null, this._bitrate = void 0, this.rawProgramDateTime = null, this.tagList = [], this.duration = 0, this.sn = 0, this.levelkeys = void 0, this.type = void 0, this.loader = null, this.keyLoader = null, this.level = -1, this.cc = 0, this.startPTS = void 0, this.endPTS = void 0, this.startDTS = void 0, this.endDTS = void 0, this.start = 0, this.playlistOffset = 0, this.deltaPTS = void 0, this.maxStartPTS = void 0, this.minEndPTS = void 0, this.data = void 0, this.bitrateTest = !1, this.title = null, this.initSegment = null, this.endList = void 0, this.gap = void 0, this.urlId = 0, this.type = e;
   }
@@ -2876,7 +2883,7 @@ class Ir extends qc {
     d.startPTS = Math.min(d.startPTS, t), d.endPTS = Math.max(d.endPTS, i), d.startDTS = Math.min(d.startDTS, r), d.endDTS = Math.max(d.endDTS, s);
   }
 }
-class Op extends qc {
+class Np extends Qc {
   constructor(e, t, i, r, s) {
     super(i), this.fragOffset = 0, this.duration = 0, this.gap = !1, this.independent = !1, this.relurl = void 0, this.fragment = void 0, this.index = void 0, this.duration = e.decimalFloatingPoint("DURATION"), this.gap = e.bool("GAP"), this.independent = e.bool("INDEPENDENT"), this.relurl = e.enumeratedString("URI"), this.fragment = t, this.index = r;
     const a = e.enumeratedString("BYTERANGE");
@@ -2895,18 +2902,18 @@ class Op extends qc {
     return !!(e.audio || e.video || e.audiovideo);
   }
 }
-function Xc(n, e) {
+function Zc(n, e) {
   const t = Object.getPrototypeOf(n);
   if (t) {
     const i = Object.getOwnPropertyDescriptor(t, e);
-    return i || Xc(t, e);
+    return i || Zc(t, e);
   }
 }
-function Fp(n, e) {
-  const t = Xc(n, e);
+function $p(n, e) {
+  const t = Zc(n, e);
   t && (t.enumerable = !0, Object.defineProperty(n, e, t));
 }
-const uo = Math.pow(2, 32) - 1, Np = [].push, Qc = {
+const ho = Math.pow(2, 32) - 1, Bp = [].push, Jc = {
   video: 1,
   audio: 2,
   id3: 3,
@@ -2915,22 +2922,22 @@ const uo = Math.pow(2, 32) - 1, Np = [].push, Qc = {
 function je(n) {
   return String.fromCharCode.apply(null, n);
 }
-function Zc(n, e) {
+function ed(n, e) {
   const t = n[e] << 8 | n[e + 1];
   return t < 0 ? 65536 + t : t;
 }
 function he(n, e) {
-  const t = Jc(n, e);
+  const t = td(n, e);
   return t < 0 ? 4294967296 + t : t;
 }
-function ho(n, e) {
+function fo(n, e) {
   let t = he(n, e);
   return t *= Math.pow(2, 32), t += he(n, e + 4), t;
 }
-function Jc(n, e) {
+function td(n, e) {
   return n[e] << 24 | n[e + 1] << 16 | n[e + 2] << 8 | n[e + 3];
 }
-function $p(n) {
+function Up(n) {
   const e = n.byteLength;
   for (let t = 0; t < e; ) {
     const i = he(n, t);
@@ -2952,21 +2959,21 @@ function _e(n, e) {
         t.push(n.subarray(r + 8, o));
       else {
         const d = _e(n.subarray(r + 8, o), e.slice(1));
-        d.length && Np.apply(t, d);
+        d.length && Bp.apply(t, d);
       }
     r = o;
   }
   return t;
 }
-function Bp(n) {
+function Gp(n) {
   const e = [], t = n[0];
   let i = 8;
   const r = he(n, i);
   i += 4;
   let s = 0, a = 0;
-  t === 0 ? (s = he(n, i), a = he(n, i + 4), i += 8) : (s = ho(n, i), a = ho(n, i + 8), i += 16), i += 2;
+  t === 0 ? (s = he(n, i), a = he(n, i + 4), i += 8) : (s = fo(n, i), a = fo(n, i + 8), i += 16), i += 2;
   let o = n.length + a;
-  const d = Zc(n, i);
+  const d = ed(n, i);
   i += 2;
   for (let c = 0; c < d; c++) {
     let u = i;
@@ -2995,7 +3002,7 @@ function Bp(n) {
     references: e
   };
 }
-function ed(n) {
+function id(n) {
   const e = [], t = _e(n, ["moov", "trak"]);
   for (let r = 0; r < t.length; r++) {
     const s = t[r], a = _e(s, ["tkhd"])[0];
@@ -3009,7 +3016,7 @@ function ed(n) {
           const f = je(h.subarray(8, 12)), p = {
             soun: Ie.AUDIO,
             vide: Ie.VIDEO
-          }[f], g = _e(s, ["mdia", "minf", "stbl", "stsd"])[0], _ = Up(g);
+          }[f], g = _e(s, ["mdia", "minf", "stbl", "stsd"])[0], _ = zp(g);
           p ? (e[d] = {
             timescale: u,
             type: p,
@@ -3034,7 +3041,7 @@ function ed(n) {
     });
   }), e;
 }
-function Up(n) {
+function zp(n) {
   const e = n.subarray(8), t = e.subarray(86), i = je(e.subarray(4, 8));
   let r = i, s;
   const a = i === "enca" || i === "encv";
@@ -3067,11 +3074,11 @@ function Up(n) {
         let u = 4;
         if (c[u++] !== 3)
           break;
-        u = Lr(c, u), u += 2;
+        u = Rr(c, u), u += 2;
         const h = c[u++];
         if (h & 128 && (u += 2), h & 64 && (u += c[u++]), c[u++] !== 4)
           break;
-        u = Lr(c, u);
+        u = Rr(c, u);
         const f = c[u++];
         if (f === 64)
           r += "." + en(f);
@@ -3079,7 +3086,7 @@ function Up(n) {
           break;
         if (u += 12, c[u++] !== 5)
           break;
-        u = Lr(c, u);
+        u = Rr(c, u);
         const p = c[u++];
         let g = (p & 248) >> 3;
         g === 31 && (g += 1 + ((p & 7) << 3) + ((c[u] & 224) >> 5)), r += "." + g;
@@ -3091,7 +3098,7 @@ function Up(n) {
       const d = _e(t, ["hvcC"])[0];
       if (d && d.length > 12) {
         const c = d[1], u = ["", "A", "B", "C"][c >> 6], h = c & 31, f = he(d, 2), p = (c & 32) >> 5 ? "H" : "L", g = d[12], _ = d.subarray(6, 12);
-        r += "." + u + h, r += "." + Gp(f).toString(16).toUpperCase(), r += "." + p + g;
+        r += "." + u + h, r += "." + Vp(f).toString(16).toUpperCase(), r += "." + p + g;
         let m = "";
         for (let v = _.length; v--; ) {
           const b = _[v];
@@ -3114,7 +3121,7 @@ function Up(n) {
       const d = _e(t, ["vpcC"])[0];
       if (d && d.length > 6) {
         const c = d[4], u = d[5], h = d[6] >> 4 & 15;
-        r += "." + Et(c) + "." + Et(u) + "." + Et(h);
+        r += "." + St(c) + "." + St(u) + "." + St(h);
       }
       break;
     }
@@ -3122,7 +3129,7 @@ function Up(n) {
       const d = _e(t, ["av1C"])[0];
       if (d && d.length > 2) {
         const c = d[1] >>> 5, u = d[1] & 31, h = d[2] >>> 7 ? "H" : "M", f = (d[2] & 64) >> 6, p = (d[2] & 32) >> 5, g = c === 2 && f ? p ? 12 : 10 : f ? 10 : 8, _ = (d[2] & 16) >> 4, m = (d[2] & 8) >> 3, v = (d[2] & 4) >> 2, b = d[2] & 3;
-        r += "." + c + "." + Et(u) + h + "." + Et(g) + "." + _ + "." + m + v + b + "." + Et(1) + "." + Et(1) + "." + Et(1) + "." + 0, s = Ji("dav1", t);
+        r += "." + c + "." + St(u) + h + "." + St(g) + "." + _ + "." + m + v + b + "." + St(1) + "." + St(1) + "." + St(1) + "." + 0, s = Ji("dav1", t);
       }
       break;
     }
@@ -3137,16 +3144,16 @@ function Ji(n, e) {
   const t = _e(e, ["dvvC"]), i = t.length ? t[0] : _e(e, ["dvcC"])[0];
   if (i) {
     const r = i[2] >> 1 & 127, s = i[2] << 5 & 32 | i[3] >> 3 & 31;
-    return n + "." + Et(r) + "." + Et(s);
+    return n + "." + St(r) + "." + St(s);
   }
 }
-function Gp(n) {
+function Vp(n) {
   let e = 0;
   for (let t = 0; t < 32; t++)
     e |= (n >> t & 1) << 31 - t;
   return e >>> 0;
 }
-function Lr(n, e) {
+function Rr(n, e) {
   const t = e + 5;
   for (; n[e++] & 128 && e < t; )
     ;
@@ -3155,23 +3162,23 @@ function Lr(n, e) {
 function en(n) {
   return ("0" + n.toString(16).toUpperCase()).slice(-2);
 }
-function Et(n) {
+function St(n) {
   return (n < 10 ? "0" : "") + n;
 }
-function zp(n, e) {
+function Kp(n, e) {
   if (!n || !e)
     return;
   const t = e.keyId;
-  t && e.isCommonEncryption && td(n, (i, r) => {
+  t && e.isCommonEncryption && nd(n, (i, r) => {
     const s = i.subarray(8, 24);
     s.some((a) => a !== 0) || (we.log(`[eme] Patching keyId in 'enc${r ? "a" : "v"}>sinf>>tenc' box: ${Ze(s)} -> ${Ze(t)}`), i.set(t, 8));
   });
 }
-function Vp(n) {
+function Hp(n) {
   const e = [];
-  return td(n, (t) => e.push(t.subarray(8, 24))), e;
+  return nd(n, (t) => e.push(t.subarray(8, 24))), e;
 }
-function td(n, e) {
+function nd(n, e) {
   _e(n, ["moov", "trak"]).forEach((i) => {
     const r = _e(i, ["mdia", "minf", "stbl", "stsd"])[0];
     if (!r) return;
@@ -3181,13 +3188,13 @@ function td(n, e) {
     o || (a = _e(s, ["encv"])), a.forEach((d) => {
       const c = o ? d.subarray(28) : d.subarray(78);
       _e(c, ["sinf"]).forEach((h) => {
-        const f = id(h);
+        const f = rd(h);
         f && e(f, o);
       });
     });
   });
 }
-function id(n) {
+function rd(n) {
   const e = _e(n, ["schm"])[0];
   if (e) {
     const t = je(e.subarray(4, 8));
@@ -3198,7 +3205,7 @@ function id(n) {
     }
   }
 }
-function Kp(n, e, t) {
+function jp(n, e, t) {
   const i = {}, r = _e(n, ["moof", "traf"]);
   for (let s = 0; s < r.length; s++) {
     const a = r[s], o = _e(a, ["tfhd"])[0], d = he(o, 4), c = e[d];
@@ -3215,7 +3222,7 @@ function Kp(n, e, t) {
     if (h) {
       const x = h[0];
       let E = he(h, 4);
-      x === 1 && (E === uo ? t.warn("[mp4-demuxer]: Ignoring assumed invalid signed 64-bit track fragment decode time") : (E *= uo + 1, E += he(h, 8))), ee(E) && (!ee(u.start) || E < u.start) && (u.start = E);
+      x === 1 && (E === ho ? t.warn("[mp4-demuxer]: Ignoring assumed invalid signed 64-bit track fragment decode time") : (E *= ho + 1, E += he(h, 8))), ee(E) && (!ee(u.start) || E < u.start) && (u.start = E);
     }
     const f = c.default, p = he(o, 0) | f?.flags;
     let g = f?.duration || 0;
@@ -3226,9 +3233,9 @@ function Kp(n, e, t) {
       const E = _[x], T = he(E, 4), w = u.sampleCount;
       u.sampleCount += T;
       const S = E[3] & 1, k = E[3] & 4, I = E[2] & 1, A = E[2] & 2, C = E[2] & 4, M = E[2] & 8;
-      let G = 8, K = T;
-      for (S && (G += 4), k && T && (!(E[G + 1] & 1) && u.keyFrameIndex === void 0 && (u.keyFrameIndex = w), G += 4, I ? (b = he(E, G), G += 4) : b = g, A && (G += 4), M && (G += 4), m += b, v += b, K--); K--; )
-        I ? (b = he(E, G), G += 4) : b = g, A && (G += 4), C && (E[G + 1] & 1 || u.keyFrameIndex === void 0 && (u.keyFrameIndex = u.sampleCount - (K + 1), u.keyFrameStart = m), G += 4), M && (G += 4), m += b, v += b;
+      let G = 8, H = T;
+      for (S && (G += 4), k && T && (!(E[G + 1] & 1) && u.keyFrameIndex === void 0 && (u.keyFrameIndex = w), G += 4, I ? (b = he(E, G), G += 4) : b = g, A && (G += 4), M && (G += 4), m += b, v += b, H--); H--; )
+        I ? (b = he(E, G), G += 4) : b = g, A && (G += 4), C && (E[G + 1] & 1 || u.keyFrameIndex === void 0 && (u.keyFrameIndex = u.sampleCount - (H + 1), u.keyFrameStart = m), G += 4), M && (G += 4), m += b, v += b;
       !v && g && (v += g * T);
     }
     u.duration += v;
@@ -3237,7 +3244,7 @@ function Kp(n, e, t) {
     let s = 1 / 0, a = 0;
     const o = _e(n, ["sidx"]);
     for (let d = 0; d < o.length; d++) {
-      const c = Bp(o[d]);
+      const c = Gp(o[d]);
       if (c != null && c.references) {
         s = Math.min(s, c.earliestPresentationTime / c.timescale);
         const u = c.references.reduce((h, f) => h + f.info.duration || 0, 0);
@@ -3250,7 +3257,7 @@ function Kp(n, e, t) {
   }
   return i;
 }
-function Hp(n) {
+function Wp(n) {
   const e = {
     valid: null,
     remainder: null
@@ -3264,7 +3271,7 @@ function ft(n, e) {
   const t = new Uint8Array(n.length + e.length);
   return t.set(n), t.set(e, n.length), t;
 }
-function fo(n, e) {
+function po(n, e) {
   const t = [], i = e.samples, r = e.timescale, s = e.id;
   let a = !1;
   return _e(i, ["moof"]).map((d) => {
@@ -3282,10 +3289,10 @@ function fo(n, e) {
         let T = 0;
         const w = (_ & 32) !== 0;
         let S = 8;
-        g === s && (m && (S += 8), v && (S += 4), b && (x = he(p, S), S += 4), E && (T = he(p, S), S += 4), w && (S += 4), e.type === "video" && (a = gr(e.codec)), _e(h, ["trun"]).map((k) => {
+        g === s && (m && (S += 8), v && (S += 4), b && (x = he(p, S), S += 4), E && (T = he(p, S), S += 4), w && (S += 4), e.type === "video" && (a = mr(e.codec)), _e(h, ["trun"]).map((k) => {
           const I = k[0], A = he(k, 0) & 16777215, C = (A & 1) !== 0;
           let M = 0;
-          const G = (A & 4) !== 0, K = (A & 256) !== 0;
+          const G = (A & 4) !== 0, H = (A & 256) !== 0;
           let V = 0;
           const R = (A & 512) !== 0;
           let F = 0;
@@ -3296,13 +3303,13 @@ function fo(n, e) {
           C && (M = he(k, B), B += 4), G && (B += 4);
           let ae = M + c;
           for (let de = 0; de < $; de++) {
-            if (K ? (V = he(k, B), B += 4) : V = x, R ? (F = he(k, B), B += 4) : F = T, L && (B += 4), N && (I === 0 ? j = he(k, B) : j = Jc(k, B), B += 4), e.type === Ie.VIDEO) {
+            if (H ? (V = he(k, B), B += 4) : V = x, R ? (F = he(k, B), B += 4) : F = T, L && (B += 4), N && (I === 0 ? j = he(k, B) : j = td(k, B), B += 4), e.type === Ie.VIDEO) {
               let Y = 0;
               for (; Y < F; ) {
                 const te = he(i, ae);
-                if (ae += 4, jp(a, i[ae])) {
+                if (ae += 4, Yp(a, i[ae])) {
                   const oe = i.subarray(ae, ae + te);
-                  oa(oe, a ? 2 : 1, n + j / r, t);
+                  la(oe, a ? 2 : 1, n + j / r, t);
                 }
                 ae += te, Y += te + 4;
               }
@@ -3314,22 +3321,22 @@ function fo(n, e) {
     });
   }), t;
 }
-function gr(n) {
+function mr(n) {
   if (!n)
     return !1;
   const e = n.substring(0, 4);
   return e === "hvc1" || e === "hev1" || // Dolby Vision
   e === "dvh1" || e === "dvhe";
 }
-function jp(n, e) {
+function Yp(n, e) {
   if (n) {
     const t = e >> 1 & 63;
     return t === 39 || t === 40;
   } else
     return (e & 31) === 6;
 }
-function oa(n, e, t, i) {
-  const r = nd(n);
+function la(n, e, t, i) {
+  const r = sd(n);
   let s = 0;
   s += e;
   let a = 0, o = 0, d = 0;
@@ -3356,7 +3363,7 @@ function oa(n, e, t, i) {
     }
     if (a === 4) {
       if (r[u++] === 181) {
-        const f = Zc(r, u);
+        const f = ed(r, u);
         if (u += 2, f === 49) {
           const p = he(r, u);
           if (u += 4, p === 1195456820) {
@@ -3397,7 +3404,7 @@ function oa(n, e, t, i) {
     }
   }
 }
-function nd(n) {
+function sd(n) {
   const e = n.byteLength, t = [];
   let i = 1;
   for (; i < e - 2; )
@@ -3410,7 +3417,7 @@ function nd(n) {
     a === t[0] && (a++, t.shift()), s[i] = n[a];
   return s;
 }
-function Wp(n) {
+function qp(n) {
   const e = n[0];
   let t = "", i = "", r = 0, s = 0, a = 0, o = 0, d = 0, c = 0;
   if (e === 0) {
@@ -3424,7 +3431,7 @@ function Wp(n) {
     const h = he(n, c);
     c += 4;
     const f = he(n, c);
-    for (c += 4, a = 2 ** 32 * h + f, Sp(a) || (a = Number.MAX_SAFE_INTEGER, we.warn("Presentation time exceeds safe integer limit and wrapped to max safe integer in parsing emsg box")), o = he(n, c), c += 4, d = he(n, c), c += 4; je(n.subarray(c, c + 1)) !== "\0"; )
+    for (c += 4, a = 2 ** 32 * h + f, kp(a) || (a = Number.MAX_SAFE_INTEGER, we.warn("Presentation time exceeds safe integer limit and wrapped to max safe integer in parsing emsg box")), o = he(n, c), c += 4, d = he(n, c), c += 4; je(n.subarray(c, c + 1)) !== "\0"; )
       t += je(n.subarray(c, c + 1)), c += 1;
     for (t += je(n.subarray(c, c + 1)), c += 1; je(n.subarray(c, c + 1)) !== "\0"; )
       i += je(n.subarray(c, c + 1)), c += 1;
@@ -3442,7 +3449,7 @@ function Wp(n) {
     payload: u
   };
 }
-function Yp(n, ...e) {
+function Xp(n, ...e) {
   const t = e.length;
   let i = 8, r = t;
   for (; r--; )
@@ -3452,7 +3459,7 @@ function Yp(n, ...e) {
     s.set(e[r], i), i += e[r].byteLength;
   return s;
 }
-function qp(n, e, t) {
+function Qp(n, e, t) {
   if (n.byteLength !== 16)
     throw new RangeError("Invalid system id");
   let i, r;
@@ -3460,7 +3467,7 @@ function qp(n, e, t) {
   let s;
   i > 0 ? (s = new Uint8Array(4), e.length > 0 && new DataView(s.buffer).setUint32(0, e.length, !1)) : s = new Uint8Array();
   const a = new Uint8Array(4);
-  return t.byteLength > 0 && new DataView(a.buffer).setUint32(0, t.byteLength, !1), Yp(
+  return t.byteLength > 0 && new DataView(a.buffer).setUint32(0, t.byteLength, !1), Xp(
     [112, 115, 115, 104],
     new Uint8Array([
       i,
@@ -3477,19 +3484,19 @@ function qp(n, e, t) {
     t
   );
 }
-function Xp(n) {
+function Zp(n) {
   const e = [];
   if (n instanceof ArrayBuffer) {
     const t = n.byteLength;
     let i = 0;
     for (; i + 32 < t; ) {
-      const r = new DataView(n, i), s = Qp(r);
+      const r = new DataView(n, i), s = Jp(r);
       e.push(s), i += s.size;
     }
   }
   return e;
 }
-function Qp(n) {
+function Jp(n) {
   const e = n.getUint32(0), t = n.byteOffset, i = n.byteLength;
   if (i < e)
     return {
@@ -3541,7 +3548,7 @@ function Qp(n) {
     size: e
   });
 }
-const rd = () => /\(Windows.+Firefox\//i.test(navigator.userAgent), ki = {
+const ad = () => /\(Windows.+Firefox\//i.test(navigator.userAgent), ki = {
   audio: {
     a3ds: 1,
     "ac-3": 0.95,
@@ -3620,22 +3627,22 @@ const rd = () => /\(Windows.+Firefox\//i.test(navigator.userAgent), ki = {
     wvtt: 1
   }
 };
-function la(n, e) {
+function ca(n, e) {
   const t = ki[e];
   return !!t && !!t[n.slice(0, 4)];
 }
 function Vi(n, e, t = !0) {
-  return !n.split(",").some((i) => !ca(i, e, t));
+  return !n.split(",").some((i) => !da(i, e, t));
 }
-function ca(n, e, t = !0) {
+function da(n, e, t = !0) {
   var i;
-  const r = qt(t);
+  const r = Xt(t);
   return (i = r?.isTypeSupported(Ki(n, e))) != null ? i : !1;
 }
 function Ki(n, e) {
   return `${e}/mp4;codecs=${n}`;
 }
-function po(n) {
+function go(n) {
   if (n) {
     const e = n.substring(0, 4);
     return ki.video[e];
@@ -3643,16 +3650,16 @@ function po(n) {
   return 2;
 }
 function Gn(n) {
-  const e = rd();
+  const e = ad();
   return n.split(",").reduce((t, i) => {
-    const s = e && gr(i) ? 9 : ki.video[i];
+    const s = e && mr(i) ? 9 : ki.video[i];
     return s ? (s * 2 + t) / (t ? 3 : 2) : (ki.audio[i] + t) / (t ? 2 : 1);
   }, 0);
 }
-const Rr = {};
-function Zp(n, e = !0) {
-  if (Rr[n])
-    return Rr[n];
+const Cr = {};
+function eg(n, e = !0) {
+  if (Cr[n])
+    return Cr[n];
   const t = {
     // Idealy fLaC and Opus would be first (spec-compliant) but
     // some browsers will report that fLaC is supported then fail.
@@ -3665,28 +3672,28 @@ function Zp(n, e = !0) {
   }[n];
   for (let r = 0; r < t.length; r++) {
     var i;
-    if (ca(t[r], "audio", e))
-      return Rr[n] = t[r], t[r];
-    if (t[r] === "mp3" && (i = qt(e)) != null && i.isTypeSupported("audio/mpeg"))
+    if (da(t[r], "audio", e))
+      return Cr[n] = t[r], t[r];
+    if (t[r] === "mp3" && (i = Xt(e)) != null && i.isTypeSupported("audio/mpeg"))
       return "";
   }
   return n;
 }
-const Jp = /flac|opus|mp4a\.40\.34/i;
+const tg = /flac|opus|mp4a\.40\.34/i;
 function zn(n, e = !0) {
-  return n.replace(Jp, (t) => Zp(t.toLowerCase(), e));
+  return n.replace(tg, (t) => eg(t.toLowerCase(), e));
 }
-function eg(n, e) {
+function ig(n, e) {
   const t = [];
   if (n) {
     const i = n.split(",");
     for (let r = 0; r < i.length; r++)
-      la(i[r], "video") || t.push(i[r]);
+      ca(i[r], "video") || t.push(i[r]);
   }
   return e && t.push(e), t.join(",");
 }
 function An(n, e) {
-  if (n && (n.length > 4 || ["ac-3", "ec-3", "alac", "fLaC", "Opus"].indexOf(n) !== -1) && (go(n, "audio") || go(n, "video")))
+  if (n && (n.length > 4 || ["ac-3", "ec-3", "alac", "fLaC", "Opus"].indexOf(n) !== -1) && (mo(n, "audio") || mo(n, "video")))
     return n;
   if (e) {
     const t = e.split(",");
@@ -3701,10 +3708,10 @@ function An(n, e) {
   }
   return e || n;
 }
-function go(n, e) {
-  return la(n, e) && ca(n, e);
+function mo(n, e) {
+  return ca(n, e) && da(n, e);
 }
-function tg(n) {
+function ng(n) {
   const e = n.split(",");
   for (let t = 0; t < e.length; t++) {
     const i = e[t].split(".");
@@ -3712,7 +3719,7 @@ function tg(n) {
   }
   return e.join(",");
 }
-function ig(n) {
+function rg(n) {
   if (n.startsWith("av01.")) {
     const e = n.split("."), t = ["0", "111", "01", "01", "01", "0"];
     for (let i = e.length; i > 4 && i < 10; i++)
@@ -3721,8 +3728,8 @@ function ig(n) {
   }
   return n;
 }
-function mo(n) {
-  const e = qt(n) || {
+function _o(n) {
+  const e = Xt(n) || {
     isTypeSupported: () => !1
   };
   return {
@@ -3731,33 +3738,33 @@ function mo(n) {
     ac3: e.isTypeSupported('audio/mp4; codecs="ac-3"')
   };
 }
-function _s(n) {
+function vs(n) {
   return n.replace(/^.+codecs=["']?([^"']+).*$/, "$1");
 }
-const ng = {
+const sg = {
   supported: !0,
   powerEfficient: !0,
   smooth: !0
   // keySystemAccess: null,
-}, rg = {
+}, ag = {
   supported: !1,
   smooth: !1,
   powerEfficient: !1
   // keySystemAccess: null,
-}, sd = {
+}, od = {
   supported: !0,
   configurations: [],
-  decodingInfoResults: [ng]
+  decodingInfoResults: [sg]
 };
-function ad(n, e) {
+function ld(n, e) {
   return {
     supported: !1,
     configurations: e,
-    decodingInfoResults: [rg],
+    decodingInfoResults: [ag],
     error: n
   };
 }
-function sg(n, e, t, i, r, s) {
+function og(n, e, t, i, r, s) {
   const a = n.videoCodec, o = n.audioCodec ? n.audioGroups : null, d = s?.audioCodec, c = s?.channels, u = c ? parseInt(c) : d ? 1 / 0 : 2;
   let h = null;
   if (o != null && o.length)
@@ -3779,13 +3786,13 @@ function sg(n, e, t, i, r, s) {
       return !0;
     }
   return a !== void 0 && // Force media capabilities check for HEVC to avoid failure on Windows
-  (a.split(",").some((f) => gr(f)) || n.width > 1920 && n.height > 1088 || n.height > 1920 && n.width > 1088 || n.frameRate > Math.max(i, 30) || n.videoRange !== "SDR" && n.videoRange !== t || n.bitrate > Math.max(r, 8e6)) || !!h && ee(u) && Object.keys(h).some((f) => parseInt(f) > u);
+  (a.split(",").some((f) => mr(f)) || n.width > 1920 && n.height > 1088 || n.height > 1920 && n.width > 1088 || n.frameRate > Math.max(i, 30) || n.videoRange !== "SDR" && n.videoRange !== t || n.bitrate > Math.max(r, 8e6)) || !!h && ee(u) && Object.keys(h).some((f) => parseInt(f) > u);
 }
-function od(n, e, t, i = {}) {
+function cd(n, e, t, i = {}) {
   const r = n.videoCodec;
   if (!r && !n.audioCodec || !t)
-    return Promise.resolve(sd);
-  const s = [], a = ag(n), o = a.length, d = og(n, e, o > 0), c = d.length;
+    return Promise.resolve(od);
+  const s = [], a = lg(n), o = a.length, d = cg(n, e, o > 0), c = d.length;
   for (let u = o || 1 * c || 1; u--; ) {
     const h = {
       type: "media-source"
@@ -3799,11 +3806,11 @@ function od(n, e, t, i = {}) {
   }
   if (r) {
     const u = navigator.userAgent;
-    if (r.split(",").some((h) => gr(h)) && rd())
-      return Promise.resolve(ad(new Error(`Overriding Windows Firefox HEVC MediaCapabilities result based on user-agent string: (${u})`), s));
+    if (r.split(",").some((h) => mr(h)) && ad())
+      return Promise.resolve(ld(new Error(`Overriding Windows Firefox HEVC MediaCapabilities result based on user-agent string: (${u})`), s));
   }
   return Promise.all(s.map((u) => {
-    const h = cg(u);
+    const h = ug(u);
     return i[h] || (i[h] = t.decodingInfo(u));
   })).then((u) => ({
     supported: !u.some((h) => !h.supported),
@@ -3816,12 +3823,12 @@ function od(n, e, t, i = {}) {
     error: u
   }));
 }
-function ag(n) {
+function lg(n) {
   var e;
-  const t = (e = n.videoCodec) == null ? void 0 : e.split(","), i = ld(n), r = n.width || 640, s = n.height || 480, a = n.frameRate || 30, o = n.videoRange.toLowerCase();
+  const t = (e = n.videoCodec) == null ? void 0 : e.split(","), i = dd(n), r = n.width || 640, s = n.height || 480, a = n.frameRate || 30, o = n.videoRange.toLowerCase();
   return t ? t.map((d) => {
     const c = {
-      contentType: Ki(ig(d), "video"),
+      contentType: Ki(rg(d), "video"),
       width: r,
       height: s,
       bitrate: i,
@@ -3830,9 +3837,9 @@ function ag(n) {
     return o !== "sdr" && (c.transferFunction = o), c;
   }) : [];
 }
-function og(n, e, t) {
+function cg(n, e, t) {
   var i;
-  const r = (i = n.audioCodec) == null ? void 0 : i.split(","), s = ld(n);
+  const r = (i = n.audioCodec) == null ? void 0 : i.split(","), s = dd(n);
   return r && n.audioGroups ? n.audioGroups.reduce((a, o) => {
     var d;
     const c = o ? (d = e.groups[o]) == null ? void 0 : d.tracks : null;
@@ -3842,7 +3849,7 @@ function og(n, e, t) {
         r.forEach((p) => {
           const g = {
             contentType: Ki(p, "audio"),
-            bitrate: t ? lg(p, s) : s
+            bitrate: t ? dg(p, s) : s
           };
           f && (g.channels = "" + f), u.push(g);
         });
@@ -3851,37 +3858,37 @@ function og(n, e, t) {
     }, a) : a;
   }, []) : [];
 }
-function lg(n, e) {
+function dg(n, e) {
   if (e <= 1)
     return 1;
   let t = 128e3;
   return n === "ec-3" ? t = 768e3 : n === "ac-3" && (t = 64e4), Math.min(e / 2, t);
 }
-function ld(n) {
+function dd(n) {
   return Math.ceil(Math.max(n.bitrate * 0.9, n.averageBitrate) / 1e3) * 1e3 || 1;
 }
-function cg(n) {
+function ug(n) {
   let e = "";
   const {
     audio: t,
     video: i
   } = n;
   if (i) {
-    const r = _s(i.contentType);
+    const r = vs(i.contentType);
     e += `${r}_r${i.height}x${i.width}f${Math.ceil(i.framerate)}${i.transferFunction || "sd"}_${Math.ceil(i.bitrate / 1e5)}`;
   }
   if (t) {
-    const r = _s(t.contentType);
+    const r = vs(t.contentType);
     e += `${i ? "_" : ""}${r}_c${t.channels}`;
   }
   return e;
 }
-const vs = ["NONE", "TYPE-0", "TYPE-1", null];
-function dg(n) {
-  return vs.indexOf(n) > -1;
+const ys = ["NONE", "TYPE-0", "TYPE-1", null];
+function hg(n) {
+  return ys.indexOf(n) > -1;
 }
 const Vn = ["SDR", "PQ", "HLG"];
-function ug(n) {
+function fg(n) {
   return !!n && Vn.indexOf(n) > -1;
 }
 var In = {
@@ -3889,7 +3896,7 @@ var In = {
   Yes: "YES",
   v2: "v2"
 };
-function _o(n) {
+function vo(n) {
   const {
     canSkipUntil: e,
     canSkipDateRanges: t,
@@ -3897,7 +3904,7 @@ function _o(n) {
   } = n, r = i < e / 2;
   return e && r ? t ? In.v2 : In.Yes : In.No;
 }
-class vo {
+class yo {
   constructor(e, t, i) {
     this.msn = void 0, this.part = void 0, this.skip = void 0, this.msn = e, this.part = t, this.skip = i;
   }
@@ -3941,10 +3948,10 @@ class Hi {
     return this.url[0] || "";
   }
   hasAudioGroup(e) {
-    return yo(this._audioGroups, e);
+    return bo(this._audioGroups, e);
   }
   hasSubtitleGroup(e) {
-    return yo(this._subtitleGroups, e);
+    return bo(this._subtitleGroups, e);
   }
   get audioGroups() {
     return this._audioGroups;
@@ -3986,10 +3993,10 @@ class Hi {
   addFallback() {
   }
 }
-function yo(n, e) {
+function bo(n, e) {
   return !e || !n ? !1 : n.indexOf(e) !== -1;
 }
-function hg() {
+function pg() {
   if (typeof matchMedia == "function") {
     const n = matchMedia("(dynamic-range: high)"), e = matchMedia("bad query");
     if (n.media !== e.media)
@@ -3997,19 +4004,19 @@ function hg() {
   }
   return !1;
 }
-function fg(n, e) {
+function gg(n, e) {
   let t = !1, i = [];
   if (n && (t = n !== "SDR", i = [n]), e) {
     i = e.allowedVideoRanges || Vn.slice(0);
     const r = i.join("") !== "SDR" && !e.videoCodec;
-    t = e.preferHDR !== void 0 ? e.preferHDR : r && hg(), t || (i = ["SDR"]);
+    t = e.preferHDR !== void 0 ? e.preferHDR : r && pg(), t || (i = ["SDR"]);
   }
   return {
     preferHDR: t,
     allowedVideoRanges: i
   };
 }
-const pg = (n) => {
+const mg = (n) => {
   const e = /* @__PURE__ */ new WeakSet();
   return (t, i) => {
     if (n && (i = n(t, i)), typeof i == "object" && i !== null) {
@@ -4019,14 +4026,14 @@ const pg = (n) => {
     }
     return i;
   };
-}, Re = (n, e) => JSON.stringify(n, pg(e));
-function gg(n, e, t, i, r) {
+}, Re = (n, e) => JSON.stringify(n, mg(e));
+function _g(n, e, t, i, r) {
   const s = Object.keys(n), a = i?.channels, o = i?.audioCodec, d = r?.videoCodec, c = a && parseInt(a) === 2;
   let u = !1, h = !1, f = 1 / 0, p = 1 / 0, g = 1 / 0, _ = 1 / 0, m = 0, v = [];
   const {
     preferHDR: b,
     allowedVideoRanges: x
-  } = fg(e, r);
+  } = gg(e, r);
   for (let k = s.length; k--; ) {
     const I = n[s[k]];
     u || (u = I.channels[2] > 0), f = Math.min(f, I.minHeight), p = Math.min(p, I.minFramerate), g = Math.min(g, I.minBitrate), x.filter((C) => I.videoRanges[C] > 0).length > 0 && (h = !0);
@@ -4042,26 +4049,26 @@ function gg(n, e, t, i, r) {
         return k;
       if (v = h ? x.filter((C) => A.videoRanges[C] > 0) : [], w) {
         if (A.minBitrate > t)
-          return bt(I, `min bitrate of ${A.minBitrate} > current estimate of ${t}`), k;
+          return xt(I, `min bitrate of ${A.minBitrate} > current estimate of ${t}`), k;
         if (!A.hasDefaultAudio)
-          return bt(I, "no renditions with default or auto-select sound found"), k;
+          return xt(I, "no renditions with default or auto-select sound found"), k;
         if (o && I.indexOf(o.substring(0, 4)) % 5 !== 0)
-          return bt(I, `audio codec preference "${o}" not found`), k;
+          return xt(I, `audio codec preference "${o}" not found`), k;
         if (a && !c) {
           if (!A.channels[a])
-            return bt(I, `no renditions with ${a} channel sound found (channels options: ${Object.keys(A.channels)})`), k;
+            return xt(I, `no renditions with ${a} channel sound found (channels options: ${Object.keys(A.channels)})`), k;
         } else if ((!o || c) && u && A.channels[2] === 0)
-          return bt(I, "no renditions with stereo sound found"), k;
+          return xt(I, "no renditions with stereo sound found"), k;
         if (A.minHeight > E)
-          return bt(I, `min resolution of ${A.minHeight} > maximum of ${E}`), k;
+          return xt(I, `min resolution of ${A.minHeight} > maximum of ${E}`), k;
         if (A.minFramerate > T)
-          return bt(I, `min framerate of ${A.minFramerate} > maximum of ${T}`), k;
+          return xt(I, `min framerate of ${A.minFramerate} > maximum of ${T}`), k;
         if (!v.some((C) => A.videoRanges[C] > 0))
-          return bt(I, `no variants with VIDEO-RANGE of ${Re(v)} found`), k;
+          return xt(I, `no variants with VIDEO-RANGE of ${Re(v)} found`), k;
         if (d && I.indexOf(d.substring(0, 4)) % 5 !== 0)
-          return bt(I, `video codec preference "${d}" not found`), k;
+          return xt(I, `video codec preference "${d}" not found`), k;
         if (A.maxScore < m)
-          return bt(I, `max score of ${A.maxScore} < selected max of ${m}`), k;
+          return xt(I, `max score of ${A.maxScore} < selected max of ${m}`), k;
       }
       return k && (Gn(I) >= Gn(k) || A.fragmentError > n[k].fragmentError) ? k : (_ = A.minIndex, m = A.maxScore, I);
     }, void 0),
@@ -4072,10 +4079,10 @@ function gg(n, e, t, i, r) {
     minIndex: _
   };
 }
-function bt(n, e) {
+function xt(n, e) {
   we.log(`[abr] start candidates with "${n}" ignored because ${e}`);
 }
-function cd(n) {
+function ud(n) {
   return n.reduce((e, t) => {
     let i = e.groups[t.groupId];
     i || (i = e.groups[t.groupId] = {
@@ -4094,7 +4101,7 @@ function cd(n) {
     groups: {}
   });
 }
-function mg(n, e, t, i) {
+function vg(n, e, t, i) {
   return n.slice(t, i + 1).reduce((r, s, a) => {
     if (!s.codecSet)
       return r;
@@ -4126,7 +4133,7 @@ function mg(n, e, t, i) {
     }), r;
   }, {});
 }
-function bo(n) {
+function xo(n) {
   if (!n)
     return n;
   const {
@@ -4165,40 +4172,40 @@ function ai(n, e, t) {
     assocLang: a,
     default: o
   } = n, d = n.forced;
-  return (i === void 0 || e.groupId === i) && (r === void 0 || e.name === r) && (s === void 0 || _g(s, e.lang)) && (s === void 0 || e.assocLang === a) && (o === void 0 || e.default === o) && (d === void 0 || e.forced === d) && (!("characteristics" in n) || vg(n.characteristics || "", e.characteristics)) && (t === void 0 || t(n, e));
+  return (i === void 0 || e.groupId === i) && (r === void 0 || e.name === r) && (s === void 0 || yg(s, e.lang)) && (s === void 0 || e.assocLang === a) && (o === void 0 || e.default === o) && (d === void 0 || e.forced === d) && (!("characteristics" in n) || bg(n.characteristics || "", e.characteristics)) && (t === void 0 || t(n, e));
 }
-function _g(n, e = "--") {
+function yg(n, e = "--") {
   return n.length === e.length ? n === e : n.startsWith(e) || e.startsWith(n);
 }
-function vg(n, e = "") {
+function bg(n, e = "") {
   const t = n.split(","), i = e.split(",");
   return t.length === i.length && !t.some((r) => i.indexOf(r) === -1);
 }
-function ii(n, e) {
+function ni(n, e) {
   const {
     audioCodec: t,
     channels: i
   } = n;
   return (t === void 0 || (e.audioCodec || "").substring(0, 4) === t.substring(0, 4)) && (i === void 0 || i === (e.channels || "2"));
 }
-function yg(n, e, t, i, r) {
+function xg(n, e, t, i, r) {
   const s = e[i], o = e.reduce((f, p, g) => {
     const _ = p.uri;
     return (f[_] || (f[_] = [])).push(g), f;
   }, {})[s.uri];
   o.length > 1 && (i = Math.max.apply(Math, o));
-  const d = s.videoRange, c = s.frameRate, u = s.codecSet.substring(0, 4), h = xo(e, i, (f) => {
+  const d = s.videoRange, c = s.frameRate, u = s.codecSet.substring(0, 4), h = Eo(e, i, (f) => {
     if (f.videoRange !== d || f.frameRate !== c || f.codecSet.substring(0, 4) !== u)
       return !1;
     const p = f.audioGroups, g = t.filter((_) => !p || p.indexOf(_.groupId) !== -1);
     return wt(n, g, r) > -1;
   });
-  return h > -1 ? h : xo(e, i, (f) => {
+  return h > -1 ? h : Eo(e, i, (f) => {
     const p = f.audioGroups, g = t.filter((_) => !p || p.indexOf(_.groupId) !== -1);
     return wt(n, g, r) > -1;
   });
 }
-function xo(n, e, t) {
+function Eo(n, e, t) {
   for (let i = e; i > -1; i--)
     if (t(n[i]))
       return i;
@@ -4211,7 +4218,7 @@ function Kn(n, e) {
   var t;
   return !!n && n !== ((t = e.loadLevelObj) == null ? void 0 : t.uri);
 }
-class bg extends pt {
+class Eg extends pt {
   constructor(e) {
     super("abr", e.logger), this.hls = void 0, this.lastLevelLoadSec = 0, this.lastLoadedFragLevel = -1, this.firstSelection = -1, this._nextAutoLevel = -1, this.nextAutoLevelKey = "", this.audioTracksByGroup = null, this.codecTiers = null, this.timer = -1, this.fragCurrent = null, this.partCurrent = null, this.bitrateTestDelay = 0, this.rebufferNotice = -1, this.supportedCache = {}, this.bwEstimator = void 0, this._abandonRulesCheck = (t) => {
       var i;
@@ -4244,14 +4251,14 @@ class bg extends pt {
       const T = b ? b.len / E : 0, w = u.loading.first ? u.loading.first - u.loading.start : -1, S = u.loaded && w > -1, k = this.getBwEstimate(), I = a.levels, A = I[g], C = Math.max(u.loaded, Math.round(h * (r.bitrate || A.averageBitrate) / 8));
       let M = S ? f - w : f;
       M < 1 && S && (M = Math.min(f, u.loaded * 8 / k));
-      const G = S ? u.loaded * 1e3 / M : 0, K = x / 1e3, V = G ? (C - u.loaded) / G : C * 8 / k + K;
+      const G = S ? u.loaded * 1e3 / M : 0, H = x / 1e3, V = G ? (C - u.loaded) / G : C * 8 / k + H;
       if (V <= T)
         return;
       const R = G ? G * 8 : k, F = ((i = t?.details || this.hls.latestLevelDetails) == null ? void 0 : i.live) === !0, L = this.hls.config.abrBandWidthUpFactor;
       let N = Number.POSITIVE_INFINITY, j;
       for (j = g - 1; j > p; j--) {
         const de = I[j].maxBitrate, Y = !I[j].details || F;
-        if (N = this.getTimeToLoadFrag(K, R, h * de, Y), N < Math.min(T, h + K))
+        if (N = this.getTimeToLoadFrag(H, R, h * de, Y), N < Math.min(T, h + H))
           break;
       }
       if (N >= V || N > h * 10)
@@ -4292,7 +4299,7 @@ class bg extends pt {
   }
   initEstimator() {
     const e = this.hls.config;
-    return new kp(e.abrEwmaSlowVoD, e.abrEwmaFastVoD, e.abrEwmaDefaultEstimate);
+    return new Ap(e.abrEwmaSlowVoD, e.abrEwmaFastVoD, e.abrEwmaDefaultEstimate);
   }
   registerListeners() {
     const {
@@ -4493,12 +4500,12 @@ class bg extends pt {
     const {
       audioPreference: k,
       videoPreference: I
-    } = v, A = this.audioTracksByGroup || (this.audioTracksByGroup = cd(_));
+    } = v, A = this.audioTracksByGroup || (this.audioTracksByGroup = ud(_));
     let C = -1;
     if (E) {
       if (this.firstSelection !== -1)
         return this.firstSelection;
-      const R = this.codecTiers || (this.codecTiers = mg(g, A, t, i)), F = gg(R, w, e, k, I), {
+      const R = this.codecTiers || (this.codecTiers = vg(g, A, t, i)), F = _g(R, w, e, k, I), {
         codecSet: L,
         videoRanges: N,
         minFramerate: j,
@@ -4509,7 +4516,7 @@ class bg extends pt {
       C = B, T = L, w = ae ? N[N.length - 1] : N[0], S = j, e = Math.max(e, $), this.log(`picked start tier ${Re(F)}`);
     } else
       T = b?.codecSet, w = b?.videoRange;
-    const M = p ? p.duration : f ? f.duration : 0, G = this.bwEstimator.getEstimateTTFB() / 1e3, K = [];
+    const M = p ? p.duration : f ? f.duration : 0, G = this.bwEstimator.getEstimateTTFB() / 1e3, H = [];
     for (let R = i; R >= t; R--) {
       var V;
       const F = g[R], L = R > h;
@@ -4517,7 +4524,7 @@ class bg extends pt {
         continue;
       if (v.useMediaCapabilities && !F.supportedResult && !F.supportedPromise) {
         const Y = navigator.mediaCapabilities;
-        typeof Y?.decodingInfo == "function" && sg(F, A, w, S, e, k) ? (F.supportedPromise = od(F, A, Y, this.supportedCache), F.supportedPromise.then((te) => {
+        typeof Y?.decodingInfo == "function" && og(F, A, w, S, e, k) ? (F.supportedPromise = cd(F, A, Y, this.supportedCache), F.supportedPromise.then((te) => {
           if (!this.hls)
             return;
           F.supportedResult = te;
@@ -4525,10 +4532,10 @@ class bg extends pt {
           te.error ? this.warn(`MediaCapabilities decodingInfo error: "${te.error}" for level ${J} ${Re(te)}`) : te.supported ? te.decodingInfoResults.some((Te) => Te.smooth === !1 || Te.powerEfficient === !1) && this.log(`MediaCapabilities decodingInfo for level ${J} not smooth or powerEfficient: ${Re(te)}`) : (this.warn(`Unsupported MediaCapabilities decodingInfo result for level ${J} ${Re(te)}`), J > -1 && oe.length > 1 && (this.log(`Removing unsupported level ${J}`), this.hls.removeLevel(J), this.hls.loadLevel === -1 && (this.hls.nextLoadLevel = 0)));
         }).catch((te) => {
           this.warn(`Error handling MediaCapabilities decodingInfo: ${te}`);
-        })) : F.supportedResult = sd;
+        })) : F.supportedResult = od;
       }
       if ((T && F.codecSet !== T || w && F.videoRange !== w || L && S > F.frameRate || !L && S > 0 && S < F.frameRate || (V = F.supportedResult) != null && (V = V.decodingInfoResults) != null && V.some((Y) => Y.smooth === !1)) && (!E || R !== C)) {
-        K.push(R);
+        H.push(R);
         continue;
       }
       const N = F.details, j = (p ? N?.partTarget : N?.averagetargetduration) || M;
@@ -4544,7 +4551,7 @@ class bg extends pt {
         (ae <= G || !ee(ae) || x && !this.bitrateTestDelay || ae < c)
       ) {
         const Y = this.forcedAutoLevel;
-        return R !== m && (Y === -1 || Y !== m) && (K.length && this.trace(`Skipped level(s) ${K.join(",")} of ${i} max with CODECS and VIDEO-RANGE:"${g[K[0]].codecs}" ${g[K[0]].videoRange}; not compatible with "${T}" ${w}`), this.info(`switch candidate:${h}->${R} adjustedbw(${Math.round($)})-bitrate=${Math.round($ - B)} ttfb:${G.toFixed(1)} avgDuration:${j.toFixed(1)} maxFetchDuration:${c.toFixed(1)} fetchDuration:${ae.toFixed(1)} firstSelection:${E} codecSet:${F.codecSet} videoRange:${F.videoRange} hls.loadLevel:${m}`)), E && (this.firstSelection = R), R;
+        return R !== m && (Y === -1 || Y !== m) && (H.length && this.trace(`Skipped level(s) ${H.join(",")} of ${i} max with CODECS and VIDEO-RANGE:"${g[H[0]].codecs}" ${g[H[0]].videoRange}; not compatible with "${T}" ${w}`), this.info(`switch candidate:${h}->${R} adjustedbw(${Math.round($)})-bitrate=${Math.round($ - B)} ttfb:${G.toFixed(1)} avgDuration:${j.toFixed(1)} maxFetchDuration:${c.toFixed(1)} fetchDuration:${ae.toFixed(1)} firstSelection:${E} codecSet:${F.codecSet} videoRange:${F.videoRange} hls.loadLevel:${m}`)), E && (this.firstSelection = R), R;
       }
     }
     return -1;
@@ -4561,7 +4568,7 @@ class bg extends pt {
     return Math.min(Math.max(e, i), t);
   }
 }
-const dd = {
+const hd = {
   /**
    * Searches for an item in an array which matches a certain condition.
    * This requires the condition to only match one item in the array,
@@ -4592,7 +4599,7 @@ const dd = {
     return null;
   }
 };
-function xg(n, e, t) {
+function Sg(n, e, t) {
   if (e === null || !Array.isArray(n) || !n.length || !ee(e))
     return null;
   const i = n[0].programDateTime;
@@ -4603,7 +4610,7 @@ function xg(n, e, t) {
     return null;
   for (let s = 0; s < n.length; ++s) {
     const a = n[s];
-    if (Sg(e, t, a))
+    if (kg(e, t, a))
       return a;
   }
   return null;
@@ -4615,29 +4622,29 @@ function oi(n, e, t = 0, i = 0, r = 5e-3) {
     const o = n.endDTS - t;
     o > 0 && o < 15e-7 && (t += 15e-7), s && n.level !== s.level && s.end <= n.end && (s = e[2 + n.sn - e[0].sn] || null);
   } else t === 0 && e[0].start === 0 && (s = e[0]);
-  if (s && ((!n || n.level === s.level) && Eo(t, i, s) === 0 || Eg(s, n, Math.min(r, i))))
+  if (s && ((!n || n.level === s.level) && So(t, i, s) === 0 || Tg(s, n, Math.min(r, i))))
     return s;
-  const a = dd.search(e, Eo.bind(null, t, i));
+  const a = hd.search(e, So.bind(null, t, i));
   return a && (a !== n || !s) ? a : s;
 }
-function Eg(n, e, t) {
+function Tg(n, e, t) {
   if (e && e.start === 0 && e.level < n.level && (e.endPTS || 0) > 0) {
     const i = e.tagList.reduce((r, s) => (s[0] === "INF" && (r += parseFloat(s[1])), r), t);
     return n.start <= i;
   }
   return !1;
 }
-function Eo(n = 0, e = 0, t) {
+function So(n = 0, e = 0, t) {
   if (t.start <= n && t.start + t.duration > n)
     return 0;
   const i = Math.min(e, t.duration + (t.deltaPTS ? t.deltaPTS : 0));
   return t.start + t.duration - i <= n ? 1 : t.start - i > n && t.start ? -1 : 0;
 }
-function Sg(n, e, t) {
+function kg(n, e, t) {
   const i = Math.min(e, t.duration + (t.deltaPTS ? t.deltaPTS : 0)) * 1e3;
   return (t.endProgramDateTime || 0) - i > n;
 }
-function ud(n, e, t) {
+function fd(n, e, t) {
   if (n && n.startCC <= e && n.endCC >= e) {
     let i = n.fragments;
     const {
@@ -4645,7 +4652,7 @@ function ud(n, e, t) {
     } = n;
     r && (i = i.concat(r));
     let s;
-    return dd.search(i, (a) => a.cc < e ? 1 : a.cc > e ? -1 : (s = a, a.end <= t ? 1 : a.start > t ? -1 : 0)), s || null;
+    return hd.search(i, (a) => a.cc < e ? 1 : a.cc > e ? -1 : (s = a, a.end <= t ? 1 : a.start > t ? -1 : 0)), s || null;
   }
   return null;
 }
@@ -4659,21 +4666,21 @@ function Hn(n) {
   }
   return !1;
 }
-function hd(n) {
+function pd(n) {
   return n.details.startsWith("key");
 }
-function fd(n) {
-  return hd(n) && !!n.frag && !n.frag.decryptdata;
+function gd(n) {
+  return pd(n) && !!n.frag && !n.frag.decryptdata;
 }
-function So(n, e) {
+function To(n, e) {
   const t = Hn(e);
   return n.default[`${t ? "timeout" : "error"}Retry`];
 }
-function da(n, e) {
+function ua(n, e) {
   const t = n.backoff === "linear" ? 1 : Math.pow(2, e);
   return Math.min(t * n.retryDelayMs, n.maxRetryDelayMs);
 }
-function To(n) {
+function ko(n) {
   return ke(ke({}, n), {
     errorRetry: null,
     timeoutRetry: null
@@ -4682,13 +4689,13 @@ function To(n) {
 function jn(n, e, t, i) {
   if (!n)
     return !1;
-  const r = i?.code, s = e < n.maxNumRetry && (Tg(r) || !!t);
+  const r = i?.code, s = e < n.maxNumRetry && (wg(r) || !!t);
   return n.shouldRetry ? n.shouldRetry(n, e, t, i, s) : s;
 }
-function Tg(n) {
-  return ys(n) || !!n && (n < 400 || n > 499);
+function wg(n) {
+  return bs(n) || !!n && (n < 400 || n > 499);
 }
-function ys(n) {
+function bs(n) {
   return n === 0 && navigator.onLine === !1;
 }
 var Qe = {
@@ -4702,7 +4709,7 @@ var Qe = {
   MoveAllAlternatesMatchingHDCP: 2,
   MoveAllAlternatesMatchingKey: 4
 };
-class kg extends pt {
+class Ag extends pt {
   constructor(e) {
     super("error-controller", e.logger), this.hls = void 0, this.playlistError = 0, this.hls = e, this.registerListeners();
   }
@@ -4791,7 +4798,7 @@ class kg extends pt {
       case P.SUBTITLE_TRACK_LOAD_TIMEOUT:
         if (s) {
           const d = r.loadLevelObj;
-          if (d && (s.type === ve.AUDIO_TRACK && d.hasAudioGroup(s.groupId) || s.type === ve.SUBTITLE_TRACK && d.hasSubtitleGroup(s.groupId))) {
+          if (d && (s.type === ye.AUDIO_TRACK && d.hasAudioGroup(s.groupId) || s.type === ye.SUBTITLE_TRACK && d.hasSubtitleGroup(s.groupId))) {
             t.errorAction = this.getPlaylistRetryOrSwitchAction(t, r.loadLevel), t.errorAction.action = Qe.SendAlternateToPenaltyBox, t.errorAction.flags = at.MoveAllAlternatesMatchingHost;
             return;
           }
@@ -4832,7 +4839,7 @@ class kg extends pt {
     t.type === re.KEY_SYSTEM_ERROR && (t.levelRetry = !1, t.errorAction = yi());
   }
   getPlaylistRetryOrSwitchAction(e, t) {
-    const i = this.hls, r = So(i.config.playlistLoadPolicy, e), s = this.playlistError++;
+    const i = this.hls, r = To(i.config.playlistLoadPolicy, e), s = this.playlistError++;
     if (jn(r, s, Hn(e), e.response))
       return {
         action: Qe.RetryRequest,
@@ -4847,8 +4854,8 @@ class kg extends pt {
     const t = this.hls, i = this.getVariantLevelIndex(e.frag), r = t.levels[i], {
       fragLoadPolicy: s,
       keyLoadPolicy: a
-    } = t.config, o = So(hd(e) ? a : s, e), d = t.levels.reduce((u, h) => u + h.fragmentError, 0);
-    if (r && (e.details !== P.FRAG_GAP && r.fragmentError++, !fd(e) && jn(o, d, Hn(e), e.response)))
+    } = t.config, o = To(pd(e) ? a : s, e), d = t.levels.reduce((u, h) => u + h.fragmentError, 0);
+    if (r && (e.details !== P.FRAG_GAP && r.fragmentError++, !gd(e) && jn(o, d, Hn(e), e.response)))
       return {
         action: Qe.RetryRequest,
         flags: at.None,
@@ -4896,7 +4903,7 @@ class kg extends pt {
                 continue;
             }
           } else {
-            if (E === ve.AUDIO_TRACK && k.hasAudioGroup(T) || E === ve.SUBTITLE_TRACK && k.hasSubtitleGroup(T))
+            if (E === ye.AUDIO_TRACK && k.hasAudioGroup(T) || E === ye.SUBTITLE_TRACK && k.hasSubtitleGroup(T))
               continue;
             if (_ === ne.AUDIO && (o = r.audioGroups) != null && o.some((I) => k.hasAudioGroup(I)) || _ === ne.SUBTITLE && (d = r.subtitleGroups) != null && d.some((I) => k.hasSubtitleGroup(I)) || v && r.audioCodec === k.audioCodec || x && r.codecSet === k.codecSet || !v && r.codecSet !== k.codecSet)
               continue;
@@ -4947,7 +4954,7 @@ class kg extends pt {
         if (i.hdcpLevel = u, u === "NONE")
           this.warn("HDCP policy resticted output with HDCP-LEVEL=NONE");
         else if (u) {
-          t.maxHdcpLevel = vs[vs.indexOf(u) - 1], i.resolved = !0, this.warn(`Restricting playback to HDCP-LEVEL of "${t.maxHdcpLevel}" or lower`);
+          t.maxHdcpLevel = ys[ys.indexOf(u) - 1], i.resolved = !0, this.warn(`Restricting playback to HDCP-LEVEL of "${t.maxHdcpLevel}" or lower`);
           break;
         }
       }
@@ -4976,7 +4983,7 @@ class kg extends pt {
   }
   switchLevel(e, t) {
     if (t !== void 0 && e.errorAction && (this.warn(`switching to level ${t} after ${e.details}`), this.hls.nextAutoLevel = t, e.errorAction.resolved = !0, this.hls.nextLoadLevel = this.hls.nextAutoLevel, e.details === P.BUFFER_ADD_CODEC_ERROR && e.mimeType && e.sourceBufferName !== "audiovideo")) {
-      const i = _s(e.mimeType), r = this.hls.levels;
+      const i = vs(e.mimeType), r = this.hls.levels;
       for (let s = r.length; s--; )
         r[s][`${e.sourceBufferName}Codec`] === i && (this.log(`Removing level ${s} for ${e.details} ("${i}" not supported)`), this.hls.removeLevel(s));
     }
@@ -4995,7 +5002,7 @@ var We = {
   PARTIAL: "PARTIAL",
   OK: "OK"
 };
-class wg {
+class Ig {
   constructor(e) {
     this.activePartLists = /* @__PURE__ */ Object.create(null), this.endListFragments = /* @__PURE__ */ Object.create(null), this.fragments = /* @__PURE__ */ Object.create(null), this.timeRanges = /* @__PURE__ */ Object.create(null), this.bufferPadding = 0.2, this.hls = void 0, this.hasGaps = !1, this.hls = e, this._registerListeners();
   }
@@ -5109,7 +5116,7 @@ class wg {
   }
   removeParts(e, t) {
     const i = this.activePartLists[t];
-    i && (this.activePartLists[t] = ko(i, (r) => r.fragment.sn >= e));
+    i && (this.activePartLists[t] = wo(i, (r) => r.fragment.sn >= e));
   }
   fragBuffered(e, t) {
     const i = ci(e);
@@ -5250,7 +5257,7 @@ class wg {
     const i = this.activePartLists[e.type];
     if (i) {
       const r = e.sn;
-      this.activePartLists[e.type] = ko(i, (s) => s.fragment.sn !== r);
+      this.activePartLists[e.type] = wo(i, (s) => s.fragment.sn !== r);
     }
     delete this.fragments[t], e.endList && delete this.endListFragments[e.type];
   }
@@ -5268,28 +5275,28 @@ function tn(n) {
 function ci(n) {
   return `${n.type}_${n.level}_${n.sn}`;
 }
-function ko(n, e) {
+function wo(n, e) {
   return n.filter((t) => {
     const i = e(t);
     return i || t.clearElementaryStreamInfo(), i;
   });
 }
-var Xt = {
+var Qt = {
   cbc: 0,
   ctr: 1
 };
-class Ag {
+class Lg {
   constructor(e, t, i) {
     this.subtle = void 0, this.aesIV = void 0, this.aesMode = void 0, this.subtle = e, this.aesIV = t, this.aesMode = i;
   }
   decrypt(e, t) {
     switch (this.aesMode) {
-      case Xt.cbc:
+      case Qt.cbc:
         return this.subtle.decrypt({
           name: "AES-CBC",
           iv: this.aesIV
         }, t, e);
-      case Xt.ctr:
+      case Qt.ctr:
         return this.subtle.decrypt(
           {
             name: "AES-CTR",
@@ -5305,11 +5312,11 @@ class Ag {
     }
   }
 }
-function Ig(n) {
+function Rg(n) {
   const e = n.byteLength, t = e && new DataView(n.buffer).getUint8(e - 1);
   return t ? n.slice(0, e - t) : n;
 }
-class Lg {
+class Cg {
   constructor() {
     this.rcon = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54], this.subMix = [new Uint32Array(256), new Uint32Array(256), new Uint32Array(256), new Uint32Array(256)], this.invSubMix = [new Uint32Array(256), new Uint32Array(256), new Uint32Array(256), new Uint32Array(256)], this.sBox = new Uint32Array(256), this.invSBox = new Uint32Array(256), this.key = new Uint32Array(0), this.ksRows = 0, this.keySize = 0, this.keySchedule = void 0, this.invKeySchedule = void 0, this.initTable();
   }
@@ -5366,39 +5373,39 @@ class Lg {
     const r = this.keySize + 6, s = this.invKeySchedule, a = this.invSBox, o = this.invSubMix, d = o[0], c = o[1], u = o[2], h = o[3], f = this.uint8ArrayToUint32Array_(i);
     let p = f[0], g = f[1], _ = f[2], m = f[3];
     const v = new Int32Array(e), b = new Int32Array(v.length);
-    let x, E, T, w, S, k, I, A, C, M, G, K, V, R;
+    let x, E, T, w, S, k, I, A, C, M, G, H, V, R;
     const F = this.networkToHostOrderSwap;
     for (; t < v.length; ) {
-      for (C = F(v[t]), M = F(v[t + 1]), G = F(v[t + 2]), K = F(v[t + 3]), S = C ^ s[0], k = K ^ s[1], I = G ^ s[2], A = M ^ s[3], V = 4, R = 1; R < r; R++)
+      for (C = F(v[t]), M = F(v[t + 1]), G = F(v[t + 2]), H = F(v[t + 3]), S = C ^ s[0], k = H ^ s[1], I = G ^ s[2], A = M ^ s[3], V = 4, R = 1; R < r; R++)
         x = d[S >>> 24] ^ c[k >> 16 & 255] ^ u[I >> 8 & 255] ^ h[A & 255] ^ s[V], E = d[k >>> 24] ^ c[I >> 16 & 255] ^ u[A >> 8 & 255] ^ h[S & 255] ^ s[V + 1], T = d[I >>> 24] ^ c[A >> 16 & 255] ^ u[S >> 8 & 255] ^ h[k & 255] ^ s[V + 2], w = d[A >>> 24] ^ c[S >> 16 & 255] ^ u[k >> 8 & 255] ^ h[I & 255] ^ s[V + 3], S = x, k = E, I = T, A = w, V = V + 4;
-      x = a[S >>> 24] << 24 ^ a[k >> 16 & 255] << 16 ^ a[I >> 8 & 255] << 8 ^ a[A & 255] ^ s[V], E = a[k >>> 24] << 24 ^ a[I >> 16 & 255] << 16 ^ a[A >> 8 & 255] << 8 ^ a[S & 255] ^ s[V + 1], T = a[I >>> 24] << 24 ^ a[A >> 16 & 255] << 16 ^ a[S >> 8 & 255] << 8 ^ a[k & 255] ^ s[V + 2], w = a[A >>> 24] << 24 ^ a[S >> 16 & 255] << 16 ^ a[k >> 8 & 255] << 8 ^ a[I & 255] ^ s[V + 3], b[t] = F(x ^ p), b[t + 1] = F(w ^ g), b[t + 2] = F(T ^ _), b[t + 3] = F(E ^ m), p = C, g = M, _ = G, m = K, t = t + 4;
+      x = a[S >>> 24] << 24 ^ a[k >> 16 & 255] << 16 ^ a[I >> 8 & 255] << 8 ^ a[A & 255] ^ s[V], E = a[k >>> 24] << 24 ^ a[I >> 16 & 255] << 16 ^ a[A >> 8 & 255] << 8 ^ a[S & 255] ^ s[V + 1], T = a[I >>> 24] << 24 ^ a[A >> 16 & 255] << 16 ^ a[S >> 8 & 255] << 8 ^ a[k & 255] ^ s[V + 2], w = a[A >>> 24] << 24 ^ a[S >> 16 & 255] << 16 ^ a[k >> 8 & 255] << 8 ^ a[I & 255] ^ s[V + 3], b[t] = F(x ^ p), b[t + 1] = F(w ^ g), b[t + 2] = F(T ^ _), b[t + 3] = F(E ^ m), p = C, g = M, _ = G, m = H, t = t + 4;
     }
     return b.buffer;
   }
 }
-class Rg {
+class Dg {
   constructor(e, t, i) {
     this.subtle = void 0, this.key = void 0, this.aesMode = void 0, this.subtle = e, this.key = t, this.aesMode = i;
   }
   expandKey() {
-    const e = Cg(this.aesMode);
+    const e = Pg(this.aesMode);
     return this.subtle.importKey("raw", this.key, {
       name: e
     }, !1, ["encrypt", "decrypt"]);
   }
 }
-function Cg(n) {
+function Pg(n) {
   switch (n) {
-    case Xt.cbc:
+    case Qt.cbc:
       return "AES-CBC";
-    case Xt.ctr:
+    case Qt.ctr:
       return "AES-CTR";
     default:
       throw new Error(`[FastAESKey] invalid aes mode ${n}`);
   }
 }
-const Dg = 16;
-class ua {
+const Mg = 16;
+class ha {
   constructor(e, {
     removePKCS7Padding: t = !0
   } = {}) {
@@ -5424,7 +5431,7 @@ class ua {
     if (!e || t)
       return this.reset(), null;
     const i = new Uint8Array(e);
-    return this.reset(), this.removePKCS7Padding ? Ig(i) : i;
+    return this.reset(), this.removePKCS7Padding ? Rg(i) : i;
   }
   reset() {
     this.currentResult = null, this.currentIV = null, this.remainderData = null, this.softwareDecrypter && (this.softwareDecrypter = null);
@@ -5445,7 +5452,7 @@ class ua {
       currentResult: a,
       remainderData: o
     } = this;
-    if (r !== Xt.cbc || t.byteLength !== 16)
+    if (r !== Qt.cbc || t.byteLength !== 16)
       return we.warn("SoftwareDecrypt: can only handle AES-128-CBC"), null;
     this.logOnce("JS AES decrypt"), o && (e = ft(o, e), this.remainderData = null);
     const d = this.getValidChunk(e);
@@ -5453,7 +5460,7 @@ class ua {
       return null;
     s && (i = s);
     let c = this.softwareDecrypter;
-    c || (c = this.softwareDecrypter = new Lg()), c.expandKey(t);
+    c || (c = this.softwareDecrypter = new Cg()), c.expandKey(t);
     const u = a;
     return this.currentResult = c.decrypt(d.buffer, 0, i), this.currentIV = d.slice(-16).buffer, u || null;
   }
@@ -5461,9 +5468,9 @@ class ua {
     if (this.key !== t || !this.fastAesKey) {
       if (!this.subtle)
         return Promise.resolve(this.onWebCryptoError(e, t, i, r));
-      this.key = t, this.fastAesKey = new Rg(this.subtle, t, r);
+      this.key = t, this.fastAesKey = new Dg(this.subtle, t, r);
     }
-    return this.fastAesKey.expandKey().then((s) => this.subtle ? (this.logOnce("WebCrypto AES decrypt"), new Ag(this.subtle, new Uint8Array(i), r).decrypt(e.buffer, s)) : Promise.reject(new Error("web crypto not initialized"))).catch((s) => (we.warn(`[decrypter]: WebCrypto Error, disable WebCrypto API, ${s.name}: ${s.message}`), this.onWebCryptoError(e, t, i, r)));
+    return this.fastAesKey.expandKey().then((s) => this.subtle ? (this.logOnce("WebCrypto AES decrypt"), new Lg(this.subtle, new Uint8Array(i), r).decrypt(e.buffer, s)) : Promise.reject(new Error("web crypto not initialized"))).catch((s) => (we.warn(`[decrypter]: WebCrypto Error, disable WebCrypto API, ${s.name}: ${s.message}`), this.onWebCryptoError(e, t, i, r)));
   }
   onWebCryptoError(e, t, i, r) {
     const s = this.enableSoftwareAES;
@@ -5477,15 +5484,15 @@ class ua {
   }
   getValidChunk(e) {
     let t = e;
-    const i = e.length - e.length % Dg;
+    const i = e.length - e.length % Mg;
     return i !== e.length && (t = e.slice(0, i), this.remainderData = e.slice(i)), t;
   }
   logOnce(e) {
     this.logEnabled && (we.log(`[decrypter]: ${e}`), this.logEnabled = !1);
   }
 }
-const wo = Math.pow(2, 17);
-class Pg {
+const Ao = Math.pow(2, 17);
+class Og {
   constructor(e) {
     this.config = void 0, this.loader = null, this.partLoadTimeout = -1, this.config = e;
   }
@@ -5511,19 +5518,19 @@ class Pg {
     return new Promise((o, d) => {
       if (this.loader && this.loader.destroy(), e.gap)
         if (e.tagList.some((g) => g[0] === "GAP")) {
-          d(Io(e));
+          d(Lo(e));
           return;
         } else
           e.gap = !1;
-      const c = this.loader = s ? new s(r) : new a(r), u = Ao(e);
+      const c = this.loader = s ? new s(r) : new a(r), u = Io(e);
       e.loader = c;
-      const h = To(r.fragLoadPolicy.default), f = {
+      const h = ko(r.fragLoadPolicy.default), f = {
         loadPolicy: h,
         timeout: h.maxLoadTimeMs,
         maxRetry: 0,
         retryDelay: 0,
         maxRetryDelay: 0,
-        highWaterMark: e.sn === "initSegment" ? 1 / 0 : wo
+        highWaterMark: e.sn === "initSegment" ? 1 / 0 : Ao
       };
       e.stats = c.stats;
       const p = {
@@ -5588,18 +5595,18 @@ class Pg {
     const r = this.config, s = r.fLoader, a = r.loader;
     return new Promise((o, d) => {
       if (this.loader && this.loader.destroy(), e.gap || t.gap) {
-        d(Io(e, t));
+        d(Lo(e, t));
         return;
       }
-      const c = this.loader = s ? new s(r) : new a(r), u = Ao(e, t);
+      const c = this.loader = s ? new s(r) : new a(r), u = Io(e, t);
       e.loader = c;
-      const h = To(r.fragLoadPolicy.default), f = {
+      const h = ko(r.fragLoadPolicy.default), f = {
         loadPolicy: h,
         timeout: h.maxLoadTimeMs,
         maxRetry: 0,
         retryDelay: 0,
         maxRetryDelay: 0,
-        highWaterMark: wo
+        highWaterMark: Ao
       };
       t.stats = c.stats, c.load(u, f, {
         onSuccess: (p, g, _, m) => {
@@ -5669,7 +5676,7 @@ class Pg {
     e.loader = null, this.loader === t && (self.clearTimeout(this.partLoadTimeout), this.loader = null), t.destroy();
   }
 }
-function Ao(n, e = null) {
+function Io(n, e = null) {
   const t = e || n, i = {
     frag: n,
     part: e,
@@ -5682,7 +5689,7 @@ function Ao(n, e = null) {
   if (ee(r) && ee(s)) {
     var a;
     let o = r, d = s;
-    if (n.sn === "initSegment" && Mg((a = n.decryptdata) == null ? void 0 : a.method)) {
+    if (n.sn === "initSegment" && Fg((a = n.decryptdata) == null ? void 0 : a.method)) {
       const c = s - r;
       c % 16 && (d = s + (16 - c % 16)), r !== 0 && (i.resetIV = !0, o = r - 16);
     }
@@ -5690,7 +5697,7 @@ function Ao(n, e = null) {
   }
   return i;
 }
-function Io(n, e) {
+function Lo(n, e) {
   const t = new Error(`GAP ${n.gap ? "tag" : "attribute"} found`), i = {
     type: re.MEDIA_ERROR,
     details: P.FRAG_GAP,
@@ -5701,7 +5708,7 @@ function Io(n, e) {
   };
   return e && (i.part = e), (e || n).stats.aborted = !0, new Mt(i);
 }
-function Mg(n) {
+function Fg(n) {
   return n === "AES-128" || n === "AES-256";
 }
 class Mt extends Error {
@@ -5709,7 +5716,7 @@ class Mt extends Error {
     super(e.error.message), this.data = void 0, this.data = e;
   }
 }
-class pd extends pt {
+class md extends pt {
   constructor(e, t) {
     super(e, t), this._boundTick = void 0, this._tickTimer = null, this._tickInterval = null, this._tickCallCount = 0, this._boundTick = this.tick.bind(this);
   }
@@ -5764,7 +5771,7 @@ class pd extends pt {
   doTick() {
   }
 }
-class ha {
+class fa {
   constructor(e, t, i, r = 0, s = -1, a = !1) {
     this.level = void 0, this.sn = void 0, this.part = void 0, this.id = void 0, this.size = void 0, this.partial = void 0, this.transmuxing = nn(), this.buffering = {
       audio: nn(),
@@ -5781,7 +5788,7 @@ function nn() {
     end: 0
   };
 }
-const Lo = {
+const Ro = {
   length: 0,
   start: () => 0,
   end: () => 0
@@ -5868,27 +5875,27 @@ class fe {
    */
   static getBuffered(e) {
     try {
-      return e.buffered || Lo;
+      return e.buffered || Ro;
     } catch (t) {
-      return we.log("failed to get media.buffered", t), Lo;
+      return we.log("failed to get media.buffered", t), Ro;
     }
   }
 }
-const gd = /\{\$([a-zA-Z0-9-_]+)\}/g;
-function Ro(n) {
-  return gd.test(n);
+const _d = /\{\$([a-zA-Z0-9-_]+)\}/g;
+function Co(n) {
+  return _d.test(n);
 }
-function bs(n, e) {
+function xs(n, e) {
   if (n.variableList !== null || n.hasVariableRefs) {
     const t = n.variableList;
-    return e.replace(gd, (i) => {
+    return e.replace(_d, (i) => {
       const r = i.substring(2, i.length - 1), s = t?.[r];
       return s === void 0 ? (n.playlistParsingError || (n.playlistParsingError = new Error(`Missing preceding EXT-X-DEFINE tag for Variable Reference: "${r}"`)), i) : s;
     });
   }
   return e;
 }
-function Co(n, e, t) {
+function Do(n, e, t) {
   let i = n.variableList;
   i || (n.variableList = i = {});
   let r, s;
@@ -5907,7 +5914,7 @@ function Co(n, e, t) {
     r = e.NAME, s = e.VALUE;
   r in i ? n.playlistParsingError || (n.playlistParsingError = new Error(`EXT-X-DEFINE duplicate Variable Name declarations: "${r}"`)) : i[r] = s || "";
 }
-function Og(n, e, t) {
+function Ng(n, e, t) {
   const i = e.IMPORT;
   if (t && i in t) {
     let r = n.variableList;
@@ -5915,7 +5922,7 @@ function Og(n, e, t) {
   } else
     n.playlistParsingError || (n.playlistParsingError = new Error(`EXT-X-DEFINE IMPORT attribute not found in Multivariant Playlist: "${i}"`));
 }
-const Fg = /^(\d+)x(\d+)$/, Do = /(.+?)=(".*?"|.*?)(?:,|$)/g;
+const $g = /^(\d+)x(\d+)$/, Po = /(.+?)=(".*?"|.*?)(?:,|$)/g;
 class Fe {
   constructor(e, t) {
     typeof e == "string" && (e = Fe.parseAttrList(e, t)), Ae(this, e);
@@ -5960,7 +5967,7 @@ class Fe {
     return this[e] === "YES";
   }
   decimalResolution(e) {
-    const t = Fg.exec(this[e]);
+    const t = $g.exec(this[e]);
     if (t !== null)
       return {
         width: parseInt(t[1], 10),
@@ -5970,7 +5977,7 @@ class Fe {
   static parseAttrList(e, t) {
     let i;
     const r = {};
-    for (Do.lastIndex = 0; (i = Do.exec(e)) !== null; ) {
+    for (Po.lastIndex = 0; (i = Po.exec(e)) !== null; ) {
       const a = i[1].trim();
       let o = i[2];
       const d = o.indexOf('"') === 0 && o.lastIndexOf('"') === o.length - 1;
@@ -5986,7 +5993,7 @@ class Fe {
             c = !0;
         }
       if (t && (d || c))
-        o = bs(t, o);
+        o = xs(t, o);
       else if (!c && !d)
         switch (a) {
           case "CLOSED-CAPTIONS":
@@ -6032,14 +6039,14 @@ class Fe {
     return r;
   }
 }
-const Ng = "com.apple.hls.interstitial";
-function $g(n) {
+const Bg = "com.apple.hls.interstitial";
+function Ug(n) {
   return n !== "ID" && n !== "CLASS" && n !== "CUE" && n !== "START-DATE" && n !== "DURATION" && n !== "END-DATE" && n !== "END-ON-NEXT";
 }
-function Bg(n) {
+function Gg(n) {
   return n === "SCTE35-OUT" || n === "SCTE35-IN" || n === "SCTE35-CMD";
 }
-class md {
+class vd {
   constructor(e, t, i = 0) {
     var r;
     if (this.attr = void 0, this.tagAnchor = void 0, this.tagOrder = void 0, this._startDate = void 0, this._endDate = void 0, this._dateAtEnd = void 0, this._cue = void 0, this._badValueForSameId = void 0, this.tagAnchor = t?.tagAnchor || null, this.tagOrder = (r = t?.tagOrder) != null ? r : i, t) {
@@ -6102,14 +6109,14 @@ class md {
     return this.attr.bool("END-ON-NEXT");
   }
   get isInterstitial() {
-    return this.class === Ng;
+    return this.class === Bg;
   }
   get isValid() {
     return !!this.id && !this._badValueForSameId && ee(this.startDate.getTime()) && (this.duration === null || this.duration >= 0) && (!this.endOnNext || !!this.class) && (!this.attr.CUE || !this.cue.pre && !this.cue.post || this.cue.pre !== this.cue.post) && (!this.isInterstitial || "X-ASSET-URI" in this.attr || "X-ASSET-LIST" in this.attr);
   }
 }
-const Ug = 10;
-class Gg {
+const zg = 10;
+class Vg {
   constructor(e) {
     this.PTSKnown = !1, this.alignedSliding = !1, this.averagetargetduration = void 0, this.endCC = 0, this.endSN = 0, this.fragments = void 0, this.fragmentHint = void 0, this.partList = null, this.dateRanges = void 0, this.dateRangeTagCount = 0, this.live = !0, this.requestScheduled = -1, this.ageHeader = 0, this.advancedDateTime = void 0, this.updated = !0, this.advanced = !0, this.misses = 0, this.startCC = 0, this.startSN = 0, this.startTimeOffset = null, this.targetduration = 0, this.totalduration = 0, this.type = null, this.url = void 0, this.m3u8 = "", this.version = null, this.canBlockReload = !1, this.canSkipUntil = 0, this.canSkipDateRanges = !1, this.skippedSegments = 0, this.recentlyRemovedDateranges = void 0, this.partHoldBack = 0, this.holdBack = 0, this.partTarget = 0, this.preloadHint = void 0, this.renditionReports = void 0, this.tuneInGoal = 0, this.deltaUpdateFailed = void 0, this.driftStartTime = 0, this.driftEndTime = 0, this.driftStart = 0, this.driftEnd = 0, this.encryptedFragments = void 0, this.playlistParsingError = null, this.variableList = null, this.hasVariableRefs = !1, this.appliedTimelineOffset = void 0, this.fragments = [], this.encryptedFragments = [], this.dateRanges = {}, this.url = e;
   }
@@ -6131,7 +6138,7 @@ class Gg {
     return this.fragments.length ? ee(this.fragments[this.fragments.length - 1].programDateTime) : !1;
   }
   get levelTargetDuration() {
-    return this.averagetargetduration || this.targetduration || Ug;
+    return this.averagetargetduration || this.targetduration || zg;
   }
   get drift() {
     const e = this.driftEndTime - this.driftStartTime;
@@ -6185,48 +6192,48 @@ class Gg {
 function Wn(n, e) {
   return n.length === e.length ? !n.some((t, i) => t !== e[i]) : !1;
 }
-function Po(n, e) {
+function Mo(n, e) {
   return !n && !e ? !0 : !n || !e ? !1 : Wn(n, e);
 }
 function bi(n) {
   return n === "AES-128" || n === "AES-256" || n === "AES-256-CTR";
 }
-function fa(n) {
+function pa(n) {
   switch (n) {
     case "AES-128":
     case "AES-256":
-      return Xt.cbc;
+      return Qt.cbc;
     case "AES-256-CTR":
-      return Xt.ctr;
+      return Qt.ctr;
     default:
       throw new Error(`invalid full segment method ${n}`);
   }
 }
-function pa(n) {
+function ga(n) {
   return Uint8Array.from(atob(n), (e) => e.charCodeAt(0));
 }
-function xs(n) {
+function Es(n) {
   return Uint8Array.from(unescape(encodeURIComponent(n)), (e) => e.charCodeAt(0));
 }
-function zg(n) {
-  const e = xs(n).subarray(0, 16), t = new Uint8Array(16);
+function Kg(n) {
+  const e = Es(n).subarray(0, 16), t = new Uint8Array(16);
   return t.set(e, 16 - e.length), t;
 }
-function _d(n) {
+function yd(n) {
   const e = function(i, r, s) {
     const a = i[r];
     i[r] = i[s], i[s] = a;
   };
   e(n, 0, 3), e(n, 1, 2), e(n, 4, 5), e(n, 6, 7);
 }
-function vd(n) {
+function bd(n) {
   const e = n.split(":");
   let t = null;
   if (e[0] === "data" && e.length === 2) {
     const i = e[1].split(";"), r = i[i.length - 1].split(",");
     if (r.length === 2) {
       const s = r[0] === "base64", a = r[1];
-      s ? (i.splice(-1, 1), t = pa(a)) : t = zg(a);
+      s ? (i.splice(-1, 1), t = ga(a)) : t = Kg(a);
     }
   }
   return t;
@@ -6255,7 +6262,7 @@ function Ln(n) {
       return Ne.CLEARKEY;
   }
 }
-function Cr(n) {
+function Dr(n) {
   switch (n) {
     case Ne.FAIRPLAY:
       return Je.FAIRPLAY;
@@ -6274,10 +6281,10 @@ function Pi(n) {
   } = n, i = e ? [Ne.FAIRPLAY, Ne.WIDEVINE, Ne.PLAYREADY, Ne.CLEARKEY].filter((r) => !!e[r]) : [];
   return !i[Ne.WIDEVINE] && t && i.push(Ne.WIDEVINE), i;
 }
-const yd = (function(n) {
+const xd = (function(n) {
   return Yn != null && (n = Yn.navigator) != null && n.requestMediaKeySystemAccess ? self.navigator.requestMediaKeySystemAccess.bind(self.navigator) : null;
 })();
-function Vg(n, e, t, i) {
+function Hg(n, e, t, i) {
   let r;
   switch (n) {
     case Ne.FAIRPLAY:
@@ -6293,9 +6300,9 @@ function Vg(n, e, t, i) {
     default:
       throw new Error(`Unknown key-system: ${n}`);
   }
-  return Kg(r, e, t, i);
+  return jg(r, e, t, i);
 }
-function Kg(n, e, t, i) {
+function jg(n, e, t, i) {
   return [{
     initDataTypes: n,
     persistentState: i.persistentState || "optional",
@@ -6313,23 +6320,23 @@ function Kg(n, e, t, i) {
     }))
   }];
 }
-function Hg(n) {
+function Wg(n) {
   var e;
   return !!n && (n.sessionType === "persistent-license" || !!((e = n.sessionTypes) != null && e.some((t) => t === "persistent-license")));
 }
-function bd(n) {
+function Ed(n) {
   const e = new Uint16Array(n.buffer, n.byteOffset, n.byteLength / 2), t = String.fromCharCode.apply(null, Array.from(e)), i = t.substring(t.indexOf("<"), t.length), a = new DOMParser().parseFromString(i, "text/xml").getElementsByTagName("KID")[0];
   if (a) {
     const o = a.childNodes[0] ? a.childNodes[0].nodeValue : a.getAttribute("VALUE");
     if (o) {
-      const d = pa(o).subarray(0, 16);
-      return _d(d), d;
+      const d = ga(o).subarray(0, 16);
+      return yd(d), d;
     }
   }
   return null;
 }
 let di = {};
-class Ht {
+class Wt {
   static clearKeyUriToKeyIdMap() {
     di = {};
   }
@@ -6341,10 +6348,10 @@ class Ht {
     return new DataView(i.buffer, 12, 4).setUint32(0, t), di[e] = i, i;
   }
   constructor(e, t, i, r = [1], s = null, a) {
-    this.uri = void 0, this.method = void 0, this.keyFormat = void 0, this.keyFormatVersions = void 0, this.encrypted = void 0, this.isCommonEncryption = void 0, this.iv = null, this.key = null, this.keyId = null, this.pssh = null, this.method = e, this.uri = t, this.keyFormat = i, this.keyFormatVersions = r, this.iv = s, this.encrypted = e ? e !== "NONE" : !1, this.isCommonEncryption = this.encrypted && !bi(e), a != null && a.startsWith("0x") && (this.keyId = new Uint8Array(Yc(a)));
+    this.uri = void 0, this.method = void 0, this.keyFormat = void 0, this.keyFormatVersions = void 0, this.encrypted = void 0, this.isCommonEncryption = void 0, this.iv = null, this.key = null, this.keyId = null, this.pssh = null, this.method = e, this.uri = t, this.keyFormat = i, this.keyFormatVersions = r, this.iv = s, this.encrypted = e ? e !== "NONE" : !1, this.isCommonEncryption = this.encrypted && !bi(e), a != null && a.startsWith("0x") && (this.keyId = new Uint8Array(Xc(a)));
   }
   matches(e) {
-    return e.uri === this.uri && e.method === this.method && e.encrypted === this.encrypted && e.keyFormat === this.keyFormat && Wn(e.keyFormatVersions, this.keyFormatVersions) && Po(e.iv, this.iv) && Po(e.keyId, this.keyId);
+    return e.uri === this.uri && e.method === this.method && e.encrypted === this.encrypted && e.keyFormat === this.keyFormat && Wn(e.keyFormatVersions, this.keyFormatVersions) && Mo(e.iv, this.iv) && Mo(e.keyId, this.keyId);
   }
   isSupported() {
     if (this.method) {
@@ -6367,30 +6374,30 @@ class Ht {
       return null;
     if (bi(this.method)) {
       let s = this.iv;
-      return s || (typeof e != "number" && (we.warn(`missing IV for initialization segment with method="${this.method}" - compliance issue`), e = 0), s = Wg(e)), new Ht(this.method, this.uri, "identity", this.keyFormatVersions, s);
+      return s || (typeof e != "number" && (we.warn(`missing IV for initialization segment with method="${this.method}" - compliance issue`), e = 0), s = qg(e)), new Wt(this.method, this.uri, "identity", this.keyFormatVersions, s);
     }
     if (this.keyId) {
       const s = di[this.uri];
-      if (s && !Wn(this.keyId, s) && Ht.setKeyIdForUri(this.uri, this.keyId), this.pssh)
+      if (s && !Wn(this.keyId, s) && Wt.setKeyIdForUri(this.uri, this.keyId), this.pssh)
         return this;
     }
-    const i = vd(this.uri);
+    const i = bd(this.uri);
     if (i)
       switch (this.keyFormat) {
         case Je.WIDEVINE:
           if (this.pssh = i, !this.keyId) {
-            const s = Xp(i.buffer);
+            const s = Zp(i.buffer);
             if (s.length) {
               var r;
               const a = s[0];
               this.keyId = (r = a.kids) != null && r.length ? a.kids[0] : null;
             }
           }
-          this.keyId || (this.keyId = Mo(t));
+          this.keyId || (this.keyId = Oo(t));
           break;
         case Je.PLAYREADY: {
           const s = new Uint8Array([154, 4, 240, 121, 152, 64, 66, 134, 171, 146, 230, 91, 224, 136, 95, 149]);
-          this.pssh = qp(s, null, i), this.keyId = bd(i);
+          this.pssh = Qp(s, null, i), this.keyId = Ed(i);
           break;
         }
         default: {
@@ -6405,38 +6412,38 @@ class Ht {
       }
     if (!this.keyId || this.keyId.byteLength !== 16) {
       let s;
-      s = jg(t), s || (s = Mo(t), s || (s = di[this.uri])), s && (this.keyId = s, Ht.setKeyIdForUri(this.uri, s));
+      s = Yg(t), s || (s = Oo(t), s || (s = di[this.uri])), s && (this.keyId = s, Wt.setKeyIdForUri(this.uri, s));
     }
     return this;
   }
 }
-function jg(n) {
+function Yg(n) {
   const e = n?.[Je.WIDEVINE];
   return e ? e.keyId : null;
 }
-function Mo(n) {
+function Oo(n) {
   const e = n?.[Je.PLAYREADY];
   if (e) {
-    const t = vd(e.uri);
+    const t = bd(e.uri);
     if (t)
-      return bd(t);
+      return Ed(t);
   }
   return null;
 }
-function Wg(n) {
+function qg(n) {
   const e = new Uint8Array(16);
   for (let t = 12; t < 16; t++)
     e[t] = n >> 8 * (15 - t) & 255;
   return e;
 }
-const Oo = /#EXT-X-STREAM-INF:([^\r\n]*)(?:[\r\n](?:#[^\r\n]*)?)*([^\r\n]+)|#EXT-X-(SESSION-DATA|SESSION-KEY|DEFINE|CONTENT-STEERING|START):([^\r\n]*)[\r\n]+/g, Fo = /#EXT-X-MEDIA:(.*)/g, Yg = /^#EXT(?:INF|-X-TARGETDURATION):/m, Dr = new RegExp([
+const Fo = /#EXT-X-STREAM-INF:([^\r\n]*)(?:[\r\n](?:#[^\r\n]*)?)*([^\r\n]+)|#EXT-X-(SESSION-DATA|SESSION-KEY|DEFINE|CONTENT-STEERING|START):([^\r\n]*)[\r\n]+/g, No = /#EXT-X-MEDIA:(.*)/g, Xg = /^#EXT(?:INF|-X-TARGETDURATION):/m, Pr = new RegExp([
   /#EXTINF:\s*(\d*(?:\.\d+)?)(?:,(.*)\s+)?/.source,
   // duration (#EXTINF:<duration>,<title>), group 1 => duration, group 2 => title
   /(?!#) *(\S[^\r\n]*)/.source,
   // segment URI, group 3 => the URI (note newline is not eaten)
   /#.*/.source
   // All other non-segment oriented tags will match with all groups empty
-].join("|"), "g"), qg = new RegExp([/#EXT-X-(PROGRAM-DATE-TIME|BYTERANGE|DATERANGE|DEFINE|KEY|MAP|PART|PART-INF|PLAYLIST-TYPE|PRELOAD-HINT|RENDITION-REPORT|SERVER-CONTROL|SKIP|START):(.+)/.source, /#EXT-X-(BITRATE|DISCONTINUITY-SEQUENCE|MEDIA-SEQUENCE|TARGETDURATION|VERSION): *(\d+)/.source, /#EXT-X-(DISCONTINUITY|ENDLIST|GAP|INDEPENDENT-SEGMENTS)/.source, /(#)([^:]*):(.*)/.source, /(#)(.*)(?:.*)\r?\n?/.source].join("|"));
+].join("|"), "g"), Qg = new RegExp([/#EXT-X-(PROGRAM-DATE-TIME|BYTERANGE|DATERANGE|DEFINE|KEY|MAP|PART|PART-INF|PLAYLIST-TYPE|PRELOAD-HINT|RENDITION-REPORT|SERVER-CONTROL|SKIP|START):(.+)/.source, /#EXT-X-(BITRATE|DISCONTINUITY-SEQUENCE|MEDIA-SEQUENCE|TARGETDURATION|VERSION): *(\d+)/.source, /#EXT-X-(DISCONTINUITY|ENDLIST|GAP|INDEPENDENT-SEGMENTS)/.source, /(#)([^:]*):(.*)/.source, /(#)(.*)(?:.*)\r?\n?/.source].join("|"));
 class At {
   static findGroup(e, t) {
     for (let i = 0; i < e.length; i++) {
@@ -6446,15 +6453,15 @@ class At {
     }
   }
   static resolve(e, t) {
-    return sa.buildAbsoluteURL(t, e, {
+    return aa.buildAbsoluteURL(t, e, {
       alwaysNormalize: !0
     });
   }
   static isMediaPlaylist(e) {
-    return Yg.test(e);
+    return Xg.test(e);
   }
   static parseMasterPlaylist(e, t) {
-    const i = Ro(e), r = {
+    const i = Co(e), r = {
       contentSteering: null,
       levels: [],
       playlistParsingError: null,
@@ -6464,21 +6471,21 @@ class At {
       variableList: null,
       hasVariableRefs: i
     }, s = [];
-    if (Oo.lastIndex = 0, !e.startsWith("#EXTM3U"))
+    if (Fo.lastIndex = 0, !e.startsWith("#EXTM3U"))
       return r.playlistParsingError = new Error("no EXTM3U delimiter"), r;
     let a;
-    for (; (a = Oo.exec(e)) != null; )
+    for (; (a = Fo.exec(e)) != null; )
       if (a[1]) {
         var o;
-        const c = new Fe(a[1], r), u = bs(r, a[2]), h = {
+        const c = new Fe(a[1], r), u = xs(r, a[2]), h = {
           attrs: c,
           bitrate: c.decimalInteger("BANDWIDTH") || c.decimalInteger("AVERAGE-BANDWIDTH"),
           name: c.NAME,
           url: At.resolve(u, t)
         }, f = c.decimalResolution("RESOLUTION");
-        f && (h.width = f.width, h.height = f.height), Bo(c.CODECS, h);
+        f && (h.width = f.width, h.height = f.height), Uo(c.CODECS, h);
         const p = c["SUPPLEMENTAL-CODECS"];
-        p && (h.supplemental = {}, Bo(p, h.supplemental)), (o = h.unknownCodecs) != null && o.length || s.push(h), r.levels.push(h);
+        p && (h.supplemental = {}, Uo(p, h.supplemental)), (o = h.unknownCodecs) != null && o.length || s.push(h), r.levels.push(h);
       } else if (a[3]) {
         const c = a[3], u = a[4];
         switch (c) {
@@ -6488,14 +6495,14 @@ class At {
             break;
           }
           case "SESSION-KEY": {
-            const h = No(u, t, r);
+            const h = $o(u, t, r);
             h.encrypted && h.isSupported() ? (r.sessionKeys === null && (r.sessionKeys = []), r.sessionKeys.push(h)) : we.warn(`[Keys] Ignoring invalid EXT-X-SESSION-KEY tag: "${u}"`);
             break;
           }
           case "DEFINE": {
             {
               const h = new Fe(u, r);
-              Co(r, h, t);
+              Do(r, h, t);
             }
             break;
           }
@@ -6508,7 +6515,7 @@ class At {
             break;
           }
           case "START": {
-            r.startTimeOffset = $o(u);
+            r.startTimeOffset = Bo(u);
             break;
           }
         }
@@ -6530,7 +6537,7 @@ class At {
       "CLOSED-CAPTIONS": []
     };
     let d = 0;
-    for (Fo.lastIndex = 0; (r = Fo.exec(e)) !== null; ) {
+    for (No.lastIndex = 0; (r = No.exec(e)) !== null; ) {
       const c = new Fe(r[1], i), u = c.TYPE;
       if (u) {
         const h = o[u], f = s[u] || [];
@@ -6550,7 +6557,7 @@ class At {
         };
         if (g && (b.assocLang = g), _ && (b.channels = _), m && (b.characteristics = m), v && (b.instreamId = v), h != null && h.length) {
           const x = At.findGroup(h, b.groupId) || h[0];
-          Uo(b, x, "audioCodec"), Uo(b, x, "textCodec");
+          Go(b, x, "audioCodec"), Go(b, x, "textCodec");
         }
         f.push(b);
       }
@@ -6561,25 +6568,25 @@ class At {
     var o;
     const d = {
       url: t
-    }, c = new Gg(t), u = c.fragments, h = [];
-    let f = null, p = 0, g = 0, _ = 0, m = 0, v = 0, b = null, x = new Ir(r, d), E, T, w, S = -1, k = !1, I = null, A;
-    if (Dr.lastIndex = 0, c.m3u8 = e, c.hasVariableRefs = Ro(e), ((o = Dr.exec(e)) == null ? void 0 : o[0]) !== "#EXTM3U")
+    }, c = new Vg(t), u = c.fragments, h = [];
+    let f = null, p = 0, g = 0, _ = 0, m = 0, v = 0, b = null, x = new Lr(r, d), E, T, w, S = -1, k = !1, I = null, A;
+    if (Pr.lastIndex = 0, c.m3u8 = e, c.hasVariableRefs = Co(e), ((o = Pr.exec(e)) == null ? void 0 : o[0]) !== "#EXTM3U")
       return c.playlistParsingError = new Error("Missing format identifier #EXTM3U"), c;
-    for (; (E = Dr.exec(e)) !== null; ) {
-      k && (k = !1, x = new Ir(r, d), x.playlistOffset = _, x.setStart(_), x.sn = p, x.cc = m, v && (x.bitrate = v), x.level = i, f && (x.initSegment = f, f.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime, f.rawProgramDateTime = null), I && (x.setByteRange(I), I = null)));
-      const K = E[1];
-      if (K) {
-        x.duration = parseFloat(K);
+    for (; (E = Pr.exec(e)) !== null; ) {
+      k && (k = !1, x = new Lr(r, d), x.playlistOffset = _, x.setStart(_), x.sn = p, x.cc = m, v && (x.bitrate = v), x.level = i, f && (x.initSegment = f, f.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime, f.rawProgramDateTime = null), I && (x.setByteRange(I), I = null)));
+      const H = E[1];
+      if (H) {
+        x.duration = parseFloat(H);
         const V = (" " + E[2]).slice(1);
-        x.title = V || null, x.tagList.push(V ? ["INF", K, V] : ["INF", K]);
+        x.title = V || null, x.tagList.push(V ? ["INF", H, V] : ["INF", H]);
       } else if (E[3]) {
         if (ee(x.duration)) {
-          x.playlistOffset = _, x.setStart(_), w && zo(x, w, c), x.sn = p, x.level = i, x.cc = m, u.push(x);
+          x.playlistOffset = _, x.setStart(_), w && Vo(x, w, c), x.sn = p, x.level = i, x.cc = m, u.push(x);
           const V = (" " + E[3]).slice(1);
-          x.relurl = bs(c, V), Es(x, b, h), b = x, _ += x.duration, p++, g = 0, k = !0;
+          x.relurl = xs(c, V), Ss(x, b, h), b = x, _ += x.duration, p++, g = 0, k = !0;
         }
       } else {
-        if (E = E[0].match(qg), !E) {
+        if (E = E[0].match(Qg), !E) {
           we.warn("No matches on slow regex match for level playlist!");
           continue;
         }
@@ -6597,7 +6604,7 @@ class At {
             c.type && Ct(c, V, E), c.type = R.toUpperCase();
             break;
           case "MEDIA-SEQUENCE":
-            c.startSN !== 0 ? Ct(c, V, E) : u.length > 0 && Vo(c, V, E), p = c.startSN = parseInt(R);
+            c.startSN !== 0 ? Ct(c, V, E) : u.length > 0 && Ko(c, V, E), p = c.startSN = parseInt(R);
             break;
           case "SKIP": {
             c.skippedSegments && Ct(c, V, E);
@@ -6636,22 +6643,22 @@ class At {
             x.tagList.push([V, R]), v = parseInt(R) * 1e3, ee(v) ? x.bitrate = v : v = 0;
             break;
           case "DATERANGE": {
-            const L = new Fe(R, c), N = new md(L, c.dateRanges[L.ID], c.dateRangeTagCount);
+            const L = new Fe(R, c), N = new vd(L, c.dateRanges[L.ID], c.dateRangeTagCount);
             c.dateRangeTagCount++, N.isValid || c.skippedSegments ? c.dateRanges[N.id] = N : we.warn(`Ignoring invalid DATERANGE tag: "${R}"`), x.tagList.push(["EXT-X-DATERANGE", R]);
             break;
           }
           case "DEFINE": {
             {
               const L = new Fe(R, c);
-              "IMPORT" in L ? Og(c, L, a) : Co(c, L, t);
+              "IMPORT" in L ? Ng(c, L, a) : Do(c, L, t);
             }
             break;
           }
           case "DISCONTINUITY-SEQUENCE":
-            c.startCC !== 0 ? Ct(c, V, E) : u.length > 0 && Vo(c, V, E), c.startCC = m = parseInt(R);
+            c.startCC !== 0 ? Ct(c, V, E) : u.length > 0 && Ko(c, V, E), c.startCC = m = parseInt(R);
             break;
           case "KEY": {
-            const L = No(R, t, c);
+            const L = $o(R, t, c);
             if (L.isSupported()) {
               if (L.method === "NONE") {
                 w = void 0;
@@ -6665,13 +6672,13 @@ class At {
             break;
           }
           case "START":
-            c.startTimeOffset = $o(R);
+            c.startTimeOffset = Bo(R);
             break;
           case "MAP": {
             const L = new Fe(R, c);
             if (x.duration) {
-              const N = new Ir(r, d);
-              Go(N, L, i, w), f = N, x.initSegment = f, f.rawProgramDateTime && !x.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime);
+              const N = new Lr(r, d);
+              zo(N, L, i, w), f = N, x.initSegment = f, f.rawProgramDateTime && !x.rawProgramDateTime && (x.rawProgramDateTime = f.rawProgramDateTime);
             } else {
               const N = x.byteRangeEndOffset;
               if (N) {
@@ -6679,7 +6686,7 @@ class At {
                 I = `${N - j}@${j}`;
               } else
                 I = null;
-              Go(x, L, i, w), f = x, k = !0;
+              zo(x, L, i, w), f = x, k = !0;
             }
             f.cc = m;
             break;
@@ -6697,7 +6704,7 @@ class At {
           case "PART": {
             let L = c.partList;
             L || (L = c.partList = []);
-            const N = g > 0 ? L[L.length - 1] : void 0, j = g++, $ = new Fe(R, c), B = new Op($, x, d, j, N);
+            const N = g > 0 ? L[L.length - 1] : void 0, j = g++, $ = new Fe(R, c), B = new Np($, x, d, j, N);
             L.push(B), x.duration += B.duration;
             break;
           }
@@ -6717,17 +6724,17 @@ class At {
         }
       }
     }
-    b && !b.relurl ? (u.pop(), _ -= b.duration, c.partList && (c.fragmentHint = b)) : c.partList && (Es(x, b, h), x.cc = m, c.fragmentHint = x, w && zo(x, w, c)), c.targetduration || (c.playlistParsingError = new Error("Missing Target Duration"));
+    b && !b.relurl ? (u.pop(), _ -= b.duration, c.partList && (c.fragmentHint = b)) : c.partList && (Ss(x, b, h), x.cc = m, c.fragmentHint = x, w && Vo(x, w, c)), c.targetduration || (c.playlistParsingError = new Error("Missing Target Duration"));
     const C = u.length, M = u[0], G = u[C - 1];
     if (_ += c.skippedSegments * c.targetduration, _ > 0 && C && G) {
       c.averagetargetduration = _ / C;
-      const K = G.sn;
-      c.endSN = K !== "initSegment" ? K : 0, c.live || (G.endList = !0), S > 0 && (Qg(u, S), M && h.unshift(M));
+      const H = G.sn;
+      c.endSN = H !== "initSegment" ? H : 0, c.live || (G.endList = !0), S > 0 && (Jg(u, S), M && h.unshift(M));
     }
-    return c.fragmentHint && (_ += c.fragmentHint.duration), c.totalduration = _, h.length && c.dateRangeTagCount && M && xd(h, c), c.endCC = m, c;
+    return c.fragmentHint && (_ += c.fragmentHint.duration), c.totalduration = _, h.length && c.dateRangeTagCount && M && Sd(h, c), c.endCC = m, c;
   }
 }
-function xd(n, e) {
+function Sd(n, e) {
   let t = n.length;
   if (!t)
     if (e.hasProgramDateTime) {
@@ -6743,7 +6750,7 @@ function xd(n, e) {
       var a;
       if (((a = n[u]) == null ? void 0 : a.sn) < e.startSN)
         break;
-      const h = Xg(e, c, n, u, r);
+      const h = Zg(e, c, n, u, r);
       if (h !== -1) {
         d.tagAnchor = e.fragments[h].ref;
         break;
@@ -6751,7 +6758,7 @@ function xd(n, e) {
     }
   }
 }
-function Xg(n, e, t, i, r) {
+function Zg(n, e, t, i, r) {
   const s = t[i];
   if (s) {
     const o = s.programDateTime;
@@ -6777,29 +6784,29 @@ function Xg(n, e, t, i, r) {
   }
   return -1;
 }
-function No(n, e, t) {
+function $o(n, e, t) {
   var i, r;
   const s = new Fe(n, t), a = (i = s.METHOD) != null ? i : "", o = s.URI, d = s.hexadecimalInteger("IV"), c = s.KEYFORMATVERSIONS, u = (r = s.KEYFORMAT) != null ? r : "identity";
   o && s.IV && !d && we.error(`Invalid IV: ${s.IV}`);
   const h = o ? At.resolve(o, e) : "", f = (c || "1").split("/").map(Number).filter(Number.isFinite);
-  return new Ht(a, h, u, f, d, s.KEYID);
+  return new Wt(a, h, u, f, d, s.KEYID);
 }
-function $o(n) {
+function Bo(n) {
   const t = new Fe(n).decimalFloatingPoint("TIME-OFFSET");
   return ee(t) ? t : null;
 }
-function Bo(n, e) {
+function Uo(n, e) {
   let t = (n || "").split(/[ ,]+/).filter((i) => i);
   ["video", "audio", "text"].forEach((i) => {
-    const r = t.filter((s) => la(s, i));
+    const r = t.filter((s) => ca(s, i));
     r.length && (e[`${i}Codec`] = r.map((s) => s.split("/")[0]).join(","), t = t.filter((s) => r.indexOf(s) === -1));
   }), e.unknownCodecs = t;
 }
-function Uo(n, e, t) {
+function Go(n, e, t) {
   const i = e[t];
   i && (n[t] = i);
 }
-function Qg(n, e) {
+function Jg(n, e) {
   let t = n[e];
   for (let i = e; i--; ) {
     const r = n[i];
@@ -6808,13 +6815,13 @@ function Qg(n, e) {
     r.programDateTime = t.programDateTime - r.duration * 1e3, t = r;
   }
 }
-function Es(n, e, t) {
+function Ss(n, e, t) {
   n.rawProgramDateTime ? t.push(n) : e != null && e.programDateTime && (n.programDateTime = e.endProgramDateTime);
 }
-function Go(n, e, t, i) {
+function zo(n, e, t, i) {
   n.relurl = e.URI, e.BYTERANGE && n.setByteRange(e.BYTERANGE), n.level = t, n.sn = "initSegment", i && (n.levelkeys = i), n.initSegment = null;
 }
-function zo(n, e, t) {
+function Vo(n, e, t) {
   n.levelkeys = e;
   const {
     encryptedFragments: i
@@ -6824,17 +6831,17 @@ function zo(n, e, t) {
 function Ct(n, e, t) {
   n.playlistParsingError = new Error(`#EXT-X-${e} must not appear more than once (${t[0]})`);
 }
-function Vo(n, e, t) {
+function Ko(n, e, t) {
   n.playlistParsingError = new Error(`#EXT-X-${e} must appear before the first Media Segment (${t[0]})`);
 }
-function Pr(n, e) {
+function Mr(n, e) {
   const t = e.startPTS;
   if (ee(t)) {
     let i = 0, r;
     e.sn > n.sn ? (i = t - n.start, r = n) : (i = n.start - t, r = e), r.duration !== i && r.setDuration(i);
   } else e.sn > n.sn ? n.cc === e.cc && n.minEndPTS ? e.setStart(n.start + (n.minEndPTS - n.start)) : e.setStart(n.start + n.duration) : e.setStart(Math.max(n.start - e.duration, 0));
 }
-function Ed(n, e, t, i, r, s, a) {
+function Td(n, e, t, i, r, s, a) {
   i - t <= 0 && (a.warn("Fragment should have a positive duration", e), i = t + e.duration, s = r + e.duration);
   let d = t, c = i;
   const u = e.startPTS, h = e.endPTS;
@@ -6850,12 +6857,12 @@ function Ed(n, e, t, i, r, s, a) {
   let g;
   const _ = p - n.startSN, m = n.fragments;
   for (m[_] = e, g = _; g > 0; g--)
-    Pr(m[g], m[g - 1]);
+    Mr(m[g], m[g - 1]);
   for (g = _; g < m.length - 1; g++)
-    Pr(m[g], m[g + 1]);
-  return n.fragmentHint && Pr(m[m.length - 1], n.fragmentHint), n.PTSKnown = n.alignedSliding = !0, f;
+    Mr(m[g], m[g + 1]);
+  return n.fragmentHint && Mr(m[m.length - 1], n.fragmentHint), n.PTSKnown = n.alignedSliding = !0, f;
 }
-function Zg(n, e, t) {
+function em(n, e, t) {
   if (n === e)
     return;
   let i = null;
@@ -6869,7 +6876,7 @@ function Zg(n, e, t) {
   }
   n.fragmentHint && delete n.fragmentHint.endPTS;
   let s;
-  tm(n, e, (u, h, f, p) => {
+  nm(n, e, (u, h, f, p) => {
     if ((!e.startCC || e.skippedSegments) && h.cc !== u.cc) {
       const g = u.cc - h.cc;
       for (let _ = f; _ < p.length; _++)
@@ -6889,23 +6896,23 @@ function Zg(n, e, t) {
         a.shift();
       e.startSN = a[0].sn;
     } else {
-      e.canSkipDateRanges && (e.dateRanges = Jg(n.dateRanges, e, t));
+      e.canSkipDateRanges && (e.dateRanges = tm(n.dateRanges, e, t));
       const u = n.fragments.filter((h) => h.rawProgramDateTime);
       if (n.hasProgramDateTime && !e.hasProgramDateTime)
         for (let h = 1; h < o.length; h++)
-          o[h].programDateTime === null && Es(o[h], o[h - 1], u);
-      xd(u, e);
+          o[h].programDateTime === null && Ss(o[h], o[h - 1], u);
+      Sd(u, e);
     }
     e.endCC = a[a.length - 1].cc;
   }
   if (!e.startCC) {
     var d;
-    const u = kd(n, e.startSN - 1);
+    const u = Ad(n, e.startSN - 1);
     e.startCC = (d = u?.cc) != null ? d : a[0].cc;
   }
-  em(n.partList, e.partList, (u, h) => {
+  im(n.partList, e.partList, (u, h) => {
     h.elementaryStreams = u.elementaryStreams, h.stats = u.stats;
-  }), s ? Ed(e, s, s.startPTS, s.endPTS, s.startDTS, s.endDTS, t) : Sd(n, e), a.length && (e.totalduration = e.edge - a[0].start), e.driftStartTime = n.driftStartTime, e.driftStart = n.driftStart;
+  }), s ? Td(e, s, s.startPTS, s.endPTS, s.startDTS, s.endDTS, t) : kd(n, e), a.length && (e.totalduration = e.edge - a[0].start), e.driftStartTime = n.driftStartTime, e.driftStart = n.driftStart;
   const c = e.advancedDateTime;
   if (e.advanced && c) {
     const u = e.edge;
@@ -6914,7 +6921,7 @@ function Zg(n, e, t) {
     e.driftEndTime = n.driftEndTime, e.driftEnd = n.driftEnd, e.advancedDateTime = n.advancedDateTime;
   e.requestScheduled === -1 && (e.requestScheduled = n.requestScheduled);
 }
-function Jg(n, e, t) {
+function tm(n, e, t) {
   const {
     dateRanges: i,
     recentlyRemovedDateranges: r
@@ -6924,11 +6931,11 @@ function Jg(n, e, t) {
   });
   const o = Object.keys(s).length;
   return o ? (Object.keys(i).forEach((d) => {
-    const c = s[d], u = new md(i[d].attr, c);
+    const c = s[d], u = new vd(i[d].attr, c);
     u.isValid ? (s[d] = u, c || (u.tagOrder += o)) : t.warn(`Ignoring invalid Playlist Delta Update DATERANGE tag: "${Re(i[d].attr)}"`);
   }), s) : i;
 }
-function em(n, e, t) {
+function im(n, e, t) {
   if (n && e) {
     let i = 0;
     for (let r = 0, s = n.length; r <= s; r++) {
@@ -6937,7 +6944,7 @@ function em(n, e, t) {
     }
   }
 }
-function tm(n, e, t) {
+function nm(n, e, t) {
   const i = e.skippedSegments, r = Math.max(n.startSN, e.startSN) - e.startSN, s = (n.fragmentHint ? 1 : 0) + (i ? e.endSN : Math.min(n.endSN, e.endSN)) - e.startSN, a = e.startSN - n.startSN, o = e.fragmentHint ? e.fragments.concat(e.fragmentHint) : e.fragments, d = n.fragmentHint ? n.fragments.concat(n.fragmentHint) : n.fragments;
   for (let c = r; c <= s; c++) {
     const u = d[a + c];
@@ -6945,17 +6952,17 @@ function tm(n, e, t) {
     if (i && !h && u && (h = e.fragments[c] = u), u && h) {
       t(u, h, c, o);
       const f = u.relurl, p = h.relurl;
-      if (f && im(f, p)) {
-        e.playlistParsingError = Ko(`media sequence mismatch ${h.sn}:`, n, e, u, h);
+      if (f && rm(f, p)) {
+        e.playlistParsingError = Ho(`media sequence mismatch ${h.sn}:`, n, e, u, h);
         return;
       } else if (u.cc !== h.cc) {
-        e.playlistParsingError = Ko(`discontinuity sequence mismatch (${u.cc}!=${h.cc})`, n, e, u, h);
+        e.playlistParsingError = Ho(`discontinuity sequence mismatch (${u.cc}!=${h.cc})`, n, e, u, h);
         return;
       }
     }
   }
 }
-function Ko(n, e, t, i, r) {
+function Ho(n, e, t, i, r) {
   return new Error(`${n} ${r.url}
 Playlist starting @${e.startSN}
 ${e.m3u8}
@@ -6963,7 +6970,7 @@ ${e.m3u8}
 Playlist starting @${t.startSN}
 ${t.m3u8}`);
 }
-function Sd(n, e, t = !0) {
+function kd(n, e, t = !0) {
   const i = e.startSN + e.skippedSegments - n.startSN, r = n.fragments, s = i >= 0;
   let a = 0;
   if (s && i < r.length)
@@ -6976,9 +6983,9 @@ function Sd(n, e, t = !0) {
     a = n.fragmentStart;
   else
     return;
-  Ss(e, a);
+  Ts(e, a);
 }
-function Ss(n, e) {
+function Ts(n, e) {
   if (e) {
     const t = n.fragments;
     for (let i = n.skippedSegments; i < t.length; i++)
@@ -6986,7 +6993,7 @@ function Ss(n, e) {
     n.fragmentHint && n.fragmentHint.addStart(e);
   }
 }
-function Td(n, e = 1 / 0) {
+function wd(n, e = 1 / 0) {
   let t = 1e3 * n.targetduration;
   if (n.updated) {
     const i = n.fragments;
@@ -6998,16 +7005,16 @@ function Td(n, e = 1 / 0) {
     t /= 2;
   return Math.round(t);
 }
-function kd(n, e, t) {
+function Ad(n, e, t) {
   if (!n)
     return null;
   let i = n.fragments[e - n.startSN];
   return i || (i = n.fragmentHint, i && i.sn === e) ? i : e < n.startSN && t && t.sn === e ? t : null;
 }
-function Ho(n, e, t) {
-  return n ? wd(n.partList, e, t) : null;
+function jo(n, e, t) {
+  return n ? Id(n.partList, e, t) : null;
 }
-function wd(n, e, t) {
+function Id(n, e, t) {
   if (n)
     for (let i = n.length; i--; ) {
       const r = n[i];
@@ -7016,7 +7023,7 @@ function wd(n, e, t) {
     }
   return null;
 }
-function Ad(n) {
+function Ld(n) {
   n.forEach((e, t) => {
     var i;
     (i = e.details) == null || i.fragments.forEach((r) => {
@@ -7024,10 +7031,10 @@ function Ad(n) {
     });
   });
 }
-function im(n, e) {
-  return n !== e && e ? jo(n) !== jo(e) : !1;
+function rm(n, e) {
+  return n !== e && e ? Wo(n) !== Wo(e) : !1;
 }
-function jo(n) {
+function Wo(n) {
   return n.replace(/\?[^?]*$/, "");
 }
 function Ni(n, e) {
@@ -7038,31 +7045,31 @@ function Ni(n, e) {
   }
   return null;
 }
-function nm(n, e) {
+function sm(n, e) {
   return !!(n && e.startCC < n.endCC && e.endCC > n.startCC);
 }
-function Wo(n, e) {
+function Yo(n, e) {
   const t = n.start + e;
   n.startPTS = t, n.setStart(t), n.endPTS = t + n.duration;
 }
-function Id(n, e) {
+function Rd(n, e) {
   const t = e.fragments;
   for (let i = 0, r = t.length; i < r; i++)
-    Wo(t[i], n);
-  e.fragmentHint && Wo(e.fragmentHint, n), e.alignedSliding = !0;
+    Yo(t[i], n);
+  e.fragmentHint && Yo(e.fragmentHint, n), e.alignedSliding = !0;
 }
-function rm(n, e) {
-  n && (Ld(e, n), e.alignedSliding || qn(e, n), !e.alignedSliding && !e.skippedSegments && Sd(n, e, !1));
+function am(n, e) {
+  n && (Cd(e, n), e.alignedSliding || qn(e, n), !e.alignedSliding && !e.skippedSegments && kd(n, e, !1));
 }
-function Ld(n, e) {
-  if (!nm(e, n))
+function Cd(n, e) {
+  if (!sm(e, n))
     return;
   const t = Math.min(e.endCC, n.endCC), i = Ni(e.fragments, t), r = Ni(n.fragments, t);
   if (!i || !r)
     return;
   we.log(`Aligning playlist at start of dicontinuity sequence ${t}`);
   const s = i.start - r.start;
-  Id(s, n);
+  Rd(s, n);
 }
 function qn(n, e) {
   if (!n.hasProgramDateTime || !e.hasProgramDateTime)
@@ -7077,7 +7084,7 @@ function qn(n, e) {
   if (!o || !d)
     return;
   const c = (d - o) / 1e3 - (s.start - r.start);
-  Id(c, n);
+  Rd(c, n);
 }
 function tt(n, e, t) {
   rt(n, e, t), n.addEventListener(e, t);
@@ -7085,7 +7092,7 @@ function tt(n, e, t) {
 function rt(n, e, t) {
   n.removeEventListener(e, t);
 }
-const sm = {
+const om = {
   toString: function(n) {
     let e = "";
     const t = n.length;
@@ -7107,7 +7114,7 @@ const sm = {
   WAITING_INIT_PTS: "WAITING_INIT_PTS",
   WAITING_LEVEL: "WAITING_LEVEL"
 };
-class ga extends pd {
+class ma extends md {
   constructor(e, t, i, r, s) {
     super(r, e.logger), this.hls = void 0, this.fragPrevious = null, this.fragCurrent = null, this.fragmentTracker = void 0, this.transmuxer = null, this._state = U.STOPPED, this.playlistType = void 0, this.media = null, this.mediaBuffer = null, this.config = void 0, this.bitrateTest = !1, this.lastCurrentTime = 0, this.nextLoadPosition = 0, this.startPosition = 0, this.startTimeOffset = null, this.retryDate = 0, this.levels = null, this.fragmentLoader = void 0, this.keyLoader = void 0, this.levelLastLoaded = null, this.startFragRequested = !1, this.decrypter = void 0, this.initPTS = [], this.buffering = !0, this.loadingParts = !1, this.loopSn = void 0, this.onMediaSeeking = () => {
       const {
@@ -7137,7 +7144,7 @@ class ga extends pd {
       this.hls.hasEnoughToStart || (this.log(`Setting ${p ? "startPosition" : "nextLoadPosition"} to ${h} for seek without enough to start`), this.nextLoadPosition = h, p && (this.startPosition = h)), p && this.state === U.IDLE && this.tickImmediate();
     }, this.onMediaEnded = () => {
       this.log("setting startPosition to 0 because media ended"), this.startPosition = this.lastCurrentTime = 0;
-    }, this.playlistType = s, this.hls = e, this.fragmentLoader = new Pg(e.config), this.keyLoader = i, this.fragmentTracker = t, this.config = e.config, this.decrypter = new ua(e.config);
+    }, this.playlistType = s, this.hls = e, this.fragmentLoader = new Og(e.config), this.keyLoader = i, this.fragmentTracker = t, this.config = e.config, this.decrypter = new ha(e.config);
   }
   registerListeners() {
     const {
@@ -7329,7 +7336,7 @@ class ga extends pd {
       } = i, o = s.decryptdata;
       if (a && a.byteLength > 0 && o != null && o.key && o.iv && bi(o.method)) {
         const d = self.performance.now();
-        return this.decrypter.decrypt(new Uint8Array(a), o.key.buffer, o.iv.buffer, fa(o.method)).catch((c) => {
+        return this.decrypter.decrypt(new Uint8Array(a), o.key.buffer, o.iv.buffer, pa(o.method)).catch((c) => {
           throw r.trigger(y.ERROR, {
             type: re.MEDIA_ERROR,
             details: P.FRAG_DECRYPT_ERROR,
@@ -7387,7 +7394,7 @@ class ga extends pd {
   }
   fragBufferedComplete(e, t) {
     const i = this.mediaBuffer ? this.mediaBuffer : this.media;
-    if (this.log(`Buffered ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)} > buffer:${i ? sm.toString(fe.getBuffered(i)) : "(detached)"})`), Ge(e)) {
+    if (this.log(`Buffered ${e.type} sn: ${e.sn}${t ? " part: " + t.index : ""} of ${this.fragInfo(e, !1, t)} > buffer:${i ? om.toString(fe.getBuffered(i)) : "(detached)"})`), Ge(e)) {
       var r;
       if (e.type !== ne.SUBTITLE) {
         const a = e.elementaryStreams;
@@ -7411,7 +7418,7 @@ class ga extends pd {
       frag: i,
       part: r,
       partsLoaded: s
-    } = e, a = !s || s.length === 0 || s.some((d) => !d), o = new ha(i.level, i.sn, i.stats.chunkCount + 1, 0, r ? r.index : -1, !a);
+    } = e, a = !s || s.length === 0 || s.some((d) => !d), o = new fa(i.level, i.sn, i.stats.chunkCount + 1, 0, r ? r.index : -1, !a);
     t.flush(o);
   }
   _handleFragmentLoadProgress(e) {
@@ -7476,7 +7483,7 @@ class ga extends pd {
           d[h.index] = f;
           const p = f.part;
           this.hls.trigger(y.FRAG_LOADED, f);
-          const g = Ho(i.details, e.sn, h.index + 1) || wd(c, e.sn, h.index + 1);
+          const g = jo(i.details, e.sn, h.index + 1) || Id(c, e.sn, h.index + 1);
           if (g)
             u(g);
           else
@@ -7549,7 +7556,7 @@ class ga extends pd {
     } = e;
     if (!(t != null && t[r]))
       return this.warn(`Levels object was unset while buffering fragment ${s} of ${this.playlistLabel()} ${r}. The current chunk will not be buffered.`), null;
-    const o = t[r], d = o.details, c = a > -1 ? Ho(d, s, a) : null, u = c ? c.fragment : kd(d, s, i);
+    const o = t[r], d = o.details, c = a > -1 ? jo(d, s, a) : null, u = c ? c.fragment : Ad(d, s, i);
     return u ? (i && i !== u && (u.stats = i.stats), {
       frag: u,
       part: c,
@@ -7689,7 +7696,7 @@ class ga extends pd {
     return this.loopSn = void 0, a;
   }
   get primaryPrefetch() {
-    if (Yo(this.config)) {
+    if (qo(this.config)) {
       var e;
       if ((e = this.hls.interstitialsManager) == null || (e = e.playingItem) == null ? void 0 : e.event)
         return !0;
@@ -7699,7 +7706,7 @@ class ga extends pd {
   filterReplacedPrimary(e, t) {
     if (!e)
       return e;
-    if (Yo(this.config) && e.type !== ne.SUBTITLE) {
+    if (qo(this.config) && e.type !== ne.SUBTITLE) {
       const i = this.hls.interstitialsManager, r = i?.bufferingItem;
       if (r) {
         const a = r.event;
@@ -7752,13 +7759,13 @@ class ga extends pd {
     const t = e.fragments, i = this.fragPrevious;
     let r = null;
     if (i) {
-      if (e.hasProgramDateTime && (r = xg(t, i.endProgramDateTime, this.config.maxFragLookUpTolerance), r && this.log(`Live playlist, switching playlist, load frag with same PDT: ${i.programDateTime}`)), !r) {
+      if (e.hasProgramDateTime && (r = Sg(t, i.endProgramDateTime, this.config.maxFragLookUpTolerance), r && this.log(`Live playlist, switching playlist, load frag with same PDT: ${i.programDateTime}`)), !r) {
         const s = i.sn + 1;
         if (s >= e.startSN && s <= e.endSN) {
           const a = t[s - e.startSN];
           i.cc === a.cc && (r = a, this.log(`Live playlist, switching playlist, load frag with next SN: ${r.sn}`));
         }
-        r || (r = ud(e, i.cc, i.end), r && this.log(`Live playlist, switching playlist, load frag with same CC: ${r.sn}`));
+        r || (r = fd(e, i.cc, i.end), r && this.log(`Live playlist, switching playlist, load frag with same CC: ${r.sn}`));
       }
     } else {
       const s = this.hls.liveSyncPosition;
@@ -7807,7 +7814,7 @@ class ga extends pd {
       return this.warn("No fragments in live playlist"), 0;
     const s = e.fragmentStart, a = !t, o = e.alignedSliding && ee(s);
     if (a || !o && !s) {
-      rm(i, e);
+      am(i, e);
       const d = e.fragmentStart;
       return this.log(`Live playlist sliding: ${d.toFixed(2)} start-sn: ${t ? t.startSN : "na"}->${e.startSN} fragments: ${r}`), d;
     }
@@ -7867,11 +7874,11 @@ class ga extends pd {
       retryCount: u = 0,
       retryConfig: h
     } = o, f = !!h, p = f && d === Qe.RetryRequest, g = f && !o.resolved && c === at.MoveAllAlternatesMatchingHost, _ = (i = this.hls.latestLevelDetails) == null ? void 0 : i.live;
-    if (!p && g && Ge(r) && !r.endList && _ && !fd(t))
+    if (!p && g && Ge(r) && !r.endList && _ && !gd(t))
       this.resetFragmentErrors(e), this.treatAsGap(r), o.resolved = !0;
     else if ((p || g) && u < h.maxNumRetry) {
       var m;
-      const v = ys((m = t.response) == null ? void 0 : m.code), b = da(h, u);
+      const v = bs((m = t.response) == null ? void 0 : m.code), b = ua(h, u);
       if (this.resetStartWhenNotLoaded(), this.retryDate = self.performance.now() + b, this.state = U.FRAG_LOADING_WAITING_RETRY, o.resolved = !0, v) {
         this.log("Waiting for connection (offline)"), this.retryDate = 1 / 0, t.reason = "offline";
         return;
@@ -7889,7 +7896,7 @@ class ga extends pd {
   }
   checkRetryDate() {
     const e = self.performance.now(), t = this.retryDate, i = t === 1 / 0;
-    (!t || e >= t || i && !ys(0)) && (i && this.log("Connection restored (online)"), this.resetStartWhenNotLoaded(), this.state = U.IDLE);
+    (!t || e >= t || i && !bs(0)) && (i && this.log("Connection restored (online)"), this.resetStartWhenNotLoaded(), this.state = U.IDLE);
   }
   reduceLengthAndFlushBuffer(e) {
     if (this.state === U.PARSING || this.state === U.PARSED) {
@@ -7937,7 +7944,7 @@ class ga extends pd {
         const h = u.endPTS - u.startPTS;
         if (h <= 0)
           return this.warn(`Could not parse fragment ${e.sn} ${c} duration reliably (${h})`), d || !1;
-        const f = r ? 0 : Ed(s, e, u.startPTS, u.endPTS, u.startDTS, u.endDTS, this);
+        const f = r ? 0 : Td(s, e, u.startPTS, u.endPTS, u.startDTS, u.endDTS, this);
         return this.hls.trigger(y.LEVEL_PTS_UPDATED, {
           details: s,
           level: i,
@@ -7996,10 +8003,10 @@ class ga extends pd {
     return this._state;
   }
 }
-function Yo(n) {
+function qo(n) {
   return !!n.interstitialsController && n.enableInterstitialPlayback !== !1;
 }
-class Rd {
+class Dd {
   constructor() {
     this.chunks = [], this.dataLength = 0;
   }
@@ -8013,7 +8020,7 @@ class Rd {
     } = this;
     let i;
     if (e.length)
-      e.length === 1 ? i = e[0] : i = am(e, t);
+      e.length === 1 ? i = e[0] : i = lm(e, t);
     else return new Uint8Array(0);
     return this.reset(), i;
   }
@@ -8021,7 +8028,7 @@ class Rd {
     this.chunks.length = 0, this.dataLength = 0;
   }
 }
-function am(n, e) {
+function lm(n, e) {
   const t = new Uint8Array(e);
   let i = 0;
   for (let r = 0; r < n.length; r++) {
@@ -8030,9 +8037,9 @@ function am(n, e) {
   }
   return t;
 }
-var Mr = { exports: {} }, qo;
-function om() {
-  return qo || (qo = 1, (function(n) {
+var Or = { exports: {} }, Xo;
+function cm() {
+  return Xo || (Xo = 1, (function(n) {
     var e = Object.prototype.hasOwnProperty, t = "~";
     function i() {
     }
@@ -8135,14 +8142,14 @@ function om() {
       var u;
       return c ? (u = t ? t + c : c, this._events[u] && a(this, u)) : (this._events = new i(), this._eventsCount = 0), this;
     }, o.prototype.off = o.prototype.removeListener, o.prototype.addListener = o.prototype.on, o.prefixed = t, o.EventEmitter = o, n.exports = o;
-  })(Mr)), Mr.exports;
+  })(Or)), Or.exports;
 }
-var lm = om(), ma = /* @__PURE__ */ Pp(lm);
+var dm = cm(), _a = /* @__PURE__ */ Op(dm);
 const ji = "1.6.16", wi = {};
-function cm() {
+function um() {
   return typeof __HLS_WORKER_BUNDLE__ == "function";
 }
-function dm() {
+function hm() {
   const n = wi[ji];
   if (n)
     return n.clientCount++, n;
@@ -8155,7 +8162,7 @@ function dm() {
   };
   return wi[ji] = r, r;
 }
-function um(n) {
+function fm(n) {
   const e = wi[n];
   if (e)
     return e.clientCount++, e;
@@ -8166,7 +8173,7 @@ function um(n) {
   };
   return wi[n] = r, r;
 }
-function hm(n) {
+function pm(n) {
   const e = wi[n || ji];
   if (e && e.clientCount-- === 1) {
     const {
@@ -8176,28 +8183,28 @@ function hm(n) {
     delete wi[n || ji], r && self.URL.revokeObjectURL(r), i.terminate();
   }
 }
-function Cd(n, e) {
+function Pd(n, e) {
   return e + 10 <= n.length && n[e] === 51 && n[e + 1] === 68 && n[e + 2] === 73 && n[e + 3] < 255 && n[e + 4] < 255 && n[e + 6] < 128 && n[e + 7] < 128 && n[e + 8] < 128 && n[e + 9] < 128;
 }
-function _a(n, e) {
+function va(n, e) {
   return e + 10 <= n.length && n[e] === 73 && n[e + 1] === 68 && n[e + 2] === 51 && n[e + 3] < 255 && n[e + 4] < 255 && n[e + 6] < 128 && n[e + 7] < 128 && n[e + 8] < 128 && n[e + 9] < 128;
 }
-function mr(n, e) {
+function _r(n, e) {
   let t = 0;
   return t = (n[e] & 127) << 21, t |= (n[e + 1] & 127) << 14, t |= (n[e + 2] & 127) << 7, t |= n[e + 3] & 127, t;
 }
 function Wi(n, e) {
   const t = e;
   let i = 0;
-  for (; _a(n, e); ) {
+  for (; va(n, e); ) {
     i += 10;
-    const r = mr(n, e + 6);
-    i += r, Cd(n, e + 10) && (i += 10), e += i;
+    const r = _r(n, e + 6);
+    i += r, Pd(n, e + 10) && (i += 10), e += i;
   }
   if (i > 0)
     return n.subarray(t, t + i);
 }
-function fm(n, e, t, i) {
+function gm(n, e, t, i) {
   const r = [96e3, 88200, 64e3, 48e3, 44100, 32e3, 24e3, 22050, 16e3, 12e3, 11025, 8e3, 7350], s = e[t + 2], a = s >> 2 & 15;
   if (a > 12) {
     const p = new Error(`invalid ADTS sampling index:${a}`);
@@ -8223,30 +8230,30 @@ function fm(n, e, t, i) {
     manifestCodec: i
   };
 }
-function Dd(n, e) {
+function Md(n, e) {
   return n[e] === 255 && (n[e + 1] & 246) === 240;
 }
-function Pd(n, e) {
+function Od(n, e) {
   return n[e + 1] & 1 ? 7 : 9;
 }
-function va(n, e) {
+function ya(n, e) {
   return (n[e + 3] & 3) << 11 | n[e + 4] << 3 | (n[e + 5] & 224) >>> 5;
 }
-function pm(n, e) {
+function mm(n, e) {
   return e + 5 < n.length;
 }
 function Xn(n, e) {
-  return e + 1 < n.length && Dd(n, e);
+  return e + 1 < n.length && Md(n, e);
 }
-function gm(n, e) {
-  return pm(n, e) && Dd(n, e) && va(n, e) <= n.length - e;
+function _m(n, e) {
+  return mm(n, e) && Md(n, e) && ya(n, e) <= n.length - e;
 }
-function mm(n, e) {
+function vm(n, e) {
   if (Xn(n, e)) {
-    const t = Pd(n, e);
+    const t = Od(n, e);
     if (e + t >= n.length)
       return !1;
-    const i = va(n, e);
+    const i = ya(n, e);
     if (i <= t)
       return !1;
     const r = e + i;
@@ -8254,21 +8261,21 @@ function mm(n, e) {
   }
   return !1;
 }
-function Md(n, e, t, i, r) {
+function Fd(n, e, t, i, r) {
   if (!n.samplerate) {
-    const s = fm(e, t, i, r);
+    const s = gm(e, t, i, r);
     if (!s)
       return;
     Ae(n, s);
   }
 }
-function Od(n) {
+function Nd(n) {
   return 1024 * 9e4 / n;
 }
-function _m(n, e) {
-  const t = Pd(n, e);
+function ym(n, e) {
+  const t = Od(n, e);
   if (e + t <= n.length) {
-    const i = va(n, e) - t;
+    const i = ya(n, e) - t;
     if (i > 0)
       return {
         headerLength: t,
@@ -8276,8 +8283,8 @@ function _m(n, e) {
       };
   }
 }
-function Fd(n, e, t, i, r) {
-  const s = Od(n.samplerate), a = i + r * s, o = _m(e, t);
+function $d(n, e, t, i, r) {
+  const s = Nd(n.samplerate), a = i + r * s, o = ym(e, t);
   let d;
   if (o) {
     const {
@@ -8305,29 +8312,29 @@ function Fd(n, e, t, i, r) {
     missing: -1
   };
 }
-function vm(n, e) {
-  return _a(n, e) && mr(n, e + 6) + 10 <= n.length - e;
-}
-function ym(n) {
-  return n instanceof ArrayBuffer ? n : n.byteOffset == 0 && n.byteLength == n.buffer.byteLength ? n.buffer : new Uint8Array(n).buffer;
-}
-function Or(n, e = 0, t = 1 / 0) {
-  return bm(n, e, t, Uint8Array);
-}
-function bm(n, e, t, i) {
-  const r = xm(n);
-  let s = 1;
-  "BYTES_PER_ELEMENT" in i && (s = i.BYTES_PER_ELEMENT);
-  const a = Em(n) ? n.byteOffset : 0, o = (a + n.byteLength) / s, d = (a + e) / s, c = Math.floor(Math.max(0, Math.min(d, o))), u = Math.floor(Math.min(c + Math.max(t, 0), o));
-  return new i(r, c, u - c);
+function bm(n, e) {
+  return va(n, e) && _r(n, e + 6) + 10 <= n.length - e;
 }
 function xm(n) {
-  return n instanceof ArrayBuffer ? n : n.buffer;
+  return n instanceof ArrayBuffer ? n : n.byteOffset == 0 && n.byteLength == n.buffer.byteLength ? n.buffer : new Uint8Array(n).buffer;
 }
-function Em(n) {
-  return n && n.buffer instanceof ArrayBuffer && n.byteLength !== void 0 && n.byteOffset !== void 0;
+function Fr(n, e = 0, t = 1 / 0) {
+  return Em(n, e, t, Uint8Array);
+}
+function Em(n, e, t, i) {
+  const r = Sm(n);
+  let s = 1;
+  "BYTES_PER_ELEMENT" in i && (s = i.BYTES_PER_ELEMENT);
+  const a = Tm(n) ? n.byteOffset : 0, o = (a + n.byteLength) / s, d = (a + e) / s, c = Math.floor(Math.max(0, Math.min(d, o))), u = Math.floor(Math.min(c + Math.max(t, 0), o));
+  return new i(r, c, u - c);
 }
 function Sm(n) {
+  return n instanceof ArrayBuffer ? n : n.buffer;
+}
+function Tm(n) {
+  return n && n.buffer instanceof ArrayBuffer && n.byteLength !== void 0 && n.byteOffset !== void 0;
+}
+function km(n) {
   const e = {
     key: n.type,
     description: "",
@@ -8344,14 +8351,14 @@ function Sm(n) {
   const i = n.data.subarray(1).indexOf(0);
   if (i === -1)
     return;
-  const r = ct(Or(n.data, 1, i)), s = n.data[2 + i], a = n.data.subarray(3 + i).indexOf(0);
+  const r = ct(Fr(n.data, 1, i)), s = n.data[2 + i], a = n.data.subarray(3 + i).indexOf(0);
   if (a === -1)
     return;
-  const o = ct(Or(n.data, 3 + i, a));
+  const o = ct(Fr(n.data, 3 + i, a));
   let d;
-  return r === "-->" ? d = ct(Or(n.data, 4 + i + a)) : d = ym(n.data.subarray(4 + i + a)), e.mimeType = r, e.pictureType = s, e.description = o, e.data = d, e;
+  return r === "-->" ? d = ct(Fr(n.data, 4 + i + a)) : d = xm(n.data.subarray(4 + i + a)), e.mimeType = r, e.pictureType = s, e.description = o, e.data = d, e;
 }
-function Tm(n) {
+function wm(n) {
   if (n.size < 2)
     return;
   const e = ct(n.data, !0), t = new Uint8Array(n.data.subarray(e.length + 1));
@@ -8361,7 +8368,7 @@ function Tm(n) {
     data: t.buffer
   };
 }
-function km(n) {
+function Am(n) {
   if (n.size < 2)
     return;
   if (n.type === "TXXX") {
@@ -8382,7 +8389,7 @@ function km(n) {
     data: e
   };
 }
-function wm(n) {
+function Im(n) {
   if (n.type === "WXXX") {
     if (n.size < 2)
       return;
@@ -8403,55 +8410,55 @@ function wm(n) {
     data: e
   };
 }
-function Am(n) {
-  return n.type === "PRIV" ? Tm(n) : n.type[0] === "W" ? wm(n) : n.type === "APIC" ? Sm(n) : km(n);
+function Lm(n) {
+  return n.type === "PRIV" ? wm(n) : n.type[0] === "W" ? Im(n) : n.type === "APIC" ? km(n) : Am(n);
 }
-function Im(n) {
-  const e = String.fromCharCode(n[0], n[1], n[2], n[3]), t = mr(n, 4), i = 10;
+function Rm(n) {
+  const e = String.fromCharCode(n[0], n[1], n[2], n[3]), t = _r(n, 4), i = 10;
   return {
     type: e,
     size: t,
     data: n.subarray(i, i + t)
   };
 }
-const rn = 10, Lm = 10;
-function Nd(n) {
+const rn = 10, Cm = 10;
+function Bd(n) {
   let e = 0;
   const t = [];
-  for (; _a(n, e); ) {
-    const i = mr(n, e + 6);
+  for (; va(n, e); ) {
+    const i = _r(n, e + 6);
     n[e + 5] >> 6 & 1 && (e += rn), e += rn;
     const r = e + i;
-    for (; e + Lm < r; ) {
-      const s = Im(n.subarray(e)), a = Am(s);
+    for (; e + Cm < r; ) {
+      const s = Rm(n.subarray(e)), a = Lm(s);
       a && t.push(a), e += s.size + rn;
     }
-    Cd(n, e) && (e += rn);
+    Pd(n, e) && (e += rn);
   }
   return t;
 }
-function $d(n) {
+function Ud(n) {
   return n && n.key === "PRIV" && n.info === "com.apple.streaming.transportStreamTimestamp";
 }
-function Rm(n) {
+function Dm(n) {
   if (n.data.byteLength === 8) {
     const e = new Uint8Array(n.data), t = e[3] & 1;
     let i = (e[4] << 23) + (e[5] << 15) + (e[6] << 7) + e[7];
     return i /= 45, t && (i += 4772185884e-2), Math.round(i);
   }
 }
-function ya(n) {
-  const e = Nd(n);
+function ba(n) {
+  const e = Bd(n);
   for (let t = 0; t < e.length; t++) {
     const i = e[t];
-    if ($d(i))
-      return Rm(i);
+    if (Ud(i))
+      return Dm(i);
   }
 }
 let lt = /* @__PURE__ */ (function(n) {
   return n.audioId3 = "org.id3", n.dateRange = "com.apple.quicktime.HLS", n.emsg = "https://aomedia.org/emsg/ID3", n.misbklv = "urn:misb:KLV:bin:1910.1", n;
 })({});
-function Tt(n = "", e = 9e4) {
+function kt(n = "", e = 9e4) {
   return {
     type: n,
     id: -1,
@@ -8462,7 +8469,7 @@ function Tt(n = "", e = 9e4) {
     dropped: 0
   };
 }
-class ba {
+class xa {
   constructor() {
     this._audioTrack = void 0, this._id3Track = void 0, this.frameIndex = 0, this.cachedData = null, this.basePTS = null, this.initPTS = null, this.lastPTS = null;
   }
@@ -8492,8 +8499,8 @@ class ba {
   demux(e, t) {
     this.cachedData && (e = ft(this.cachedData, e), this.cachedData = null);
     let i = Wi(e, 0), r = i ? i.length : 0, s;
-    const a = this._audioTrack, o = this._id3Track, d = i ? ya(i) : void 0, c = e.length;
-    for ((this.basePTS === null || this.frameIndex === 0 && ee(d)) && (this.basePTS = Cm(d, t, this.initPTS), this.lastPTS = this.basePTS), this.lastPTS === null && (this.lastPTS = this.basePTS), i && i.length > 0 && o.samples.push({
+    const a = this._audioTrack, o = this._id3Track, d = i ? ba(i) : void 0, c = e.length;
+    for ((this.basePTS === null || this.frameIndex === 0 && ee(d)) && (this.basePTS = Pm(d, t, this.initPTS), this.lastPTS = this.basePTS), this.lastPTS === null && (this.lastPTS = this.basePTS), i && i.length > 0 && o.samples.push({
       pts: this.lastPTS,
       dts: this.lastPTS,
       data: i,
@@ -8503,7 +8510,7 @@ class ba {
       if (this.canParse(e, r)) {
         const u = this.appendFrame(a, e, r);
         u ? (this.frameIndex++, this.lastPTS = u.sample.pts, r += u.length, s = r) : r = c;
-      } else vm(e, r) ? (i = Wi(e, r), o.samples.push({
+      } else bm(e, r) ? (i = Wi(e, r), o.samples.push({
         pts: this.lastPTS,
         dts: this.lastPTS,
         data: i,
@@ -8517,9 +8524,9 @@ class ba {
     }
     return {
       audioTrack: a,
-      videoTrack: Tt(),
+      videoTrack: kt(),
       id3Track: o,
-      textTrack: Tt()
+      textTrack: kt()
     };
   }
   demuxSampleAes(e, t, i) {
@@ -8529,23 +8536,23 @@ class ba {
     const t = this.cachedData;
     return t && (this.cachedData = null, this.demux(t, 0)), {
       audioTrack: this._audioTrack,
-      videoTrack: Tt(),
+      videoTrack: kt(),
       id3Track: this._id3Track,
-      textTrack: Tt()
+      textTrack: kt()
     };
   }
   destroy() {
     this.cachedData = null, this._audioTrack = this._id3Track = void 0;
   }
 }
-const Cm = (n, e, t) => {
+const Pm = (n, e, t) => {
   if (ee(n))
     return n * 90;
   const i = t ? t.baseTime * 9e4 / t.timescale : 0;
   return e * 9e4 + i;
 };
 let sn = null;
-const Dm = [32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448, 32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 32, 48, 56, 64, 80, 96, 112, 128, 144, 160, 176, 192, 224, 256, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160], Pm = [44100, 48e3, 32e3, 22050, 24e3, 16e3, 11025, 12e3, 8e3], Mm = [
+const Mm = [32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448, 32, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 32, 48, 56, 64, 80, 96, 112, 128, 144, 160, 176, 192, 224, 256, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160], Om = [44100, 48e3, 32e3, 22050, 24e3, 16e3, 11025, 12e3, 8e3], Fm = [
   // MPEG 2.5
   [
     0,
@@ -8590,7 +8597,7 @@ const Dm = [32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448, 3
     12
     // Layer1
   ]
-], Om = [
+], Nm = [
   0,
   // Reserved
   1,
@@ -8600,10 +8607,10 @@ const Dm = [32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448, 3
   4
   // Layer1
 ];
-function Bd(n, e, t, i, r) {
+function Gd(n, e, t, i, r) {
   if (t + 24 > e.length)
     return;
-  const s = Ud(e, t);
+  const s = zd(e, t);
   if (s && t + s.frameLength <= e.length) {
     const a = s.samplesPerFrame * 9e4 / s.sampleRate, o = i + r * a, d = {
       unit: e.subarray(t, t + s.frameLength),
@@ -8617,10 +8624,10 @@ function Bd(n, e, t, i, r) {
     };
   }
 }
-function Ud(n, e) {
+function zd(n, e) {
   const t = n[e + 1] >> 3 & 3, i = n[e + 1] >> 1 & 3, r = n[e + 2] >> 4 & 15, s = n[e + 2] >> 2 & 3;
   if (t !== 1 && r !== 0 && r !== 15 && s !== 3) {
-    const a = n[e + 2] >> 1 & 1, o = n[e + 3] >> 6, d = t === 3 ? 3 - i : i === 3 ? 3 : 4, c = Dm[d * 14 + r - 1] * 1e3, h = Pm[(t === 3 ? 0 : t === 2 ? 1 : 2) * 3 + s], f = o === 3 ? 1 : 2, p = Mm[t][i], g = Om[i], _ = p * 8 * g, m = Math.floor(p * c / h + a) * g;
+    const a = n[e + 2] >> 1 & 1, o = n[e + 3] >> 6, d = t === 3 ? 3 - i : i === 3 ? 3 : 4, c = Mm[d * 14 + r - 1] * 1e3, h = Om[(t === 3 ? 0 : t === 2 ? 1 : 2) * 3 + s], f = o === 3 ? 1 : 2, p = Fm[t][i], g = Nm[i], _ = p * 8 * g, m = Math.floor(p * c / h + a) * g;
     if (sn === null) {
       const x = (navigator.userAgent || "").match(/Chrome\/(\d+)/i);
       sn = x ? parseInt(x[1]) : 0;
@@ -8633,26 +8640,26 @@ function Ud(n, e) {
     };
   }
 }
-function xa(n, e) {
+function Ea(n, e) {
   return n[e] === 255 && (n[e + 1] & 224) === 224 && (n[e + 1] & 6) !== 0;
 }
-function Gd(n, e) {
-  return e + 1 < n.length && xa(n, e);
+function Vd(n, e) {
+  return e + 1 < n.length && Ea(n, e);
 }
-function Fm(n, e) {
-  return xa(n, e) && 4 <= n.length - e;
+function $m(n, e) {
+  return Ea(n, e) && 4 <= n.length - e;
 }
-function zd(n, e) {
-  if (e + 1 < n.length && xa(n, e)) {
-    const i = Ud(n, e);
+function Kd(n, e) {
+  if (e + 1 < n.length && Ea(n, e)) {
+    const i = zd(n, e);
     let r = 4;
     i != null && i.frameLength && (r = i.frameLength);
     const s = e + r;
-    return s === n.length || Gd(n, s);
+    return s === n.length || Vd(n, s);
   }
   return !1;
 }
-class Nm extends ba {
+class Bm extends xa {
   constructor(e, t) {
     super(), this.observer = void 0, this.config = void 0, this.observer = e, this.config = t;
   }
@@ -8677,24 +8684,24 @@ class Nm extends ba {
       return !1;
     const i = Wi(e, 0);
     let r = i?.length || 0;
-    if (zd(e, r))
+    if (Kd(e, r))
       return !1;
     for (let s = e.length; r < s; r++)
-      if (mm(e, r))
+      if (vm(e, r))
         return t.log("ADTS sync word found !"), !0;
     return !1;
   }
   canParse(e, t) {
-    return gm(e, t);
+    return _m(e, t);
   }
   appendFrame(e, t, i) {
-    Md(e, this.observer, t, i, e.manifestCodec);
-    const r = Fd(e, t, i, this.basePTS, this.frameIndex);
+    Fd(e, this.observer, t, i, e.manifestCodec);
+    const r = $d(e, t, i, this.basePTS, this.frameIndex);
     if (r && r.missing === 0)
       return r;
   }
 }
-const Vd = (n, e) => {
+const Hd = (n, e) => {
   let t = 0, i = 5;
   e += i;
   const r = new Uint32Array(1), s = new Uint32Array(1), a = new Uint8Array(1);
@@ -8705,7 +8712,7 @@ const Vd = (n, e) => {
   }
   return t;
 };
-class $m extends ba {
+class Um extends xa {
   constructor(e) {
     super(), this.observer = void 0, this.observer = e;
   }
@@ -8728,7 +8735,7 @@ class $m extends ba {
     return t + 64 < e.length;
   }
   appendFrame(e, t, i) {
-    const r = Kd(e, t, i, this.basePTS, this.frameIndex);
+    const r = jd(e, t, i, this.basePTS, this.frameIndex);
     if (r !== -1)
       return {
         sample: e.samples[e.samples.length - 1],
@@ -8743,11 +8750,11 @@ class $m extends ba {
     if (!t)
       return !1;
     const i = t.length;
-    return e[i] === 11 && e[i + 1] === 119 && ya(t) !== void 0 && // check the bsid to confirm ac-3
-    Vd(e, i) < 16;
+    return e[i] === 11 && e[i + 1] === 119 && ba(t) !== void 0 && // check the bsid to confirm ac-3
+    Hd(e, i) < 16;
   }
 }
-function Kd(n, e, t, i, r) {
+function jd(n, e, t, i, r) {
   if (t + 8 > e.length || e[t] !== 11 || e[t + 1] !== 119)
     return -1;
   const s = e[t + 4] >> 6;
@@ -8765,7 +8772,7 @@ function Kd(n, e, t, i, r) {
     pts: E
   }), u;
 }
-class Bm extends ba {
+class Gm extends xa {
   resetInitSegment(e, t, i, r) {
     super.resetInitSegment(e, t, i, r), this._audioTrack = {
       container: "audio/mpeg",
@@ -8786,34 +8793,34 @@ class Bm extends ba {
       return !1;
     const t = Wi(e, 0);
     let i = t?.length || 0;
-    if (t && e[i] === 11 && e[i + 1] === 119 && ya(t) !== void 0 && // check the bsid to confirm ac-3 or ec-3 (not mp3)
-    Vd(e, i) <= 16)
+    if (t && e[i] === 11 && e[i + 1] === 119 && ba(t) !== void 0 && // check the bsid to confirm ac-3 or ec-3 (not mp3)
+    Hd(e, i) <= 16)
       return !1;
     for (let r = e.length; i < r; i++)
-      if (zd(e, i))
+      if (Kd(e, i))
         return we.log("MPEG Audio sync word found !"), !0;
     return !1;
   }
   canParse(e, t) {
-    return Fm(e, t);
+    return $m(e, t);
   }
   appendFrame(e, t, i) {
     if (this.basePTS !== null)
-      return Bd(e, t, i, this.basePTS, this.frameIndex);
+      return Gd(e, t, i, this.basePTS, this.frameIndex);
   }
 }
-const Um = /\/emsg[-/]ID3/i;
-class Gm {
+const zm = /\/emsg[-/]ID3/i;
+class Vm {
   constructor(e, t) {
     this.remainderData = null, this.timeOffset = 0, this.config = void 0, this.videoTrack = void 0, this.audioTrack = void 0, this.id3Track = void 0, this.txtTrack = void 0, this.config = t;
   }
   resetTimeStamp() {
   }
   resetInitSegment(e, t, i, r) {
-    const s = this.videoTrack = Tt("video", 1), a = this.audioTrack = Tt("audio", 1), o = this.txtTrack = Tt("text", 1);
-    if (this.id3Track = Tt("id3", 1), this.timeOffset = 0, !(e != null && e.byteLength))
+    const s = this.videoTrack = kt("video", 1), a = this.audioTrack = kt("audio", 1), o = this.txtTrack = kt("text", 1);
+    if (this.id3Track = kt("id3", 1), this.timeOffset = 0, !(e != null && e.byteLength))
       return;
-    const d = ed(e);
+    const d = id(e);
     if (d.video) {
       const {
         id: c,
@@ -8831,13 +8838,13 @@ class Gm {
       } = d.audio;
       a.id = c, a.timescale = u, a.codec = h;
     }
-    o.id = Qc.text, s.sampleDuration = 0, s.duration = a.duration = r;
+    o.id = Jc.text, s.sampleDuration = 0, s.duration = a.duration = r;
   }
   resetContiguity() {
     this.remainderData = null;
   }
   static probe(e) {
-    return $p(e);
+    return Up(e);
   }
   demux(e, t) {
     this.timeOffset = t;
@@ -8845,12 +8852,12 @@ class Gm {
     const r = this.videoTrack, s = this.txtTrack;
     if (this.config.progressive) {
       this.remainderData && (i = ft(this.remainderData, e));
-      const o = Hp(i);
+      const o = Wp(i);
       this.remainderData = o.remainder, r.samples = o.valid || new Uint8Array();
     } else
       r.samples = i;
     const a = this.extractID3Track(r, t);
-    return s.samples = fo(t, r), {
+    return s.samples = po(t, r), {
       videoTrack: r,
       audioTrack: this.audioTrack,
       id3Track: a,
@@ -8861,11 +8868,11 @@ class Gm {
     const e = this.timeOffset, t = this.videoTrack, i = this.txtTrack;
     t.samples = this.remainderData || new Uint8Array(), this.remainderData = null;
     const r = this.extractID3Track(t, this.timeOffset);
-    return i.samples = fo(e, t), {
+    return i.samples = po(e, t), {
       videoTrack: t,
-      audioTrack: Tt(),
+      audioTrack: kt(),
       id3Track: r,
-      textTrack: Tt()
+      textTrack: kt()
     };
   }
   extractID3Track(e, t) {
@@ -8873,9 +8880,9 @@ class Gm {
     if (e.samples.length) {
       const r = _e(e.samples, ["emsg"]);
       r && r.forEach((s) => {
-        const a = Wp(s);
-        if (Um.test(a.schemeIdUri)) {
-          const o = Xo(a, t);
+        const a = qp(s);
+        if (zm.test(a.schemeIdUri)) {
+          const o = Qo(a, t);
           let d = a.eventDuration === 4294967295 ? Number.POSITIVE_INFINITY : a.eventDuration / a.timeScale;
           d <= 1e-3 && (d = Number.POSITIVE_INFINITY);
           const c = a.payload;
@@ -8888,7 +8895,7 @@ class Gm {
             duration: d
           });
         } else if (this.config.enableEmsgKLVMetadata && a.schemeIdUri.startsWith("urn:misb:KLV:bin:1910.1")) {
-          const o = Xo(a, t);
+          const o = Qo(a, t);
           i.samples.push({
             data: a.payload,
             len: a.payload.byteLength,
@@ -8909,17 +8916,17 @@ class Gm {
     this.config = null, this.remainderData = null, this.videoTrack = this.audioTrack = this.id3Track = this.txtTrack = void 0;
   }
 }
-function Xo(n, e) {
+function Qo(n, e) {
   return ee(n.presentationTime) ? n.presentationTime / n.timeScale : e + n.presentationTimeDelta / n.timeScale;
 }
-class zm {
+class Km {
   constructor(e, t, i) {
-    this.keyData = void 0, this.decrypter = void 0, this.keyData = i, this.decrypter = new ua(t, {
+    this.keyData = void 0, this.decrypter = void 0, this.keyData = i, this.decrypter = new ha(t, {
       removePKCS7Padding: !1
     });
   }
   decryptBuffer(e) {
-    return this.decrypter.decrypt(e, this.keyData.key.buffer, this.keyData.iv.buffer, Xt.cbc);
+    return this.decrypter.decrypt(e, this.keyData.key.buffer, this.keyData.iv.buffer, Qt.cbc);
   }
   // AAC - encrypt all full 16 bytes blocks starting from offset 16
   decryptAacSample(e, t, i) {
@@ -8958,7 +8965,7 @@ class zm {
     return e;
   }
   decryptAvcSample(e, t, i, r, s) {
-    const a = nd(s.data), o = this.getAvcEncryptedData(a);
+    const a = sd(s.data), o = this.getAvcEncryptedData(a);
     this.decryptBuffer(o.buffer).then((d) => {
       s.data = this.getAvcDecryptedUnit(a, d), this.decrypter.isSync() || this.decryptAvcSamples(e, t, i + 1, r);
     }).catch(r);
@@ -8980,7 +8987,7 @@ class zm {
     }
   }
 }
-class Hd {
+class Wd {
   constructor() {
     this.VideoSample = null;
   }
@@ -9136,7 +9143,7 @@ class $i {
     return this.readBits(32);
   }
 }
-class Vm extends Hd {
+class Hm extends Wd {
   parsePES(e, t, i, r) {
     const s = this.parseNALu(e, i.data, r);
     let a = this.VideoSample, o, d = !1;
@@ -9164,7 +9171,7 @@ class Vm extends Hd {
           break;
         // SEI
         case 6: {
-          o = !0, oa(c.data, 1, i.pts, t.samples);
+          o = !0, la(c.data, 1, i.pts, t.samples);
           break;
         }
         case 7: {
@@ -9313,7 +9320,7 @@ class Vm extends Hd {
     };
   }
 }
-class Km extends Hd {
+class jm extends Wd {
   constructor(...e) {
     super(...e), this.initVPS = null;
   }
@@ -9354,7 +9361,7 @@ class Km extends Hd {
           break;
         // SEI
         case 39:
-          o = !0, oa(
+          o = !0, la(
             c.data,
             2,
             // NALu header size
@@ -9443,7 +9450,7 @@ class Km extends Hd {
     const T = t.readUEG(), w = t.readUEG(), S = t.readBoolean();
     let k = 0, I = 0, A = 0, C = 0;
     S && (k += t.readUEG(), I += t.readUEG(), A += t.readUEG(), C += t.readUEG());
-    const M = t.readUEG(), G = t.readUEG(), K = t.readUEG(), V = t.readBoolean();
+    const M = t.readUEG(), G = t.readUEG(), H = t.readUEG(), V = t.readBoolean();
     for (let ce = V ? 0 : i; ce <= i; ce++)
       t.skipUEG(), t.skipUEG(), t.skipUEG();
     if (t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.skipUEG(), t.readBoolean() && t.readBoolean())
@@ -9452,9 +9459,9 @@ class Km extends Hd {
           if (!t.readBoolean())
             t.readUEG();
           else {
-            const be = Math.min(64, 1 << 4 + (De << 1));
+            const ve = Math.min(64, 1 << 4 + (De << 1));
             De > 1 && t.readEG();
-            for (let H = 0; H < be; H++)
+            for (let K = 0; K < ve; K++)
               t.readEG();
           }
     t.readBoolean(), t.readBoolean(), t.readBoolean() && (t.readUByte(), t.skipUEG(), t.skipUEG(), t.readBoolean());
@@ -9466,24 +9473,24 @@ class Km extends Hd {
         ce === L && t.readUEG(), t.readBoolean(), t.readUEG();
         let Be = 0;
         for (let Pe = 0; Pe <= N; Pe++) {
-          const be = t.readBoolean();
-          let H = !1;
-          be || (H = t.readBoolean()), (be || H) && Be++;
+          const ve = t.readBoolean();
+          let K = !1;
+          ve || (K = t.readBoolean()), (ve || K) && Be++;
         }
         N = Be;
       } else {
         const Be = t.readUEG(), Pe = t.readUEG();
         N = Be + Pe;
-        for (let be = 0; be < Be; be++)
+        for (let ve = 0; ve < Be; ve++)
           t.readUEG(), t.readBoolean();
-        for (let be = 0; be < Pe; be++)
+        for (let ve = 0; ve < Pe; ve++)
           t.readUEG(), t.readBoolean();
       }
     }
     if (t.readBoolean()) {
       const ce = t.readUEG();
       for (let De = 0; De < ce; De++) {
-        for (let Be = 0; Be < K + 4; Be++)
+        for (let Be = 0; Be < H + 4; Be++)
           t.readBits(1);
         t.readBits(1);
       }
@@ -9564,12 +9571,12 @@ class Km extends Hd {
   }
 }
 const Ye = 188;
-class Vt {
+class Ht {
   constructor(e, t, i, r) {
     this.logger = void 0, this.observer = void 0, this.config = void 0, this.typeSupported = void 0, this.sampleAes = null, this.pmtParsed = !1, this.audioCodec = void 0, this.videoCodec = void 0, this._pmtId = -1, this._videoTrack = void 0, this._audioTrack = void 0, this._id3Track = void 0, this._txtTrack = void 0, this.aacOverFlow = null, this.remainderData = null, this.videoParser = void 0, this.observer = e, this.config = t, this.typeSupported = i, this.logger = r, this.videoParser = null;
   }
   static probe(e, t) {
-    const i = Vt.syncOffset(e);
+    const i = Ht.syncOffset(e);
     return i > 0 && t.warn(`MPEG2-TS detected but first sync word found @ offset ${i}`), i !== -1;
   }
   static syncOffset(e) {
@@ -9579,7 +9586,7 @@ class Vt {
       let s = !1, a = -1, o = 0;
       for (let d = r; d < t; d += Ye)
         if (e[d] === 71 && (t - d === Ye || e[d + Ye] === 71)) {
-          if (o++, a === -1 && (a = d, a !== 0 && (i = Math.min(a + Ye * 99, e.length - Ye) + 1)), s || (s = Ts(e, d) === 0), s && o > 1 && (a === 0 && o > 2 || d + Ye > i))
+          if (o++, a === -1 && (a = d, a !== 0 && (i = Math.min(a + Ye * 99, e.length - Ye) + 1)), s || (s = ks(e, d) === 0), s && o > 1 && (a === 0 && o > 2 || d + Ye > i))
             return a;
         } else {
           if (o)
@@ -9597,7 +9604,7 @@ class Vt {
     return {
       container: e === "video" || e === "audio" ? "video/mp2t" : void 0,
       type: e,
-      id: Qc[e],
+      id: Jc[e],
       pid: -1,
       inputTimeScale: 9e4,
       sequenceNumber: 0,
@@ -9611,7 +9618,7 @@ class Vt {
    * Resets all internal track instances of the demuxer.
    */
   resetInitSegment(e, t, i, r) {
-    this.pmtParsed = !1, this._pmtId = -1, this._videoTrack = Vt.createTrack("video"), this._videoTrack.duration = r, this._audioTrack = Vt.createTrack("audio", r), this._id3Track = Vt.createTrack("id3"), this._txtTrack = Vt.createTrack("text"), this._audioTrack.segmentCodec = "aac", this.videoParser = null, this.aacOverFlow = null, this.remainderData = null, this.audioCodec = t, this.videoCodec = i;
+    this.pmtParsed = !1, this._pmtId = -1, this._videoTrack = Ht.createTrack("video"), this._videoTrack.duration = r, this._audioTrack = Ht.createTrack("audio", r), this._id3Track = Ht.createTrack("id3"), this._txtTrack = Ht.createTrack("text"), this._audioTrack.segmentCodec = "aac", this.videoParser = null, this.aacOverFlow = null, this.remainderData = null, this.audioCodec = t, this.videoCodec = i;
   }
   resetTimeStamp() {
   }
@@ -9635,12 +9642,12 @@ class Vt {
         id3Track: d,
         textTrack: c
       };
-    const E = Math.max(0, Vt.syncOffset(e));
+    const E = Math.max(0, Ht.syncOffset(e));
     x -= (x - E) % Ye, x < e.byteLength && !r && (this.remainderData = new Uint8Array(e.buffer, x, e.buffer.byteLength - x));
     let T = 0;
     for (let S = E; S < x; S += Ye)
       if (e[S] === 71) {
-        const k = !!(e[S + 1] & 64), I = Ts(e, S), A = (e[S + 3] & 48) >> 4;
+        const k = !!(e[S + 1] & 64), I = ks(e, S), A = (e[S + 3] & 48) >> 4;
         let C;
         if (A > 1) {
           if (C = S + 5 + e[S + 4], C === S + Ye)
@@ -9682,11 +9689,11 @@ class Vt {
             }), _ && (_.data.push(e.subarray(C, S + Ye)), _.size += S + Ye - C);
             break;
           case 0:
-            k && (C += e[C] + 1), b = this._pmtId = Hm(e, C);
+            k && (C += e[C] + 1), b = this._pmtId = Wm(e, C);
             break;
           case b: {
             k && (C += e[C] + 1);
-            const M = jm(e, C, this.typeSupported, i, this.observer, this.logger);
+            const M = Ym(e, C, this.typeSupported, i, this.observer, this.logger);
             u = M.videoPid, u > 0 && (a.pid = u, a.segmentCodec = M.segmentVideoCodec), f = M.audioPid, f > 0 && (o.pid = f, o.segmentCodec = M.segmentAudioCodec), p = M.id3Pid, p > 0 && (d.pid = p), m !== null && !v && (this.logger.warn(`MPEG-TS PMT found at ${S} after unknown PID '${m}'. Backtracking to sync byte @${E} to parse all TS packets.`), m = null, S = E - 188), v = this.pmtParsed = !0;
             break;
           }
@@ -9699,7 +9706,7 @@ class Vt {
         }
       } else
         T++;
-    T > 0 && ks(this.observer, new Error(`Found ${T} TS packet/s that do not start with 0x47`), void 0, this.logger), a.pesData = h, o.pesData = g, d.pesData = _;
+    T > 0 && ws(this.observer, new Error(`Found ${T} TS packet/s that do not start with 0x47`), void 0, this.logger), a.pesData = h, o.pesData = g, d.pesData = _;
     const w = {
       audioTrack: o,
       videoTrack: a,
@@ -9747,11 +9754,11 @@ class Vt {
     d && (c = ui(d, this.logger)) ? (this.parseID3PES(r, c), r.pesData = null) : r.pesData = d;
   }
   demuxSampleAes(e, t, i) {
-    const r = this.demux(e, i, !0, !this.config.progressive), s = this.sampleAes = new zm(this.observer, this.config, t);
+    const r = this.demux(e, i, !0, !this.config.progressive), s = this.sampleAes = new Km(this.observer, this.config, t);
     return this.decrypt(r, s);
   }
   readyVideoParser(e) {
-    this.videoParser === null && (e === "avc" ? this.videoParser = new Vm() : e === "hevc" && (this.videoParser = new Km()));
+    this.videoParser === null && (e === "avc" ? this.videoParser = new Hm() : e === "hevc" && (this.videoParser = new jm()));
   }
   decrypt(e, t) {
     return new Promise((i) => {
@@ -9791,15 +9798,15 @@ class Vt {
     if (a !== i) {
       let h;
       const f = a < o - 1;
-      if (f ? h = `AAC PES did not start with ADTS header,offset:${a}` : h = "No ADTS header found in AAC PES", ks(this.observer, new Error(h), f, this.logger), !f)
+      if (f ? h = `AAC PES did not start with ADTS header,offset:${a}` : h = "No ADTS header found in AAC PES", ws(this.observer, new Error(h), f, this.logger), !f)
         return;
     }
-    Md(e, this.observer, s, a, this.audioCodec);
+    Fd(e, this.observer, s, a, this.audioCodec);
     let d;
     if (t.pts !== void 0)
       d = t.pts;
     else if (r) {
-      const h = Od(e.samplerate);
+      const h = Nd(e.samplerate);
       d = r.sample.pts + h;
     } else {
       this.logger.warn("[tsdemuxer]: AAC PES unknown PTS");
@@ -9807,7 +9814,7 @@ class Vt {
     }
     let c = 0, u;
     for (; a < o; )
-      if (u = Fd(e, s, a, d, c), a += u.length, u.missing) {
+      if (u = $d(e, s, a, d, c), a += u.length, u.missing) {
         this.aacOverFlow = u;
         break;
       } else
@@ -9823,8 +9830,8 @@ class Vt {
       return;
     }
     for (; a < r; )
-      if (Gd(i, a)) {
-        const d = Bd(e, i, a, o, s);
+      if (Vd(i, a)) {
+        const d = Gd(e, i, a, o, s);
         if (d)
           a += d.length, s++;
         else
@@ -9841,7 +9848,7 @@ class Vt {
       }
       const s = i.length;
       let a = 0, o = 0, d;
-      for (; o < s && (d = Kd(e, i, o, r, a++)) > 0; )
+      for (; o < s && (d = jd(e, i, o, r, a++)) > 0; )
         o += d;
     }
   }
@@ -9857,13 +9864,13 @@ class Vt {
     e.samples.push(i);
   }
 }
-function Ts(n, e) {
+function ks(n, e) {
   return ((n[e + 1] & 31) << 8) + n[e + 2];
 }
-function Hm(n, e) {
+function Wm(n, e) {
   return (n[e + 10] & 31) << 8 | n[e + 11];
 }
-function jm(n, e, t, i, r, s) {
+function Ym(n, e, t, i, r, s) {
   const a = {
     audioPid: -1,
     videoPid: -1,
@@ -9872,11 +9879,11 @@ function jm(n, e, t, i, r, s) {
     segmentAudioCodec: "aac"
   }, o = (n[e + 1] & 15) << 8 | n[e + 2], d = e + 3 + o - 4, c = (n[e + 10] & 15) << 8 | n[e + 11];
   for (e += 12 + c; e < d; ) {
-    const u = Ts(n, e), h = (n[e + 3] & 15) << 8 | n[e + 4];
+    const u = ks(n, e), h = (n[e + 3] & 15) << 8 | n[e + 4];
     switch (n[e]) {
       case 207:
         if (!i) {
-          Fr("ADTS AAC", s);
+          Nr("ADTS AAC", s);
           break;
         }
       /* falls through */
@@ -9889,7 +9896,7 @@ function jm(n, e, t, i, r, s) {
         break;
       case 219:
         if (!i) {
-          Fr("H.264", s);
+          Nr("H.264", s);
           break;
         }
       /* falls through */
@@ -9904,7 +9911,7 @@ function jm(n, e, t, i, r, s) {
         break;
       case 193:
         if (!i) {
-          Fr("AC-3", s);
+          Nr("AC-3", s);
           break;
         }
       /* falls through */
@@ -9929,7 +9936,7 @@ function jm(n, e, t, i, r, s) {
       // SAMPLE-AES EC3
       /* falls through */
       case 135:
-        return ks(r, new Error("Unsupported EC-3 in M2TS found"), void 0, s), a;
+        return ws(r, new Error("Unsupported EC-3 in M2TS found"), void 0, s), a;
       case 36:
         a.videoPid === -1 && (a.videoPid = u, a.segmentVideoCodec = "hevc", s.log("HEVC in M2TS found"));
         break;
@@ -9938,7 +9945,7 @@ function jm(n, e, t, i, r, s) {
   }
   return a;
 }
-function ks(n, e, t, i) {
+function ws(n, e, t, i) {
   i.warn(`parsing error: ${e.message}`), n.emit(y.ERROR, y.ERROR, {
     type: re.MEDIA_ERROR,
     details: P.FRAG_PARSING_ERROR,
@@ -9948,7 +9955,7 @@ function ks(n, e, t, i) {
     reason: e.message
   });
 }
-function Fr(n, e) {
+function Nr(n, e) {
   e.log(`${n} with AES-128-CBC encryption found in unencrypted stream`);
 }
 function ui(n, e) {
@@ -9996,7 +10003,7 @@ function ui(n, e) {
   }
   return null;
 }
-class Wm {
+class qm {
   static getSilentFrame(e, t) {
     switch (e) {
       case "mp4a.40.2":
@@ -10025,7 +10032,7 @@ class Wm {
     }
   }
 }
-const Bt = Math.pow(2, 32) - 1;
+const Gt = Math.pow(2, 32) - 1;
 class D {
   static init() {
     D.types = {
@@ -10292,7 +10299,7 @@ class D {
   }
   static mdhd(e, t) {
     t *= e;
-    const i = Math.floor(t / (Bt + 1)), r = Math.floor(t % (Bt + 1));
+    const i = Math.floor(t / (Gt + 1)), r = Math.floor(t % (Gt + 1));
     return D.box(D.types.mdhd, new Uint8Array([
       1,
       // version 1
@@ -10377,7 +10384,7 @@ class D {
   }
   static mvhd(e, t) {
     t *= e;
-    const i = Math.floor(t / (Bt + 1)), r = Math.floor(t % (Bt + 1)), s = new Uint8Array([
+    const i = Math.floor(t / (Gt + 1)), r = Math.floor(t % (Gt + 1)), s = new Uint8Array([
       1,
       // version 1
       0,
@@ -10791,7 +10798,7 @@ class D {
     throw new Error(`unsupported ${e.type} segment codec (${t}/${e.codec})`);
   }
   static tkhd(e) {
-    const t = e.id, i = (e.duration || 0) * (e.timescale || 0), r = e.width || 0, s = e.height || 0, a = Math.floor(i / (Bt + 1)), o = Math.floor(i % (Bt + 1));
+    const t = e.id, i = (e.duration || 0) * (e.timescale || 0), r = e.width || 0, s = e.height || 0, a = Math.floor(i / (Gt + 1)), o = Math.floor(i % (Gt + 1));
     return D.box(D.types.tkhd, new Uint8Array([
       1,
       // version 1
@@ -10906,7 +10913,7 @@ class D {
     ]));
   }
   static traf(e, t) {
-    const i = D.sdtp(e), r = e.id, s = Math.floor(t / (Bt + 1)), a = Math.floor(t % (Bt + 1));
+    const i = D.sdtp(e), r = e.id, s = Math.floor(t / (Gt + 1)), a = Math.floor(t % (Gt + 1));
     return D.box(
       D.types.traf,
       D.box(D.types.tfhd, new Uint8Array([
@@ -11200,21 +11207,21 @@ D.SMHD = void 0;
 D.STSD = void 0;
 D.FTYP = void 0;
 D.DINF = void 0;
-const jd = 9e4;
-function Ea(n, e, t = 1, i = !1) {
+const Yd = 9e4;
+function Sa(n, e, t = 1, i = !1) {
   const r = n * e * t;
   return i ? Math.round(r) : r;
 }
-function Ym(n, e, t = 1, i = !1) {
-  return Ea(n, e, 1 / t, i);
+function Xm(n, e, t = 1, i = !1) {
+  return Sa(n, e, 1 / t, i);
 }
 function Ri(n, e = !1) {
-  return Ea(n, 1e3, 1 / jd, e);
+  return Sa(n, 1e3, 1 / Yd, e);
 }
-function qm(n, e = 1) {
-  return Ea(n, jd, 1 / e);
+function Qm(n, e = 1) {
+  return Sa(n, Yd, 1 / e);
 }
-function Qo(n) {
+function Zo(n) {
   const {
     baseTime: e,
     timescale: t,
@@ -11222,9 +11229,9 @@ function Qo(n) {
   } = n;
   return `${e / t} (${e}/${t}) trackId: ${i}`;
 }
-const Xm = 10 * 1e3, Qm = 1024, Zm = 1152, Jm = 1536;
-let hi = null, Nr = null;
-function Zo(n, e, t, i) {
+const Zm = 10 * 1e3, Jm = 1024, e0 = 1152, t0 = 1536;
+let hi = null, $r = null;
+function Jo(n, e, t, i) {
   return {
     duration: e,
     size: t,
@@ -11245,9 +11252,9 @@ class Rn extends pt {
       const a = (navigator.userAgent || "").match(/Chrome\/(\d+)/i);
       hi = a ? parseInt(a[1]) : 0;
     }
-    if (Nr === null) {
+    if ($r === null) {
       const s = navigator.userAgent.match(/Safari\/(\d+)/i);
-      Nr = s ? parseInt(s[1]) : 0;
+      $r = s ? parseInt(s[1]) : 0;
     }
   }
   destroy() {
@@ -11255,7 +11262,7 @@ class Rn extends pt {
   }
   resetTimeStamp(e) {
     const t = this._initPTS;
-    (!t || !e || e.trackId !== t.trackId || e.baseTime !== t.baseTime || e.timescale !== t.timescale) && this.log(`Reset initPTS: ${t && Qo(t)} > ${e && Qo(e)}`), this._initPTS = this._initDTS = e;
+    (!t || !e || e.trackId !== t.trackId || e.baseTime !== t.baseTime || e.timescale !== t.timescale) && this.log(`Reset initPTS: ${t && Zo(t)} > ${e && Zo(e)}`), this._initPTS = this._initDTS = e;
   }
   resetNextTimestamp() {
     this.log("reset next timestamp"), this.isVideoContiguous = !1, this.isAudioContiguous = !1;
@@ -11277,33 +11284,33 @@ class Rn extends pt {
     if ((!v || E) && (!b || T) || this.ISGenerated || o) {
       if (this.ISGenerated) {
         var S, k, I, A;
-        const K = this.videoTrackConfig;
-        (K && (t.width !== K.width || t.height !== K.height || ((S = t.pixelRatio) == null ? void 0 : S[0]) !== ((k = K.pixelRatio) == null ? void 0 : k[0]) || ((I = t.pixelRatio) == null ? void 0 : I[1]) !== ((A = K.pixelRatio) == null ? void 0 : A[1])) || !K && T || this.nextAudioTs === null && E) && this.resetInitSegment();
+        const H = this.videoTrackConfig;
+        (H && (t.width !== H.width || t.height !== H.height || ((S = t.pixelRatio) == null ? void 0 : S[0]) !== ((k = H.pixelRatio) == null ? void 0 : k[0]) || ((I = t.pixelRatio) == null ? void 0 : I[1]) !== ((A = H.pixelRatio) == null ? void 0 : A[1])) || !H && T || this.nextAudioTs === null && E) && this.resetInitSegment();
       }
       this.ISGenerated || (h = this.generateIS(e, t, s, a));
       const C = this.isVideoContiguous;
       let M = -1, G;
-      if (T && (M = e0(t.samples), !C && this.config.forceKeyFrameOnDiscontinuity))
+      if (T && (M = i0(t.samples), !C && this.config.forceKeyFrameOnDiscontinuity))
         if (g = !0, M > 0) {
           this.warn(`Dropped ${M} out of ${x} video samples due to a missing keyframe`);
-          const K = this.getVideoStartPts(t.samples);
-          t.samples = t.samples.slice(M), t.dropped += M, m += (t.samples[0].pts - K) / t.inputTimeScale, G = m;
+          const H = this.getVideoStartPts(t.samples);
+          t.samples = t.samples.slice(M), t.dropped += M, m += (t.samples[0].pts - H) / t.inputTimeScale, G = m;
         } else M === -1 && (this.warn(`No keyframe found out of ${x} video samples`), g = !1);
       if (this.ISGenerated) {
         if (E && T) {
-          const K = this.getVideoStartPts(t.samples), R = (ot(e.samples[0].pts, K) - K) / t.inputTimeScale;
+          const H = this.getVideoStartPts(t.samples), R = (ot(e.samples[0].pts, H) - H) / t.inputTimeScale;
           _ += Math.max(0, R), m += Math.max(0, -R);
         }
         if (E) {
           if (e.samplerate || (this.warn("regenerate InitSegment as audio detected"), h = this.generateIS(e, t, s, a)), u = this.remuxAudio(e, _, this.isAudioContiguous, a, b || T || d === ne.AUDIO ? m : void 0), T) {
-            const K = u ? u.endPTS - u.startPTS : 0;
-            t.inputTimeScale || (this.warn("regenerate InitSegment as video detected"), h = this.generateIS(e, t, s, a)), c = this.remuxVideo(t, m, C, K);
+            const H = u ? u.endPTS - u.startPTS : 0;
+            t.inputTimeScale || (this.warn("regenerate InitSegment as video detected"), h = this.generateIS(e, t, s, a)), c = this.remuxVideo(t, m, C, H);
           }
         } else T && (c = this.remuxVideo(t, m, C, 0));
         c && (c.firstKeyFrame = M, c.independent = M !== -1, c.firstKeyFramePTS = G);
       }
     }
-    return this.ISGenerated && this._initPTS && this._initDTS && (i.samples.length && (p = Wd(i, s, this._initPTS, this._initDTS)), r.samples.length && (f = Yd(r, s, this._initPTS))), {
+    return this.ISGenerated && this._initPTS && this._initDTS && (i.samples.length && (p = qd(i, s, this._initPTS, this._initDTS)), r.samples.length && (f = Xd(r, s, this._initPTS))), {
       audio: u,
       video: c,
       initSegment: h,
@@ -11444,7 +11451,7 @@ class Rn extends pt {
     }
     const C = new DataView(A.buffer);
     C.setUint32(0, I), A.set(D.types.mdat, 4);
-    let M = !1, G = Number.POSITIVE_INFINITY, K = Number.POSITIVE_INFINITY, V = Number.NEGATIVE_INFINITY, R = Number.NEGATIVE_INFINITY;
+    let M = !1, G = Number.POSITIVE_INFINITY, H = Number.POSITIVE_INFINITY, V = Number.NEGATIVE_INFINITY, R = Number.NEGATIVE_INFINITY;
     for (let $ = 0; $ < d; $++) {
       const B = a[$], ae = B.units;
       let de = 0;
@@ -11464,7 +11471,7 @@ class Rn extends pt {
           p = J;
       }
       const te = Math.round(B.pts - B.dts);
-      G = Math.min(G, p), V = Math.max(V, p), K = Math.min(K, Y), R = Math.max(R, Y), o.push(Zo(B.key, p, de, te));
+      G = Math.min(G, p), V = Math.max(V, p), H = Math.min(H, Y), R = Math.max(R, Y), o.push(Jo(B.key, p, de, te));
     }
     if (o.length) {
       if (hi) {
@@ -11472,7 +11479,7 @@ class Rn extends pt {
           const $ = o[0].flags;
           $.dependsOn = 2, $.isNonSync = 0;
         }
-      } else if (Nr && R - K < V - G && T / V < 0.025 && o[0].cts === 0) {
+      } else if ($r && R - H < V - G && T / V < 0.025 && o[0].cts === 0) {
         this.warn("Found irregular gaps in sample duration. Using PTS instead of DTS to determine MP4 sample duration.");
         let $ = g;
         for (let B = 0, ae = o.length; B < ae; B++) {
@@ -11509,11 +11516,11 @@ class Rn extends pt {
   getSamplesPerFrame(e) {
     switch (e.segmentCodec) {
       case "mp3":
-        return Zm;
+        return e0;
       case "ac3":
-        return Jm;
+        return t0;
       default:
-        return Qm;
+        return Jm;
     }
   }
   remuxAudio(e, t, i, r, s) {
@@ -11534,13 +11541,13 @@ class Rn extends pt {
         const N = _[F], j = N.pts, $ = j - L, B = Math.abs(1e3 * $ / a);
         if ($ <= -R * u && g)
           F === 0 && (this.warn(`Audio frame @ ${(j / a).toFixed(3)}s overlaps marker by ${Math.round(1e3 * $ / a)} ms.`), this.nextAudioTs = v = j - b, L = j);
-        else if ($ >= R * u && B < Xm && g) {
+        else if ($ >= R * u && B < Zm && g) {
           let ae = Math.round($ / u);
           for (L = j - ae * u; L < 0 && ae && u; )
             ae--, L += u;
           F === 0 && (this.nextAudioTs = v = L - b), this.warn(`Injecting ${ae} audio frames @ ${((L - b) / a).toFixed(3)}s due to ${Math.round(1e3 * $ / a)} ms gap.`);
           for (let de = 0; de < ae; de++) {
-            let Y = Wm.getSilentFrame(e.parsedCodec || e.manifestCodec || e.codec, e.channelCount);
+            let Y = qm.getSilentFrame(e.parsedCodec || e.manifestCodec || e.codec, e.channelCount);
             Y || (this.log("Unable to get silent frame for given audio codec; duplicating last frame instead."), Y = N.unit.subarray()), _.splice(F, 0, {
               unit: Y,
               pts: L
@@ -11579,7 +11586,7 @@ class Rn extends pt {
         return;
       w.set(N, m);
       const $ = N.byteLength;
-      m += $, p.push(Zo(!0, c, $, 0)), T = j;
+      m += $, p.push(Jo(!0, c, $, 0)), T = j;
     }
     const I = p.length;
     if (!I)
@@ -11613,13 +11620,13 @@ function ot(n, e) {
     n += t;
   return n;
 }
-function e0(n) {
+function i0(n) {
   for (let e = 0; e < n.length; e++)
     if (n[e].key)
       return e;
   return -1;
 }
-function Wd(n, e, t, i) {
+function qd(n, e, t, i) {
   const r = n.samples.length;
   if (!r)
     return;
@@ -11633,7 +11640,7 @@ function Wd(n, e, t, i) {
     samples: a
   };
 }
-function Yd(n, e, t) {
+function Xd(n, e, t) {
   const i = n.samples.length;
   if (!i)
     return;
@@ -11648,7 +11655,7 @@ function Yd(n, e, t) {
     samples: s
   };
 }
-class t0 extends pt {
+class n0 extends pt {
   constructor(e, t, i, r) {
     super("passthrough-remuxer", r), this.emitInitSegment = !1, this.audioCodec = void 0, this.videoCodec = void 0, this.initData = void 0, this.initPTS = null, this.initTracks = void 0, this.lastEndTime = null, this.isVideoContiguous = !1;
   }
@@ -11677,14 +11684,14 @@ class t0 extends pt {
     const {
       audio: s,
       video: a
-    } = this.initData = ed(e);
+    } = this.initData = id(e);
     if (t)
-      zp(e, t);
+      Kp(e, t);
     else {
       const d = s || a;
       d != null && d.encrypted && this.warn(`Init segment with encrypted track with has no key ("${d.codec}")!`);
     }
-    s && (i = Jo(s, Ie.AUDIO, this)), a && (r = Jo(a, Ie.VIDEO, this));
+    s && (i = el(s, Ie.AUDIO, this)), a && (r = el(a, Ie.VIDEO, this));
     const o = {};
     s && a ? o.audiovideo = {
       container: "video/mp4",
@@ -11734,12 +11741,12 @@ class t0 extends pt {
     if ((o = g) != null && o.length || (this.generateInitSegment(f), g = this.initData), !((d = g) != null && d.length))
       return this.warn("Failed to generate initSegment."), h;
     this.emitInitSegment && (p.tracks = this.initTracks, this.emitInitSegment = !1);
-    const _ = Kp(f, g, this), m = g.audio ? _[g.audio.id] : null, v = g.video ? _[g.video.id] : null, b = an(v, 1 / 0), x = an(m, 1 / 0), E = an(v, 0, !0), T = an(m, 0, !0);
+    const _ = jp(f, g, this), m = g.audio ? _[g.audio.id] : null, v = g.video ? _[g.video.id] : null, b = an(v, 1 / 0), x = an(m, 1 / 0), E = an(v, 0, !0), T = an(m, 0, !0);
     let w = s, S = 0;
     const k = m && (!v || !c && x < b || c && c.trackId === g.audio.id), I = k ? m : v;
     if (I) {
       const L = I.timescale, N = I.start - s * L, j = k ? g.audio.id : g.video.id;
-      w = I.start / L, S = k ? T - x : E - b, (a || !c) && (i0(c, w, s, S) || L !== c.timescale) && (c && this.warn(`Timestamps at playlist time: ${a ? "" : "~"}${s} ${N / L} != initPTS: ${c.baseTime / c.timescale} (${c.baseTime}/${c.timescale}) trackId: ${c.trackId}`), this.log(`Found initPTS at playlist time: ${s} offset: ${w - s} (${N}/${L}) trackId: ${j}`), c = null, p.initPTS = N, p.timescale = L, p.trackId = j);
+      w = I.start / L, S = k ? T - x : E - b, (a || !c) && (r0(c, w, s, S) || L !== c.timescale) && (c && this.warn(`Timestamps at playlist time: ${a ? "" : "~"}${s} ${N / L} != initPTS: ${c.baseTime / c.timescale} (${c.baseTime}/${c.timescale}) trackId: ${c.trackId}`), this.log(`Found initPTS at playlist time: ${s} offset: ${w - s} (${N}/${L}) trackId: ${j}`), c = null, p.initPTS = N, p.timescale = L, p.trackId = j);
     } else
       this.warn(`No audio or video samples found for initPTS at playlist time: ${s}`);
     c ? (p.initPTS = c.baseTime, p.timescale = c.timescale, p.trackId = c.trackId) : ((!p.timescale || p.trackId === void 0 || p.initPTS === void 0) && (this.warn("Could not set initPTS"), p.initPTS = w, p.timescale = 1, p.trackId = -1), this.initPTS = c = {
@@ -11750,15 +11757,15 @@ class t0 extends pt {
     const A = w - c.baseTime / c.timescale, C = A + S;
     S > 0 ? this.lastEndTime = C : (this.warn("Duration parsed from mp4 should be greater than zero"), this.resetNextTimestamp());
     const M = !!g.audio, G = !!g.video;
-    let K = "";
-    M && (K += "audio"), G && (K += "video");
+    let H = "";
+    M && (H += "audio"), G && (H += "video");
     const V = (g.audio ? g.audio.encrypted : !1) || (g.video ? g.video.encrypted : !1), R = {
       data1: f,
       startPTS: A,
       startDTS: A,
       endPTS: C,
       endDTS: C,
-      type: K,
+      type: H,
       hasAudio: M,
       hasVideo: G,
       nb: 1,
@@ -11771,19 +11778,19 @@ class t0 extends pt {
       const L = v.keyFrameIndex, N = L !== -1;
       R.nb = F, R.dropped = L === 0 || this.isVideoContiguous ? 0 : N ? L : F, R.independent = N, R.firstKeyFrame = L, N && v.keyFrameStart && (R.firstKeyFramePTS = (v.keyFrameStart - c.baseTime) / c.timescale), this.isVideoContiguous || (h.independent = N), this.isVideoContiguous || (this.isVideoContiguous = N), R.dropped && this.warn(`fmp4 does not start with IDR: firstIDR ${L}/${F} dropped: ${R.dropped} start: ${R.firstKeyFramePTS || "NA"}`);
     }
-    return h.initSegment = p, h.id3 = Wd(i, s, c, c), r.samples.length && (h.text = Yd(r, s, c)), h;
+    return h.initSegment = p, h.id3 = qd(i, s, c, c), r.samples.length && (h.text = Xd(r, s, c)), h;
   }
 }
 function an(n, e, t = !1) {
   return n?.start !== void 0 ? (n.start + (t ? n.duration : 0)) / n.timescale : e;
 }
-function i0(n, e, t, i) {
+function r0(n, e, t, i) {
   if (n === null)
     return !0;
   const r = Math.max(i, 1), s = e - n.baseTime / n.timescale;
   return Math.abs(s - t) > r;
 }
-function Jo(n, e, t) {
+function el(n, e, t) {
   const i = n.codec;
   return i && i.length > 4 ? i : e === Ie.AUDIO ? i === "ec-3" || i === "ac-3" || i === "alac" ? i : i === "fLaC" || i === "Opus" ? zn(i, !1) : (t.warn(`Unhandled audio codec "${i}" in mp4 MAP`), i || "mp4a") : (t.warn(`Unhandled video codec "${i}" in mp4 MAP`), i || "avc1");
 }
@@ -11794,23 +11801,23 @@ try {
   Ot = Date.now;
 }
 const Cn = [{
-  demux: Gm,
-  remux: t0
+  demux: Vm,
+  remux: n0
 }, {
-  demux: Vt,
-  remux: Rn
-}, {
-  demux: Nm,
+  demux: Ht,
   remux: Rn
 }, {
   demux: Bm,
   remux: Rn
+}, {
+  demux: Gm,
+  remux: Rn
 }];
 Cn.splice(2, 0, {
-  demux: $m,
+  demux: Um,
   remux: Rn
 });
-class el {
+class tl {
   constructor(e, t, i, r, s, a) {
     this.asyncResult = !1, this.logger = void 0, this.observer = void 0, this.typeSupported = void 0, this.config = void 0, this.id = void 0, this.demuxer = void 0, this.remuxer = void 0, this.decrypter = void 0, this.probe = void 0, this.decryptionPromise = null, this.transmuxConfig = void 0, this.currentTransmuxState = void 0, this.observer = e, this.typeSupported = t, this.config = i, this.id = s, this.logger = a;
   }
@@ -11839,9 +11846,9 @@ class el {
       defaultInitPts: v,
       duration: b,
       initSegmentData: x
-    } = d, E = n0(a, t);
+    } = d, E = s0(a, t);
     if (E && bi(E.method)) {
-      const k = this.getDecrypter(), I = fa(E.method);
+      const k = this.getDecrypter(), I = pa(E.method);
       if (k.isSync()) {
         let A = k.softwareDecrypt(a, E.key.buffer, E.iv.buffer, I);
         if (i.part > -1) {
@@ -11849,7 +11856,7 @@ class el {
           A = M && M.buffer;
         }
         if (!A)
-          return s.executeEnd = Ot(), $r(i);
+          return s.executeEnd = Ot(), Br(i);
         a = new Uint8Array(A);
       } else
         return this.asyncResult = !0, this.decryptionPromise = k.webCryptoDecrypt(a, E.key.buffer, E.iv.buffer, I).then((A) => {
@@ -11867,7 +11874,7 @@ class el {
           fatal: !1,
           error: k,
           reason: k.message
-        }), s.executeEnd = Ot(), $r(i);
+        }), s.executeEnd = Ot(), Br(i);
     }
     (u || h || g || T) && this.resetInitSegment(x, _, m, b, t), (u || g || T) && this.resetInitialTimestamp(v), c || this.resetContiguity();
     const w = this.transmux(a, E, p, f, i);
@@ -11899,7 +11906,7 @@ class el {
     } = this;
     if (!d || !c) {
       t.executeEnd = Ot();
-      const h = [$r(e)];
+      const h = [Br(e)];
       return this.asyncResult ? Promise.resolve(h) : h;
     }
     const u = d.flush(o);
@@ -11992,34 +11999,34 @@ class el {
   }
   getDecrypter() {
     let e = this.decrypter;
-    return e || (e = this.decrypter = new ua(this.config)), e;
+    return e || (e = this.decrypter = new ha(this.config)), e;
   }
 }
-function n0(n, e) {
+function s0(n, e) {
   let t = null;
   return n.byteLength > 0 && e?.key != null && e.iv !== null && e.method != null && (t = e), t;
 }
-const $r = (n) => ({
+const Br = (n) => ({
   remuxResult: {},
   chunkMeta: n
 });
 function Yi(n) {
   return "then" in n && n.then instanceof Function;
 }
-class r0 {
+class a0 {
   constructor(e, t, i, r, s) {
     this.audioCodec = void 0, this.videoCodec = void 0, this.initSegmentData = void 0, this.duration = void 0, this.defaultInitPts = void 0, this.audioCodec = e, this.videoCodec = t, this.initSegmentData = i, this.duration = r, this.defaultInitPts = s || null;
   }
 }
-class s0 {
+class o0 {
   constructor(e, t, i, r, s, a) {
     this.discontinuity = void 0, this.contiguous = void 0, this.accurateTimeOffset = void 0, this.trackSwitch = void 0, this.timeOffset = void 0, this.initSegmentChange = void 0, this.discontinuity = e, this.contiguous = t, this.accurateTimeOffset = i, this.trackSwitch = r, this.timeOffset = s, this.initSegmentChange = a;
   }
 }
-let tl = 0;
-class qd {
+let il = 0;
+class Qd {
   constructor(e, t, i, r) {
-    this.error = null, this.hls = void 0, this.id = void 0, this.instanceNo = tl++, this.observer = void 0, this.frag = null, this.part = null, this.useWorker = void 0, this.workerContext = null, this.transmuxer = null, this.onTransmuxComplete = void 0, this.onFlush = void 0, this.onWorkerMessage = (d) => {
+    this.error = null, this.hls = void 0, this.id = void 0, this.instanceNo = il++, this.observer = void 0, this.frag = null, this.part = null, this.useWorker = void 0, this.workerContext = null, this.transmuxer = null, this.onTransmuxComplete = void 0, this.onFlush = void 0, this.onWorkerMessage = (d) => {
       const c = d.data, u = this.hls;
       if (!(!u || !(c != null && c.event) || c.instanceNo !== this.instanceNo))
         switch (c.event) {
@@ -12064,13 +12071,13 @@ class qd {
     const a = (d, c) => {
       c = c || {}, c.frag = this.frag || void 0, d === y.ERROR && (c = c, c.parent = this.id, c.part = this.part, this.error = c.error), this.hls.trigger(d, c);
     };
-    this.observer = new ma(), this.observer.on(y.FRAG_DECRYPTED, a), this.observer.on(y.ERROR, a);
-    const o = mo(s.preferManagedMediaSource);
+    this.observer = new _a(), this.observer.on(y.FRAG_DECRYPTED, a), this.observer.on(y.ERROR, a);
+    const o = _o(s.preferManagedMediaSource);
     if (this.useWorker && typeof Worker < "u") {
       const d = this.hls.logger;
-      if (s.workerPath || cm()) {
+      if (s.workerPath || um()) {
         try {
-          s.workerPath ? (d.log(`loading Web Worker ${s.workerPath} for "${t}"`), this.workerContext = um(s.workerPath)) : (d.log(`injecting Web Worker for "${t}"`), this.workerContext = dm());
+          s.workerPath ? (d.log(`loading Web Worker ${s.workerPath} for "${t}"`), this.workerContext = fm(s.workerPath)) : (d.log(`injecting Web Worker for "${t}"`), this.workerContext = hm());
           const {
             worker: u
           } = this.workerContext;
@@ -12082,18 +12089,18 @@ class qd {
             config: Re(s)
           });
         } catch (u) {
-          d.warn(`Error setting up "${t}" Web Worker, fallback to inline`, u), this.terminateWorker(), this.error = null, this.transmuxer = new el(this.observer, o, s, "", t, e.logger);
+          d.warn(`Error setting up "${t}" Web Worker, fallback to inline`, u), this.terminateWorker(), this.error = null, this.transmuxer = new tl(this.observer, o, s, "", t, e.logger);
         }
         return;
       }
     }
-    this.transmuxer = new el(this.observer, o, s, "", t, e.logger);
+    this.transmuxer = new tl(this.observer, o, s, "", t, e.logger);
   }
   reset() {
     if (this.frag = null, this.part = null, this.workerContext) {
       const e = this.instanceNo;
-      this.instanceNo = tl++;
-      const t = this.hls.config, i = mo(t.preferManagedMediaSource);
+      this.instanceNo = il++;
+      const t = this.hls.config, i = _o(t.preferManagedMediaSource);
       this.workerContext.worker.postMessage({
         instanceNo: this.instanceNo,
         cmd: "reset",
@@ -12109,7 +12116,7 @@ class qd {
       const {
         worker: e
       } = this.workerContext;
-      this.workerContext = null, e.removeEventListener("message", this.onWorkerMessage), e.removeEventListener("error", this.onWorkerError), hm(this.hls.config.workerPath);
+      this.workerContext = null, e.removeEventListener("message", this.onWorkerMessage), e.removeEventListener("error", this.onWorkerError), pm(this.hls.config.workerPath);
     }
   }
   destroy() {
@@ -12130,7 +12137,7 @@ class qd {
       transmuxer: g
     } = this, _ = a ? a.start : s.start, m = s.decryptdata, v = this.frag, b = !(v && s.cc === v.cc), x = !(v && c.level === v.level), E = v ? c.sn - v.sn : -1, T = this.part ? c.part - this.part.index : -1, w = E === 0 && c.id > 1 && c.id === v?.stats.chunkCount, S = !x && (E === 1 || E === 0 && (T === 1 || w && T <= 0)), k = self.performance.now();
     (x || E || s.stats.parsing.start === 0) && (s.stats.parsing.start = k), a && (T || !S) && (a.stats.parsing.start = k);
-    const I = !(v && ((h = s.initSegment) == null ? void 0 : h.url) === ((f = v.initSegment) == null ? void 0 : f.url)), A = new s0(b, S, d, x, _, I);
+    const I = !(v && ((h = s.initSegment) == null ? void 0 : h.url) === ((f = v.initSegment) == null ? void 0 : f.url)), A = new o0(b, S, d, x, _, I);
     if (!S || b || I) {
       this.hls.logger.log(`[transmuxer-interface]: Starting new transmux session for ${s.type} sn: ${c.sn}${c.part > -1 ? " part: " + c.part : ""} ${this.id === ne.MAIN ? "level" : "track"}: ${c.level} id: ${c.id}
         discontinuity: ${b}
@@ -12139,7 +12146,7 @@ class qd {
         accurateTimeOffset: ${d}
         timeOffset: ${_}
         initSegmentChange: ${I}`);
-      const C = new r0(i, r, t, o, u);
+      const C = new a0(i, r, t, o, u);
       this.configureTransmuxer(C);
     }
     if (this.frag = s, this.part = a, this.workerContext)
@@ -12214,8 +12221,8 @@ class qd {
     e.chunkMeta.transmuxing.end = self.performance.now(), this.onTransmuxComplete(e);
   }
 }
-const il = 100;
-class a0 extends ga {
+const nl = 100;
+class l0 extends ma {
   constructor(e, t, i) {
     super(e, t, i, "audio-stream-controller", ne.AUDIO), this.mainAnchor = null, this.mainFragLoading = null, this.audioOnly = !1, this.bufferedTrack = null, this.switchingTrack = null, this.trackId = -1, this.waitingData = null, this.mainDetails = null, this.flushing = !1, this.bufferFlushed = !1, this.cachedTrackLoadedData = null, this.registerListeners();
   }
@@ -12266,7 +12273,7 @@ class a0 extends ga {
     const r = ((i = this.mainFragLoading) == null ? void 0 : i.frag) || null;
     if (t && r?.cc === t.cc)
       return;
-    const s = (r || e).cc, a = this.getLevelDetails(), o = this.getLoadPosition(), d = ud(a, s, o);
+    const s = (r || e).cc, a = this.getLevelDetails(), o = this.getLoadPosition(), d = fd(a, s, o);
     d && (this.log(`Syncing with main frag at ${d.start} cc ${d.cc}`), this.startFragRequested = !1, this.nextLoadPosition = d.start, this.resetLoadingState(), this.state === U.IDLE && this.doTickIdle());
   }
   startLoad(e, t) {
@@ -12275,7 +12282,7 @@ class a0 extends ga {
       return;
     }
     const i = this.lastCurrentTime;
-    this.stopLoad(), this.setInterval(il), i > 0 && e === -1 ? (this.log(`Override startPosition with lastCurrentTime @${i.toFixed(3)}`), e = i, this.state = U.IDLE) : this.state = U.WAITING_TRACK, this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
+    this.stopLoad(), this.setInterval(nl), i > 0 && e === -1 ? (this.log(`Override startPosition with lastCurrentTime @${i.toFixed(3)}`), e = i, this.state = U.IDLE) : this.state = U.WAITING_TRACK, this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
   }
   doTick() {
     switch (this.state) {
@@ -12401,7 +12408,7 @@ class a0 extends ga {
     const {
       fragCurrent: r
     } = this;
-    r && (r.abortRequests(), this.removeUnbufferedFrags(r.start)), this.resetLoadingState(), i ? (this.switchingTrack = t, this.flushAudioIfNeeded(t), this.state !== U.STOPPED && (this.setInterval(il), this.state = U.IDLE, this.tick())) : (this.resetTransmuxer(), this.switchingTrack = null, this.bufferedTrack = t, this.clearInterval());
+    r && (r.abortRequests(), this.removeUnbufferedFrags(r.start)), this.resetLoadingState(), i ? (this.switchingTrack = t, this.flushAudioIfNeeded(t), this.state !== U.STOPPED && (this.setInterval(nl), this.state = U.IDLE, this.tick())) : (this.resetTransmuxer(), this.switchingTrack = null, this.bufferedTrack = t, this.clearInterval());
   }
   onManifestLoading() {
     super.onManifestLoading(), this.bufferFlushed = this.flushing = this.audioOnly = !1, this.resetItem(), this.trackId = -1;
@@ -12440,7 +12447,7 @@ class a0 extends ga {
         var f;
         h = this.alignPlaylists(s, u.details, (f = this.levelLastLoaded) == null ? void 0 : f.details);
       }
-      s.alignedSliding || (Ld(s, c), s.alignedSliding || qn(s, c), h = s.fragmentStart);
+      s.alignedSliding || (Cd(s, c), s.alignedSliding || qn(s, c), h = s.fragmentStart);
     }
     u.details = s, this.levelLastLoaded = u, this.startFragRequested || this.setStartPosition(c, h), this.hls.trigger(y.AUDIO_TRACK_UPDATED, {
       details: s,
@@ -12474,10 +12481,10 @@ class a0 extends ga {
     }
     const h = a.defaultAudioCodec || c.audioCodec || "mp4a.40.2";
     let f = this.transmuxer;
-    f || (f = this.transmuxer = new qd(this.hls, ne.AUDIO, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)));
+    f || (f = this.transmuxer = new Qd(this.hls, ne.AUDIO, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)));
     const p = this.initPTS[i.cc], g = (t = i.initSegment) == null ? void 0 : t.data;
     if (p !== void 0) {
-      const m = r ? r.index : -1, v = m !== -1, b = new ha(i.level, i.sn, i.stats.chunkCount, s.byteLength, m, v);
+      const m = r ? r.index : -1, v = m !== -1, b = new fa(i.level, i.sn, i.stats.chunkCount, s.byteLength, m, v);
       f.push(s, g, h, "", i, r, u.totalduration, !1, b, p);
     } else {
       this.log(`Unknown video PTS for cc ${i.cc}, waiting for video PTS before demuxing audio frag ${i.sn} of [${u.startSN} ,${u.endSN}],track ${o}`);
@@ -12486,7 +12493,7 @@ class a0 extends ga {
       } = this.waitingData = this.waitingData || {
         frag: i,
         part: r,
-        cache: new Rd(),
+        cache: new Dd(),
         complete: !1
       };
       _.push(new Uint8Array(s)), this.state !== U.STOPPED && (this.state = U.WAITING_INIT_PTS);
@@ -12549,7 +12556,7 @@ class a0 extends ga {
       case P.AUDIO_TRACK_LOAD_ERROR:
       case P.AUDIO_TRACK_LOAD_TIMEOUT:
       case P.LEVEL_PARSING_ERROR:
-        !t.levelRetry && this.state === U.WAITING_TRACK && ((i = t.context) == null ? void 0 : i.type) === ve.AUDIO_TRACK && (this.state = U.IDLE);
+        !t.levelRetry && this.state === U.WAITING_TRACK && ((i = t.context) == null ? void 0 : i.type) === ye.AUDIO_TRACK && (this.state = U.IDLE);
         break;
       case P.BUFFER_ADD_CODEC_ERROR:
       case P.BUFFER_APPEND_ERROR:
@@ -12703,7 +12710,7 @@ class a0 extends ga {
         characteristics: s,
         audioCodec: a,
         channels: o
-      }, e, ii) || (Kn(e.url, this.hls) ? (this.log("Switching audio track : flushing all audio"), super.flushMainBuffer(0, Number.POSITIVE_INFINITY, "audio"), this.bufferedTrack = null) : this.bufferedTrack = e);
+      }, e, ni) || (Kn(e.url, this.hls) ? (this.log("Switching audio track : flushing all audio"), super.flushMainBuffer(0, Number.POSITIVE_INFINITY, "audio"), this.bufferedTrack = null) : this.bufferedTrack = e);
     }
   }
   completeAudioSwitch(e) {
@@ -12713,7 +12720,7 @@ class a0 extends ga {
     this.flushAudioIfNeeded(e), this.bufferedTrack = e, this.switchingTrack = null, t.trigger(y.AUDIO_TRACK_SWITCHED, ke({}, e));
   }
 }
-class Sa extends pt {
+class Ta extends pt {
   constructor(e, t) {
     super(t, e.logger), this.hls = void 0, this.canLoad = !1, this.timer = -1, this.hls = e;
   }
@@ -12753,8 +12760,8 @@ class Sa extends pt {
           const u = Math.min(t.age - t.partTarget, t.targetduration);
           d >= 0 && u > t.partTarget && (d += 1);
         }
-        const c = i && _o(i);
-        return new vo(o, d >= 0 ? d : void 0, c);
+        const c = i && vo(i);
+        return new yo(o, d >= 0 ? d : void 0, c);
       }
     }
   }
@@ -12792,7 +12799,7 @@ class Sa extends pt {
     if (r.live || i != null && i.live) {
       const u = "levelInfo" in t ? t.levelInfo : t.track;
       if (r.reloaded(i), i && r.fragments.length > 0) {
-        Zg(i, r, this);
+        em(i, r, this);
         const b = r.playlistParsingError;
         if (b) {
           this.warn(b);
@@ -12820,7 +12827,7 @@ class Sa extends pt {
         }
       }
       r.requestScheduled === -1 && (r.requestScheduled = s.loading.start);
-      const h = this.hls.mainForwardBufferInfo, f = h ? h.end - h.len : 0, p = (r.edge - f) * 1e3, g = Td(r, p);
+      const h = this.hls.mainForwardBufferInfo, f = h ? h.end - h.len : 0, p = (r.edge - f) * 1e3, g = wd(r, p);
       if (r.requestScheduled + g < a ? r.requestScheduled = a : r.requestScheduled += g, this.log(`live playlist ${e} ${r.advanced ? "REFRESHED " + r.lastPartSn + "-" + r.lastPartIndex : r.updated ? "UPDATED" : "MISSED"}`), !this.canLoad || !r.live)
         return;
       let _, m, v;
@@ -12868,8 +12875,8 @@ class Sa extends pt {
     this.log(`reload live playlist ${e.name || e.bitrate + "bps"} in ${Math.round(o)} ms`), this.clearTimer(), this.timer = self.setTimeout(() => this.loadingPlaylist(e, t), o);
   }
   getDeliveryDirectives(e, t, i, r) {
-    let s = _o(e);
-    return t != null && t.skip && e.deltaUpdateFailed && (i = t.msn, r = t.part, s = In.No), new vo(i, r, s);
+    let s = vo(e);
+    return t != null && t.skip && e.deltaUpdateFailed && (i = t.msn, r = t.part, s = In.No), new yo(i, r, s);
   }
   checkRetry(e) {
     const t = e.details, i = Hn(e), r = e.errorAction, {
@@ -12884,7 +12891,7 @@ class Sa extends pt {
       if (i && (c = e.context) != null && c.deliveryDirectives)
         this.warn(`Retrying playlist loading ${a + 1}/${o.maxNumRetry} after "${t}" without delivery-directives`), this.loadPlaylist();
       else {
-        const u = da(o, a);
+        const u = ua(o, a);
         this.clearTimer(), this.timer = self.setTimeout(() => this.loadPlaylist(), u), this.warn(`Retrying playlist loading ${a + 1}/${o.maxNumRetry} after "${t}" in ${u}ms`);
       }
       e.levelRetry = !0, r.resolved = !0;
@@ -12892,7 +12899,7 @@ class Sa extends pt {
     return d;
   }
 }
-function Xd(n, e) {
+function Zd(n, e) {
   if (n.length !== e.length)
     return !1;
   for (let t = 0; t < n.length; t++)
@@ -12904,10 +12911,10 @@ function qi(n, e, t) {
   const i = n["STABLE-RENDITION-ID"];
   return i && !t ? i === e["STABLE-RENDITION-ID"] : !(t || ["LANGUAGE", "NAME", "CHARACTERISTICS", "AUTOSELECT", "DEFAULT", "FORCED", "ASSOC-LANGUAGE"]).some((r) => n[r] !== e[r]);
 }
-function ws(n, e) {
+function As(n, e) {
   return e.label.toLowerCase() === n.name.toLowerCase() && (!e.language || e.language.toLowerCase() === (n.lang || "").toLowerCase());
 }
-class o0 extends Sa {
+class c0 extends Ta {
   constructor(e) {
     super(e, "audio-track-controller"), this.tracks = [], this.groupIds = null, this.tracksInGroup = [], this.trackId = -1, this.currentTrack = null, this.selectDefaultTrack = !0, this.registerListeners();
   }
@@ -12969,7 +12976,7 @@ class o0 extends Sa {
       this.tracksInGroup = o;
       const d = this.hls.config.audioPreference;
       if (!s && d) {
-        const f = wt(d, o, ii);
+        const f = wt(d, o, ni);
         if (f > -1)
           s = o[f];
         else {
@@ -12999,7 +13006,7 @@ class o0 extends Sa {
     }
   }
   onError(e, t) {
-    t.fatal || !t.context || t.context.type === ve.AUDIO_TRACK && t.context.id === this.trackId && (!this.groupIds || this.groupIds.indexOf(t.context.groupId) !== -1) && this.checkRetry(t);
+    t.fatal || !t.context || t.context.type === ye.AUDIO_TRACK && t.context.id === this.trackId && (!this.groupIds || this.groupIds.indexOf(t.context.groupId) !== -1) && this.checkRetry(t);
   }
   get allAudioTracks() {
     return this.tracks;
@@ -13019,16 +13026,16 @@ class o0 extends Sa {
       const i = this.allAudioTracks;
       if (this.selectDefaultTrack = !1, i.length) {
         const r = this.currentTrack;
-        if (r && ai(e, r, ii))
+        if (r && ai(e, r, ni))
           return r;
-        const s = wt(e, this.tracksInGroup, ii);
+        const s = wt(e, this.tracksInGroup, ni);
         if (s > -1) {
           const a = this.tracksInGroup[s];
           return this.setAudioTrack(s), a;
         } else if (r) {
           let a = t.loadLevel;
           a === -1 && (a = t.firstAutoLevel);
-          const o = yg(e, t.levels, i, a, ii);
+          const o = xg(e, t.levels, i, a, ni);
           if (o === -1)
             return null;
           t.nextLoadLevel = o;
@@ -13059,7 +13066,7 @@ class o0 extends Sa {
     const t = this.tracksInGroup;
     for (let i = 0; i < t.length; i++) {
       const r = t[i];
-      if (!(this.selectDefaultTrack && !r.default) && (!e || ai(e, r, ii)))
+      if (!(this.selectDefaultTrack && !r.default) && (!e || ai(e, r, ni)))
         return i;
     }
     if (e) {
@@ -13080,7 +13087,7 @@ class o0 extends Sa {
           characteristics: a,
           audioCodec: o,
           channels: d
-        }, u, ii))
+        }, u, ni))
           return c;
       }
       for (let c = 0; c < t.length; c++) {
@@ -13113,7 +13120,7 @@ class o0 extends Sa {
     });
   }
 }
-class l0 {
+class d0 {
   constructor(e) {
     this.tracks = void 0, this.queues = {
       video: [],
@@ -13222,13 +13229,13 @@ ${this.list("audiovideo")}}`;
     return ((t = this.queues) == null ? void 0 : t[e].map((i) => i.label).join(", ")) || "";
   }
 }
-const nl = /(avc[1234]|hvc1|hev1|dvh[1e]|vp09|av01)(?:\.[^.,]+)+/, Qd = "HlsJsTrackRemovedError";
-class c0 extends Error {
+const rl = /(avc[1234]|hvc1|hev1|dvh[1e]|vp09|av01)(?:\.[^.,]+)+/, Jd = "HlsJsTrackRemovedError";
+class u0 extends Error {
   constructor(e) {
-    super(e), this.name = Qd;
+    super(e), this.name = Jd;
   }
 }
-class d0 extends pt {
+class h0 extends pt {
   constructor(e, t) {
     super("buffer-controller", e.logger), this.hls = void 0, this.fragmentTracker = void 0, this.details = null, this._objectUrl = null, this.operationQueue = null, this.bufferCodecEventsTotal = 0, this.media = null, this.mediaSource = null, this.lastMpegAudioChunk = null, this.blockedAudioAppend = null, this.lastVideoAppendEnd = 0, this.appendSource = void 0, this.transferData = void 0, this.overrides = void 0, this.appendErrors = {
       audio: 0,
@@ -13258,7 +13265,7 @@ class d0 extends pt {
         _objectUrl: r
       } = this;
       i !== r && this.error(`Media element src was set while attaching MediaSource (${r} > ${i})`);
-    }, this.hls = e, this.fragmentTracker = t, this.appendSource = Dp(qt(e.config.preferManagedMediaSource)), this.initTracks(), this.registerListeners();
+    }, this.hls = e, this.fragmentTracker = t, this.appendSource = Mp(Xt(e.config.preferManagedMediaSource)), this.initTracks(), this.registerListeners();
   }
   hasSourceTypes() {
     return Object.keys(this.tracks).length > 0;
@@ -13317,7 +13324,7 @@ class d0 extends pt {
   onMediaAttaching(e, t) {
     const i = this.media = t.media;
     this.transferData = this.overrides = void 0;
-    const r = qt(this.appendSource);
+    const r = Xt(this.appendSource);
     if (r) {
       const s = !!t.mediaSource;
       (s || t.overrides) && (this.transferData = t, this.overrides = t.overrides);
@@ -13330,7 +13337,7 @@ class d0 extends pt {
           try {
             i.removeAttribute("src");
             const d = self.ManagedMediaSource;
-            i.disableRemotePlayback = i.disableRemotePlayback || d && a instanceof d, rl(i), u0(i, o), i.load();
+            i.disableRemotePlayback = i.disableRemotePlayback || d && a instanceof d, sl(i), f0(i, o), i.load();
           } catch {
             i.src = o;
           }
@@ -13360,7 +13367,7 @@ class d0 extends pt {
       }
       if (this.log(`attachTransferred: (bufferCodecEventsTotal ${this.bufferCodecEventsTotal})
 required tracks: ${Re(i, (d, c) => d === "initSegment" ? void 0 : c)};
-transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r, i)) {
+transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !qc(r, i)) {
         t.mediaSource = null, t.tracks = void 0;
         const d = e.currentTime, c = this.details, u = Math.max(d, c?.fragments[0].start || 0);
         if (u - d > 1) {
@@ -13380,7 +13387,7 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
               const m = fe.getBuffered(h);
               f.detectEvictedFragments(c, m, p, null, !0);
             }
-            const g = Br(c), _ = [c, h];
+            const g = Ur(c), _ = [c, h];
             this.sourceBuffers[g] = _, h.updating && this.operationQueue && this.operationQueue.prependBlocker(c), this.trackSourceBuffer(c, u);
           }
         }
@@ -13422,7 +13429,7 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
       }
       s.removeEventListener("sourceopen", this._onMediaSourceOpen), s.removeEventListener("sourceended", this._onMediaSourceEnded), s.removeEventListener("sourceclose", this._onMediaSourceClose), this.appendSource && (s.removeEventListener("startstreaming", this._onStartStreaming), s.removeEventListener("endstreaming", this._onEndStreaming)), this.mediaSource = null, this._objectUrl = null;
     }
-    r && (r.removeEventListener("emptied", this._onMediaEmptied), i || (a && self.URL.revokeObjectURL(a), this.mediaSrc === a ? (r.removeAttribute("src"), this.appendSource && rl(r), r.load()) : this.warn("media|source.src was changed by a third party - skip cleanup")), this.media = null), this.hls.trigger(y.MEDIA_DETACHED, t);
+    r && (r.removeEventListener("emptied", this._onMediaEmptied), i || (a && self.URL.revokeObjectURL(a), this.mediaSrc === a ? (r.removeAttribute("src"), this.appendSource && sl(r), r.load()) : this.warn("media|source.src was changed by a third party - skip cleanup")), this.media = null), this.hls.trigger(y.MEDIA_DETACHED, t);
   }
   onBufferReset() {
     this.sourceBuffers.forEach(([e]) => {
@@ -13442,12 +13449,12 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
     delete this.tracks[e];
   }
   removeBuffer(e) {
-    this.removeBufferListeners(e), this.sourceBuffers[Br(e)] = [null, null];
+    this.removeBufferListeners(e), this.sourceBuffers[Ur(e)] = [null, null];
     const t = this.tracks[e];
     t && (t.buffer = void 0);
   }
   resetQueue() {
-    this.operationQueue && this.operationQueue.destroy(), this.operationQueue = new l0(this.tracks);
+    this.operationQueue && this.operationQueue.destroy(), this.operationQueue = new d0(this.tracks);
   }
   onBufferCodecs(e, t) {
     var i;
@@ -13480,9 +13487,9 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
         metadata: m,
         id: f
       });
-      const S = An(T, w), k = S?.replace(nl, "$1");
+      const S = An(T, w), k = S?.replace(rl, "$1");
       let I = An(p, g);
-      const A = (u = I) == null ? void 0 : u.replace(nl, "$1");
+      const A = (u = I) == null ? void 0 : u.replace(rl, "$1");
       I && S && k !== A && (d.slice(0, 5) === "audio" && (I = zn(I, this.appendSource)), this.log(`switching codec ${T} to ${I}`), I !== (b.pendingCodec || b.codec) && (b.pendingCodec = I), b.container = _, this.appendChangeType(d, _, I));
     }), (this.tracksReady || this.sourceBufferCount) && (t.tracks = this.sourceBufferTracks), !this.sourceBufferCount && (this.bufferCodecEventsTotal > 1 && !this.tracks.video && !t.video && ((i = t.audio) == null ? void 0 : i.id) === "main" && (this.log("Main audio-only"), this.bufferCodecEventsTotal = 1), this.mediaSourceOpenOrEnded && this.checkPendingTracks());
   }
@@ -13629,7 +13636,7 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
           I.details = P.BUFFER_FULL_ERROR;
         else if (S.code === DOMException.INVALID_STATE_ERR && this.mediaSourceOpenOrEnded && !A)
           I.errorAction = yi(!0);
-        else if (S.name === Qd && this.sourceBufferCount === 0)
+        else if (S.name === Jd && this.sourceBufferCount === 0)
           I.errorAction = yi(!0);
         else {
           const C = ++this.appendErrors[s];
@@ -13931,7 +13938,7 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
         const d = this.getTrackCodec(o, a), c = `${o.container};codecs=${d}`;
         o.codec = d, this.log(`creating sourceBuffer(${c})${this.currentOp(a) ? " Queued" : ""} ${Re(o)}`);
         try {
-          const u = i.addSourceBuffer(c), h = Br(a), f = [a, u];
+          const u = i.addSourceBuffer(c), h = Ur(a), f = [a, u];
           t[h] = f, o.buffer = u;
         } catch (u) {
           var r;
@@ -13954,7 +13961,7 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
   getTrackCodec(e, t) {
     const i = e.supplemental;
     let r = e.codec;
-    i && (t === "video" || t === "audiovideo") && Vi(i, "video") && (r = eg(r, i));
+    i && (t === "video" || t === "audiovideo") && Vi(i, "video") && (r = ig(r, i));
     const s = An(r, e.levelCodec);
     return s ? t.slice(0, 5) === "audio" ? zn(s, this.appendSource) : s : "";
   }
@@ -14031,7 +14038,7 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
   appendExecutor(e, t) {
     const i = this.tracks[t], r = i?.buffer;
     if (!r)
-      throw new c0(`Attempting to append to the ${t} SourceBuffer, but it does not exist`);
+      throw new u0(`Attempting to append to the ${t} SourceBuffer, but it does not exist`);
     i.ending = !1, i.ended = !1, r.appendBuffer(e);
   }
   blockUntilOpen(e) {
@@ -14123,20 +14130,20 @@ transfer tracks: ${Re(r, (d, c) => d === "initSegment" ? void 0 : c)}}`), !Wc(r,
     }), t.listeners.length = 0);
   }
 }
-function rl(n) {
+function sl(n) {
   const e = n.querySelectorAll("source");
   [].slice.call(e).forEach((t) => {
     n.removeChild(t);
   });
 }
-function u0(n, e) {
+function f0(n, e) {
   const t = self.document.createElement("source");
   t.type = "video/mp4", t.src = e, n.appendChild(t);
 }
-function Br(n) {
+function Ur(n) {
   return n === "audio" ? 1 : 0;
 }
-class Ta {
+class ka {
   constructor(e) {
     this.hls = void 0, this.autoLevelCapping = void 0, this.firstLevel = void 0, this.media = void 0, this.restrictedLevels = void 0, this.timer = void 0, this.clientRect = void 0, this.streamController = void 0, this.hls = e, this.autoLevelCapping = Number.POSITIVE_INFINITY, this.firstLevel = -1, this.media = null, this.restrictedLevels = [], this.timer = void 0, this.clientRect = null, this.registerListeners();
   }
@@ -14205,7 +14212,7 @@ class Ta {
     if (!t.length)
       return -1;
     const i = t.filter((r, s) => this.isLevelAllowed(r) && s <= e);
-    return this.clientRect = null, Ta.getMaxLevelByMediaSize(i, this.mediaWidth, this.mediaHeight);
+    return this.clientRect = null, ka.getMaxLevelByMediaSize(i, this.mediaWidth, this.mediaHeight);
   }
   startCapping() {
     this.timer || (this.autoLevelCapping = Number.POSITIVE_INFINITY, self.clearInterval(this.timer), this.timer = self.setInterval(this.detectPlayerSize.bind(this), 1e3), this.detectPlayerSize());
@@ -14260,7 +14267,7 @@ class Ta {
     return s;
   }
 }
-const h0 = {
+const p0 = {
   /**
    * text file, such as a manifest or playlist
    */
@@ -14297,64 +14304,64 @@ const h0 = {
    * other
    */
   OTHER: "o"
-}, nt = h0, f0 = {
+}, nt = p0, g0 = {
   /**
    * HTTP Live Streaming (HLS)
    */
   HLS: "h"
-}, p0 = f0;
+}, m0 = g0;
 class Lt {
   constructor(e, t) {
     Array.isArray(e) && (e = e.map((i) => i instanceof Lt ? i : new Lt(i))), this.value = e, this.params = t;
   }
 }
-const g0 = "Dict";
-function m0(n) {
+const _0 = "Dict";
+function v0(n) {
   return Array.isArray(n) ? JSON.stringify(n) : n instanceof Map ? "Map{}" : n instanceof Set ? "Set{}" : typeof n == "object" ? JSON.stringify(n) : String(n);
 }
-function _0(n, e, t, i) {
-  return new Error(`failed to ${n} "${m0(e)}" as ${t}`, {
+function y0(n, e, t, i) {
+  return new Error(`failed to ${n} "${v0(e)}" as ${t}`, {
     cause: i
   });
 }
 function Rt(n, e, t) {
-  return _0("serialize", n, e, t);
+  return y0("serialize", n, e, t);
 }
-class Zd {
+class eu {
   constructor(e) {
     this.description = e;
   }
 }
-const sl = "Bare Item", v0 = "Boolean";
-function y0(n) {
+const al = "Bare Item", b0 = "Boolean";
+function x0(n) {
   if (typeof n != "boolean")
-    throw Rt(n, v0);
+    throw Rt(n, b0);
   return n ? "?1" : "?0";
 }
-function b0(n) {
+function E0(n) {
   return btoa(String.fromCharCode(...n));
 }
-const x0 = "Byte Sequence";
-function E0(n) {
-  if (ArrayBuffer.isView(n) === !1)
-    throw Rt(n, x0);
-  return `:${b0(n)}:`;
-}
-const S0 = "Integer";
+const S0 = "Byte Sequence";
 function T0(n) {
+  if (ArrayBuffer.isView(n) === !1)
+    throw Rt(n, S0);
+  return `:${E0(n)}:`;
+}
+const k0 = "Integer";
+function w0(n) {
   return n < -999999999999999 || 999999999999999 < n;
 }
-function Jd(n) {
-  if (T0(n))
-    throw Rt(n, S0);
+function tu(n) {
+  if (w0(n))
+    throw Rt(n, k0);
   return n.toString();
 }
-function k0(n) {
-  return `@${Jd(n.getTime() / 1e3)}`;
+function A0(n) {
+  return `@${tu(n.getTime() / 1e3)}`;
 }
-function eu(n, e) {
+function iu(n, e) {
   if (n < 0)
-    return -eu(-n, e);
+    return -iu(-n, e);
   const t = Math.pow(10, e);
   if (Math.abs(n * t % 1 - 0.5) < Number.EPSILON) {
     const r = Math.floor(n * t);
@@ -14362,95 +14369,95 @@ function eu(n, e) {
   } else
     return Math.round(n * t) / t;
 }
-const w0 = "Decimal";
-function A0(n) {
-  const e = eu(n, 3);
+const I0 = "Decimal";
+function L0(n) {
+  const e = iu(n, 3);
   if (Math.floor(Math.abs(e)).toString().length > 12)
-    throw Rt(n, w0);
+    throw Rt(n, I0);
   const t = e.toString();
   return t.includes(".") ? t : `${t}.0`;
 }
-const I0 = "String", L0 = /[\x00-\x1f\x7f]+/;
-function R0(n) {
-  if (L0.test(n))
-    throw Rt(n, I0);
+const R0 = "String", C0 = /[\x00-\x1f\x7f]+/;
+function D0(n) {
+  if (C0.test(n))
+    throw Rt(n, R0);
   return `"${n.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
 }
-function C0(n) {
+function P0(n) {
   return n.description || n.toString().slice(7, -1);
 }
-const D0 = "Token";
-function al(n) {
-  const e = C0(n);
+const M0 = "Token";
+function ol(n) {
+  const e = P0(n);
   if (/^([a-zA-Z*])([!#$%&'*+\-.^_`|~\w:/]*)$/.test(e) === !1)
-    throw Rt(e, D0);
+    throw Rt(e, M0);
   return e;
 }
-function As(n) {
+function Is(n) {
   switch (typeof n) {
     case "number":
       if (!ee(n))
-        throw Rt(n, sl);
-      return Number.isInteger(n) ? Jd(n) : A0(n);
+        throw Rt(n, al);
+      return Number.isInteger(n) ? tu(n) : L0(n);
     case "string":
-      return R0(n);
+      return D0(n);
     case "symbol":
-      return al(n);
+      return ol(n);
     case "boolean":
-      return y0(n);
+      return x0(n);
     case "object":
       if (n instanceof Date)
-        return k0(n);
+        return A0(n);
       if (n instanceof Uint8Array)
-        return E0(n);
-      if (n instanceof Zd)
-        return al(n);
+        return T0(n);
+      if (n instanceof eu)
+        return ol(n);
     default:
-      throw Rt(n, sl);
+      throw Rt(n, al);
   }
 }
-const P0 = "Key";
-function Is(n) {
+const O0 = "Key";
+function Ls(n) {
   if (/^[a-z*][a-z0-9\-_.*]*$/.test(n) === !1)
-    throw Rt(n, P0);
+    throw Rt(n, O0);
   return n;
 }
-function ka(n) {
-  return n == null ? "" : Object.entries(n).map(([e, t]) => t === !0 ? `;${Is(e)}` : `;${Is(e)}=${As(t)}`).join("");
+function wa(n) {
+  return n == null ? "" : Object.entries(n).map(([e, t]) => t === !0 ? `;${Ls(e)}` : `;${Ls(e)}=${Is(t)}`).join("");
 }
-function tu(n) {
-  return n instanceof Lt ? `${As(n.value)}${ka(n.params)}` : As(n);
+function nu(n) {
+  return n instanceof Lt ? `${Is(n.value)}${wa(n.params)}` : Is(n);
 }
-function M0(n) {
-  return `(${n.value.map(tu).join(" ")})${ka(n.params)}`;
+function F0(n) {
+  return `(${n.value.map(nu).join(" ")})${wa(n.params)}`;
 }
-function O0(n, e = {
+function N0(n, e = {
   whitespace: !0
 }) {
   if (typeof n != "object" || n == null)
-    throw Rt(n, g0);
+    throw Rt(n, _0);
   const t = n instanceof Map ? n.entries() : Object.entries(n), i = e?.whitespace ? " " : "";
   return Array.from(t).map(([r, s]) => {
     s instanceof Lt || (s = new Lt(s));
-    let a = Is(r);
-    return s.value === !0 ? a += ka(s.params) : (a += "=", Array.isArray(s.value) ? a += M0(s) : a += tu(s)), a;
+    let a = Ls(r);
+    return s.value === !0 ? a += wa(s.params) : (a += "=", Array.isArray(s.value) ? a += F0(s) : a += nu(s)), a;
   }).join(`,${i}`);
 }
-function iu(n, e) {
-  return O0(n, e);
+function ru(n, e) {
+  return N0(n, e);
 }
-const xt = "CMCD-Object", $e = "CMCD-Request", Jt = "CMCD-Session", Ut = "CMCD-Status", F0 = {
+const Et = "CMCD-Object", $e = "CMCD-Request", ei = "CMCD-Session", zt = "CMCD-Status", $0 = {
   // Object
-  br: xt,
-  ab: xt,
-  d: xt,
-  ot: xt,
-  tb: xt,
-  tpb: xt,
-  lb: xt,
-  tab: xt,
-  lab: xt,
-  url: xt,
+  br: Et,
+  ab: Et,
+  d: Et,
+  ot: Et,
+  tb: Et,
+  tpb: Et,
+  lb: Et,
+  tab: Et,
+  lab: Et,
+  url: Et,
   // Request
   pb: $e,
   bl: $e,
@@ -14475,53 +14482,53 @@ const xt = "CMCD-Object", $e = "CMCD-Request", Jt = "CMCD-Session", Ut = "CMCD-S
   // TODO: Which header to put the `ts` field is not defined yet.
   ts: $e,
   // Session
-  cid: Jt,
-  pr: Jt,
-  sf: Jt,
-  sid: Jt,
-  st: Jt,
-  v: Jt,
-  msd: Jt,
+  cid: ei,
+  pr: ei,
+  sf: ei,
+  sid: ei,
+  st: ei,
+  v: ei,
+  msd: ei,
   // Status
-  bs: Ut,
-  bsd: Ut,
-  cdn: Ut,
-  rtp: Ut,
-  bg: Ut,
-  pt: Ut,
-  ec: Ut,
-  e: Ut
-}, N0 = {
+  bs: zt,
+  bsd: zt,
+  cdn: zt,
+  rtp: zt,
+  bg: zt,
+  pt: zt,
+  ec: zt,
+  e: zt
+}, B0 = {
   /**
    * keys whose values vary with each request.
    */
   REQUEST: $e
 };
-function $0(n) {
+function U0(n) {
   return Object.keys(n).reduce((e, t) => {
     var i;
     return (i = n[t]) === null || i === void 0 || i.forEach((r) => e[r] = t), e;
   }, {});
 }
-function B0(n, e) {
+function G0(n, e) {
   const t = {};
   if (!n)
     return t;
-  const i = Object.keys(n), r = e ? $0(e) : {};
+  const i = Object.keys(n), r = e ? U0(e) : {};
   return i.reduce((s, a) => {
     var o;
-    const d = F0[a] || r[a] || N0.REQUEST, c = (o = s[d]) !== null && o !== void 0 ? o : s[d] = {};
+    const d = $0[a] || r[a] || B0.REQUEST, c = (o = s[d]) !== null && o !== void 0 ? o : s[d] = {};
     return c[a] = n[a], s;
   }, t);
 }
-function U0(n) {
+function z0(n) {
   return ["ot", "sf", "st", "e", "sta"].includes(n);
 }
-function G0(n) {
+function V0(n) {
   return typeof n == "number" ? ee(n) : n != null && n !== "" && n !== !1;
 }
-const nu = "event";
-function z0(n, e) {
+const su = "event";
+function K0(n, e) {
   const t = new URL(n), i = new URL(e);
   if (t.origin !== i.origin)
     return n;
@@ -14532,10 +14539,10 @@ function z0(n, e) {
     s.shift(), r.unshift("..");
   return r.join("/") + t.search + t.hash;
 }
-const Dn = (n) => Math.round(n), Ls = (n, e) => Array.isArray(n) ? n.map((t) => Ls(t, e)) : n instanceof Lt && typeof n.value == "string" ? new Lt(Ls(n.value, e), n.params) : (e.baseUrl && (n = z0(n, e.baseUrl)), e.version === 1 ? encodeURIComponent(n) : n), on = (n) => Dn(n / 100) * 100, V0 = (n, e) => {
+const Dn = (n) => Math.round(n), Rs = (n, e) => Array.isArray(n) ? n.map((t) => Rs(t, e)) : n instanceof Lt && typeof n.value == "string" ? new Lt(Rs(n.value, e), n.params) : (e.baseUrl && (n = K0(n, e.baseUrl)), e.version === 1 ? encodeURIComponent(n) : n), on = (n) => Dn(n / 100) * 100, H0 = (n, e) => {
   let t = n;
-  return e.version >= 2 && (n instanceof Lt && typeof n.value == "string" ? t = new Lt([n]) : typeof n == "string" && (t = [n])), Ls(t, e);
-}, K0 = {
+  return e.version >= 2 && (n instanceof Lt && typeof n.value == "string" ? t = new Lt([n]) : typeof n == "string" && (t = [n])), Rs(t, e);
+}, j0 = {
   /**
    * Bitrate (kbps) rounded integer
    */
@@ -14559,7 +14566,7 @@ const Dn = (n) => Math.round(n), Ls = (n, e) => Array.isArray(n) ? n.map((t) => 
   /**
    * Next Object Request URL encoded
    */
-  nor: V0,
+  nor: H0,
   /**
    * Requested maximum throughput (kbps) rounded nearest 100kbps
    */
@@ -14568,41 +14575,41 @@ const Dn = (n) => Math.round(n), Ls = (n, e) => Array.isArray(n) ? n.map((t) => 
    * Top Bitrate (kbps) rounded integer
    */
   tb: Dn
-}, ru = "request", su = "response", wa = ["ab", "bg", "bl", "br", "bs", "bsd", "cdn", "cid", "cs", "df", "ec", "lab", "lb", "ltc", "msd", "mtp", "pb", "pr", "pt", "sf", "sid", "sn", "st", "sta", "tab", "tb", "tbl", "tpb", "ts", "v"], H0 = ["e"], j0 = /^[a-zA-Z0-9-.]+-[a-zA-Z0-9-.]+$/;
-function _r(n) {
-  return j0.test(n);
+}, au = "request", ou = "response", Aa = ["ab", "bg", "bl", "br", "bs", "bsd", "cdn", "cid", "cs", "df", "ec", "lab", "lb", "ltc", "msd", "mtp", "pb", "pr", "pt", "sf", "sid", "sn", "st", "sta", "tab", "tb", "tbl", "tpb", "ts", "v"], W0 = ["e"], Y0 = /^[a-zA-Z0-9-.]+-[a-zA-Z0-9-.]+$/;
+function vr(n) {
+  return Y0.test(n);
 }
-function W0(n) {
-  return wa.includes(n) || H0.includes(n) || _r(n);
+function q0(n) {
+  return Aa.includes(n) || W0.includes(n) || vr(n);
 }
-const au = ["d", "dl", "nor", "ot", "rtp", "su"];
-function Y0(n) {
-  return wa.includes(n) || au.includes(n) || _r(n);
-}
-const q0 = ["cmsdd", "cmsds", "rc", "smrt", "ttfb", "ttfbb", "ttlb", "url"];
+const lu = ["d", "dl", "nor", "ot", "rtp", "su"];
 function X0(n) {
-  return wa.includes(n) || au.includes(n) || q0.includes(n) || _r(n);
+  return Aa.includes(n) || lu.includes(n) || vr(n);
 }
-const Q0 = ["bl", "br", "bs", "cid", "d", "dl", "mtp", "nor", "nrr", "ot", "pr", "rtp", "sf", "sid", "st", "su", "tb", "v"];
+const Q0 = ["cmsdd", "cmsds", "rc", "smrt", "ttfb", "ttfbb", "ttlb", "url"];
 function Z0(n) {
-  return Q0.includes(n) || _r(n);
+  return Aa.includes(n) || lu.includes(n) || Q0.includes(n) || vr(n);
 }
-const J0 = {
-  [su]: X0,
-  [nu]: W0,
-  [ru]: Y0
+const J0 = ["bl", "br", "bs", "cid", "d", "dl", "mtp", "nor", "nrr", "ot", "pr", "rtp", "sf", "sid", "st", "su", "tb", "v"];
+function e_(n) {
+  return J0.includes(n) || vr(n);
+}
+const t_ = {
+  [ou]: Z0,
+  [su]: q0,
+  [au]: X0
 };
-function ou(n, e = {}) {
+function cu(n, e = {}) {
   const t = {};
   if (n == null || typeof n != "object")
     return t;
-  const i = e.version || n.v || 1, r = e.reportingMode || ru, s = i === 1 ? Z0 : J0[r];
+  const i = e.version || n.v || 1, r = e.reportingMode || au, s = i === 1 ? e_ : t_[r];
   let a = Object.keys(n).filter(s);
   const o = e.filter;
   typeof o == "function" && (a = a.filter(o));
-  const d = r === su || r === nu;
+  const d = r === ou || r === su;
   d && !a.includes("ts") && a.push("ts"), i > 1 && !a.includes("v") && a.push("v");
-  const c = Ae({}, K0, e.formatters), u = {
+  const c = Ae({}, j0, e.formatters), u = {
     version: i,
     reportingMode: r,
     baseUrl: e.baseUrl
@@ -14615,53 +14622,53 @@ function ou(n, e = {}) {
         return;
       f = i;
     }
-    h == "pr" && f === 1 || (d && h === "ts" && !ee(f) && (f = Date.now()), G0(f) && (U0(h) && typeof f == "string" && (f = new Zd(f)), t[h] = f));
+    h == "pr" && f === 1 || (d && h === "ts" && !ee(f) && (f = Date.now()), V0(f) && (z0(h) && typeof f == "string" && (f = new eu(f)), t[h] = f));
   }), t;
 }
-function e_(n, e = {}) {
+function i_(n, e = {}) {
   const t = {};
   if (!n)
     return t;
-  const i = ou(n, e), r = B0(i, e?.customHeaderMap);
+  const i = cu(n, e), r = G0(i, e?.customHeaderMap);
   return Object.entries(r).reduce((s, [a, o]) => {
-    const d = iu(o, {
+    const d = ru(o, {
       whitespace: !1
     });
     return d && (s[a] = d), s;
   }, t);
 }
-function t_(n, e, t) {
-  return Ae(n, e_(e, t));
+function n_(n, e, t) {
+  return Ae(n, i_(e, t));
 }
-const i_ = "CMCD";
-function n_(n, e = {}) {
-  return n ? iu(ou(n, e), {
+const r_ = "CMCD";
+function s_(n, e = {}) {
+  return n ? ru(cu(n, e), {
     whitespace: !1
   }) : "";
 }
-function r_(n, e = {}) {
+function a_(n, e = {}) {
   if (!n)
     return "";
-  const t = n_(n, e);
+  const t = s_(n, e);
   return encodeURIComponent(t);
 }
-function s_(n, e = {}) {
+function o_(n, e = {}) {
   if (!n)
     return "";
-  const t = r_(n, e);
-  return `${i_}=${t}`;
+  const t = a_(n, e);
+  return `${r_}=${t}`;
 }
-const ol = /CMCD=[^&#]+/;
-function a_(n, e, t) {
-  const i = s_(e, t);
+const ll = /CMCD=[^&#]+/;
+function l_(n, e, t) {
+  const i = o_(e, t);
   if (!i)
     return n;
-  if (ol.test(n))
-    return n.replace(ol, i);
+  if (ll.test(n))
+    return n.replace(ll, i);
   const r = n.includes("?") ? "&" : "?";
   return `${n}${r}${i}`;
 }
-class o_ {
+class c_ {
   constructor(e) {
     this.hls = void 0, this.config = void 0, this.media = void 0, this.sid = void 0, this.cid = void 0, this.useHeaders = !1, this.includeKeys = void 0, this.initialized = !1, this.starved = !1, this.buffering = !0, this.audioBuffer = void 0, this.videoBuffer = void 0, this.onWaiting = () => {
       this.initialized && (this.starved = !0), this.buffering = !0;
@@ -14725,7 +14732,7 @@ class o_ {
     var e;
     return {
       v: 1,
-      sf: p0.HLS,
+      sf: m0.HLS,
       sid: this.sid,
       cid: this.cid,
       pr: (e = this.media) == null ? void 0 : e.playbackRate,
@@ -14746,7 +14753,7 @@ class o_ {
     const s = {
       baseUrl: e.url
     };
-    this.useHeaders ? (e.headers || (e.headers = {}), t_(e.headers, t, s)) : e.url = a_(e.url, t, s);
+    this.useHeaders ? (e.headers || (e.headers = {}), n_(e.headers, t, s)) : e.url = l_(e.url, t, s);
   }
   getNextFrag(e) {
     var t;
@@ -14869,8 +14876,8 @@ class o_ {
     };
   }
 }
-const l_ = 3e5;
-class c_ extends pt {
+const d_ = 3e5;
+class u_ extends pt {
   constructor(e) {
     super("content-steering", e.logger), this.hls = void 0, this.loader = null, this.uri = null, this.pathwayId = ".", this._pathwayPriority = null, this.timeToLoad = 300, this.reloadTimer = -1, this.updated = 0, this.started = !1, this.enabled = !0, this.levels = null, this.audioTracks = null, this.subtitleTracks = null, this.penalizedPathways = {}, this.hls = e, this.registerListeners();
   }
@@ -14963,7 +14970,7 @@ class c_ extends pt {
     let t;
     const i = this.penalizedPathways, r = performance.now();
     Object.keys(i).forEach((s) => {
-      r - i[s] > l_ && delete i[s];
+      r - i[s] > d_ && delete i[s];
     });
     for (let s = 0; s < e.length; s++) {
       const a = e[s];
@@ -14973,7 +14980,7 @@ class c_ extends pt {
         return;
       const o = this.hls.nextLoadLevel, d = this.hls.levels[o];
       if (t = this.getLevelsForPathway(a), t.length > 0) {
-        this.log(`Setting Pathway to "${a}"`), this.pathwayId = a, Ad(t), this.hls.trigger(y.LEVELS_UPDATED, {
+        this.log(`Setting Pathway to "${a}"`), this.pathwayId = a, Ld(t), this.hls.trigger(y.LEVELS_UPDATED, {
           levels: t
         });
         const c = this.hls.levels[o];
@@ -14985,7 +14992,7 @@ class c_ extends pt {
   getPathwayForGroupId(e, t, i) {
     const r = this.getLevelsForPathway(i).concat(this.levels || []);
     for (let s = 0; s < r.length; s++)
-      if (t === ve.AUDIO_TRACK && r[s].hasAudioGroup(e) || t === ve.SUBTITLE_TRACK && r[s].hasSubtitleGroup(e))
+      if (t === ye.AUDIO_TRACK && r[s].hasAudioGroup(e) || t === ye.SUBTITLE_TRACK && r[s].hasSubtitleGroup(e))
         return r[s].pathwayId;
     return i;
   }
@@ -15007,7 +15014,7 @@ class c_ extends pt {
         h["PATHWAY-ID"] = a;
         const f = h.AUDIO && `${h.AUDIO}_clone_${a}`, p = h.SUBTITLES && `${h.SUBTITLES}_clone_${a}`;
         f && (i[h.AUDIO] = f, h.AUDIO = f), p && (r[h.SUBTITLES] = p, h.SUBTITLES = p);
-        const g = lu(u.uri, h["STABLE-VARIANT-ID"], "PER-VARIANT-URIS", d), _ = new Hi({
+        const g = du(u.uri, h["STABLE-VARIANT-ID"], "PER-VARIANT-URIS", d), _ = new Hi({
           attrs: h,
           audioCodec: u.audioCodec,
           bitrate: u.bitrate,
@@ -15025,7 +15032,7 @@ class c_ extends pt {
             _.addGroupId("text", `${u.subtitleGroups[m]}_clone_${a}`);
         return _;
       });
-      t.push(...c), ll(this.audioTracks, i, d, a), ll(this.subtitleTracks, r, d, a);
+      t.push(...c), cl(this.audioTracks, i, d, a), cl(this.subtitleTracks, r, d, a);
     });
   }
   loadSteeringManifest(e) {
@@ -15114,16 +15121,16 @@ class c_ extends pt {
     }, t);
   }
 }
-function ll(n, e, t, i) {
+function cl(n, e, t, i) {
   n && Object.keys(e).forEach((r) => {
     const s = n.filter((a) => a.groupId === r).map((a) => {
       const o = Ae({}, a);
-      return o.details = void 0, o.attrs = new Fe(o.attrs), o.url = o.attrs.URI = lu(a.url, a.attrs["STABLE-RENDITION-ID"], "PER-RENDITION-URIS", t), o.groupId = o.attrs["GROUP-ID"] = e[r], o.attrs["PATHWAY-ID"] = i, o;
+      return o.details = void 0, o.attrs = new Fe(o.attrs), o.url = o.attrs.URI = du(a.url, a.attrs["STABLE-RENDITION-ID"], "PER-RENDITION-URIS", t), o.groupId = o.attrs["GROUP-ID"] = e[r], o.attrs["PATHWAY-ID"] = i, o;
     });
     n.push(...s);
   });
 }
-function lu(n, e, t, i) {
+function du(n, e, t, i) {
   const {
     HOST: r,
     PARAMS: s,
@@ -15147,7 +15154,7 @@ class xi extends pt {
         if (!this.keyFormatPromise) {
           let a = Object.keys(this.keySystemAccessPromises);
           a.length || (a = Pi(this.config));
-          const o = a.map(Cr).filter((d) => !!d);
+          const o = a.map(Dr).filter((d) => !!d);
           this.keyFormatPromise = this.getKeyFormatPromise(o);
         }
         this.keyFormatPromise.then((a) => {
@@ -15158,7 +15165,7 @@ class xi extends pt {
           }
           let d;
           try {
-            const p = je(new Uint8Array(r)), g = pa(JSON.parse(p).sinf), _ = id(g);
+            const p = je(new Uint8Array(r)), g = ga(JSON.parse(p).sinf), _ = rd(g);
             if (!_)
               throw new Error("'schm' box missing or not cbcs/cenc with schi > tenc");
             d = new Uint8Array(_.subarray(8, 24));
@@ -15253,13 +15260,13 @@ class xi extends pt {
     } = this.config;
     if (typeof i != "function") {
       let r = `Configured requestMediaKeySystemAccess is not a function ${i}`;
-      return yd === null && self.location.protocol === "http:" && (r = `navigator.requestMediaKeySystemAccess is not available over insecure protocol ${location.protocol}`), Promise.reject(new Error(r));
+      return xd === null && self.location.protocol === "http:" && (r = `navigator.requestMediaKeySystemAccess is not available over insecure protocol ${location.protocol}`), Promise.reject(new Error(r));
     }
     return i(e, t);
   }
   getMediaKeysPromise(e, t, i) {
     var r;
-    const s = Vg(e, t, i, this.config.drmSystemOptions || {});
+    const s = Hg(e, t, i, this.config.drmSystemOptions || {});
     let a = this.keySystemAccessPromises[e], o = (r = a) == null ? void 0 : r.keySystemAccess;
     if (!o) {
       this.log(`Requesting encrypted media "${e}" key-system access with config: ${Re(s)}`), o = this.requestMediaKeySystemAccess(e, s);
@@ -15317,7 +15324,7 @@ class xi extends pt {
       hasMediaKeys: e
     }) => !!e).map(({
       keySystem: e
-    }) => Cr(e)).filter((e) => !!e);
+    }) => Dr(e)).filter((e) => !!e);
   }
   getKeySystemAccess(e) {
     return this.getKeySystemSelectionPromise(e).then(({
@@ -15330,7 +15337,7 @@ class xi extends pt {
       this.getKeySystemSelectionPromise(e).then(({
         keySystem: r
       }) => {
-        const s = Cr(r);
+        const s = Dr(r);
         s ? t(s) : i(new Error(`Unable to find format for key-system "${r}"`));
       }).catch(i);
     });
@@ -15348,7 +15355,7 @@ class xi extends pt {
       mediaKeySessions: t
     } = this;
     for (let i = 0; i < t.length; i++) {
-      const r = d_(e, t[i]);
+      const r = h_(e, t[i]);
       if (r)
         return r;
     }
@@ -15356,7 +15363,7 @@ class xi extends pt {
   loadKey(e) {
     const t = e.keyInfo.decryptdata, i = ln(t), r = this.bannedKeyIds[i];
     if (r || this.getKeyStatus(t) === "internal-error") {
-      const o = cl(r || "internal-error", t);
+      const o = dl(r || "internal-error", t);
       return this.handleError(o, e.frag), Promise.reject(o);
     }
     const s = `(keyId: ${i} format: "${t.keyFormat}" method: ${t.method} uri: ${t.uri})`;
@@ -15455,7 +15462,7 @@ class xi extends pt {
       return this.log(`Skipping key-session request for "${r}" (no initData)`), Promise.resolve(e);
     const o = ln(e.decryptdata), d = e.decryptdata.uri;
     this.log(`Generating key-session request for "${r}" keyId: ${o} URI: ${d} (init data type: ${t} length: ${i.byteLength})`);
-    const c = new ma(), u = e._onmessage = (g) => {
+    const c = new _a(), u = e._onmessage = (g) => {
       const _ = e.mediaKeysSession;
       if (!_) {
         c.emit("error", new Error("invalid state"));
@@ -15467,11 +15474,11 @@ class xi extends pt {
       } = g;
       this.log(`"${m}" message event for session "${_.sessionId}" message size: ${v.byteLength}`), m === "license-request" || m === "license-renewal" ? this.renewLicense(e, v).catch((b) => {
         c.eventNames().length ? c.emit("error", b) : this.handleError(b);
-      }) : m === "license-release" ? e.keySystem === Ne.FAIRPLAY && this.updateKeySession(e, xs("acknowledged")).then(() => this.removeSession(e)).catch((b) => this.handleError(b)) : this.warn(`unhandled media key message type "${m}"`);
+      }) : m === "license-release" ? e.keySystem === Ne.FAIRPLAY && this.updateKeySession(e, Es("acknowledged")).then(() => this.removeSession(e)).catch((b) => this.handleError(b)) : this.warn(`unhandled media key message type "${m}"`);
     }, h = (g, _) => {
       _.keyStatus = g;
       let m;
-      g.startsWith("usable") ? c.emit("resolved") : g === "internal-error" || g === "output-restricted" || g === "output-downscaled" ? m = cl(g, _.decryptdata) : g === "expired" ? m = new Error(`key expired (keyId: ${o})`) : g === "released" ? m = new Error("key released") : g === "status-pending" || this.warn(`unhandled key status change "${g}" (keyId: ${o})`), m && (c.eventNames().length ? c.emit("error", m) : this.handleError(m));
+      g.startsWith("usable") ? c.emit("resolved") : g === "internal-error" || g === "output-restricted" || g === "output-downscaled" ? m = dl(g, _.decryptdata) : g === "expired" ? m = new Error(`key expired (keyId: ${o})`) : g === "released" ? m = new Error("key released") : g === "status-pending" || this.warn(`unhandled key status change "${g}" (keyId: ${o})`), m && (c.eventNames().length ? c.emit("error", m) : this.handleError(m));
     }, f = e._onkeystatuseschange = (g) => {
       if (!e.mediaKeysSession) {
         c.emit("error", new Error("invalid state"));
@@ -15527,7 +15534,7 @@ class xi extends pt {
       const s = "buffer" in r ? new Uint8Array(r.buffer, r.byteOffset, r.byteLength) : new Uint8Array(r);
       if (e.keySystem === Ne.PLAYREADY && s.length === 16) {
         const o = Ze(s);
-        t[o] = i, _d(s);
+        t[o] = i, yd(s);
       }
       const a = Ze(s);
       i === "internal-error" && (this.bannedKeyIds[a] = i), this.log(`key status change "${i}" for keyStatuses keyId: ${a} key-session "${e.mediaKeysSession.sessionId}"`), t[a] = i;
@@ -15622,7 +15629,7 @@ class xi extends pt {
     const d = r.querySelector("Challenge"), c = d?.textContent;
     if (!c)
       throw new Error("Cannot find <Challenge> in key message");
-    return xs(atob(c));
+    return Es(atob(c));
   }
   setupLicenseXHR(e, t, i, r) {
     const s = this.config.licenseXhrSetup;
@@ -15715,7 +15722,7 @@ class xi extends pt {
     if (t && t(), !this.mediaKeys && !this.mediaKeySessions.length)
       return;
     const i = this.media, r = this.mediaKeySessions.slice();
-    this.mediaKeySessions = [], this.mediaKeys = null, Ht.clearKeyUriToKeyIdMap();
+    this.mediaKeySessions = [], this.mediaKeys = null, Wt.clearKeyUriToKeyIdMap();
     const s = r.length;
     xi.CDMCleanupPromise = Promise.all(r.map((a) => this.removeSession(a)).concat((i == null || (e = i.setMediaKeys(null)) == null ? void 0 : e.catch((a) => {
       this.log(`Could not clear media keys: ${a}`), this.hls && this.hls.trigger(y.ERROR, {
@@ -15763,7 +15770,7 @@ class xi extends pt {
       const {
         drmSystemOptions: o
       } = this.config;
-      return (Hg(o) ? new Promise((c, u) => {
+      return (Wg(o) ? new Promise((c, u) => {
         self.setTimeout(() => u(new Error("MediaKeySession.remove() timeout")), 8e3), t.remove().then(c).catch(u);
       }) : Promise.resolve()).catch((c) => {
         this.log(`Could not remove session: ${c}`), this.hls && this.hls.trigger(y.ERROR, {
@@ -15792,7 +15799,7 @@ function ln(n) {
     throw new Error("keyId is null");
   return Ze(n.keyId);
 }
-function d_(n, e) {
+function h_(n, e) {
   if (n.keyId && e.mediaKeysSession.keyStatuses.has(n.keyId))
     return e.mediaKeysSession.keyStatuses.get(n.keyId);
   if (n.matches(e.decryptdata))
@@ -15803,7 +15810,7 @@ class st extends Error {
     super(t), this.data = void 0, e.error || (e.error = new Error(t)), this.data = e, e.err = e.error;
   }
 }
-function cl(n, e) {
+function dl(n, e) {
   const t = n === "output-restricted", i = t ? P.KEY_SYSTEM_STATUS_OUTPUT_RESTRICTED : P.KEY_SYSTEM_STATUS_INTERNAL_ERROR;
   return new st({
     type: re.KEY_SYSTEM_ERROR,
@@ -15812,7 +15819,7 @@ function cl(n, e) {
     decryptdata: e
   }, t ? "HDCP level output restricted" : `key status changed to "${n}"`);
 }
-class u_ {
+class f_ {
   constructor(e) {
     this.hls = void 0, this.isVideoPlaybackQualityAvailable = !1, this.timer = void 0, this.media = null, this.lastTime = void 0, this.lastDroppedFrames = 0, this.lastDecodedFrames = 0, this.streamController = void 0, this.hls = e, this.registerListeners();
   }
@@ -15868,7 +15875,7 @@ class u_ {
         this.checkFPS(e, e.webkitDecodedFrameCount, e.webkitDroppedFrameCount);
   }
 }
-function cu(n, e) {
+function uu(n, e) {
   let t;
   try {
     t = new Event("addtrack");
@@ -15877,7 +15884,7 @@ function cu(n, e) {
   }
   t.track = n, e.dispatchEvent(t);
 }
-function du(n, e) {
+function hu(n, e) {
   const t = n.mode;
   if (t === "disabled" && (n.mode = "hidden"), n.cues && !n.cues.getCueById(e.id))
     try {
@@ -15901,16 +15908,16 @@ function mi(n, e) {
       e && n.cues[i].removeEventListener("enter", e), n.removeCue(n.cues[i]);
   t === "disabled" && (n.mode = t);
 }
-function Rs(n, e, t, i) {
+function Cs(n, e, t, i) {
   const r = n.mode;
   if (r === "disabled" && (n.mode = "hidden"), n.cues && n.cues.length > 0) {
-    const s = f_(n.cues, e, t);
+    const s = g_(n.cues, e, t);
     for (let a = 0; a < s.length; a++)
       (!i || i(s[a])) && n.removeCue(s[a]);
   }
   r === "disabled" && (n.mode = r);
 }
-function h_(n, e) {
+function p_(n, e) {
   if (e <= n[0].startTime)
     return 0;
   const t = n.length - 1;
@@ -15926,8 +15933,8 @@ function h_(n, e) {
       return s;
   return n[i].startTime - e < e - n[r].startTime ? i : r;
 }
-function f_(n, e, t) {
-  const i = [], r = h_(n, e);
+function g_(n, e, t) {
+  const i = [], r = p_(n, e);
   if (r > -1)
     for (let s = r, a = n.length; s < a; s++) {
       const o = n[s];
@@ -15946,7 +15953,7 @@ function Pn(n) {
   }
   return e;
 }
-class p_ extends Sa {
+class m_ extends Ta {
   constructor(e) {
     super(e, "subtitle-track-controller"), this.media = null, this.tracks = [], this.groupIds = null, this.tracksInGroup = [], this.trackId = -1, this.currentTrack = null, this.selectDefaultTrack = !0, this.queuedDefaultTrack = -1, this.useTextTrackPolling = !1, this.subtitlePollingInterval = -1, this._subtitleDisplay = !0, this.asyncPollTrackChange = () => this.pollTrackChange(0), this.onTextTracksChanged = () => {
       if (this.useTextTrackPolling || self.clearInterval(this.subtitlePollingInterval), !this.media || !this.hls.config.renderTextTracksNatively)
@@ -16090,14 +16097,14 @@ class p_ extends Sa {
       const t = this.tracksInGroup;
       for (let i = 0; i < t.length; i++) {
         const r = t[i];
-        if (ws(r, e))
+        if (As(r, e))
           return i;
       }
     }
     return -1;
   }
   onError(e, t) {
-    t.fatal || !t.context || t.context.type === ve.SUBTITLE_TRACK && t.context.id === this.trackId && (!this.groupIds || this.groupIds.indexOf(t.context.groupId) !== -1) && this.checkRetry(t);
+    t.fatal || !t.context || t.context.type === ye.SUBTITLE_TRACK && t.context.id === this.trackId && (!this.groupIds || this.groupIds.indexOf(t.context.groupId) !== -1) && this.checkRetry(t);
   }
   get allSubtitleTracks() {
     return this.tracks;
@@ -16166,7 +16173,7 @@ class p_ extends Sa {
       return;
     const t = Pn(e.textTracks), i = this.currentTrack;
     let r;
-    if (i && (r = t.filter((s) => ws(i, s))[0], r || this.warn(`Unable to find subtitle TextTrack with name "${i.name}" and language "${i.lang}"`)), [].slice.call(t).forEach((s) => {
+    if (i && (r = t.filter((s) => As(i, s))[0], r || this.warn(`Unable to find subtitle TextTrack with name "${i.name}" and language "${i.lang}"`)), [].slice.call(t).forEach((s) => {
       s.mode !== "disabled" && s !== r && (s.mode = "disabled");
     }), r) {
       const s = this.subtitleDisplay ? "showing" : "hidden";
@@ -16217,7 +16224,7 @@ class p_ extends Sa {
     this.loadPlaylist(h);
   }
 }
-function g_() {
+function __() {
   try {
     return crypto.randomUUID();
   } catch {
@@ -16243,10 +16250,10 @@ const Ei = 0.025;
 let Qn = /* @__PURE__ */ (function(n) {
   return n[n.Point = 0] = "Point", n[n.Range = 1] = "Range", n;
 })({});
-function m_(n, e, t) {
+function v_(n, e, t) {
   return `${n.identifier}-${t + 1}-${Bi(e)}`;
 }
-class __ {
+class y_ {
   constructor(e, t) {
     this.base = void 0, this._duration = null, this._timelineStart = null, this.appendInPlaceDisabled = void 0, this.appendInPlaceStarted = void 0, this.dateRange = void 0, this.hasPlayed = !1, this.cumulativeDuration = 0, this.resumeOffset = NaN, this.playoutLimit = NaN, this.restrictions = {
       skip: !1,
@@ -16284,7 +16291,7 @@ class __ {
     if (this.snapOptions.out) {
       const t = this.dateRange.tagAnchor;
       if (t)
-        return Ur(e, t);
+        return Gr(e, t);
     }
     return e;
   }
@@ -16296,7 +16303,7 @@ class __ {
       return !0;
     const e = this.dateRange.tagAnchor;
     if (e) {
-      const t = this.dateRange.startTime, i = Ur(t, e);
+      const t = this.dateRange.startTime, i = Gr(t, e);
       return t - i < 0.1;
     }
     return !1;
@@ -16310,7 +16317,7 @@ class __ {
     if (this.snapOptions.in) {
       const t = this.resumeAnchor;
       if (t)
-        return Ur(e, t);
+        return Gr(e, t);
     }
     return e;
   }
@@ -16365,29 +16372,29 @@ class __ {
     return this.assetList.length > 0 || this.assetListResponse !== null;
   }
   toString() {
-    return v_(this);
+    return b_(this);
   }
 }
-function Ur(n, e) {
+function Gr(n, e) {
   return n - e.start < e.duration / 2 && !(Math.abs(n - (e.start + e.duration)) < Ei) ? e.start : e.start + e.duration;
 }
-function uu(n, e, t) {
+function fu(n, e, t) {
   const i = new self.URL(n, t);
   return i.protocol !== "data:" && i.searchParams.set("_HLS_primary_id", e), i;
 }
-function Gr(n, e) {
+function zr(n, e) {
   for (; (t = n.assetList[++e]) != null && t.error; )
     var t;
   return e;
 }
-function v_(n) {
+function b_(n) {
   return `["${n.identifier}" ${n.cue.pre ? "<pre>" : n.cue.post ? "<post>" : ""}${n.timelineStart.toFixed(2)}-${n.resumeTime.toFixed(2)}]`;
 }
 function pi(n) {
   const e = n.timelineStart, t = n.duration || 0;
   return `["${n.identifier}" ${e.toFixed(2)}-${(e + t).toFixed(2)}]`;
 }
-class y_ {
+class x_ {
   constructor(e, t, i, r) {
     this.hls = void 0, this.interstitial = void 0, this.assetItem = void 0, this.tracks = null, this.hasDetails = !1, this.mediaAttached = null, this._currentTime = void 0, this._bufferedEosTime = void 0, this.checkPlayout = () => {
       this.reachedPlayout(this.currentTime) && this.hls && this.hls.trigger(y.PLAYOUT_LIMIT_REACHED, {});
@@ -16417,7 +16424,7 @@ class y_ {
       else {
         let t = this.assetItem.uri;
         try {
-          t = uu(t, e.config.primarySessionId || "").href;
+          t = fu(t, e.config.primarySessionId || "").href;
         } catch {
         }
         e.loadSource(t);
@@ -16559,8 +16566,8 @@ class y_ {
     return `HlsAssetPlayer: ${pi(this.assetItem)} ${(e = this.hls) == null ? void 0 : e.sessionId} ${this.appendInPlace ? "append-in-place" : ""}`;
   }
 }
-const dl = 0.033;
-class b_ extends pt {
+const ul = 0.033;
+class E_ extends pt {
   constructor(e, t) {
     super("interstitials-sched", t), this.onScheduleUpdate = void 0, this.eventMap = {}, this.events = null, this.items = null, this.durations = {
       primary: 0,
@@ -16693,7 +16700,7 @@ class b_ extends pt {
       const o = s[a], d = e[o];
       if (d.isInterstitial) {
         let c = this.eventMap[o];
-        c ? c.setDateRange(d) : (c = new __(d, t), this.eventMap[o] = c, i === !1 && (c.appendInPlace = i)), r.push(c);
+        c ? c.setDateRange(d) : (c = new y_(d, t), this.eventMap[o] = c, i === !1 && (c.appendInPlace = i)), r.push(c);
       }
     }
     return r;
@@ -16727,12 +16734,12 @@ class b_ extends pt {
         } else if (m <= s) {
           if (!E) {
             const A = m - d;
-            if (A > dl) {
+            if (A > ul) {
               const C = d, M = c;
               c += A;
               const G = a;
               a += A;
-              const K = {
+              const H = {
                 previousEvent: e[h - 1] || null,
                 nextEvent: u,
                 start: C,
@@ -16746,7 +16753,7 @@ class b_ extends pt {
                   end: c
                 }
               };
-              i.push(K);
+              i.push(H);
             } else A > 0 && g && (g.cumulativeDuration += A, i[i.length - 1].end = m);
           }
           p && (w = T), u.timelineStart = T;
@@ -16820,7 +16827,7 @@ class b_ extends pt {
     let s = 0, a = -1;
     e.forEach((o, d) => {
       const c = o.cue.pre, u = o.cue.post, h = c ? 0 : u ? r : o.startTime;
-      this.updateAssetDurations(o), a === h ? o.cumulativeDuration = s : (s = 0, a = h), !u && o.snapOptions.in && (o.resumeAnchor = oi(null, i.fragments, o.startOffset + o.resumptionOffset, 0, 0) || void 0), o.appendInPlace && !o.appendInPlaceStarted && (this.primaryCanResumeInPlaceAt(o, t) || (o.appendInPlace = !1)), !o.appendInPlace && d + 1 < e.length && e[d + 1].startTime - e[d].resumeTime < dl && (e[d + 1].appendInPlace = !1, e[d + 1].appendInPlace && this.warn(`Could not change append strategy for abutting event ${o}`));
+      this.updateAssetDurations(o), a === h ? o.cumulativeDuration = s : (s = 0, a = h), !u && o.snapOptions.in && (o.resumeAnchor = oi(null, i.fragments, o.startOffset + o.resumptionOffset, 0, 0) || void 0), o.appendInPlace && !o.appendInPlaceStarted && (this.primaryCanResumeInPlaceAt(o, t) || (o.appendInPlace = !1)), !o.appendInPlace && d + 1 < e.length && e[d + 1].startTime - e[d].resumeTime < ul && (e[d + 1].appendInPlace = !1, e[d + 1].appendInPlace && this.warn(`Could not change append strategy for abutting event ${o}`));
       const p = ee(o.resumeOffset) ? o.resumeOffset : o.duration;
       s += p;
     });
@@ -16858,7 +16865,7 @@ class b_ extends pt {
 function gt(n) {
   return `[${n.event ? '"' + n.event.identifier + '"' : "primary"}: ${n.start.toFixed(2)}-${n.end.toFixed(2)}]`;
 }
-class x_ {
+class S_ {
   constructor(e) {
     this.hls = void 0, this.hls = e;
   }
@@ -16869,7 +16876,7 @@ class x_ {
     const i = e.assetListUrl;
     let r;
     try {
-      r = uu(i, this.hls.sessionId, e.baseUrl);
+      r = fu(i, this.hls.sessionId, e.baseUrl);
     } catch (f) {
       const p = this.assignAssetListError(e, P.ASSET_LIST_LOAD_ERROR, f, i);
       this.hls.trigger(y.ERROR, p);
@@ -16925,7 +16932,7 @@ class x_ {
     };
   }
 }
-function ul(n) {
+function hl(n) {
   var e;
   n == null || (e = n.play()) == null || e.catch(() => {
   });
@@ -16933,7 +16940,7 @@ function ul(n) {
 function fi(n, e) {
   return `[${n}] Advancing timeline position to ${e}`;
 }
-class E_ extends pt {
+class T_ extends pt {
   constructor(e, t) {
     super("interstitials", e.logger), this.HlsPlayerClass = void 0, this.hls = void 0, this.assetListLoader = void 0, this.mediaSelection = null, this.altSelection = null, this.media = null, this.detachedData = null, this.requiredTracks = null, this.manager = null, this.playerQueue = [], this.bufferedPos = -1, this.timelinePos = -1, this.schedule = void 0, this.playingItem = null, this.bufferingItem = null, this.waitingItem = null, this.endedItem = null, this.playingAsset = null, this.endedAsset = null, this.bufferingAsset = null, this.shouldPlay = !1, this.onPlay = () => {
       this.shouldPlay = !0;
@@ -17037,7 +17044,7 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
         }
         a && this.trimInPlace(f, a), g && p !== f && this.trimInPlace(p, g), this.checkBuffer();
       }
-    }, this.hls = e, this.HlsPlayerClass = t, this.assetListLoader = new x_(e), this.schedule = new b_(this.onScheduleUpdate, e.logger), this.registerListeners();
+    }, this.hls = e, this.HlsPlayerClass = t, this.assetListLoader = new S_(e), this.schedule = new E_(this.onScheduleUpdate, e.logger), this.registerListeners();
   }
   registerListeners() {
     const e = this.hls;
@@ -17175,8 +17182,8 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
           else {
             const C = b.event.assetList, M = h - (b[f] || b).start;
             for (let G = C.length; G--; ) {
-              const K = C[G];
-              if (K.duration && M >= K.startOffset && M < K.startOffset + K.duration) {
+              const H = C[G];
+              if (H.duration && M >= H.startOffset && M < H.startOffset + H.duration) {
                 A = G;
                 break;
               }
@@ -17436,7 +17443,7 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
     }
   }
   advanceAssetBuffering(e, t) {
-    const i = e.event, r = i.findAssetIndex(t), s = Gr(i, r);
+    const i = e.event, r = i.findAssetIndex(t), s = zr(i, r);
     if (!i.isAssetPastPlayoutLimit(s))
       this.bufferedToEvent(e, s);
     else if (this.schedule) {
@@ -17446,7 +17453,7 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
     }
   }
   advanceAfterAssetEnded(e, t, i) {
-    const r = Gr(e, i);
+    const r = zr(e, i);
     if (e.isAssetPastPlayoutLimit(r)) {
       if (this.schedule) {
         const s = this.schedule.items;
@@ -17535,7 +17542,7 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
       const u = o.event;
       if (i === void 0) {
         i = a.findAssetIndex(u, this.timelinePos);
-        const g = Gr(u, i - 1);
+        const g = zr(u, i - 1);
         if (u.isAssetPastPlayoutLimit(g) || u.appendInPlace && this.timelinePos === o.end) {
           this.advanceAfterAssetEnded(u, e, i);
           return;
@@ -17569,8 +17576,8 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
       }
       if (!this.eventItemsMatch(o, this.bufferingItem) && u.appendInPlace && this.isAssetBuffered(p))
         return;
-      this.startAssetPlayer(f, i, t, e, d), this.shouldPlay && ul(f.media);
-    } else o ? (this.resumePrimary(o, e, r), this.shouldPlay && ul(this.hls.media)) : s && this.isInterstitial(r) && (this.endedItem = null, this.playingItem = r, r.event.appendInPlace || this.attachPrimary(a.durations.primary, null));
+      this.startAssetPlayer(f, i, t, e, d), this.shouldPlay && hl(f.media);
+    } else o ? (this.resumePrimary(o, e, r), this.shouldPlay && hl(this.hls.media)) : s && this.isInterstitial(r) && (this.endedItem = null, this.playingItem = r, r.event.appendInPlace || this.attachPrimary(a.durations.primary, null));
   }
   get playbackDisabled() {
     return this.hls.config.enableInterstitialPlayback === !1;
@@ -17668,13 +17675,13 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
     this.mediaSelection = s;
   }
   onAudioTrackSwitching(e, t) {
-    const i = bo(t);
+    const i = xo(t);
     this.playerQueue.forEach(({
       hls: r
     }) => r && (r.setAudioOption(t) || r.setAudioOption(i)));
   }
   onSubtitleTrackSwitch(e, t) {
-    const i = bo(t);
+    const i = xo(t);
     this.playerQueue.forEach(({
       hls: r
     }) => r && (r.setSubtitleOption(t) || t.id !== -1 && r.setSubtitleOption(i)));
@@ -17918,7 +17925,7 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
   createAsset(e, t, i, r, s, a) {
     const o = {
       parentIdentifier: e.identifier,
-      identifier: m_(e, a, t),
+      identifier: v_(e, a, t),
       duration: s,
       startOffset: i,
       timelineStart: r,
@@ -17960,7 +17967,7 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
     p != null && p.sessionId && p.contentId && (f.cmcd = Ae({}, p, {
       contentId: Bi(t.uri)
     })), this.getAssetPlayer(h) && this.warn(`Duplicate date range identifier ${e} and asset ${h}`);
-    const g = new y_(this.HlsPlayerClass, f, e, t);
+    const g = new x_(this.HlsPlayerClass, f, e, t);
     this.playerQueue.push(g), e.assetList[i] = t;
     let _ = !0;
     const m = (E) => {
@@ -18105,7 +18112,7 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
         this.log(`Waiting for track info before buffering ${e}`);
         return;
       }
-      if (h && !Wc(h, e.tracks)) {
+      if (h && !qc(h, e.tracks)) {
         const f = new Error(`Asset ${pi(a)} SourceBuffer tracks ('${Object.keys(e.tracks)}') are not compatible with primary content tracks ('${Object.keys(h)}')`), p = {
           fatal: !0,
           type: re.OTHER_ERROR,
@@ -18239,8 +18246,8 @@ Schedule: ${d.map((_) => gt(_))} pos: ${this.timelinePos}`), u.length && this.lo
       }
   }
 }
-const hl = 500;
-class S_ extends ga {
+const fl = 500;
+class k_ extends ma {
   constructor(e, t, i) {
     super(e, t, i, "subtitle-stream-controller", ne.SUBTITLE), this.currentTrackId = -1, this.tracksBuffered = [], this.mainDetails = null, this.registerListeners();
   }
@@ -18262,7 +18269,7 @@ class S_ extends ga {
     e.off(y.LEVEL_LOADED, this.onLevelLoaded, this), e.off(y.SUBTITLE_TRACKS_UPDATED, this.onSubtitleTracksUpdated, this), e.off(y.SUBTITLE_TRACK_SWITCH, this.onSubtitleTrackSwitch, this), e.off(y.SUBTITLE_TRACK_LOADED, this.onSubtitleTrackLoaded, this), e.off(y.SUBTITLE_FRAG_PROCESSED, this.onSubtitleFragProcessed, this), e.off(y.BUFFER_FLUSHING, this.onBufferFlushing, this);
   }
   startLoad(e, t) {
-    this.stopLoad(), this.state = U.IDLE, this.setInterval(hl), this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
+    this.stopLoad(), this.state = U.IDLE, this.setInterval(fl), this.nextLoadPosition = this.lastCurrentTime = e + this.timelineOffset, this.startPosition = t ? -1 : e, this.tick();
   }
   onManifestLoading() {
     super.onManifestLoading(), this.mainDetails = null;
@@ -18328,7 +18335,7 @@ class S_ extends ga {
   onSubtitleTracksUpdated(e, {
     subtitleTracks: t
   }) {
-    if (this.levels && Xd(this.levels, t)) {
+    if (this.levels && Zd(this.levels, t)) {
       this.levels = t.map((i) => new Hi(i));
       return;
     }
@@ -18344,7 +18351,7 @@ class S_ extends ga {
       return;
     }
     const r = this.levels[this.currentTrackId];
-    r != null && r.details ? this.mediaBuffer = this.mediaBufferTimeRanges : this.mediaBuffer = null, r && this.state !== U.STOPPED && this.setInterval(hl);
+    r != null && r.details ? this.mediaBuffer = this.mediaBufferTimeRanges : this.mediaBuffer = null, r && this.state !== U.STOPPED && this.setInterval(fl);
   }
   // Got a new set of subtitle fragments.
   onSubtitleTrackLoaded(e, t) {
@@ -18375,10 +18382,10 @@ class S_ extends ga {
       }
       const f = h.fragments[0];
       if (!d.details)
-        a.hasProgramDateTime && h.hasProgramDateTime ? (qn(a, h), c = a.fragmentStart) : f && (c = f.start, Ss(a, c));
+        a.hasProgramDateTime && h.hasProgramDateTime ? (qn(a, h), c = a.fragmentStart) : f && (c = f.start, Ts(a, c));
       else {
         var u;
-        c = this.alignPlaylists(a, d.details, (u = this.levelLastLoaded) == null ? void 0 : u.details), c === 0 && f && (c = f.start, Ss(a, c));
+        c = this.alignPlaylists(a, d.details, (u = this.levelLastLoaded) == null ? void 0 : u.details), c === 0 && f && (c = f.start, Ts(a, c));
       }
       h && !this.startFragRequested && this.setStartPosition(h, c);
     }
@@ -18395,7 +18402,7 @@ class S_ extends ga {
     } = e, r = t.decryptdata, s = this.hls;
     if (!this.fragContextChanged(t) && i && i.byteLength > 0 && r != null && r.key && r.iv && bi(r.method)) {
       const a = performance.now();
-      this.decrypter.decrypt(new Uint8Array(i), r.key.buffer, r.iv.buffer, fa(r.method)).catch((o) => {
+      this.decrypter.decrypt(new Uint8Array(i), r.key.buffer, r.iv.buffer, pa(r.method)).catch((o) => {
         throw s.trigger(y.ERROR, {
           type: re.MEDIA_ERROR,
           details: P.FRAG_DECRYPT_ERROR,
@@ -18460,10 +18467,10 @@ class S_ extends ga {
     Ge(e) ? super.loadFragment(e, t, i) : this._loadInitSegment(e, t);
   }
   get mediaBufferTimeRanges() {
-    return new T_(this.tracksBuffered[this.currentTrackId] || []);
+    return new w_(this.tracksBuffered[this.currentTrackId] || []);
   }
 }
-class T_ {
+class w_ {
   constructor(e) {
     this.buffered = void 0;
     const t = (i, r, s) => {
@@ -18484,7 +18491,7 @@ class T_ {
     };
   }
 }
-const k_ = {
+const A_ = {
   42: 225,
   // lowercase a, acute accent
   92: 233,
@@ -18672,7 +18679,7 @@ const k_ = {
   // Box drawings heavy up and right
   207: 9499
   // Box drawings heavy up and left
-}, hu = (n) => String.fromCharCode(k_[n] || n), mt = 15, Dt = 100, w_ = {
+}, pu = (n) => String.fromCharCode(A_[n] || n), mt = 15, Dt = 100, I_ = {
   17: 1,
   18: 3,
   21: 5,
@@ -18681,7 +18688,7 @@ const k_ = {
   16: 11,
   19: 12,
   20: 14
-}, A_ = {
+}, L_ = {
   17: 2,
   18: 4,
   21: 6,
@@ -18689,7 +18696,7 @@ const k_ = {
   23: 10,
   19: 13,
   20: 15
-}, I_ = {
+}, R_ = {
   25: 1,
   26: 3,
   29: 5,
@@ -18698,7 +18705,7 @@ const k_ = {
   24: 11,
   27: 12,
   28: 14
-}, L_ = {
+}, C_ = {
   25: 2,
   26: 4,
   29: 6,
@@ -18706,8 +18713,8 @@ const k_ = {
   31: 10,
   27: 13,
   28: 15
-}, R_ = ["white", "green", "blue", "cyan", "red", "yellow", "magenta", "black", "transparent"];
-class C_ {
+}, D_ = ["white", "green", "blue", "cyan", "red", "yellow", "magenta", "black", "transparent"];
+class P_ {
   constructor() {
     this.time = null, this.verboseLevel = 0;
   }
@@ -18718,13 +18725,13 @@ class C_ {
     }
   }
 }
-const ei = function(e) {
+const ti = function(e) {
   const t = [];
   for (let i = 0; i < e.length; i++)
     t.push(e[i].toString(16));
   return t;
 };
-class fu {
+class gu {
   constructor() {
     this.foreground = "white", this.underline = !1, this.italics = !1, this.background = "black", this.flash = !1;
   }
@@ -18751,9 +18758,9 @@ class fu {
     return "color=" + this.foreground + ", underline=" + this.underline + ", italics=" + this.italics + ", background=" + this.background + ", flash=" + this.flash;
   }
 }
-class D_ {
+class M_ {
   constructor() {
-    this.uchar = " ", this.penState = new fu();
+    this.uchar = " ", this.penState = new gu();
   }
   reset() {
     this.uchar = " ", this.penState.reset();
@@ -18774,11 +18781,11 @@ class D_ {
     return this.uchar === " " && this.penState.isDefault();
   }
 }
-class P_ {
+class O_ {
   constructor(e) {
-    this.chars = [], this.pos = 0, this.currPenState = new fu(), this.cueStartTime = null, this.logger = void 0;
+    this.chars = [], this.pos = 0, this.currPenState = new gu(), this.cueStartTime = null, this.logger = void 0;
     for (let t = 0; t < Dt; t++)
-      this.chars.push(new D_());
+      this.chars.push(new M_());
     this.logger = e;
   }
   equals(e) {
@@ -18824,7 +18831,7 @@ class P_ {
   }
   insertChar(e) {
     e >= 144 && this.backSpace();
-    const t = hu(e);
+    const t = pu(e);
     if (this.pos >= Dt) {
       this.logger.log(0, () => "Cannot insert " + e.toString(16) + " (" + t + ") at position " + this.pos + ". Skipping it!");
       return;
@@ -18855,11 +18862,11 @@ class P_ {
     this.currPenState.setStyles(e), this.chars[this.pos].setPenState(this.currPenState);
   }
 }
-class zr {
+class Vr {
   constructor(e) {
     this.rows = [], this.currRow = mt - 1, this.nrRollUpRows = null, this.lastOutputScreen = null, this.logger = void 0;
     for (let t = 0; t < mt; t++)
-      this.rows.push(new P_(e));
+      this.rows.push(new O_(e));
     this.logger = e;
   }
   reset() {
@@ -18975,9 +18982,9 @@ class zr {
     return this.rows;
   }
 }
-class fl {
+class pl {
   constructor(e, t, i) {
-    this.chNr = void 0, this.outputFilter = void 0, this.mode = void 0, this.verbose = void 0, this.displayedMemory = void 0, this.nonDisplayedMemory = void 0, this.lastOutputScreen = void 0, this.currRollUpRow = void 0, this.writeScreen = void 0, this.cueStartTime = void 0, this.logger = void 0, this.chNr = e, this.outputFilter = t, this.mode = null, this.verbose = 0, this.displayedMemory = new zr(i), this.nonDisplayedMemory = new zr(i), this.lastOutputScreen = new zr(i), this.currRollUpRow = this.displayedMemory.rows[mt - 1], this.writeScreen = this.displayedMemory, this.mode = null, this.cueStartTime = null, this.logger = i;
+    this.chNr = void 0, this.outputFilter = void 0, this.mode = void 0, this.verbose = void 0, this.displayedMemory = void 0, this.nonDisplayedMemory = void 0, this.lastOutputScreen = void 0, this.currRollUpRow = void 0, this.writeScreen = void 0, this.cueStartTime = void 0, this.logger = void 0, this.chNr = e, this.outputFilter = t, this.mode = null, this.verbose = 0, this.displayedMemory = new Vr(i), this.nonDisplayedMemory = new Vr(i), this.lastOutputScreen = new Vr(i), this.currRollUpRow = this.displayedMemory.rows[mt - 1], this.writeScreen = this.displayedMemory, this.mode = null, this.cueStartTime = null, this.logger = i;
   }
   reset() {
     this.mode = null, this.displayedMemory.reset(), this.nonDisplayedMemory.reset(), this.lastOutputScreen.reset(), this.outputFilter.reset(), this.currRollUpRow = this.displayedMemory.rows[mt - 1], this.writeScreen = this.displayedMemory, this.mode = null, this.cueStartTime = null;
@@ -19072,11 +19079,11 @@ class fl {
     this.outputFilter && (this.displayedMemory.isEmpty() || (this.outputFilter.newCue && this.outputFilter.newCue(this.cueStartTime, e, this.displayedMemory), this.cueStartTime = e));
   }
 }
-class pl {
+class gl {
   constructor(e, t, i) {
-    this.channels = void 0, this.currentChannel = 0, this.cmdHistory = O_(), this.logger = void 0;
-    const r = this.logger = new C_();
-    this.channels = [null, new fl(e, t, r), new fl(e + 1, i, r)];
+    this.channels = void 0, this.currentChannel = 0, this.cmdHistory = N_(), this.logger = void 0;
+    const r = this.logger = new P_();
+    this.channels = [null, new pl(e, t, r), new pl(e + 1, i, r)];
   }
   getHandler(e) {
     return this.channels[e].getHandler();
@@ -19094,11 +19101,11 @@ class pl {
       let a = !1, o = null;
       if (r === 0 && s === 0)
         continue;
-      this.logger.log(3, () => "[" + ei([t[i], t[i + 1]]) + "] -> (" + ei([r, s]) + ")");
+      this.logger.log(3, () => "[" + ti([t[i], t[i + 1]]) + "] -> (" + ti([r, s]) + ")");
       const d = this.cmdHistory;
       if (r >= 16 && r <= 31) {
-        if (M_(r, s, d)) {
-          cn(null, null, d), this.logger.log(3, () => "Repeated command (" + ei([r, s]) + ") is dropped");
+        if (F_(r, s, d)) {
+          cn(null, null, d), this.logger.log(3, () => "Repeated command (" + ti([r, s]) + ") is dropped");
           continue;
         }
         cn(r, s, this.cmdHistory), a = this.parseCmd(r, s), a || (a = this.parseMidrow(r, s)), a || (a = this.parsePAC(r, s)), a || (a = this.parseBackgroundAttributes(r, s));
@@ -19108,7 +19115,7 @@ class pl {
         const u = this.currentChannel;
         u && u > 0 ? this.channels[u].insertChars(o) : this.logger.log(2, "No channel found yet. TEXT-MODE?");
       }
-      !a && !o && this.logger.log(2, () => "Couldn't parse cleaned data " + ei([r, s]) + " orig: " + ei([t[i], t[i + 1]]));
+      !a && !o && this.logger.log(2, () => "Couldn't parse cleaned data " + ti([r, s]) + " orig: " + ti([t[i], t[i + 1]]));
     }
   }
   /**
@@ -19131,7 +19138,7 @@ class pl {
       if (e === 17 ? i = 1 : i = 2, i !== this.currentChannel)
         return this.logger.log(0, "Mismatch channel in midrow parsing"), !1;
       const r = this.channels[i];
-      return r ? (r.ccMIDROW(t), this.logger.log(3, () => "MIDROW (" + ei([e, t]) + ")"), !0) : !1;
+      return r ? (r.ccMIDROW(t), this.logger.log(3, () => "MIDROW (" + ti([e, t]) + ")"), !0) : !1;
     }
     return !1;
   }
@@ -19145,7 +19152,7 @@ class pl {
     if (!(r || s))
       return !1;
     const a = e <= 23 ? 1 : 2;
-    t >= 64 && t <= 95 ? i = a === 1 ? w_[e] : I_[e] : i = a === 1 ? A_[e] : L_[e];
+    t >= 64 && t <= 95 ? i = a === 1 ? I_[e] : R_[e] : i = a === 1 ? L_[e] : C_[e];
     const o = this.channels[a];
     return o ? (o.setPAC(this.interpretPAC(i, t)), this.currentChannel = a, !0) : !1;
   }
@@ -19172,9 +19179,9 @@ class pl {
     let i, r = null, s = null;
     if (e >= 25 ? (i = 2, s = e - 8) : (i = 1, s = e), s >= 17 && s <= 19) {
       let a;
-      s === 17 ? a = t + 80 : s === 18 ? a = t + 112 : a = t + 144, this.logger.log(2, () => "Special char '" + hu(a) + "' in channel " + i), r = [a];
+      s === 17 ? a = t + 80 : s === 18 ? a = t + 112 : a = t + 144, this.logger.log(2, () => "Special char '" + pu(a) + "' in channel " + i), r = [a];
     } else e >= 32 && e <= 127 && (r = t === 0 ? [e] : [e, t]);
-    return r && this.logger.log(3, () => "Char codes =  " + ei(r).join(",")), r;
+    return r && this.logger.log(3, () => "Char codes =  " + ti(r).join(",")), r;
   }
   /**
    * Parse extended background attributes as well as new foreground color black.
@@ -19186,7 +19193,7 @@ class pl {
       return !1;
     let s;
     const a = {};
-    e === 16 || e === 24 ? (s = Math.floor((t - 32) / 2), a.background = R_[s], t % 2 === 1 && (a.background = a.background + "_semi")) : t === 45 ? a.background = "transparent" : (a.foreground = "black", t === 47 && (a.underline = !0));
+    e === 16 || e === 24 ? (s = Math.floor((t - 32) / 2), a.background = D_[s], t % 2 === 1 && (a.background = a.background + "_semi")) : t === 45 ? a.background = "transparent" : (a.foreground = "black", t === 47 && (a.underline = !0));
     const o = e <= 23 ? 1 : 2;
     return this.channels[o].setBkgData(a), !0;
   }
@@ -19213,16 +19220,16 @@ class pl {
 function cn(n, e, t) {
   t.a = n, t.b = e;
 }
-function M_(n, e, t) {
+function F_(n, e, t) {
   return t.a === n && t.b === e;
 }
-function O_() {
+function N_() {
   return {
     a: null,
     b: null
   };
 }
-var Aa = (function() {
+var Ia = (function() {
   if (Yn != null && Yn.VTTCue)
     return self.VTTCue;
   const n = ["", "lr", "rl"], e = ["start", "middle", "end", "left", "right"];
@@ -19379,7 +19386,7 @@ var Aa = (function() {
     return self.WebVTT.convertCueToDOMTree(self, this.text);
   }, a;
 })();
-class F_ {
+class $_ {
   decode(e, t) {
     if (!e)
       return "";
@@ -19388,14 +19395,14 @@ class F_ {
     return decodeURIComponent(encodeURIComponent(e));
   }
 }
-function pu(n) {
+function mu(n) {
   function e(i, r, s, a) {
     return (i | 0) * 3600 + (r | 0) * 60 + (s | 0) + parseFloat(a || 0);
   }
   const t = n.match(/^(?:(\d+):)?(\d{2}):(\d{2})(\.\d+)?/);
   return t ? parseFloat(t[2]) > 59 ? e(t[2], t[3], 0, t[4]) : e(t[1], t[2], t[3], t[4]) : null;
 }
-class N_ {
+class B_ {
   constructor() {
     this.values = /* @__PURE__ */ Object.create(null);
   }
@@ -19437,7 +19444,7 @@ class N_ {
     return !1;
   }
 }
-function gu(n, e, t, i) {
+function _u(n, e, t, i) {
   const r = i ? n.split(i) : [n];
   for (const s in r) {
     if (typeof r[s] != "string")
@@ -19449,18 +19456,18 @@ function gu(n, e, t, i) {
     e(o, d);
   }
 }
-const Cs = new Aa(0, 0, ""), dn = Cs.align === "middle" ? "middle" : "center";
-function $_(n, e, t) {
+const Ds = new Ia(0, 0, ""), dn = Ds.align === "middle" ? "middle" : "center";
+function U_(n, e, t) {
   const i = n;
   function r() {
-    const o = pu(n);
+    const o = mu(n);
     if (o === null)
       throw new Error("Malformed timestamp: " + i);
     return n = n.replace(/^[^\sa-zA-Z-]+/, ""), o;
   }
   function s(o, d) {
-    const c = new N_();
-    gu(o, function(f, p) {
+    const c = new B_();
+    _u(o, function(f, p) {
       let g;
       switch (f) {
         case "region":
@@ -19488,9 +19495,9 @@ function $_(n, e, t) {
       }
     }, /:/, /\s/), d.region = c.get("region", null), d.vertical = c.get("vertical", "");
     let u = c.get("line", "auto");
-    u === "auto" && Cs.line === -1 && (u = -1), d.line = u, d.lineAlign = c.get("lineAlign", "start"), d.snapToLines = c.get("snapToLines", !0), d.size = c.get("size", 100), d.align = c.get("align", dn);
+    u === "auto" && Ds.line === -1 && (u = -1), d.line = u, d.lineAlign = c.get("lineAlign", "start"), d.snapToLines = c.get("snapToLines", !0), d.size = c.get("size", 100), d.align = c.get("align", dn);
     let h = c.get("position", "auto");
-    h === "auto" && Cs.position === 50 && (h = d.align === "start" || d.align === "left" ? 0 : d.align === "end" || d.align === "right" ? 100 : 50), d.position = h;
+    h === "auto" && Ds.position === 50 && (h = d.align === "start" || d.align === "left" ? 0 : d.align === "end" || d.align === "right" ? 100 : 50), d.position = h;
   }
   function a() {
     n = n.replace(/^\s+/, "");
@@ -19499,13 +19506,13 @@ function $_(n, e, t) {
     throw new Error("Malformed time stamp (time stamps must be separated by '-->'): " + i);
   n = n.slice(3), a(), e.endTime = r(), a(), s(n, e);
 }
-function mu(n) {
+function vu(n) {
   return n.replace(/<br(?: \/)?>/gi, `
 `);
 }
-class B_ {
+class G_ {
   constructor() {
-    this.state = "INITIAL", this.buffer = "", this.decoder = new F_(), this.regionList = [], this.cue = null, this.oncue = void 0, this.onparsingerror = void 0, this.onflush = void 0;
+    this.state = "INITIAL", this.buffer = "", this.decoder = new $_(), this.regionList = [], this.cue = null, this.oncue = void 0, this.onparsingerror = void 0, this.onflush = void 0;
   }
   parse(e) {
     const t = this;
@@ -19514,7 +19521,7 @@ class B_ {
     }));
     function i() {
       let s = t.buffer, a = 0;
-      for (s = mu(s); a < s.length && s[a] !== "\r" && s[a] !== `
+      for (s = vu(s); a < s.length && s[a] !== "\r" && s[a] !== `
 `; )
         ++a;
       const o = s.slice(0, a);
@@ -19522,7 +19529,7 @@ class B_ {
 ` && ++a, t.buffer = s.slice(a), o;
     }
     function r(s) {
-      gu(s, function(a, o) {
+      _u(s, function(a, o) {
       }, /:/);
     }
     try {
@@ -19554,7 +19561,7 @@ class B_ {
             }
             if (!s)
               continue;
-            if (t.cue = new Aa(0, 0, ""), t.state = "CUE", s.indexOf("-->") === -1) {
+            if (t.cue = new Ia(0, 0, ""), t.state = "CUE", s.indexOf("-->") === -1) {
               t.cue.id = s;
               continue;
             }
@@ -19566,7 +19573,7 @@ class B_ {
               continue;
             }
             try {
-              $_(s, t.cue, t.regionList);
+              U_(s, t.cue, t.regionList);
             } catch {
               t.cue = null, t.state = "BADCUE";
               continue;
@@ -19608,19 +19615,19 @@ class B_ {
     return e.onflush && e.onflush(), this;
   }
 }
-const U_ = /\r\n|\n\r|\n|\r/g, Vr = function(e, t, i = 0) {
+const z_ = /\r\n|\n\r|\n|\r/g, Kr = function(e, t, i = 0) {
   return e.slice(i, i + t.length) === t;
-}, G_ = function(e) {
+}, V_ = function(e) {
   let t = parseInt(e.slice(-3));
   const i = parseInt(e.slice(-6, -4)), r = parseInt(e.slice(-9, -7)), s = e.length > 9 ? parseInt(e.substring(0, e.indexOf(":"))) : 0;
   if (!ee(t) || !ee(i) || !ee(r) || !ee(s))
     throw Error(`Malformed X-TIMESTAMP-MAP: Local:${e}`);
   return t += 1e3 * i, t += 60 * 1e3 * r, t += 3600 * 1e3 * s, t;
 };
-function Ia(n, e, t) {
+function La(n, e, t) {
   return Bi(n.toString()) + Bi(e.toString()) + Bi(t);
 }
-const z_ = function(e, t, i) {
+const K_ = function(e, t, i) {
   let r = e[t], s = e[r.prevCC];
   if (!s || !s.new && r.new) {
     e.ccOffset = e.presentationOffset = r.start, r.new = !1;
@@ -19632,16 +19639,16 @@ const z_ = function(e, t, i) {
   }
   e.presentationOffset = i;
 };
-function V_(n, e, t, i, r, s, a) {
-  const o = new B_(), d = ct(new Uint8Array(n)).trim().replace(U_, `
+function H_(n, e, t, i, r, s, a) {
+  const o = new G_(), d = ct(new Uint8Array(n)).trim().replace(z_, `
 `).split(`
-`), c = [], u = e ? qm(e.baseTime, e.timescale) : 0;
+`), c = [], u = e ? Qm(e.baseTime, e.timescale) : 0;
   let h = "00:00.000", f = 0, p = 0, g, _ = !0;
   o.oncue = function(m) {
     const v = t[i];
     let b = t.ccOffset;
     const x = (f - u) / 9e4;
-    if (v != null && v.new && (p !== void 0 ? b = t.ccOffset = v.start : z_(t, i, x)), x) {
+    if (v != null && v.new && (p !== void 0 ? b = t.ccOffset = v.start : K_(t, i, x)), x) {
       if (!e) {
         g = new Error("Missing initPTS for VTT MPEGTS");
         return;
@@ -19651,7 +19658,7 @@ function V_(n, e, t, i, r, s, a) {
     const E = m.endTime - m.startTime, T = ot((m.startTime + b - p) * 9e4, r * 9e4) / 9e4;
     m.startTime = Math.max(T, 0), m.endTime = Math.max(T + E, 0);
     const w = m.text.trim();
-    m.text = decodeURIComponent(encodeURIComponent(w)), m.id || (m.id = Ia(m.startTime, m.endTime, w)), m.endTime > 0 && c.push(m);
+    m.text = decodeURIComponent(encodeURIComponent(w)), m.id || (m.id = La(m.startTime, m.endTime, w)), m.endTime > 0 && c.push(m);
   }, o.onparsingerror = function(m) {
     g = m;
   }, o.onflush = function() {
@@ -19662,12 +19669,12 @@ function V_(n, e, t, i, r, s, a) {
     s(c);
   }, d.forEach((m) => {
     if (_)
-      if (Vr(m, "X-TIMESTAMP-MAP=")) {
+      if (Kr(m, "X-TIMESTAMP-MAP=")) {
         _ = !1, m.slice(16).split(",").forEach((v) => {
-          Vr(v, "LOCAL:") ? h = v.slice(6) : Vr(v, "MPEGTS:") && (f = parseInt(v.slice(7)));
+          Kr(v, "LOCAL:") ? h = v.slice(6) : Kr(v, "MPEGTS:") && (f = parseInt(v.slice(7)));
         });
         try {
-          p = G_(h) / 1e3;
+          p = V_(h) / 1e3;
         } catch (v) {
           g = v;
         }
@@ -19677,27 +19684,27 @@ function V_(n, e, t, i, r, s, a) {
 `);
   }), o.flush();
 }
-const Kr = "stpp.ttml.im1t", _u = /^(\d{2,}):(\d{2}):(\d{2}):(\d{2})\.?(\d+)?$/, vu = /^(\d*(?:\.\d*)?)(h|m|s|ms|f|t)$/, K_ = {
+const Hr = "stpp.ttml.im1t", yu = /^(\d{2,}):(\d{2}):(\d{2}):(\d{2})\.?(\d+)?$/, bu = /^(\d*(?:\.\d*)?)(h|m|s|ms|f|t)$/, j_ = {
   left: "start",
   center: "center",
   right: "end",
   start: "start",
   end: "end"
 };
-function gl(n, e, t, i) {
+function ml(n, e, t, i) {
   const r = _e(new Uint8Array(n), ["mdat"]);
   if (r.length === 0) {
     i(new Error("Could not parse IMSC1 mdat"));
     return;
   }
-  const s = r.map((o) => ct(o)), a = Ym(e.baseTime, 1, e.timescale);
+  const s = r.map((o) => ct(o)), a = Xm(e.baseTime, 1, e.timescale);
   try {
-    s.forEach((o) => t(H_(o, a)));
+    s.forEach((o) => t(W_(o, a)));
   } catch (o) {
     i(o);
   }
 }
-function H_(n, e) {
+function W_(n, e) {
   const r = new DOMParser().parseFromString(n, "text/xml").getElementsByTagName("tt")[0];
   if (!r)
     throw new Error("Invalid ttml");
@@ -19706,50 +19713,50 @@ function H_(n, e) {
     subFrameRate: 1,
     frameRateMultiplier: 0,
     tickRate: 0
-  }, a = Object.keys(s).reduce((h, f) => (h[f] = r.getAttribute(`ttp:${f}`) || s[f], h), {}), o = r.getAttribute("xml:space") !== "preserve", d = ml(Hr(r, "styling", "style")), c = ml(Hr(r, "layout", "region")), u = Hr(r, "body", "[begin]");
+  }, a = Object.keys(s).reduce((h, f) => (h[f] = r.getAttribute(`ttp:${f}`) || s[f], h), {}), o = r.getAttribute("xml:space") !== "preserve", d = _l(jr(r, "styling", "style")), c = _l(jr(r, "layout", "region")), u = jr(r, "body", "[begin]");
   return [].map.call(u, (h) => {
-    const f = yu(h, o);
+    const f = xu(h, o);
     if (!f || !h.hasAttribute("begin"))
       return null;
-    const p = Wr(h.getAttribute("begin"), a), g = Wr(h.getAttribute("dur"), a);
-    let _ = Wr(h.getAttribute("end"), a);
+    const p = Yr(h.getAttribute("begin"), a), g = Yr(h.getAttribute("dur"), a);
+    let _ = Yr(h.getAttribute("end"), a);
     if (p === null)
-      throw _l(h);
+      throw vl(h);
     if (_ === null) {
       if (g === null)
-        throw _l(h);
+        throw vl(h);
       _ = p + g;
     }
-    const m = new Aa(p - e, _ - e, f);
-    m.id = Ia(m.startTime, m.endTime, m.text);
-    const v = c[h.getAttribute("region")], b = d[h.getAttribute("style")], x = j_(v, b, d), {
+    const m = new Ia(p - e, _ - e, f);
+    m.id = La(m.startTime, m.endTime, m.text);
+    const v = c[h.getAttribute("region")], b = d[h.getAttribute("style")], x = Y_(v, b, d), {
       textAlign: E
     } = x;
     if (E) {
-      const T = K_[E];
+      const T = j_[E];
       T && (m.lineAlign = T), m.align = E;
     }
     return Ae(m, x), m;
   }).filter((h) => h !== null);
 }
-function Hr(n, e, t) {
+function jr(n, e, t) {
   const i = n.getElementsByTagName(e)[0];
   return i ? [].slice.call(i.querySelectorAll(t)) : [];
 }
-function ml(n) {
+function _l(n) {
   return n.reduce((e, t) => {
     const i = t.getAttribute("xml:id");
     return i && (e[i] = t), e;
   }, {});
 }
-function yu(n, e) {
+function xu(n, e) {
   return [].slice.call(n.childNodes).reduce((t, i, r) => {
     var s;
     return i.nodeName === "br" && r ? t + `
-` : (s = i.childNodes) != null && s.length ? yu(i, e) : e ? t + i.textContent.trim().replace(/\s+/g, " ") : t + i.textContent;
+` : (s = i.childNodes) != null && s.length ? xu(i, e) : e ? t + i.textContent.trim().replace(/\s+/g, " ") : t + i.textContent;
   }, "");
 }
-function j_(n, e, t) {
+function Y_(n, e, t) {
   const i = "http://www.w3.org/ns/ttml#styling";
   let r = null;
   const s = [
@@ -19767,28 +19774,28 @@ function j_(n, e, t) {
     // 'writingMode'
   ], a = n != null && n.hasAttribute("style") ? n.getAttribute("style") : null;
   return a && t.hasOwnProperty(a) && (r = t[a]), s.reduce((o, d) => {
-    const c = jr(e, i, d) || jr(n, i, d) || jr(r, i, d);
+    const c = Wr(e, i, d) || Wr(n, i, d) || Wr(r, i, d);
     return c && (o[d] = c), o;
   }, {});
 }
-function jr(n, e, t) {
+function Wr(n, e, t) {
   return n && n.hasAttributeNS(e, t) ? n.getAttributeNS(e, t) : null;
 }
-function _l(n) {
+function vl(n) {
   return new Error(`Could not parse ttml timestamp ${n}`);
 }
-function Wr(n, e) {
+function Yr(n, e) {
   if (!n)
     return null;
-  let t = pu(n);
-  return t === null && (_u.test(n) ? t = W_(n, e) : vu.test(n) && (t = Y_(n, e))), t;
+  let t = mu(n);
+  return t === null && (yu.test(n) ? t = q_(n, e) : bu.test(n) && (t = X_(n, e))), t;
 }
-function W_(n, e) {
-  const t = _u.exec(n), i = (t[4] | 0) + (t[5] | 0) / e.subFrameRate;
+function q_(n, e) {
+  const t = yu.exec(n), i = (t[4] | 0) + (t[5] | 0) / e.subFrameRate;
   return (t[1] | 0) * 3600 + (t[2] | 0) * 60 + (t[3] | 0) + i / e.frameRate;
 }
-function Y_(n, e) {
-  const t = vu.exec(n), i = Number(t[1]);
+function X_(n, e) {
+  const t = bu.exec(n), i = Number(t[1]);
   switch (t[2]) {
     case "h":
       return i * 3600;
@@ -19817,9 +19824,9 @@ class un {
     this.cueRanges = [], this.startTime = null;
   }
 }
-class q_ {
+class Q_ {
   constructor(e) {
-    this.hls = void 0, this.media = null, this.config = void 0, this.enabled = !0, this.Cues = void 0, this.textTracks = [], this.tracks = [], this.initPTS = [], this.unparsedVttFrags = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.cea608Parser1 = void 0, this.cea608Parser2 = void 0, this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = yl(), this.captionsProperties = void 0, this.hls = e, this.config = e.config, this.Cues = e.config.cueHandler, this.captionsProperties = {
+    this.hls = void 0, this.media = null, this.config = void 0, this.enabled = !0, this.Cues = void 0, this.textTracks = [], this.tracks = [], this.initPTS = [], this.unparsedVttFrags = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.cea608Parser1 = void 0, this.cea608Parser2 = void 0, this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = bl(), this.captionsProperties = void 0, this.hls = e, this.config = e.config, this.Cues = e.config.cueHandler, this.captionsProperties = {
       textTrack1: {
         label: this.config.captionsTextTrack1Label,
         languageCode: this.config.captionsTextTrack1LanguageCode
@@ -19846,12 +19853,12 @@ class q_ {
   }
   initCea608Parsers() {
     const e = new un(this, "textTrack1"), t = new un(this, "textTrack2"), i = new un(this, "textTrack3"), r = new un(this, "textTrack4");
-    this.cea608Parser1 = new pl(1, e, t), this.cea608Parser2 = new pl(3, i, r);
+    this.cea608Parser1 = new gl(1, e, t), this.cea608Parser2 = new gl(3, i, r);
   }
   addCues(e, t, i, r, s) {
     let a = !1;
     for (let o = s.length; o--; ) {
-      const d = s[o], c = X_(d[0], d[1], t, i);
+      const d = s[o], c = Z_(d[0], d[1], t, i);
       if (c >= 0 && (d[0] = Math.min(d[0], t), d[1] = Math.max(d[1], i), a = !0, c / (i - t) > 0.5))
         return;
     }
@@ -19897,7 +19904,7 @@ class q_ {
     if (i)
       for (let r = 0; r < i.textTracks.length; r++) {
         const s = i.textTracks[r];
-        if (vl(s, {
+        if (yl(s, {
           name: e,
           lang: t,
           characteristics: "transcribes-spoken-dialog,describes-music-and-sound"
@@ -19921,7 +19928,7 @@ class q_ {
       languageCode: a
     } = t[e], o = this.getExistingTrack(s, a);
     if (o)
-      i[e] = o, mi(i[e]), cu(i[e], r);
+      i[e] = o, mi(i[e]), uu(i[e], r);
     else {
       const d = this.createTextTrack("captions", s, a);
       d && (d[e] = !0, i[e] = d);
@@ -19964,7 +19971,7 @@ class q_ {
     }), this.nonNativeCaptionsTracks = {};
   }
   onManifestLoading() {
-    this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = yl(), this._cleanTracks(), this.tracks = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.textTracks = [], this.unparsedVttFrags = [], this.initPTS = [], this.cea608Parser1 && this.cea608Parser2 && (this.cea608Parser1.reset(), this.cea608Parser2.reset());
+    this.lastCc = -1, this.lastSn = -1, this.lastPartIndex = -1, this.prevCC = -1, this.vttCCs = bl(), this._cleanTracks(), this.tracks = [], this.captionsTracks = {}, this.nonNativeCaptionsTracks = {}, this.textTracks = [], this.unparsedVttFrags = [], this.initPTS = [], this.cea608Parser1 && this.cea608Parser2 && (this.cea608Parser1.reset(), this.cea608Parser2.reset());
   }
   _cleanTracks() {
     const {
@@ -19978,9 +19985,9 @@ class q_ {
         mi(t[i]);
   }
   onSubtitleTracksUpdated(e, t) {
-    const i = t.subtitleTracks || [], r = i.some((s) => s.textCodec === Kr);
+    const i = t.subtitleTracks || [], r = i.some((s) => s.textCodec === Hr);
     if (this.config.enableWebVTT || r && this.config.enableIMSC1) {
-      if (Xd(this.tracks, i)) {
+      if (Zd(this.tracks, i)) {
         this.tracks = i;
         return;
       }
@@ -19991,7 +19998,7 @@ class q_ {
           if (o) {
             let h = null;
             for (let f = 0; f < o.length; f++)
-              if (o[f] && vl(o[f], d)) {
+              if (o[f] && yl(o[f], d)) {
                 h = o[f], o[f] = null;
                 break;
               }
@@ -20000,7 +20007,7 @@ class q_ {
           if (u)
             mi(u);
           else {
-            const h = bu(d);
+            const h = Eu(d);
             u = this.createTextTrack(h, d.name, d.lang), u && (u.mode = "disabled");
           }
           u && this.textTracks.push(u);
@@ -20062,7 +20069,7 @@ class q_ {
             start: i.start,
             prevCC: this.prevCC,
             new: !0
-          }, this.prevCC = i.cc), o && o.textCodec === Kr ? this._parseIMSC1(i, r) : this._parseVTTs(t);
+          }, this.prevCC = i.cc), o && o.textCodec === Hr ? this._parseIMSC1(i, r) : this._parseVTTs(t);
         }
       } else
         this.hls.trigger(y.SUBTITLE_FRAG_PROCESSED, {
@@ -20073,7 +20080,7 @@ class q_ {
   }
   _parseIMSC1(e, t) {
     const i = this.hls;
-    gl(t, this.initPTS[e.cc], (r) => {
+    ml(t, this.initPTS[e.cc], (r) => {
       this._appendCues(r, e.level), i.trigger(y.SUBTITLE_FRAG_PROCESSED, {
         success: !0,
         frag: e
@@ -20100,7 +20107,7 @@ class q_ {
       return;
     }
     const d = this.hls, c = (t = i.initSegment) != null && t.data ? ft(i.initSegment.data, new Uint8Array(r)).buffer : r;
-    V_(c, this.initPTS[i.cc], this.vttCCs, i.cc, i.start, (u) => {
+    H_(c, this.initPTS[i.cc], this.vttCCs, i.cc, i.start, (u) => {
       this._appendCues(u, i.level), d.trigger(y.SUBTITLE_FRAG_PROCESSED, {
         success: !0,
         frag: i
@@ -20116,8 +20123,8 @@ class q_ {
   }
   _fallbackToIMSC1(e, t) {
     const i = this.tracks[e.level];
-    i.textCodec || gl(t, this.initPTS[e.cc], () => {
-      i.textCodec = Kr, this._parseIMSC1(e, t);
+    i.textCodec || ml(t, this.initPTS[e.cc], () => {
+      i.textCodec = Hr, this._parseIMSC1(e, t);
     }, () => {
       i.textCodec = "wvtt";
     });
@@ -20128,7 +20135,7 @@ class q_ {
       const r = this.textTracks[t];
       if (!r || r.mode === "disabled")
         return;
-      e.forEach((s) => du(r, s));
+      e.forEach((s) => hu(r, s));
     } else {
       const r = this.tracks[t];
       if (!r)
@@ -20181,13 +20188,13 @@ class q_ {
         const {
           captionsTracks: o
         } = this;
-        Object.keys(o).forEach((d) => Rs(o[d], t, i));
+        Object.keys(o).forEach((d) => Cs(o[d], t, i));
       }
       if (this.config.renderTextTracksNatively && t === 0 && r !== void 0) {
         const {
           textTracks: o
         } = this;
-        Object.keys(o).forEach((d) => Rs(o[d], t, r));
+        Object.keys(o).forEach((d) => Cs(o[d], t, r));
       }
     }
   }
@@ -20206,16 +20213,16 @@ class q_ {
     return t;
   }
 }
-function bu(n) {
+function Eu(n) {
   return n.characteristics && /transcribes-spoken-dialog/gi.test(n.characteristics) && /describes-music-and-sound/gi.test(n.characteristics) ? "captions" : "subtitles";
 }
-function vl(n, e) {
-  return !!n && n.kind === bu(e) && ws(e, n);
+function yl(n, e) {
+  return !!n && n.kind === Eu(e) && As(e, n);
 }
-function X_(n, e, t, i) {
+function Z_(n, e, t, i) {
   return Math.min(e, i) - Math.max(n, t);
 }
-function yl() {
+function bl() {
   return {
     ccOffset: 0,
     presentationOffset: 0,
@@ -20226,7 +20233,7 @@ function yl() {
     }
   };
 }
-const Q_ = /\s/, Z_ = {
+const J_ = /\s/, ev = {
   newCue(n, e, t, i) {
     const r = [];
     let s, a, o, d, c;
@@ -20235,15 +20242,15 @@ const Q_ = /\s/, Z_ = {
       if (s = i.rows[f], o = !0, d = 0, c = "", !s.isEmpty()) {
         var h;
         for (let _ = 0; _ < s.chars.length; _++)
-          Q_.test(s.chars[_].uchar) && o ? d++ : (c += s.chars[_].uchar, o = !1);
+          J_.test(s.chars[_].uchar) && o ? d++ : (c += s.chars[_].uchar, o = !1);
         s.cueStartTime = e, e === t && (t += 1e-4), d >= 16 ? d-- : d++;
-        const p = mu(c.trim()), g = Ia(e, t, p);
+        const p = vu(c.trim()), g = La(e, t, p);
         n != null && (h = n.cues) != null && h.getCueById(g) || (a = new u(e, t, p), a.id = g, a.line = f + 1, a.align = "left", a.position = 10 + Math.min(80, Math.floor(d * 8 / 32) * 10), r.push(a));
       }
-    return n && r.length && (r.sort((f, p) => f.line === "auto" || p.line === "auto" ? 0 : f.line > 8 && p.line > 8 ? p.line - f.line : f.line - p.line), r.forEach((f) => du(n, f))), r;
+    return n && r.length && (r.sort((f, p) => f.line === "auto" || p.line === "auto" ? 0 : f.line > 8 && p.line > 8 ? p.line - f.line : f.line - p.line), r.forEach((f) => hu(n, f))), r;
   }
 };
-function J_() {
+function tv() {
   if (
     // @ts-ignore
     self.fetch && self.AbortController && self.ReadableStream && self.Request
@@ -20254,10 +20261,10 @@ function J_() {
     }
   return !1;
 }
-const ev = /(\d+)-(\d+)\/(\d+)/;
-class bl {
+const iv = /(\d+)-(\d+)\/(\d+)/;
+class xl {
   constructor(e) {
-    this.fetchSetup = void 0, this.requestTimeout = void 0, this.request = null, this.response = null, this.controller = void 0, this.context = null, this.config = null, this.callbacks = null, this.stats = void 0, this.loader = null, this.fetchSetup = e.fetchSetup || rv, this.controller = new self.AbortController(), this.stats = new aa();
+    this.fetchSetup = void 0, this.requestTimeout = void 0, this.request = null, this.response = null, this.controller = void 0, this.context = null, this.config = null, this.callbacks = null, this.stats = void 0, this.loader = null, this.fetchSetup = e.fetchSetup || av, this.controller = new self.AbortController(), this.stats = new oa();
   }
   destroy() {
     this.loader = this.callbacks = this.context = this.config = this.request = null, this.abortInternal(), this.response = null, this.fetchSetup = this.controller = this.stats = null;
@@ -20274,7 +20281,7 @@ class bl {
     if (r.loading.start)
       throw new Error("Loader can only be used once.");
     r.loading.start = self.performance.now();
-    const s = tv(e, this.controller.signal), a = e.responseType === "arraybuffer", o = a ? "byteLength" : "length", {
+    const s = nv(e, this.controller.signal), a = e.responseType === "arraybuffer", o = a ? "byteLength" : "length", {
       maxTimeToFirstByteMs: d,
       maxLoadTimeMs: c
     } = t.loadPolicy;
@@ -20291,9 +20298,9 @@ class bl {
           status: _,
           statusText: m
         } = h;
-        throw new sv(m || "fetch, bad network response", _, h);
+        throw new ov(m || "fetch, bad network response", _, h);
       }
-      r.loading.first = p, r.total = nv(h.headers) || r.total;
+      r.loading.first = p, r.total = sv(h.headers) || r.total;
       const g = (f = this.callbacks) == null ? void 0 : f.onProgress;
       return g && ee(t.highWaterMark) ? this.loadProgressively(h, r, e, t.highWaterMark, g) : a ? h.arrayBuffer() : e.responseType === "json" ? h.json() : h.text();
     }).then((h) => {
@@ -20333,7 +20340,7 @@ class bl {
     return this.response ? this.response.headers.get(e) : null;
   }
   loadProgressively(e, t, i, r = 0, s) {
-    const a = new Rd(), o = e.body.getReader(), d = () => o.read().then((c) => {
+    const a = new Dd(), o = e.body.getReader(), d = () => o.read().then((c) => {
       if (c.done)
         return a.dataLength && s(t, i, a.flush().buffer, e), Promise.resolve(new ArrayBuffer(0));
       const u = c.value, h = u.length;
@@ -20342,7 +20349,7 @@ class bl {
     return d();
   }
 }
-function tv(n, e) {
+function nv(n, e) {
   const t = {
     method: "GET",
     mode: "cors",
@@ -20352,15 +20359,15 @@ function tv(n, e) {
   };
   return n.rangeEnd && t.headers.set("Range", "bytes=" + n.rangeStart + "-" + String(n.rangeEnd - 1)), t;
 }
-function iv(n) {
-  const e = ev.exec(n);
+function rv(n) {
+  const e = iv.exec(n);
   if (e)
     return parseInt(e[2]) - parseInt(e[1]) + 1;
 }
-function nv(n) {
+function sv(n) {
   const e = n.get("Content-Range");
   if (e) {
-    const i = iv(e);
+    const i = rv(e);
     if (ee(i))
       return i;
   }
@@ -20368,18 +20375,18 @@ function nv(n) {
   if (t)
     return parseInt(t);
 }
-function rv(n, e) {
+function av(n, e) {
   return new self.Request(n.url, e);
 }
-class sv extends Error {
+class ov extends Error {
   constructor(e, t, i) {
     super(e), this.code = void 0, this.details = void 0, this.code = t, this.details = i;
   }
 }
-const av = /^age:\s*[\d.]+\s*$/im;
-class xu {
+const lv = /^age:\s*[\d.]+\s*$/im;
+class Su {
   constructor(e) {
-    this.xhrSetup = void 0, this.requestTimeout = void 0, this.retryTimeout = void 0, this.retryDelay = void 0, this.config = null, this.callbacks = null, this.context = null, this.loader = null, this.stats = void 0, this.xhrSetup = e && e.xhrSetup || null, this.stats = new aa(), this.retryDelay = 0;
+    this.xhrSetup = void 0, this.requestTimeout = void 0, this.retryTimeout = void 0, this.retryDelay = void 0, this.config = null, this.callbacks = null, this.context = null, this.loader = null, this.stats = void 0, this.xhrSetup = e && e.xhrSetup || null, this.stats = new oa(), this.retryDelay = 0;
   }
   destroy() {
     this.callbacks = null, this.abortInternal(), this.loader = null, this.config = null, this.context = null, this.xhrSetup = null;
@@ -20497,7 +20504,7 @@ class xu {
       context: t,
       stats: i
     } = this;
-    this.retryDelay = da(e, i.retry), i.retry++, we.warn(`${status ? "HTTP Status " + status : "Timeout"} while loading ${t?.url}, retrying ${i.retry}/${e.maxNumRetry} in ${this.retryDelay}ms`), this.abortInternal(), this.loader = null, self.clearTimeout(this.retryTimeout), this.retryTimeout = self.setTimeout(this.loadInternal.bind(this), this.retryDelay);
+    this.retryDelay = ua(e, i.retry), i.retry++, we.warn(`${status ? "HTTP Status " + status : "Timeout"} while loading ${t?.url}, retrying ${i.retry}/${e.maxNumRetry} in ${this.retryDelay}ms`), this.abortInternal(), this.loader = null, self.clearTimeout(this.retryTimeout), this.retryTimeout = self.setTimeout(this.loadInternal.bind(this), this.retryDelay);
   }
   loadprogress(e) {
     const t = this.stats;
@@ -20505,7 +20512,7 @@ class xu {
   }
   getCacheAge() {
     let e = null;
-    if (this.loader && av.test(this.loader.getAllResponseHeaders())) {
+    if (this.loader && lv.test(this.loader.getAllResponseHeaders())) {
       const t = this.loader.getResponseHeader("age");
       e = t ? parseFloat(t) : null;
     }
@@ -20515,12 +20522,12 @@ class xu {
     return this.loader && new RegExp(`^${e}:\\s*[\\d.]+\\s*$`, "im").test(this.loader.getAllResponseHeaders()) ? this.loader.getResponseHeader(e) : null;
   }
 }
-const ov = {
+const cv = {
   maxTimeToFirstByteMs: 8e3,
   maxLoadTimeMs: 2e4,
   timeoutRetry: null,
   errorRetry: null
-}, lv = ke(ke({
+}, dv = ke(ke({
   autoStartLoad: !0,
   // used by stream-controller
   startPosition: -1,
@@ -20603,7 +20610,7 @@ const ov = {
   appendErrorMaxRetry: 3,
   // used by buffer-controller
   ignorePlaylistParsingErrors: !1,
-  loader: xu,
+  loader: Su,
   // loader: FetchLoader,
   fLoader: void 0,
   // used by fragment-loader
@@ -20615,11 +20622,11 @@ const ov = {
   // used by eme-controller
   licenseResponseCallback: void 0,
   // used by eme-controller
-  abrController: bg,
-  bufferController: d0,
-  capLevelController: Ta,
-  errorController: kg,
-  fpsController: u_,
+  abrController: Eg,
+  bufferController: h0,
+  capLevelController: ka,
+  errorController: Ag,
+  fpsController: f_,
   stretchShortVideoTrack: !1,
   // used by mp4-remuxer
   maxAudioFramesDrift: 1,
@@ -20658,7 +20665,7 @@ const ov = {
   // used by eme-controller
   drmSystemOptions: {},
   // used by eme-controller
-  requestMediaKeySystemAccessFunc: yd,
+  requestMediaKeySystemAccessFunc: xd,
   // used by eme-controller
   requireKeySystemAccessOnStart: !1,
   // used by eme-controller
@@ -20676,7 +20683,7 @@ const ov = {
   useMediaCapabilities: !0,
   preserveManualLevelOnError: !1,
   certLoadPolicy: {
-    default: ov
+    default: cv
   },
   keyLoadPolicy: {
     default: {
@@ -20790,20 +20797,20 @@ const ov = {
   fragLoadingMaxRetry: 6,
   fragLoadingRetryDelay: 1e3,
   fragLoadingMaxRetryTimeout: 64e3
-}, cv()), {}, {
-  subtitleStreamController: S_,
-  subtitleTrackController: p_,
-  timelineController: q_,
-  audioStreamController: a0,
-  audioTrackController: o0,
+}, uv()), {}, {
+  subtitleStreamController: k_,
+  subtitleTrackController: m_,
+  timelineController: Q_,
+  audioStreamController: l0,
+  audioTrackController: c0,
   emeController: xi,
-  cmcdController: o_,
-  contentSteeringController: c_,
-  interstitialsController: E_
+  cmcdController: c_,
+  contentSteeringController: u_,
+  interstitialsController: T_
 });
-function cv() {
+function uv() {
   return {
-    cueHandler: Z_,
+    cueHandler: ev,
     // used by timeline-controller
     enableWebVTT: !0,
     // used by timeline-controller
@@ -20830,14 +20837,14 @@ function cv() {
     renderTextTracksNatively: !0
   };
 }
-function dv(n, e, t) {
+function hv(n, e, t) {
   if ((e.liveSyncDurationCount || e.liveMaxLatencyDurationCount) && (e.liveSyncDuration || e.liveMaxLatencyDuration))
     throw new Error("Illegal hls.js config: don't mix up liveSyncDurationCount/liveMaxLatencyDurationCount and liveSyncDuration/liveMaxLatencyDuration");
   if (e.liveMaxLatencyDurationCount !== void 0 && (e.liveSyncDurationCount === void 0 || e.liveMaxLatencyDurationCount <= e.liveSyncDurationCount))
     throw new Error('Illegal hls.js config: "liveMaxLatencyDurationCount" must be greater than "liveSyncDurationCount"');
   if (e.liveMaxLatencyDuration !== void 0 && (e.liveSyncDuration === void 0 || e.liveMaxLatencyDuration <= e.liveSyncDuration))
     throw new Error('Illegal hls.js config: "liveMaxLatencyDuration" must be greater than "liveSyncDuration"');
-  const i = Ds(n), r = ["manifest", "level", "frag"], s = ["TimeOut", "MaxRetry", "RetryDelay", "MaxRetryTimeout"];
+  const i = Ps(n), r = ["manifest", "level", "frag"], s = ["TimeOut", "MaxRetry", "RetryDelay", "MaxRetryTimeout"];
   return r.forEach((a) => {
     const o = `${a === "level" ? "playlist" : a}LoadPolicy`, d = e[o] === void 0, c = [];
     s.forEach((u) => {
@@ -20865,15 +20872,15 @@ function dv(n, e, t) {
     }), c.length && t.warn(`hls.js config: "${c.join('", "')}" setting(s) are deprecated, use "${o}": ${Re(e[o])}`);
   }), ke(ke({}, i), e);
 }
-function Ds(n) {
-  return n && typeof n == "object" ? Array.isArray(n) ? n.map(Ds) : Object.keys(n).reduce((e, t) => (e[t] = Ds(n[t]), e), {}) : n;
+function Ps(n) {
+  return n && typeof n == "object" ? Array.isArray(n) ? n.map(Ps) : Object.keys(n).reduce((e, t) => (e[t] = Ps(n[t]), e), {}) : n;
 }
-function uv(n, e) {
+function fv(n, e) {
   const t = n.loader;
-  t !== bl && t !== xu ? (e.log("[config]: Custom loader detected, cannot enable progressive streaming"), n.progressive = !1) : J_() && (n.loader = bl, n.progressive = !0, n.enableSoftwareAES = !0, e.log("[config]: Progressive streaming enabled, using FetchLoader"));
+  t !== xl && t !== Su ? (e.log("[config]: Custom loader detected, cannot enable progressive streaming"), n.progressive = !1) : tv() && (n.loader = xl, n.progressive = !0, n.enableSoftwareAES = !0, e.log("[config]: Progressive streaming enabled, using FetchLoader"));
 }
-const Mn = 2, hv = 0.1, fv = 0.05, pv = 100;
-class gv extends pd {
+const Mn = 2, pv = 0.1, gv = 0.05, mv = 100;
+class _v extends md {
   constructor(e, t) {
     super("gap-controller", e.logger), this.hls = void 0, this.fragmentTracker = void 0, this.media = null, this.mediaSource = void 0, this.nudgeRetry = 0, this.stallReported = !1, this.stalled = null, this.moved = !1, this.seeking = !1, this.buffered = {}, this.lastCurrentTime = 0, this.ended = 0, this.waiting = 0, this.onMediaPlaying = () => {
       this.ended = 0, this.waiting = 0;
@@ -20905,7 +20912,7 @@ class gv extends pd {
     super.destroy(), this.unregisterListeners(), this.media = this.hls = this.fragmentTracker = null, this.mediaSource = void 0;
   }
   onMediaAttached(e, t) {
-    this.setInterval(pv), this.mediaSource = t.mediaSource;
+    this.setInterval(mv), this.mediaSource = t.mediaSource;
     const i = this.media = t.media;
     tt(i, "playing", this.onMediaPlaying), tt(i, "waiting", this.onMediaWaiting), tt(i, "ended", this.onMediaEnded);
   }
@@ -20966,7 +20973,7 @@ class gv extends pd {
     }
     const h = fe.bufferInfo(a, e, 0), f = h.nextStart || 0, p = this.fragmentTracker;
     if (o && p && this.hls) {
-      const w = xl(this.hls.inFlightFragments, e), S = h.len > Mn, k = !f || w || f - e > Mn && !p.getPartialFragment(e);
+      const w = El(this.hls.inFlightFragments, e), S = h.len > Mn, k = !f || w || f - e > Mn && !p.getPartialFragment(e);
       if (S || k)
         return;
       this.moved = !1;
@@ -21127,7 +21134,7 @@ class gv extends pd {
           }
           if (!g && e) {
             var c;
-            if (!((c = this.hls.loadLevelObj) != null && c.details) || xl(this.hls.inFlightFragments, d))
+            if (!((c = this.hls.loadLevelObj) != null && c.details) || El(this.hls.inFlightFragments, d))
               return 0;
             let m = !1, v = e.end;
             for (; v < d; ) {
@@ -21143,7 +21150,7 @@ class gv extends pd {
               return 0;
           }
         }
-        const p = Math.max(d + fv, a + hv);
+        const p = Math.max(d + gv, a + pv);
         if (this.warn(`skipping hole, adjusting currentTime from ${a} to ${p}`), this.moved = !0, r.currentTime = p, !(e != null && e.gap)) {
           const g = new Error(`fragment loaded with buffer holes, seeking from ${a} to ${p}`), _ = {
             type: re.MEDIA_ERROR,
@@ -21197,14 +21204,14 @@ class gv extends pd {
     }
   }
 }
-function xl(n, e) {
-  const t = El(n.main);
+function El(n, e) {
+  const t = Sl(n.main);
   if (t && t.start <= e)
     return t;
-  const i = El(n.audio);
+  const i = Sl(n.audio);
   return i && i.start <= e ? i : null;
 }
-function El(n) {
+function Sl(n) {
   if (!n)
     return null;
   switch (n.state) {
@@ -21219,12 +21226,12 @@ function El(n) {
 function hn(n, e) {
   return e.getAppendedFrag(n, ne.MAIN) || e.getPartialFragment(n);
 }
-const mv = 0.25;
-function Ps() {
+const vv = 0.25;
+function Ms() {
   if (!(typeof self > "u"))
     return self.VTTCue || self.TextTrackCue;
 }
-function Yr(n, e, t, i, r) {
+function qr(n, e, t, i, r) {
   let s = new n(e, t, "");
   try {
     s.value = i, r && (s.type = r);
@@ -21236,7 +21243,7 @@ function Yr(n, e, t, i, r) {
   return s;
 }
 const fn = (() => {
-  const n = Ps();
+  const n = Ms();
   try {
     n && new n(0, Number.POSITIVE_INFINITY, "");
   } catch {
@@ -21244,7 +21251,7 @@ const fn = (() => {
   }
   return Number.POSITIVE_INFINITY;
 })();
-class _v {
+class yv {
   constructor(e) {
     this.hls = void 0, this.id3Track = null, this.media = null, this.dateRangeCuesAppended = {}, this.removeCues = !0, this.assetCue = void 0, this.onEventCueEnter = () => {
       this.hls && this.hls.trigger(y.EVENT_CUE_ENTER, {});
@@ -21290,7 +21297,7 @@ class _v {
       for (let t = 0; t < e.length; t++) {
         const i = e[t];
         if (i.kind === "metadata" && i.label === "id3")
-          return cu(i, this.media), i;
+          return uu(i, this.media), i;
       }
       return this.media.addTextTrack("metadata", "id3");
     }
@@ -21308,20 +21315,20 @@ class _v {
       samples: s
     } = t;
     this.id3Track || (this.id3Track = this.createTrack(this.media));
-    const a = Ps();
+    const a = Ms();
     if (a)
       for (let o = 0; o < s.length; o++) {
         const d = s[o].type;
         if (d === lt.emsg && !i || !r)
           continue;
-        const c = Nd(s[o].data), u = s[o].pts;
+        const c = Bd(s[o].data), u = s[o].pts;
         let h = u + s[o].duration;
-        h > fn && (h = fn), h - u <= 0 && (h = u + mv);
+        h > fn && (h = fn), h - u <= 0 && (h = u + vv);
         for (let p = 0; p < c.length; p++) {
           const g = c[p];
-          if (!$d(g)) {
+          if (!Ud(g)) {
             this.updateId3CueEnds(u, d);
-            const _ = Yr(a, u, h, g, d);
+            const _ = qr(a, u, h, g, d);
             _ && this.id3Track.addCue(_);
           }
         }
@@ -21355,7 +21362,7 @@ class _v {
     } = a;
     if (s && (o || d)) {
       let c;
-      r === "audio" ? c = (u) => u.type === lt.audioId3 && d : r === "video" ? c = (u) => u.type === lt.emsg && o : c = (u) => u.type === lt.audioId3 && d || u.type === lt.emsg && o, Rs(s, t, i, c);
+      r === "audio" ? c = (u) => u.type === lt.audioId3 && d : r === "video" ? c = (u) => u.type === lt.emsg && o : c = (u) => u.type === lt.audioId3 && d || u.type === lt.emsg && o, Cs(s, t, i, c);
     }
   }
   onLevelUpdated(e, {
@@ -21377,14 +21384,14 @@ class _v {
     } = this.hls.config;
     if (!s)
       return;
-    const o = Ps();
+    const o = Ms();
     if (i && r && !a) {
       const {
         fragmentStart: _,
         fragmentEnd: m
       } = e;
       let v = this.assetCue;
-      v ? (v.startTime = _, v.endTime = m) : o && (v = this.assetCue = Yr(o, _, m, {
+      v ? (v.startTime = _, v.endTime = m) : o && (v = this.assetCue = qr(o, _, m, {
         assetPlayerId: this.hls.config.assetPlayerId
       }, "hlsjs.interstitial.asset"), v && (v.id = i, this.id3Track || (this.id3Track = this.createTrack(this.media)), this.id3Track.addCue(v), v.addEventListener("enter", this.onEventCueEnter)));
     }
@@ -21443,15 +21450,15 @@ class _v {
         const I = Object.keys(v.attr);
         for (let A = 0; A < I.length; A++) {
           const C = I[A];
-          if (!$g(C))
+          if (!Ug(C))
             continue;
           const M = E[C];
           if (M)
             T && !(x != null && x.durationKnown) ? M.endTime = w : Math.abs(M.startTime - b) > 0.01 && (M.startTime = b, M.endTime = w);
           else if (o) {
             let G = v.attr[C];
-            Bg(C) && (G = Yc(G));
-            const V = Yr(o, b, w, {
+            Gg(C) && (G = Xc(G));
+            const V = qr(o, b, w, {
               key: C,
               data: G
             }, lt.dateRange);
@@ -21467,7 +21474,7 @@ class _v {
     }
   }
 }
-class vv {
+class bv {
   constructor(e) {
     this.hls = void 0, this.config = void 0, this.media = null, this.currentTime = 0, this.stallCount = 0, this._latency = null, this._targetLatencyUpdated = !1, this.onTimeupdate = () => {
       const {
@@ -21609,7 +21616,7 @@ class vv {
     return e === null ? null : e - this.currentTime;
   }
 }
-class yv extends Sa {
+class xv extends Ta {
   constructor(e, t) {
     super(e, "level-controller"), this._levels = [], this._firstLevel = -1, this._maxAutoLevel = -1, this._startLevel = void 0, this.currentLevel = null, this.currentLevelIndex = -1, this.manualLevelIndex = -1, this.steering = void 0, this.onParsedComplete = void 0, this.steering = t, this._registerListeners();
   }
@@ -21648,7 +21655,7 @@ class yv extends Sa {
         audioCodec: f,
         videoCodec: p
       } = u;
-      f && (u.audioCodec = f = zn(f, i) || void 0), p && (p = u.videoCodec = tg(p));
+      f && (u.audioCodec = f = zn(f, i) || void 0), p && (p = u.videoCodec = ng(p));
       const {
         width: g,
         height: _,
@@ -21684,7 +21691,7 @@ class yv extends Sa {
     const t = new Hi(e), i = e.supplemental;
     if (i != null && i.videoCodec && !this.isVideoSupported(i.videoCodec)) {
       const r = new Error(`SUPPLEMENTAL-CODECS not supported "${i.videoCodec}"`);
-      this.log(r.message), t.supportedResult = ad(r, []);
+      this.log(r.message), t.supportedResult = ld(r, []);
     }
     return t;
   }
@@ -21703,7 +21710,7 @@ class yv extends Sa {
       videoRange: x,
       width: E,
       height: T
-    }) => (!!b || !!(E && T)) && ug(x))), c.length === 0) {
+    }) => (!!b || !!(E && T)) && fg(x))), c.length === 0) {
       Promise.resolve().then(() => {
         if (this.hls) {
           let b = "no level with compatible codecs found in manifest", x = b;
@@ -21721,7 +21728,7 @@ class yv extends Sa {
       }), u.end = performance.now();
       return;
     }
-    t.audioTracks && (o = t.audioTracks.filter((b) => !b.audioCodec || this.isAudioSupported(b.audioCodec)), Sl(o)), t.subtitles && (d = t.subtitles, Sl(d));
+    t.audioTracks && (o = t.audioTracks.filter((b) => !b.audioCodec || this.isAudioSupported(b.audioCodec)), Tl(o)), t.subtitles && (d = t.subtitles, Tl(d));
     const h = c.slice(0);
     c.sort((b, x) => {
       if (b.attrs["HDCP-LEVEL"] !== x.attrs["HDCP-LEVEL"])
@@ -21733,7 +21740,7 @@ class yv extends Sa {
       if (b.videoRange !== x.videoRange)
         return Vn.indexOf(b.videoRange) - Vn.indexOf(x.videoRange);
       if (b.videoCodec !== x.videoCodec) {
-        const E = po(b.videoCodec), T = po(x.videoCodec);
+        const E = go(b.videoCodec), T = go(x.videoCodec);
         if (E !== T)
           return T - E;
       }
@@ -21880,7 +21887,7 @@ class yv extends Sa {
     }
   }
   onError(e, t) {
-    t.fatal || !t.context || t.context.type === ve.LEVEL && t.context.level === this.level && this.checkRetry(t);
+    t.fatal || !t.context || t.context.type === ye.LEVEL && t.context.level === this.level && this.checkRetry(t);
   }
   // reset errors on the successful load of a fragment
   onFragBuffered(e, {
@@ -21938,7 +21945,7 @@ class yv extends Sa {
     if (this._levels.length === 1)
       return;
     const i = this._levels.filter((s, a) => a !== e ? !0 : (this.steering && this.steering.removeLevel(s), s === this.currentLevel && (this.currentLevel = null, this.currentLevelIndex = -1, s.details && s.details.fragments.forEach((o) => o.level = -1)), !1));
-    Ad(i), this._levels = i, this.currentLevelIndex > -1 && (t = this.currentLevel) != null && t.details && (this.currentLevelIndex = this.currentLevel.details.fragments[0].level), this.manualLevelIndex > -1 && (this.manualLevelIndex = this.currentLevelIndex);
+    Ld(i), this._levels = i, this.currentLevelIndex > -1 && (t = this.currentLevel) != null && t.details && (this.currentLevelIndex = this.currentLevel.details.fragments[0].level), this.manualLevelIndex > -1 && (this.manualLevelIndex = this.currentLevelIndex);
     const r = i.length - 1;
     this._firstLevel = Math.min(this._firstLevel, r), this._startLevel && (this._startLevel = Math.min(this._startLevel, r)), this.hls.trigger(y.LEVELS_UPDATED, {
       levels: i
@@ -21964,35 +21971,35 @@ class yv extends Sa {
     }));
   }
 }
-function Sl(n) {
+function Tl(n) {
   const e = {};
   n.forEach((t) => {
     const i = t.groupId || "";
     t.id = e[i] = e[i] || 0, e[i]++;
   });
 }
-function Eu() {
+function Tu() {
   return self.SourceBuffer || self.WebKitSourceBuffer;
 }
-function Su() {
-  if (!qt())
+function ku() {
+  if (!Xt())
     return !1;
-  const e = Eu();
+  const e = Tu();
   return !e || e.prototype && typeof e.prototype.appendBuffer == "function" && typeof e.prototype.remove == "function";
 }
-function bv() {
-  if (!Su())
+function Ev() {
+  if (!ku())
     return !1;
-  const n = qt();
+  const n = Xt();
   return typeof n?.isTypeSupported == "function" && (["avc1.42E01E,mp4a.40.2", "av01.0.01M.08", "vp09.00.50.08"].some((e) => n.isTypeSupported(Ki(e, "video"))) || ["mp4a.40.2", "fLaC"].some((e) => n.isTypeSupported(Ki(e, "audio"))));
 }
-function xv() {
+function Sv() {
   var n;
-  const e = Eu();
+  const e = Tu();
   return typeof (e == null || (n = e.prototype) == null ? void 0 : n.changeType) == "function";
 }
-const Ev = 100;
-class Sv extends ga {
+const Tv = 100;
+class kv extends ma {
   constructor(e, t, i) {
     super(e, t, i, "stream-controller", ne.MAIN), this.audioCodecSwap = !1, this.level = -1, this._forceStartLoad = !1, this._hasEnoughToStart = !1, this.altAudio = 0, this.audioOnly = !1, this.fragPlaying = null, this.fragLastKbps = 0, this.couldBacktrack = !1, this.backtrackFragment = null, this.audioCodecSwitch = !1, this.videoBuffer = null, this.onMediaPlaying = () => {
       this.tick();
@@ -22031,7 +22038,7 @@ class Sv extends ga {
         lastCurrentTime: i,
         hls: r
       } = this;
-      if (this.stopLoad(), this.setInterval(Ev), this.level = -1, !this.startFragRequested) {
+      if (this.stopLoad(), this.setInterval(Tv), this.level = -1, !this.startFragRequested) {
         let s = r.startLevel;
         s === -1 && (r.config.testBandwidth && this.levels.length > 1 ? (s = 0, this.bitrateTest = !0) : s = r.firstAutoLevel), r.nextLoadLevel = s, this.level = r.loadLevel, this._hasEnoughToStart = !!t;
       }
@@ -22214,7 +22221,7 @@ class Sv extends ga {
       const a = t.levels[s].audioCodec;
       a && (i = i || a.indexOf("mp4a.40.2") !== -1, r = r || a.indexOf("mp4a.40.5") !== -1);
     }
-    this.audioCodecSwitch = i && r && !xv(), this.audioCodecSwitch && this.log("Both AAC/HE-AAC audio found in levels; declaring level codec as HE-AAC"), this.levels = t.levels, this.startFragRequested = !1;
+    this.audioCodecSwitch = i && r && !Sv(), this.audioCodecSwitch && this.log("Both AAC/HE-AAC audio found in levels; declaring level codec as HE-AAC"), this.levels = t.levels, this.startFragRequested = !1;
   }
   onLevelLoading(e, t) {
     const {
@@ -22307,7 +22314,7 @@ class Sv extends ga {
       this.warn(`Dropping fragment ${i.sn} of level ${i.level} after level details were reset`), this.fragmentTracker.removeFragment(i);
       return;
     }
-    const c = o.videoCodec, u = d.PTSKnown || !d.live, h = (t = i.initSegment) == null ? void 0 : t.data, f = this._getAudioCodec(o), p = this.transmuxer = this.transmuxer || new qd(this.hls, ne.MAIN, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)), g = r ? r.index : -1, _ = g !== -1, m = new ha(i.level, i.sn, i.stats.chunkCount, s.byteLength, g, _), v = this.initPTS[i.cc];
+    const c = o.videoCodec, u = d.PTSKnown || !d.live, h = (t = i.initSegment) == null ? void 0 : t.data, f = this._getAudioCodec(o), p = this.transmuxer = this.transmuxer || new Qd(this.hls, ne.MAIN, this._handleTransmuxComplete.bind(this), this._handleTransmuxerFlush.bind(this)), g = r ? r.index : -1, _ = g !== -1, m = new fa(i.level, i.sn, i.stats.chunkCount, s.byteLength, g, _), v = this.initPTS[i.cc];
     p.push(s, h, f, c, i, r, d.totalduration, u, m, v);
   }
   onAudioTrackSwitching(e, t) {
@@ -22394,7 +22401,7 @@ class Sv extends ga {
       case P.LEVEL_LOAD_ERROR:
       case P.LEVEL_LOAD_TIMEOUT:
       case P.LEVEL_PARSING_ERROR:
-        !t.levelRetry && this.state === U.WAITING_LEVEL && ((i = t.context) == null ? void 0 : i.type) === ve.LEVEL && (this.state = U.IDLE);
+        !t.levelRetry && this.state === U.WAITING_LEVEL && ((i = t.context) == null ? void 0 : i.type) === ye.LEVEL && (this.state = U.IDLE);
         break;
       case P.BUFFER_ADD_CODEC_ERROR:
       case P.BUFFER_APPEND_ERROR:
@@ -22719,7 +22726,7 @@ class Sv extends ga {
     return this._forceStartLoad;
   }
 }
-class Tv extends pt {
+class wv extends pt {
   constructor(e, t) {
     super("key-loader", t), this.config = void 0, this.keyIdToKeyInfo = {}, this.emeController = null, this.config = e;
   }
@@ -22796,7 +22803,7 @@ class Tv extends pt {
     const a = s.uri;
     if (!a)
       return Promise.reject(this.createKeyLoadError(e, P.KEY_LOAD_ERROR, new Error(`Invalid key URI: "${a}"`)));
-    const o = qr(s);
+    const o = Xr(s);
     let d = this.keyIdToKeyInfo[o];
     if ((i = d) != null && i.decryptdata.key)
       return s.key = d.decryptdata.key, Promise.resolve({
@@ -22843,10 +22850,10 @@ class Tv extends pt {
     if (this.emeController && this.config.emeEnabled) {
       var r;
       if (!e.decryptdata.keyId && (r = t.initSegment) != null && r.data) {
-        const a = Vp(t.initSegment.data);
+        const a = Hp(t.initSegment.data);
         if (a.length) {
           let o = a[0];
-          o.some((d) => d !== 0) ? (this.log(`Using keyId found in init segment ${Ze(o)}`), Ht.setKeyIdForUri(e.decryptdata.uri, o)) : (o = Ht.addKeyIdForUri(e.decryptdata.uri), this.log(`Generating keyId to patch media ${Ze(o)}`)), e.decryptdata.keyId = o;
+          o.some((d) => d !== 0) ? (this.log(`Using keyId found in init segment ${Ze(o)}`), Wt.setKeyIdForUri(e.decryptdata.uri, o)) : (o = Wt.addKeyIdForUri(e.decryptdata.uri), this.log(`Generating keyId to patch media ${Ze(o)}`)), e.decryptdata.keyId = o;
         }
       }
       if (!e.decryptdata.keyId && !Ge(t))
@@ -22877,7 +22884,7 @@ class Tv extends pt {
           const {
             frag: m,
             keyInfo: v
-          } = g, b = qr(v.decryptdata);
+          } = g, b = Xr(v.decryptdata);
           if (!m.decryptdata || v !== this.keyIdToKeyInfo[b])
             return o(this.createKeyLoadError(m, P.KEY_LOAD_ERROR, new Error("after key load, decryptdata unset or changed"), _));
           v.decryptdata.key = m.decryptdata.key = new Uint8Array(f.data), m.keyLoader = null, v.loader = null, a({
@@ -22908,11 +22915,11 @@ class Tv extends pt {
       url: r
     } = e, s = i.loader;
     t.keyLoader === s && (t.keyLoader = null, i.loader = null);
-    const a = qr(i.decryptdata) || r;
+    const a = Xr(i.decryptdata) || r;
     delete this.keyIdToKeyInfo[a], s && s.destroy();
   }
 }
-function qr(n) {
+function Xr(n) {
   if (n.keyFormat !== Je.FAIRPLAY) {
     const e = n.keyId;
     if (e)
@@ -22920,24 +22927,24 @@ function qr(n) {
   }
   return n.uri;
 }
-function Tl(n) {
+function kl(n) {
   const {
     type: e
   } = n;
   switch (e) {
-    case ve.AUDIO_TRACK:
+    case ye.AUDIO_TRACK:
       return ne.AUDIO;
-    case ve.SUBTITLE_TRACK:
+    case ye.SUBTITLE_TRACK:
       return ne.SUBTITLE;
     default:
       return ne.MAIN;
   }
 }
-function Xr(n, e) {
+function Qr(n, e) {
   let t = n.url;
   return (t === void 0 || t.indexOf("data:") === 0) && (t = e.url), t;
 }
-class kv {
+class Av {
   constructor(e) {
     this.hls = void 0, this.loaders = /* @__PURE__ */ Object.create(null), this.variableList = null, this.onManifestLoaded = this.checkAutostartLoad, this.hls = e, this.registerListeners();
   }
@@ -22991,7 +22998,7 @@ class kv {
       id: null,
       level: 0,
       responseType: "text",
-      type: ve.MANIFEST,
+      type: ye.MANIFEST,
       url: i,
       deliveryDirectives: null,
       levelOrTrack: null
@@ -23011,7 +23018,7 @@ class kv {
       level: r,
       pathwayId: s,
       responseType: "text",
-      type: ve.LEVEL,
+      type: ye.LEVEL,
       url: a,
       deliveryDirectives: o,
       levelOrTrack: d
@@ -23030,7 +23037,7 @@ class kv {
       groupId: r,
       level: null,
       responseType: "text",
-      type: ve.AUDIO_TRACK,
+      type: ye.AUDIO_TRACK,
       url: s,
       deliveryDirectives: a,
       levelOrTrack: o
@@ -23049,17 +23056,17 @@ class kv {
       groupId: r,
       level: null,
       responseType: "text",
-      type: ve.SUBTITLE_TRACK,
+      type: ye.SUBTITLE_TRACK,
       url: s,
       deliveryDirectives: a,
       levelOrTrack: o
     });
   }
   onLevelsUpdated(e, t) {
-    const i = this.loaders[ve.LEVEL];
+    const i = this.loaders[ye.LEVEL];
     if (i) {
       const r = i.context;
-      r && !t.levels.some((s) => s === r.levelOrTrack) && (i.abort(), delete this.loaders[ve.LEVEL]);
+      r && !t.levels.some((s) => s === r.levelOrTrack) && (i.abort(), delete this.loaders[ye.LEVEL]);
     }
   }
   load(e) {
@@ -23075,12 +23082,12 @@ class kv {
       c.log(`[playlist-loader]: aborting previous loader for type: ${e.type}`), r.abort();
     }
     let s;
-    if (e.type === ve.MANIFEST ? s = i.manifestLoadPolicy.default : s = Ae({}, i.playlistLoadPolicy.default, {
+    if (e.type === ye.MANIFEST ? s = i.manifestLoadPolicy.default : s = Ae({}, i.playlistLoadPolicy.default, {
       timeoutRetry: null,
       errorRetry: null
     }), r = this.createInternalLoader(e), ee((t = e.deliveryDirectives) == null ? void 0 : t.part)) {
       let c;
-      if (e.type === ve.LEVEL && e.level !== null ? c = this.hls.levels[e.level].details : e.type === ve.AUDIO_TRACK && e.id !== null ? c = this.hls.audioTracks[e.id].details : e.type === ve.SUBTITLE_TRACK && e.id !== null && (c = this.hls.subtitleTracks[e.id].details), c) {
+      if (e.type === ye.LEVEL && e.level !== null ? c = this.hls.levels[e.level].details : e.type === ye.AUDIO_TRACK && e.id !== null ? c = this.hls.audioTracks[e.id].details : e.type === ye.SUBTITLE_TRACK && e.id !== null && (c = this.hls.subtitleTracks[e.id].details), c) {
         const u = c.partTarget, h = c.targetduration;
         if (u && h) {
           const f = Math.max(u * 3, h * 0.8) * 1e3;
@@ -23102,7 +23109,7 @@ class kv {
         const p = this.getInternalLoader(h);
         this.resetInternalLoader(h.type);
         const g = c.data;
-        u.parsing.start = performance.now(), At.isMediaPlaylist(g) || h.type !== ve.MANIFEST ? this.handleTrackOrLevelPlaylist(c, u, h, f || null, p) : this.handleMasterPlaylist(c, u, h, f);
+        u.parsing.start = performance.now(), At.isMediaPlaylist(g) || h.type !== ye.MANIFEST ? this.handleTrackOrLevelPlaylist(c, u, h, f || null, p) : this.handleMasterPlaylist(c, u, h, f);
       },
       onError: (c, u, h, f) => {
         this.handleNetworkError(u, h, !1, c, f);
@@ -23126,7 +23133,7 @@ class kv {
     (e || i) && (this.hls.logger.log(`${e ? "auto" : "force"} startLoad with configured startPosition ${t}`), this.hls.startLoad(t));
   }
   handleMasterPlaylist(e, t, i, r) {
-    const s = this.hls, a = e.data, o = Xr(e, i), d = At.parseMasterPlaylist(a, o);
+    const s = this.hls, a = e.data, o = Qr(e, i), d = At.parseMasterPlaylist(a, o);
     if (d.playlistParsingError) {
       t.parsing.end = performance.now(), this.handleManifestParsingError(e, i, d.playlistParsingError, r, t);
       return;
@@ -23193,8 +23200,8 @@ class kv {
       id: o,
       level: d,
       type: c
-    } = i, u = Xr(e, i), h = ee(d) ? d : ee(o) ? o : 0, f = Tl(i), p = At.parseLevelPlaylist(e.data, u, h, f, 0, this.variableList);
-    if (c === ve.MANIFEST) {
+    } = i, u = Qr(e, i), h = ee(d) ? d : ee(o) ? o : 0, f = kl(i), p = At.parseLevelPlaylist(e.data, u, h, f, 0, this.variableList);
+    if (c === ye.MANIFEST) {
       const g = {
         attrs: new Fe({}),
         bitrate: 0,
@@ -23202,7 +23209,7 @@ class kv {
         name: "",
         url: u
       };
-      p.requestScheduled = t.loading.start + Td(p, 0), a.trigger(y.MANIFEST_LOADED, {
+      p.requestScheduled = t.loading.start + wd(p, 0), a.trigger(y.MANIFEST_LOADED, {
         levels: [g],
         audioTracks: [],
         url: u,
@@ -23221,7 +23228,7 @@ class kv {
     this.hls.trigger(y.ERROR, {
       type: re.NETWORK_ERROR,
       details: P.MANIFEST_PARSING_ERROR,
-      fatal: t.type === ve.MANIFEST,
+      fatal: t.type === ye.MANIFEST,
       url: e.url,
       err: i,
       error: i,
@@ -23234,22 +23241,22 @@ class kv {
   }
   handleNetworkError(e, t, i = !1, r, s) {
     let a = `A network ${i ? "timeout" : "error" + (r ? " (status " + r.code + ")" : "")} occurred while loading ${e.type}`;
-    e.type === ve.LEVEL ? a += `: ${e.level} id: ${e.id}` : (e.type === ve.AUDIO_TRACK || e.type === ve.SUBTITLE_TRACK) && (a += ` id: ${e.id} group-id: "${e.groupId}"`);
+    e.type === ye.LEVEL ? a += `: ${e.level} id: ${e.id}` : (e.type === ye.AUDIO_TRACK || e.type === ye.SUBTITLE_TRACK) && (a += ` id: ${e.id} group-id: "${e.groupId}"`);
     const o = new Error(a);
     this.hls.logger.warn(`[playlist-loader]: ${a}`);
     let d = P.UNKNOWN, c = !1;
     const u = this.getInternalLoader(e);
     switch (e.type) {
-      case ve.MANIFEST:
+      case ye.MANIFEST:
         d = i ? P.MANIFEST_LOAD_TIMEOUT : P.MANIFEST_LOAD_ERROR, c = !0;
         break;
-      case ve.LEVEL:
+      case ye.LEVEL:
         d = i ? P.LEVEL_LOAD_TIMEOUT : P.LEVEL_LOAD_ERROR, c = !1;
         break;
-      case ve.AUDIO_TRACK:
+      case ye.AUDIO_TRACK:
         d = i ? P.AUDIO_TRACK_LOAD_TIMEOUT : P.AUDIO_TRACK_LOAD_ERROR, c = !1;
         break;
-      case ve.SUBTITLE_TRACK:
+      case ye.SUBTITLE_TRACK:
         d = i ? P.SUBTITLE_TRACK_LOAD_TIMEOUT : P.SUBTITLE_LOAD_ERROR, c = !1;
         break;
     }
@@ -23282,7 +23289,7 @@ class kv {
       id: h,
       groupId: f,
       deliveryDirectives: p
-    } = r, g = Xr(t, r), _ = Tl(r);
+    } = r, g = Qr(t, r), _ = kl(r);
     let m = typeof r.level == "number" && _ === ne.MAIN ? c : void 0;
     const v = e.playlistParsingError;
     if (v) {
@@ -23324,8 +23331,8 @@ class kv {
       return;
     }
     switch (e.live && a && (a.getCacheAge && (e.ageHeader = a.getCacheAge() || 0), (!a.getCacheAge || isNaN(e.ageHeader)) && (e.ageHeader = 0)), d) {
-      case ve.MANIFEST:
-      case ve.LEVEL:
+      case ye.MANIFEST:
+      case ye.LEVEL:
         if (m) {
           if (!u)
             m = 0;
@@ -23342,10 +23349,10 @@ class kv {
           stats: i,
           networkDetails: s,
           deliveryDirectives: p,
-          withoutMultiVariant: d === ve.MANIFEST
+          withoutMultiVariant: d === ye.MANIFEST
         });
         break;
-      case ve.AUDIO_TRACK:
+      case ye.AUDIO_TRACK:
         o.trigger(y.AUDIO_TRACK_LOADED, {
           details: e,
           track: u,
@@ -23356,7 +23363,7 @@ class kv {
           deliveryDirectives: p
         });
         break;
-      case ve.SUBTITLE_TRACK:
+      case ye.SUBTITLE_TRACK:
         o.trigger(y.SUBTITLE_TRACK_LOADED, {
           details: e,
           track: u,
@@ -23381,19 +23388,19 @@ class _t {
    * Check if the required MediaSource Extensions are available.
    */
   static isMSESupported() {
-    return Su();
+    return ku();
   }
   /**
    * Check if MediaSource Extensions are available and isTypeSupported checks pass for any baseline codecs.
    */
   static isSupported() {
-    return bv();
+    return Ev();
   }
   /**
    * Get the MediaSource global used for MSE playback (ManagedMediaSource, MediaSource, or WebKitMediaSource).
    */
   static getMediaSource() {
-    return qt();
+    return Xt();
   }
   static get Events() {
     return y;
@@ -23411,7 +23418,7 @@ class _t {
    * Get the default configuration applied to new instances.
    */
   static get DefaultConfig() {
-    return _t.defaultConfig ? _t.defaultConfig : lv;
+    return _t.defaultConfig ? _t.defaultConfig : dv;
   }
   /**
    * Replace the default configuration applied to new instances.
@@ -23424,16 +23431,16 @@ class _t {
    * @param userConfig - Configuration options applied over `Hls.DefaultConfig`
    */
   constructor(e = {}) {
-    this.config = void 0, this.userConfig = void 0, this.logger = void 0, this.coreComponents = void 0, this.networkControllers = void 0, this._emitter = new ma(), this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.abrController = void 0, this.bufferController = void 0, this.capLevelController = void 0, this.latencyController = void 0, this.levelController = void 0, this.streamController = void 0, this.audioStreamController = void 0, this.subtititleStreamController = void 0, this.audioTrackController = void 0, this.subtitleTrackController = void 0, this.interstitialsController = void 0, this.gapController = void 0, this.emeController = void 0, this.cmcdController = void 0, this._media = null, this._url = null, this._sessionId = void 0, this.triggeringException = void 0, this.started = !1;
-    const t = this.logger = Cp(e.debug || !1, "Hls instance", e.assetPlayerId), i = this.config = dv(_t.DefaultConfig, e, t);
-    this.userConfig = e, i.progressive && uv(i, t);
+    this.config = void 0, this.userConfig = void 0, this.logger = void 0, this.coreComponents = void 0, this.networkControllers = void 0, this._emitter = new _a(), this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.abrController = void 0, this.bufferController = void 0, this.capLevelController = void 0, this.latencyController = void 0, this.levelController = void 0, this.streamController = void 0, this.audioStreamController = void 0, this.subtititleStreamController = void 0, this.audioTrackController = void 0, this.subtitleTrackController = void 0, this.interstitialsController = void 0, this.gapController = void 0, this.emeController = void 0, this.cmcdController = void 0, this._media = null, this._url = null, this._sessionId = void 0, this.triggeringException = void 0, this.started = !1;
+    const t = this.logger = Pp(e.debug || !1, "Hls instance", e.assetPlayerId), i = this.config = hv(_t.DefaultConfig, e, t);
+    this.userConfig = e, i.progressive && fv(i, t);
     const {
       abrController: r,
       bufferController: s,
       capLevelController: a,
       errorController: o,
       fpsController: d
-    } = i, c = new o(this), u = this.abrController = new r(this), h = new wg(this), f = i.interstitialsController, p = f ? this.interstitialsController = new f(this, _t) : null, g = this.bufferController = new s(this, h), _ = this.capLevelController = new a(this), m = new d(this), v = new kv(this), b = i.contentSteeringController, x = b ? new b(this) : null, E = this.levelController = new yv(this, x), T = new _v(this), w = new Tv(this.config, this.logger), S = this.streamController = new Sv(this, h, w), k = this.gapController = new gv(this, h);
+    } = i, c = new o(this), u = this.abrController = new r(this), h = new Ig(this), f = i.interstitialsController, p = f ? this.interstitialsController = new f(this, _t) : null, g = this.bufferController = new s(this, h), _ = this.capLevelController = new a(this), m = new d(this), v = new Av(this), b = i.contentSteeringController, x = b ? new b(this) : null, E = this.levelController = new xv(this, x), T = new yv(this), w = new wv(this.config, this.logger), S = this.streamController = new kv(this, h, w), k = this.gapController = new _v(this, h);
     _.setStreamController(S), m.setStreamController(S);
     const I = [v, E, S];
     p && I.splice(1, 0, p), x && I.splice(1, 0, x), this.networkControllers = I;
@@ -23442,7 +23449,7 @@ class _t {
     const C = i.audioStreamController;
     C && I.push(this.audioStreamController = new C(this, h, w)), this.subtitleTrackController = this.createController(i.subtitleTrackController, I);
     const M = i.subtitleStreamController;
-    M && I.push(this.subtititleStreamController = new M(this, h, w)), this.createController(i.timelineController, A), w.emeController = this.emeController = this.createController(i.emeController, A), this.cmcdController = this.createController(i.cmcdController, A), this.latencyController = this.createController(vv, A), this.coreComponents = A, I.push(c);
+    M && I.push(this.subtititleStreamController = new M(this, h, w)), this.createController(i.timelineController, A), w.emeController = this.emeController = this.createController(i.emeController, A), this.cmcdController = this.createController(i.cmcdController, A), this.latencyController = this.createController(bv, A), this.coreComponents = A, I.push(c);
     const G = c.onErrorOut;
     typeof G == "function" && this.on(y.ERROR, G, c), this.on(y.MANIFEST_LOADED, v.onManifestLoaded, v);
   }
@@ -23544,7 +23551,7 @@ class _t {
    */
   loadSource(e) {
     this.stopLoad();
-    const t = this.media, i = this._url, r = this._url = sa.buildAbsoluteURL(self.location.href, e, {
+    const t = this.media, i = this._url, r = this._url = aa.buildAbsoluteURL(self.location.href, e, {
       alwaysNormalize: !0
     });
     this._autoLevelCapping = -1, this._maxHdcpLevel = null, this.logger.log(`loadSource:${r}`), t && i && (i !== r || this.bufferController.hasSourceTypes()) && (this.detachMedia(), this.attachMedia(t)), this.trigger(y.MANIFEST_LOADING, {
@@ -23649,7 +23656,7 @@ class _t {
    */
   get sessionId() {
     let e = this._sessionId;
-    return e || (e = this._sessionId = g_()), e;
+    return e || (e = this._sessionId = __()), e;
   }
   /**
    * @returns an array of levels (variants) sorted by HDCP-LEVEL, RESOLUTION (height), FRAME-RATE, CODECS, VIDEO-RANGE, and BANDWIDTH
@@ -23815,7 +23822,7 @@ class _t {
     return this._maxHdcpLevel;
   }
   set maxHdcpLevel(e) {
-    dg(e) && this._maxHdcpLevel !== e && (this._maxHdcpLevel = e, this.levelController.checkMaxAutoUpdated());
+    hg(e) && this._maxHdcpLevel !== e && (this._maxHdcpLevel = e, this.levelController.checkMaxAutoUpdated());
   }
   /**
    * True when automatic level selection enabled
@@ -24072,19 +24079,19 @@ class _t {
    * returns mediaCapabilities.decodingInfo for a variant/rendition
    */
   getMediaDecodingInfo(e, t = this.allAudioTracks) {
-    const i = cd(t);
-    return od(e, i, navigator.mediaCapabilities);
+    const i = ud(t);
+    return cd(e, i, navigator.mediaCapabilities);
   }
 }
 _t.defaultConfig = void 0;
-function wv(n, e) {
+function Iv(n, e) {
   return e.startsWith("http") ? e : (n.hassUrl?.("") ?? "").replace(/\/$/, "") + e;
 }
-function Av(n, e) {
+function Lv(n, e) {
   const t = n.states[e]?.attributes?.access_token;
   return t ? `${(n.hassUrl?.("") ?? "").replace(/\/$/, "")}/api/camera_proxy_stream/${e}?token=${t}` : null;
 }
-async function Iv(n, e, t) {
+async function Rv(n, e, t) {
   let i = {
     iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
   };
@@ -24131,7 +24138,7 @@ async function Iv(n, e, t) {
     }, 100);
   }), { pc: r, unsubscribe: c };
 }
-async function Lv(n, e) {
+async function Cv(n, e) {
   try {
     const t = await n.callWS({
       type: "config/entity_registry/list"
@@ -24145,17 +24152,17 @@ async function Lv(n, e) {
     return console.warn("[Nido] entity_registry lookup failed:", t), null;
   }
 }
-function Rv({ hass: n, entityId: e, title: t, onClose: i }) {
-  const r = xe(null), [s, a] = z(null), [o, d] = z(!0), [c, u] = z(null), [h, f] = z(!1), [p, g] = z(""), [_, m] = z(null), v = Z(() => Object.keys(n.states).filter((E) => E.startsWith("camera.") && E !== e).sort(), [n.states, e]), b = yt(i);
+function Dv({ hass: n, entityId: e, title: t, onClose: i }) {
+  const r = xe(null), [s, a] = z(null), [o, d] = z(!0), [c, u] = z(null), [h, f] = z(!1), [p, g] = z(""), [_, m] = z(null), v = Z(() => Object.keys(n.states).filter((E) => E.startsWith("camera.") && E !== e).sort(), [n.states, e]), b = bt(i);
   me(() => {
     let E = !1;
     async function T() {
-      const w = Sc()[e];
+      const w = kc()[e];
       if (w && n.states[w]) {
         E || u(w);
         return;
       }
-      const S = await Lv(n, e);
+      const S = await Cv(n, e);
       E || u(S || e);
     }
     return T(), () => {
@@ -24167,7 +24174,7 @@ function Rv({ hass: n, entityId: e, title: t, onClose: i }) {
     const S = r.current;
     a(null), d(!0), f(!1), m(null);
     function k() {
-      const M = Av(n, c);
+      const M = Lv(n, c);
       return M ? (m(M), d(!1), !0) : !1;
     }
     async function I() {
@@ -24178,11 +24185,11 @@ function Rv({ hass: n, entityId: e, title: t, onClose: i }) {
       if (E || !S) return;
       if (!M?.url)
         throw { code: "start_stream_failed", message: "no HLS URL returned" };
-      const G = wv(n, M.url);
+      const G = Iv(n, M.url);
       if (S.canPlayType("application/vnd.apple.mpegurl"))
         S.src = G, S.addEventListener("loadedmetadata", () => d(!1), { once: !0 }), S.addEventListener("error", () => a("Erreur de lecture"), { once: !0 });
       else if (_t.isSupported())
-        T = new _t({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: !0 }), T.attachMedia(S), T.loadSource(G), T.on(_t.Events.MANIFEST_PARSED, () => d(!1)), T.on(_t.Events.ERROR, (K, V) => {
+        T = new _t({ liveSyncDuration: 1, liveMaxLatencyDuration: 5, lowLatencyMode: !0 }), T.attachMedia(S), T.loadSource(G), T.on(_t.Events.MANIFEST_PARSED, () => d(!1)), T.on(_t.Events.ERROR, (H, V) => {
           V.fatal && a("Erreur de stream");
         });
       else
@@ -24190,7 +24197,7 @@ function Rv({ hass: n, entityId: e, title: t, onClose: i }) {
     }
     async function A() {
       if (!S) throw new Error("video element missing");
-      w = await Iv(n, c, S), !E && d(!1);
+      w = await Rv(n, c, S), !E && d(!1);
     }
     async function C() {
       try {
@@ -24209,7 +24216,7 @@ function Rv({ hass: n, entityId: e, title: t, onClose: i }) {
             return;
           }
         if (console.warn("[Nido] HLS failed, trying MJPEG:", M), k()) return;
-        const K = M, V = K?.message || K?.code || String(M);
+        const H = M, V = H?.message || H?.code || String(M);
         console.error("[Nido] camera/stream failed:", M), a(`Live indisponible : ${V}`), f(!0), d(!1);
       }
     }
@@ -24228,7 +24235,7 @@ function Rv({ hass: n, entityId: e, title: t, onClose: i }) {
     };
   }, [n != null, c]);
   function x() {
-    p && (Fh(e, p), u(p));
+    p && ($h(e, p), u(p));
   }
   return /* @__PURE__ */ l("div", { class: "nido-camera-panel", onClick: i, children: [
     /* @__PURE__ */ l("div", { class: "nido-camera-panel__backdrop" }),
@@ -24318,24 +24325,24 @@ function Rv({ hass: n, entityId: e, title: t, onClose: i }) {
     )
   ] });
 }
-function kl(n) {
+function wl(n) {
   return (n.hassUrl?.("") ?? "").replace(/\/$/, "");
 }
-function Cv(n, e) {
+function Pv(n, e) {
   const t = n.state.attributes.access_token;
   if (t)
-    return `${kl(e)}/api/camera_proxy/${n.entity_id}?token=${t}`;
+    return `${wl(e)}/api/camera_proxy/${n.entity_id}?token=${t}`;
   const i = n.state.attributes.entity_picture;
-  return i ? i.startsWith("http") ? i : `${kl(e)}${i}` : null;
+  return i ? i.startsWith("http") ? i : `${wl(e)}${i}` : null;
 }
-const Dv = 1e4;
-function Pv({ hass: n, entity: e, roomLabel: t }) {
-  const i = e.state.state, r = i === "unavailable", s = i === "recording" || i === "streaming", [a, o] = z(() => Date.now()), [d, c] = z(!1), [u, h] = z(!1), f = Cv(e, n), p = f ? `${f}${f.includes("?") ? "&" : "?"}_=${a}` : null;
+const Mv = 1e4;
+function Ov({ hass: n, entity: e, roomLabel: t }) {
+  const i = e.state.state, r = i === "unavailable", s = i === "recording" || i === "streaming", [a, o] = z(() => Date.now()), [d, c] = z(!1), [u, h] = z(!1), f = Pv(e, n), p = f ? `${f}${f.includes("?") ? "&" : "?"}_=${a}` : null;
   return me(() => {
     c(!1);
   }, [f, a]), me(() => {
     if (r || !f) return;
-    const g = window.setInterval(() => o(Date.now()), Dv);
+    const g = window.setInterval(() => o(Date.now()), Mv);
     return () => window.clearInterval(g);
   }, [r, f]), /* @__PURE__ */ l("div", { class: "n-card n-card--camera", "data-on": s ? "true" : "false", children: [
     /* @__PURE__ */ l(
@@ -24358,7 +24365,7 @@ function Pv({ hass: n, entity: e, roomLabel: t }) {
               onError: () => c(!0)
             }
           ) : /* @__PURE__ */ l("div", { class: "n-camera__placeholder", "aria-hidden": "true", style: { display: "flex", flexDirection: "column", alignItems: "center" }, children: [
-            /* @__PURE__ */ l(dr, { size: 28 }),
+            /* @__PURE__ */ l(ur, { size: 28 }),
             d && /* @__PURE__ */ l("span", { style: { fontSize: "10px", marginTop: "4px", opacity: 0.7 }, children: "Erreur de flux" })
           ] }),
           s && /* @__PURE__ */ l("span", { class: "n-camera__live", children: "● LIVE" }),
@@ -24369,7 +24376,7 @@ function Pv({ hass: n, entity: e, roomLabel: t }) {
     t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
     /* @__PURE__ */ l("div", { class: "n-title n-title--sm", children: e.friendly_name }),
     u && /* @__PURE__ */ l(
-      Rv,
+      Dv,
       {
         hass: n,
         entityId: e.entity_id,
@@ -24379,7 +24386,7 @@ function Pv({ hass: n, entity: e, roomLabel: t }) {
     )
   ] });
 }
-function Mv({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
+function Fv({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
   const r = e.state.state === "on", s = e.state.state === "unavailable", a = e.state.attributes.percentage, o = typeof a == "number", [d, c] = z(!1), [u, h] = z(null), f = u ?? (o ? a : r ? 100 : 0), p = async () => {
     if (!s) {
       c(!0);
@@ -24399,10 +24406,10 @@ function Mv({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
     } finally {
       setTimeout(() => h(null), 50);
     }
-  }, _ = ["n-card", r ? `breathe-${i}` : ""].filter(Boolean).join(" "), m = r ? { ...pr(f / 100), ...Wf(f) } : void 0;
+  }, _ = ["n-card", r ? `breathe-${i}` : ""].filter(Boolean).join(" "), m = r ? { ...gr(f / 100), ...qf(f) } : void 0;
   return /* @__PURE__ */ l("div", { class: _, style: m, "data-on": r ? "true" : "false", children: [
     /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-      /* @__PURE__ */ l("div", { class: `n-icon-bubble ${r ? "n-fan-spin" : ""}`, children: /* @__PURE__ */ l(ur, { size: 20 }) }),
+      /* @__PURE__ */ l("div", { class: `n-icon-bubble ${r ? "n-fan-spin" : ""}`, children: /* @__PURE__ */ l(hr, { size: 20 }) }),
       /* @__PURE__ */ l(
         "button",
         {
@@ -24444,7 +24451,7 @@ function Mv({ hass: n, entity: e, roomLabel: t, breatheVariant: i = 2 }) {
     s && /* @__PURE__ */ l("div", { class: "n-muted", children: "Indisponible" })
   ] });
 }
-function Ov({ hass: n, entity: e, roomLabel: t }) {
+function Nv({ hass: n, entity: e, roomLabel: t }) {
   const i = e.domain === "scene", r = e.state.state === "unavailable", [s, a] = z(!1), [o, d] = z(!1), c = async () => {
     if (!(r || s)) {
       a(!0);
@@ -24464,7 +24471,7 @@ function Ov({ hass: n, entity: e, roomLabel: t }) {
       "data-on": o ? "true" : "false",
       children: [
         /* @__PURE__ */ l("div", { class: "n-card__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: i ? /* @__PURE__ */ l(hr, { size: 18 }) : /* @__PURE__ */ l(Yt, { size: 16 }) }),
+          /* @__PURE__ */ l("div", { class: "n-icon-bubble", children: i ? /* @__PURE__ */ l(fr, { size: 18 }) : /* @__PURE__ */ l(qt, { size: 16 }) }),
           /* @__PURE__ */ l("span", { class: "n-eyebrow", children: i ? "Scène" : "Script" })
         ] }),
         t && /* @__PURE__ */ l("div", { class: "n-eyebrow", children: t }),
@@ -24477,7 +24484,7 @@ function Ov({ hass: n, entity: e, roomLabel: t }) {
             disabled: r || s,
             onClick: c,
             children: [
-              /* @__PURE__ */ l(Yt, { size: 14 }),
+              /* @__PURE__ */ l(qt, { size: 14 }),
               /* @__PURE__ */ l("span", { children: i ? "Activer" : "Lancer" })
             ]
           }
@@ -24486,7 +24493,7 @@ function Ov({ hass: n, entity: e, roomLabel: t }) {
     }
   );
 }
-const wl = [
+const Al = [
   "var(--accent)",
   "var(--positive)",
   "#4A8FE0",
@@ -24494,19 +24501,19 @@ const wl = [
   "#8F4AE0",
   "#4AE0B5"
 ];
-function Tu(n) {
-  return wl[n % wl.length];
+function wu(n) {
+  return Al[n % Al.length];
 }
 function Zn(n) {
   return new Date(n.getFullYear(), n.getMonth(), n.getDate());
 }
-function ku(n) {
+function Au(n) {
   if (n.includes("T") || n.includes(" ") && n.includes(":"))
     return { date: new Date(n.replace(" ", "T")), allDay: !1 };
   const [e, t, i] = n.split("-").map(Number);
   return { date: new Date(e, t - 1, i), allDay: !0 };
 }
-function La(n, e) {
+function Ra(n, e) {
   const t = Zn(e), i = [], r = Array.isArray(n) ? { unknown: n } : n;
   for (const [s, a] of Object.entries(r)) {
     if (!Array.isArray(a)) {
@@ -24516,7 +24523,7 @@ function La(n, e) {
     for (const o of a) {
       let d = "";
       if (typeof o.start == "string" ? d = o.start : o.start && (d = o.start.dateTime ?? o.start.date ?? ""), !d) continue;
-      const { date: c, allDay: u } = ku(d), h = Math.round(
+      const { date: c, allDay: u } = Au(d), h = Math.round(
         (Zn(c).getTime() - t.getTime()) / 864e5
       );
       i.push({
@@ -24531,10 +24538,10 @@ function La(n, e) {
   }
   return i.sort((s, a) => s.dayOffset !== a.dayOffset ? s.dayOffset - a.dayOffset : s.allDay && !a.allDay ? -1 : !s.allDay && a.allDay ? 1 : (s.time ?? "").localeCompare(a.time ?? ""));
 }
-function Fv(n, e) {
+function $v(n, e) {
   const t = n.message, i = n.start_time;
   if (!t || !i) return null;
-  const { date: r, allDay: s } = ku(i), a = Math.round(
+  const { date: r, allDay: s } = Au(i), a = Math.round(
     (Zn(r).getTime() - Zn(e).getTime()) / 864e5
   );
   return {
@@ -24544,10 +24551,10 @@ function Fv(n, e) {
     time: s ? void 0 : `${String(r.getHours()).padStart(2, "0")}:${String(r.getMinutes()).padStart(2, "0")}`
   };
 }
-const Nv = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-function $v({ hass: n, calendarEntities: e, onClose: t }) {
-  const i = yt(t), [r, s] = z(null), a = /* @__PURE__ */ new Date(), o = new Map(
-    [...e].sort((u, h) => u.entity_id.localeCompare(h.entity_id)).map((u, h) => [u.entity_id, Tu(h)])
+const Bv = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+function Uv({ hass: n, calendarEntities: e, onClose: t }) {
+  const i = bt(t), [r, s] = z(null), a = /* @__PURE__ */ new Date(), o = new Map(
+    [...e].sort((u, h) => u.entity_id.localeCompare(h.entity_id)).map((u, h) => [u.entity_id, wu(h)])
   );
   me(() => {
     if (e.length === 0) {
@@ -24597,7 +24604,7 @@ function $v({ hass: n, calendarEntities: e, onClose: t }) {
       for (const b of _)
         m[b.entity_id] = b.events;
       console.log("[CalendarPanel] Combined response:", m);
-      const v = La(m, a);
+      const v = Ra(m, a);
       console.log("[CalendarPanel] Parsed events:", v), s(v);
     });
   }, []);
@@ -24647,7 +24654,7 @@ function $v({ hass: n, calendarEntities: e, onClose: t }) {
               class: `nido-cal-panel__day ${h === 0 ? "is-today" : ""}`,
               children: [
                 /* @__PURE__ */ l("div", { class: "nido-cal-panel__badge", children: [
-                  /* @__PURE__ */ l("span", { class: "nido-cal-panel__badge-day", children: Nv[u.getDay()] }),
+                  /* @__PURE__ */ l("span", { class: "nido-cal-panel__badge-day", children: Bv[u.getDay()] }),
                   /* @__PURE__ */ l("span", { class: "nido-cal-panel__badge-num", children: u.getDate() })
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-cal-panel__events", children: f.length === 0 ? /* @__PURE__ */ l("span", { class: "nido-cal-panel__empty", children: "—" }) : f.map((p) => /* @__PURE__ */ l("div", { class: "nido-cal-panel__event", children: [
@@ -24670,7 +24677,7 @@ function $v({ hass: n, calendarEntities: e, onClose: t }) {
     )
   ] });
 }
-function wu() {
+function Iu() {
   const [n, e] = z(0);
   return me(() => {
     let t;
@@ -24683,11 +24690,11 @@ function wu() {
     return i(), () => window.clearTimeout(t);
   }, []), n;
 }
-const Bv = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"], Uv = 3, Gv = 5;
-function zv(n, e) {
-  return n === 0 ? "AUJ" : n === 1 ? "DEM" : `${Bv[e.getDay()].toUpperCase()} ${e.getDate()}`;
+const Gv = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"], zv = 3, Vv = 5;
+function Kv(n, e) {
+  return n === 0 ? "AUJ" : n === 1 ? "DEM" : `${Gv[e.getDay()].toUpperCase()} ${e.getDate()}`;
 }
-async function Au(n, e, t, i) {
+async function Lu(n, e, t, i) {
   const r = t.toISOString(), s = i.toISOString();
   try {
     const a = await n.callWS({
@@ -24715,22 +24722,22 @@ async function Au(n, e, t, i) {
     return [];
   }
 }
-function Vv({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: r }) {
-  const [s, a] = z(!1), [o, d] = z(null), c = wu(), h = [...r].sort((v, b) => v.entity_id.localeCompare(b.entity_id)).map((v) => v.entity_id).indexOf(e.entity_id), f = Tu(h >= 0 ? h : 0);
+function Hv({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: r }) {
+  const [s, a] = z(!1), [o, d] = z(null), c = Iu(), h = [...r].sort((v, b) => v.entity_id.localeCompare(b.entity_id)).map((v) => v.entity_id).indexOf(e.entity_id), f = wu(h >= 0 ? h : 0);
   me(() => {
     let v = !1;
     const b = /* @__PURE__ */ new Date(), x = new Date(b);
     x.setHours(0, 0, 0, 0);
     const E = new Date(x);
-    return E.setDate(E.getDate() + 30), Au(n, e.entity_id, x, E).then((T) => {
+    return E.setDate(E.getDate() + 30), Lu(n, e.entity_id, x, E).then((T) => {
       if (v) return;
-      const w = La({ [e.entity_id]: T }, b);
+      const w = Ra({ [e.entity_id]: T }, b);
       d(w.filter((S) => S.dayOffset >= 0));
     }), () => {
       v = !0;
     };
   }, [n != null, e.entity_id, c]);
-  const p = i ? Gv : Uv, g = (o ?? []).slice(0, p), _ = /* @__PURE__ */ new Date(), m = ["n-card", i ? "n-card--accent-muted" : "n-card--default", "nido-cal-widget", "nido-cal-widget--agenda"].join(" ");
+  const p = i ? Vv : zv, g = (o ?? []).slice(0, p), _ = /* @__PURE__ */ new Date(), m = ["n-card", i ? "n-card--accent-muted" : "n-card--default", "nido-cal-widget", "nido-cal-widget--agenda"].join(" ");
   return /* @__PURE__ */ l(Se, { children: [
     /* @__PURE__ */ l(
       "div",
@@ -24742,13 +24749,13 @@ function Vv({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
         onClick: () => a(!0),
         children: [
           /* @__PURE__ */ l("div", { class: "nido-cal-widget__head", children: [
-            /* @__PURE__ */ l(na, { size: i ? 18 : 16 }),
+            /* @__PURE__ */ l(ra, { size: i ? 18 : 16 }),
             /* @__PURE__ */ l("span", { class: "n-eyebrow", children: t || e.friendly_name })
           ] }),
           o === null ? /* @__PURE__ */ l("div", { class: "n-muted nido-cal-widget__placeholder", children: "Chargement…" }) : g.length === 0 ? /* @__PURE__ */ l("div", { class: "n-muted nido-cal-widget__placeholder", children: "Rien à venir" }) : /* @__PURE__ */ l("ul", { class: "nido-cal-widget__agenda", children: g.map((v) => {
             const b = new Date(_);
             return b.setDate(_.getDate() + v.dayOffset), /* @__PURE__ */ l("li", { class: "nido-cal-widget__agenda-row", children: [
-              /* @__PURE__ */ l("span", { class: "nido-cal-widget__agenda-day", children: zv(v.dayOffset, b) }),
+              /* @__PURE__ */ l("span", { class: "nido-cal-widget__agenda-day", children: Kv(v.dayOffset, b) }),
               /* @__PURE__ */ l("span", { class: "nido-cal-widget__agenda-time", children: v.allDay ? "Journée" : v.time }),
               /* @__PURE__ */ l("span", { class: "nido-cal-widget__agenda-title", children: v.title })
             ] }, v.id);
@@ -24757,7 +24764,7 @@ function Vv({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
       }
     ),
     s && /* @__PURE__ */ l(
-      $v,
+      Uv,
       {
         hass: n,
         calendarEntities: r,
@@ -24766,7 +24773,7 @@ function Vv({ hass: n, entity: e, roomLabel: t, hero: i = !1, calendarEntities: 
     )
   ] });
 }
-const Iu = /* @__PURE__ */ new Set([
+const Ru = /* @__PURE__ */ new Set([
   "light",
   "cover",
   "switch",
@@ -24784,41 +24791,41 @@ const Iu = /* @__PURE__ */ new Set([
   "weather",
   "calendar"
 ]);
-function Lu(n, e) {
+function Cu(n, e) {
   const t = { hass: e.hass, entity: n, roomLabel: e.areaName };
   switch (n.domain) {
     case "light":
-      return /* @__PURE__ */ l(qf, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(Qf, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
     case "cover":
-      return /* @__PURE__ */ l(Qf, { ...t, hero: e.hero }, n.entity_id);
+      return /* @__PURE__ */ l(Jf, { ...t, hero: e.hero }, n.entity_id);
     case "switch":
-      return /* @__PURE__ */ l(Zf, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(ep, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
     case "binary_sensor":
-      return /* @__PURE__ */ l(np, { entity: n, roomLabel: e.areaName, hero: e.hero }, n.entity_id);
+      return /* @__PURE__ */ l(sp, { entity: n, roomLabel: e.areaName, hero: e.hero }, n.entity_id);
     case "climate":
-      return /* @__PURE__ */ l(ap, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(lp, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
     case "lock":
-      return /* @__PURE__ */ l(op, { ...t }, n.entity_id);
+      return /* @__PURE__ */ l(cp, { ...t }, n.entity_id);
     case "vacuum":
-      return /* @__PURE__ */ l(cp, { ...t, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(up, { ...t, breatheVariant: e.variant }, n.entity_id);
     case "sensor":
-      return /* @__PURE__ */ l(hp, { entity: n, roomLabel: e.areaName }, n.entity_id);
+      return /* @__PURE__ */ l(pp, { entity: n, roomLabel: e.areaName }, n.entity_id);
     case "media_player":
-      return /* @__PURE__ */ l(pp, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(mp, { ...t, hero: e.hero, breatheVariant: e.variant }, n.entity_id);
     case "alarm_control_panel":
-      return /* @__PURE__ */ l(Ep, { ...t }, n.entity_id);
+      return /* @__PURE__ */ l(Tp, { ...t }, n.entity_id);
     case "camera":
-      return /* @__PURE__ */ l(Pv, { ...t }, n.entity_id);
+      return /* @__PURE__ */ l(Ov, { ...t }, n.entity_id);
     case "fan":
-      return /* @__PURE__ */ l(Mv, { ...t, breatheVariant: e.variant }, n.entity_id);
+      return /* @__PURE__ */ l(Fv, { ...t, breatheVariant: e.variant }, n.entity_id);
     case "scene":
     case "script":
-      return /* @__PURE__ */ l(Ov, { ...t }, n.entity_id);
+      return /* @__PURE__ */ l(Nv, { ...t }, n.entity_id);
     case "weather":
-      return /* @__PURE__ */ l(Uf, { entity: n, roomLabel: e.areaName }, n.entity_id);
+      return /* @__PURE__ */ l(zf, { entity: n, roomLabel: e.areaName }, n.entity_id);
     case "calendar":
       return /* @__PURE__ */ l(
-        Vv,
+        Hv,
         {
           hass: e.hass,
           entity: n,
@@ -24832,41 +24839,41 @@ function Lu(n, e) {
       return null;
   }
 }
-const Kv = "__none", Jn = 18, pn = 5, Al = 3, Hv = 4;
-function Ru(n, e) {
+const jv = "__none", Jn = 18, pn = 5, Il = 3, Wv = 4;
+function Du(n, e) {
   const t = new Set(e.map((s) => s.floor_id)), i = e.map((s) => ({ key: s.floor_id, label: s.name, areas: n.filter((a) => a.floor_id === s.floor_id) })).filter((s) => s.areas.length > 0), r = n.filter((s) => !s.floor_id || !t.has(s.floor_id));
-  return r.length > 0 && i.push({ key: Kv, label: i.length > 0 ? "Autres pièces" : "Maison", areas: r }), i;
+  return r.length > 0 && i.push({ key: jv, label: i.length > 0 ? "Autres pièces" : "Maison", areas: r }), i;
 }
-function jv(n) {
-  const e = Math.max(1, Math.min(Hv, Math.ceil(Math.sqrt(n * 1.3)))), t = Math.ceil(n / e), i = Math.floor(n / t), r = n % t;
+function Yv(n) {
+  const e = Math.max(1, Math.min(Wv, Math.ceil(Math.sqrt(n * 1.3)))), t = Math.ceil(n / e), i = Math.floor(n / t), r = n % t;
   return Array.from({ length: t }, (s, a) => i + (a < r ? 1 : 0));
 }
-function Wv(n) {
-  const e = Jn - Al * n.length, t = n.reduce((o, d) => o + d, 0), i = n.map((o) => e * o / t), r = i.map((o) => Al + Math.floor(o));
+function qv(n) {
+  const e = Jn - Il * n.length, t = n.reduce((o, d) => o + d, 0), i = n.map((o) => e * o / t), r = i.map((o) => Il + Math.floor(o));
   let s = Jn - r.reduce((o, d) => o + d, 0);
   const a = i.map((o, d) => ({ i: d, rem: o - Math.floor(o) })).sort((o, d) => d.rem - o.rem);
   for (let o = 0; s > 0; o = (o + 1) % a.length, s--) r[a[o].i]++;
   return r;
 }
-function Cu(n, e) {
+function Pu(n, e) {
   if (n.length === 0) return { rooms: [], cols: Jn, rows: pn, openings: [], custom: !1 };
   const t = [];
   let i = 0;
-  const r = jv(n.length);
+  const r = Yv(n.length);
   return r.forEach((s, a) => {
     const o = n.slice(i, i + s);
     i += s;
-    const d = Wv(o.map((u) => Math.min(6, Math.max(1, e(u)))));
+    const d = qv(o.map((u) => Math.min(6, Math.max(1, e(u)))));
     let c = 0;
     o.forEach((u, h) => {
       t.push({ area: u, rects: [{ x: c, y: a * pn, w: d[h], h: pn }] }), c += d[h];
     });
   }), { rooms: t, cols: Jn, rows: r.length * pn, openings: [], custom: !1 };
 }
-const ti = { w: 4, h: 3 };
-function Yv(n, e, t) {
+const ii = { w: 4, h: 3 };
+function Xv(n, e, t) {
   const i = e ? n.filter((f) => e.rooms[f.area_id]) : [];
-  if (!e || i.length === 0) return Cu(n, t);
+  if (!e || i.length === 0) return Pu(n, t);
   const r = i.flatMap((f) => e.rooms[f.area_id]), s = Math.min(...r.map((f) => f.x)), a = Math.min(...r.map((f) => f.y)), o = i.map((f) => ({
     area: f,
     rects: e.rooms[f.area_id].map((p) => ({ x: p.x - s, y: p.y - a, w: p.w, h: p.h }))
@@ -24874,25 +24881,25 @@ function Yv(n, e, t) {
   let d = Math.max(...r.map((f) => f.x + f.w)) - s, c = Math.max(...r.map((f) => f.y + f.h)) - a;
   const u = n.filter((f) => !e.rooms[f.area_id]);
   if (u.length > 0) {
-    d = Math.max(d, ti.w * Math.min(3, u.length));
+    d = Math.max(d, ii.w * Math.min(3, u.length));
     let f = 0, p = c;
     for (const g of u)
-      f + ti.w > d && (f = 0, p += ti.h), o.push({ area: g, rects: [{ x: f, y: p, w: ti.w, h: ti.h }] }), f += ti.w;
-    c = p + ti.h;
+      f + ii.w > d && (f = 0, p += ii.h), o.push({ area: g, rects: [{ x: f, y: p, w: ii.w, h: ii.h }] }), f += ii.w;
+    c = p + ii.h;
   }
   const h = i.flatMap(
     (f) => (e.openings[f.area_id] ?? []).map((p) => ({ ...p, area_id: f.area_id }))
   );
   return { rooms: o, cols: d, rows: c, openings: h, custom: !0 };
 }
-function Il(n, e) {
+function Ll(n, e) {
   return n.x < e.x + e.w && e.x < n.x + n.w && n.y < e.y + e.h && e.y < n.y + n.h;
 }
-function Ms(n, e) {
+function Os(n, e) {
   return e === "top" || e === "bottom" ? n.w : n.h;
 }
-function Du(n, e) {
-  const t = Ms(n, e.side), i = Math.min(e.length, t), r = Math.max(0, Math.min(e.offset, t - i));
+function Mu(n, e) {
+  const t = Os(n, e.side), i = Math.min(e.length, t), r = Math.max(0, Math.min(e.offset, t - i));
   switch (e.side) {
     case "top":
       return { x: n.x + r, y: n.y, horizontal: !0, length: i };
@@ -24904,10 +24911,10 @@ function Du(n, e) {
       return { x: n.x + n.w, y: n.y + r, horizontal: !1, length: i };
   }
 }
-function Qt(n) {
+function Zt(n) {
   return n < 60 ? `${Math.max(1, n)} min` : n < 1440 ? `${Math.round(n / 60)} h` : `${Math.round(n / 1440)} j`;
 }
-function Ra() {
+function Ca() {
   const [n, e] = z(() => /* @__PURE__ */ new Date());
   return me(() => {
     let t;
@@ -24920,27 +24927,755 @@ function Ra() {
     return i(), () => window.clearTimeout(t);
   }, []), n;
 }
-const Ui = 16, Qr = 4, Zr = 1.6, qv = 6, Xv = 28, Qv = 50, Ll = /* @__PURE__ */ new Set(["window", "door"]), Zv = /* @__PURE__ */ new Set(["motion", "occupancy", "presence"]), Jv = 10;
-function ey(n, e) {
+function Zr(n, e, t, i) {
+  const r = Math.PI * (1 - n);
+  return [e + i * Math.cos(r), t - i * Math.sin(r)];
+}
+function Ou({
+  hass: n,
+  powerEntityId: e,
+  max: t = 7e3,
+  onOpen: i
+}) {
+  const r = n.states[e], s = r?.attributes.friendly_name ?? "Compteur Linky", a = r?.state ?? "unavailable", o = a === "unavailable" || a === "unknown" || !r, d = r?.attributes.unit_of_measurement ?? "W", c = Z(() => {
+    if (o) return 0;
+    const A = Number(a);
+    return Number.isFinite(A) ? Math.max(0, Math.round(A)) : 0;
+  }, [a, o]), u = Math.max(0, Math.min(1, c / t)), h = 100, f = 100, p = 86, [g, _] = Zr(0, h, f, p), [m, v] = Zr(1, h, f, p), [b, x] = Zr(u, h, f, p), E = `M ${g.toFixed(2)} ${_.toFixed(2)} A ${p} ${p} 0 0 1 ${m.toFixed(2)} ${v.toFixed(2)}`, T = u > 0.5 ? 1 : 0, w = u > 0 ? `M ${g.toFixed(2)} ${_.toFixed(2)} A ${p} ${p} 0 ${T} 1 ${b.toFixed(2)} ${x.toFixed(2)}` : "", S = c >= 5e3 ? "Pic" : c >= 2e3 ? "Soutenu" : "Sobre", k = ["n-card", "n-card--accent", "breathe-1", "n-power-gauge"].join(" "), I = typeof i == "function";
+  return /* @__PURE__ */ l(
+    "div",
+    {
+      class: k,
+      "data-on": "true",
+      role: I ? "button" : void 0,
+      tabIndex: I ? 0 : void 0,
+      onClick: I ? i : void 0,
+      onKeyDown: I ? (A) => {
+        (A.key === "Enter" || A.key === " ") && (A.preventDefault(), i?.());
+      } : void 0,
+      style: { cursor: I ? "pointer" : "default" },
+      children: [
+        /* @__PURE__ */ l("div", { class: "n-light__glow", "aria-hidden": "true" }),
+        /* @__PURE__ */ l(
+          "svg",
+          {
+            class: "n-power-gauge__deco",
+            width: "200",
+            height: "200",
+            viewBox: "0 0 200 200",
+            "aria-hidden": "true",
+            children: [
+              /* @__PURE__ */ l("circle", { cx: "100", cy: "100", r: "80", fill: "none", stroke: "currentColor", "stroke-width": "1" }),
+              /* @__PURE__ */ l("circle", { cx: "100", cy: "100", r: "60", fill: "none", stroke: "currentColor", "stroke-width": "1" }),
+              /* @__PURE__ */ l("circle", { cx: "100", cy: "100", r: "40", fill: "none", stroke: "currentColor", "stroke-width": "1" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ l("div", { class: "n-power-gauge__head", children: [
+          /* @__PURE__ */ l("div", { class: "n-power-gauge__head-text", children: [
+            /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Consommation · En direct" }),
+            /* @__PURE__ */ l("div", { class: "n-title", children: s })
+          ] }),
+          /* @__PURE__ */ l("div", { class: "n-power-gauge__head-actions", children: [
+            /* @__PURE__ */ l("span", { class: "n-power-gauge__live", children: [
+              /* @__PURE__ */ l("span", { class: "n-power-gauge__live-dot" }),
+              "Live"
+            ] }),
+            I && /* @__PURE__ */ l("span", { class: "n-power-gauge__open", "aria-hidden": "true", children: /* @__PURE__ */ l(ta, { size: 14 }) })
+          ] })
+        ] }),
+        o ? /* @__PURE__ */ l("div", { class: "n-muted n-power-gauge__unavailable", children: "Indisponible" }) : /* @__PURE__ */ l(Se, { children: [
+          /* @__PURE__ */ l("div", { class: "n-power-gauge__chart", children: [
+            /* @__PURE__ */ l(
+              "svg",
+              {
+                width: "240",
+                height: "150",
+                viewBox: "0 0 200 120",
+                preserveAspectRatio: "xMidYMid meet",
+                class: "n-power-gauge__svg",
+                children: [
+                  /* @__PURE__ */ l(
+                    "path",
+                    {
+                      d: E,
+                      fill: "none",
+                      stroke: "rgba(255,255,255,0.2)",
+                      "stroke-width": "14",
+                      "stroke-linecap": "round"
+                    }
+                  ),
+                  w && /* @__PURE__ */ l(
+                    "path",
+                    {
+                      d: w,
+                      fill: "none",
+                      stroke: "rgba(255,255,255,0.95)",
+                      "stroke-width": "14",
+                      "stroke-linecap": "round",
+                      class: "n-power-gauge__arc"
+                    }
+                  ),
+                  /* @__PURE__ */ l(
+                    "line",
+                    {
+                      x1: g,
+                      y1: _ + 8,
+                      x2: g,
+                      y2: _ + 14,
+                      stroke: "rgba(255,255,255,0.4)",
+                      "stroke-width": "1"
+                    }
+                  ),
+                  /* @__PURE__ */ l(
+                    "line",
+                    {
+                      x1: m,
+                      y1: v + 8,
+                      x2: m,
+                      y2: v + 14,
+                      stroke: "rgba(255,255,255,0.4)",
+                      "stroke-width": "1"
+                    }
+                  )
+                ]
+              }
+            ),
+            /* @__PURE__ */ l("div", { class: "n-power-gauge__readout", children: [
+              /* @__PURE__ */ l("div", { class: "n-power-gauge__value", children: [
+                c.toLocaleString("fr-FR"),
+                /* @__PURE__ */ l("span", { class: "n-power-gauge__unit", children: d })
+              ] }),
+              /* @__PURE__ */ l("div", { class: "n-eyebrow n-power-gauge__sublabel", children: "Puissance instantanée" })
+            ] })
+          ] }),
+          /* @__PURE__ */ l("div", { class: "n-power-gauge__foot", children: [
+            /* @__PURE__ */ l("span", { children: [
+              "0 ",
+              d
+            ] }),
+            /* @__PURE__ */ l("span", { class: "n-power-gauge__pill", children: [
+              /* @__PURE__ */ l("span", { class: "n-power-gauge__pill-dot" }),
+              S,
+              " · ",
+              Math.round(u * 100),
+              "%"
+            ] }),
+            /* @__PURE__ */ l("span", { children: [
+              t.toLocaleString("fr-FR"),
+              " ",
+              d
+            ] })
+          ] })
+        ] })
+      ]
+    }
+  );
+}
+const er = 64, gn = 80, mn = 80, Rl = 270 / 360 * 2 * Math.PI * er, Cl = 2 * Math.PI * er;
+function Qv({
+  currentPower: n,
+  subscribedKva: e = 9
+}) {
+  const t = Math.max(0, n) / 1e3, i = Math.min(1, t / e), r = i >= 0.85, s = !r && i >= 0.7, a = r ? "var(--warning)" : s ? "var(--accent-deep)" : "var(--accent)", o = `${(Rl * i).toFixed(1)} ${Cl.toFixed(1)}`, d = `${Rl.toFixed(1)} ${Cl.toFixed(1)}`, c = r ? "Risque coupure" : s ? "À surveiller" : "Marge ok", u = r ? "Coupez un gros poste pour éviter la disjonction." : s ? "Évitez de cumuler four + lave-linge maintenant." : "Tout est sous contrôle, rien à signaler.";
+  return /* @__PURE__ */ l("div", { class: "n-card n-subscription-guard", children: [
+    /* @__PURE__ */ l("div", { class: "n-subscription-guard__head", children: [
+      /* @__PURE__ */ l("div", { children: [
+        /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Puissance souscrite" }),
+        /* @__PURE__ */ l("div", { class: "n-title", children: "Garde compteur" })
+      ] }),
+      /* @__PURE__ */ l(
+        "span",
+        {
+          class: `n-pill-btn n-pill-btn--ghost n-subscription-guard__pill ${r ? "is-danger" : s ? "is-watch" : ""}`,
+          children: c
+        }
+      )
+    ] }),
+    /* @__PURE__ */ l("div", { class: "n-subscription-guard__chart", children: [
+      /* @__PURE__ */ l("svg", { width: "160", height: "160", viewBox: "0 0 160 160", children: [
+        /* @__PURE__ */ l(
+          "circle",
+          {
+            cx: gn,
+            cy: mn,
+            r: er,
+            fill: "none",
+            stroke: "var(--bg-inset)",
+            "stroke-width": "12",
+            "stroke-linecap": "round",
+            "stroke-dasharray": d,
+            transform: `rotate(135 ${gn} ${mn})`
+          }
+        ),
+        /* @__PURE__ */ l(
+          "circle",
+          {
+            cx: gn,
+            cy: mn,
+            r: er,
+            fill: "none",
+            stroke: a,
+            "stroke-width": "12",
+            "stroke-linecap": "round",
+            "stroke-dasharray": o,
+            transform: `rotate(135 ${gn} ${mn})`,
+            class: "n-subscription-guard__arc"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ l("div", { class: "n-subscription-guard__readout", children: [
+        /* @__PURE__ */ l("div", { class: "n-subscription-guard__value", style: { color: a }, children: [
+          t.toFixed(1).replace(".", ","),
+          /* @__PURE__ */ l("span", { class: "n-subscription-guard__unit", children: "kVA" })
+        ] }),
+        /* @__PURE__ */ l("div", { class: "n-eyebrow n-subscription-guard__sub", children: [
+          "sur ",
+          e,
+          " kVA · ",
+          Math.round(i * 100),
+          "%"
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ l("div", { class: "n-subscription-guard__msg", children: u })
+  ] });
+}
+const Mi = {
+  day: { label: "Jour", bucketCount: 24, bucketHours: 1 },
+  week: { label: "Semaine", bucketCount: 7, bucketHours: 24 },
+  month: { label: "Mois", bucketCount: 30, bucketHours: 24 }
+};
+function Zv(n) {
+  const e = new Date(n);
+  return e.setMinutes(0, 0, 0), e;
+}
+function Jv(n) {
+  const e = new Date(n);
+  return e.setHours(0, 0, 0, 0), e;
+}
+function ey(n) {
+  if (typeof n.lu == "number") return n.lu * 1e3;
+  const e = n.last_updated ?? n.last_changed;
+  if (!e) return null;
+  const t = Date.parse(e);
+  return Number.isFinite(t) ? t : null;
+}
+function ty(n) {
+  const e = n.s ?? n.state;
+  if (e == null || e === "unavailable" || e === "unknown") return null;
+  const t = Number(e);
+  return Number.isFinite(t) ? t : null;
+}
+function iy(n) {
+  if (typeof n.start == "number") return n.start;
+  const e = Date.parse(String(n.start));
+  return Number.isFinite(e) ? e : null;
+}
+function Dl(n, e, t, i, r) {
+  const s = new Array(i).fill(0);
+  if (n.length === 0) return { buckets: s, total: 0 };
+  const a = n.map((c) => ({ t: ey(c), v: ty(c) })).filter((c) => c.t !== null && c.v !== null).sort((c, u) => c.t - u.t);
+  if (a.length === 0) return { buckets: s, total: 0 };
+  for (let c = 0; c < a.length - 1; c += 1) {
+    const u = a[c], h = a[c + 1], f = Math.max(u.t, e), p = Math.min(h.t, t);
+    if (p <= f) continue;
+    const g = (u.v + h.v) / 2, _ = (p - f) / 36e5, m = g * _ / 1e3, v = Math.floor((f - e) / r);
+    v >= 0 && v < i && (s[v] += m);
+  }
+  const o = a[a.length - 1];
+  if (o.t < t) {
+    const c = Math.max(o.t, e), u = (t - c) / 36e5;
+    if (u > 0) {
+      const h = o.v * u / 1e3, f = Math.floor((c - e) / r);
+      f >= 0 && f < i && (s[f] += h);
+    }
+  }
+  const d = s.reduce((c, u) => c + u, 0);
+  return { buckets: s, total: d };
+}
+function ny(n, e, t, i) {
+  const r = new Array(t).fill(0);
+  for (const a of n) {
+    const o = iy(a);
+    if (o === null) continue;
+    const d = Math.floor((o - e) / i);
+    if (!(d < 0 || d >= t)) {
+      if (typeof a.change == "number" && Number.isFinite(a.change))
+        r[d] += a.change;
+      else if (typeof a.mean == "number" && Number.isFinite(a.mean)) {
+        const c = i / 36e5;
+        r[d] += a.mean * c / 1e3;
+      }
+    }
+  }
+  const s = r.reduce((a, o) => a + o, 0);
+  return { buckets: r, total: s };
+}
+const ry = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+function Pl(n, e) {
+  if (n === "day")
+    return {
+      axisLabels: ["00 h", "06 h", "12 h", "18 h", "24 h"],
+      bucketLabel: (r) => `${String(r).padStart(2, "0")} h`
+    };
+  if (n === "week") {
+    const r = [], s = new Date(e);
+    for (let a = 0; a < 7; a += 1) {
+      const o = new Date(s);
+      o.setDate(s.getDate() + a);
+      const d = o.getDay() === 0 ? 6 : o.getDay() - 1;
+      r.push(ry[d]);
+    }
+    return {
+      axisLabels: [r[0], r[3], r[6]],
+      bucketLabel: (a) => r[a] ?? ""
+    };
+  }
+  const t = new Date(e), i = [];
+  for (let r = 0; r < 30; r += 1) {
+    const s = new Date(t);
+    s.setDate(t.getDate() + r), i.push(String(s.getDate()));
+  }
+  return {
+    axisLabels: [i[0], i[7], i[14], i[21], i[29]],
+    bucketLabel: (r) => i[r] ?? ""
+  };
+}
+function sy(n, e) {
+  const t = Date.now(), i = Mi[n], r = Math.floor((t - e) / (i.bucketHours * 36e5));
+  return Math.max(0, Math.min(i.bucketCount - 1, r));
+}
+function ay({
+  hass: n,
+  powerEntityId: e,
+  dailyConsumptionEntityId: t
+}) {
+  const [i, r] = z(null), [s, a] = z(!0), [o, d] = z("day");
+  me(() => {
+    let S = !1;
+    return (async () => {
+      a(!0);
+      try {
+        if (o === "day") {
+          const I = Zv(new Date(Date.now() - 828e5)), A = /* @__PURE__ */ new Date(), C = await n.callWS({
+            type: "history/history_during_period",
+            start_time: I.toISOString(),
+            end_time: A.toISOString(),
+            entity_ids: [e],
+            minimal_response: !0,
+            no_attributes: !0
+          });
+          if (S) return;
+          const M = C?.[e] ?? [], { buckets: G, total: H } = Dl(
+            M,
+            I.getTime(),
+            A.getTime(),
+            24,
+            36e5
+          ), V = Pl("day", I.getTime());
+          r({
+            buckets: G,
+            total: H,
+            available: H > 0,
+            axisLabels: V.axisLabels,
+            bucketLabel: V.bucketLabel,
+            unit: "kWh",
+            nowIndex: (/* @__PURE__ */ new Date()).getHours()
+          });
+        } else {
+          const I = o === "week" ? 7 : 30, A = Jv(new Date(Date.now() - (I - 1) * 864e5)), C = /* @__PURE__ */ new Date();
+          let M = [], G = 0, H = !1;
+          try {
+            const R = await n.callWS({
+              type: "recorder/statistics_during_period",
+              start_time: A.toISOString(),
+              end_time: C.toISOString(),
+              statistic_ids: [e],
+              period: "day"
+            });
+            if (S) return;
+            const F = R?.[e] ?? [];
+            if (F.length > 0) {
+              const L = ny(F, A.getTime(), I, 864e5);
+              M = L.buckets, G = L.total, H = !0;
+            }
+          } catch {
+            H = !1;
+          }
+          if (!H) {
+            const R = await n.callWS({
+              type: "history/history_during_period",
+              start_time: A.toISOString(),
+              end_time: C.toISOString(),
+              entity_ids: [e],
+              minimal_response: !0,
+              no_attributes: !0
+            });
+            if (S) return;
+            const F = R?.[e] ?? [], L = Dl(F, A.getTime(), C.getTime(), I, 864e5);
+            M = L.buckets, G = L.total;
+          }
+          const V = Pl(o, A.getTime());
+          r({
+            buckets: M,
+            total: G,
+            available: G > 0,
+            axisLabels: V.axisLabels,
+            bucketLabel: V.bucketLabel,
+            unit: "kWh",
+            nowIndex: sy(o, A.getTime())
+          });
+        }
+      } catch (I) {
+        if (S) return;
+        console.warn("Nido energy: history fetch failed", I), r({
+          buckets: new Array(Mi[o].bucketCount).fill(0),
+          total: 0,
+          available: !1,
+          axisLabels: [],
+          bucketLabel: () => "",
+          unit: "kWh",
+          nowIndex: 0
+        });
+      } finally {
+        S || a(!1);
+      }
+    })(), () => {
+      S = !0;
+    };
+  }, [n != null, e, o]);
+  const c = t ? n.states[t] : void 0, u = Z(() => {
+    if (!c) return null;
+    const S = Number(c.state);
+    return Number.isFinite(S) ? S : null;
+  }, [c]), h = c?.attributes.unit_of_measurement ?? "kWh", f = i?.buckets ?? new Array(Mi[o].bucketCount).fill(0), p = o === "day" && u !== null ? u : i?.total ?? 0, g = o === "day" && u !== null ? h : "kWh", _ = i?.available ?? !1, m = i?.nowIndex ?? -1, v = f.filter((S) => S > 0), b = v.length > 0 ? v.reduce((S, k) => S + k, 0) / v.length : 0, x = Math.max(...f, b) * 1.1 || 1, E = Math.max(...f), T = o === "day" ? "Consommation · Aujourd'hui" : o === "week" ? "Consommation · 7 derniers jours" : "Consommation · 30 derniers jours", w = o === "day" ? `moyenne · ${b.toFixed(2)} kWh` : o === "week" ? `moyenne · ${b.toFixed(1)} kWh / jour` : `moyenne · ${b.toFixed(1)} kWh / jour`;
+  return /* @__PURE__ */ l("div", { class: "n-card n-hourly", children: [
+    /* @__PURE__ */ l("div", { class: "n-hourly__head", children: [
+      /* @__PURE__ */ l("div", { children: [
+        /* @__PURE__ */ l("div", { class: "n-eyebrow", children: T }),
+        /* @__PURE__ */ l("div", { class: "n-hourly__total-row", children: /* @__PURE__ */ l("div", { class: "n-hourly__total", children: [
+          p.toFixed(1).replace(".", ","),
+          /* @__PURE__ */ l("span", { class: "n-hourly__total-unit", children: g })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ l("div", { class: "n-hourly__modes", role: "tablist", children: Object.keys(Mi).map((S) => /* @__PURE__ */ l(
+        "button",
+        {
+          type: "button",
+          role: "tab",
+          "aria-selected": o === S,
+          class: `n-pill-btn ${o === S ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
+          onClick: () => d(S),
+          children: Mi[S].label
+        },
+        S
+      )) })
+    ] }),
+    s ? /* @__PURE__ */ l("div", { class: "n-muted n-hourly__loading", children: "Chargement de l'historique…" }) : _ ? /* @__PURE__ */ l(Se, { children: [
+      /* @__PURE__ */ l("div", { class: "n-bars", children: [
+        b > 0 && /* @__PURE__ */ l("div", { class: "n-bars__avg", style: { bottom: `${b / x * 100}%` }, children: /* @__PURE__ */ l("span", { class: "n-bars__avg-label", children: w }) }),
+        /* @__PURE__ */ l("div", { class: "n-bars__grid", children: f.map((S, k) => {
+          const I = k === m, A = k < m, C = S > 0 && S === E;
+          let M = "n-bars__bar";
+          return I ? M += " is-now" : C ? M += " is-peak" : A ? M += " is-past" : M += " is-future", /* @__PURE__ */ l("div", { class: "n-bars__col", children: [
+            /* @__PURE__ */ l("div", { class: M, style: { height: `${Math.max(2, S / x * 100)}%` } }),
+            I && /* @__PURE__ */ l("div", { class: "n-bars__now-label", children: [
+              S.toFixed(2),
+              " kWh"
+            ] })
+          ] }, k);
+        }) })
+      ] }),
+      /* @__PURE__ */ l("div", { class: "n-bars__axis", children: i?.axisLabels.map((S, k) => /* @__PURE__ */ l("span", { children: S }, k)) })
+    ] }) : /* @__PURE__ */ l("div", { class: "n-bars n-bars--empty", children: /* @__PURE__ */ l("div", { class: "n-muted", children: "Historique indisponible" }) })
+  ] });
+}
+function oy({
+  entities: n,
+  primaryPowerEntityId: e,
+  areas: t,
+  onSelect: i
+}) {
+  const r = Z(() => {
+    const o = /* @__PURE__ */ new Map();
+    for (const d of t) o.set(d.area_id, d.name);
+    return o;
+  }, [t]), s = Z(() => {
+    const o = [];
+    for (const d of n) {
+      if (d.entity_id === e || d.state.attributes.device_class !== "power") continue;
+      const c = Number(d.state.state);
+      if (!Number.isFinite(c)) continue;
+      const u = d.area_id ? r.get(d.area_id) ?? "" : "";
+      o.push({ entity: d, watts: Math.max(0, c), roomLabel: u });
+    }
+    return o.sort((d, c) => c.watts - d.watts), o.slice(0, 5);
+  }, [n, e, r]), a = s.length > 0 ? Math.max(...s.map((o) => o.watts), 1) : 1;
+  return /* @__PURE__ */ l("div", { class: "n-card n-top-consumers", children: [
+    /* @__PURE__ */ l("div", { class: "n-top-consumers__head", children: /* @__PURE__ */ l("div", { children: [
+      /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Top consommateurs · maintenant" }),
+      /* @__PURE__ */ l("div", { class: "n-title", children: "Où part l'énergie" })
+    ] }) }),
+    s.length === 0 ? /* @__PURE__ */ l("div", { class: "n-muted n-top-consumers__empty", children: "Aucune mesure de puissance individuelle exposée" }) : /* @__PURE__ */ l("div", { class: "n-top-consumers__list", children: s.map((o, d) => {
+      const c = o.watts / a * 100, u = typeof i == "function";
+      return /* @__PURE__ */ l(
+        "div",
+        {
+          class: "n-top-consumers__row",
+          role: u ? "button" : void 0,
+          tabIndex: u ? 0 : void 0,
+          onClick: u ? () => i?.(o.entity) : void 0,
+          onKeyDown: u ? (h) => {
+            (h.key === "Enter" || h.key === " ") && (h.preventDefault(), i?.(o.entity));
+          } : void 0,
+          children: [
+            /* @__PURE__ */ l("div", { class: `n-top-consumers__bubble ${d === 0 ? "is-first" : ""}`, children: /* @__PURE__ */ l(Nt, { size: 18 }) }),
+            /* @__PURE__ */ l("div", { class: "n-top-consumers__body", children: [
+              /* @__PURE__ */ l("div", { class: "n-top-consumers__line", children: [
+                /* @__PURE__ */ l("div", { class: "n-top-consumers__name-wrap", children: [
+                  /* @__PURE__ */ l("span", { class: "n-top-consumers__name", children: o.entity.friendly_name }),
+                  o.roomLabel && /* @__PURE__ */ l("span", { class: "n-top-consumers__room", children: o.roomLabel })
+                ] }),
+                /* @__PURE__ */ l("span", { class: `n-top-consumers__value ${d === 0 ? "is-first" : ""}`, children: [
+                  Math.round(o.watts).toLocaleString("fr-FR"),
+                  /* @__PURE__ */ l("span", { class: "n-top-consumers__unit", children: "W" })
+                ] })
+              ] }),
+              /* @__PURE__ */ l("div", { class: "n-top-consumers__meter", children: /* @__PURE__ */ l("div", { class: "n-top-consumers__bar", children: /* @__PURE__ */ l(
+                "div",
+                {
+                  class: `n-top-consumers__bar-fill ${d === 0 ? "is-first" : ""}`,
+                  style: { width: `${c}%` }
+                }
+              ) }) })
+            ] }),
+            u && /* @__PURE__ */ l("span", { class: "n-top-consumers__chevron", "aria-hidden": "true", children: /* @__PURE__ */ l(gs, { size: 14 }) })
+          ]
+        },
+        o.entity.entity_id
+      );
+    }) })
+  ] });
+}
+const vt = "sensor.consommation_electrique_sinsts", tr = "sensor.conso", ly = "sensor.conso_daily", cy = "select.conso_hebdomadaire_2_en_eur", Ml = 9;
+function dy({ hass: n, entities: e, exposed: t, areas: i, onBack: r }) {
+  const s = Z(() => new Set(t), [t]), a = Z(
+    () => e.filter((T) => s.has(T.entity_id)),
+    [e, s]
+  ), o = n.states[vt], d = !!o && o.state !== "unavailable" && o.state !== "unknown", c = Z(() => {
+    if (!d || !o) return 0;
+    const T = Number(o.state);
+    return Number.isFinite(T) ? Math.max(0, T) : 0;
+  }, [o, d]), u = o?.attributes.unit_of_measurement ?? "W", h = n.states[tr], f = Z(() => {
+    if (!h) return null;
+    const T = Number(h.state);
+    return Number.isFinite(T) ? T : null;
+  }, [h]), p = h?.attributes.unit_of_measurement ?? "kWh", g = n.states[ly], _ = Z(() => {
+    if (!g) return null;
+    const T = Number(g.state);
+    return Number.isFinite(T) ? T : null;
+  }, [g]), m = g?.attributes.unit_of_measurement ?? "€", v = n.states[cy], b = Z(() => {
+    if (!v) return null;
+    const T = v.state;
+    if (T === "unavailable" || T === "unknown") return null;
+    const w = Number(T);
+    return Number.isFinite(w) ? w : null;
+  }, [v]), x = v?.state ?? null, E = Z(() => (/* @__PURE__ */ new Date()).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (w) => w.toUpperCase()), []);
+  return /* @__PURE__ */ l("div", { class: "nido-shell", children: /* @__PURE__ */ l("div", { class: "nido-dashboard nido-energy", children: [
+    /* @__PURE__ */ l("header", { class: "nido-energy__header", children: [
+      /* @__PURE__ */ l(
+        "button",
+        {
+          type: "button",
+          class: "n-icon-btn nido-energy__back",
+          onClick: r,
+          "aria-label": "Retour",
+          children: /* @__PURE__ */ l(Uc, { size: 18 })
+        }
+      ),
+      /* @__PURE__ */ l("div", { class: "nido-energy__crumb", children: [
+        /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Maison · Tableau" }),
+        /* @__PURE__ */ l("div", { class: "nido-energy__brand", children: "nido" })
+      ] }),
+      /* @__PURE__ */ l("div", { class: "nido-energy__head-actions", children: [
+        /* @__PURE__ */ l(
+          "a",
+          {
+            class: "n-pill-btn n-pill-btn--ghost nido-energy__ha-link",
+            href: "/lovelace/energy",
+            target: "_top",
+            children: [
+              /* @__PURE__ */ l(ta, { size: 12 }),
+              "Ouvrir HA"
+            ]
+          }
+        ),
+        /* @__PURE__ */ l("button", { type: "button", class: "n-icon-btn", "aria-label": "Plus", children: /* @__PURE__ */ l(Gc, { size: 18 }) })
+      ] })
+    ] }),
+    /* @__PURE__ */ l("section", { class: "nido-energy__hero", children: [
+      /* @__PURE__ */ l("div", { class: "nido-energy__hero-left", children: [
+        /* @__PURE__ */ l("div", { class: "nido-energy__icon", children: [
+          /* @__PURE__ */ l("div", { class: "pattern-dots nido-energy__icon-bg", "aria-hidden": "true" }),
+          /* @__PURE__ */ l(Nt, { size: 32 })
+        ] }),
+        /* @__PURE__ */ l("div", { children: [
+          /* @__PURE__ */ l("div", { class: "nido-energy__hero-meta", children: [
+            /* @__PURE__ */ l("span", { children: E }),
+            /* @__PURE__ */ l("span", { class: "nido-energy__sep" }),
+            /* @__PURE__ */ l("span", { class: "nido-energy__live", children: [
+              /* @__PURE__ */ l("span", { class: "nido-energy__live-dot" }),
+              "Données live · Linky"
+            ] })
+          ] }),
+          /* @__PURE__ */ l("h1", { class: "nido-energy__title", children: "Énergie" })
+        ] })
+      ] }),
+      /* @__PURE__ */ l("div", { class: "nido-energy__stats", children: [
+        /* @__PURE__ */ l(
+          _n,
+          {
+            label: "Auj.",
+            value: f !== null ? f.toFixed(1).replace(".", ",") : "—",
+            unit: f !== null ? p : ""
+          }
+        ),
+        /* @__PURE__ */ l(Jr, {}),
+        /* @__PURE__ */ l(
+          _n,
+          {
+            label: "Coût",
+            value: _ !== null ? _.toFixed(2).replace(".", ",") : "—",
+            unit: _ !== null ? m : ""
+          }
+        ),
+        /* @__PURE__ */ l(Jr, {}),
+        /* @__PURE__ */ l(
+          _n,
+          {
+            label: "Puissance",
+            value: d ? Math.round(c).toLocaleString("fr-FR") : "—",
+            unit: d ? u : ""
+          }
+        ),
+        x !== null && /* @__PURE__ */ l(Se, { children: [
+          /* @__PURE__ */ l(Jr, {}),
+          /* @__PURE__ */ l(
+            _n,
+            {
+              label: "Tarif",
+              value: b !== null ? b.toFixed(4).replace(".", ",").replace(/,?0+$/, "") : x,
+              unit: b !== null ? "€/kWh" : ""
+            }
+          )
+        ] })
+      ] })
+    ] }),
+    d ? /* @__PURE__ */ l(Se, { children: [
+      /* @__PURE__ */ l("section", { class: "nido-energy__section", children: [
+        /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { class: "is-accent", children: "Maintenant" }) }),
+        /* @__PURE__ */ l("div", { class: "nido-energy__live-grid", children: [
+          /* @__PURE__ */ l(
+            Ou,
+            {
+              hass: n,
+              powerEntityId: vt,
+              max: Ml * 1e3
+            }
+          ),
+          /* @__PURE__ */ l(
+            Qv,
+            {
+              currentPower: c,
+              subscribedKva: Ml
+            }
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ l("section", { class: "nido-energy__section", children: [
+        /* @__PURE__ */ l("div", { class: "nido-section-title", children: [
+          /* @__PURE__ */ l("h2", { children: "Aujourd'hui · 24 heures" }),
+          /* @__PURE__ */ l("span", { class: "n-eyebrow", children: "kWh par heure" })
+        ] }),
+        /* @__PURE__ */ l(
+          ay,
+          {
+            hass: n,
+            powerEntityId: vt,
+            dailyConsumptionEntityId: tr
+          }
+        )
+      ] }),
+      /* @__PURE__ */ l("section", { class: "nido-energy__section", children: [
+        /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { children: "Top consommateurs" }) }),
+        /* @__PURE__ */ l(
+          oy,
+          {
+            entities: a,
+            primaryPowerEntityId: vt,
+            areas: i
+          }
+        )
+      ] })
+    ] }) : /* @__PURE__ */ l("div", { class: "nido-empty", children: /* @__PURE__ */ l("p", { class: "n-muted", children: [
+      "L'entité de puissance ",
+      /* @__PURE__ */ l("code", { children: vt }),
+      " n'est pas disponible. Vérifiez qu'elle est exposée dans Nido."
+    ] }) })
+  ] }) });
+}
+function _n({ label: n, value: e, unit: t }) {
+  return /* @__PURE__ */ l("div", { class: "nido-energy__stat", children: [
+    /* @__PURE__ */ l("div", { class: "n-eyebrow", children: n }),
+    /* @__PURE__ */ l("div", { class: "nido-energy__stat-value", children: [
+      e,
+      t && /* @__PURE__ */ l("span", { class: "nido-energy__stat-unit", children: t })
+    ] })
+  ] });
+}
+function Jr() {
+  return /* @__PURE__ */ l("div", { class: "nido-energy__stat-sep", "aria-hidden": "true" });
+}
+const Ui = 16, es = 4, ts = 1.6, uy = 6, hy = 28, fy = 50, Ol = /* @__PURE__ */ new Set(["window", "door"]), py = /* @__PURE__ */ new Set(["motion", "occupancy", "presence"]), gy = 10, Fl = 10, my = 3e3;
+function _y(n) {
+  let e = 0, t = null;
+  for (const i of n) {
+    if (i.domain !== "sensor" || i.entity_id === vt || i.state.attributes.device_class !== "power") continue;
+    const r = parseFloat(i.state.state);
+    if (!Number.isFinite(r)) continue;
+    const s = String(i.state.attributes.unit_of_measurement ?? "W"), a = Math.max(0, /^kw$/i.test(s) ? r * 1e3 : r);
+    e += a, (!t || a > t.watts) && (t = { name: i.friendly_name, watts: a });
+  }
+  return t ? { watts: e, top: t } : null;
+}
+function vy(n) {
+  const e = Math.log10(1 + n / Fl) / Math.log10(1 + my / Fl);
+  return Math.max(0, Math.min(1, e));
+}
+function ir(n) {
+  return n >= 1e3 ? `${(Math.round(n / 100) / 10).toLocaleString("fr-FR")} kW` : `${Math.round(n).toLocaleString("fr-FR")} W`;
+}
+function yy(n, e) {
   let t = null;
   for (const i of n) {
     if (i.domain !== "binary_sensor" || i.state.state !== "off") continue;
     const r = i.state.attributes.device_class;
-    if (!r || !Zv.has(r)) continue;
+    if (!r || !py.has(r)) continue;
     const s = new Date(i.state.last_changed).getTime();
     if (Number.isNaN(s)) continue;
     const a = Math.max(0, Math.floor((e.getTime() - s) / 6e4));
-    a <= Jv && (t === null || a < t) && (t = a);
+    a <= gy && (t === null || a < t) && (t = a);
   }
   return t;
 }
-const ty = /* @__PURE__ */ new Set(["window", "door", "garage_door"]);
-function iy(n, e) {
+const by = /* @__PURE__ */ new Set(["window", "door", "garage_door"]);
+function xy(n, e) {
   let t = null;
   for (const i of n) {
     if (i.domain !== "binary_sensor" || i.state.state !== "on") continue;
     const r = i.state.attributes.device_class;
-    if (!r || !ty.has(r)) continue;
+    if (!r || !by.has(r)) continue;
     const s = new Date(i.state.last_changed).getTime();
     if (Number.isNaN(s)) continue;
     const a = Math.max(0, Math.floor((e.getTime() - s) / 6e4));
@@ -24948,83 +25683,84 @@ function iy(n, e) {
   }
   return t;
 }
-function jt(n) {
+function $t(n) {
   const e = parseFloat(n);
   return Number.isFinite(e) ? (Math.round(e * 10) / 10).toLocaleString("fr-FR") : n;
 }
-function Pu(n) {
+function Fu(n) {
   const e = [];
   if (n.lightsOn > 0 && e.push(`${n.lightsOn} lumière${n.lightsOn > 1 ? "s" : ""} allumée${n.lightsOn > 1 ? "s" : ""}`), n.coversOpen > 0 && e.push(`${n.coversOpen} volet${n.coversOpen > 1 ? "s" : ""} ouvert${n.coversOpen > 1 ? "s" : ""}`), n.mediaPlaying && e.push("musique en cours"), e.length === 0) return "Tout est éteint";
   const t = e.join(" · ");
   return t.charAt(0).toUpperCase() + t.slice(1);
 }
-function Rl(n, e, t) {
+function Nl(n, e, t) {
   return e + Ui * 2 <= t ? (t - e) / 2 : Math.min(Ui, Math.max(t - e - Ui, n));
 }
-function ny() {
+function Ey() {
   const n = [];
   for (let e = 14; e <= 30; e += 2) {
-    const t = rr(String(e), "°C");
+    const t = sr(String(e), "°C");
     t && n.push(
       `oklch(var(--plan-fill-l) calc(${t.chroma.toFixed(3)} * var(--plan-fill-cf)) ${t.hue.toFixed(1)}) ${Math.round((e - 14) / 16 * 100)}%`
     );
   }
   return `linear-gradient(90deg, ${n.join(", ")})`;
 }
-function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOpenRoom: a, onEdit: o }) {
-  const d = Ra(), c = Z(() => Ru(e, t), [e, t]), [u, h] = z(null), f = c.find((H) => H.key === u) ?? c[0], [p, g] = z(null), [_, m] = z(() => Uh()), v = Z(
-    () => Yv(
+function Nu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOpenRoom: a, onEdit: o }) {
+  const d = Ca(), c = Z(() => Du(e, t), [e, t]), [u, h] = z(null), f = c.find((K) => K.key === u) ?? c[0], [p, g] = z(null), [_, m] = z(() => zh()), v = Z(
+    () => Xv(
       f?.areas ?? [],
       f ? s.floors[f.key] : void 0,
-      (H) => i.get(H.area_id)?.length ?? 1
+      (K) => i.get(K.area_id)?.length ?? 1
     ),
     [f, s, i]
   ), b = Z(() => {
-    const H = /* @__PURE__ */ new Map();
+    const K = /* @__PURE__ */ new Map();
     for (const Q of v.rooms) {
-      const O = i.get(Q.area.area_id) ?? [], W = vc(O), ie = js(O);
-      H.set(Q.area.area_id, {
+      const O = i.get(Q.area.area_id) ?? [], W = bc(O), ie = Ws(O);
+      K.set(Q.area.area_id, {
         area: Q.area,
         summary: W,
         stats: ie,
-        tempTint: ie.temperature ? rr(ie.temperature.value, ie.temperature.unit) : null,
-        opening: W.alerts.find((le) => Ll.has(le.kind)) ?? null,
-        openingSince: iy(O, d),
-        critical: W.alerts.find((le) => !Ll.has(le.kind)) ?? null,
-        occupancy: mc(O),
-        motionAgo: ey(O, d)
+        tempTint: ie.temperature ? sr(ie.temperature.value, ie.temperature.unit) : null,
+        opening: W.alerts.find((le) => Ol.has(le.kind)) ?? null,
+        openingSince: xy(O, d),
+        critical: W.alerts.find((le) => !Ol.has(le.kind)) ?? null,
+        occupancy: vc(O),
+        motionAgo: yy(O, d),
+        power: _y(O)
       });
     }
-    return H;
-  }, [v, i, d]), x = p && b.has(p) ? p : v.rooms[0]?.area.area_id ?? null, E = x ? b.get(x) ?? null : null, T = (H) => {
-    const Q = { ..._, [H]: !_[H] };
-    m(Q), Gh(Q);
+    return K;
+  }, [v, i, d]), x = p && b.has(p) ? p : v.rooms[0]?.area.area_id ?? null, E = x ? b.get(x) ?? null : null, T = (K) => {
+    const Q = { ..._, [K]: !_[K] };
+    K === "temperature" && Q.temperature && (Q.energy = !1), K === "energy" && Q.energy && (Q.temperature = !1), m(Q), Vh(Q);
   }, w = xe(null), [S, k] = z({ w: 0, h: 0 }), [I, A] = z(null);
   me(() => {
-    const H = w.current;
-    if (!H || (k({ w: H.clientWidth, h: H.clientHeight }), typeof ResizeObserver > "u")) return;
+    const K = w.current;
+    if (!K || (k({ w: K.clientWidth, h: K.clientHeight }), typeof ResizeObserver > "u")) return;
     const Q = new ResizeObserver(([O]) => {
       k({ w: O.contentRect.width, h: O.contentRect.height });
     });
-    return Q.observe(H), () => Q.disconnect();
+    return Q.observe(K), () => Q.disconnect();
   }, []), me(() => A(null), [f?.key]);
-  const C = S.w > 0 && S.h > 0 ? Math.max(4, Math.min((S.w - Ui * 2) / v.cols, (S.h - Ui * 2) / v.rows)) : 0, M = I?.z ?? 1, G = C * M, K = v.cols * G, V = v.rows * G, R = I ? Rl(I.x, K, S.w) : (S.w - K) / 2, F = I ? Rl(I.y, V, S.h) : (S.h - V) / 2, L = G >= Qv ? "detail" : G >= Xv ? "labels" : "overview", N = (H, Q, O) => {
-    const W = Math.min(Qr, Math.max(1, M * H));
+  const C = S.w > 0 && S.h > 0 ? Math.max(4, Math.min((S.w - Ui * 2) / v.cols, (S.h - Ui * 2) / v.rows)) : 0, M = I?.z ?? 1, G = C * M, H = v.cols * G, V = v.rows * G, R = I ? Nl(I.x, H, S.w) : (S.w - H) / 2, F = I ? Nl(I.y, V, S.h) : (S.h - V) / 2, L = G >= fy ? "detail" : G >= hy ? "labels" : "overview", N = (K, Q, O) => {
+    const W = Math.min(es, Math.max(1, M * K));
     if (W <= 1.001) {
       A(null);
       return;
     }
     const ie = W / M;
     A({ z: W, x: Q - (Q - R) * ie, y: O - (O - F) * ie });
-  }, j = xe(/* @__PURE__ */ new Map()), $ = xe(null), B = xe(!1), ae = (H, Q) => {
+  }, j = xe(/* @__PURE__ */ new Map()), $ = xe(null), B = xe(!1), ae = (K, Q) => {
     const O = w.current.getBoundingClientRect();
-    return { x: H - O.left, y: Q - O.top };
+    return { x: K - O.left, y: Q - O.top };
   }, de = () => {
-    const H = [...j.current.values()];
-    if (H.length === 1)
-      $.current = { kind: "pan", moved: !1, sx: H[0].x, sy: H[0].y, ox: R, oy: F, z: M, dist: 0 };
-    else if (H.length === 2) {
-      const Q = ae((H[0].x + H[1].x) / 2, (H[0].y + H[1].y) / 2);
+    const K = [...j.current.values()];
+    if (K.length === 1)
+      $.current = { kind: "pan", moved: !1, sx: K[0].x, sy: K[0].y, ox: R, oy: F, z: M, dist: 0 };
+    else if (K.length === 2) {
+      const Q = ae((K[0].x + K[1].x) / 2, (K[0].y + K[1].y) / 2);
       $.current = {
         kind: "pinch",
         moved: !0,
@@ -25033,88 +25769,89 @@ function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOp
         ox: R,
         oy: F,
         z: M,
-        dist: Math.hypot(H[0].x - H[1].x, H[0].y - H[1].y)
+        dist: Math.hypot(K[0].x - K[1].x, K[0].y - K[1].y)
       };
     }
-  }, Y = (H) => {
-    H.pointerType === "mouse" && H.button !== 0 || (j.current.set(H.pointerId, { x: H.clientX, y: H.clientY }), de());
-  }, te = (H) => {
-    if (!j.current.has(H.pointerId)) return;
-    j.current.set(H.pointerId, { x: H.clientX, y: H.clientY });
+  }, Y = (K) => {
+    K.pointerType === "mouse" && K.button !== 0 || (j.current.set(K.pointerId, { x: K.clientX, y: K.clientY }), de());
+  }, te = (K) => {
+    if (!j.current.has(K.pointerId)) return;
+    j.current.set(K.pointerId, { x: K.clientX, y: K.clientY });
     const Q = $.current;
     if (!Q) return;
     const O = [...j.current.values()];
     if (Q.kind === "pinch" && O.length >= 2) {
-      const le = Math.hypot(O[0].x - O[1].x, O[0].y - O[1].y), ue = ae((O[0].x + O[1].x) / 2, (O[0].y + O[1].y) / 2), pe = Math.min(Qr, Math.max(1, Q.z * le / Math.max(1, Q.dist))), ge = pe / Q.z;
+      const le = Math.hypot(O[0].x - O[1].x, O[0].y - O[1].y), ue = ae((O[0].x + O[1].x) / 2, (O[0].y + O[1].y) / 2), pe = Math.min(es, Math.max(1, Q.z * le / Math.max(1, Q.dist))), ge = pe / Q.z;
       A(pe <= 1.001 ? null : { z: pe, x: ue.x - (Q.sx - Q.ox) * ge, y: ue.y - (Q.sy - Q.oy) * ge });
       return;
     }
     if (Q.kind !== "pan") return;
-    const W = H.clientX - Q.sx, ie = H.clientY - Q.sy;
-    if (!Q.moved && Math.hypot(W, ie) > qv) {
+    const W = K.clientX - Q.sx, ie = K.clientY - Q.sy;
+    if (!Q.moved && Math.hypot(W, ie) > uy) {
       Q.moved = !0;
       try {
-        w.current?.setPointerCapture(H.pointerId);
+        w.current?.setPointerCapture(K.pointerId);
       } catch {
       }
     }
     Q.moved && Q.z > 1 && A({ z: Q.z, x: Q.ox + W, y: Q.oy + ie });
-  }, oe = (H) => {
-    j.current.has(H.pointerId) && (j.current.delete(H.pointerId), $.current?.moved && (B.current = !0), j.current.size > 0 ? de() : $.current = null);
-  }, J = (H) => {
-    B.current && (B.current = !1, H.stopPropagation(), H.preventDefault());
-  }, Te = (H) => {
-    if (!H.ctrlKey && !H.metaKey) return;
-    H.preventDefault();
-    const Q = ae(H.clientX, H.clientY);
-    N(Math.exp(-H.deltaY * 0.01), Q.x, Q.y);
-  }, Me = (H) => {
-    const Q = ae(H.clientX, H.clientY);
-    N(Zr, Q.x, Q.y);
-  }, Ee = () => N(Zr, S.w / 2, S.h / 2), ze = () => N(1 / Zr, S.w / 2, S.h / 2), it = (H) => {
-    const Q = H.summary.lightIds;
-    Q.length !== 0 && n.callService("light", H.summary.lightsOn > 0 ? "turn_off" : "turn_on", { entity_id: Q });
-  }, se = (H) => {
-    const Q = H.summary.coverIds;
-    Q.length !== 0 && n.callService("cover", H.summary.coversOpen > 0 ? "close_cover" : "open_cover", { entity_id: Q });
+  }, oe = (K) => {
+    j.current.has(K.pointerId) && (j.current.delete(K.pointerId), $.current?.moved && (B.current = !0), j.current.size > 0 ? de() : $.current = null);
+  }, J = (K) => {
+    B.current && (B.current = !1, K.stopPropagation(), K.preventDefault());
+  }, Te = (K) => {
+    if (!K.ctrlKey && !K.metaKey) return;
+    K.preventDefault();
+    const Q = ae(K.clientX, K.clientY);
+    N(Math.exp(-K.deltaY * 0.01), Q.x, Q.y);
+  }, Me = (K) => {
+    const Q = ae(K.clientX, K.clientY);
+    N(ts, Q.x, Q.y);
+  }, Ee = () => N(ts, S.w / 2, S.h / 2), ze = () => N(1 / ts, S.w / 2, S.h / 2), it = (K) => {
+    const Q = K.summary.lightIds;
+    Q.length !== 0 && n.callService("light", K.summary.lightsOn > 0 ? "turn_off" : "turn_on", { entity_id: Q });
+  }, se = (K) => {
+    const Q = K.summary.coverIds;
+    Q.length !== 0 && n.callService("cover", K.summary.coversOpen > 0 ? "close_cover" : "open_cover", { entity_id: Q });
   };
   if (!f) return null;
-  const Oe = c.length > 1 && /* @__PURE__ */ l("div", { class: "nido-plan__floors", role: "group", "aria-label": "Étage", children: c.map((H) => /* @__PURE__ */ l(
+  const Oe = c.length > 1 && /* @__PURE__ */ l("div", { class: "nido-plan__floors", role: "group", "aria-label": "Étage", children: c.map((K) => /* @__PURE__ */ l(
     "button",
     {
       type: "button",
-      class: `nido-plan__floor ${H.key === f.key ? "is-active" : ""}`,
-      "aria-pressed": H.key === f.key,
+      class: `nido-plan__floor ${K.key === f.key ? "is-active" : ""}`,
+      "aria-pressed": K.key === f.key,
       onClick: () => {
-        h(H.key), g(null);
+        h(K.key), g(null);
       },
-      children: H.label
+      children: K.label
     },
-    H.key
+    K.key
   )) }), ce = /* @__PURE__ */ l("div", { class: "nido-plan__layers", role: "group", "aria-label": "Calques", children: [
     ["temperature", "Température", ht],
     ["lights", "Lumières", dt],
-    ["openings", "Ouvrants", $t],
-    ["motion", "Mouvement", Js]
-  ].map(([H, Q, O]) => /* @__PURE__ */ l(
+    ["openings", "Ouvrants", Ut],
+    ["motion", "Mouvement", ea],
+    ["energy", "Énergie", Nt]
+  ].map(([K, Q, O]) => /* @__PURE__ */ l(
     "button",
     {
       type: "button",
-      class: `nido-plan__layer ${_[H] ? "is-on" : ""}`,
-      "aria-pressed": _[H],
+      class: `nido-plan__layer ${_[K] ? "is-on" : ""}`,
+      "aria-pressed": _[K],
       "aria-label": r === "wide" ? void 0 : `Calque ${Q.toLowerCase()}`,
       title: Q,
-      onClick: () => T(H),
+      onClick: () => T(K),
       children: [
         /* @__PURE__ */ l(O, { size: r === "compact" ? 22 : 16 }),
         r === "wide" && /* @__PURE__ */ l("span", { children: Q })
       ]
     },
-    H
+    K
   )) }), De = /* @__PURE__ */ l("div", { class: "nido-plan__zoom", children: [
-    /* @__PURE__ */ l("button", { type: "button", class: "nido-plan__zoom-btn", "aria-label": "Zoomer", onClick: Ee, disabled: M >= Qr, children: /* @__PURE__ */ l(St, { size: 18 }) }),
+    /* @__PURE__ */ l("button", { type: "button", class: "nido-plan__zoom-btn", "aria-label": "Zoomer", onClick: Ee, disabled: M >= es, children: /* @__PURE__ */ l(Tt, { size: 18 }) }),
     /* @__PURE__ */ l("button", { type: "button", class: "nido-plan__zoom-btn", "aria-label": "Dézoomer", onClick: ze, disabled: !I, children: /* @__PURE__ */ l(vi, { size: 18 }) }),
-    /* @__PURE__ */ l("button", { type: "button", class: "nido-plan__zoom-btn", "aria-label": "Ajuster à l'écran", onClick: () => A(null), disabled: !I, children: /* @__PURE__ */ l(Ff, { size: 18 }) })
+    /* @__PURE__ */ l("button", { type: "button", class: "nido-plan__zoom-btn", "aria-label": "Ajuster à l'écran", onClick: () => A(null), disabled: !I, children: /* @__PURE__ */ l($f, { size: 18 }) })
   ] }), Be = /* @__PURE__ */ l(
     "div",
     {
@@ -25134,12 +25871,12 @@ function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOp
             class: "nido-plan__house",
             "data-lod": L,
             "data-custom": v.custom ? "true" : "false",
-            style: { left: `${R}px`, top: `${F}px`, width: `${K}px`, height: `${V}px` },
+            style: { left: `${R}px`, top: `${F}px`, width: `${H}px`, height: `${V}px` },
             children: [
-              v.rooms.map((H) => {
-                const Q = b.get(H.area.area_id);
-                return H.rects.map((O, W) => /* @__PURE__ */ l(
-                  ay,
+              v.rooms.map((K) => {
+                const Q = b.get(K.area.area_id);
+                return K.rects.map((O, W) => /* @__PURE__ */ l(
+                  ky,
                   {
                     info: Q,
                     rect: O,
@@ -25147,23 +25884,23 @@ function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOp
                     labelled: W === 0,
                     lod: L,
                     layers: _,
-                    selected: H.area.area_id === x,
-                    onSelect: () => g(H.area.area_id)
+                    selected: K.area.area_id === x,
+                    onSelect: () => g(K.area.area_id)
                   },
-                  `${H.area.area_id}-${W}`
+                  `${K.area.area_id}-${W}`
                 ));
               }),
-              v.openings.map((H) => {
-                const Q = v.rooms.find((W) => W.area.area_id === H.area_id), O = Q?.rects[H.rect] ?? Q?.rects[0];
+              v.openings.map((K) => {
+                const Q = v.rooms.find((W) => W.area.area_id === K.area_id), O = Q?.rects[K.rect] ?? Q?.rects[0];
                 return O ? /* @__PURE__ */ l(
-                  ry,
+                  Sy,
                   {
-                    opening: H,
+                    opening: K,
                     rect: O,
                     cell: G,
-                    open: _.openings && !!H.entity_id && n.states[H.entity_id]?.state === "on"
+                    open: _.openings && !!K.entity_id && n.states[K.entity_id]?.state === "on"
                   },
-                  H.id
+                  K.id
                 ) : null;
               })
             ]
@@ -25184,10 +25921,10 @@ function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOp
         E && /* @__PURE__ */ l("div", { class: "nido-plan__mini", children: [
           /* @__PURE__ */ l("div", { class: "nido-plan__mini-name", children: E.area.name }),
           E.stats.temperature && /* @__PURE__ */ l("div", { class: "nido-plan__mini-temp", children: [
-            jt(E.stats.temperature.value),
+            $t(E.stats.temperature.value),
             "°",
             E.stats.humidity && /* @__PURE__ */ l("span", { children: [
-              jt(E.stats.humidity.value),
+              $t(E.stats.humidity.value),
               " %"
             ] })
           ] }),
@@ -25203,7 +25940,7 @@ function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOp
       ] })
     ] });
   const Pe = E && /* @__PURE__ */ l(
-    oy,
+    wy,
     {
       info: E,
       floorLabel: f.label,
@@ -25225,13 +25962,13 @@ function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOp
       ] }),
       Pe
     ] });
-  const be = sy([...b.values()]);
+  const ve = Ty([...b.values()]);
   return /* @__PURE__ */ l("div", { class: "nido-plan nido-plan--wide", children: [
     /* @__PURE__ */ l("div", { class: "nido-plan__bar", children: [
       ce,
       /* @__PURE__ */ l("div", { class: "nido-plan__bar-end", children: [
         o && /* @__PURE__ */ l("button", { type: "button", class: "nido-plan__edit", onClick: () => o(f.key), children: [
-          /* @__PURE__ */ l(Nf, { size: 16 }),
+          /* @__PURE__ */ l(Bf, { size: 16 }),
           "Modifier le plan"
         ] }),
         Oe
@@ -25243,9 +25980,13 @@ function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOp
         /* @__PURE__ */ l("div", { class: "nido-plan__footer", children: [
           _.temperature ? /* @__PURE__ */ l("div", { class: "nido-plan__legend", children: [
             /* @__PURE__ */ l("span", { children: "16°" }),
-            /* @__PURE__ */ l("span", { class: "nido-plan__legend-bar", style: { background: ny() }, "aria-hidden": "true" }),
+            /* @__PURE__ */ l("span", { class: "nido-plan__legend-bar", style: { background: Ey() }, "aria-hidden": "true" }),
             /* @__PURE__ */ l("span", { children: "28°" })
-          ] }) : /* @__PURE__ */ l("span", { class: "nido-plan__legend", children: "Calque température masqué" }),
+          ] }) : _.energy ? /* @__PURE__ */ l("div", { class: "nido-plan__legend", children: [
+            /* @__PURE__ */ l("span", { children: "0 W" }),
+            /* @__PURE__ */ l("span", { class: "nido-plan__legend-bar nido-plan__legend-bar--energy", "aria-hidden": "true" }),
+            /* @__PURE__ */ l("span", { children: "3 kW et +" })
+          ] }) : /* @__PURE__ */ l("span", { class: "nido-plan__legend", children: "Aucun calque de couleur" }),
           De
         ] })
       ] }),
@@ -25254,26 +25995,27 @@ function Mu({ hass: n, areas: e, floors: t, byArea: i, variant: r, plan: s, onOp
         /* @__PURE__ */ l("div", { class: "nido-plan__summary", children: [
           /* @__PURE__ */ l("div", { class: "nido-plan__eyebrow", children: f.label }),
           /* @__PURE__ */ l("div", { class: "nido-plan__summary-main", children: [
-            /* @__PURE__ */ l("span", { class: "nido-plan__summary-value", children: be.lights }),
-            /* @__PURE__ */ l("span", { children: be.lights > 1 ? "lumières allumées" : "lumière allumée" })
+            /* @__PURE__ */ l("span", { class: "nido-plan__summary-value", children: ve.lights }),
+            /* @__PURE__ */ l("span", { children: ve.lights > 1 ? "lumières allumées" : "lumière allumée" })
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-plan__summary-sub", children: [
-            be.openings > 0 ? `${be.openings} ouvrant${be.openings > 1 ? "s" : ""} ouvert${be.openings > 1 ? "s" : ""}` : "Tout est fermé",
-            be.occupied > 0 && ` · ${be.occupied} pièce${be.occupied > 1 ? "s" : ""} occupée${be.occupied > 1 ? "s" : ""}`,
-            be.avgTemp !== null && ` · Moyenne ${be.avgTemp.toLocaleString("fr-FR")} °C`
+            ve.openings > 0 ? `${ve.openings} ouvrant${ve.openings > 1 ? "s" : ""} ouvert${ve.openings > 1 ? "s" : ""}` : "Tout est fermé",
+            _.energy && ve.watts !== null && ` · ${ir(ve.watts)} consommés`,
+            ve.occupied > 0 && ` · ${ve.occupied} pièce${ve.occupied > 1 ? "s" : ""} occupée${ve.occupied > 1 ? "s" : ""}`,
+            ve.avgTemp !== null && ` · Moyenne ${ve.avgTemp.toLocaleString("fr-FR")} °C`
           ] })
         ] })
       ] })
     ] })
   ] });
 }
-function ry({
+function Sy({
   opening: n,
   rect: e,
   cell: t,
   open: i
 }) {
-  const r = Du(e, n), s = i ? 7 : 6, a = r.horizontal ? { left: `${r.x * t}px`, top: `${r.y * t - s / 2}px`, width: `${r.length * t}px`, height: `${s}px` } : { left: `${r.x * t - s / 2}px`, top: `${r.y * t}px`, width: `${s}px`, height: `${r.length * t}px` };
+  const r = Mu(e, n), s = i ? 7 : 6, a = r.horizontal ? { left: `${r.x * t}px`, top: `${r.y * t - s / 2}px`, width: `${r.length * t}px`, height: `${s}px` } : { left: `${r.x * t - s / 2}px`, top: `${r.y * t}px`, width: `${s}px`, height: `${r.length * t}px` };
   return /* @__PURE__ */ l(
     "span",
     {
@@ -25285,30 +26027,31 @@ function ry({
     }
   );
 }
-function sy(n) {
-  let e = 0, t = 0, i = 0;
-  const r = [];
-  for (const a of n) {
-    e += a.summary.lightsOn, a.opening && t++, a.occupancy && i++;
-    const o = a.stats.temperature ? parseFloat(a.stats.temperature.value) : NaN;
-    Number.isFinite(o) && r.push(o);
+function Ty(n) {
+  let e = 0, t = 0, i = 0, r = null;
+  const s = [];
+  for (const o of n) {
+    e += o.summary.lightsOn, o.opening && t++, o.occupancy && i++, o.power && (r = (r ?? 0) + o.power.watts);
+    const d = o.stats.temperature ? parseFloat(o.stats.temperature.value) : NaN;
+    Number.isFinite(d) && s.push(d);
   }
-  const s = r.length ? Math.round(r.reduce((a, o) => a + o, 0) / r.length * 10) / 10 : null;
-  return { lights: e, openings: t, occupied: i, avgTemp: s };
+  const a = s.length ? Math.round(s.reduce((o, d) => o + d, 0) / s.length * 10) / 10 : null;
+  return { lights: e, openings: t, occupied: i, watts: r, avgTemp: a };
 }
-function ay({ info: n, rect: e, cell: t, labelled: i, lod: r, layers: s, selected: a, onSelect: o }) {
-  const d = s.lights && n.summary.lightsOn > 0, c = s.openings ? n.opening : null, u = n.critical ?? c, h = s.temperature && n.tempTint !== null, f = s.motion ? n.occupancy ? "active" : n.motionAgo !== null ? "recent" : null : null, p = e.w * t >= 64 && e.h * t >= 34, g = r === "overview" && p ? "labels" : r, _ = e.w < 4 || e.h < 3 || r === "overview", m = n.stats.temperature, v = [
+function ky({ info: n, rect: e, cell: t, labelled: i, lod: r, layers: s, selected: a, onSelect: o }) {
+  const d = s.lights && n.summary.lightsOn > 0, c = s.openings ? n.opening : null, u = n.critical ?? c, h = s.temperature && n.tempTint !== null, f = s.energy && n.power !== null, p = s.motion ? n.occupancy ? "active" : n.motionAgo !== null ? "recent" : null : null, g = e.w * t >= 64 && e.h * t >= 34, _ = r === "overview" && g ? "labels" : r, m = e.w < 4 || e.h < 3 || r === "overview", v = n.stats.temperature, b = [
     n.area.name,
-    m ? `${jt(m.value)} degrés` : null,
-    n.summary.lightsOn > 0 ? Pu(n.summary) : null,
+    v ? `${$t(v.value)} degrés` : null,
+    n.summary.lightsOn > 0 ? Fu(n.summary) : null,
     n.occupancy?.label ?? null,
     u?.label ?? null
-  ].filter(Boolean).join(", "), b = {
+  ].filter(Boolean).join(", "), x = {
     left: `${e.x * t}px`,
     top: `${e.y * t}px`,
     width: `${e.w * t}px`,
     height: `${e.h * t}px`,
-    ...h ? sr(n.tempTint) : {}
+    ...h ? ar(n.tempTint) : {},
+    ...f ? { "--energy-t": vy(n.power.watts).toFixed(3) } : {}
   };
   return /* @__PURE__ */ l(
     "button",
@@ -25316,60 +26059,68 @@ function ay({ info: n, rect: e, cell: t, labelled: i, lod: r, layers: s, selecte
       type: "button",
       class: "nido-plan__room",
       "data-tinted": h ? "true" : "false",
+      "data-energy": f ? "true" : "false",
       "data-lit": d ? "true" : "false",
       "data-alert": u ? "true" : "false",
       "data-selected": a ? "true" : "false",
-      "data-narrow": _ ? "true" : "false",
-      "data-motion": f ?? "none",
-      "aria-label": v,
+      "data-narrow": m ? "true" : "false",
+      "data-motion": p ?? "none",
+      "aria-label": b,
       "aria-pressed": a,
-      style: b,
+      style: x,
       onClick: o,
       children: [
         d && /* @__PURE__ */ l("span", { class: "nido-plan__glow", "aria-hidden": "true" }),
-        f && i && /* @__PURE__ */ l(
+        p && i && /* @__PURE__ */ l(
           "span",
           {
             class: "nido-plan__motion",
-            "data-state": f,
+            "data-state": p,
             "aria-hidden": "true",
             style: { "--motion-size": `${Math.max(18, Math.min(160, Math.min(e.w, e.h) * t * 0.55))}px` }
           }
         ),
-        i && g === "overview" && /* @__PURE__ */ l("span", { class: "nido-plan__dots", "aria-hidden": "true", children: [
-          f && /* @__PURE__ */ l("span", { class: "nido-plan__dot nido-plan__dot--motion", "data-state": f }),
+        i && _ === "overview" && /* @__PURE__ */ l("span", { class: "nido-plan__dots", "aria-hidden": "true", children: [
+          p && /* @__PURE__ */ l("span", { class: "nido-plan__dot nido-plan__dot--motion", "data-state": p }),
           d && /* @__PURE__ */ l("span", { class: "nido-plan__dot nido-plan__dot--light" }),
           u && /* @__PURE__ */ l("span", { class: "nido-plan__dot nido-plan__dot--alert" })
         ] }),
-        i && g !== "overview" && /* @__PURE__ */ l(Se, { children: [
+        i && _ !== "overview" && /* @__PURE__ */ l(Se, { children: [
           /* @__PURE__ */ l("span", { class: "nido-plan__room-head", children: [
             /* @__PURE__ */ l("span", { class: "nido-plan__room-name", children: n.area.name }),
-            d && !_ && /* @__PURE__ */ l("span", { class: "nido-plan__bulb", children: [
+            d && !m && /* @__PURE__ */ l("span", { class: "nido-plan__bulb", children: [
               /* @__PURE__ */ l(dt, { size: 12 }),
               n.summary.lightsOn
             ] }),
-            _ && (d || u || f) && /* @__PURE__ */ l("span", { class: "nido-plan__dots", "aria-hidden": "true", children: [
-              f && /* @__PURE__ */ l("span", { class: "nido-plan__dot nido-plan__dot--motion", "data-state": f }),
+            m && (d || u || p) && /* @__PURE__ */ l("span", { class: "nido-plan__dots", "aria-hidden": "true", children: [
+              p && /* @__PURE__ */ l("span", { class: "nido-plan__dot nido-plan__dot--motion", "data-state": p }),
               d && /* @__PURE__ */ l("span", { class: "nido-plan__dot nido-plan__dot--light" }),
               u && /* @__PURE__ */ l("span", { class: "nido-plan__dot nido-plan__dot--alert" })
             ] })
           ] }),
           /* @__PURE__ */ l("span", { class: "nido-plan__room-foot", children: [
-            u && !_ && /* @__PURE__ */ l("span", { class: "nido-plan__alert", children: [
-              /* @__PURE__ */ l($t, { size: 11 }),
-              u === c && n.openingSince !== null ? `Ouverte · ${Qt(n.openingSince)}` : u.label
+            u && !m && /* @__PURE__ */ l("span", { class: "nido-plan__alert", children: [
+              /* @__PURE__ */ l(Ut, { size: 11 }),
+              u === c && n.openingSince !== null ? `Ouverte · ${Zt(n.openingSince)}` : u.label
             ] }),
-            f && g === "detail" && !_ && /* @__PURE__ */ l("span", { class: "nido-plan__motion-label", children: [
-              /* @__PURE__ */ l(Js, { size: 11 }),
-              f === "active" ? n.occupancy.label : `Mouvement il y a ${Qt(n.motionAgo)}`
+            p && _ === "detail" && !m && /* @__PURE__ */ l("span", { class: "nido-plan__motion-label", children: [
+              /* @__PURE__ */ l(ea, { size: 11 }),
+              p === "active" ? n.occupancy.label : `Mouvement il y a ${Zt(n.motionAgo)}`
             ] }),
-            m && /* @__PURE__ */ l("span", { class: "nido-plan__temp", children: [
+            s.energy && n.power && /* @__PURE__ */ l("span", { class: "nido-plan__temp", children: [
+              /* @__PURE__ */ l("span", { class: "nido-plan__temp-value nido-plan__power-value", children: ir(n.power.watts) }),
+              _ === "detail" && !m && v && /* @__PURE__ */ l("span", { class: "nido-plan__hum", children: [
+                $t(v.value),
+                "°"
+              ] })
+            ] }),
+            v && !(s.energy && n.power) && /* @__PURE__ */ l("span", { class: "nido-plan__temp", children: [
               /* @__PURE__ */ l("span", { class: "nido-plan__temp-value", children: [
-                jt(m.value),
+                $t(v.value),
                 "°"
               ] }),
-              g === "detail" && !_ && n.stats.humidity && /* @__PURE__ */ l("span", { class: "nido-plan__hum", children: [
-                jt(n.stats.humidity.value),
+              _ === "detail" && !m && n.stats.humidity && /* @__PURE__ */ l("span", { class: "nido-plan__hum", children: [
+                $t(n.stats.humidity.value),
                 " %"
               ] })
             ] })
@@ -25379,43 +26130,50 @@ function ay({ info: n, rect: e, cell: t, labelled: i, lod: r, layers: s, selecte
     }
   );
 }
-function oy({ info: n, floorLabel: e, compact: t, onToggleLights: i, onToggleCovers: r, onOpen: s }) {
-  const { summary: a, stats: o } = n, d = n.critical ?? n.opening, c = n.tempTint ? sr(n.tempTint) : void 0;
+function wy({ info: n, floorLabel: e, compact: t, onToggleLights: i, onToggleCovers: r, onOpen: s }) {
+  const { summary: a, stats: o } = n, d = n.critical ?? n.opening, c = n.tempTint ? ar(n.tempTint) : void 0;
   return /* @__PURE__ */ l("div", { class: `nido-plan__panel ${t ? "nido-plan__panel--sheet" : ""}`, children: [
     /* @__PURE__ */ l("div", { class: "nido-plan__panel-head", children: /* @__PURE__ */ l("div", { children: [
       /* @__PURE__ */ l("div", { class: "nido-plan__eyebrow", children: e }),
       /* @__PURE__ */ l("div", { class: "nido-plan__panel-name", children: n.area.name }),
-      /* @__PURE__ */ l("div", { class: "nido-plan__panel-status", children: Pu(a) }),
+      /* @__PURE__ */ l("div", { class: "nido-plan__panel-status", children: Fu(a) }),
       (n.occupancy || n.motionAgo !== null) && /* @__PURE__ */ l("div", { class: "nido-plan__panel-motion", "data-state": n.occupancy ? "active" : "recent", children: [
         /* @__PURE__ */ l("span", { class: "nido-plan__panel-motion-dot", "aria-hidden": "true" }),
-        n.occupancy ? n.occupancy.label : `Mouvement il y a ${Qt(n.motionAgo)}`
+        n.occupancy ? n.occupancy.label : `Mouvement il y a ${Zt(n.motionAgo)}`
       ] })
     ] }) }),
     d && /* @__PURE__ */ l("div", { class: "nido-plan__panel-alert", children: [
-      /* @__PURE__ */ l($t, { size: 16 }),
-      d === n.opening && n.openingSince !== null ? `${d.label} depuis ${Qt(n.openingSince)}` : d.label
+      /* @__PURE__ */ l(Ut, { size: 16 }),
+      d === n.opening && n.openingSince !== null ? `${d.label} depuis ${Zt(n.openingSince)}` : d.label
     ] }),
     /* @__PURE__ */ l("div", { class: "nido-plan__panel-stats", children: [
       /* @__PURE__ */ l("div", { class: "nido-plan__stat", "data-tinted": c ? "true" : "false", style: c, children: [
         /* @__PURE__ */ l("span", { class: "nido-plan__eyebrow", children: "Temp." }),
         /* @__PURE__ */ l("span", { class: "nido-plan__stat-value", children: [
-          o.temperature ? jt(o.temperature.value) : "—",
+          o.temperature ? $t(o.temperature.value) : "—",
           /* @__PURE__ */ l("small", { children: "°" })
         ] })
       ] }),
       /* @__PURE__ */ l("div", { class: "nido-plan__stat", children: [
         /* @__PURE__ */ l("span", { class: "nido-plan__eyebrow", children: "Humid." }),
         /* @__PURE__ */ l("span", { class: "nido-plan__stat-value", children: [
-          o.humidity ? jt(o.humidity.value) : "—",
+          o.humidity ? $t(o.humidity.value) : "—",
           /* @__PURE__ */ l("small", { children: "%" })
         ] })
       ] }),
       /* @__PURE__ */ l("div", { class: "nido-plan__stat", children: [
         /* @__PURE__ */ l("span", { class: "nido-plan__eyebrow", children: "Lumino." }),
         /* @__PURE__ */ l("span", { class: "nido-plan__stat-value", children: [
-          o.illuminance ? jt(o.illuminance.value) : "—",
+          o.illuminance ? $t(o.illuminance.value) : "—",
           /* @__PURE__ */ l("small", { children: "lx" })
         ] })
+      ] })
+    ] }),
+    n.power && /* @__PURE__ */ l("div", { class: "nido-plan__panel-power", children: [
+      /* @__PURE__ */ l(Nt, { size: 16 }),
+      /* @__PURE__ */ l("span", { children: [
+        /* @__PURE__ */ l("strong", { children: ir(n.power.watts) }),
+        n.power.top.watts > 0 && n.power.top.watts < n.power.watts ? ` · dont ${n.power.top.name} ${ir(n.power.top.watts)}` : n.power.top.watts > 0 ? ` · ${n.power.top.name}` : " · rien ne consomme"
       ] })
     ] }),
     /* @__PURE__ */ l("div", { class: "nido-plan__panel-actions", children: [
@@ -25431,7 +26189,7 @@ function oy({ info: n, floorLabel: e, compact: t, onToggleLights: i, onToggleCov
           "aria-label": a.coversOpen > 0 ? "Fermer les volets" : "Ouvrir les volets",
           title: a.coversOpen > 0 ? "Fermer les volets" : "Ouvrir les volets",
           onClick: r,
-          children: /* @__PURE__ */ l(Nt, { size: 18 })
+          children: /* @__PURE__ */ l(Bt, { size: 18 })
         }
       ),
       /* @__PURE__ */ l("button", { type: "button", class: "nido-plan__open", onClick: s, children: [
@@ -25441,7 +26199,7 @@ function oy({ info: n, floorLabel: e, compact: t, onToggleLights: i, onToggleCov
     ] })
   ] });
 }
-const ly = 20, cy = 12, Cl = 3, dy = 14, Dl = 14, uy = 48, Os = 0.5, hy = [
+const Ay = 20, Iy = 12, $l = 3, Ly = 14, Bl = 14, Ry = 48, Fs = 0.5, Cy = [
   ["nw", 0, 0],
   ["n", 0.5, 0],
   ["ne", 1, 0],
@@ -25450,7 +26208,7 @@ const ly = 20, cy = 12, Cl = 3, dy = 14, Dl = 14, uy = 48, Os = 0.5, hy = [
   ["s", 0.5, 1],
   ["sw", 0, 1],
   ["w", 0, 0.5]
-], fy = {
+], Dy = {
   nw: "nwse-resize",
   se: "nwse-resize",
   ne: "nesw-resize",
@@ -25459,11 +26217,11 @@ const ly = 20, cy = 12, Cl = 3, dy = 14, Dl = 14, uy = 48, Os = 0.5, hy = [
   s: "ns-resize",
   e: "ew-resize",
   w: "ew-resize"
-}, py = { top: "Haut", right: "Droite", bottom: "Bas", left: "Gauche" }, gy = {
+}, Py = { top: "Haut", right: "Droite", bottom: "Bas", left: "Gauche" }, My = {
   window: /* @__PURE__ */ new Set(["window"]),
   door: /* @__PURE__ */ new Set(["door", "garage_door"])
 };
-function my(n, e, t) {
+function Oy(n, e, t) {
   const i = {};
   for (const r of n) {
     const s = e.floors[r.key];
@@ -25471,7 +26229,7 @@ function my(n, e, t) {
       i[r.key] = { rooms: { ...s.rooms }, openings: { ...s.openings } };
       continue;
     }
-    const a = Cu(r.areas, (o) => t.get(o.area_id)?.length ?? 1);
+    const a = Pu(r.areas, (o) => t.get(o.area_id)?.length ?? 1);
     i[r.key] = {
       rooms: Object.fromEntries(a.rooms.map((o) => [o.area.area_id, o.rects])),
       openings: s?.openings ?? {}
@@ -25479,7 +26237,7 @@ function my(n, e, t) {
   }
   return i;
 }
-function _y(n, e) {
+function Fy(n, e) {
   return e.mode === "move" ? n.map((t) => ({ ...t, x: t.x + e.dx, y: t.y + e.dy })) : n.map((t, i) => {
     if (i !== e.rect || !e.handle) return t;
     let { x: r, y: s, w: a, h: o } = t;
@@ -25494,11 +26252,11 @@ function _y(n, e) {
     return e.handle.includes("s") && (o = Math.max(1, o + e.dy)), { x: r, y: s, w: a, h: o };
   });
 }
-function vy() {
+function Ny() {
   return "o" + Math.random().toString(36).slice(2, 9);
 }
-function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave: s, onClose: a }) {
-  const [o, d] = z(() => my(n, t, e)), [c, u] = z(i), h = n.find((O) => O.key === c) ?? n[0], [f, p] = z(null), [g, _] = z(null), [m, v] = z(!1), [b, x] = z(""), E = xe(void 0), T = (O) => {
+function $y({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave: s, onClose: a }) {
+  const [o, d] = z(() => Oy(n, t, e)), [c, u] = z(i), h = n.find((O) => O.key === c) ?? n[0], [f, p] = z(null), [g, _] = z(null), [m, v] = z(!1), [b, x] = z(""), E = xe(void 0), T = (O) => {
     window.clearTimeout(E.current), x(O), E.current = window.setTimeout(() => x(""), 2600);
   };
   me(() => () => window.clearTimeout(E.current), []);
@@ -25506,9 +26264,9 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
     const O = {};
     for (const W of h.areas) w.rooms[W.area_id] && (O[W.area_id] = w.rooms[W.area_id]);
     return O;
-  }, [h, w]), I = h.areas.filter((O) => !k[O.area_id]), A = Object.values(k).flat(), C = Math.max(ly, ...A.map((O) => O.x + O.w + Cl)), M = Math.max(cy, ...A.map((O) => O.y + O.h + Cl)), G = (O, W, ie) => ie.every(
-    (le) => le.x >= 0 && le.y >= 0 && le.x + le.w <= C && le.y + le.h <= M && Object.entries(O).every(([ue, pe]) => ue === W || pe.every((ge) => !Il(le, ge)))
-  ), K = g && (g.dx || g.dy) ? { ...k, [g.areaId]: _y(k[g.areaId], g) } : k, V = !g || G(K, g.areaId, K[g.areaId]), R = (O) => {
+  }, [h, w]), I = h.areas.filter((O) => !k[O.area_id]), A = Object.values(k).flat(), C = Math.max(Ay, ...A.map((O) => O.x + O.w + $l)), M = Math.max(Iy, ...A.map((O) => O.y + O.h + $l)), G = (O, W, ie) => ie.every(
+    (le) => le.x >= 0 && le.y >= 0 && le.x + le.w <= C && le.y + le.h <= M && Object.entries(O).every(([ue, pe]) => ue === W || pe.every((ge) => !Ll(le, ge)))
+  ), H = g && (g.dx || g.dy) ? { ...k, [g.areaId]: Fy(k[g.areaId], g) } : k, V = !g || G(H, g.areaId, H[g.areaId]), R = (O) => {
     d((W) => ({ ...W, [h.key]: { ...W[h.key], ...O } })), v(!0);
   }, F = (O) => R({ rooms: { ...w.rooms, ...O } }), [L, N] = z(null), [j, $] = z({ w: 0, h: 0 });
   me(() => {
@@ -25516,7 +26274,7 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
     const O = new ResizeObserver(([W]) => $({ w: W.contentRect.width, h: W.contentRect.height }));
     return O.observe(L), () => O.disconnect();
   }, [L]);
-  const B = j.w > 0 ? Math.max(dy, Math.min(uy, Math.floor(Math.min((j.w - Dl * 2) / C, (j.h - Dl * 2) / M)))) : 0, ae = (O, W, ie, le, ue) => {
+  const B = j.w > 0 ? Math.max(Ly, Math.min(Ry, Math.floor(Math.min((j.w - Bl * 2) / C, (j.h - Bl * 2) / M)))) : 0, ae = (O, W, ie, le, ue) => {
     if (!(O.pointerType === "mouse" && O.button !== 0)) {
       O.preventDefault(), O.stopPropagation();
       try {
@@ -25530,7 +26288,7 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
     const W = Math.round((O.clientX - g.sx) / B), ie = Math.round((O.clientY - g.sy) / B);
     (W !== g.dx || ie !== g.dy) && _({ ...g, dx: W, dy: ie });
   }, Y = () => {
-    g && ((g.dx || g.dy) && (V ? F({ [g.areaId]: K[g.areaId] }) : T("Place occupée : la pièce revient à sa position")), _(null));
+    g && ((g.dx || g.dy) && (V ? F({ [g.areaId]: H[g.areaId] }) : T("Place occupée : la pièce revient à sa position")), _(null));
   }, te = (O, W) => {
     G(k, O, W) && F({ [O]: W });
   }, oe = (O, W, ie) => {
@@ -25576,7 +26334,7 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
     const W = { ...w.rooms }, ie = { ...w.openings };
     delete W[O], delete ie[O], R({ rooms: W, openings: ie }), p(null), T(`Pièce retirée du plan : ${S.get(O)?.name}`);
   }, it = (O, W) => (e.get(O) ?? []).filter(
-    (ie) => ie.domain === "binary_sensor" && gy[W].has(String(ie.state.attributes.device_class ?? ""))
+    (ie) => ie.domain === "binary_sensor" && My[W].has(String(ie.state.attributes.device_class ?? ""))
   ), se = (O, W) => {
     const ie = Object.entries(k).filter(([pe]) => pe !== O).flatMap(([, pe]) => pe), le = {
       top: { x: W.x, y: W.y - 1, w: W.w, h: 1 },
@@ -25584,10 +26342,10 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
       left: { x: W.x - 1, y: W.y, w: 1, h: W.h },
       right: { x: W.x + W.w, y: W.y, w: 1, h: W.h }
     };
-    return ["top", "right", "bottom", "left"].find((pe) => !ie.some((ge) => Il(le[pe], ge))) ?? "top";
+    return ["top", "right", "bottom", "left"].find((pe) => !ie.some((ge) => Ll(le[pe], ge))) ?? "top";
   }, Oe = (O, W, ie) => {
-    const le = k[O][W], ue = se(O, le), pe = Ms(le, ue), ge = Math.min(pe, ie === "door" ? 1 : Math.max(1, Math.round(pe / 3))), Xe = new Set((w.openings[O] ?? []).map((Ai) => Ai.entity_id)), He = it(O, ie).find((Ai) => !Xe.has(Ai.entity_id)), Qi = {
-      id: vy(),
+    const le = k[O][W], ue = se(O, le), pe = Os(le, ue), ge = Math.min(pe, ie === "door" ? 1 : Math.max(1, Math.round(pe / 3))), Xe = new Set((w.openings[O] ?? []).map((Ai) => Ai.entity_id)), He = it(O, ie).find((Ai) => !Xe.has(Ai.entity_id)), Qi = {
+      id: Ny(),
       kind: ie,
       rect: W,
       side: ue,
@@ -25599,8 +26357,8 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
   }, ce = (O, W, ie) => {
     const le = (w.openings[O] ?? []).map((ue) => {
       if (ue.id !== W) return ue;
-      const pe = { ...ue, ...ie }, ge = Ms(k[O][pe.rect] ?? k[O][0], pe.side);
-      return pe.length = Math.max(Os, Math.min(ge, pe.length)), pe.offset = Math.max(0, Math.min(ge - pe.length, pe.offset)), pe;
+      const pe = { ...ue, ...ie }, ge = Os(k[O][pe.rect] ?? k[O][0], pe.side);
+      return pe.length = Math.max(Fs, Math.min(ge, pe.length)), pe.offset = Math.max(0, Math.min(ge - pe.length, pe.offset)), pe;
     });
     R({ openings: { ...w.openings, [O]: le } });
   }, De = (O, W) => {
@@ -25614,11 +26372,11 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
     };
     return window.addEventListener("keydown", O), () => window.removeEventListener("keydown", O);
   }, [f, m, a]);
-  const Pe = f ? k[f.areaId] : void 0, be = f?.kind === "room" && Pe ? Math.min(f.rect, Pe.length - 1) : 0, H = f?.kind === "opening" ? (w.openings[f.areaId] ?? []).find((O) => O.id === f.id) ?? null : null, Q = f?.kind === "room" && K[f.areaId] ? K[f.areaId][be] : null;
+  const Pe = f ? k[f.areaId] : void 0, ve = f?.kind === "room" && Pe ? Math.min(f.rect, Pe.length - 1) : 0, K = f?.kind === "opening" ? (w.openings[f.areaId] ?? []).find((O) => O.id === f.id) ?? null : null, Q = f?.kind === "room" && H[f.areaId] ? H[f.areaId][ve] : null;
   return /* @__PURE__ */ l("div", { class: "nido-plan-editor", role: "dialog", "aria-modal": "true", "aria-label": "Modifier le plan", children: /* @__PURE__ */ l("div", { class: "nido-plan-editor__shell", children: [
     /* @__PURE__ */ l("header", { class: "nido-plan-editor__header", children: [
       /* @__PURE__ */ l("div", { class: "nido-plan-editor__title", children: [
-        /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__back", "aria-label": "Fermer sans enregistrer", onClick: a, children: /* @__PURE__ */ l(ta, { size: 18 }) }),
+        /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__back", "aria-label": "Fermer sans enregistrer", onClick: a, children: /* @__PURE__ */ l(ia, { size: 18 }) }),
         /* @__PURE__ */ l("h1", { children: "Modifier le plan" }),
         n.length > 1 && /* @__PURE__ */ l("div", { class: "nido-plan__floors", role: "group", "aria-label": "Étage", children: n.map((O) => /* @__PURE__ */ l(
           "button",
@@ -25637,7 +26395,7 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
       /* @__PURE__ */ l("div", { class: "nido-plan-editor__actions", children: [
         /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__ghost", onClick: a, children: "Annuler" }),
         /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__primary", onClick: Be, children: [
-          /* @__PURE__ */ l(Fc, { size: 16 }),
+          /* @__PURE__ */ l($c, { size: 16 }),
           "Enregistrer"
         ] })
       ] })
@@ -25662,7 +26420,7 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
               O.target === O.currentTarget && p(null);
             },
             children: [
-              Object.entries(K).map(([O, W]) => {
+              Object.entries(H).map(([O, W]) => {
                 const ie = S.get(O);
                 if (!ie) return null;
                 const le = W.reduce((ge, Xe, He) => Xe.w * Xe.h > W[ge].w * W[ge].h ? He : ge, 0), ue = g?.areaId === O, pe = ue && !V;
@@ -25694,9 +26452,9 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
                   `${O}-${Xe}`
                 ));
               }),
-              Object.entries(K).flatMap(
+              Object.entries(H).flatMap(
                 ([O, W]) => S.has(O) ? (w.openings[O] ?? []).map((ie) => {
-                  const le = Du(W[ie.rect] ?? W[0], ie), ue = 12, pe = le.horizontal ? { left: `${le.x * B}px`, top: `${le.y * B - ue / 2}px`, width: `${le.length * B}px`, height: `${ue}px` } : { left: `${le.x * B - ue / 2}px`, top: `${le.y * B}px`, width: `${ue}px`, height: `${le.length * B}px` };
+                  const le = Mu(W[ie.rect] ?? W[0], ie), ue = 12, pe = le.horizontal ? { left: `${le.x * B}px`, top: `${le.y * B - ue / 2}px`, width: `${le.length * B}px`, height: `${ue}px` } : { left: `${le.x * B - ue / 2}px`, top: `${le.y * B}px`, width: `${ue}px`, height: `${le.length * B}px` };
                   return /* @__PURE__ */ l(
                     "button",
                     {
@@ -25728,7 +26486,7 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
                     children: g && !V ? "Chevauche une autre pièce" : `${S.get(f.areaId)?.name} · ${Q.w} × ${Q.h}`
                   }
                 ),
-                hy.map(([O, W, ie]) => /* @__PURE__ */ l(
+                Cy.map(([O, W, ie]) => /* @__PURE__ */ l(
                   "span",
                   {
                     class: "nido-plan-editor__handle",
@@ -25736,9 +26494,9 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
                     style: {
                       left: `${(Q.x + W * Q.w) * B - 11}px`,
                       top: `${(Q.y + ie * Q.h) * B - 11}px`,
-                      cursor: fy[O]
+                      cursor: Dy[O]
                     },
-                    onPointerDown: (le) => ae(le, f.areaId, be, "resize", O),
+                    onPointerDown: (le) => ae(le, f.areaId, ve, "resize", O),
                     onPointerMove: de,
                     onPointerUp: Y,
                     onPointerCancel: Y
@@ -25756,17 +26514,17 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
           /* @__PURE__ */ l("div", { class: "nido-plan__eyebrow", children: "Pièce sélectionnée" }),
           /* @__PURE__ */ l("div", { class: "nido-plan-editor__card-title", children: S.get(f.areaId)?.name }),
           /* @__PURE__ */ l("div", { class: "nido-plan-editor__row", children: [
-            /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__btn", onClick: () => Oe(f.areaId, be, "window"), children: [
-              /* @__PURE__ */ l($t, { size: 16 }),
+            /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__btn", onClick: () => Oe(f.areaId, ve, "window"), children: [
+              /* @__PURE__ */ l(Ut, { size: 16 }),
               " Fenêtre"
             ] }),
-            /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__btn", onClick: () => Oe(f.areaId, be, "door"), children: [
+            /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__btn", onClick: () => Oe(f.areaId, ve, "door"), children: [
               /* @__PURE__ */ l(Ti, { size: 16 }),
               " Porte"
             ] })
           ] }),
           /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__btn", onClick: () => Me(f.areaId), children: [
-            /* @__PURE__ */ l($f, { size: 16 }),
+            /* @__PURE__ */ l(Uf, { size: 16 }),
             " Ajouter un rectangle (pièce en L)"
           ] }),
           /* @__PURE__ */ l(
@@ -25774,24 +26532,24 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
             {
               type: "button",
               class: "nido-plan-editor__btn nido-plan-editor__btn--danger",
-              onClick: () => be > 0 ? Ee(f.areaId, be) : ze(f.areaId),
+              onClick: () => ve > 0 ? Ee(f.areaId, ve) : ze(f.areaId),
               children: [
-                /* @__PURE__ */ l(zc, { size: 16 }),
+                /* @__PURE__ */ l(Kc, { size: 16 }),
                 " ",
-                be > 0 ? "Supprimer ce rectangle" : "Retirer du plan"
+                ve > 0 ? "Supprimer ce rectangle" : "Retirer du plan"
               ]
             }
           )
         ] }),
-        f?.kind === "opening" && H && /* @__PURE__ */ l(
-          by,
+        f?.kind === "opening" && K && /* @__PURE__ */ l(
+          By,
           {
-            opening: H,
+            opening: K,
             roomName: S.get(f.areaId)?.name ?? "",
-            sensors: it(f.areaId, H.kind),
-            onPatch: (O) => ce(f.areaId, H.id, O),
-            onRemove: () => De(f.areaId, H.id),
-            onBack: () => p({ kind: "room", areaId: f.areaId, rect: H.rect })
+            sensors: it(f.areaId, K.kind),
+            onPatch: (O) => ce(f.areaId, K.id, O),
+            onRemove: () => De(f.areaId, K.id),
+            onBack: () => p({ kind: "room", areaId: f.areaId, rect: K.rect })
           }
         ),
         !f && /* @__PURE__ */ l("div", { class: "nido-plan-editor__card", children: [
@@ -25805,7 +26563,7 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
           ] }),
           /* @__PURE__ */ l("p", { class: "nido-plan-editor__muted", children: I.length > 0 ? "Pièces de cet étage absentes du plan. Touche-en une pour la poser sur une place libre." : "Toutes les pièces de cet étage sont sur le plan." }),
           I.map((O) => /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__unplaced", onClick: () => Te(O.area_id), children: [
-            /* @__PURE__ */ l(St, { size: 16 }),
+            /* @__PURE__ */ l(Tt, { size: 16 }),
             O.name
           ] }, O.area_id))
         ] }),
@@ -25814,7 +26572,7 @@ function yy({ floors: n, byArea: e, plan: t, initialFloor: i, synced: r, onSave:
     ] })
   ] }) });
 }
-function by({
+function By({
   opening: n,
   roomName: e,
   sensors: t,
@@ -25825,7 +26583,7 @@ function by({
   const a = n.kind === "door" ? "Porte" : "Fenêtre";
   return /* @__PURE__ */ l("div", { class: "nido-plan-editor__card", children: [
     /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__link", onClick: s, children: [
-      /* @__PURE__ */ l(ta, { size: 14 }),
+      /* @__PURE__ */ l(ia, { size: 14 }),
       " ",
       e
     ] }),
@@ -25850,13 +26608,13 @@ function by({
         class: n.side === o ? "is-active" : "",
         "aria-pressed": n.side === o,
         onClick: () => i({ side: o }),
-        children: py[o]
+        children: Py[o]
       },
       o
     )) }),
     /* @__PURE__ */ l("div", { class: "nido-plan-editor__steppers", children: [
       /* @__PURE__ */ l(
-        Pl,
+        Ul,
         {
           label: "Position",
           value: n.offset,
@@ -25864,7 +26622,7 @@ function by({
         }
       ),
       /* @__PURE__ */ l(
-        Pl,
+        Ul,
         {
           label: "Largeur",
           value: n.length,
@@ -25887,30 +26645,30 @@ function by({
       }
     ),
     /* @__PURE__ */ l("button", { type: "button", class: "nido-plan-editor__btn nido-plan-editor__btn--danger", onClick: r, children: [
-      /* @__PURE__ */ l(zc, { size: 16 }),
+      /* @__PURE__ */ l(Kc, { size: 16 }),
       " Supprimer"
     ] })
   ] });
 }
-function Pl({ label: n, value: e, onChange: t }) {
+function Ul({ label: n, value: e, onChange: t }) {
   return /* @__PURE__ */ l("div", { class: "nido-plan-editor__stepper", children: [
     /* @__PURE__ */ l("span", { class: "nido-plan-editor__field-label", children: n }),
     /* @__PURE__ */ l("div", { class: "nido-plan-editor__stepper-row", children: [
-      /* @__PURE__ */ l("button", { type: "button", "aria-label": `${n} : moins`, onClick: () => t(e - Os), children: /* @__PURE__ */ l(vi, { size: 16 }) }),
+      /* @__PURE__ */ l("button", { type: "button", "aria-label": `${n} : moins`, onClick: () => t(e - Fs), children: /* @__PURE__ */ l(vi, { size: 16 }) }),
       /* @__PURE__ */ l("span", { children: e.toLocaleString("fr-FR") }),
-      /* @__PURE__ */ l("button", { type: "button", "aria-label": `${n} : plus`, onClick: () => t(e + Os), children: /* @__PURE__ */ l(St, { size: 16 }) })
+      /* @__PURE__ */ l("button", { type: "button", "aria-label": `${n} : plus`, onClick: () => t(e + Fs), children: /* @__PURE__ */ l(Tt, { size: 16 }) })
     ] })
   ] });
 }
 let Ci = null;
-function xy() {
+function Uy() {
   if (typeof window > "u") return null;
   const n = window.AudioContext ?? window.webkitAudioContext;
   return n ? (Ci || (Ci = new n()), Ci.state === "suspended" && Ci.resume().catch(() => {
   }), Ci) : null;
 }
-function Ou() {
-  const n = xy();
+function $u() {
+  const n = Uy();
   if (!n) return;
   const e = n.currentTime, t = n.createGain();
   t.gain.value = 0.07, t.connect(n.destination);
@@ -25925,14 +26683,14 @@ function Ou() {
     a.gain.setValueAtTime(0, e + r.start), a.gain.linearRampToValueAtTime(r.gain, e + r.start + 0.012), a.gain.exponentialRampToValueAtTime(8e-4, e + r.start + r.dur), s.connect(a), a.connect(t), s.start(e + r.start), s.stop(e + r.start + r.dur + 0.05);
   }
 }
-function Ey(n) {
+function Gy(n) {
   return (n.hassUrl?.("") ?? "").replace(/\/$/, "");
 }
-function Sy(n, e) {
-  return n ? /^https?:\/\//i.test(n) ? n : n.startsWith("/") ? `${Ey(e)}${n}` : n : null;
+function zy(n, e) {
+  return n ? /^https?:\/\//i.test(n) ? n : n.startsWith("/") ? `${Gy(e)}${n}` : n : null;
 }
-function Fu({ hass: n, notifications: e, onClose: t }) {
-  const i = yt(t), r = async (a) => {
+function Bu({ hass: n, notifications: e, onClose: t }) {
+  const i = bt(t), r = async (a) => {
     if (n)
       try {
         await n.connection.sendMessagePromise({
@@ -25992,10 +26750,10 @@ function Fu({ hass: n, notifications: e, onClose: t }) {
             )
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-notification-panel__scroll", children: e.length === 0 ? /* @__PURE__ */ l("div", { class: "nido-notification-empty", children: [
-            /* @__PURE__ */ l("div", { class: "nido-notification-empty__icon", children: /* @__PURE__ */ l(qs, { size: 48 }) }),
+            /* @__PURE__ */ l("div", { class: "nido-notification-empty__icon", children: /* @__PURE__ */ l(Xs, { size: 48 }) }),
             /* @__PURE__ */ l("p", { children: "Aucune notification pour le moment." })
           ] }) : /* @__PURE__ */ l("div", { class: "nido-notification-list", children: [...e].reverse().map((a) => {
-            const o = a.type === "warning" ? Uc : a.type === "success" ? Df : Cf, d = `nido-notification-item--${a.type}`, u = new Date(a.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), h = Sy(a.image, n);
+            const o = a.type === "warning" ? zc : a.type === "success" ? Mf : Pf, d = `nido-notification-item--${a.type}`, u = new Date(a.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), h = zy(a.image, n);
             return /* @__PURE__ */ l("div", { class: `nido-notification-item ${d}`, children: [
               /* @__PURE__ */ l("div", { class: "nido-notification-item__icon", children: /* @__PURE__ */ l(o, { size: 20 }) }),
               /* @__PURE__ */ l("div", { class: "nido-notification-item__body", children: [
@@ -26034,12 +26792,12 @@ function Fu({ hass: n, notifications: e, onClose: t }) {
     )
   ] });
 }
-function Ty(n) {
+function Vy(n) {
   const e = n.state.attributes.brightness;
   return typeof e != "number" ? 100 : Math.round(e / 255 * 100);
 }
-function ky({ hass: n, entity: e }) {
-  const [t, i] = z(!1), r = e.state.state === "on", s = Ty(e), a = async () => {
+function Ky({ hass: n, entity: e }) {
+  const [t, i] = z(!1), r = e.state.state === "on", s = Vy(e), a = async () => {
     i(!0);
     try {
       await n.callService("light", "toggle", { entity_id: e.entity_id });
@@ -26048,7 +26806,7 @@ function ky({ hass: n, entity: e }) {
     }
   };
   return /* @__PURE__ */ l("div", { class: `nido-lights-row ${t ? "is-pending" : ""}`, children: [
-    /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: r ? /* @__PURE__ */ l(dt, { size: 18 }) : /* @__PURE__ */ l(qh, { size: 18 }) }),
+    /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: r ? /* @__PURE__ */ l(dt, { size: 18 }) : /* @__PURE__ */ l(Qh, { size: 18 }) }),
     /* @__PURE__ */ l("div", { class: "nido-lights-row__body", children: /* @__PURE__ */ l("div", { class: "nido-lights-row__name", children: e.friendly_name }) }),
     r && /* @__PURE__ */ l("div", { class: "nido-lights-row__pct", children: [
       s,
@@ -26068,8 +26826,8 @@ function ky({ hass: n, entity: e }) {
     )
   ] });
 }
-function wy({ hass: n, lights: e, areas: t, onClose: i }) {
-  const r = yt(i), [s, a] = z(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = Hs(e, o), c = e.filter((h) => h.state.state === "on"), u = async () => {
+function Hy({ hass: n, lights: e, areas: t, onClose: i }) {
+  const r = bt(i), [s, a] = z(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = js(e, o), c = e.filter((h) => h.state.state === "on"), u = async () => {
     a(!0);
     try {
       await Promise.all(
@@ -26110,7 +26868,7 @@ function wy({ hass: n, lights: e, areas: t, onClose: i }) {
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-notification-panel__scroll", children: /* @__PURE__ */ l("div", { class: "nido-lights-list", children: d.map((h) => /* @__PURE__ */ l("div", { class: "nido-lights-group", children: [
             /* @__PURE__ */ l("div", { class: "nido-lights-group__title", children: h.room }),
-            h.items.map((f) => /* @__PURE__ */ l(ky, { hass: n, entity: f }, f.entity_id))
+            h.items.map((f) => /* @__PURE__ */ l(Ky, { hass: n, entity: f }, f.entity_id))
           ] }, h.room)) }) }),
           c.length > 1 && /* @__PURE__ */ l("div", { class: "nido-lights-panel__footer", children: /* @__PURE__ */ l(
             "button",
@@ -26127,8 +26885,8 @@ function wy({ hass: n, lights: e, areas: t, onClose: i }) {
     )
   ] });
 }
-function Ay({ hass: n, entity: e }) {
-  const [t, i] = z(!1), r = Ks(e), s = async (a) => {
+function jy({ hass: n, entity: e }) {
+  const [t, i] = z(!1), r = Hs(e), s = async (a) => {
     i(!0);
     try {
       await n.callService("cover", a, { entity_id: e.entity_id });
@@ -26137,7 +26895,7 @@ function Ay({ hass: n, entity: e }) {
     }
   };
   return /* @__PURE__ */ l("div", { class: `nido-lights-row ${t ? "is-pending" : ""}`, children: [
-    /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: /* @__PURE__ */ l(Nt, { size: 18 }) }),
+    /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: /* @__PURE__ */ l(Bt, { size: 18 }) }),
     /* @__PURE__ */ l("div", { class: "nido-lights-row__body", children: /* @__PURE__ */ l("div", { class: "nido-lights-row__name", children: e.friendly_name }) }),
     /* @__PURE__ */ l("div", { class: "nido-lights-row__pct", children: [
       r,
@@ -26153,7 +26911,7 @@ function Ay({ hass: n, entity: e }) {
           title: "Descendre",
           disabled: t,
           onClick: () => s("close_cover"),
-          children: /* @__PURE__ */ l(Lc, { size: 16 })
+          children: /* @__PURE__ */ l(Cc, { size: 16 })
         }
       ),
       /* @__PURE__ */ l(
@@ -26165,7 +26923,7 @@ function Ay({ hass: n, entity: e }) {
           title: "Stop",
           disabled: t,
           onClick: () => s("stop_cover"),
-          children: /* @__PURE__ */ l(Rc, { size: 16 })
+          children: /* @__PURE__ */ l(Dc, { size: 16 })
         }
       ),
       /* @__PURE__ */ l(
@@ -26177,14 +26935,14 @@ function Ay({ hass: n, entity: e }) {
           title: "Monter",
           disabled: t,
           onClick: () => s("open_cover"),
-          children: /* @__PURE__ */ l(Ic, { size: 16 })
+          children: /* @__PURE__ */ l(Rc, { size: 16 })
         }
       )
     ] })
   ] });
 }
-function Iy({ hass: n, covers: e, areas: t, onClose: i }) {
-  const r = yt(i), [s, a] = z(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = Hs(e, o), c = e.filter((h) => Ks(h) > 0), u = async (h) => {
+function Wy({ hass: n, covers: e, areas: t, onClose: i }) {
+  const r = bt(i), [s, a] = z(!1), o = new Map(t.map((h) => [h.area_id, h.name])), d = js(e, o), c = e.filter((h) => Hs(h) > 0), u = async (h) => {
     a(!0);
     try {
       await Promise.all(
@@ -26223,7 +26981,7 @@ function Iy({ hass: n, covers: e, areas: t, onClose: i }) {
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-notification-panel__scroll", children: /* @__PURE__ */ l("div", { class: "nido-lights-list", children: d.map((h) => /* @__PURE__ */ l("div", { class: "nido-lights-group", children: [
             /* @__PURE__ */ l("div", { class: "nido-lights-group__title", children: h.room }),
-            h.items.map((f) => /* @__PURE__ */ l(Ay, { hass: n, entity: f }, f.entity_id))
+            h.items.map((f) => /* @__PURE__ */ l(jy, { hass: n, entity: f }, f.entity_id))
           ] }, h.room)) }) }),
           e.length > 1 && /* @__PURE__ */ l("div", { class: "nido-lights-panel__footer nido-covers-panel__footer", children: [
             /* @__PURE__ */ l(
@@ -26252,21 +27010,21 @@ function Iy({ hass: n, covers: e, areas: t, onClose: i }) {
     )
   ] });
 }
-const Ly = {
+const Yy = {
   door: Ti,
   garage_door: Ti,
-  window: $t
+  window: Ut
 };
-function Ry({ entity: n }) {
-  const e = n.state.state === "on", t = n.state.attributes.device_class ?? "", i = Ly[t] ?? $t;
+function qy({ entity: n }) {
+  const e = n.state.state === "on", t = n.state.attributes.device_class ?? "", i = Yy[t] ?? Ut;
   return /* @__PURE__ */ l("div", { class: "nido-lights-row", children: [
     /* @__PURE__ */ l("div", { class: "nido-lights-row__icon", children: /* @__PURE__ */ l(i, { size: 18 }) }),
     /* @__PURE__ */ l("div", { class: "nido-lights-row__body", children: /* @__PURE__ */ l("div", { class: "nido-lights-row__name", children: n.friendly_name }) }),
     /* @__PURE__ */ l("div", { class: `nido-openings-row__status ${e ? "is-open" : ""}`, children: e ? "Ouverte" : "Fermée" })
   ] });
 }
-function Cy({ openings: n, areas: e, onClose: t }) {
-  const i = yt(t), r = new Map(e.map((o) => [o.area_id, o.name])), s = Hs(n, r), a = n.filter((o) => o.state.state === "on");
+function Xy({ openings: n, areas: e, onClose: t }) {
+  const i = bt(t), r = new Map(e.map((o) => [o.area_id, o.name])), s = js(n, r), a = n.filter((o) => o.state.state === "on");
   return /* @__PURE__ */ l("div", { class: "nido-lights-panel", children: [
     /* @__PURE__ */ l("div", { class: "nido-notification-panel__backdrop", onClick: t }),
     /* @__PURE__ */ l(
@@ -26296,15 +27054,15 @@ function Cy({ openings: n, areas: e, onClose: t }) {
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-notification-panel__scroll", children: /* @__PURE__ */ l("div", { class: "nido-lights-list", children: s.map((o) => /* @__PURE__ */ l("div", { class: "nido-lights-group", children: [
             /* @__PURE__ */ l("div", { class: "nido-lights-group__title", children: o.room }),
-            o.items.map((d) => /* @__PURE__ */ l(Ry, { entity: d }, d.entity_id))
+            o.items.map((d) => /* @__PURE__ */ l(qy, { entity: d }, d.entity_id))
           ] }, o.room)) }) })
         ]
       }
     )
   ] });
 }
-const Jr = "nido.shoppingColor", Ml = "nido.shoppingSize", Dy = 600;
-function Ol(n, e, t) {
+const is = "nido.shoppingColor", Gl = "nido.shoppingSize", Qy = 600;
+function zl(n, e, t) {
   if (e.length < 2) return;
   n.lineWidth = t, n.lineCap = "round", n.lineJoin = "round", n.beginPath(), n.moveTo(e[0][0], e[0][1]);
   for (let r = 1; r < e.length - 1; r++) {
@@ -26314,10 +27072,10 @@ function Ol(n, e, t) {
   const i = e[e.length - 1];
   n.lineTo(i[0], i[1]), n.stroke();
 }
-function Py({ hass: n, onClose: e, topicBase: t = "shopping" }) {
-  const i = yt(e), r = xe(null), s = xe(null), a = xe([]), o = xe(null), d = xe(null), c = xe({ w: 0, h: 0 }), u = xe(null), h = xe("nido-" + Math.random().toString(36).slice(2, 8)), [f, p] = z(() => localStorage.getItem(Jr) || "#1a1410"), [g, _] = z(() => parseInt(localStorage.getItem(Ml) || "4", 10));
+function Zy({ hass: n, onClose: e, topicBase: t = "shopping" }) {
+  const i = bt(e), r = xe(null), s = xe(null), a = xe([]), o = xe(null), d = xe(null), c = xe({ w: 0, h: 0 }), u = xe(null), h = xe("nido-" + Math.random().toString(36).slice(2, 8)), [f, p] = z(() => localStorage.getItem(is) || "#1a1410"), [g, _] = z(() => parseInt(localStorage.getItem(Gl) || "4", 10));
   me(() => {
-    if (localStorage.getItem(Jr)) return;
+    if (localStorage.getItem(is)) return;
     const R = s.current;
     if (!R) return;
     const F = getComputedStyle(R).getPropertyValue("--ink-1").trim();
@@ -26334,20 +27092,20 @@ function Py({ hass: n, onClose: e, topicBase: t = "shopping" }) {
   }, []);
   const m = xe(f), v = xe(g);
   me(() => {
-    m.current = f, localStorage.setItem(Jr, f);
+    m.current = f, localStorage.setItem(is, f);
   }, [f]), me(() => {
-    v.current = g, localStorage.setItem(Ml, String(g));
+    v.current = g, localStorage.setItem(Gl, String(g));
   }, [g]);
   const b = qe((R) => [R[0] * c.current.w, R[1] * c.current.h], []), x = qe(() => {
     const R = r.current;
     if (!R) return;
     const F = R.getContext("2d");
     if (!F) return;
-    const L = c.current.w / Dy;
+    const L = c.current.w / Qy;
     F.clearRect(0, 0, c.current.w, c.current.h);
     for (const N of a.current)
-      F.strokeStyle = N.color, Ol(F, N.points.map(b), N.size * L);
-    o.current && (F.strokeStyle = o.current.color, Ol(F, o.current.points.map(b), o.current.size * L));
+      F.strokeStyle = N.color, zl(F, N.points.map(b), N.size * L);
+    o.current && (F.strokeStyle = o.current.color, zl(F, o.current.points.map(b), o.current.size * L));
   }, [b]), E = qe(() => {
     const R = r.current, F = s.current;
     if (!R || !F) return;
@@ -26509,7 +27267,7 @@ function Py({ hass: n, onClose: e, topicBase: t = "shopping" }) {
       return;
     }
     a.current.push(F), S(F), x();
-  }, [x, S]), K = qe(() => {
+  }, [x, S]), H = qe(() => {
     for (let R = a.current.length - 1; R >= 0; R--)
       if (a.current[R].by === h.current) {
         const F = a.current.splice(R, 1)[0];
@@ -26562,7 +27320,7 @@ function Py({ hass: n, onClose: e, topicBase: t = "shopping" }) {
                 {
                   type: "button",
                   class: "nido-shopping-panel__tool",
-                  onClick: K,
+                  onClick: H,
                   "aria-label": "Annuler mon dernier trait",
                   title: "Annuler",
                   children: "↶"
@@ -26609,735 +27367,25 @@ function Py({ hass: n, onClose: e, topicBase: t = "shopping" }) {
     )
   ] });
 }
-function es(n, e, t, i) {
-  const r = Math.PI * (1 - n);
-  return [e + i * Math.cos(r), t - i * Math.sin(r)];
-}
-function Nu({
-  hass: n,
-  powerEntityId: e,
-  max: t = 7e3,
-  onOpen: i
-}) {
-  const r = n.states[e], s = r?.attributes.friendly_name ?? "Compteur Linky", a = r?.state ?? "unavailable", o = a === "unavailable" || a === "unknown" || !r, d = r?.attributes.unit_of_measurement ?? "W", c = Z(() => {
-    if (o) return 0;
-    const A = Number(a);
-    return Number.isFinite(A) ? Math.max(0, Math.round(A)) : 0;
-  }, [a, o]), u = Math.max(0, Math.min(1, c / t)), h = 100, f = 100, p = 86, [g, _] = es(0, h, f, p), [m, v] = es(1, h, f, p), [b, x] = es(u, h, f, p), E = `M ${g.toFixed(2)} ${_.toFixed(2)} A ${p} ${p} 0 0 1 ${m.toFixed(2)} ${v.toFixed(2)}`, T = u > 0.5 ? 1 : 0, w = u > 0 ? `M ${g.toFixed(2)} ${_.toFixed(2)} A ${p} ${p} 0 ${T} 1 ${b.toFixed(2)} ${x.toFixed(2)}` : "", S = c >= 5e3 ? "Pic" : c >= 2e3 ? "Soutenu" : "Sobre", k = ["n-card", "n-card--accent", "breathe-1", "n-power-gauge"].join(" "), I = typeof i == "function";
-  return /* @__PURE__ */ l(
-    "div",
-    {
-      class: k,
-      "data-on": "true",
-      role: I ? "button" : void 0,
-      tabIndex: I ? 0 : void 0,
-      onClick: I ? i : void 0,
-      onKeyDown: I ? (A) => {
-        (A.key === "Enter" || A.key === " ") && (A.preventDefault(), i?.());
-      } : void 0,
-      style: { cursor: I ? "pointer" : "default" },
-      children: [
-        /* @__PURE__ */ l("div", { class: "n-light__glow", "aria-hidden": "true" }),
-        /* @__PURE__ */ l(
-          "svg",
-          {
-            class: "n-power-gauge__deco",
-            width: "200",
-            height: "200",
-            viewBox: "0 0 200 200",
-            "aria-hidden": "true",
-            children: [
-              /* @__PURE__ */ l("circle", { cx: "100", cy: "100", r: "80", fill: "none", stroke: "currentColor", "stroke-width": "1" }),
-              /* @__PURE__ */ l("circle", { cx: "100", cy: "100", r: "60", fill: "none", stroke: "currentColor", "stroke-width": "1" }),
-              /* @__PURE__ */ l("circle", { cx: "100", cy: "100", r: "40", fill: "none", stroke: "currentColor", "stroke-width": "1" })
-            ]
-          }
-        ),
-        /* @__PURE__ */ l("div", { class: "n-power-gauge__head", children: [
-          /* @__PURE__ */ l("div", { class: "n-power-gauge__head-text", children: [
-            /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Consommation · En direct" }),
-            /* @__PURE__ */ l("div", { class: "n-title", children: s })
-          ] }),
-          /* @__PURE__ */ l("div", { class: "n-power-gauge__head-actions", children: [
-            /* @__PURE__ */ l("span", { class: "n-power-gauge__live", children: [
-              /* @__PURE__ */ l("span", { class: "n-power-gauge__live-dot" }),
-              "Live"
-            ] }),
-            I && /* @__PURE__ */ l("span", { class: "n-power-gauge__open", "aria-hidden": "true", children: /* @__PURE__ */ l(ea, { size: 14 }) })
-          ] })
-        ] }),
-        o ? /* @__PURE__ */ l("div", { class: "n-muted n-power-gauge__unavailable", children: "Indisponible" }) : /* @__PURE__ */ l(Se, { children: [
-          /* @__PURE__ */ l("div", { class: "n-power-gauge__chart", children: [
-            /* @__PURE__ */ l(
-              "svg",
-              {
-                width: "240",
-                height: "150",
-                viewBox: "0 0 200 120",
-                preserveAspectRatio: "xMidYMid meet",
-                class: "n-power-gauge__svg",
-                children: [
-                  /* @__PURE__ */ l(
-                    "path",
-                    {
-                      d: E,
-                      fill: "none",
-                      stroke: "rgba(255,255,255,0.2)",
-                      "stroke-width": "14",
-                      "stroke-linecap": "round"
-                    }
-                  ),
-                  w && /* @__PURE__ */ l(
-                    "path",
-                    {
-                      d: w,
-                      fill: "none",
-                      stroke: "rgba(255,255,255,0.95)",
-                      "stroke-width": "14",
-                      "stroke-linecap": "round",
-                      class: "n-power-gauge__arc"
-                    }
-                  ),
-                  /* @__PURE__ */ l(
-                    "line",
-                    {
-                      x1: g,
-                      y1: _ + 8,
-                      x2: g,
-                      y2: _ + 14,
-                      stroke: "rgba(255,255,255,0.4)",
-                      "stroke-width": "1"
-                    }
-                  ),
-                  /* @__PURE__ */ l(
-                    "line",
-                    {
-                      x1: m,
-                      y1: v + 8,
-                      x2: m,
-                      y2: v + 14,
-                      stroke: "rgba(255,255,255,0.4)",
-                      "stroke-width": "1"
-                    }
-                  )
-                ]
-              }
-            ),
-            /* @__PURE__ */ l("div", { class: "n-power-gauge__readout", children: [
-              /* @__PURE__ */ l("div", { class: "n-power-gauge__value", children: [
-                c.toLocaleString("fr-FR"),
-                /* @__PURE__ */ l("span", { class: "n-power-gauge__unit", children: d })
-              ] }),
-              /* @__PURE__ */ l("div", { class: "n-eyebrow n-power-gauge__sublabel", children: "Puissance instantanée" })
-            ] })
-          ] }),
-          /* @__PURE__ */ l("div", { class: "n-power-gauge__foot", children: [
-            /* @__PURE__ */ l("span", { children: [
-              "0 ",
-              d
-            ] }),
-            /* @__PURE__ */ l("span", { class: "n-power-gauge__pill", children: [
-              /* @__PURE__ */ l("span", { class: "n-power-gauge__pill-dot" }),
-              S,
-              " · ",
-              Math.round(u * 100),
-              "%"
-            ] }),
-            /* @__PURE__ */ l("span", { children: [
-              t.toLocaleString("fr-FR"),
-              " ",
-              d
-            ] })
-          ] })
-        ] })
-      ]
-    }
-  );
-}
-const er = 64, gn = 80, mn = 80, Fl = 270 / 360 * 2 * Math.PI * er, Nl = 2 * Math.PI * er;
-function My({
-  currentPower: n,
-  subscribedKva: e = 9
-}) {
-  const t = Math.max(0, n) / 1e3, i = Math.min(1, t / e), r = i >= 0.85, s = !r && i >= 0.7, a = r ? "var(--warning)" : s ? "var(--accent-deep)" : "var(--accent)", o = `${(Fl * i).toFixed(1)} ${Nl.toFixed(1)}`, d = `${Fl.toFixed(1)} ${Nl.toFixed(1)}`, c = r ? "Risque coupure" : s ? "À surveiller" : "Marge ok", u = r ? "Coupez un gros poste pour éviter la disjonction." : s ? "Évitez de cumuler four + lave-linge maintenant." : "Tout est sous contrôle, rien à signaler.";
-  return /* @__PURE__ */ l("div", { class: "n-card n-subscription-guard", children: [
-    /* @__PURE__ */ l("div", { class: "n-subscription-guard__head", children: [
-      /* @__PURE__ */ l("div", { children: [
-        /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Puissance souscrite" }),
-        /* @__PURE__ */ l("div", { class: "n-title", children: "Garde compteur" })
-      ] }),
-      /* @__PURE__ */ l(
-        "span",
-        {
-          class: `n-pill-btn n-pill-btn--ghost n-subscription-guard__pill ${r ? "is-danger" : s ? "is-watch" : ""}`,
-          children: c
-        }
-      )
-    ] }),
-    /* @__PURE__ */ l("div", { class: "n-subscription-guard__chart", children: [
-      /* @__PURE__ */ l("svg", { width: "160", height: "160", viewBox: "0 0 160 160", children: [
-        /* @__PURE__ */ l(
-          "circle",
-          {
-            cx: gn,
-            cy: mn,
-            r: er,
-            fill: "none",
-            stroke: "var(--bg-inset)",
-            "stroke-width": "12",
-            "stroke-linecap": "round",
-            "stroke-dasharray": d,
-            transform: `rotate(135 ${gn} ${mn})`
-          }
-        ),
-        /* @__PURE__ */ l(
-          "circle",
-          {
-            cx: gn,
-            cy: mn,
-            r: er,
-            fill: "none",
-            stroke: a,
-            "stroke-width": "12",
-            "stroke-linecap": "round",
-            "stroke-dasharray": o,
-            transform: `rotate(135 ${gn} ${mn})`,
-            class: "n-subscription-guard__arc"
-          }
-        )
-      ] }),
-      /* @__PURE__ */ l("div", { class: "n-subscription-guard__readout", children: [
-        /* @__PURE__ */ l("div", { class: "n-subscription-guard__value", style: { color: a }, children: [
-          t.toFixed(1).replace(".", ","),
-          /* @__PURE__ */ l("span", { class: "n-subscription-guard__unit", children: "kVA" })
-        ] }),
-        /* @__PURE__ */ l("div", { class: "n-eyebrow n-subscription-guard__sub", children: [
-          "sur ",
-          e,
-          " kVA · ",
-          Math.round(i * 100),
-          "%"
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ l("div", { class: "n-subscription-guard__msg", children: u })
-  ] });
-}
-const Mi = {
-  day: { label: "Jour", bucketCount: 24, bucketHours: 1 },
-  week: { label: "Semaine", bucketCount: 7, bucketHours: 24 },
-  month: { label: "Mois", bucketCount: 30, bucketHours: 24 }
-};
-function Oy(n) {
-  const e = new Date(n);
-  return e.setMinutes(0, 0, 0), e;
-}
-function Fy(n) {
-  const e = new Date(n);
-  return e.setHours(0, 0, 0, 0), e;
-}
-function Ny(n) {
-  if (typeof n.lu == "number") return n.lu * 1e3;
-  const e = n.last_updated ?? n.last_changed;
-  if (!e) return null;
-  const t = Date.parse(e);
-  return Number.isFinite(t) ? t : null;
-}
-function $y(n) {
-  const e = n.s ?? n.state;
-  if (e == null || e === "unavailable" || e === "unknown") return null;
-  const t = Number(e);
-  return Number.isFinite(t) ? t : null;
-}
-function By(n) {
-  if (typeof n.start == "number") return n.start;
-  const e = Date.parse(String(n.start));
-  return Number.isFinite(e) ? e : null;
-}
-function $l(n, e, t, i, r) {
-  const s = new Array(i).fill(0);
-  if (n.length === 0) return { buckets: s, total: 0 };
-  const a = n.map((c) => ({ t: Ny(c), v: $y(c) })).filter((c) => c.t !== null && c.v !== null).sort((c, u) => c.t - u.t);
-  if (a.length === 0) return { buckets: s, total: 0 };
-  for (let c = 0; c < a.length - 1; c += 1) {
-    const u = a[c], h = a[c + 1], f = Math.max(u.t, e), p = Math.min(h.t, t);
-    if (p <= f) continue;
-    const g = (u.v + h.v) / 2, _ = (p - f) / 36e5, m = g * _ / 1e3, v = Math.floor((f - e) / r);
-    v >= 0 && v < i && (s[v] += m);
-  }
-  const o = a[a.length - 1];
-  if (o.t < t) {
-    const c = Math.max(o.t, e), u = (t - c) / 36e5;
-    if (u > 0) {
-      const h = o.v * u / 1e3, f = Math.floor((c - e) / r);
-      f >= 0 && f < i && (s[f] += h);
-    }
-  }
-  const d = s.reduce((c, u) => c + u, 0);
-  return { buckets: s, total: d };
-}
-function Uy(n, e, t, i) {
-  const r = new Array(t).fill(0);
-  for (const a of n) {
-    const o = By(a);
-    if (o === null) continue;
-    const d = Math.floor((o - e) / i);
-    if (!(d < 0 || d >= t)) {
-      if (typeof a.change == "number" && Number.isFinite(a.change))
-        r[d] += a.change;
-      else if (typeof a.mean == "number" && Number.isFinite(a.mean)) {
-        const c = i / 36e5;
-        r[d] += a.mean * c / 1e3;
-      }
-    }
-  }
-  const s = r.reduce((a, o) => a + o, 0);
-  return { buckets: r, total: s };
-}
-const Gy = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
-function Bl(n, e) {
-  if (n === "day")
-    return {
-      axisLabels: ["00 h", "06 h", "12 h", "18 h", "24 h"],
-      bucketLabel: (r) => `${String(r).padStart(2, "0")} h`
-    };
-  if (n === "week") {
-    const r = [], s = new Date(e);
-    for (let a = 0; a < 7; a += 1) {
-      const o = new Date(s);
-      o.setDate(s.getDate() + a);
-      const d = o.getDay() === 0 ? 6 : o.getDay() - 1;
-      r.push(Gy[d]);
-    }
-    return {
-      axisLabels: [r[0], r[3], r[6]],
-      bucketLabel: (a) => r[a] ?? ""
-    };
-  }
-  const t = new Date(e), i = [];
-  for (let r = 0; r < 30; r += 1) {
-    const s = new Date(t);
-    s.setDate(t.getDate() + r), i.push(String(s.getDate()));
-  }
-  return {
-    axisLabels: [i[0], i[7], i[14], i[21], i[29]],
-    bucketLabel: (r) => i[r] ?? ""
-  };
-}
-function zy(n, e) {
-  const t = Date.now(), i = Mi[n], r = Math.floor((t - e) / (i.bucketHours * 36e5));
-  return Math.max(0, Math.min(i.bucketCount - 1, r));
-}
-function Vy({
-  hass: n,
-  powerEntityId: e,
-  dailyConsumptionEntityId: t
-}) {
-  const [i, r] = z(null), [s, a] = z(!0), [o, d] = z("day");
-  me(() => {
-    let S = !1;
-    return (async () => {
-      a(!0);
-      try {
-        if (o === "day") {
-          const I = Oy(new Date(Date.now() - 828e5)), A = /* @__PURE__ */ new Date(), C = await n.callWS({
-            type: "history/history_during_period",
-            start_time: I.toISOString(),
-            end_time: A.toISOString(),
-            entity_ids: [e],
-            minimal_response: !0,
-            no_attributes: !0
-          });
-          if (S) return;
-          const M = C?.[e] ?? [], { buckets: G, total: K } = $l(
-            M,
-            I.getTime(),
-            A.getTime(),
-            24,
-            36e5
-          ), V = Bl("day", I.getTime());
-          r({
-            buckets: G,
-            total: K,
-            available: K > 0,
-            axisLabels: V.axisLabels,
-            bucketLabel: V.bucketLabel,
-            unit: "kWh",
-            nowIndex: (/* @__PURE__ */ new Date()).getHours()
-          });
-        } else {
-          const I = o === "week" ? 7 : 30, A = Fy(new Date(Date.now() - (I - 1) * 864e5)), C = /* @__PURE__ */ new Date();
-          let M = [], G = 0, K = !1;
-          try {
-            const R = await n.callWS({
-              type: "recorder/statistics_during_period",
-              start_time: A.toISOString(),
-              end_time: C.toISOString(),
-              statistic_ids: [e],
-              period: "day"
-            });
-            if (S) return;
-            const F = R?.[e] ?? [];
-            if (F.length > 0) {
-              const L = Uy(F, A.getTime(), I, 864e5);
-              M = L.buckets, G = L.total, K = !0;
-            }
-          } catch {
-            K = !1;
-          }
-          if (!K) {
-            const R = await n.callWS({
-              type: "history/history_during_period",
-              start_time: A.toISOString(),
-              end_time: C.toISOString(),
-              entity_ids: [e],
-              minimal_response: !0,
-              no_attributes: !0
-            });
-            if (S) return;
-            const F = R?.[e] ?? [], L = $l(F, A.getTime(), C.getTime(), I, 864e5);
-            M = L.buckets, G = L.total;
-          }
-          const V = Bl(o, A.getTime());
-          r({
-            buckets: M,
-            total: G,
-            available: G > 0,
-            axisLabels: V.axisLabels,
-            bucketLabel: V.bucketLabel,
-            unit: "kWh",
-            nowIndex: zy(o, A.getTime())
-          });
-        }
-      } catch (I) {
-        if (S) return;
-        console.warn("Nido energy: history fetch failed", I), r({
-          buckets: new Array(Mi[o].bucketCount).fill(0),
-          total: 0,
-          available: !1,
-          axisLabels: [],
-          bucketLabel: () => "",
-          unit: "kWh",
-          nowIndex: 0
-        });
-      } finally {
-        S || a(!1);
-      }
-    })(), () => {
-      S = !0;
-    };
-  }, [n != null, e, o]);
-  const c = t ? n.states[t] : void 0, u = Z(() => {
-    if (!c) return null;
-    const S = Number(c.state);
-    return Number.isFinite(S) ? S : null;
-  }, [c]), h = c?.attributes.unit_of_measurement ?? "kWh", f = i?.buckets ?? new Array(Mi[o].bucketCount).fill(0), p = o === "day" && u !== null ? u : i?.total ?? 0, g = o === "day" && u !== null ? h : "kWh", _ = i?.available ?? !1, m = i?.nowIndex ?? -1, v = f.filter((S) => S > 0), b = v.length > 0 ? v.reduce((S, k) => S + k, 0) / v.length : 0, x = Math.max(...f, b) * 1.1 || 1, E = Math.max(...f), T = o === "day" ? "Consommation · Aujourd'hui" : o === "week" ? "Consommation · 7 derniers jours" : "Consommation · 30 derniers jours", w = o === "day" ? `moyenne · ${b.toFixed(2)} kWh` : o === "week" ? `moyenne · ${b.toFixed(1)} kWh / jour` : `moyenne · ${b.toFixed(1)} kWh / jour`;
-  return /* @__PURE__ */ l("div", { class: "n-card n-hourly", children: [
-    /* @__PURE__ */ l("div", { class: "n-hourly__head", children: [
-      /* @__PURE__ */ l("div", { children: [
-        /* @__PURE__ */ l("div", { class: "n-eyebrow", children: T }),
-        /* @__PURE__ */ l("div", { class: "n-hourly__total-row", children: /* @__PURE__ */ l("div", { class: "n-hourly__total", children: [
-          p.toFixed(1).replace(".", ","),
-          /* @__PURE__ */ l("span", { class: "n-hourly__total-unit", children: g })
-        ] }) })
-      ] }),
-      /* @__PURE__ */ l("div", { class: "n-hourly__modes", role: "tablist", children: Object.keys(Mi).map((S) => /* @__PURE__ */ l(
-        "button",
-        {
-          type: "button",
-          role: "tab",
-          "aria-selected": o === S,
-          class: `n-pill-btn ${o === S ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
-          onClick: () => d(S),
-          children: Mi[S].label
-        },
-        S
-      )) })
-    ] }),
-    s ? /* @__PURE__ */ l("div", { class: "n-muted n-hourly__loading", children: "Chargement de l'historique…" }) : _ ? /* @__PURE__ */ l(Se, { children: [
-      /* @__PURE__ */ l("div", { class: "n-bars", children: [
-        b > 0 && /* @__PURE__ */ l("div", { class: "n-bars__avg", style: { bottom: `${b / x * 100}%` }, children: /* @__PURE__ */ l("span", { class: "n-bars__avg-label", children: w }) }),
-        /* @__PURE__ */ l("div", { class: "n-bars__grid", children: f.map((S, k) => {
-          const I = k === m, A = k < m, C = S > 0 && S === E;
-          let M = "n-bars__bar";
-          return I ? M += " is-now" : C ? M += " is-peak" : A ? M += " is-past" : M += " is-future", /* @__PURE__ */ l("div", { class: "n-bars__col", children: [
-            /* @__PURE__ */ l("div", { class: M, style: { height: `${Math.max(2, S / x * 100)}%` } }),
-            I && /* @__PURE__ */ l("div", { class: "n-bars__now-label", children: [
-              S.toFixed(2),
-              " kWh"
-            ] })
-          ] }, k);
-        }) })
-      ] }),
-      /* @__PURE__ */ l("div", { class: "n-bars__axis", children: i?.axisLabels.map((S, k) => /* @__PURE__ */ l("span", { children: S }, k)) })
-    ] }) : /* @__PURE__ */ l("div", { class: "n-bars n-bars--empty", children: /* @__PURE__ */ l("div", { class: "n-muted", children: "Historique indisponible" }) })
-  ] });
-}
-function Ky({
-  entities: n,
-  primaryPowerEntityId: e,
-  areas: t,
-  onSelect: i
-}) {
-  const r = Z(() => {
-    const o = /* @__PURE__ */ new Map();
-    for (const d of t) o.set(d.area_id, d.name);
-    return o;
-  }, [t]), s = Z(() => {
-    const o = [];
-    for (const d of n) {
-      if (d.entity_id === e || d.state.attributes.device_class !== "power") continue;
-      const c = Number(d.state.state);
-      if (!Number.isFinite(c)) continue;
-      const u = d.area_id ? r.get(d.area_id) ?? "" : "";
-      o.push({ entity: d, watts: Math.max(0, c), roomLabel: u });
-    }
-    return o.sort((d, c) => c.watts - d.watts), o.slice(0, 5);
-  }, [n, e, r]), a = s.length > 0 ? Math.max(...s.map((o) => o.watts), 1) : 1;
-  return /* @__PURE__ */ l("div", { class: "n-card n-top-consumers", children: [
-    /* @__PURE__ */ l("div", { class: "n-top-consumers__head", children: /* @__PURE__ */ l("div", { children: [
-      /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Top consommateurs · maintenant" }),
-      /* @__PURE__ */ l("div", { class: "n-title", children: "Où part l'énergie" })
-    ] }) }),
-    s.length === 0 ? /* @__PURE__ */ l("div", { class: "n-muted n-top-consumers__empty", children: "Aucune mesure de puissance individuelle exposée" }) : /* @__PURE__ */ l("div", { class: "n-top-consumers__list", children: s.map((o, d) => {
-      const c = o.watts / a * 100, u = typeof i == "function";
-      return /* @__PURE__ */ l(
-        "div",
-        {
-          class: "n-top-consumers__row",
-          role: u ? "button" : void 0,
-          tabIndex: u ? 0 : void 0,
-          onClick: u ? () => i?.(o.entity) : void 0,
-          onKeyDown: u ? (h) => {
-            (h.key === "Enter" || h.key === " ") && (h.preventDefault(), i?.(o.entity));
-          } : void 0,
-          children: [
-            /* @__PURE__ */ l("div", { class: `n-top-consumers__bubble ${d === 0 ? "is-first" : ""}`, children: /* @__PURE__ */ l(ni, { size: 18 }) }),
-            /* @__PURE__ */ l("div", { class: "n-top-consumers__body", children: [
-              /* @__PURE__ */ l("div", { class: "n-top-consumers__line", children: [
-                /* @__PURE__ */ l("div", { class: "n-top-consumers__name-wrap", children: [
-                  /* @__PURE__ */ l("span", { class: "n-top-consumers__name", children: o.entity.friendly_name }),
-                  o.roomLabel && /* @__PURE__ */ l("span", { class: "n-top-consumers__room", children: o.roomLabel })
-                ] }),
-                /* @__PURE__ */ l("span", { class: `n-top-consumers__value ${d === 0 ? "is-first" : ""}`, children: [
-                  Math.round(o.watts).toLocaleString("fr-FR"),
-                  /* @__PURE__ */ l("span", { class: "n-top-consumers__unit", children: "W" })
-                ] })
-              ] }),
-              /* @__PURE__ */ l("div", { class: "n-top-consumers__meter", children: /* @__PURE__ */ l("div", { class: "n-top-consumers__bar", children: /* @__PURE__ */ l(
-                "div",
-                {
-                  class: `n-top-consumers__bar-fill ${d === 0 ? "is-first" : ""}`,
-                  style: { width: `${c}%` }
-                }
-              ) }) })
-            ] }),
-            u && /* @__PURE__ */ l("span", { class: "n-top-consumers__chevron", "aria-hidden": "true", children: /* @__PURE__ */ l(ps, { size: 14 }) })
-          ]
-        },
-        o.entity.entity_id
-      );
-    }) })
-  ] });
-}
-const kt = "sensor.consommation_electrique_sinsts", tr = "sensor.conso", Hy = "sensor.conso_daily", jy = "select.conso_hebdomadaire_2_en_eur", Ul = 9;
-function Wy({ hass: n, entities: e, exposed: t, areas: i, onBack: r }) {
-  const s = Z(() => new Set(t), [t]), a = Z(
-    () => e.filter((T) => s.has(T.entity_id)),
-    [e, s]
-  ), o = n.states[kt], d = !!o && o.state !== "unavailable" && o.state !== "unknown", c = Z(() => {
-    if (!d || !o) return 0;
-    const T = Number(o.state);
-    return Number.isFinite(T) ? Math.max(0, T) : 0;
-  }, [o, d]), u = o?.attributes.unit_of_measurement ?? "W", h = n.states[tr], f = Z(() => {
-    if (!h) return null;
-    const T = Number(h.state);
-    return Number.isFinite(T) ? T : null;
-  }, [h]), p = h?.attributes.unit_of_measurement ?? "kWh", g = n.states[Hy], _ = Z(() => {
-    if (!g) return null;
-    const T = Number(g.state);
-    return Number.isFinite(T) ? T : null;
-  }, [g]), m = g?.attributes.unit_of_measurement ?? "€", v = n.states[jy], b = Z(() => {
-    if (!v) return null;
-    const T = v.state;
-    if (T === "unavailable" || T === "unknown") return null;
-    const w = Number(T);
-    return Number.isFinite(w) ? w : null;
-  }, [v]), x = v?.state ?? null, E = Z(() => (/* @__PURE__ */ new Date()).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (w) => w.toUpperCase()), []);
-  return /* @__PURE__ */ l("div", { class: "nido-shell", children: /* @__PURE__ */ l("div", { class: "nido-dashboard nido-energy", children: [
-    /* @__PURE__ */ l("header", { class: "nido-energy__header", children: [
-      /* @__PURE__ */ l(
-        "button",
-        {
-          type: "button",
-          class: "n-icon-btn nido-energy__back",
-          onClick: r,
-          "aria-label": "Retour",
-          children: /* @__PURE__ */ l($c, { size: 18 })
-        }
-      ),
-      /* @__PURE__ */ l("div", { class: "nido-energy__crumb", children: [
-        /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Maison · Tableau" }),
-        /* @__PURE__ */ l("div", { class: "nido-energy__brand", children: "nido" })
-      ] }),
-      /* @__PURE__ */ l("div", { class: "nido-energy__head-actions", children: [
-        /* @__PURE__ */ l(
-          "a",
-          {
-            class: "n-pill-btn n-pill-btn--ghost nido-energy__ha-link",
-            href: "/lovelace/energy",
-            target: "_top",
-            children: [
-              /* @__PURE__ */ l(ea, { size: 12 }),
-              "Ouvrir HA"
-            ]
-          }
-        ),
-        /* @__PURE__ */ l("button", { type: "button", class: "n-icon-btn", "aria-label": "Plus", children: /* @__PURE__ */ l(Bc, { size: 18 }) })
-      ] })
-    ] }),
-    /* @__PURE__ */ l("section", { class: "nido-energy__hero", children: [
-      /* @__PURE__ */ l("div", { class: "nido-energy__hero-left", children: [
-        /* @__PURE__ */ l("div", { class: "nido-energy__icon", children: [
-          /* @__PURE__ */ l("div", { class: "pattern-dots nido-energy__icon-bg", "aria-hidden": "true" }),
-          /* @__PURE__ */ l(ni, { size: 32 })
-        ] }),
-        /* @__PURE__ */ l("div", { children: [
-          /* @__PURE__ */ l("div", { class: "nido-energy__hero-meta", children: [
-            /* @__PURE__ */ l("span", { children: E }),
-            /* @__PURE__ */ l("span", { class: "nido-energy__sep" }),
-            /* @__PURE__ */ l("span", { class: "nido-energy__live", children: [
-              /* @__PURE__ */ l("span", { class: "nido-energy__live-dot" }),
-              "Données live · Linky"
-            ] })
-          ] }),
-          /* @__PURE__ */ l("h1", { class: "nido-energy__title", children: "Énergie" })
-        ] })
-      ] }),
-      /* @__PURE__ */ l("div", { class: "nido-energy__stats", children: [
-        /* @__PURE__ */ l(
-          _n,
-          {
-            label: "Auj.",
-            value: f !== null ? f.toFixed(1).replace(".", ",") : "—",
-            unit: f !== null ? p : ""
-          }
-        ),
-        /* @__PURE__ */ l(ts, {}),
-        /* @__PURE__ */ l(
-          _n,
-          {
-            label: "Coût",
-            value: _ !== null ? _.toFixed(2).replace(".", ",") : "—",
-            unit: _ !== null ? m : ""
-          }
-        ),
-        /* @__PURE__ */ l(ts, {}),
-        /* @__PURE__ */ l(
-          _n,
-          {
-            label: "Puissance",
-            value: d ? Math.round(c).toLocaleString("fr-FR") : "—",
-            unit: d ? u : ""
-          }
-        ),
-        x !== null && /* @__PURE__ */ l(Se, { children: [
-          /* @__PURE__ */ l(ts, {}),
-          /* @__PURE__ */ l(
-            _n,
-            {
-              label: "Tarif",
-              value: b !== null ? b.toFixed(4).replace(".", ",").replace(/,?0+$/, "") : x,
-              unit: b !== null ? "€/kWh" : ""
-            }
-          )
-        ] })
-      ] })
-    ] }),
-    d ? /* @__PURE__ */ l(Se, { children: [
-      /* @__PURE__ */ l("section", { class: "nido-energy__section", children: [
-        /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { class: "is-accent", children: "Maintenant" }) }),
-        /* @__PURE__ */ l("div", { class: "nido-energy__live-grid", children: [
-          /* @__PURE__ */ l(
-            Nu,
-            {
-              hass: n,
-              powerEntityId: kt,
-              max: Ul * 1e3
-            }
-          ),
-          /* @__PURE__ */ l(
-            My,
-            {
-              currentPower: c,
-              subscribedKva: Ul
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ l("section", { class: "nido-energy__section", children: [
-        /* @__PURE__ */ l("div", { class: "nido-section-title", children: [
-          /* @__PURE__ */ l("h2", { children: "Aujourd'hui · 24 heures" }),
-          /* @__PURE__ */ l("span", { class: "n-eyebrow", children: "kWh par heure" })
-        ] }),
-        /* @__PURE__ */ l(
-          Vy,
-          {
-            hass: n,
-            powerEntityId: kt,
-            dailyConsumptionEntityId: tr
-          }
-        )
-      ] }),
-      /* @__PURE__ */ l("section", { class: "nido-energy__section", children: [
-        /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { children: "Top consommateurs" }) }),
-        /* @__PURE__ */ l(
-          Ky,
-          {
-            entities: a,
-            primaryPowerEntityId: kt,
-            areas: i
-          }
-        )
-      ] })
-    ] }) : /* @__PURE__ */ l("div", { class: "nido-empty", children: /* @__PURE__ */ l("p", { class: "n-muted", children: [
-      "L'entité de puissance ",
-      /* @__PURE__ */ l("code", { children: kt }),
-      " n'est pas disponible. Vérifiez qu'elle est exposée dans Nido."
-    ] }) })
-  ] }) });
-}
-function _n({ label: n, value: e, unit: t }) {
-  return /* @__PURE__ */ l("div", { class: "nido-energy__stat", children: [
-    /* @__PURE__ */ l("div", { class: "n-eyebrow", children: n }),
-    /* @__PURE__ */ l("div", { class: "nido-energy__stat-value", children: [
-      e,
-      t && /* @__PURE__ */ l("span", { class: "nido-energy__stat-unit", children: t })
-    ] })
-  ] });
-}
-function ts() {
-  return /* @__PURE__ */ l("div", { class: "nido-energy__stat-sep", "aria-hidden": "true" });
-}
-const $u = "nido.kidsPoints", It = {
+const Uu = "nido.kidsPoints", It = {
   silver: 10,
   gold: 25,
   platinum: 50
-}, Bu = [
+}, Gu = [
   { id: "screen_time", label: "1h d'écran en plus", emoji: "🎬" },
   { id: "ice_cream", label: "Une glace", emoji: "🍦" },
   { id: "late_bed", label: "Se coucher plus tard", emoji: "🛏️" },
   { id: "pick_game", label: "Choisir le jeu du soir", emoji: "🎮" },
   { id: "pick_meal", label: "Choisir le repas", emoji: "🍕" }
-], Uu = [
+], zu = [
   { id: "tidy_room", label: "Ranger sa chambre", points: 3, emoji: "🧸" },
   { id: "make_bed", label: "Faire son lit", points: 1, emoji: "🛏️" },
   { id: "set_table", label: "Mettre la table", points: 2, emoji: "🍽️" },
   { id: "clear_table", label: "Débarrasser la table", points: 2, emoji: "🧹" },
   { id: "homework", label: "Faire ses devoirs", points: 3, emoji: "📚" },
   { id: "brush_teeth", label: "Se brosser les dents", points: 1, emoji: "🪥" }
-], Gl = ["#FFB4A2", "#B8E0D2", "#C7B8EA", "#FFE08A", "#9DD3F8", "#F8A8C9"], Fs = ["🦊", "🦄", "🦖", "🐼", "🐱", "🐸", "🐶", "🐯", "🦁", "🐨", "🐰", "🐵"];
-function Ca(n = It) {
+], Vl = ["#FFB4A2", "#B8E0D2", "#C7B8EA", "#FFE08A", "#9DD3F8", "#F8A8C9"], Ns = ["🦊", "🦄", "🦖", "🐼", "🐱", "🐸", "🐶", "🐯", "🦁", "🐨", "🐰", "🐵"];
+function Da(n = It) {
   return [
     { key: "bronze", label: "Bronze", emoji: "🥉", min: 0, next: n.silver },
     { key: "silver", label: "Argent", emoji: "🥈", min: n.silver, next: n.gold },
@@ -27345,52 +27393,52 @@ function Ca(n = It) {
     { key: "platinum", label: "Platine", emoji: "💎", min: n.platinum, next: null }
   ];
 }
-function Gu(n, e = It) {
-  const t = Ca(e);
+function Vu(n, e = It) {
+  const t = Da(e);
   let i = t[0];
   for (const r of t)
     n >= r.min && (i = r);
   return i;
 }
-function Yy(n, e = It) {
-  const t = Ca(e), i = Gu(n, e);
+function Jy(n, e = It) {
+  const t = Da(e), i = Vu(n, e);
   return i.next === null ? null : t.find((r) => r.min === i.next) ?? null;
 }
-function zu() {
+function Ku() {
   try {
     return typeof localStorage < "u" ? localStorage : null;
   } catch {
     return null;
   }
 }
-function Vu(n = /* @__PURE__ */ new Date()) {
+function Hu(n = /* @__PURE__ */ new Date()) {
   const e = new Date(n);
   e.setHours(0, 0, 0, 0);
   const t = e.getDay(), i = t === 0 ? -6 : 1 - t;
   return e.setDate(e.getDate() + i), e.toISOString().slice(0, 10);
 }
-function qy(n) {
-  return Gl[n % Gl.length];
+function eb(n) {
+  return Vl[n % Vl.length];
 }
-function Xy(n) {
-  return Fs[n % Fs.length];
+function tb(n) {
+  return Ns[n % Ns.length];
 }
-const Qy = Fs;
+const ib = Ns;
 function vn() {
   return {
     kids: [],
-    tasks: Uu.slice(),
-    weekStart: Vu(),
+    tasks: zu.slice(),
+    weekStart: Hu(),
     completed: {},
     lastWeek: {},
     medalThresholds: { ...It },
-    privileges: Bu.slice(),
+    privileges: Gu.slice(),
     activePrivileges: {},
     updatedAt: (/* @__PURE__ */ new Date(0)).toISOString()
   };
 }
-function Zy(n) {
-  if (!Array.isArray(n)) return Bu.slice();
+function nb(n) {
+  if (!Array.isArray(n)) return Gu.slice();
   const e = [];
   for (const t of n) {
     if (!t || typeof t != "object") continue;
@@ -27399,7 +27447,7 @@ function Zy(n) {
   }
   return e;
 }
-function Jy(n) {
+function rb(n) {
   if (!n || typeof n != "object") return {};
   const e = {};
   for (const [t, i] of Object.entries(n)) {
@@ -27412,11 +27460,11 @@ function Jy(n) {
   }
   return e;
 }
-function eb(n) {
+function sb(n) {
   const e = n && typeof n == "object" ? n : {}, t = Number.isFinite(e.silver) ? Math.max(1, Math.round(e.silver)) : It.silver, i = Number.isFinite(e.gold) ? Math.max(t + 1, Math.round(e.gold)) : Math.max(t + 1, It.gold), r = Number.isFinite(e.platinum) ? Math.max(i + 1, Math.round(e.platinum)) : Math.max(i + 1, It.platinum);
   return { silver: t, gold: i, platinum: r };
 }
-function Ku(n, e) {
+function ju(n, e) {
   const t = n.completed[e];
   if (!t) return 0;
   let i = 0;
@@ -27426,38 +27474,38 @@ function Ku(n, e) {
   }
   return i;
 }
-function Hu(n) {
+function Wu(n) {
   if (!n || typeof n != "object") return null;
   const e = n;
   return !Array.isArray(e.kids) || !Array.isArray(e.tasks) ? null : {
     kids: e.kids,
-    tasks: e.tasks.length > 0 ? e.tasks : Uu.slice(),
-    weekStart: typeof e.weekStart == "string" ? e.weekStart : Vu(),
+    tasks: e.tasks.length > 0 ? e.tasks : zu.slice(),
+    weekStart: typeof e.weekStart == "string" ? e.weekStart : Hu(),
     completed: e.completed && typeof e.completed == "object" ? e.completed : {},
     lastWeek: e.lastWeek && typeof e.lastWeek == "object" ? e.lastWeek : {},
-    medalThresholds: eb(e.medalThresholds),
-    privileges: Zy(e.privileges),
-    activePrivileges: Jy(e.activePrivileges),
+    medalThresholds: sb(e.medalThresholds),
+    privileges: nb(e.privileges),
+    activePrivileges: rb(e.activePrivileges),
     updatedAt: typeof e.updatedAt == "string" ? e.updatedAt : (/* @__PURE__ */ new Date(0)).toISOString()
   };
 }
-function tb() {
-  const n = zu();
+function ab() {
+  const n = Ku();
   if (!n) return vn();
-  const e = n.getItem($u);
+  const e = n.getItem(Uu);
   if (!e) return vn();
   try {
-    return Hu(JSON.parse(e)) ?? vn();
+    return Wu(JSON.parse(e)) ?? vn();
   } catch {
     return vn();
   }
 }
-function ib(n) {
-  const e = zu();
-  e && e.setItem($u, JSON.stringify(n));
+function ob(n) {
+  const e = Ku();
+  e && e.setItem(Uu, JSON.stringify(n));
 }
-function Ns(n, e) {
-  return Ku(n, e);
+function $s(n, e) {
+  return ju(n, e);
 }
 function yn(n, e, t, i) {
   const r = { ...n.completed[e] ?? {} }, s = Math.max(0, (r[t] ?? 0) + i);
@@ -27466,24 +27514,24 @@ function yn(n, e, t, i) {
     completed: { ...n.completed, [e]: r }
   };
 }
-function zl(n, e) {
+function Kl(n, e) {
   const t = e.trim();
   if (!t) return n;
   const r = {
     id: "kid_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5),
     name: t,
-    color: qy(n.kids.length),
-    emoji: Xy(n.kids.length)
+    color: eb(n.kids.length),
+    emoji: tb(n.kids.length)
   };
   return { ...n, kids: [...n.kids, r] };
 }
-function nb(n, e, t) {
+function lb(n, e, t) {
   return {
     ...n,
     kids: n.kids.map((i) => i.id === e ? { ...i, emoji: t } : i)
   };
 }
-function rb(n, e) {
+function cb(n, e) {
   const t = { ...n.completed };
   delete t[e];
   const i = { ...n.lastWeek };
@@ -27497,24 +27545,24 @@ function rb(n, e) {
     activePrivileges: r
   };
 }
-function sb(n, e, t) {
+function db(n, e, t) {
   const i = t.trim();
   return i ? {
     ...n,
     kids: n.kids.map((r) => r.id === e ? { ...r, name: i } : r)
   } : n;
 }
-function ju(n) {
+function Yu(n) {
   const e = Math.max(-10, Math.min(10, Math.round(n)));
   return e === 0 ? 1 : e;
 }
-function ab(n, e, t) {
+function ub(n, e, t) {
   const i = e.trim();
   if (!i) return n;
-  const r = "task_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), s = ju(t), a = s < 0 ? "⚠️" : void 0, o = { id: r, label: i, points: s, emoji: a };
+  const r = "task_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), s = Yu(t), a = s < 0 ? "⚠️" : void 0, o = { id: r, label: i, points: s, emoji: a };
   return { ...n, tasks: [...n.tasks, o] };
 }
-function ob(n, e) {
+function hb(n, e) {
   const t = {};
   for (const [i, r] of Object.entries(n.completed)) {
     const { [e]: s, ...a } = r;
@@ -27526,32 +27574,32 @@ function ob(n, e) {
     completed: t
   };
 }
-function is(n, e, t) {
+function ns(n, e, t) {
   const r = { ...n.medalThresholds ?? It, [e]: Math.max(1, Math.round(t)) };
   return e === "silver" || e === "gold" ? (r.gold <= r.silver && (r.gold = r.silver + 1), r.platinum <= r.gold && (r.platinum = r.gold + 1)) : e === "platinum" && r.platinum <= r.gold && (r.platinum = r.gold + 1), { ...n, medalThresholds: r };
 }
-function Vl(n, e, t) {
+function Hl(n, e, t) {
   return {
     ...n,
     tasks: n.tasks.map((i) => {
       if (i.id !== e) return i;
-      const r = ju(t === 0 ? i.points > 0 ? -1 : 1 : t);
+      const r = Yu(t === 0 ? i.points > 0 ? -1 : 1 : t);
       return { ...i, points: r };
     })
   };
 }
-function lb(n, e = It) {
+function fb(n, e = It) {
   return n >= e.platinum;
 }
-function Wu(n, e) {
+function qu(n, e) {
   const t = n.activePrivileges?.[e];
   if (!t) return null;
   const i = n.privileges.find((r) => r.id === t.privilegeId);
   return i ? { active: t, privilege: i } : null;
 }
-function cb(n, e, t) {
+function pb(n, e, t) {
   if (!n.privileges.some((s) => s.id === t)) return n;
-  const i = Ku(n, e), r = { ...n.completed };
+  const i = ju(n, e), r = { ...n.completed };
   return delete r[e], {
     ...n,
     completed: r,
@@ -27562,12 +27610,12 @@ function cb(n, e, t) {
     }
   };
 }
-function Yu(n, e) {
+function Xu(n, e) {
   if (!n.activePrivileges?.[e]) return n;
   const t = { ...n.activePrivileges };
   return delete t[e], { ...n, activePrivileges: t };
 }
-function Kl(n, e, t) {
+function jl(n, e, t) {
   const i = e.trim();
   if (!i) return n;
   const s = {
@@ -27577,7 +27625,7 @@ function Kl(n, e, t) {
   };
   return { ...n, privileges: [...n.privileges, s] };
 }
-function db(n, e) {
+function gb(n, e) {
   const t = { ...n.activePrivileges };
   for (const [i, r] of Object.entries(t))
     r.privilegeId === e && delete t[i];
@@ -27587,7 +27635,7 @@ function db(n, e) {
     activePrivileges: t
   };
 }
-function Hl(n, e, t, i) {
+function Wl(n, e, t, i) {
   const r = t.trim();
   return r ? {
     ...n,
@@ -27596,15 +27644,15 @@ function Hl(n, e, t, i) {
     )
   } : n;
 }
-function ub(n) {
+function mb(n) {
   return n.trim().split(/\s+/).slice(0, 2).map((t) => t[0]?.toUpperCase() ?? "").join("");
 }
-function hb({ data: n, onOpen: e, onChange: t }) {
+function _b({ data: n, onOpen: e, onChange: t }) {
   const i = Z(() => n.kids.map((a) => ({
     kid: a,
-    total: Ns(n, a.id),
+    total: $s(n, a.id),
     last: n.lastWeek[a.id] ?? 0,
-    activeInfo: Wu(n, a.id)
+    activeInfo: qu(n, a.id)
   })).sort((a, o) => o.total - a.total), [n]), r = i.reduce((a, o) => Math.max(a, o.total), 1), s = i.length === 0;
   return /* @__PURE__ */ l(
     "div",
@@ -27639,7 +27687,7 @@ function hb({ data: n, onOpen: e, onChange: t }) {
             /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Tableau de points" }),
             /* @__PURE__ */ l("div", { class: "n-title", children: "Points enfants" })
           ] }),
-          /* @__PURE__ */ l("div", { class: "n-kids-card__head-actions", children: /* @__PURE__ */ l("span", { class: "n-power-gauge__open", "aria-hidden": "true", children: /* @__PURE__ */ l(ea, { size: 14 }) }) })
+          /* @__PURE__ */ l("div", { class: "n-kids-card__head-actions", children: /* @__PURE__ */ l("span", { class: "n-power-gauge__open", "aria-hidden": "true", children: /* @__PURE__ */ l(ta, { size: 14 }) }) })
         ] }),
         s ? /* @__PURE__ */ l("div", { class: "n-kids-card__empty", children: [
           /* @__PURE__ */ l("p", { class: "n-muted", children: "Aucun enfant configuré." }),
@@ -27653,7 +27701,7 @@ function hb({ data: n, onOpen: e, onChange: t }) {
               },
               "data-no-drag": "true",
               children: [
-                /* @__PURE__ */ l(Xs, { size: 14 }),
+                /* @__PURE__ */ l(Qs, { size: 14 }),
                 /* @__PURE__ */ l("span", { children: "Configurer" })
               ]
             }
@@ -27669,7 +27717,7 @@ function hb({ data: n, onOpen: e, onChange: t }) {
                 "aria-hidden": "true",
                 children: [
                   u === 0 && o > 0 && /* @__PURE__ */ l("span", { class: "n-kids-card__crown", "aria-hidden": "true", children: "★" }),
-                  ub(a.name) || a.name[0]?.toUpperCase() || "?"
+                  mb(a.name) || a.name[0]?.toUpperCase() || "?"
                 ]
               }
             ),
@@ -27705,7 +27753,7 @@ function hb({ data: n, onOpen: e, onChange: t }) {
                         "aria-label": "Terminer le privilège",
                         title: "Terminer le privilège",
                         onClick: (f) => {
-                          f.stopPropagation(), t(Yu(n, a.id));
+                          f.stopPropagation(), t(Xu(n, a.id));
                         },
                         children: /* @__PURE__ */ l(et, { size: 12 })
                       }
@@ -27725,14 +27773,14 @@ function hb({ data: n, onOpen: e, onChange: t }) {
     }
   );
 }
-const jl = ["#FF8A3D", "#FFD166", "#6FCF97", "#9DD3F8", "#F8A8C9", "#C7B8EA"];
-function fb({ data: n, onChange: e, onClose: t }) {
-  const i = yt(t), [r, s] = z("play"), [a, o] = z(
+const Yl = ["#FF8A3D", "#FFD166", "#6FCF97", "#9DD3F8", "#F8A8C9", "#C7B8EA"];
+function vb({ data: n, onChange: e, onClose: t }) {
+  const i = bt(t), [r, s] = z("play"), [a, o] = z(
     n.kids[0]?.id ?? null
   ), [d, c] = z(""), [u, h] = z(""), [f, p] = z(2), [g, _] = z(null), [m, v] = z(null), [b, x] = z(null), [E, T] = z(""), [w, S] = z("🎁"), k = n.kids.find((L) => L.id === a) ?? n.kids[0], I = [...n.tasks].sort((L, N) => {
     const j = L.points < 0 ? 1 : 0, $ = N.points < 0 ? 1 : 0;
     return j !== $ ? j - $ : L.label.localeCompare(N.label, "fr", { sensitivity: "base" });
-  }), A = I.filter((L) => L.points >= 0), C = I.filter((L) => L.points < 0), M = n.medalThresholds ?? It, G = k ? Ns(n, k.id) : 0, K = Gu(G, M), V = Yy(G, M), R = V ? Math.min(100, Math.max(0, (G - K.min) / (V.min - K.min) * 100)) : 100, F = V ? Math.max(0, V.min - G) : 0;
+  }), A = I.filter((L) => L.points >= 0), C = I.filter((L) => L.points < 0), M = n.medalThresholds ?? It, G = k ? $s(n, k.id) : 0, H = Vu(G, M), V = Jy(G, M), R = V ? Math.min(100, Math.max(0, (G - H.min) / (V.min - H.min) * 100)) : 100, F = V ? Math.max(0, V.min - G) : 0;
   return /* @__PURE__ */ l("div", { class: "nido-shopping-panel", children: [
     /* @__PURE__ */ l("div", { class: "nido-shopping-panel__backdrop", onClick: t }),
     /* @__PURE__ */ l(
@@ -27759,7 +27807,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                   "aria-pressed": r === "config",
                   "aria-label": "Configurer",
                   title: "Configurer",
-                  children: /* @__PURE__ */ l(Xs, { size: 18 })
+                  children: /* @__PURE__ */ l(Qs, { size: 18 })
                 }
               ),
               /* @__PURE__ */ l(
@@ -27784,7 +27832,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
             ] })
           ] }) : /* @__PURE__ */ l(Se, { children: [
             /* @__PURE__ */ l("div", { class: "nido-kids-panel__tabs", children: n.kids.map((L) => {
-              const N = Ns(n, L.id), j = k?.id === L.id;
+              const N = $s(n, L.id), j = k?.id === L.id;
               return /* @__PURE__ */ l(
                 "button",
                 {
@@ -27823,8 +27871,8 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     /* @__PURE__ */ l("span", { class: "nido-kids-panel__score-unit", children: "pts" })
                   ] }),
                   /* @__PURE__ */ l("div", { class: "nido-kids-panel__score-badge", children: [
-                    /* @__PURE__ */ l("span", { "aria-hidden": "true", children: K.emoji }),
-                    /* @__PURE__ */ l("span", { children: K.label })
+                    /* @__PURE__ */ l("span", { "aria-hidden": "true", children: H.emoji }),
+                    /* @__PURE__ */ l("span", { children: H.label })
                   ] })
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-kids-panel__progress", children: /* @__PURE__ */ l(
@@ -27848,7 +27896,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                 ] }) : /* @__PURE__ */ l(Se, { children: "Médaille maximale atteinte ! 🏆" }) })
               ] }),
               (() => {
-                const L = Wu(n, k.id), N = lb(G, M);
+                const L = qu(n, k.id), N = fb(G, M);
                 if (L)
                   return /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege nido-kids-panel__privilege--active", children: /* @__PURE__ */ l("div", { class: "nido-kids-panel__privilege-head", children: [
                     /* @__PURE__ */ l("span", { class: "nido-kids-panel__privilege-emoji", "aria-hidden": "true", children: L.privilege.emoji ?? "🎁" }),
@@ -27861,7 +27909,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                       {
                         type: "button",
                         class: "n-pill-btn n-pill-btn--ghost",
-                        onClick: () => e(Yu(n, k.id)),
+                        onClick: () => e(Xu(n, k.id)),
                         children: "Terminer"
                       }
                     )
@@ -27882,7 +27930,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                       type: "button",
                       class: "nido-kids-panel__privilege-choice",
                       onClick: () => {
-                        e(cb(n, k.id, $.id)), x(null);
+                        e(pb(n, k.id, $.id)), x(null);
                       },
                       children: [
                         /* @__PURE__ */ l("span", { "aria-hidden": "true", children: $.emoji ?? "🎁" }),
@@ -27923,7 +27971,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                   " Bonnes actions"
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-kids-panel__tiles", children: A.map((L) => /* @__PURE__ */ l(
-                  Wl,
+                  ql,
                   {
                     emoji: L.emoji ?? "✨",
                     label: L.label,
@@ -27946,7 +27994,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                   " Bêtises"
                 ] }),
                 /* @__PURE__ */ l("div", { class: "nido-kids-panel__tiles", children: C.map((L) => /* @__PURE__ */ l(
-                  Wl,
+                  ql,
                   {
                     emoji: L.emoji ?? "⚠️",
                     label: L.label,
@@ -27987,7 +28035,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     class: "nido-kids-panel__input",
                     value: L.name,
                     onChange: (N) => e(
-                      sb(
+                      db(
                         n,
                         L.id,
                         N.target.value
@@ -28000,18 +28048,18 @@ function fb({ data: n, onChange: e, onClose: t }) {
                   {
                     type: "button",
                     class: "nido-kids-panel__btn nido-kids-panel__btn--danger",
-                    onClick: () => e(rb(n, L.id)),
+                    onClick: () => e(cb(n, L.id)),
                     "aria-label": "Supprimer",
                     children: /* @__PURE__ */ l(et, { size: 14 })
                   }
                 ),
-                g === L.id && /* @__PURE__ */ l("div", { class: "nido-kids-panel__emoji-picker", children: Qy.map((N) => /* @__PURE__ */ l(
+                g === L.id && /* @__PURE__ */ l("div", { class: "nido-kids-panel__emoji-picker", children: ib.map((N) => /* @__PURE__ */ l(
                   "button",
                   {
                     type: "button",
                     class: `nido-kids-panel__emoji-choice ${L.emoji === N ? "is-active" : ""}`,
                     onClick: () => {
-                      e(nb(n, L.id, N)), _(null);
+                      e(lb(n, L.id, N)), _(null);
                     },
                     children: N
                   },
@@ -28028,7 +28076,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     value: d,
                     onInput: (L) => c(L.target.value),
                     onKeyDown: (L) => {
-                      L.key === "Enter" && d.trim() && (e(zl(n, d)), c(""));
+                      L.key === "Enter" && d.trim() && (e(Kl(n, d)), c(""));
                     }
                   }
                 ),
@@ -28038,10 +28086,10 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     type: "button",
                     class: "n-pill-btn",
                     onClick: () => {
-                      d.trim() && (e(zl(n, d)), c(""));
+                      d.trim() && (e(Kl(n, d)), c(""));
                     },
                     children: [
-                      /* @__PURE__ */ l(St, { size: 14 }),
+                      /* @__PURE__ */ l(Tt, { size: 14 }),
                       /* @__PURE__ */ l("span", { children: "Ajouter" })
                     ]
                   }
@@ -28061,7 +28109,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                       class: "nido-kids-panel__btn",
                       onClick: () => {
                         const N = L.points === 1 ? -1 : L.points - 1;
-                        e(Vl(n, L.id, N));
+                        e(Hl(n, L.id, N));
                       },
                       disabled: L.points <= -10,
                       "aria-label": "Moins de points",
@@ -28086,11 +28134,11 @@ function fb({ data: n, onChange: e, onClose: t }) {
                       class: "nido-kids-panel__btn",
                       onClick: () => {
                         const N = L.points === -1 ? 1 : L.points + 1;
-                        e(Vl(n, L.id, N));
+                        e(Hl(n, L.id, N));
                       },
                       disabled: L.points >= 10,
                       "aria-label": "Plus de points",
-                      children: /* @__PURE__ */ l(St, { size: 14 })
+                      children: /* @__PURE__ */ l(Tt, { size: 14 })
                     }
                   )
                 ] }),
@@ -28099,7 +28147,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                   {
                     type: "button",
                     class: "nido-kids-panel__btn nido-kids-panel__btn--danger",
-                    onClick: () => e(ob(n, L.id)),
+                    onClick: () => e(hb(n, L.id)),
                     "aria-label": "Supprimer",
                     children: /* @__PURE__ */ l(et, { size: 14 })
                   }
@@ -28145,7 +28193,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                         p(Math.min(10, L));
                       },
                       "aria-label": "Plus",
-                      children: /* @__PURE__ */ l(St, { size: 14 })
+                      children: /* @__PURE__ */ l(Tt, { size: 14 })
                     }
                   )
                 ] }),
@@ -28155,10 +28203,10 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     type: "button",
                     class: "n-pill-btn",
                     onClick: () => {
-                      u.trim() && (e(ab(n, u, f)), h(""), p(2));
+                      u.trim() && (e(ub(n, u, f)), h(""), p(2));
                     },
                     children: [
-                      /* @__PURE__ */ l(St, { size: 14 }),
+                      /* @__PURE__ */ l(Tt, { size: 14 }),
                       /* @__PURE__ */ l("span", { children: "Ajouter" })
                     ]
                   }
@@ -28168,7 +28216,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
             /* @__PURE__ */ l("section", { class: "nido-kids-panel__section", children: [
               /* @__PURE__ */ l("h3", { children: "Médailles" }),
               /* @__PURE__ */ l("p", { class: "nido-kids-panel__hint", children: "Points nécessaires pour passer à la médaille suivante." }),
-              /* @__PURE__ */ l("ul", { class: "nido-kids-panel__list", children: Ca(M).map((L) => {
+              /* @__PURE__ */ l("ul", { class: "nido-kids-panel__list", children: Da(M).map((L) => {
                 const N = L.key === "silver" || L.key === "gold" || L.key === "platinum" ? L.key : null;
                 return /* @__PURE__ */ l("li", { class: "nido-kids-panel__list-row", children: [
                   /* @__PURE__ */ l("span", { class: "nido-kids-panel__task-emoji", children: L.emoji }),
@@ -28180,7 +28228,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                         type: "button",
                         class: "nido-kids-panel__btn",
                         onClick: () => e(
-                          is(
+                          ns(
                             n,
                             N,
                             M[N] - 1
@@ -28199,7 +28247,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                         value: M[N],
                         onChange: (j) => {
                           const $ = Number(j.target.value);
-                          Number.isFinite($) && e(is(n, N, $));
+                          Number.isFinite($) && e(ns(n, N, $));
                         }
                       }
                     ),
@@ -28210,14 +28258,14 @@ function fb({ data: n, onChange: e, onClose: t }) {
                         type: "button",
                         class: "nido-kids-panel__btn",
                         onClick: () => e(
-                          is(
+                          ns(
                             n,
                             N,
                             M[N] + 1
                           )
                         ),
                         "aria-label": "Augmenter le seuil",
-                        children: /* @__PURE__ */ l(St, { size: 14 })
+                        children: /* @__PURE__ */ l(Tt, { size: 14 })
                       }
                     )
                   ] }) : /* @__PURE__ */ l("span", { class: "nido-kids-panel__task-pts", children: [
@@ -28240,7 +28288,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     maxLength: 4,
                     value: L.emoji ?? "🎁",
                     onChange: (N) => e(
-                      Hl(
+                      Wl(
                         n,
                         L.id,
                         L.label,
@@ -28256,7 +28304,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     class: "nido-kids-panel__input",
                     value: L.label,
                     onChange: (N) => e(
-                      Hl(
+                      Wl(
                         n,
                         L.id,
                         N.target.value,
@@ -28270,7 +28318,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                   {
                     type: "button",
                     class: "nido-kids-panel__btn nido-kids-panel__btn--danger",
-                    onClick: () => e(db(n, L.id)),
+                    onClick: () => e(gb(n, L.id)),
                     "aria-label": "Supprimer",
                     children: /* @__PURE__ */ l(et, { size: 14 })
                   }
@@ -28296,7 +28344,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     value: E,
                     onInput: (L) => T(L.target.value),
                     onKeyDown: (L) => {
-                      L.key === "Enter" && E.trim() && (e(Kl(n, E, w)), T(""), S("🎁"));
+                      L.key === "Enter" && E.trim() && (e(jl(n, E, w)), T(""), S("🎁"));
                     }
                   }
                 ),
@@ -28306,10 +28354,10 @@ function fb({ data: n, onChange: e, onClose: t }) {
                     type: "button",
                     class: "n-pill-btn",
                     onClick: () => {
-                      E.trim() && (e(Kl(n, E, w)), T(""), S("🎁"));
+                      E.trim() && (e(jl(n, E, w)), T(""), S("🎁"));
                     },
                     children: [
-                      /* @__PURE__ */ l(St, { size: 14 }),
+                      /* @__PURE__ */ l(Tt, { size: 14 }),
                       /* @__PURE__ */ l("span", { children: "Ajouter" })
                     ]
                   }
@@ -28322,7 +28370,7 @@ function fb({ data: n, onChange: e, onClose: t }) {
     )
   ] });
 }
-function Wl({
+function ql({
   emoji: n,
   label: e,
   points: t,
@@ -28340,7 +28388,7 @@ function Wl({
       c.current = !0, a();
     }, 600);
   }, f = () => {
-    d.current !== null && (window.clearTimeout(d.current), d.current = null), c.current || (s(), u || pb(o.current));
+    d.current !== null && (window.clearTimeout(d.current), d.current = null), c.current || (s(), u || yb(o.current));
   }, p = () => {
     d.current !== null && (window.clearTimeout(d.current), d.current = null);
   };
@@ -28374,16 +28422,16 @@ function Wl({
     }
   );
 }
-function pb(n) {
+function yb(n) {
   if (n && !(typeof window < "u" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches))
     for (let e = 0; e < 6; e++) {
       const t = document.createElement("span");
-      t.className = "nido-kids-panel__confetti", t.style.background = jl[e % jl.length];
+      t.className = "nido-kids-panel__confetti", t.style.background = Yl[e % Yl.length];
       const i = Math.PI * 2 * e / 6 + Math.random() * 0.6, r = 60 + Math.random() * 30;
       t.style.setProperty("--cx", `${Math.cos(i) * r}px`), t.style.setProperty("--cy", `${Math.sin(i) * r}px`), t.style.setProperty("--cr", `${Math.random() * 360}deg`), n.appendChild(t), window.setTimeout(() => t.remove(), 900);
     }
 }
-function qu(n, { topic: e, tag: t, load: i, save: r, parse: s }) {
+function Qu(n, { topic: e, tag: t, load: i, save: r, parse: s }) {
   const [a, o] = z(i), [d, c] = z(!1), u = xe("nido-" + Math.random().toString(36).slice(2, 8)), h = xe(a);
   h.current = a;
   const f = xe(n);
@@ -28454,51 +28502,51 @@ function qu(n, { topic: e, tag: t, load: i, save: r, parse: s }) {
   );
   return [a, _, d];
 }
-const gb = {
+const bb = {
   topic: "nido/kids/state",
   tag: "kids",
-  load: tb,
-  save: ib,
-  parse: Hu
+  load: ab,
+  save: ob,
+  parse: Wu
 };
-function mb(n) {
-  const [e, t] = qu(n, gb);
+function xb(n) {
+  const [e, t] = Qu(n, bb);
   return [e, t];
 }
-const Pt = 3, _b = 120, vb = 180, yb = {
+const Pt = 3, Eb = 120, Sb = 180, Tb = {
   smoke: "Fumée détectée",
   gas: "Gaz détecté",
   carbon_monoxide: "Monoxyde détecté",
   moisture: "Fuite d'eau"
-}, ns = {
+}, rs = {
   window: { one: "Fenêtre ouverte", many: "fenêtres ouvertes" },
   door: { one: "Porte ouverte", many: "portes ouvertes" },
   garage_door: { one: "Garage ouvert", many: "garages ouverts" }
-}, bb = {
+}, kb = {
   music: "Musique en cours",
   tvshow: "Vidéo en cours",
   movie: "Vidéo en cours",
   video: "Vidéo en cours"
 };
-function xb(n, e) {
+function wb(n, e) {
   if (!n) return null;
   const t = new Date(n).getTime();
   return Number.isNaN(t) ? null : Math.floor((e.getTime() - t) / 6e4);
 }
-function Eb(n) {
-  return `depuis ${Qt(n)}`;
+function Ab(n) {
+  return `depuis ${Zt(n)}`;
 }
-function Sb(n) {
+function Ib(n) {
   return n <= 1 ? "maintenant" : n < 60 ? `dans ${n} min` : `dans ${Math.round(n / 60)} h`;
 }
 function Di(n) {
   return n.state.attributes.device_class;
 }
-function Tb(n, e) {
+function Lb(n, e) {
   let t = null;
   for (const i of n) {
     if (i.domain !== "calendar") continue;
-    const r = Fv(i.state.attributes, e);
+    const r = $v(i.state.attributes, e);
     if (!r || r.dayOffset < 0 || r.dayOffset > 1) continue;
     let s = r.dayOffset * 1440;
     if (r.time) {
@@ -28509,64 +28557,64 @@ function Tb(n, e) {
   }
   return t;
 }
-function kb({ hass: n, entities: e, areaNameById: t, now: i }) {
+function Rb({ hass: n, entities: e, areaNameById: t, now: i }) {
   const r = [], s = (p) => p ? t.get(p) : void 0, a = () => r.length >= Pt;
   for (const p of e) {
-    if (p.domain !== "binary_sensor" || !vt(p)) continue;
-    const g = yb[Di(p) ?? ""];
+    if (p.domain !== "binary_sensor" || !yt(p)) continue;
+    const g = Tb[Di(p) ?? ""];
     g && r.push({ id: `alert:${p.entity_id}`, text: g, room: s(p.area_id), tone: "alert" });
   }
   if (a()) return r.slice(0, Pt);
   const o = e.filter(
-    (p) => p.domain === "binary_sensor" && vt(p) && ns[Di(p) ?? ""]
+    (p) => p.domain === "binary_sensor" && yt(p) && rs[Di(p) ?? ""]
   );
   if (o.length === 1) {
     const p = o[0];
     r.push({
       id: `opening:${p.entity_id}`,
-      text: ns[Di(p) ?? ""].one,
+      text: rs[Di(p) ?? ""].one,
       room: s(p.area_id),
       tone: "notice"
     });
   } else if (o.length > 1) {
-    const g = new Set(o.map((_) => Di(_))).size === 1 ? `${o.length} ${ns[Di(o[0]) ?? ""].many}` : `${o.length} ouvrants ouverts`;
+    const g = new Set(o.map((_) => Di(_))).size === 1 ? `${o.length} ${rs[Di(o[0]) ?? ""].many}` : `${o.length} ouvrants ouverts`;
     r.push({ id: `openings:${o.length}`, text: g, tone: "notice" });
   }
   if (a()) return r.slice(0, Pt);
   for (const p of Object.values(n.states)) {
     if (!p.entity_id.startsWith("person.") || p.state !== "home") continue;
-    const g = xb(p.last_changed, i);
-    if (g === null || g < 0 || g > _b) continue;
+    const g = wb(p.last_changed, i);
+    if (g === null || g < 0 || g > Eb) continue;
     const _ = p.attributes.friendly_name ?? p.entity_id.slice(7);
     if (r.push({
       id: `arrival:${p.entity_id}`,
-      text: g < 2 ? `${_} vient d'arriver` : `${_} est là ${Eb(g)}`,
+      text: g < 2 ? `${_} vient d'arriver` : `${_} est là ${Ab(g)}`,
       tone: "active"
     }), a()) break;
   }
   if (a()) return r.slice(0, Pt);
-  const d = e.filter((p) => p.domain === "light" && vt(p));
+  const d = e.filter((p) => p.domain === "light" && yt(p));
   if (d.length === 1 ? r.push({
     id: `lights:${d[0].entity_id}`,
     text: "Lumière allumée",
     room: s(d[0].area_id),
     tone: "active"
   }) : d.length > 1 && r.push({ id: `lights:${d.length}`, text: `${d.length} lumières allumées`, tone: "active" }), a()) return r.slice(0, Pt);
-  const c = e.find((p) => p.domain === "media_player" && vt(p));
+  const c = e.find((p) => p.domain === "media_player" && yt(p));
   if (c) {
     const p = c.state.attributes.media_content_type;
     r.push({
       id: `media:${c.entity_id}`,
-      text: bb[p ?? ""] ?? "Lecture en cours",
+      text: kb[p ?? ""] ?? "Lecture en cours",
       room: s(c.area_id),
       tone: "active"
     });
   }
   if (a()) return r.slice(0, Pt);
-  const u = Tb(e, i);
+  const u = Lb(e, i);
   if (u) {
     let p;
-    u.dayOffset === 1 ? p = `${u.title} demain${u.time ? ` à ${u.time}` : ""}` : u.allDay ? p = `${u.title} aujourd'hui` : u.minutes <= vb ? p = `${u.title} ${Sb(u.minutes)}` : p = `${u.title} à ${u.time}`, r.push({ id: `event:${p}`, text: p, tone: "calm" });
+    u.dayOffset === 1 ? p = `${u.title} demain${u.time ? ` à ${u.time}` : ""}` : u.allDay ? p = `${u.title} aujourd'hui` : u.minutes <= Sb ? p = `${u.title} ${Ib(u.minutes)}` : p = `${u.title} à ${u.time}`, r.push({ id: `event:${p}`, text: p, tone: "calm" });
   }
   if (a()) return r.slice(0, Pt);
   const h = Object.values(n.states).filter((p) => p.entity_id.startsWith("person."));
@@ -28579,14 +28627,14 @@ function kb({ hass: n, entities: e, areaNameById: t, now: i }) {
     tone: "calm"
   }), r.slice(0, Pt);
 }
-function Xu(n) {
+function Zu(n) {
   return n >= 5 && n < 12 ? { greeting: "Bonjour", sub: "La maison se réveille doucement" } : n >= 12 && n < 18 ? { greeting: "Bel après-midi", sub: "Tout va bien à la maison" } : n >= 18 && n < 22 ? { greeting: "Bonsoir", sub: "Tout le monde est rentré" } : { greeting: "Bonne nuit", sub: "La maison veille sur vous" };
 }
-function wb(n) {
+function Cb(n) {
   return n.replace(/[^\x00-\x7F]/g, "_").toLowerCase();
 }
-function Ab(n, e, t) {
-  const i = new Map(e.map((s) => [wb(s.name), s.area_id])), r = /* @__PURE__ */ new Map();
+function Db(n, e, t) {
+  const i = new Map(e.map((s) => [Cb(s.name), s.area_id])), r = /* @__PURE__ */ new Map();
   for (const s of t) {
     if (s.domain !== "sensor") continue;
     const a = s.state, o = a.state.toLowerCase(), d = i.get(o);
@@ -28600,23 +28648,23 @@ function Ab(n, e, t) {
     Array.from(r.entries()).map(([s, a]) => [s, Array.from(a.values())])
   );
 }
-const Ib = /* @__PURE__ */ new Set(["door", "garage_door", "window"]), Lb = {
-  window: $t,
+const Pb = /* @__PURE__ */ new Set(["door", "garage_door", "window"]), Mb = {
+  window: Ut,
   door: Ti,
-  moisture: Cc,
+  moisture: Pc,
   smoke: Bn,
   gas: Bn
-}, Rb = {
+}, Ob = {
   presence: "Présence",
   motion: "Mouvement"
-}, Cb = {
+}, Fb = {
   window: "Fenêtre",
   door: "Porte",
   moisture: "Fuite",
   smoke: "Fumée",
   gas: "Gaz"
 };
-function Db(n) {
+function Nb(n) {
   const e = [];
   if (n.temperature) {
     const t = n.temperature.unit || "°";
@@ -28626,25 +28674,25 @@ function Db(n) {
       label: "Temp.",
       value: n.temperature.value,
       unit: t,
-      tint: rr(n.temperature.value, t)
+      tint: sr(n.temperature.value, t)
     });
   }
   return n.humidity && e.push({
     key: "humidity",
-    Icon: Dc,
+    Icon: Mc,
     label: "Humid.",
     value: Math.round(parseFloat(n.humidity.value)).toString(),
     unit: n.humidity.unit || "%",
-    tint: kc(n.humidity.value)
+    tint: Ac(n.humidity.value)
   }), n.illuminance && e.push({
     key: "illuminance",
-    Icon: cr,
+    Icon: dr,
     label: "Lumino.",
     value: Math.round(parseFloat(n.illuminance.value)).toString(),
     unit: n.illuminance.unit || "lx"
   }), e;
 }
-function Pb({
+function $b({
   hass: n,
   area: e,
   entities: t,
@@ -28656,10 +28704,10 @@ function Pb({
   occupancy: d,
   activity: c
 }) {
-  const u = Hc(e.name), h = js(t), f = vc(t), p = Kc(
+  const u = Wc(e.name), h = Ws(t), f = bc(t), p = jc(
     `${f.lightsOn}|${f.coversOpen}|${f.mediaPlaying}|${f.alerts.length}|${d?.kind ?? ""}`
-  ), g = Db(h), _ = f.lightsOn === 0 && !d && !f.mediaPlaying && f.alerts.length === 0, m = r === "phone", v = _ ? c ?? null : null, b = (M, G, K, V) => {
-    M.stopPropagation(), V.length !== 0 && n.callService(G, K, { entity_id: V });
+  ), g = Nb(h), _ = f.lightsOn === 0 && !d && !f.mediaPlaying && f.alerts.length === 0, m = r === "phone", v = _ ? c ?? null : null, b = (M, G, H, V) => {
+    M.stopPropagation(), V.length !== 0 && n.callService(G, H, { entity_id: V });
   }, x = d ? /* @__PURE__ */ l(
     "span",
     {
@@ -28677,7 +28725,7 @@ function Pb({
   ] }) : null, w = o && o.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-room-card__presence", children: o.map(
     (M) => M.picture ? /* @__PURE__ */ l("img", { class: "nido-room-card__avatar", src: M.picture, alt: M.name }, M.name) : /* @__PURE__ */ l("span", { class: "nido-room-card__avatar nido-room-card__avatar--initial", children: M.name[0].toUpperCase() }, M.name)
   ) }) : null, S = f.coversOpen > 0 ? /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--cover", children: [
-    /* @__PURE__ */ l(Nt, { size: 13 }),
+    /* @__PURE__ */ l(Bt, { size: 13 }),
     f.coversOpen === 1 ? `${Math.round(f.coverPositions[0])} %` : f.coversOpen
   ] }) : null, k = /* @__PURE__ */ l("div", { class: "nido-room-card__chips", children: [
     d && /* @__PURE__ */ l(
@@ -28686,8 +28734,8 @@ function Pb({
         class: "nido-room-card__chip nido-room-card__chip--presence",
         title: d.label,
         children: [
-          /* @__PURE__ */ l(Kt, { size: 13 }),
-          Rb[d.kind]
+          /* @__PURE__ */ l(jt, { size: 13 }),
+          Ob[d.kind]
         ]
       }
     ),
@@ -28701,32 +28749,32 @@ function Pb({
       !m && "En lecture"
     ] }),
     f.alerts.map((M) => {
-      const G = Lb[M.kind];
+      const G = Mb[M.kind];
       return /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--alert", children: [
         /* @__PURE__ */ l(G, { size: 13 }),
-        m ? Cb[M.kind] : M.label
+        m ? Fb[M.kind] : M.label
       ] }, M.label);
     }),
     _ && (v !== null ? /* @__PURE__ */ l(
       "span",
       {
         class: "nido-room-card__chip nido-room-card__chip--idle",
-        title: `Calme depuis ${Qt(v)}`,
+        title: `Calme depuis ${Zt(v)}`,
         children: [
           m ? "Calme" : "Calme depuis",
           " ",
-          Qt(v)
+          Zt(v)
         ]
       }
     ) : /* @__PURE__ */ l("span", { class: "nido-room-card__chip nido-room-card__chip--idle", children: "Tout éteint" }))
-  ] }), I = g.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-room-card__band", children: g.map(({ key: M, Icon: G, label: K, value: V, unit: R, tint: F }) => /* @__PURE__ */ l(
+  ] }), I = g.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-room-card__band", children: g.map(({ key: M, Icon: G, label: H, value: V, unit: R, tint: F }) => /* @__PURE__ */ l(
     "span",
     {
       class: `nido-room-card__band-item ${F ? "nido-room-card__band-item--tinted" : ""}`,
-      style: sr(F ?? null),
+      style: ar(F ?? null),
       children: [
         /* @__PURE__ */ l("span", { class: "nido-room-card__band-icon", children: /* @__PURE__ */ l(G, { size: 14 }) }),
-        /* @__PURE__ */ l("span", { class: "nido-room-card__band-label", children: K }),
+        /* @__PURE__ */ l("span", { class: "nido-room-card__band-label", children: H }),
         /* @__PURE__ */ l("span", { class: "nido-room-card__band-value", children: [
           V,
           /* @__PURE__ */ l("span", { class: "nido-room-card__band-unit", children: R })
@@ -28764,7 +28812,7 @@ function Pb({
           f.coversOpen > 0 ? "close_cover" : "open_cover",
           f.coverIds
         ),
-        children: /* @__PURE__ */ l(Nt, { size: 18 })
+        children: /* @__PURE__ */ l(Bt, { size: 18 })
       }
     )
   ] }) : null, C = (M) => {
@@ -28789,7 +28837,7 @@ function Pb({
           ] }),
           /* @__PURE__ */ l("span", { class: "nido-room-card__name", children: e.name }),
           w,
-          /* @__PURE__ */ l("span", { class: "nido-room-card__chev", children: /* @__PURE__ */ l(ps, { size: 16 }) })
+          /* @__PURE__ */ l("span", { class: "nido-room-card__chev", children: /* @__PURE__ */ l(gs, { size: 16 }) })
         ] }),
         /* @__PURE__ */ l("div", { class: "nido-room-card__line", children: [
           I,
@@ -28818,7 +28866,7 @@ function Pb({
             ] }),
             /* @__PURE__ */ l("div", { class: "nido-room-card__head-right", children: [
               w,
-              /* @__PURE__ */ l(ps, { size: 16 })
+              /* @__PURE__ */ l(gs, { size: 16 })
             ] })
           ] }),
           /* @__PURE__ */ l("div", { class: "nido-room-card__foot", children: [
@@ -28832,7 +28880,7 @@ function Pb({
     }
   );
 }
-function Mb({
+function Bb({
   hass: n,
   areas: e,
   floors: t,
@@ -28850,8 +28898,8 @@ function Mb({
   onReorderFavorites: g,
   onReorderRooms: _
 }) {
-  const m = n.user?.name ?? "vous", v = Ra(), b = v.getHours(), { greeting: x, sub: E } = Xu(b), T = `${String(b).padStart(2, "0")}:${String(v.getMinutes()).padStart(2, "0")}`, w = v.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (q) => q.toUpperCase()), S = Z(() => new Set(s), [s]), k = Z(
-    () => i.filter((q) => S.has(q.entity_id) && Iu.has(q.domain)),
+  const m = n.user?.name ?? "vous", v = Ca(), b = v.getHours(), { greeting: x, sub: E } = Zu(b), T = `${String(b).padStart(2, "0")}:${String(v.getMinutes()).padStart(2, "0")}`, w = v.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (q) => q.toUpperCase()), S = Z(() => new Set(s), [s]), k = Z(
+    () => i.filter((q) => S.has(q.entity_id) && Ru.has(q.domain)),
     [i, S]
   ), I = Z(
     () => k.find((q) => q.domain === "weather"),
@@ -28863,128 +28911,128 @@ function Mb({
     () => k.filter((q) => q.domain === "light"),
     [k]
   ), M = Z(
-    () => Tr(C, A),
+    () => kr(C, A),
     [C, A]
   ), G = Z(
-    () => C.filter(vt).length,
+    () => C.filter(yt).length,
     [C]
-  ), K = Z(
+  ), H = Z(
     () => k.filter((q) => q.domain === "cover"),
     [k]
   ), V = Z(
-    () => Tr(K, A),
-    [K, A]
+    () => kr(H, A),
+    [H, A]
   ), R = Z(
-    () => K.filter(vt).length,
-    [K]
+    () => H.filter(yt).length,
+    [H]
   ), F = Z(
     () => k.filter(
-      (q) => q.domain === "binary_sensor" && Ib.has(q.state.attributes.device_class)
+      (q) => q.domain === "binary_sensor" && Pb.has(q.state.attributes.device_class)
     ),
     [k]
   ), L = Z(
-    () => Tr(F, A),
+    () => kr(F, A),
     [F, A]
   ), N = Z(
-    () => F.filter(vt).length,
+    () => F.filter(yt).length,
     [F]
   ), j = Z(
     () => k.filter((q) => q.domain === "calendar"),
     [k]
   ), $ = Z(
-    () => kb({ hass: n, entities: k, areaNameById: A, now: v }),
+    () => Rb({ hass: n, entities: k, areaNameById: A, now: v }),
     [n.states, k, A, v]
   ), B = Z(() => I ? Object.keys(n.states).some(
-    (ye) => ye.startsWith("sensor.") && (ye.endsWith("_next_rain") || ye.endsWith("_weather_alert") || ye.endsWith("_uv"))
-  ) : !1, [n.states, I]), [ae, de] = z(!1), [Y, te] = z(!1), [oe, J] = z(!1), [Te, Me] = z(!1), [Ee, ze] = z(!1), [it, se] = z(!1), [Oe, ce] = z(!1), [De, Be] = mb(n), Pe = Z(() => {
+    (be) => be.startsWith("sensor.") && (be.endsWith("_next_rain") || be.endsWith("_weather_alert") || be.endsWith("_uv"))
+  ) : !1, [n.states, I]), [ae, de] = z(!1), [Y, te] = z(!1), [oe, J] = z(!1), [Te, Me] = z(!1), [Ee, ze] = z(!1), [it, se] = z(!1), [Oe, ce] = z(!1), [De, Be] = xb(n), Pe = Z(() => {
     const q = n.states["sensor.nido_notifications"];
     return !q || !q.attributes.notifications ? [] : q.attributes.notifications;
-  }, [n.states["sensor.nido_notifications"]]), be = xe(new Set(Pe.map((q) => q.id))), H = xe(!0);
+  }, [n.states["sensor.nido_notifications"]]), ve = xe(new Set(Pe.map((q) => q.id))), K = xe(!0);
   me(() => {
-    const q = be.current;
-    if (H.current) {
-      H.current = !1, be.current = new Set(Pe.map((ut) => ut.id));
+    const q = ve.current;
+    if (K.current) {
+      K.current = !1, ve.current = new Set(Pe.map((ut) => ut.id));
       return;
     }
-    Pe.some((ut) => !q.has(ut.id)) && Ou(), be.current = new Set(Pe.map((ut) => ut.id));
+    Pe.some((ut) => !q.has(ut.id)) && $u(), ve.current = new Set(Pe.map((ut) => ut.id));
   }, [Pe]);
-  const Q = Z(() => xc(), [Y]), O = Z(() => {
+  const Q = Z(() => Sc(), [Y]), O = Z(() => {
     if (Pe.length === 0) return !1;
     if (!Q) return !0;
     const q = Pe[Pe.length - 1];
     return new Date(q.timestamp) > new Date(Q);
   }, [Pe, Q]), W = () => {
-    te(!0), Ec((/* @__PURE__ */ new Date()).toISOString());
+    te(!0), Tc((/* @__PURE__ */ new Date()).toISOString());
   }, ie = Z(() => Object.values(n.states).filter(
     (q) => q.entity_id.startsWith("person.") && q.state === "home" && q.attributes.entity_picture
   ), [n.states]), le = (q) => {
     if (!q) return null;
     if (q.startsWith("http")) return q;
-    const ye = n.hassUrl?.("");
-    return ye ? ye.replace(/\/$/, "") + q : q;
-  }, ue = Z(() => gc(k), [k]), pe = Z(
-    () => Ab(n, e, k),
+    const be = n.hassUrl?.("");
+    return be ? be.replace(/\/$/, "") + q : q;
+  }, ue = Z(() => _c(k), [k]), pe = Z(
+    () => Db(n, e, k),
     [n.states, e, k]
   ), ge = Z(() => {
     const q = /* @__PURE__ */ new Map();
-    for (const [ye, ut] of ue) {
-      if (!ye) continue;
-      const Zt = mc(ut);
-      Zt && q.set(ye, Zt);
+    for (const [be, ut] of ue) {
+      if (!be) continue;
+      const Jt = vc(ut);
+      Jt && q.set(be, Jt);
     }
     return q;
   }, [ue]), Xe = Z(() => {
     const q = /* @__PURE__ */ new Map();
-    for (const [ye, ut] of ue) {
-      if (!ye) continue;
-      const Zt = _c(ut, v);
-      Zt !== null && q.set(ye, Zt);
+    for (const [be, ut] of ue) {
+      if (!be) continue;
+      const Jt = yc(ut, v);
+      Jt !== null && q.set(be, Jt);
     }
     return q;
-  }, [ue, v]), He = Yh(), [Qi, Ai] = z(() => $h()), Ii = Qi ?? (He === "touch" ? "plan" : "cards"), [Da, Pa] = z(null), th = !!n.user?.is_admin && He !== "phone", Ma = (q) => {
-    Ai(q), Bh(q);
-  }, vr = Z(() => {
-    const q = new Map(k.map((ye) => [ye.entity_id, ye]));
-    return r.map((ye) => q.get(ye)).filter((ye) => !!ye);
+  }, [ue, v]), He = Xh(), [Qi, Ai] = z(() => Uh()), Ii = Qi ?? (He === "touch" ? "plan" : "cards"), [Pa, Ma] = z(null), nh = !!n.user?.is_admin && He !== "phone", Oa = (q) => {
+    Ai(q), Gh(q);
+  }, yr = Z(() => {
+    const q = new Map(k.map((be) => [be.entity_id, be]));
+    return r.map((be) => q.get(be)).filter((be) => !!be);
   }, [k, r]), Li = Z(() => {
-    const q = e.filter((ye) => (ue.get(ye.area_id) ?? []).length > 0);
-    return $n(q, a, (ye) => ye.area_id);
-  }, [e, ue, a]), yr = fs(
-    vr,
+    const q = e.filter((be) => (ue.get(be.area_id) ?? []).length > 0);
+    return $n(q, a, (be) => be.area_id);
+  }, [e, ue, a]), br = ps(
+    yr,
     (q) => q.entity_id,
-    (q) => g(q.map((ye) => ye.entity_id))
-  ), br = fs(
+    (q) => g(q.map((be) => be.entity_id))
+  ), xr = ps(
     Li,
     (q) => q.area_id,
-    (q) => _(q.map((ye) => ye.area_id))
-  ), ih = vr.some(
+    (q) => _(q.map((be) => be.area_id))
+  ), rh = yr.some(
     (q) => !(q.domain === "binary_sensor" && q.state.state === "off")
   );
-  let xr = 0;
-  const nh = ih ? /* @__PURE__ */ l("section", { class: "nido-room nido-room--favorites", children: [
+  let Er = 0;
+  const sh = rh ? /* @__PURE__ */ l("section", { class: "nido-room nido-room--favorites", children: [
     /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { class: "is-accent", children: "Favoris" }) }),
     /* @__PURE__ */ l(
       "div",
       {
-        class: `nido-room__grid ${yr.isDragging ? "is-dragging" : ""}`,
+        class: `nido-room__grid ${br.isDragging ? "is-dragging" : ""}`,
         ref: (q) => {
-          yr.containerRef.current = q;
+          br.containerRef.current = q;
         },
-        children: vr.map((q) => {
+        children: yr.map((q) => {
           if (q.domain === "binary_sensor" && q.state.state === "off") return null;
-          xr += 1;
-          const ut = xr === 1, Zt = (xr - 1) % 4 + 1;
+          Er += 1;
+          const ut = Er === 1, Jt = (Er - 1) % 4 + 1;
           return /* @__PURE__ */ l(
-            jc,
+            Yc,
             {
               signature: `${q.state.state}|${q.state.last_changed}`,
               hero: ut,
-              dragProps: yr.itemPropsFor(q.entity_id),
-              children: Lu(q, {
+              dragProps: br.itemPropsFor(q.entity_id),
+              children: Cu(q, {
                 hass: n,
-                areaName: e.find((sh) => sh.area_id === q.area_id)?.name ?? "",
+                areaName: e.find((oh) => oh.area_id === q.area_id)?.name ?? "",
                 hero: ut,
-                variant: Zt,
+                variant: Jt,
                 calendarEntities: j
               })
             },
@@ -28993,7 +29041,7 @@ function Mb({
         })
       }
     )
-  ] }, "__favorites") : null, Oa = !!p && S.has(kt) && !!n.states[kt], rh = k.length > 0;
+  ] }, "__favorites") : null, Fa = !!p && S.has(vt) && !!n.states[vt], ah = k.length > 0;
   return /* @__PURE__ */ l("div", { class: "nido-shell", children: [
     /* @__PURE__ */ l("div", { class: "nido-dashboard", children: [
       /* @__PURE__ */ l("header", { class: "nido-topbar", children: [
@@ -29008,9 +29056,9 @@ function Mb({
             class: "nido-weather-pill-btn",
             onClick: () => de(!0),
             "aria-label": "Voir la météo détaillée",
-            children: /* @__PURE__ */ l(ao, { entity: I })
+            children: /* @__PURE__ */ l(oo, { entity: I })
           }
-        ) : /* @__PURE__ */ l(ao, { entity: I })) }),
+        ) : /* @__PURE__ */ l(oo, { entity: I })) }),
         /* @__PURE__ */ l("div", { class: "nido-topbar__utility", children: [
           C.length > 0 && /* @__PURE__ */ l(
             "button",
@@ -29025,7 +29073,7 @@ function Mb({
               ] })
             }
           ),
-          K.length > 0 && /* @__PURE__ */ l(
+          H.length > 0 && /* @__PURE__ */ l(
             "button",
             {
               type: "button",
@@ -29033,7 +29081,7 @@ function Mb({
               onClick: () => Me(!0),
               "aria-label": `${R} volet${R > 1 ? "s" : ""} ouvert${R > 1 ? "s" : ""}`,
               children: /* @__PURE__ */ l("div", { class: "nido-covers-pill", children: [
-                /* @__PURE__ */ l(Nt, { size: 16 }),
+                /* @__PURE__ */ l(Bt, { size: 16 }),
                 /* @__PURE__ */ l("span", { class: "nido-covers-pill__count", children: R })
               ] })
             }
@@ -29046,7 +29094,7 @@ function Mb({
               onClick: () => ze(!0),
               "aria-label": `${N} ouvrant${N > 1 ? "s" : ""} ouvert${N > 1 ? "s" : ""}`,
               children: /* @__PURE__ */ l("div", { class: "nido-covers-pill", children: [
-                /* @__PURE__ */ l($t, { size: 16 }),
+                /* @__PURE__ */ l(Ut, { size: 16 }),
                 /* @__PURE__ */ l("span", { class: "nido-covers-pill__count", children: N })
               ] })
             }
@@ -29061,7 +29109,7 @@ function Mb({
               onClick: () => se(!0),
               "aria-label": "Bloc note",
               title: "Bloc note",
-              children: /* @__PURE__ */ l(Mf, { size: 20 })
+              children: /* @__PURE__ */ l(Ff, { size: 20 })
             }
           ),
           /* @__PURE__ */ l(
@@ -29072,7 +29120,7 @@ function Mb({
               onClick: W,
               "aria-label": "Notifications",
               children: [
-                /* @__PURE__ */ l(qs, { size: 20 }),
+                /* @__PURE__ */ l(Xs, { size: 20 }),
                 O && /* @__PURE__ */ l("span", { class: "nido-bell-btn__badge" })
               ]
             }
@@ -29083,7 +29131,7 @@ function Mb({
               type: "button",
               class: "n-pill-btn n-pill-btn--ghost",
               onClick: h,
-              children: /* @__PURE__ */ l(Xs, { size: 16 })
+              children: /* @__PURE__ */ l(Qs, { size: 16 })
             }
           )
         ] })
@@ -29098,11 +29146,11 @@ function Mb({
           ] }),
           ie.length > 0 && /* @__PURE__ */ l("div", { class: "nido-home-pill", children: [
             /* @__PURE__ */ l("div", { class: "nido-home-pill__avatars", children: ie.map((q) => {
-              const ye = le(q.attributes.entity_picture);
-              return ye ? /* @__PURE__ */ l(
+              const be = le(q.attributes.entity_picture);
+              return be ? /* @__PURE__ */ l(
                 "img",
                 {
-                  src: ye,
+                  src: be,
                   alt: q.attributes.friendly_name,
                   title: q.attributes.friendly_name,
                   class: "nido-home-pill__avatar"
@@ -29113,22 +29161,22 @@ function Mb({
             /* @__PURE__ */ l("span", { class: "nido-home-pill__text", children: "À la maison" })
           ] })
         ] }),
-        $.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-hero__digest", style: { marginTop: "24px" }, "aria-live": "polite", children: $.map((q, ye) => /* @__PURE__ */ l("span", { class: "nido-hero__fact", "data-tone": q.tone, children: [
-          ye > 0 && /* @__PURE__ */ l("span", { class: "nido-hero__fact-sep", "aria-hidden": "true" }),
+        $.length > 0 ? /* @__PURE__ */ l("div", { class: "nido-hero__digest", style: { marginTop: "24px" }, "aria-live": "polite", children: $.map((q, be) => /* @__PURE__ */ l("span", { class: "nido-hero__fact", "data-tone": q.tone, children: [
+          be > 0 && /* @__PURE__ */ l("span", { class: "nido-hero__fact-sep", "aria-hidden": "true" }),
           /* @__PURE__ */ l("span", { class: "nido-hero__fact-text", children: q.text }),
           q.room && /* @__PURE__ */ l("span", { class: "nido-hero__fact-room", children: q.room })
         ] }, q.id)) }) : /* @__PURE__ */ l("p", { class: "nido-hero__sub", style: { marginTop: "24px" }, children: E })
       ] }),
-      rh ? /* @__PURE__ */ l(Se, { children: [
-        nh,
-        (Oa || u) && /* @__PURE__ */ l("div", { class: "nido-energy-row", children: [
-          Oa && /* @__PURE__ */ l("section", { class: "nido-room nido-room--energy", children: [
+      ah ? /* @__PURE__ */ l(Se, { children: [
+        sh,
+        (Fa || u) && /* @__PURE__ */ l("div", { class: "nido-energy-row", children: [
+          Fa && /* @__PURE__ */ l("section", { class: "nido-room nido-room--energy", children: [
             /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { children: "Consommation en direct" }) }),
             /* @__PURE__ */ l("div", { class: "nido-energy-summary", children: /* @__PURE__ */ l(
-              Nu,
+              Ou,
               {
                 hass: n,
-                powerEntityId: kt,
+                powerEntityId: vt,
                 onOpen: p
               }
             ) })
@@ -29136,7 +29184,7 @@ function Mb({
           u && /* @__PURE__ */ l("section", { class: "nido-room nido-room--kids", children: [
             /* @__PURE__ */ l("div", { class: "nido-section-title", children: /* @__PURE__ */ l("h2", { children: "Enfants" }) }),
             /* @__PURE__ */ l("div", { class: "nido-kids-summary", children: /* @__PURE__ */ l(
-              hb,
+              _b,
               {
                 data: De,
                 onOpen: () => ce(!0),
@@ -29155,9 +29203,9 @@ function Mb({
                   type: "button",
                   class: `nido-rooms-view__btn ${Ii === "cards" ? "is-active" : ""}`,
                   "aria-pressed": Ii === "cards",
-                  onClick: () => Ma("cards"),
+                  onClick: () => Oa("cards"),
                   children: [
-                    /* @__PURE__ */ l(Of, { size: 16 }),
+                    /* @__PURE__ */ l(Nf, { size: 16 }),
                     /* @__PURE__ */ l("span", { children: "Cartes" })
                   ]
                 }
@@ -29168,9 +29216,9 @@ function Mb({
                   type: "button",
                   class: `nido-rooms-view__btn ${Ii === "plan" ? "is-active" : ""}`,
                   "aria-pressed": Ii === "plan",
-                  onClick: () => Ma("plan"),
+                  onClick: () => Oa("plan"),
                   children: [
-                    /* @__PURE__ */ l(Gc, { size: 16 }),
+                    /* @__PURE__ */ l(Vc, { size: 16 }),
                     /* @__PURE__ */ l("span", { children: "Plan" })
                   ]
                 }
@@ -29178,7 +29226,7 @@ function Mb({
             ] })
           ] }),
           Ii === "plan" ? /* @__PURE__ */ l(
-            Mu,
+            Nu,
             {
               hass: n,
               areas: Li,
@@ -29187,25 +29235,25 @@ function Mb({
               variant: He === "phone" ? "phone" : "wide",
               plan: o,
               onOpenRoom: f,
-              onEdit: th ? Pa : void 0
+              onEdit: nh ? Ma : void 0
             }
           ) : /* @__PURE__ */ l(
             "div",
             {
-              class: `nido-rooms-grid nido-rooms-grid--${He} ${br.isDragging ? "is-dragging" : ""}`,
+              class: `nido-rooms-grid nido-rooms-grid--${He} ${xr.isDragging ? "is-dragging" : ""}`,
               ref: (q) => {
-                br.containerRef.current = q;
+                xr.containerRef.current = q;
               },
-              children: Li.map((q, ye) => /* @__PURE__ */ l(
-                Pb,
+              children: Li.map((q, be) => /* @__PURE__ */ l(
+                $b,
                 {
                   hass: n,
                   area: q,
                   entities: ue.get(q.area_id) ?? [],
-                  accent: ye === 0,
+                  accent: be === 0,
                   layout: He,
                   onOpen: () => f(q.area_id),
-                  dragProps: br.itemPropsFor(q.area_id),
+                  dragProps: xr.itemPropsFor(q.area_id),
                   presence: pe.get(q.area_id),
                   occupancy: ge.get(q.area_id) ?? null,
                   activity: Xe.get(q.area_id) ?? null
@@ -29220,20 +29268,20 @@ function Mb({
         /* @__PURE__ */ l("button", { type: "button", class: "n-ob__primary", onClick: h, children: "Personnaliser Nido" })
       ] })
     ] }),
-    Da !== null && /* @__PURE__ */ l(
-      yy,
+    Pa !== null && /* @__PURE__ */ l(
+      $y,
       {
-        floors: Ru(Li, t),
+        floors: Du(Li, t),
         byArea: ue,
         plan: o,
-        initialFloor: Da,
+        initialFloor: Pa,
         synced: d,
         onSave: c,
-        onClose: () => Pa(null)
+        onClose: () => Ma(null)
       }
     ),
     ae && I && /* @__PURE__ */ l(
-      zf,
+      Kf,
       {
         hass: n,
         weatherEntityId: I.entity_id,
@@ -29241,7 +29289,7 @@ function Mb({
       }
     ),
     Y && /* @__PURE__ */ l(
-      Fu,
+      Bu,
       {
         hass: n,
         notifications: Pe,
@@ -29249,7 +29297,7 @@ function Mb({
       }
     ),
     oe && /* @__PURE__ */ l(
-      wy,
+      Hy,
       {
         hass: n,
         lights: M,
@@ -29258,7 +29306,7 @@ function Mb({
       }
     ),
     Te && /* @__PURE__ */ l(
-      Iy,
+      Wy,
       {
         hass: n,
         covers: V,
@@ -29267,7 +29315,7 @@ function Mb({
       }
     ),
     Ee && /* @__PURE__ */ l(
-      Cy,
+      Xy,
       {
         openings: L,
         areas: e,
@@ -29275,14 +29323,14 @@ function Mb({
       }
     ),
     it && /* @__PURE__ */ l(
-      Py,
+      Zy,
       {
         hass: n,
         onClose: () => se(!1)
       }
     ),
     Oe && /* @__PURE__ */ l(
-      fb,
+      vb,
       {
         data: De,
         onChange: Be,
@@ -29291,7 +29339,7 @@ function Mb({
     )
   ] });
 }
-function Ob({
+function Ub({
   hass: n,
   area: e,
   entities: t,
@@ -29299,7 +29347,7 @@ function Ob({
   onBack: r,
   onReorderEntities: s
 }) {
-  const a = Hc(e.name), o = js(t), d = Ra(), c = Z(
+  const a = Wc(e.name), o = Ws(t), d = Ca(), c = Z(
     () => $n(t, i, (E) => E.entity_id),
     [t, i]
   ), u = Z(
@@ -29320,7 +29368,7 @@ function Ob({
   }, [u]), [p, g] = z("all"), _ = Z(
     () => p === "all" ? u : u.filter((E) => E.domain === p),
     [u, p]
-  ), m = fs(
+  ), m = ps(
     _,
     (E) => E.entity_id,
     (E) => {
@@ -29331,15 +29379,15 @@ function Ob({
     }
   ), v = u.filter(
     (E) => E.domain !== "sensor" && E.domain !== "binary_sensor"
-  ).length, b = u.filter(vt).length, x = b === 0 ? _c(t, d) : null;
+  ).length, b = u.filter(yt).length, x = b === 0 ? yc(t, d) : null;
   return /* @__PURE__ */ l("div", { class: "nido-shell", children: /* @__PURE__ */ l("div", { class: "nido-dashboard nido-room-detail", children: [
     /* @__PURE__ */ l("header", { class: "nido-room-detail__header", children: [
-      /* @__PURE__ */ l("button", { type: "button", class: "n-icon-btn nido-room-detail__back", onClick: r, children: /* @__PURE__ */ l($c, { size: 18 }) }),
+      /* @__PURE__ */ l("button", { type: "button", class: "n-icon-btn nido-room-detail__back", onClick: r, children: /* @__PURE__ */ l(Uc, { size: 18 }) }),
       /* @__PURE__ */ l("div", { class: "nido-room-detail__crumb", children: [
         /* @__PURE__ */ l("div", { class: "n-eyebrow", children: "Maison · Pièce" }),
         /* @__PURE__ */ l("div", { class: "nido-room-detail__brand", children: "nido" })
       ] }),
-      /* @__PURE__ */ l("div", { class: "nido-room-detail__head-actions", children: /* @__PURE__ */ l("button", { type: "button", class: "n-icon-btn", children: /* @__PURE__ */ l(Bc, { size: 18 }) }) })
+      /* @__PURE__ */ l("div", { class: "nido-room-detail__head-actions", children: /* @__PURE__ */ l("button", { type: "button", class: "n-icon-btn", children: /* @__PURE__ */ l(Gc, { size: 18 }) }) })
     ] }),
     /* @__PURE__ */ l("section", { class: "nido-room-detail__hero", children: [
       /* @__PURE__ */ l("div", { class: "nido-room-detail__hero-left", children: [
@@ -29366,7 +29414,7 @@ function Ob({
               /* @__PURE__ */ l("span", { class: "nido-room-card__sep", children: "•" }),
               /* @__PURE__ */ l("span", { children: [
                 "calme depuis ",
-                Qt(x)
+                Zt(x)
               ] })
             ] })
           ] }),
@@ -29375,30 +29423,30 @@ function Ob({
       ] }),
       (o.temperature || o.humidity || o.illuminance) && /* @__PURE__ */ l("div", { class: "nido-room-detail__stats", children: [
         o.temperature && /* @__PURE__ */ l(
-          rs,
+          ss,
           {
             label: "Température",
             value: o.temperature.value,
             unit: o.temperature.unit || "°",
-            tint: rr(
+            tint: sr(
               o.temperature.value,
               o.temperature.unit || "°"
             )
           }
         ),
-        o.humidity && /* @__PURE__ */ l(Yl, {}),
+        o.humidity && /* @__PURE__ */ l(Xl, {}),
         o.humidity && /* @__PURE__ */ l(
-          rs,
+          ss,
           {
             label: "Humidité",
             value: Math.round(parseFloat(o.humidity.value)).toString(),
             unit: o.humidity.unit || "%",
-            tint: kc(o.humidity.value)
+            tint: Ac(o.humidity.value)
           }
         ),
-        o.illuminance && /* @__PURE__ */ l(Yl, {}),
+        o.illuminance && /* @__PURE__ */ l(Xl, {}),
         o.illuminance && /* @__PURE__ */ l(
-          rs,
+          ss,
           {
             label: "Luminosité",
             value: Math.round(parseFloat(o.illuminance.value)).toString(),
@@ -29427,7 +29475,7 @@ function Ob({
           class: `n-pill-btn ${p === E ? "n-pill-btn--dark" : "n-pill-btn--ghost"}`,
           onClick: () => g(E),
           children: [
-            Kf[E] ?? E,
+            jf[E] ?? E,
             " · ",
             T
           ]
@@ -29444,12 +29492,12 @@ function Ob({
         children: _.map((E, T) => {
           const w = T % 4 + 1, S = T === 0;
           return /* @__PURE__ */ l(
-            jc,
+            Yc,
             {
               signature: `${E.state.state}|${E.state.last_changed}`,
               hero: S,
               dragProps: m.itemPropsFor(E.entity_id),
-              children: Lu(E, { hass: n, areaName: e.name, hero: S, variant: w, calendarEntities: h })
+              children: Cu(E, { hass: n, areaName: e.name, hero: S, variant: w, calendarEntities: h })
             },
             E.entity_id
           );
@@ -29458,7 +29506,7 @@ function Ob({
     )
   ] }) });
 }
-function rs({
+function ss({
   label: n,
   value: e,
   unit: t,
@@ -29466,39 +29514,39 @@ function rs({
 }) {
   return /* @__PURE__ */ l("div", { class: `nido-room-detail__stat ${i ? "nido-room-detail__stat--tinted" : ""}`, children: [
     /* @__PURE__ */ l("div", { class: "n-eyebrow", children: n }),
-    /* @__PURE__ */ l("div", { class: "nido-room-detail__stat-value", style: sr(i), children: [
+    /* @__PURE__ */ l("div", { class: "nido-room-detail__stat-value", style: ar(i), children: [
       e,
       /* @__PURE__ */ l("span", { class: "nido-room-detail__stat-unit", children: t })
     ] })
   ] });
 }
-function Yl() {
+function Xl() {
   return /* @__PURE__ */ l("div", { class: "nido-room-detail__stat-sep", "aria-hidden": "true" });
 }
 const bn = 5, Oi = {
   light: { label: "Lumières", Icon: dt },
-  switch: { label: "Prises & switches", Icon: ar },
-  cover: { label: "Volets & stores", Icon: Nt },
+  switch: { label: "Prises & switches", Icon: or },
+  cover: { label: "Volets & stores", Icon: Bt },
   climate: { label: "Thermostats", Icon: ht },
-  lock: { label: "Serrures", Icon: or },
-  vacuum: { label: "Aspirateurs", Icon: lr },
-  binary_sensor: { label: "Détecteurs", Icon: Wt },
-  sensor: { label: "Capteurs", Icon: Kt },
+  lock: { label: "Serrures", Icon: lr },
+  vacuum: { label: "Aspirateurs", Icon: cr },
+  binary_sensor: { label: "Détecteurs", Icon: Yt },
+  sensor: { label: "Capteurs", Icon: jt },
   media_player: { label: "Lecteurs média", Icon: Xi },
-  alarm_control_panel: { label: "Alarmes", Icon: Wt },
-  camera: { label: "Caméras", Icon: dr },
-  fan: { label: "Ventilateurs", Icon: ur },
-  scene: { label: "Scènes", Icon: hr },
-  script: { label: "Scripts", Icon: Yt },
-  weather: { label: "Météo", Icon: Zs },
-  calendar: { label: "Calendriers", Icon: na }
-}, ql = Object.keys(Oi), $s = {
+  alarm_control_panel: { label: "Alarmes", Icon: Yt },
+  camera: { label: "Caméras", Icon: ur },
+  fan: { label: "Ventilateurs", Icon: hr },
+  scene: { label: "Scènes", Icon: fr },
+  script: { label: "Scripts", Icon: qt },
+  weather: { label: "Météo", Icon: Js },
+  calendar: { label: "Calendriers", Icon: ra }
+}, Ql = Object.keys(Oi), Bs = {
   terracotta: { name: "Terracotta", desc: "Toscan chaleureux", swatches: ["#f4ede2", "#c75a2a", "#1a1410"] },
   miel: { name: "Miel", desc: "Solaire et doré", swatches: ["#f6ecd6", "#d4a020", "#2a1f10"] },
   sauge: { name: "Sauge", desc: "Organique scandinave", swatches: ["#ebe7d8", "#6a7a3a", "#1a1d10"] },
   cosy: { name: "Cosy", desc: "Salon feutré", swatches: ["#f0eadd", "#b06030", "#1c1208"] }
 };
-function Fb(n) {
+function Gb(n) {
   const {
     hass: e,
     entities: t,
@@ -29513,17 +29561,17 @@ function Fb(n) {
     onApplyTheme: h,
     onClose: f,
     onDone: p
-  } = n, g = yt(f), [_, m] = z(0), [v, b] = z(r), [x, E] = z(s), [T, w] = z(new Set(a)), [S, k] = z(new Set(o)), [I, A] = z(
+  } = n, g = bt(f), [_, m] = z(0), [v, b] = z(r), [x, E] = z(s), [T, w] = z(new Set(a)), [S, k] = z(new Set(o)), [I, A] = z(
     new Set(d)
-  ), [C, M] = z(c), [G, K] = z(null), [V, R] = z(null);
+  ), [C, M] = z(c), [G, H] = z(null), [V, R] = z(null);
   me(() => {
     let Y = !1;
     return e.callWS({ type: "config/auth/list" }).then((te) => {
-      Y || K(
+      Y || H(
         (te ?? []).filter((oe) => !oe.system_generated).sort((oe, J) => oe.name.localeCompare(J.name))
       );
     }).catch((te) => {
-      Y || (R(te instanceof Error ? te.message : String(te)), e.user && K([e.user]));
+      Y || (R(te instanceof Error ? te.message : String(te)), e.user && H([e.user]));
     }), () => {
       Y = !0;
     };
@@ -29551,7 +29599,7 @@ function Fb(n) {
     });
   }, ae = () => {
     const Y = Array.from(T), te = Array.from(S).filter((J) => T.has(J)), oe = Array.from(I);
-    eo(v, x), Xa(Y), hs(te), Qa(oe), to(C), Ja(), p({
+    to(v, x), Qa(Y), fs(te), Za(oe), io(C), eo(), p({
       exposed: Y,
       favorites: te,
       theme: v,
@@ -29560,12 +29608,12 @@ function Fb(n) {
       kidsEnabled: C
     });
   }, de = () => {
-    eo(v, x), Xa(Array.from(T)), hs(Array.from(S).filter((Y) => T.has(Y))), Qa(Array.from(I)), to(C), Ja(), f();
+    to(v, x), Qa(Array.from(T)), fs(Array.from(S).filter((Y) => T.has(Y))), Za(Array.from(I)), io(C), eo(), f();
   };
   return /* @__PURE__ */ l("div", { ref: g, class: "n-ob", role: "dialog", "aria-modal": "true", "aria-label": "Configuration de Nido", children: /* @__PURE__ */ l("div", { class: "n-ob__shell", children: [
     /* @__PURE__ */ l("header", { class: "n-ob__header", children: [
       /* @__PURE__ */ l("div", { class: "n-ob__brand", children: [
-        /* @__PURE__ */ l("span", { class: "n-ob__brand-mark", children: /* @__PURE__ */ l(hf, { size: 18 }) }),
+        /* @__PURE__ */ l("span", { class: "n-ob__brand-mark", children: /* @__PURE__ */ l(pf, { size: 18 }) }),
         /* @__PURE__ */ l("span", { class: "n-ob__brand-name", children: "nido" })
       ] }),
       /* @__PURE__ */ l("div", { class: "n-ob__stepper", children: [
@@ -29585,19 +29633,19 @@ function Fb(n) {
     ] }),
     /* @__PURE__ */ l("div", { class: "n-ob__body", children: [
       _ === 0 && /* @__PURE__ */ l(
-        Nb,
+        zb,
         {
           isReturning: u,
           exposedCount: T.size,
           favCount: S.size,
-          themeLabel: $s[v].name,
+          themeLabel: Bs[v].name,
           modeLabel: x === "light" ? "Clair" : "Sombre",
           allowedUsersCount: G ? G.filter((Y) => !I.has(Y.id)).length : null
         }
       ),
-      _ === 1 && /* @__PURE__ */ l($b, { entitiesCount: t.length, areasCount: i.length }),
+      _ === 1 && /* @__PURE__ */ l(Vb, { entitiesCount: t.length, areasCount: i.length }),
       _ === 2 && /* @__PURE__ */ l(
-        Bb,
+        Kb,
         {
           entities: t,
           exposed: T,
@@ -29607,7 +29655,7 @@ function Fb(n) {
         }
       ),
       _ === 3 && /* @__PURE__ */ l(
-        Ub,
+        Hb,
         {
           theme: v,
           mode: x,
@@ -29618,7 +29666,7 @@ function Fb(n) {
         }
       ),
       _ === 4 && /* @__PURE__ */ l(
-        Gb,
+        jb,
         {
           hass: e,
           users: G,
@@ -29637,7 +29685,7 @@ function Fb(n) {
           disabled: _ === 0,
           onClick: L,
           children: [
-            /* @__PURE__ */ l(ta, { size: 14 }),
+            /* @__PURE__ */ l(ia, { size: 14 }),
             " Retour"
           ]
         }
@@ -29652,20 +29700,20 @@ function Fb(n) {
     ] })
   ] }) });
 }
-const Xl = [
+const Zl = [
   dt,
-  Nt,
-  ar,
-  ht,
+  Bt,
   or,
+  ht,
   lr,
-  Kt,
+  cr,
+  jt,
   Xi,
-  Wt,
-  dr,
+  Yt,
   ur,
   hr,
-  Yt
+  fr,
+  qt
 ];
 function xn({ offset: n, intervalMs: e }) {
   const [t, i] = z(n);
@@ -29673,10 +29721,10 @@ function xn({ offset: n, intervalMs: e }) {
     const s = setInterval(() => i((a) => a + 1), e);
     return () => clearInterval(s);
   }, [e]);
-  const r = Xl[t % Xl.length];
+  const r = Zl[t % Zl.length];
   return /* @__PURE__ */ l("div", { class: "n-ob-cycle", children: /* @__PURE__ */ l(r, { size: 28 }) }, t);
 }
-function Nb(n) {
+function zb(n) {
   const { isReturning: e, exposedCount: t, favCount: i, themeLabel: r, modeLabel: s, allowedUsersCount: a } = n;
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--welcome", children: [
     /* @__PURE__ */ l("div", { class: "n-ob-step__col", children: [
@@ -29738,7 +29786,7 @@ function En(n) {
     n.hint && /* @__PURE__ */ l("div", { class: "n-ob-recap__hint", children: n.hint })
   ] });
 }
-function $b({ entitiesCount: n, areasCount: e }) {
+function Vb({ entitiesCount: n, areasCount: e }) {
   const [t, i] = z("scanning");
   return me(() => {
     const r = setTimeout(() => i("found"), 1100), s = setTimeout(() => i("connected"), 2200);
@@ -29756,7 +29804,7 @@ function $b({ entitiesCount: n, areasCount: e }) {
       ] }),
       /* @__PURE__ */ l("p", { class: "n-ob__lead", children: "Nido lit ce que Home Assistant expose déjà. Aucune donnée ne sort de chez vous." }),
       /* @__PURE__ */ l("div", { class: "n-ob-pill-card", children: [
-        /* @__PURE__ */ l("span", { class: "n-icon-bubble", style: { color: "var(--accent-deep)", background: "var(--accent-soft)" }, children: /* @__PURE__ */ l(uf, { size: 18 }) }),
+        /* @__PURE__ */ l("span", { class: "n-icon-bubble", style: { color: "var(--accent-deep)", background: "var(--accent-soft)" }, children: /* @__PURE__ */ l(ff, { size: 18 }) }),
         /* @__PURE__ */ l("div", { children: [
           /* @__PURE__ */ l("div", { class: "n-ob-pill-card__title", children: "Local-first" }),
           /* @__PURE__ */ l("div", { class: "n-ob-pill-card__hint", children: "Connexion directe · Pas de cloud" })
@@ -29812,13 +29860,13 @@ function $b({ entitiesCount: n, areasCount: e }) {
     ] })
   ] });
 }
-function Bb(n) {
+function Kb(n) {
   const { entities: e, exposed: t, favs: i, onToggleExpose: r, onToggleFav: s } = n, a = Z(() => {
     const m = /* @__PURE__ */ new Map();
     for (const v of e)
-      ql.includes(v.domain) && (m.has(v.domain) || m.set(v.domain, []), m.get(v.domain).push(v));
+      Ql.includes(v.domain) && (m.has(v.domain) || m.set(v.domain, []), m.get(v.domain).push(v));
     return Array.from(m.entries()).sort((v, b) => b[1].length - v[1].length);
-  }, [e]), [o, d] = z(a[0]?.[0] ?? "light"), [c, u] = z(""), h = a.find(([m]) => m === o) ?? a[0], f = t.size, p = e.filter((m) => ql.includes(m.domain)).length, g = c.trim().toLowerCase(), _ = h ? g ? h[1].filter(
+  }, [e]), [o, d] = z(a[0]?.[0] ?? "light"), [c, u] = z(""), h = a.find(([m]) => m === o) ?? a[0], f = t.size, p = e.filter((m) => Ql.includes(m.domain)).length, g = c.trim().toLowerCase(), _ = h ? g ? h[1].filter(
     (m) => (m.friendly_name ?? "").toLowerCase().includes(g) || m.entity_id.toLowerCase().includes(g)
   ) : h[1] : [];
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--entities", children: [
@@ -29884,7 +29932,7 @@ function Bb(n) {
         ] })
       ] }),
       /* @__PURE__ */ l("div", { class: "n-ob-ent__search", children: [
-        /* @__PURE__ */ l("span", { class: "n-ob-ent__search-icon", "aria-hidden": "true", children: /* @__PURE__ */ l(cf, { size: 14 }) }),
+        /* @__PURE__ */ l("span", { class: "n-ob-ent__search-icon", "aria-hidden": "true", children: /* @__PURE__ */ l(uf, { size: 14 }) }),
         /* @__PURE__ */ l(
           "input",
           {
@@ -29935,10 +29983,10 @@ function Bb(n) {
                     onClick: (E) => {
                       E.stopPropagation(), s(m.entity_id);
                     },
-                    children: b ? /* @__PURE__ */ l(df, { size: 14 }) : /* @__PURE__ */ l(lf, { size: 14 })
+                    children: b ? /* @__PURE__ */ l(hf, { size: 14 }) : /* @__PURE__ */ l(df, { size: 14 })
                   }
                 ),
-                /* @__PURE__ */ l("span", { class: `n-ob-ent-card__check ${v ? "is-on" : ""}`, children: v && /* @__PURE__ */ l(Fc, { size: 12, stroke: 2.4 }) })
+                /* @__PURE__ */ l("span", { class: `n-ob-ent-card__check ${v ? "is-on" : ""}`, children: v && /* @__PURE__ */ l($c, { size: 12, stroke: 2.4 }) })
               ]
             }
           );
@@ -29947,8 +29995,8 @@ function Bb(n) {
     ] }) })
   ] });
 }
-function Ub(n) {
-  const { theme: e, mode: t, userName: i, onPick: r, kidsEnabled: s, onToggleKidsEnabled: a } = n, o = $s[e];
+function Hb(n) {
+  const { theme: e, mode: t, userName: i, onPick: r, kidsEnabled: s, onToggleKidsEnabled: a } = n, o = Bs[e];
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--theme", children: [
     /* @__PURE__ */ l("div", { class: "n-ob-step__col", children: [
       /* @__PURE__ */ l("div", { class: "n-ob__eyebrow", children: "Étape 3 · Ambiance" }),
@@ -29958,8 +30006,8 @@ function Ub(n) {
         /* @__PURE__ */ l("em", { children: "vous va ?" })
       ] }),
       /* @__PURE__ */ l("p", { class: "n-ob__lead", children: "Vous pourrez en changer à tout moment. Chaque thème existe en clair et en sombre." }),
-      /* @__PURE__ */ l("div", { class: "n-ob-theme__grid", children: yc.map((d) => {
-        const c = $s[d];
+      /* @__PURE__ */ l("div", { class: "n-ob-theme__grid", children: xc.map((d) => {
+        const c = Bs[d];
         return /* @__PURE__ */ l(
           "button",
           {
@@ -29991,7 +30039,7 @@ function Ub(n) {
             class: `n-ob-theme__mode ${t === "light" ? "is-active" : ""}`,
             onClick: () => r(e, "light"),
             children: [
-              /* @__PURE__ */ l(cr, { size: 14 }),
+              /* @__PURE__ */ l(dr, { size: 14 }),
               " Clair"
             ]
           }
@@ -30003,14 +30051,14 @@ function Ub(n) {
             class: `n-ob-theme__mode ${t === "dark" ? "is-active" : ""}`,
             onClick: () => r(e, "dark"),
             children: [
-              /* @__PURE__ */ l(ia, { size: 14 }),
+              /* @__PURE__ */ l(na, { size: 14 }),
               " Sombre"
             ]
           }
         )
       ] }),
       /* @__PURE__ */ l("div", { class: "n-ob-family__row", style: { marginTop: 24 }, onClick: a, children: [
-        /* @__PURE__ */ l("span", { class: "n-ob-family__avatar", "aria-hidden": "true", children: /* @__PURE__ */ l(Nc, { size: 18 }) }),
+        /* @__PURE__ */ l("span", { class: "n-ob-family__avatar", "aria-hidden": "true", children: /* @__PURE__ */ l(Bc, { size: 18 }) }),
         /* @__PURE__ */ l("div", { class: "n-ob-family__info", children: [
           /* @__PURE__ */ l("div", { class: "n-ob-family__name", children: "Enfants" }),
           /* @__PURE__ */ l("div", { class: "n-ob-family__role", children: "Points & récompenses sur le tableau de bord" })
@@ -30095,7 +30143,7 @@ function Ub(n) {
     )
   ] });
 }
-function Gb(n) {
+function jb(n) {
   const { hass: e, users: t, error: i, excluded: r, onToggleUser: s } = n;
   return /* @__PURE__ */ l("div", { class: "n-ob-step n-ob-step--family", children: [
     /* @__PURE__ */ l("div", { class: "n-ob-step__col", children: [
@@ -30115,7 +30163,7 @@ function Gb(n) {
         {
           class: `n-ob-family__row ${o ? "is-allowed" : "is-excluded"}`,
           children: [
-            /* @__PURE__ */ l("span", { class: "n-ob-family__avatar", "aria-hidden": "true", children: a.name?.[0]?.toUpperCase() ?? /* @__PURE__ */ l(Nc, { size: 18 }) }),
+            /* @__PURE__ */ l("span", { class: "n-ob-family__avatar", "aria-hidden": "true", children: a.name?.[0]?.toUpperCase() ?? /* @__PURE__ */ l(Bc, { size: 18 }) }),
             /* @__PURE__ */ l("div", { class: "n-ob-family__info", children: [
               /* @__PURE__ */ l("div", { class: "n-ob-family__name", children: [
                 a.name,
@@ -30140,7 +30188,7 @@ function Gb(n) {
     }) }) })
   ] });
 }
-const Ql = /* @__PURE__ */ new Set(["light", "switch", "cover", "lock", "vacuum", "fan", "climate"]), Qu = {
+const Jl = /* @__PURE__ */ new Set(["light", "switch", "cover", "lock", "vacuum", "fan", "climate"]), Ju = {
   off: "Éteint",
   heat: "Chauffage",
   cool: "Climatisation",
@@ -30149,8 +30197,8 @@ const Ql = /* @__PURE__ */ new Set(["light", "switch", "cover", "lock", "vacuum"
   dry: "Déshu.",
   fan_only: "Ventilation"
 };
-function zb(n, e) {
-  const [t, i] = z(void 0), r = e.map((a) => a.entity_id).join(","), s = wu();
+function Wb(n, e) {
+  const [t, i] = z(void 0), r = e.map((a) => a.entity_id).join(","), s = Iu();
   return me(() => {
     if (e.length === 0) {
       i(null);
@@ -30162,8 +30210,8 @@ function zb(n, e) {
     const c = new Date(d);
     return c.setDate(c.getDate() + 14), Promise.all(
       e.map(
-        (u) => Au(n, u.entity_id, d, c).then(
-          (h) => La({ [u.entity_id]: h }, o)
+        (u) => Lu(n, u.entity_id, d, c).then(
+          (h) => Ra({ [u.entity_id]: h }, o)
         )
       )
     ).then((u) => {
@@ -30175,16 +30223,16 @@ function zb(n, e) {
     };
   }, [n != null, r, s]), t;
 }
-function Vb(n, e) {
+function Yb(n, e) {
   return n === 0 ? { top: "AUJ", num: String(e.getDate()) } : n === 1 ? { top: "DEM", num: String(e.getDate()) } : { top: ["DIM", "LUN", "MAR", "MER", "JEU", "VEN", "SAM"][e.getDay()], num: String(e.getDate()) };
 }
-function Kb(n, e) {
+function qb(n, e) {
   if (!e) return null;
   if (e.startsWith("http")) return e;
   const t = n.hassUrl?.("");
   return t ? t.replace(/\/$/, "") + e : e;
 }
-function Hb({
+function Xb({
   hass: n,
   areas: e,
   floors: t,
@@ -30210,17 +30258,17 @@ function Hb({
       m.current = !1, _.current = new Set(g.map((ce) => ce.id));
       return;
     }
-    g.some((ce) => !se.has(ce.id)) && Ou(), _.current = new Set(g.map((ce) => ce.id));
+    g.some((ce) => !se.has(ce.id)) && $u(), _.current = new Set(g.map((ce) => ce.id));
   }, [g]);
-  const v = Z(() => xc(), [f]), b = Z(() => {
+  const v = Z(() => Sc(), [f]), b = Z(() => {
     if (g.length === 0) return !1;
     if (!v) return !0;
     const se = g[g.length - 1];
     return new Date(se.timestamp) > new Date(v);
   }, [g, v]), x = () => {
-    p(!0), Ec((/* @__PURE__ */ new Date()).toISOString());
-  }, E = /* @__PURE__ */ new Date(), T = E.getHours(), w = `${String(T).padStart(2, "0")}:${String(E.getMinutes()).padStart(2, "0")}`, S = E.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (se) => se.toUpperCase()), { greeting: k } = Xu(T), I = n.user?.name ?? "vous", A = Z(() => new Set(s), [s]), C = Z(
-    () => i.filter((se) => A.has(se.entity_id) && Iu.has(se.domain)),
+    p(!0), Tc((/* @__PURE__ */ new Date()).toISOString());
+  }, E = /* @__PURE__ */ new Date(), T = E.getHours(), w = `${String(T).padStart(2, "0")}:${String(E.getMinutes()).padStart(2, "0")}`, S = E.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }).replace(/^\w/, (se) => se.toUpperCase()), { greeting: k } = Zu(T), I = n.user?.name ?? "vous", A = Z(() => new Set(s), [s]), C = Z(
+    () => i.filter((se) => A.has(se.entity_id) && Ru.has(se.domain)),
     [i, A]
   ), M = Z(
     () => C.find((se) => se.domain === "weather"),
@@ -30228,7 +30276,7 @@ function Hb({
   ), G = Z(
     () => C.filter((se) => se.domain === "calendar"),
     [C]
-  ), K = Z(
+  ), H = Z(
     () => C.filter((se) => se.domain === "climate"),
     [C]
   ), V = Z(
@@ -30240,35 +30288,35 @@ function Hb({
   ), F = Z(
     () => C.filter((se) => se.domain === "lock"),
     [C]
-  ), L = Z(() => r.map((Oe) => C.find((ce) => ce.entity_id === Oe)).find((Oe) => !!Oe && Oe.domain === "light") ?? V[0] ?? null, [r, C, V]), N = K[0] ?? null, j = Z(
-    () => R.find(vt) ?? R[0] ?? null,
+  ), L = Z(() => r.map((Oe) => C.find((ce) => ce.entity_id === Oe)).find((Oe) => !!Oe && Oe.domain === "light") ?? V[0] ?? null, [r, C, V]), N = H[0] ?? null, j = Z(
+    () => R.find(yt) ?? R[0] ?? null,
     [R]
   ), $ = n.states[tr], B = Z(() => {
     if (!$ || !A.has(tr)) return null;
     const se = Number($.state);
     return Number.isFinite(se) ? se : null;
   }, [$, A]), ae = Z(
-    () => V.filter(vt).length,
+    () => V.filter(yt).length,
     [V]
   ), de = Z(
     () => Object.values(n.states).filter((se) => se.entity_id.startsWith("person.")),
     [n.states]
-  ), Y = de.filter((se) => se.state === "home").length, te = zb(n, G), oe = Z(() => gc(C), [C]), J = Z(() => {
+  ), Y = de.filter((se) => se.state === "home").length, te = Wb(n, G), oe = Z(() => _c(C), [C]), J = Z(() => {
     const se = e.filter(
-      (Oe) => (oe.get(Oe.area_id) ?? []).some((ce) => Ql.has(ce.domain))
+      (Oe) => (oe.get(Oe.area_id) ?? []).some((ce) => Jl.has(ce.domain))
     );
     return $n(se, a, (Oe) => Oe.area_id);
   }, [e, oe, a]), [Te, Me] = z(null), Ee = Z(
     () => $n(e.filter((se) => (oe.get(se.area_id) ?? []).length > 0), a, (se) => se.area_id),
     [e, oe, a]
   ), ze = J.some((se) => se.area_id === Te) ? Te : J[0]?.area_id ?? null, it = Z(
-    () => (oe.get(ze ?? "") ?? []).filter((se) => Ql.has(se.domain)),
+    () => (oe.get(ze ?? "") ?? []).filter((se) => Jl.has(se.domain)),
     [oe, ze]
   );
   return /* @__PURE__ */ l("div", { class: "nido-compact", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact__shell", children: [
       /* @__PURE__ */ l(
-        jb,
+        Qb,
         {
           view: c,
           setView: u,
@@ -30278,7 +30326,7 @@ function Hb({
       ),
       /* @__PURE__ */ l("div", { class: "nido-compact-content", children: [
         c === "glance" && /* @__PURE__ */ l(
-          Wb,
+          Zb,
           {
             hass: n,
             greeting: k,
@@ -30297,7 +30345,7 @@ function Hb({
           }
         ),
         c === "controls" && /* @__PURE__ */ l(
-          Jb,
+          rx,
           {
             hass: n,
             areas: J,
@@ -30307,7 +30355,7 @@ function Hb({
           }
         ),
         c === "plan" && /* @__PURE__ */ l(
-          Mu,
+          Nu,
           {
             hass: n,
             areas: Ee,
@@ -30319,7 +30367,7 @@ function Hb({
           }
         ),
         c === "ambient" && /* @__PURE__ */ l(
-          rx,
+          cx,
           {
             hass: n,
             timeStr: w,
@@ -30335,7 +30383,7 @@ function Hb({
       ] })
     ] }),
     f && /* @__PURE__ */ l(
-      Fu,
+      Bu,
       {
         hass: n,
         notifications: g,
@@ -30344,7 +30392,7 @@ function Hb({
     )
   ] });
 }
-function jb({
+function Qb({
   view: n,
   setView: e,
   hasNewNotifications: t,
@@ -30357,10 +30405,10 @@ function jb({
       /* @__PURE__ */ l("circle", { cx: "12", cy: "13", r: "1.5", fill: "currentColor" })
     ] }) }),
     [
-      { id: "glance", label: "Accueil", Icon: Qs },
+      { id: "glance", label: "Accueil", Icon: Zs },
       { id: "controls", label: "Contrôles", Icon: dt },
-      { id: "plan", label: "Plan", Icon: Gc },
-      { id: "ambient", label: "Veille", Icon: ia }
+      { id: "plan", label: "Plan", Icon: Vc },
+      { id: "ambient", label: "Veille", Icon: na }
     ].map((s) => /* @__PURE__ */ l(
       "button",
       {
@@ -30380,14 +30428,14 @@ function jb({
           class: "nido-compact-rail__btn",
           "aria-label": "Notifications",
           onClick: i,
-          children: /* @__PURE__ */ l(qs, { size: 19 })
+          children: /* @__PURE__ */ l(Xs, { size: 19 })
         }
       ),
       t && /* @__PURE__ */ l("span", { class: "nido-compact-rail__bell-dot" })
     ] })
   ] });
 }
-function Wb({
+function Zb({
   hass: n,
   greeting: e,
   userName: t,
@@ -30408,12 +30456,12 @@ function Wb({
     const m = d.state.attributes.current_temperature, b = d.state.attributes.temperature ?? m;
     g.push(
       /* @__PURE__ */ l(
-        ss,
+        as,
         {
           label: d.friendly_name,
           value: typeof b == "number" ? String(Math.round(b * 10) / 10) : "—",
           unit: "°",
-          caption: Qu[d.state.state] ?? d.state.state,
+          caption: Ju[d.state.state] ?? d.state.state,
           Icon: ht
         },
         "climate"
@@ -30422,20 +30470,20 @@ function Wb({
   }
   c !== null && g.push(
     /* @__PURE__ */ l(
-      ss,
+      as,
       {
         label: "Aujourd'hui",
         value: c.toLocaleString("fr-FR", { maximumFractionDigits: 1 }),
         unit: " kWh",
         caption: "Consommation du jour",
-        Icon: ni,
+        Icon: Nt,
         accent: !0
       },
       "energy"
     )
   ), g.length < 2 && g.push(
     /* @__PURE__ */ l(
-      ss,
+      as,
       {
         label: "Lumières",
         value: String(u),
@@ -30472,7 +30520,7 @@ function Wb({
           class: "nido-compact-glance__row",
           style: { gridTemplateColumns: o ? "1.35fr 1fr" : "1fr" },
           children: [
-            o && /* @__PURE__ */ l(qb, { hass: n, entity: o }),
+            o && /* @__PURE__ */ l(ex, { hass: n, entity: o }),
             /* @__PURE__ */ l(
               "div",
               {
@@ -30486,13 +30534,13 @@ function Wb({
       )
     ] }),
     /* @__PURE__ */ l("div", { class: "nido-compact-glance__side", children: [
-      h && h.state.state !== "unavailable" && /* @__PURE__ */ l(Xb, { entity: h, timeStr: r }),
-      f && /* @__PURE__ */ l(Qb, { hass: n, entity: f }),
-      /* @__PURE__ */ l(Zb, { nextEvent: p })
+      h && h.state.state !== "unavailable" && /* @__PURE__ */ l(tx, { entity: h, timeStr: r }),
+      f && /* @__PURE__ */ l(ix, { hass: n, entity: f }),
+      /* @__PURE__ */ l(nx, { nextEvent: p })
     ] })
   ] });
 }
-function ss({
+function as({
   label: n,
   value: e,
   unit: t,
@@ -30515,12 +30563,12 @@ function ss({
     ] })
   ] });
 }
-function Yb(n) {
+function Jb(n) {
   const e = n.state.attributes.brightness;
   return typeof e != "number" ? n.state.state === "on" ? 100 : 0 : Math.round(e / 255 * 100);
 }
-function qb({ hass: n, entity: e }) {
-  const t = e.state.state === "on", [i, r] = z(null), s = i ?? Yb(e), a = () => n.callService("light", "toggle", { entity_id: e.entity_id }), o = async (d) => {
+function ex({ hass: n, entity: e }) {
+  const t = e.state.state === "on", [i, r] = z(null), s = i ?? Jb(e), a = () => n.callService("light", "toggle", { entity_id: e.entity_id }), o = async (d) => {
     r(d);
     try {
       await n.callService("light", "turn_on", {
@@ -30575,7 +30623,7 @@ function qb({ hass: n, entity: e }) {
     ] }) : /* @__PURE__ */ l("div", { class: "n-muted", children: "Éteinte" }) })
   ] });
 }
-function Xb({ entity: n, timeStr: e }) {
+function tx({ entity: n, timeStr: e }) {
   const { label: t, Icon: i } = si(n.state.state), r = n.state.attributes.temperature_unit ?? "°", s = n.state.attributes.temperature;
   return /* @__PURE__ */ l("div", { class: "nido-compact-weather", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact-weather__icon", children: /* @__PURE__ */ l(i, { size: 26 }) }),
@@ -30586,7 +30634,7 @@ function Xb({ entity: n, timeStr: e }) {
     /* @__PURE__ */ l("div", { class: "nido-compact-weather__clock", children: e })
   ] });
 }
-function Qb({ hass: n, entity: e }) {
+function ix({ hass: n, entity: e }) {
   const t = e.state.state === "playing", i = e.state.attributes.media_title ?? e.friendly_name, r = e.state.attributes.media_artist;
   return /* @__PURE__ */ l("div", { class: "nido-compact-media", children: [
     /* @__PURE__ */ l("div", { class: `nido-compact-media__disc ${t ? "is-spinning" : ""}` }),
@@ -30601,12 +30649,12 @@ function Qb({ hass: n, entity: e }) {
         class: "nido-compact-media__play",
         "aria-label": t ? "Pause" : "Lecture",
         onClick: () => n.callService("media_player", "media_play_pause", { entity_id: e.entity_id }),
-        children: t ? /* @__PURE__ */ l(Oc, { size: 14 }) : /* @__PURE__ */ l(Yt, { size: 14 })
+        children: t ? /* @__PURE__ */ l(Nc, { size: 14 }) : /* @__PURE__ */ l(qt, { size: 14 })
       }
     )
   ] });
 }
-function Zb({ nextEvent: n }) {
+function nx({ nextEvent: n }) {
   const e = /* @__PURE__ */ new Date();
   return /* @__PURE__ */ l("div", { class: "nido-compact-next", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact-next__label", children: "Prochain" }),
@@ -30614,7 +30662,7 @@ function Zb({ nextEvent: n }) {
       /* @__PURE__ */ l("div", { class: "nido-compact-next__badge", children: (() => {
         const t = new Date(e);
         t.setDate(e.getDate() + n.dayOffset);
-        const { top: i, num: r } = Vb(n.dayOffset, t);
+        const { top: i, num: r } = Yb(n.dayOffset, t);
         return /* @__PURE__ */ l(Se, { children: [
           /* @__PURE__ */ l("span", { class: "nido-compact-next__badge-day", children: i }),
           /* @__PURE__ */ l("span", { class: "nido-compact-next__badge-num", children: r })
@@ -30627,7 +30675,7 @@ function Zb({ nextEvent: n }) {
     ] })
   ] });
 }
-function Jb({ hass: n, areas: e, activeAreaId: t, onSelectArea: i, controlEntities: r }) {
+function rx({ hass: n, areas: e, activeAreaId: t, onSelectArea: i, controlEntities: r }) {
   return e.length === 0 ? /* @__PURE__ */ l("div", { class: "nido-compact-empty", children: "Aucun appareil contrôlable pour l'instant. Exposez des lumières, prises ou volets dans « Personnaliser »." }) : /* @__PURE__ */ l("div", { class: "nido-compact-controls", children: [
     /* @__PURE__ */ l("div", { class: "nido-compact-controls__tabs", children: e.map((s) => /* @__PURE__ */ l(
       "button",
@@ -30639,10 +30687,10 @@ function Jb({ hass: n, areas: e, activeAreaId: t, onSelectArea: i, controlEntiti
       },
       s.area_id
     )) }),
-    /* @__PURE__ */ l("div", { class: "nido-compact-controls__grid", children: r.map((s) => /* @__PURE__ */ l(nx, { hass: n, entity: s }, s.entity_id)) })
+    /* @__PURE__ */ l("div", { class: "nido-compact-controls__grid", children: r.map((s) => /* @__PURE__ */ l(lx, { hass: n, entity: s }, s.entity_id)) })
   ] });
 }
-function ex(n) {
+function sx(n) {
   const e = n.state.state;
   switch (n.domain) {
     case "light":
@@ -30663,7 +30711,7 @@ function ex(n) {
       return !1;
   }
 }
-function tx(n) {
+function ax(n) {
   const e = n.state.state;
   switch (n.domain) {
     case "light": {
@@ -30678,7 +30726,7 @@ function tx(n) {
     }
     case "climate": {
       const t = n.state.attributes.temperature, i = n.state.attributes.current_temperature, r = t ?? i;
-      return typeof r == "number" ? `${Math.round(r * 10) / 10}°` : Qu[e] ?? e;
+      return typeof r == "number" ? `${Math.round(r * 10) / 10}°` : Ju[e] ?? e;
     }
     case "cover": {
       const t = n.state.attributes.current_position;
@@ -30703,7 +30751,7 @@ function tx(n) {
       return e;
   }
 }
-async function ix(n, e) {
+async function ox(n, e) {
   const t = e.state.state;
   switch (e.domain) {
     case "light":
@@ -30732,8 +30780,8 @@ async function ix(n, e) {
       return;
   }
 }
-function nx({ hass: n, entity: e }) {
-  const [t, i] = z(!1), r = Hf[e.domain] ?? Kt, s = ex(e), a = e.state.state === "unavailable", o = e.domain !== "climate";
+function lx({ hass: n, entity: e }) {
+  const [t, i] = z(!1), r = Wf[e.domain] ?? jt, s = sx(e), a = e.state.state === "unavailable", o = e.domain !== "climate";
   return /* @__PURE__ */ l(
     o ? "button" : "div",
     {
@@ -30745,7 +30793,7 @@ function nx({ hass: n, entity: e }) {
         if (!(a || t)) {
           i(!0);
           try {
-            await ix(n, e);
+            await ox(n, e);
           } finally {
             i(!1);
           }
@@ -30758,13 +30806,13 @@ function nx({ hass: n, entity: e }) {
         ] }),
         /* @__PURE__ */ l("div", { children: [
           /* @__PURE__ */ l("div", { class: "nido-mini-control__name", children: e.friendly_name }),
-          /* @__PURE__ */ l("div", { class: "nido-mini-control__sub", children: a ? "Indisponible" : tx(e) })
+          /* @__PURE__ */ l("div", { class: "nido-mini-control__sub", children: a ? "Indisponible" : ax(e) })
         ] })
       ]
     }
   );
 }
-function rx({
+function cx({
   hass: n,
   timeStr: e,
   dateStr: t,
@@ -30794,7 +30842,7 @@ function rx({
         r.length > 0 && /* @__PURE__ */ l(Se, { children: [
           /* @__PURE__ */ l("span", { class: "nido-compact-ambient__sep" }),
           /* @__PURE__ */ l("div", { class: "nido-compact-ambient__family", children: r.map((_) => {
-            const m = _.attributes.friendly_name ?? _.entity_id, v = Kb(n, _.attributes.entity_picture), b = _.state !== "home";
+            const m = _.attributes.friendly_name ?? _.entity_id, v = qb(n, _.attributes.entity_picture), b = _.state !== "home";
             return v ? /* @__PURE__ */ l(
               "img",
               {
@@ -30836,33 +30884,33 @@ function rx({
     ] })
   ] });
 }
-const sx = 600, ax = 700;
-function Zl() {
-  return typeof window > "u" ? !1 : window.innerHeight <= sx && window.innerWidth >= ax;
+const dx = 600, ux = 700;
+function ec() {
+  return typeof window > "u" ? !1 : window.innerHeight <= dx && window.innerWidth >= ux;
 }
-function ox() {
-  const [n, e] = z(Zl);
+function hx() {
+  const [n, e] = z(ec);
   return me(() => {
-    const t = () => e(Zl());
+    const t = () => e(ec());
     return window.addEventListener("resize", t), t(), () => window.removeEventListener("resize", t);
   }, []), n;
 }
-const Zu = "nido.floorPlan", lx = ["top", "right", "bottom", "left"], _i = 200;
-function as() {
+const eh = "nido.floorPlan", fx = ["top", "right", "bottom", "left"], _i = 200;
+function os() {
   return { version: 1, floors: {}, updatedAt: (/* @__PURE__ */ new Date(0)).toISOString() };
 }
 function ri(n, e, t) {
   return typeof n == "number" && Number.isFinite(n) && n >= e && n <= t ? n : null;
 }
-function cx(n) {
+function px(n) {
   if (!n || typeof n != "object") return null;
   const e = n, t = ri(e.x, 0, _i), i = ri(e.y, 0, _i), r = ri(e.w, 1, _i), s = ri(e.h, 1, _i);
   return t === null || i === null || r === null || s === null ? null : { x: Math.round(t), y: Math.round(i), w: Math.round(r), h: Math.round(s) };
 }
-function dx(n) {
+function gx(n) {
   if (!n || typeof n != "object") return null;
   const e = n, t = ri(e.rect, 0, 50), i = ri(e.offset, 0, _i), r = ri(e.length, 0.5, _i);
-  return typeof e.id != "string" || t === null || i === null || r === null || !lx.includes(e.side) ? null : {
+  return typeof e.id != "string" || t === null || i === null || r === null || !fx.includes(e.side) ? null : {
     id: e.id,
     kind: e.kind === "door" ? "door" : "window",
     rect: Math.round(t),
@@ -30872,7 +30920,7 @@ function dx(n) {
     entity_id: typeof e.entity_id == "string" ? e.entity_id : null
   };
 }
-function Ju(n) {
+function th(n) {
   if (!n || typeof n != "object") return null;
   const e = n;
   if (e.version !== 1 || !e.floors || typeof e.floors != "object") return null;
@@ -30882,13 +30930,13 @@ function Ju(n) {
     const s = r, a = {};
     for (const [d, c] of Object.entries(s.rooms ?? {})) {
       if (!Array.isArray(c)) continue;
-      const u = c.map(cx).filter((h) => h !== null);
+      const u = c.map(px).filter((h) => h !== null);
       u.length > 0 && (a[d] = u);
     }
     const o = {};
     for (const [d, c] of Object.entries(s.openings ?? {})) {
       if (!Array.isArray(c)) continue;
-      const u = c.map(dx).filter((h) => h !== null);
+      const u = c.map(gx).filter((h) => h !== null);
       u.length > 0 && (o[d] = u);
     }
     t[i] = { rooms: a, openings: o };
@@ -30899,52 +30947,52 @@ function Ju(n) {
     updatedAt: typeof e.updatedAt == "string" ? e.updatedAt : (/* @__PURE__ */ new Date(0)).toISOString()
   };
 }
-function eh() {
+function ih() {
   try {
     return typeof localStorage < "u" ? localStorage : null;
   } catch {
     return null;
   }
 }
-function ux() {
-  const n = eh()?.getItem(Zu);
-  if (!n) return as();
+function mx() {
+  const n = ih()?.getItem(eh);
+  if (!n) return os();
   try {
-    return Ju(JSON.parse(n)) ?? as();
+    return th(JSON.parse(n)) ?? os();
   } catch {
-    return as();
+    return os();
   }
 }
-function hx(n) {
-  eh()?.setItem(Zu, JSON.stringify(n));
+function _x(n) {
+  ih()?.setItem(eh, JSON.stringify(n));
 }
-const fx = {
+const vx = {
   topic: "nido/floorplan/state",
   tag: "plan",
-  load: ux,
-  save: hx,
-  parse: Ju
+  load: mx,
+  save: _x,
+  parse: th
 };
-function px(n) {
-  return qu(n, fx);
+function yx(n) {
+  return Qu(n, vx);
 }
-const gx = [
+const bx = [
   "area_registry_updated",
   "entity_registry_updated",
   "device_registry_updated",
   "floor_registry_updated"
 ];
-function mx({ hass: n, host: e }) {
-  const [t, i] = z(null), [r, s] = z([]), [a, o] = z(null), [d, c] = z(null), [u, h] = z(null), f = Z(() => bc(), []), [p, g] = z(() => Lh()), [_, m] = z(() => Rh()), [v, b] = z(() => Ch()), [x, E] = z(() => Nh()), [T, w] = z(() => Dh()), [S, k] = z(
-    () => Mh()
-  ), [I, A] = z(() => !Za()), [C, M] = z({ kind: "dashboard" }), G = ox(), [K, V, R] = px(n), F = (J) => {
-    g(J), hs(J);
+function xx({ hass: n, host: e }) {
+  const [t, i] = z(null), [r, s] = z([]), [a, o] = z(null), [d, c] = z(null), [u, h] = z(null), f = Z(() => Ec(), []), [p, g] = z(() => Ch()), [_, m] = z(() => Dh()), [v, b] = z(() => Ph()), [x, E] = z(() => Bh()), [T, w] = z(() => Mh()), [S, k] = z(
+    () => Fh()
+  ), [I, A] = z(() => !Ja()), [C, M] = z({ kind: "dashboard" }), G = hx(), [H, V, R] = yx(n), F = (J) => {
+    g(J), fs(J);
   }, L = (J) => {
-    w(J), Ph(J);
+    w(J), Oh(J);
   }, N = (J, Te) => {
     k((Me) => {
       const Ee = { ...Me, [J]: Te };
-      return Oh(Ee), Ee;
+      return Nh(Ee), Ee;
     });
   }, j = xe(n);
   j.current = n, me(() => {
@@ -30955,10 +31003,10 @@ function mx({ hass: n, host: e }) {
       if (Ee)
         try {
           const [ze, it, se, Oe] = await Promise.all([
-            mh(Ee),
             vh(Ee),
-            yh(Ee),
-            _h(Ee)
+            bh(Ee),
+            xh(Ee),
+            yh(Ee)
           ]);
           if (J) return;
           i(ze), s(Oe), o(it), c(se);
@@ -30968,7 +31016,7 @@ function mx({ hass: n, host: e }) {
         }
     };
     return Me(), Promise.all(
-      gx.map(
+      bx.map(
         (Ee) => n.connection.subscribeEvents(() => {
           J || Me();
         }, Ee)
@@ -30983,7 +31031,7 @@ function mx({ hass: n, host: e }) {
       J = !0, Te.forEach((Ee) => Ee());
     };
   }, [n != null]);
-  const $ = Z(() => !n || !a || !d ? [] : xh(n, a, d), [n?.states, a, d]), B = (J, Te) => {
+  const $ = Z(() => !n || !a || !d ? [] : Sh(n, a, d), [n?.states, a, d]), B = (J, Te) => {
     e?.applyTheme?.(J, Te);
   };
   if (!n)
@@ -31009,10 +31057,10 @@ function mx({ hass: n, host: e }) {
       (J) => J.area_id === Y.area_id && de.has(J.entity_id)
     ) : [],
     [$, Y, de]
-  ), oe = !!n.states[kt] && de.has(kt);
+  ), oe = !!n.states[vt] && de.has(vt);
   return /* @__PURE__ */ l(Se, { children: [
     G && (C.kind === "dashboard" || !Y) ? /* @__PURE__ */ l(
-      Hb,
+      Xb,
       {
         hass: n,
         areas: t,
@@ -31021,11 +31069,11 @@ function mx({ hass: n, host: e }) {
         favorites: p,
         exposed: _,
         roomsOrder: T,
-        plan: K,
+        plan: H,
         onOpenRoom: (J) => M({ kind: "room", areaId: J })
       }
     ) : C.kind === "energy" ? /* @__PURE__ */ l(
-      Wy,
+      dy,
       {
         hass: n,
         entities: $,
@@ -31034,7 +31082,7 @@ function mx({ hass: n, host: e }) {
         onBack: () => M({ kind: "dashboard" })
       }
     ) : C.kind === "dashboard" || !Y ? /* @__PURE__ */ l(
-      Mb,
+      Bb,
       {
         hass: n,
         areas: t,
@@ -31043,7 +31091,7 @@ function mx({ hass: n, host: e }) {
         favorites: p,
         exposed: _,
         roomsOrder: T,
-        plan: K,
+        plan: H,
         planSynced: R,
         onSavePlan: V,
         kidsEnabled: x,
@@ -31054,7 +31102,7 @@ function mx({ hass: n, host: e }) {
         onReorderRooms: L
       }
     ) : /* @__PURE__ */ l(
-      Ob,
+      Ub,
       {
         hass: n,
         area: Y,
@@ -31065,7 +31113,7 @@ function mx({ hass: n, host: e }) {
       }
     ),
     I && /* @__PURE__ */ l(
-      Fb,
+      Gb,
       {
         hass: n,
         entities: $,
@@ -31076,7 +31124,7 @@ function mx({ hass: n, host: e }) {
         initialFavorites: p,
         initialExcludedUsers: v,
         initialKidsEnabled: x,
-        isReturning: Za(),
+        isReturning: Ja(),
         onApplyTheme: B,
         onClose: () => A(!1),
         onDone: (J) => {
@@ -31086,22 +31134,22 @@ function mx({ hass: n, host: e }) {
     )
   ] });
 }
-const _x = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(var(--breathe-scale, 1.01));filter:brightness(var(--breathe-bright, 1.04))}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:var(--glow-peak, 1);transform:scale(var(--glow-max, 1.08))}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe var(--breathe-speed, 5.5s) var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe var(--breathe-speed, 6.2s) var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe var(--breathe-speed, 4.8s) var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe var(--breathe-speed, 7s) var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', vx = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}@media(max-width:600px){.nido-shell{padding:0}.nido-dashboard{border-radius:0;padding:20px 16px;min-height:100vh}}.nido-topbar{display:grid;grid-template-columns:auto 1fr auto auto auto;grid-template-areas:"brand . weather utility icons";align-items:center;column-gap:12px;margin-bottom:28px}.nido-topbar__brand{grid-area:brand;display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__weather{grid-area:weather;display:flex;align-items:center}.nido-topbar__utility{grid-area:utility;display:flex;align-items:center;gap:8px}.nido-topbar__icons{grid-area:icons;display:flex;align-items:center;gap:8px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}@media(max-width:600px){.nido-hero h1{font-size:30px}}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-hero__digest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px;font-size:15px;color:var(--ink-2);min-height:20px}.nido-hero__fact{display:inline-flex;align-items:baseline;gap:10px;animation:nido-fact-in .42s var(--ease-out) both}.nido-hero__fact-sep{width:3px;height:3px;border-radius:50%;background:var(--ink-3);transform:translateY(-4px)}.nido-hero__fact[data-tone=alert] .nido-hero__fact-text{color:var(--danger);font-weight:600}.nido-hero__fact[data-tone=notice] .nido-hero__fact-text{color:var(--accent-deep);font-weight:600}.nido-hero__fact[data-tone=active] .nido-hero__fact-text{color:var(--ink-1)}.nido-hero__fact-room{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}@keyframes nido-fact-in{0%{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media(max-width:600px){.nido-hero__digest{flex-direction:column;align-items:flex-start;gap:5px 0}.nido-hero__fact-sep{display:none}}@media(prefers-reduced-motion:reduce){.nido-hero__fact{animation:none}}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:var(--glow-size, 140px);height:var(--glow-size, 140px);border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:var(--glow-base, .85);transition:width .4s var(--ease-out),height .4s var(--ease-out),opacity .4s var(--ease-out)}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-cover__actions{display:flex;gap:8px;margin-top:12px}.n-cover__actions .n-pill-btn{flex:1 1 0;padding:8px 0;min-width:0}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-eyebrow{padding-top:14px}.n-card--camera .n-title{padding-bottom:9px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}.nido-camera-panel__picker{padding:16px 20px;border-top:1px solid rgba(var(--fg-rgb),.06);display:flex;flex-direction:column;gap:10px}.nido-camera-panel__picker-msg{margin:0;font-size:.85rem;color:var(--danger, #b00020)}.nido-camera-panel__picker-hint{margin:0;font-size:.85rem;color:var(--ink-2)}.nido-camera-panel__picker-row{display:flex;gap:8px;flex-wrap:wrap}.nido-camera-panel__picker-select{flex:1 1 220px;min-width:0;padding:8px 10px;border-radius:var(--r-sm);border:1px solid rgba(var(--fg-rgb),.15);background:var(--bg-inset);color:var(--fg);font:inherit}.nido-camera-panel__picker-save{padding:8px 14px;border-radius:var(--r-sm);border:0;background:var(--accent);color:var(--accent-ink, #fff);font:inherit;cursor:pointer}.nido-camera-panel__picker-save:disabled{opacity:.4;cursor:default}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin var(--fan-speed, 2.4s) linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn,.nido-covers-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover,.nido-covers-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active,.nido-covers-pill-btn:active{transform:scale(.96)}.nido-lights-pill,.nido-covers-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count,.nido-covers-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center}.nido-lights-panel .nido-notification-panel__content{height:auto;max-height:min(720px,calc(100% - 48px));max-width:460px;border-radius:var(--r-2xl)}.nido-lights-panel .nido-notification-panel__header{padding:18px 18px 18px 20px}.nido-lights-panel .nido-notification-panel__scroll{padding:12px 18px 18px 20px}.nido-lights-panel .nido-lights-panel__footer{padding:16px 18px 18px 20px}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:20px}.nido-lights-group{display:flex;flex-direction:column;gap:10px}.nido-lights-group__title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 4px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status.is-open{color:var(--accent-deep)}.nido-covers-row__actions{display:flex;gap:4px;flex-shrink:0}.nido-covers-row__actions .n-pill-btn{flex:0 0 auto;width:32px;height:32px;padding:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-covers-panel__footer{display:flex;gap:10px}.nido-covers-panel__footer .nido-lights-panel__all-off{width:auto;flex:1}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-widget--agenda{display:flex;flex-direction:column;gap:10px}.nido-cal-widget__head{display:flex;align-items:center;gap:8px;color:var(--cal-color, var(--ink-3))}.nido-cal-widget__head .n-eyebrow{color:var(--ink-3)}.nido-cal-widget__placeholder{padding-left:12px;border-left:2px solid color-mix(in srgb,var(--cal-color, var(--ink-3)) 35%,transparent)}.nido-cal-widget__agenda{list-style:none;margin:0;padding:2px 0 2px 12px;border-left:2px solid var(--cal-color, var(--ink-3));display:flex;flex-direction:column;gap:8px}.nido-cal-widget__agenda-row{display:grid;grid-template-columns:48px auto 1fr;align-items:start;gap:8px;font-family:var(--font-sans);font-size:12px;color:var(--ink-1);line-height:1.25}.nido-cal-widget__agenda-day{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--cal-color, var(--ink-3));font-weight:600;white-space:nowrap}.nido-cal-widget__agenda-time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.04em;white-space:nowrap}.nido-cal-widget__agenda-title{color:var(--ink-1);font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;word-break:break-word}.n-card[data-hero=true] .nido-cal-widget__agenda{gap:10px}.n-card[data-hero=true] .nido-cal-widget__agenda-row{font-size:14px;grid-template-columns:46px auto 1fr}.n-card[data-hero=true] .nido-cal-widget__agenda-day,.n-card[data-hero=true] .nido-cal-widget__agenda-time{font-size:11px}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-drag-item[data-flash=true]:after,.nido-room-card[data-flash=true]:after{content:"";position:absolute;inset:0;border-radius:var(--r-lg);pointer-events:none;z-index:3;animation:nido-state-flash .9s var(--ease-out) forwards}.nido-room-card[data-flash=true]:after{border-radius:inherit}@keyframes nido-state-flash{0%{box-shadow:inset 0 0 0 2px var(--accent);opacity:0}20%{opacity:.9}to{box-shadow:inset 0 0 0 2px var(--accent);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-drag-item[data-flash=true]:after,.nido-room-card[data-flash=true]:after{animation:none;content:none}}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-rooms-grid--phone{grid-template-columns:minmax(0,1fr);gap:12px}.nido-rooms-grid--touch{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:170px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--hero-dark);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__icon{position:relative}.nido-room-card__occupancy{position:absolute;top:-2px;right:-2px;width:11px;height:11px;box-sizing:border-box;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card)}.nido-room-card--accent .nido-room-card__occupancy{border-color:var(--hero-dark)}.nido-room-card__occupancy--motion{opacity:.85}.nido-room-card__occupancy:after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1.5px solid var(--accent);animation:nido-occupancy-pulse 2.6s var(--ease-out) infinite}@keyframes nido-occupancy-pulse{0%{transform:scale(.85);opacity:.75}60%{transform:scale(2.1);opacity:0}to{transform:scale(2.1);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-room-card__occupancy:after{animation:none;opacity:.35}}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__chips{display:flex;flex-wrap:wrap;gap:6px}.nido-room-card__chip{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:var(--r-pill);background:var(--bg-inset);font-family:var(--font-sans);font-size:12px;font-weight:500;line-height:1}.nido-room-card--accent .nido-room-card__chip{background:#f4ede21f}.nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--alert{background:color-mix(in srgb,var(--danger) 16%,transparent);color:var(--danger)}.nido-room-card__chip--idle{opacity:.55}.nido-room-card__band{display:flex;align-items:center;gap:12px;margin-top:12px;padding-top:11px;border-top:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);font-size:13px;font-weight:500;color:color-mix(in srgb,currentColor 80%,transparent)}.nido-room-card--accent .nido-room-card__band{border-top-color:#f4ede229}.nido-room-card__band-item{display:inline-flex;align-items:center;gap:5px;min-width:0}.nido-room-card__band-icon{display:flex;opacity:.65}.nido-room-card__band-label{display:none}.nido-room-card__band-unit{margin-left:1px}.nido-room-card__band-item--tinted{--measure-l: 52%;color:oklch(var(--measure-l) var(--measure-c) var(--measure-h))}.nido-room-card__band-item--tinted .nido-room-card__band-icon{opacity:.9}.nido-room-card__band-item--tinted .nido-room-card__band-unit{opacity:.75}:host([data-mode="dark"]) .nido-room-card__band-item--tinted{--measure-l: 80%}.nido-room-card--accent .nido-room-card__band-item--tinted,:host([data-mode="dark"]) .nido-room-card--accent .nido-room-card__band-item--tinted{--measure-l: 84%}.nido-room-card__actions{display:flex;gap:8px;margin-top:auto;padding-top:14px}.nido-room-card__actions .n-pill-btn.is-idle{opacity:.55}.nido-room-card--accent .nido-room-card__actions .n-pill-btn,.nido-room-card--accent .nido-room-card__actions .n-icon-btn{background:#f4ede224;color:var(--hero-dark-ink)}.nido-room-card--touch{min-height:210px}.nido-room-card--touch .nido-room-card__icon{width:44px;height:44px}.nido-room-card--touch .nido-room-card__name{font-size:19px}.nido-room-card--touch .nido-room-card__band{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);color:inherit}.nido-room-card--accent.nido-room-card--touch .nido-room-card__band{border-bottom-color:#f4ede229}.nido-room-card--touch .nido-room-card__band-item{display:flex;flex-direction:column;align-items:flex-start;gap:0}.nido-room-card--touch .nido-room-card__band-icon{display:none}.nido-room-card--touch .nido-room-card__band-label{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}.nido-room-card--touch .nido-room-card__band-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;margin-top:5px}.nido-room-card--touch .nido-room-card__band-unit{font-size:11px;font-weight:500;opacity:.6;margin-left:2px}.nido-room-card--touch .n-pill-btn{height:44px;font-size:13px}.nido-room-card--touch .n-icon-btn{width:44px;height:44px}.nido-room-card--phone{min-height:96px;padding:16px;border-radius:var(--r-md);display:flex;flex-direction:column;gap:10px}.nido-room-card--phone .nido-room-card__deco{display:none}.nido-room-card__row{position:relative;display:flex;align-items:center;gap:12px}.nido-room-card--phone .nido-room-card__icon{width:36px;height:36px}.nido-room-card--phone .nido-room-card__name{flex:1;min-width:0;margin-bottom:0;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-room-card__chev{display:flex;opacity:.45;flex-shrink:0}.nido-room-card__line{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px}.nido-room-card--phone .nido-room-card__band{margin-top:0;padding-top:0;border-top:none;font-size:13.5px;font-weight:600;letter-spacing:-.02em;color:color-mix(in srgb,currentColor 85%,transparent)}.nido-room-card--phone .nido-room-card__chips{flex-wrap:nowrap;flex-shrink:0}.nido-room-card--phone .nido-room-card__line{justify-content:flex-start}.nido-room-card--phone .nido-room-card__band{min-width:0;overflow:hidden}.nido-room-card--phone .nido-room-card__chips{margin-left:auto}.nido-room-card--phone .nido-room-card__chip--cover{flex-shrink:0;margin-left:auto}.nido-room-card--phone .nido-room-card__chips+.nido-room-card__chip--cover{margin-left:6px}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__stat--tinted .nido-room-detail__stat-value{--measure-l: 52%;color:oklch(var(--measure-l) var(--measure-c) var(--measure-h))}:host([data-mode="dark"]) .nido-room-detail__stat--tinted .nido-room-detail__stat-value{--measure-l: 80%}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}@media(max-width:599px){.nido-room-detail__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch}.nido-room-detail__grid .nido-drag-item[data-hero=true]{grid-column:1 / -1}.nido-room-detail__grid .n-card{padding:14px}.nido-room-detail__grid .n-vacuum__actions,.nido-room-detail__grid .n-climate__temp{flex-wrap:wrap}.nido-room-detail__grid .n-alarm__modes{grid-template-columns:repeat(auto-fit,minmax(60px,1fr))}.nido-room-detail__grid .n-mode-btn--disarm{grid-column:1 / -1}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:0;overflow:hidden}.n-ob__shell{padding:16px;border-radius:0;min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__image{display:block;width:100%;max-height:240px;object-fit:cover;border-radius:var(--r-md);margin-top:10px;background:var(--bg-inset)}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__icons>.nido-bell-btn,.nido-topbar__icons>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar{grid-template-columns:1fr auto;grid-template-areas:"weather icons" "brand utility";row-gap:12px}.nido-topbar__weather{justify-content:flex-start}.nido-topbar__icons,.nido-topbar__utility{justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:0}.nido-energy-row{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.nido-energy-row>section{margin-top:0;min-width:0}@media(max-width:900px){.nido-energy-row{grid-template-columns:1fr}}.nido-energy-summary,.nido-kids-summary{display:grid;grid-template-columns:1fr;gap:16px}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}.n-kids-card{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer}.n-kids-card__deco{position:absolute;top:-20px;right:-40px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-kids-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:1}.n-kids-card__head-text{display:flex;flex-direction:column;gap:4px}.n-kids-card__head-actions{display:flex;align-items:center;gap:8px}.n-kids-card__star{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#ffffff2e;color:var(--accent-ink)}.n-kids-card__empty{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding-top:16px;position:relative;z-index:1}.n-kids-card__list{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}.n-kids-card__row{display:flex;align-items:center;gap:12px}.n-kids-card__avatar{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;position:relative;box-shadow:0 2px 6px #0000001f}.n-kids-card__crown{position:absolute;top:-8px;right:-6px;font-size:14px;color:#f6c451;text-shadow:0 1px 2px rgba(0,0,0,.25)}.n-kids-card__row-body{flex:1;min-width:0}.n-kids-card__row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.n-kids-card__name{font-weight:600;color:var(--accent-ink);font-size:14px}.n-kids-card__total{font-weight:700;font-size:18px;color:var(--accent-ink);line-height:1}.n-kids-card__total-unit{font-weight:500;font-size:11px;margin-left:3px;opacity:.7}.n-kids-card__bar{margin-top:6px;height:6px;border-radius:999px;background:#ffffff38;overflow:hidden}.n-kids-card__bar-fill{display:block;height:100%;border-radius:999px;transition:width .4s ease;min-width:6px}.n-kids-card__last{margin-top:4px;font-size:11px;color:var(--accent-ink);opacity:.65}.n-kids-card__privilege{margin-top:6px;display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 10px;border-radius:999px;background:#ffffff2e;border:1px solid rgba(255,255,255,.25);color:var(--accent-ink);font-size:12px;font-weight:600;max-width:100%}.n-kids-card__privilege-emoji{font-size:14px;line-height:1}.n-kids-card__privilege-label{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-kids-card__privilege-end{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#00000026;color:var(--accent-ink);border:none;cursor:pointer;padding:0}.n-kids-card__privilege-end:hover{background:#00000047}.nido-kids-panel{display:flex;flex-direction:column;font-family:"Baloo 2",DM Sans,system-ui,sans-serif;--kids-accent: #ff8a3d;--kids-accent-2: #ffd166;--kids-good: #6fcf97;--kids-bad: #f4736b;--kids-surface: var(--bg-card);--kids-surface-2: var(--bg-inset);--kids-pastel-1: #ffb4a2;--kids-pastel-2: #b8e0d2;--kids-pastel-3: #c7b8ea;--kids-pastel-4: #ffe08a;--kids-pastel-5: #9dd3f8;--kids-pastel-6: #f8a8c9}.nido-kids-panel__header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(135deg,var(--kids-accent),var(--kids-accent-2));color:#fff;position:relative;overflow:hidden}.nido-kids-panel__header:after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 8% 80%,rgba(255,255,255,.18) 0 12px,transparent 13px),radial-gradient(circle at 92% 25%,rgba(255,255,255,.16) 0 9px,transparent 10px),radial-gradient(circle at 50% 115%,rgba(255,255,255,.12) 0 16px,transparent 17px);pointer-events:none}.nido-kids-panel__header h2{margin:0;font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px;text-shadow:0 1px 0 rgba(0,0,0,.08)}.nido-kids-panel__header-star{display:inline-block;animation:nido-kids-spin 6s linear infinite}.nido-kids-panel__header-actions{display:flex;align-items:center;gap:8px;position:relative;z-index:1}.nido-kids-panel__iconbtn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:#ffffff40;color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s ease,background .15s ease}.nido-kids-panel__iconbtn:hover{transform:scale(1.08);background:#fff6}.nido-kids-panel__body{padding:22px 24px 28px;overflow-y:auto;flex:1}.nido-kids-panel__empty{padding:36px 0;text-align:center}.nido-kids-panel__empty-emoji{font-size:48px;margin-bottom:12px}.nido-kids-panel__tabs{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}.nido-kids-panel__tab{flex:1 1 180px;min-width:160px;background:var(--kids-surface-2);border:3px solid transparent;border-radius:22px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .18s ease,box-shadow .18s ease;font:inherit;color:var(--ink-1);text-align:left;box-sizing:border-box}.nido-kids-panel__tab:hover{transform:translateY(-2px)}.nido-kids-panel__tab.is-active{border-color:var(--kid-color, var(--kids-accent));background:var(--kids-surface);box-shadow:0 12px 28px #ff8a3d2e;transform:translateY(-2px)}.nido-kids-panel__tab.is-active .nido-kids-panel__tab-avatar{animation:nido-kids-wiggle 1.4s ease-in-out infinite}.nido-kids-panel__tab-avatar{width:56px;height:56px;border-radius:50%;background:var(--kid-color, var(--kids-pastel-1));display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:inset 0 -3px #00000014,0 3px #0000000f}.nido-kids-panel__tab-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.nido-kids-panel__tab-name{font-weight:700;font-size:17px;line-height:1.1}.nido-kids-panel__tab-pts{font-size:18px;font-weight:800;color:var(--kids-accent);display:flex;align-items:baseline;gap:4px}.nido-kids-panel__tab-pts small{font-size:12px;font-weight:600;color:var(--ink-3)}.nido-kids-panel__score{background:linear-gradient(135deg,var(--kids-pastel-4),var(--kids-pastel-2));border-radius:24px;padding:20px 22px;margin-bottom:18px;color:#2a2018;box-shadow:0 6px 20px #ffd1662e}.nido-kids-panel__score-row{display:flex;align-items:center;gap:16px}.nido-kids-panel__score-big{font-size:48px;font-weight:800;line-height:1;display:flex;align-items:baseline;gap:6px}.nido-kids-panel__score-star{font-size:32px;animation:nido-kids-bounce 1.6s ease-in-out infinite}.nido-kids-panel__score-num{font-variant-numeric:tabular-nums}.nido-kids-panel__score-unit{font-size:20px;font-weight:700}.nido-kids-panel__score-badge{margin-left:auto;background:#ffffff8c;border-radius:16px;padding:8px 14px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:inset 0 -3px #0000000f}.nido-kids-panel__progress{margin-top:14px;background:#ffffff73;border-radius:999px;height:14px;overflow:hidden}.nido-kids-panel__progress-bar{background:linear-gradient(90deg,var(--kids-accent),var(--kids-bad));height:100%;border-radius:999px;transition:width .5s cubic-bezier(.34,1.56,.64,1);box-shadow:inset 0 -3px #0000001a}.nido-kids-panel__progress-label{margin-top:6px;font-size:13px;font-weight:600;opacity:.85}.nido-kids-panel__group-title{margin:4px 0 10px;font-size:14px;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:8px;letter-spacing:.02em}.nido-kids-panel__group-title:not(:first-of-type),.nido-kids-panel__tiles+.nido-kids-panel__group-title{margin-top:18px}.nido-kids-panel__group-title--neg{color:var(--kids-bad)}.nido-kids-panel__tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}.nido-kids-panel__tile{background:var(--kids-surface-2);border:none;border-radius:20px;padding:14px 10px 12px;text-align:center;cursor:pointer;position:relative;transition:transform .12s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease;font:inherit;color:var(--ink-1);user-select:none;box-shadow:0 3px #0000000f;overflow:visible;box-sizing:border-box;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.nido-kids-panel__tile:hover{transform:translateY(-3px);box-shadow:0 6px #0000000f}.nido-kids-panel__tile:active{transform:translateY(1px) scale(.97);box-shadow:0 1px #0000000f}.nido-kids-panel__tile.is-pop{animation:nido-kids-pop .4s cubic-bezier(.34,1.56,.64,1)}.nido-kids-panel__tile.is-negative{background:#fce6e5}[data-mode=dark] .nido-kids-panel__tile.is-negative{background:#3b2422}.nido-kids-panel__tile-emoji{font-size:40px;display:block;line-height:1;margin-bottom:8px;transition:transform .2s ease}.nido-kids-panel__tile:hover .nido-kids-panel__tile-emoji{transform:scale(1.1) rotate(-3deg)}.nido-kids-panel__tile-label{font-size:13px;font-weight:600;line-height:1.2;color:var(--ink-1);min-height:32px;display:flex;align-items:center;justify-content:center}.nido-kids-panel__tile-pts{position:absolute;top:8px;right:8px;background:var(--kids-good);color:#fff;font-size:12px;font-weight:800;padding:3px 8px;border-radius:999px;box-shadow:0 2px #0000001a}.nido-kids-panel__tile.is-negative .nido-kids-panel__tile-pts{background:var(--kids-bad)}.nido-kids-panel__tile-count{position:absolute;top:8px;left:8px;background:var(--kids-accent);color:#fff;min-width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px #0000001a;transform:scale(0);transition:transform .25s cubic-bezier(.34,1.56,.64,1);padding:0 6px}.nido-kids-panel__tile-count.is-visible{transform:scale(1)}.nido-kids-panel__confetti{position:absolute;left:50%;top:40%;width:8px;height:8px;border-radius:2px;pointer-events:none;animation:nido-kids-confetti .8s ease-out forwards}.nido-kids-panel__hint{margin:14px 0 0;font-size:12px;color:var(--ink-3);text-align:center;font-family:DM Sans,system-ui,sans-serif}.nido-kids-panel__avatar-pick{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;box-shadow:inset 0 -2px #00000014}.nido-kids-panel__emoji-picker{flex:1 0 100%;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px;padding:10px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-md)}.nido-kids-panel__emoji-choice{font-size:22px;background:transparent;border:2px solid transparent;border-radius:12px;padding:6px;cursor:pointer;transition:transform .12s ease,border-color .12s ease}.nido-kids-panel__emoji-choice:hover{transform:scale(1.15)}.nido-kids-panel__emoji-choice.is-active{border-color:var(--kids-accent);background:var(--bg-inset)}.nido-kids-panel__task-emoji{font-size:22px;flex:0 0 auto}.nido-kids-panel__task-label-static{flex:1;font-weight:500;color:var(--ink-1)}.nido-kids-panel__task-pts{font-size:12px;color:var(--ink-3);font-weight:600}.nido-kids-panel__task-pts.is-negative,.nido-kids-panel__points-input .is-negative{color:var(--danger, #c45d3f)}.n-kids-card__total.is-negative{color:#ffd2c5}.nido-kids-panel__threshold-input{width:56px;padding:4px 6px;border:1px solid var(--bg-inset);border-radius:8px;background:var(--bg-1);color:var(--ink-1);font-weight:600;text-align:center;font-size:13px}.nido-kids-panel__threshold-input:focus{outline:none;border-color:var(--kids-accent)}.nido-kids-panel__threshold-input::-webkit-outer-spin-button,.nido-kids-panel__threshold-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.nido-kids-panel__threshold-input{-moz-appearance:textfield}.nido-kids-panel__emoji-input{width:48px;text-align:center;font-size:18px;flex:0 0 auto}.nido-kids-panel__privilege{margin-top:12px;padding:12px;border-radius:14px;background:var(--bg-inset);border:1px solid color-mix(in srgb,var(--kids-accent) 30%,transparent);display:flex;flex-direction:column;gap:10px}.nido-kids-panel__privilege--active{background:linear-gradient(135deg,color-mix(in srgb,var(--kids-accent) 20%,var(--bg-inset)),color-mix(in srgb,var(--kids-accent-2) 20%,var(--bg-inset)));border-color:var(--kids-accent)}.nido-kids-panel__privilege-head{display:flex;align-items:center;gap:12px}.nido-kids-panel__privilege-emoji{font-size:28px;flex:0 0 auto}.nido-kids-panel__privilege-meta{flex:1;display:flex;flex-direction:column;min-width:0}.nido-kids-panel__privilege-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);font-weight:700}.nido-kids-panel__privilege-label{font-size:15px;font-weight:700;color:var(--ink-1)}.nido-kids-panel__privilege-choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}.nido-kids-panel__privilege-choice{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--bg-card);border:1px solid var(--bg-inset);color:var(--ink-1);cursor:pointer;text-align:left;font-weight:600;font-size:13px}.nido-kids-panel__privilege-choice:hover{border-color:var(--kids-accent);background:color-mix(in srgb,var(--kids-accent) 8%,var(--bg-card))}@keyframes nido-kids-wiggle{0%,to{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes nido-kids-bounce{0%,to{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes nido-kids-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes nido-kids-pop{0%{transform:scale(1)}35%{transform:scale(1.12);box-shadow:0 12px 28px #ff8a3d4d}to{transform:scale(1)}}@keyframes nido-kids-confetti{0%{transform:translate(0) rotate(0);opacity:1}to{transform:translate(var(--cx),var(--cy)) rotate(var(--cr));opacity:0}}@media(prefers-reduced-motion:reduce){.nido-kids-panel *,.nido-kids-panel *:before,.nido-kids-panel *:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}.nido-kids-panel__btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .1s ease,opacity .15s ease}.nido-kids-panel__btn:hover:not(:disabled){background:var(--bg-inset)}.nido-kids-panel__btn:active:not(:disabled){transform:scale(.94)}.nido-kids-panel__btn:disabled{opacity:.35;cursor:not-allowed}.nido-kids-panel__btn--plus{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.nido-kids-panel__btn--plus:hover:not(:disabled){background:var(--accent);filter:brightness(1.05)}.nido-kids-panel__btn--danger{color:var(--danger, #c45d3f)}.nido-kids-panel__config{display:flex;flex-direction:column;gap:24px}.nido-kids-panel__section h3{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}.nido-kids-panel__list{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:8px}.nido-kids-panel__list-row{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-inset);border:1px solid var(--line);border-radius:var(--r-lg)}.nido-kids-panel__input{flex:1;min-width:0;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);font-size:14px;font-family:inherit;box-sizing:border-box}.nido-kids-panel__input:focus{outline:none;border-color:var(--accent)}.nido-kids-panel__add{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.nido-kids-panel__points-input{display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:999px;background:var(--bg-inset);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-2)}.nido-kids-panel__task-points-edit{display:flex;align-items:center;gap:8px}.nido-compact{width:100%;height:100%;padding:10px;box-sizing:border-box;font-family:var(--font-sans);color:var(--ink-1);overflow:hidden}.nido-compact__shell{position:relative;height:100%;background:var(--bg-shell);border-radius:var(--r-xl);overflow:hidden;display:flex}.nido-compact__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-compact__shell>*{position:relative}.nido-compact-rail{width:68px;flex-shrink:0;background:var(--bg-card);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:8px}.nido-compact-rail__brand{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;margin-bottom:6px}.nido-compact-rail__btn{width:48px;height:48px;border-radius:var(--r-md);background:transparent;color:var(--ink-2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.nido-compact-rail__btn.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-rail__bell{margin-top:auto;position:relative}.nido-compact-rail__bell-dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);pointer-events:none}.nido-compact-content{position:relative;flex:1;min-width:0;padding:16px;overflow:hidden}.nido-compact-glance{height:100%;display:grid;grid-template-columns:1fr 300px;gap:14px}.nido-compact-glance__main{display:flex;flex-direction:column;min-width:0}.nido-compact-glance__meta{display:flex;align-items:baseline;gap:10px;margin-bottom:2px}.nido-compact-glance__meta-item{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.12em;text-transform:uppercase}.nido-compact-glance__meta-dot{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-glance__title{font-family:var(--font-display);font-size:34px;font-weight:600;letter-spacing:-.035em;line-height:1;margin:6px 0 0}.nido-compact-glance__title em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-compact-glance__row{margin-top:12px;display:grid;gap:10px;flex:1;min-height:0}.nido-compact-glance__stack{display:grid;gap:10px}.nido-compact-glance__side{display:flex;flex-direction:column;gap:10px;min-width:0}.nido-compact-tile{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink-1)}.nido-compact-tile--accent{background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-compact-tile__head{position:relative;display:flex;align-items:center;justify-content:space-between}.nido-compact-tile__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}.nido-compact-tile__icon{opacity:.55}.nido-compact-tile--accent .nido-compact-tile__icon{opacity:.8}.nido-compact-tile__value{position:relative;font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:-.035em;line-height:1}.nido-compact-tile__unit{font-size:14px;opacity:.6;margin-left:2px}.nido-compact-tile__caption{font-size:13px;opacity:.85;margin-top:4px}.nido-compact-hero{position:relative;background:var(--bg-card);color:var(--ink-1);border-radius:var(--r-lg);padding:16px;overflow:hidden;display:flex;flex-direction:column}.nido-compact-hero[data-on=true]{background:var(--accent);color:var(--accent-ink)}.nido-compact-hero__glow{position:absolute;top:-50px;right:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%);pointer-events:none}.nido-compact-hero__top{position:relative;display:flex;align-items:flex-start;justify-content:space-between}.nido-compact-hero__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.nido-compact-hero__name{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.025em;margin-top:3px}.nido-compact-hero__bottom{position:relative;margin-top:auto}.nido-compact-hero__row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}.nido-compact-hero__pct{font-family:var(--font-display);font-size:26px;font-weight:600;letter-spacing:-.03em}.nido-compact-toggle{width:68px;height:44px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;flex-shrink:0}.nido-compact-toggle[data-on=true]{background:#ffffff4d}.nido-compact-toggle__thumb{position:absolute;top:4px;left:4px;width:36px;height:36px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.nido-compact-toggle[data-on=true] .nido-compact-toggle__thumb{left:28px;background:var(--accent-ink)}.nido-compact-weather{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px}.nido-compact-weather__icon{color:var(--accent);flex-shrink:0}.nido-compact-weather__temp{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-weather__cond{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-weather__clock{margin-left:auto;font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--ink-2)}.nido-compact-media{position:relative;background:var(--hero-dark);color:var(--hero-dark-ink);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px;overflow:hidden}.nido-compact-media__disc{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 45% 45%,var(--accent) 0%,var(--accent-deep) 38%,var(--hero-dark) 92%);position:relative}.nido-compact-media__disc.is-spinning{animation:nido-compact-spin 8s linear infinite}.nido-compact-media__disc:after{content:"";position:absolute;inset:17px;border-radius:50%;background:var(--hero-dark);border:1px solid rgba(244,237,226,.15)}.nido-compact-media__body{min-width:0;flex:1}.nido-compact-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-compact-media__sub{font-size:13px;color:#f4ede2c7;margin-top:2px}.nido-compact-media__play{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}@keyframes nido-compact-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.nido-compact-media__disc.is-spinning{animation:none}}.nido-compact-next{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;flex:1;min-height:0}.nido-compact-next__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}.nido-compact-next__row{display:flex;align-items:center;gap:10px}.nido-compact-next__badge{width:46px;height:46px;border-radius:var(--r-sm);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.nido-compact-next__badge-day{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.1em}.nido-compact-next__badge-num{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-next__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em}.nido-compact-next__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-compact-controls{height:100%;display:flex;flex-direction:column}.nido-compact-controls__tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;flex-shrink:0;scrollbar-width:thin}.nido-compact-tab{padding:10px 16px;min-height:44px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-2);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:-.01em;flex-shrink:0;white-space:nowrap}.nido-compact-tab.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-controls__grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:10px;flex:1;min-height:0;overflow-y:auto}.nido-mini-control{position:relative;background:var(--bg-card);border:1.5px solid transparent;border-radius:var(--r-lg);padding:14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;justify-content:space-between;min-height:88px;font-family:var(--font-sans);color:var(--ink-1);transition:background .2s,border-color .2s}.nido-mini-control.is-static{cursor:default}.nido-mini-control[data-on=true]{background:var(--accent-soft);border-color:var(--accent)}.nido-mini-control:disabled{opacity:.55;cursor:not-allowed}.nido-mini-control__top{display:flex;align-items:center;justify-content:space-between;width:100%}.nido-mini-control__icon{width:34px;height:34px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center}.nido-mini-control[data-on=true] .nido-mini-control__icon{background:var(--accent);color:var(--accent-ink)}.nido-mini-control__dot{width:8px;height:8px;border-radius:50%;background:var(--ink-4)}.nido-mini-control[data-on=true] .nido-mini-control__dot{background:var(--accent)}.nido-mini-control__name{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em}.nido-mini-control__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-mini-control[data-on=true] .nido-mini-control__sub{color:var(--accent-deep)}.nido-compact-empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink-3);font-size:14px;text-align:center;padding:0 24px}.nido-compact-ambient{height:100%;display:grid;grid-template-columns:1fr 240px;gap:18px;align-items:center}.nido-compact-ambient__date{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}.nido-compact-ambient__clock{font-family:var(--font-display);font-size:112px;font-weight:600;letter-spacing:-.05em;line-height:.86;margin-top:6px}.nido-compact-ambient__meta{display:flex;align-items:center;gap:14px;margin-top:14px}.nido-compact-ambient__weather{display:flex;align-items:center;gap:8px;color:var(--ink-2)}.nido-compact-ambient__weather-temp{font-family:var(--font-display);font-size:17px;font-weight:500}.nido-compact-ambient__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-ambient__family{display:flex}.nido-compact-ambient__avatar{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg-shell);object-fit:cover;margin-left:-8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);font-size:11px;font-weight:600;flex-shrink:0;transition:opacity .2s,filter .2s}.nido-compact-ambient__avatar:first-child{margin-left:0}.nido-compact-ambient__avatar.is-away{opacity:.4;filter:grayscale(1)}.nido-compact-ambient__side{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:10px}.nido-compact-status{background:var(--bg-card);border-radius:var(--r-lg);padding:14px}.nido-compact-status__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}.nido-compact-status__title{font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-.02em}.nido-compact-status__sub{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-next--ambient{background:var(--accent);color:var(--accent-ink);border-radius:var(--r-lg);padding:14px;position:relative;overflow:hidden}.nido-alarm-code{position:fixed;inset:0;z-index:2100;display:flex;align-items:center;justify-content:center;padding:24px}.nido-alarm-code__backdrop{position:absolute;inset:0;background:#00000080;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:fade-in .2s ease-out}.nido-alarm-code__content{position:relative;width:100%;max-width:320px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;padding:20px;display:flex;flex-direction:column;gap:14px;animation:fade-in .25s ease-out}.nido-alarm-code__content:focus{outline:none}.nido-alarm-code__header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.nido-alarm-code__title-group{display:flex;align-items:center;gap:10px;min-width:0}.nido-alarm-code__title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1)}.nido-alarm-code__subtitle{font-size:12px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-alarm-code__close{flex:none;width:30px;height:30px;border:0;border-radius:50%;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}.nido-alarm-code__close:hover{background:var(--ink-4);color:var(--ink-1)}.nido-alarm-code__display{height:48px;border-radius:var(--r-md, 12px);background:var(--bg-inset);display:flex;align-items:center;justify-content:center}.nido-alarm-code__placeholder{font-size:13px;color:var(--ink-3)}.nido-alarm-code__dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.nido-alarm-code__dot{width:10px;height:10px;border-radius:50%;background:var(--ink-1)}.nido-alarm-code__input{height:48px;border-radius:var(--r-md, 12px);border:1px solid var(--ink-4);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:16px;padding:0 14px;letter-spacing:.15em}.nido-alarm-code__input:focus{outline:none;border-color:var(--accent)}.nido-alarm-code__error{font-size:12px;color:var(--danger, #d9534f);text-align:center}.nido-alarm-code__pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.nido-alarm-code__key{height:52px;border:0;border-radius:var(--r-md, 12px);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:20px;font-weight:500;cursor:pointer;transition:background .15s}.nido-alarm-code__key:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.nido-alarm-code__key--aux{font-size:16px;color:var(--ink-2)}.nido-alarm-code__key:disabled{opacity:.4;cursor:not-allowed}.nido-alarm-code__submit{height:44px;border:0;border-radius:var(--r-md, 12px);background:var(--accent);color:var(--accent-ink);font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;transition:opacity .15s}.nido-alarm-code__submit:disabled{opacity:.45;cursor:not-allowed}@keyframes fade-in{0%{opacity:0}to{opacity:1}}.nido-rooms-view{display:flex;gap:2px;padding:3px;border-radius:var(--r-pill);background:var(--bg-inset)}.nido-rooms-view__btn{height:34px;display:inline-flex;align-items:center;gap:6px;padding:0 12px;border:none;border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer}.nido-rooms-view__btn.is-active{background:var(--bg-card);color:var(--ink-1);font-weight:600;box-shadow:var(--shadow-md)}@media(pointer:coarse){.nido-rooms-view__btn{height:40px}}.nido-plan{--plan-fill-l: 93%;--plan-fill-cf: .5;--plan-ink-l: 47%;--plan-glow: rgba(255, 180, 84, .6);--plan-wall: var(--ink-1);display:flex;flex-direction:column;gap:14px;color:var(--ink-1)}:host([data-mode="dark"]) .nido-plan{--plan-fill-l: 34%;--plan-fill-cf: .6;--plan-ink-l: 84%;--plan-glow: rgba(255, 170, 80, .36)}.nido-plan__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.nido-plan__floors,.nido-plan__layers{display:flex;gap:8px;flex-wrap:wrap}.nido-plan__floor{height:44px;padding:0 18px;border:none;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}.nido-plan__floor.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-plan__layer{height:40px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:0 14px;box-sizing:border-box;border:1.5px dashed var(--ink-4);border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer}.nido-plan__layer.is-on{border:1.5px solid var(--accent);background:var(--bg-card);color:var(--ink-1);font-weight:600}.nido-plan--phone .nido-plan__layer{width:40px;padding:0}.nido-plan--phone .nido-plan__floor{height:40px;padding:0 16px}.nido-plan__stage{position:relative;min-height:0}.nido-plan__viewport{position:absolute;inset:0;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none}.nido-plan__viewport.is-zoomed{touch-action:none;cursor:grab}.nido-plan__house{position:absolute;box-shadow:0 0 0 1.5px var(--plan-wall);transition:left .18s var(--ease-out),top .18s var(--ease-out)}.nido-plan__viewport.is-zoomed .nido-plan__house{transition:none}.nido-plan__house[data-custom=true]{box-shadow:none}.nido-plan__house[data-custom=true] .nido-plan__room{border-width:2px}.nido-plan__room{position:absolute;box-sizing:border-box;margin:0;padding:10px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;gap:4px;overflow:hidden;border:1.5px solid var(--plan-wall);border-radius:0;background:var(--bg-card);color:var(--ink-1);font-family:inherit;text-align:left;cursor:pointer;transition:background-color .3s var(--ease-out)}.nido-plan__room[data-tinted=true]{background:oklch(var(--plan-fill-l) calc(var(--measure-c) * var(--plan-fill-cf)) var(--measure-h))}.nido-plan__room[data-selected=true]{box-shadow:inset 0 0 0 3px var(--accent);z-index:2}.nido-plan__room[data-narrow=true]{padding:6px}.nido-plan__house[data-lod=overview] .nido-plan__room{padding:4px}.nido-plan__room:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}.nido-plan__glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,var(--plan-glow) 0%,transparent 72%)}.nido-plan__room>:not(.nido-plan__glow){position:relative}.nido-plan__room-head{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}.nido-plan__room-name{font-size:13px;font-weight:600;line-height:1.2;letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis}.nido-plan__room[data-narrow=true] .nido-plan__room-name{font-size:11px}.nido-plan__house[data-lod=detail] .nido-plan__room-name{font-size:15px}.nido-plan__bulb{flex-shrink:0;display:inline-flex;align-items:center;gap:2px;padding:2px 7px 2px 4px;border-radius:var(--r-pill);background:var(--bg-card);font-size:11px;font-weight:600}.nido-plan__room-foot{display:flex;flex-direction:column;align-items:flex-start;gap:6px}.nido-plan__alert{display:inline-flex;align-items:center;gap:5px;max-width:100%;box-sizing:border-box;padding:3px 8px 3px 6px;border-radius:var(--r-pill);background:var(--danger);color:#fff;font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-plan__temp{display:flex;align-items:baseline;gap:8px}.nido-plan__temp-value{font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-plan__room[data-tinted=true] .nido-plan__temp-value{color:oklch(var(--plan-ink-l) var(--measure-c) var(--measure-h))}.nido-plan__room[data-narrow=true] .nido-plan__temp-value{font-size:13px}.nido-plan__house[data-lod=detail] .nido-plan__temp-value{font-size:26px}.nido-plan__hum{font-size:12px;color:var(--ink-2)}.nido-plan__dots{display:flex;justify-content:flex-end;gap:3px}.nido-plan__dot{flex-shrink:0;width:8px;height:8px;border-radius:50%;box-shadow:0 0 0 2px var(--bg-card)}.nido-plan__dot--light{background:#f0a640}.nido-plan__dot--alert{background:var(--danger)}.nido-plan__zoom{display:flex;gap:6px}.nido-plan__zoom-btn{width:44px;height:44px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer}.nido-plan__zoom-btn:disabled{opacity:.4;cursor:default}.nido-plan__zoom-label{position:absolute;left:12px;top:12px;z-index:5;padding:5px 10px;border-radius:var(--r-pill);background:var(--bg-shell);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);pointer-events:none}.nido-plan__body{display:flex;gap:20px;align-items:stretch}.nido-plan__card{flex:1;min-width:0;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;padding:20px;border-radius:var(--r-lg);background:var(--bg-card);box-shadow:var(--shadow-md)}.nido-plan--wide .nido-plan__stage{height:clamp(340px,56vh,640px)}.nido-plan__footer{display:flex;align-items:center;justify-content:space-between;gap:16px}.nido-plan__legend{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-2)}.nido-plan__legend-bar{width:180px;height:10px;border-radius:var(--r-pill);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink-1) 12%,transparent)}.nido-plan__side{width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:16px}@media(max-width:899px){.nido-plan__body{flex-direction:column}.nido-plan__side{width:auto;flex-direction:row;flex-wrap:wrap}.nido-plan__side>*{flex:1 1 260px}}.nido-plan__eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}.nido-plan__panel{box-sizing:border-box;display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:var(--r-lg);background:var(--bg-card);box-shadow:var(--shadow-md)}.nido-plan__panel-name{margin-top:4px;font-size:24px;font-weight:600;letter-spacing:-.02em;line-height:1.1}.nido-plan__panel-status{margin-top:6px;font-size:13px;color:var(--ink-2)}.nido-plan__panel-alert{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:var(--r-sm);background:color-mix(in srgb,var(--danger) 14%,transparent);color:var(--danger);font-size:13px;font-weight:600}.nido-plan__panel-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 0;border-top:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);border-bottom:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent)}.nido-plan__stat{display:flex;flex-direction:column;gap:5px}.nido-plan__stat-value{font-size:19px;font-weight:600;letter-spacing:-.03em}.nido-plan__stat-value small{margin-left:2px;font-size:11px;font-weight:500;color:var(--ink-2)}.nido-plan__stat[data-tinted=true] .nido-plan__stat-value{color:oklch(var(--plan-ink-l) var(--measure-c) var(--measure-h))}.nido-plan__panel-actions{display:flex;flex-wrap:wrap;gap:8px}.nido-plan__action{flex:1;height:44px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:none;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer}.nido-plan__action--icon{flex:0 0 44px;width:44px;padding:0}.nido-plan__open{flex:1 1 100%;height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:var(--r-pill);background:var(--accent);color:var(--accent-ink);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}.nido-plan__summary{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:var(--r-lg);background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-plan__summary .nido-plan__eyebrow{color:inherit;opacity:.7}.nido-plan__summary-main{display:flex;align-items:baseline;gap:8px;font-size:14px}.nido-plan__summary-main>span:last-child{opacity:.8}.nido-plan__summary-value{font-size:34px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-plan__summary-sub{font-size:13px;opacity:.8}.nido-plan--phone .nido-plan__stage{height:300px;border-radius:24px;background:var(--bg-card);box-shadow:var(--shadow-md);overflow:hidden}.nido-plan--phone .nido-plan__zoom,.nido-plan--compact .nido-plan__zoom{position:absolute;right:10px;bottom:10px;z-index:5;flex-direction:column}.nido-plan--phone .nido-plan__zoom-btn,.nido-plan--compact .nido-plan__zoom-btn{background:var(--bg-shell);box-shadow:0 2px 8px #28190f24}.nido-plan--phone .nido-plan__zoom-btn:disabled,.nido-plan--compact .nido-plan__zoom-btn:disabled{display:none}.nido-plan__panel--sheet{padding:18px 20px}.nido-plan__panel--sheet .nido-plan__panel-name{font-size:22px}.nido-plan--compact{height:100%;flex-direction:row;gap:16px}.nido-plan__rail{width:184px;flex-shrink:0;display:flex;flex-direction:column;gap:10px}.nido-plan--compact .nido-plan__floors{flex-direction:column;flex-wrap:nowrap}.nido-plan--compact .nido-plan__floor{height:56px;border-radius:18px;font-size:17px;text-align:left}.nido-plan--compact .nido-plan__layers{flex-wrap:nowrap}.nido-plan--compact .nido-plan__layer{width:56px;height:56px;padding:0;border-radius:18px}.nido-plan--compact .nido-plan__stage{flex:1;min-width:0;border-radius:24px;background:var(--bg-card);box-shadow:var(--shadow-md);overflow:hidden}.nido-plan__mini{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:22px;background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-plan__mini-name{font-size:17px;font-weight:600;letter-spacing:-.02em}.nido-plan__mini-temp{display:flex;align-items:baseline;gap:8px;font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-plan__mini-temp span{font-size:12px;font-weight:500;opacity:.75;letter-spacing:0}.nido-plan__mini .nido-plan__open{flex:0 0 auto;margin-top:4px}@media(prefers-reduced-motion:reduce){.nido-plan__house,.nido-plan__room{transition:none}}.nido-plan__opening{position:absolute;box-sizing:border-box;z-index:3;pointer-events:none;border-radius:2px;background:var(--bg-card);border:1.5px solid var(--plan-wall)}.nido-plan__opening[data-kind=door]{border:none;border-radius:0}.nido-plan__opening[data-open=true]{border:none;background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 28%,transparent)}.nido-plan__bar-end{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.nido-plan__edit{height:40px;display:inline-flex;align-items:center;gap:7px;padding:0 14px;border:none;border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer}.nido-plan__edit:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-plan-editor{position:fixed;inset:0;z-index:1000;box-sizing:border-box;padding:16px;background:var(--bg-canvas);font-family:var(--font-sans);color:var(--ink-1)}.nido-plan-editor__shell{height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;padding:24px;border-radius:var(--r-xl);background:var(--bg-shell)}.nido-plan-editor__header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.nido-plan-editor__title{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.nido-plan-editor__title h1{margin:0;font-size:26px;font-weight:600;letter-spacing:-.02em}.nido-plan-editor__back{width:44px;height:44px;border:none;border-radius:50%;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer}.nido-plan-editor__actions{display:flex;gap:8px}.nido-plan-editor__ghost,.nido-plan-editor__primary{height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 20px;border:none;border-radius:var(--r-pill);font-family:inherit;font-size:14px;cursor:pointer}.nido-plan-editor__ghost{background:var(--bg-inset);color:var(--ink-1);font-weight:500}.nido-plan-editor__primary{background:var(--accent);color:var(--accent-ink);font-weight:600}.nido-plan-editor__hint{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}.nido-plan-editor__status{font-weight:600}.nido-plan-editor__status.is-dirty{color:var(--accent-deep)}:host([data-mode="dark"]) .nido-plan-editor__status.is-dirty{color:var(--accent)}.nido-plan-editor__body{flex:1;min-height:0;display:flex;gap:20px}.nido-plan-editor__canvas{position:relative;flex:1;min-width:0;box-sizing:border-box;padding:20px;border-radius:var(--r-lg);background:var(--bg-card);box-shadow:var(--shadow-md);display:flex}.nido-plan-editor__field-box{flex:1;min-width:0;min-height:0;box-sizing:border-box;padding:14px;display:flex;align-items:center;justify-content:center;overflow:auto}.nido-plan-editor__field{position:relative;flex-shrink:0;background-image:radial-gradient(circle,var(--ink-4) 1.3px,transparent 1.6px);touch-action:none;user-select:none;-webkit-user-select:none}.nido-plan-editor__room{position:absolute;box-sizing:border-box;margin:0;padding:8px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;overflow:hidden;border:2px solid var(--ink-1);border-radius:0;background:var(--bg-card);color:var(--ink-1);font-family:inherit;text-align:left;cursor:grab;touch-action:none;z-index:1;transition:left .15s var(--ease-out),top .15s var(--ease-out),width .15s var(--ease-out),height .15s var(--ease-out)}.nido-plan-editor__room[data-selected=true]{background:color-mix(in srgb,var(--accent) 12%,var(--bg-card))}.nido-plan-editor__room[data-active=true]{cursor:grabbing;z-index:4;transition:none}.nido-plan-editor__room[data-bad=true]{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 22%,var(--bg-card))}.nido-plan-editor__room:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}.nido-plan-editor__room-name{font-size:13px;font-weight:600;line-height:1.2;pointer-events:none}.nido-plan-editor__room-dims{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);pointer-events:none}.nido-plan-editor__opening{position:absolute;z-index:5;box-sizing:border-box;margin:0;padding:3px;border:none;background:transparent;cursor:pointer;display:flex}.nido-plan-editor__opening span{flex:1;border-radius:2px;background:var(--bg-card);border:1.5px solid var(--ink-1)}.nido-plan-editor__opening[data-kind=door] span{border-style:dashed}.nido-plan-editor__opening[data-selected=true] span{background:var(--accent);border-color:var(--accent)}.nido-plan-editor__handle{position:absolute;z-index:8;width:22px;height:22px;box-sizing:border-box;border-radius:6px;background:var(--bg-card);border:2.5px solid var(--accent);touch-action:none}.nido-plan-editor__badge{position:absolute;z-index:9;padding:4px 10px;border-radius:var(--r-pill);background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:600;white-space:nowrap;pointer-events:none}.nido-plan-editor__badge[data-bad=true]{background:var(--danger);color:#fff}.nido-plan-editor__toast{position:absolute;left:50%;bottom:18px;z-index:20;transform:translate(-50%);padding:10px 18px;border-radius:var(--r-pill);background:var(--hero-dark);color:var(--hero-dark-ink);font-size:13px;font-weight:500;white-space:nowrap;box-shadow:0 10px 30px #140c0640}.nido-plan-editor__side{width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;overflow-y:auto}.nido-plan-editor__card{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:var(--r-lg);background:var(--bg-card);box-shadow:var(--shadow-md)}.nido-plan-editor__card-title{font-size:20px;font-weight:600;letter-spacing:-.02em}.nido-plan-editor__muted{margin:0;font-size:13px;line-height:1.45;color:var(--ink-2)}.nido-plan-editor__row{display:flex;gap:8px}.nido-plan-editor__row .nido-plan-editor__btn{flex:1}.nido-plan-editor__btn{height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;border:none;border-radius:var(--r-sm);background:var(--bg-inset);color:var(--ink-1);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;text-align:left}.nido-plan-editor__btn--danger{background:transparent;color:var(--danger)}.nido-plan-editor__unplaced{height:44px;display:flex;align-items:center;gap:10px;padding:0 12px;border:1.5px dashed var(--accent);border-radius:var(--r-sm);background:transparent;color:var(--ink-1);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;text-align:left}.nido-plan-editor__link{align-self:flex-start;display:inline-flex;align-items:center;gap:4px;min-height:32px;padding:0;border:none;background:none;color:var(--ink-2);font-family:inherit;font-size:13px;cursor:pointer}.nido-plan-editor__field-label{font-size:12px;color:var(--ink-2)}.nido-plan-editor__segmented{display:flex;gap:2px;padding:3px;border-radius:var(--r-sm);background:var(--bg-inset)}.nido-plan-editor__segmented button{flex:1;min-height:38px;border:none;border-radius:10px;background:transparent;color:var(--ink-2);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer}.nido-plan-editor__segmented button.is-active{background:var(--bg-card);color:var(--ink-1);font-weight:600;box-shadow:var(--shadow-md)}.nido-plan-editor__steppers{display:flex;gap:10px}.nido-plan-editor__stepper{flex:1;display:flex;flex-direction:column;gap:6px}.nido-plan-editor__stepper-row{display:flex;align-items:center;justify-content:space-between;padding:3px;border-radius:var(--r-sm);background:var(--bg-inset)}.nido-plan-editor__stepper-row button{width:38px;height:38px;border:none;border-radius:10px;background:var(--bg-card);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer}.nido-plan-editor__stepper-row span{font-size:14px;font-weight:600}.nido-plan-editor__select{height:44px;padding:0 12px;border-radius:var(--r-sm);border:1.5px solid var(--ink-4);background:var(--bg-shell);color:var(--ink-1);font-family:inherit;font-size:14px}.nido-plan-editor__note{margin:0;padding:0 6px;font-size:12px;line-height:1.45;color:var(--ink-2)}@media(max-width:899px){.nido-plan-editor__body{flex-direction:column;overflow-y:auto}.nido-plan-editor__canvas{min-height:420px}.nido-plan-editor__side{width:auto;overflow:visible}.nido-plan-editor__tips{display:none}}@media(prefers-reduced-motion:reduce){.nido-plan-editor__room{transition:none}}.nido-plan__motion{position:absolute;left:50%;top:50%;width:var(--motion-size);height:var(--motion-size);margin:calc(var(--motion-size) / -2) 0 0 calc(var(--motion-size) / -2);box-sizing:border-box;border-radius:50%;pointer-events:none}.nido-plan__motion:before,.nido-plan__motion:after{content:"";position:absolute;inset:0;border-radius:50%}.nido-plan__motion:before{inset:calc(50% - 5px);background:var(--accent);box-shadow:0 0 0 2px var(--bg-card)}.nido-plan__motion[data-state=active]:after{border:2px solid var(--accent);animation:nido-plan-motion 2.4s var(--ease-out) infinite}.nido-plan__motion[data-state=recent]{opacity:.45}.nido-plan__motion[data-state=recent]:after{border:1.5px dashed var(--accent);transform:scale(.6)}@keyframes nido-plan-motion{0%{transform:scale(.25);opacity:.85}70%{transform:scale(1);opacity:0}to{transform:scale(1);opacity:0}}.nido-plan__dot--motion{background:var(--accent)}.nido-plan__dot--motion[data-state=recent]{opacity:.45}.nido-plan__motion-label{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--accent-deep)}:host([data-mode="dark"]) .nido-plan__motion-label{color:var(--accent)}.nido-plan__panel-motion{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:13px;font-weight:600;color:var(--accent-deep)}:host([data-mode="dark"]) .nido-plan__panel-motion{color:var(--accent)}.nido-plan__panel-motion[data-state=recent]{font-weight:500;color:var(--ink-2)}.nido-plan__panel-motion-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}.nido-plan__panel-motion[data-state=recent] .nido-plan__panel-motion-dot{opacity:.45}.nido-plan--compact .nido-plan__layers{gap:6px}.nido-plan--compact .nido-plan__layer{width:auto;flex:1;height:52px;border-radius:16px}@media(prefers-reduced-motion:reduce){.nido-plan__motion[data-state=active]:after{animation:none;transform:scale(.7);opacity:.5}}', Jl = "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
-let ec = !1;
-function yx() {
-  if (ec || typeof document > "u") return;
-  if (!document.head.querySelector(`link[href="${Jl}"]`)) {
+const Ex = ':host{--font-sans: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-display: "DM Sans", "Helvetica Neue", system-ui, sans-serif;--font-serif: "Instrument Serif", "Times New Roman", serif;--font-mono: "JetBrains Mono", "SF Mono", monospace;--r-xs: 8px;--r-sm: 14px;--r-md: 20px;--r-lg: 28px;--r-xl: 36px;--r-2xl: 44px;--r-pill: 999px;--s-1: 4px;--s-2: 8px;--s-3: 12px;--s-4: 16px;--s-5: 20px;--s-6: 24px;--s-7: 32px;--s-8: 40px;--s-9: 56px;--shadow-sm: 0 1px 2px rgba(40, 25, 15, .04);--shadow-md: 0 4px 16px rgba(40, 25, 15, .06);--shadow-lg: 0 12px 40px rgba(40, 25, 15, .08);--shadow-hero: 0 20px 60px rgba(180, 80, 30, .18);--ease-out: cubic-bezier(.22, 1, .36, 1);--ease-in-out: cubic-bezier(.65, 0, .35, 1);--ease-spring: cubic-bezier(.34, 1.56, .64, 1)}:host,:host([data-theme="terracotta"][data-mode="light"]){--bg-canvas: #e8e2d8;--bg-shell: #f4ede2;--bg-card: #fbf6ec;--bg-card-elev: #ffffff;--bg-inset: #ede4d3;--ink-1: #1a1410;--ink-2: #5a4a3c;--ink-3: #9c8a76;--ink-4: #c4b39d;--accent: #c75a2a;--accent-deep: #8a3a18;--accent-soft: #f0d5c0;--accent-ink: #ffffff;--hero-dark: #1a1410;--hero-dark-ink: #f4ede2;--positive: #6b8a3a;--warning: #d4a050;--danger: #b8423a;--grid-dot: rgba(60, 40, 25, .18);--hatch: rgba(60, 40, 25, .1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(199,90,42,.04) 100%)}:host([data-theme="terracotta"][data-mode="dark"]){--bg-canvas: #14100c;--bg-shell: #1f1812;--bg-card: #2a2018;--bg-card-elev: #322620;--bg-inset: #1a130e;--ink-1: #f4ede2;--ink-2: #c4ad95;--ink-3: #8a7560;--ink-4: #4a3a2c;--accent: #e07a4a;--accent-deep: #c75a2a;--accent-soft: #4a2a18;--accent-ink: #1a1410;--hero-dark: #0a0604;--hero-dark-ink: #f4ede2;--positive: #9ab864;--warning: #e0b870;--danger: #d46258;--grid-dot: rgba(244,237,226,.1);--hatch: rgba(244,237,226,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(224,122,74,.06) 100%)}:host([data-theme="miel"][data-mode="light"]){--bg-canvas: #ebe2d0;--bg-shell: #f6ecd6;--bg-card: #fcf4e0;--bg-card-elev: #ffffff;--bg-inset: #efe2c4;--ink-1: #1f1608;--ink-2: #5c4628;--ink-3: #9e8458;--ink-4: #c8b487;--accent: #d4a020;--accent-deep: #8a6418;--accent-soft: #f4e0a0;--accent-ink: #1f1608;--hero-dark: #2a1f10;--hero-dark-ink: #f6ecd6;--positive: #7a8a3a;--warning: #c8843a;--danger: #b8523a;--grid-dot: rgba(60,45,20,.18);--hatch: rgba(60,45,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,160,32,.06) 100%)}:host([data-theme="miel"][data-mode="dark"]){--bg-canvas: #15110a;--bg-shell: #1f1810;--bg-card: #2a2114;--bg-card-elev: #33291a;--bg-inset: #1a1208;--ink-1: #f6ecd6;--ink-2: #c8b487;--ink-3: #8a7048;--ink-4: #4a3820;--accent: #e8b840;--accent-deep: #c8941c;--accent-soft: #4a3010;--accent-ink: #1f1608;--hero-dark: #0a0604;--hero-dark-ink: #f6ecd6;--positive: #a8b860;--warning: #e8b860;--danger: #d46850;--grid-dot: rgba(246,236,214,.1);--hatch: rgba(246,236,214,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(232,184,64,.08) 100%)}:host([data-theme="sauge"][data-mode="light"]){--bg-canvas: #dbd9cf;--bg-shell: #ebe7d8;--bg-card: #f4f0de;--bg-card-elev: #ffffff;--bg-inset: #dfdac3;--ink-1: #181a12;--ink-2: #4a4e38;--ink-3: #888a6c;--ink-4: #b8b89c;--accent: #6a7a3a;--accent-deep: #424a20;--accent-soft: #d4d8a8;--accent-ink: #f4f0de;--hero-dark: #1a1d10;--hero-dark-ink: #ebe7d8;--positive: #6a7a3a;--warning: #c8943a;--danger: #a85040;--grid-dot: rgba(40,50,20,.18);--hatch: rgba(40,50,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(106,122,58,.05) 100%)}:host([data-theme="sauge"][data-mode="dark"]){--bg-canvas: #11130c;--bg-shell: #191b13;--bg-card: #232518;--bg-card-elev: #2c2e1e;--bg-inset: #14160e;--ink-1: #ebe7d8;--ink-2: #b8b89c;--ink-3: #7a7c60;--ink-4: #3a3c28;--accent: #9aa84e;--accent-deep: #6a7a3a;--accent-soft: #2a3014;--accent-ink: #181a12;--hero-dark: #08090a;--hero-dark-ink: #ebe7d8;--positive: #9aa84e;--warning: #d4a060;--danger: #c46050;--grid-dot: rgba(235,231,216,.1);--hatch: rgba(235,231,216,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(154,168,78,.06) 100%)}:host([data-theme="cosy"][data-mode="light"]){--bg-canvas: #e2dccf;--bg-shell: #f0eadd;--bg-card: #f8f3e6;--bg-card-elev: #ffffff;--bg-inset: #e6dfca;--ink-1: #201410;--ink-2: #5a3e2c;--ink-3: #998068;--ink-4: #c4b09a;--accent: #b06030;--accent-deep: #783818;--accent-soft: #ecd0b8;--accent-ink: #f8f3e6;--hero-dark: #1c1208;--hero-dark-ink: #f0eadd;--positive: #6a8048;--warning: #c89240;--danger: #b04438;--grid-dot: rgba(60,35,20,.18);--hatch: rgba(60,35,20,.1);--time-tint: linear-gradient(180deg, transparent 0%, rgba(176,96,48,.05) 100%)}:host([data-theme="cosy"][data-mode="dark"]){--bg-canvas: #14100a;--bg-shell: #1d1610;--bg-card: #271e16;--bg-card-elev: #30261c;--bg-inset: #18120c;--ink-1: #f0eadd;--ink-2: #c4b09a;--ink-3: #8a7058;--ink-4: #483624;--accent: #d48450;--accent-deep: #b06030;--accent-soft: #3a2418;--accent-ink: #1c1208;--hero-dark: #0a0604;--hero-dark-ink: #f0eadd;--positive: #98a868;--warning: #e0a868;--danger: #c8584c;--grid-dot: rgba(240,234,221,.1);--hatch: rgba(240,234,221,.06);--time-tint: linear-gradient(180deg, transparent 0%, rgba(212,132,80,.06) 100%)}.pattern-dots{background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:14px 14px}.pattern-hatch{background-image:repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 7px)}@keyframes nido-breathe{0%,to{transform:scale(1);filter:brightness(1)}50%{transform:scale(var(--breathe-scale, 1.01));filter:brightness(var(--breathe-bright, 1.04))}}@keyframes nido-glow{0%,to{opacity:var(--glow-base, .85);transform:scale(1)}50%{opacity:var(--glow-peak, 1);transform:scale(var(--glow-max, 1.08))}}@keyframes nido-stagger-in{0%{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}.breathe-1{animation:nido-breathe var(--breathe-speed, 5.5s) var(--ease-in-out) infinite}.breathe-2{animation:nido-breathe var(--breathe-speed, 6.2s) var(--ease-in-out) infinite;animation-delay:-1.4s}.breathe-3{animation:nido-breathe var(--breathe-speed, 4.8s) var(--ease-in-out) infinite;animation-delay:-2.7s}.breathe-4{animation:nido-breathe var(--breathe-speed, 7s) var(--ease-in-out) infinite;animation-delay:-3.1s}.glow-pulse-1{animation:nido-glow 4.2s var(--ease-in-out) infinite}.glow-pulse-2{animation:nido-glow 5.8s var(--ease-in-out) infinite;animation-delay:-2s}@media(prefers-reduced-motion:reduce){.breathe-1,.breathe-2,.breathe-3,.breathe-4,.glow-pulse-1,.glow-pulse-2{animation:none!important}}', Sx = ':host{display:block;width:100%;height:100%;font-family:var(--font-sans);color:var(--ink-1);background:var(--bg-canvas);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.nido-root-mount{width:100%;height:100%}.nido-shell{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;padding:16px;box-sizing:border-box}.nido-loading,.nido-stub,.n-muted{color:var(--ink-3)}.nido-loading{padding:32px;text-align:center;font-size:14px}.nido-loading--error{color:var(--danger)}.nido-dashboard{background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;position:relative;overflow:hidden;min-height:calc(100vh - 32px);box-sizing:border-box}.nido-dashboard:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-dashboard>*{position:relative}@media(max-width:600px){.nido-shell{padding:0}.nido-dashboard{border-radius:0;padding:20px 16px;min-height:100vh}}.nido-topbar{display:grid;grid-template-columns:auto 1fr auto auto auto;grid-template-areas:"brand . weather utility icons";align-items:center;column-gap:12px;margin-bottom:28px}.nido-topbar__brand{grid-area:brand;display:flex;flex-direction:column;align-items:flex-start;gap:4px}.nido-topbar__weather{grid-area:weather;display:flex;align-items:center}.nido-topbar__utility{grid-area:utility;display:flex;align-items:center;gap:8px}.nido-topbar__icons{grid-area:icons;display:flex;align-items:center;gap:8px}.nido-topbar__clock{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--ink-3);line-height:1}.nido-topbar__brand span{font-family:"Comfortaa",var(--font-sans);font-weight:700;font-size:24px;letter-spacing:.04em;color:var(--accent);line-height:1}.nido-hero{margin-bottom:32px}.nido-hero h1{margin:0;font-family:var(--font-display);font-size:56px;font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--ink-1)}.nido-hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}@media(max-width:600px){.nido-hero h1{font-size:30px}}.nido-hero__sub{margin:12px 0 0;font-size:15px;color:var(--ink-2)}.nido-hero__digest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px;font-size:15px;color:var(--ink-2);min-height:20px}.nido-hero__fact{display:inline-flex;align-items:baseline;gap:10px;animation:nido-fact-in .42s var(--ease-out) both}.nido-hero__fact-sep{width:3px;height:3px;border-radius:50%;background:var(--ink-3);transform:translateY(-4px)}.nido-hero__fact[data-tone=alert] .nido-hero__fact-text{color:var(--danger);font-weight:600}.nido-hero__fact[data-tone=notice] .nido-hero__fact-text{color:var(--accent-deep);font-weight:600}.nido-hero__fact[data-tone=active] .nido-hero__fact-text{color:var(--ink-1)}.nido-hero__fact-room{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}@keyframes nido-fact-in{0%{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media(max-width:600px){.nido-hero__digest{flex-direction:column;align-items:flex-start;gap:5px 0}.nido-hero__fact-sep{display:none}}@media(prefers-reduced-motion:reduce){.nido-hero__fact{animation:none}}.nido-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.nido-section-title h2{margin:0;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}.nido-section-title h2.is-accent{color:var(--accent-deep)}.nido-rooms{display:flex;flex-direction:column;gap:28px}.nido-room__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}.n-card{position:relative;overflow:hidden;background:var(--bg-card);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:160px;transition:background .24s var(--ease-out),color .24s var(--ease-out);color:var(--ink-1)}.n-card--accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-hero)}.n-card--accent-muted{background:var(--accent-soft);color:var(--ink-1);box-shadow:var(--shadow-md)}.n-card--accent-muted .n-icon-bubble{background:color-mix(in srgb,var(--accent) 22%,var(--accent-soft));color:var(--accent-deep)}.n-card--accent-muted .n-toggle{background:color-mix(in srgb,var(--accent) 18%,var(--bg-inset))}.n-card--accent-muted .n-toggle__thumb{background:var(--accent)}.n-card--accent-muted .n-eyebrow{color:var(--accent-deep);opacity:.7}.n-card--accent-muted .n-muted{color:var(--accent-deep);opacity:.65}.n-card--accent-muted .n-title{color:var(--accent-deep)}.n-card[data-hero=true],.nido-drag-item[data-hero=true] .n-card{min-height:200px;padding:24px}.n-cover-glow-wrap{position:relative;border-radius:calc(var(--r-lg) + 2px);padding:2px;overflow:hidden;isolation:isolate;background:transparent;transition:box-shadow .5s var(--ease-out)}.n-cover-glow-wrap[data-active=true]{box-shadow:0 0 18px 2px var(--accent);box-shadow:0 0 18px 2px color-mix(in srgb,var(--accent) 35%,transparent)}.n-cover-glow-wrap .n-card{position:relative;z-index:1}.n-cover-glow-wrap:before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent 0%,transparent 35%,var(--accent) 45%,var(--accent) 55%,transparent 65%,transparent 100%);background:conic-gradient(from 0deg,transparent 0%,transparent 35%,color-mix(in srgb,var(--accent) 60%,transparent) 45%,var(--accent) 50%,color-mix(in srgb,var(--accent) 60%,transparent) 55%,transparent 65%,transparent 100%);animation:cover-glow-spin 3.5s linear infinite;opacity:0;transition:opacity .5s var(--ease-out);pointer-events:none;z-index:0;will-change:transform}.n-cover-glow-wrap[data-active=true]:before{opacity:1}@keyframes cover-glow-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.n-cover-glow-wrap:before{animation:none}.n-cover-glow-wrap[data-active=true]:before{background:var(--accent);opacity:.6}}.n-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;position:relative;z-index:1}.n-icon-bubble{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .24s,color .24s}.n-card[data-on=true] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card--accent .n-icon-bubble{background:#fff3;color:var(--accent-ink)}.n-toggle{width:48px;height:28px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;padding:0;transition:background .24s;flex-shrink:0}.n-toggle:disabled{cursor:not-allowed;opacity:.6}.n-toggle__thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.n-card[data-on=true] .n-toggle,.n-toggle[aria-checked=true]{background:var(--ink-1)}.n-card[data-on=true] .n-toggle__thumb,.n-toggle[aria-checked=true] .n-toggle__thumb{left:23px;background:var(--bg-card)}.n-card--accent .n-toggle{background:#ffffff4d}.n-card--accent .n-toggle__thumb{background:var(--accent-ink)}.n-eyebrow{position:relative;z-index:1}.n-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.6}.n-title{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin-top:4px;color:currentColor;position:relative;z-index:1}.n-title--xl{font-size:28px}.n-light__intensity{margin-top:4px;display:flex;flex-direction:column;gap:8px}.n-row-between{display:flex;justify-content:space-between;align-items:baseline}.n-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-value--xl{font-size:24px}.n-value__unit{font-size:.6em;opacity:.6;margin-left:2px}.n-light__glow{position:absolute;top:-40px;right:-40px;width:var(--glow-size, 140px);height:var(--glow-size, 140px);border-radius:50%;background:radial-gradient(circle,var(--accent-soft) 0%,transparent 70%);pointer-events:none;opacity:var(--glow-base, .85);transition:width .4s var(--ease-out),height .4s var(--ease-out),opacity .4s var(--ease-out)}.n-card--accent .n-light__glow{background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%)}.n-slider{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:var(--r-pill);background:linear-gradient(to right,var(--accent) var(--val, 0%),var(--bg-inset) var(--val, 0%));outline:none;margin:0;padding:0;cursor:pointer}.n-slider::-webkit-slider-runnable-track{height:10px;border-radius:var(--r-pill);background:transparent}.n-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);box-shadow:0 1px 3px #00000026;cursor:pointer;margin-top:-3px}.n-slider::-moz-range-track{height:10px;border-radius:var(--r-pill);background:var(--bg-inset)}.n-slider::-moz-range-progress{height:10px;border-radius:var(--r-pill);background:var(--accent)}.n-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);cursor:pointer}.n-card--accent .n-slider{background:linear-gradient(to right,rgba(255,255,255,.5) var(--val, 0%),rgba(255,255,255,.2) var(--val, 0%))}.n-card--accent .n-slider::-moz-range-track{background:#fff3}.n-card--accent .n-slider::-moz-range-progress{background:#ffffff80}.n-card--accent .n-slider::-webkit-slider-thumb{background:var(--accent-ink);border-color:var(--accent)}.n-muted{font-size:13px;color:var(--ink-3)}.n-card--accent .n-muted{color:#ffffffd9}.n-blinds{display:flex;flex-direction:column;gap:2px;width:36px;height:44px}.n-blinds__bar{flex:1;background:var(--ink-4);border-radius:1px;opacity:.25;transition:opacity .24s}.n-blinds__bar[data-active=true]{opacity:1}.n-power{display:flex;align-items:baseline;gap:4px;margin-top:4px;font-family:var(--font-display);font-weight:600;letter-spacing:-.02em}.n-power__value{font-size:24px;color:var(--ink-1)}.n-power__value--muted{color:var(--ink-3)}.n-power__unit{font-size:12px;color:var(--ink-3)}.n-card--compact{min-height:130px;padding:18px}.n-title--sm{font-size:16px}.n-dot{width:8px;height:8px;border-radius:50%;background:var(--positive);margin-left:auto}.n-card[data-status=on] .n-dot{background:var(--accent)}.n-card[data-status=on][data-alert=true] .n-dot{background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 25%,transparent)}.n-card[data-status=indisponible] .n-dot{background:var(--ink-4)}.n-binary-state{font-family:var(--font-sans);font-size:13px;color:var(--ink-3);margin-top:4px}.n-card[data-status=on][data-alert=true] .n-binary-state{color:var(--danger);font-weight:500}.n-card[data-status=on]:not([data-alert=true]) .n-binary-state{color:var(--ink-1)}.n-card[data-status=on] .n-icon-bubble{background:var(--accent-soft);color:var(--accent-deep)}.n-card[data-status=on][data-alert=true] .n-icon-bubble{background:color-mix(in srgb,var(--danger) 18%,var(--bg-card));color:var(--danger)}.n-climate__temp{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:4px}.n-climate__steppers{display:flex;gap:8px;margin-top:auto}.n-stepper{flex:1;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}.n-stepper:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-stepper:disabled{opacity:.4;cursor:not-allowed}.n-card--accent .n-stepper{background:#ffffff2e;color:var(--accent-ink)}.n-battery{display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}.n-vacuum__actions{display:flex;gap:8px;margin-top:auto}.n-pill-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 10px;border-radius:var(--r-pill);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:12px;font-weight:500;cursor:pointer;transition:background .18s}.n-pill-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-pill-btn:disabled{opacity:.45;cursor:not-allowed}.n-card--accent .n-pill-btn{background:#ffffff2e;color:var(--accent-ink)}.n-cover__actions{display:flex;gap:8px;margin-top:12px}.n-cover__actions .n-pill-btn{flex:1 1 0;padding:8px 0;min-width:0}.n-sensor__readout{display:flex;align-items:baseline;gap:4px;margin-top:auto}.n-media__track{margin-top:2px;position:relative;z-index:1}.n-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:currentColor;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-media__controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:auto;position:relative;z-index:1}.n-icon-btn{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s}.n-icon-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 22%,var(--bg-inset))}.n-icon-btn:disabled{opacity:.4;cursor:not-allowed}.n-icon-btn--primary{width:44px;height:44px;background:var(--accent);color:var(--accent-ink)}.n-icon-btn--primary:hover:not(:disabled){background:var(--accent-deep)}.n-card--accent .n-icon-btn{background:#fff3;color:var(--accent-ink)}.n-card--accent .n-icon-btn--primary{background:var(--accent-ink);color:var(--accent)}.n-media__volume{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--ink-3);position:relative;z-index:1}.n-media__volume .n-slider{flex:1}.n-media__bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.n-media__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.25;transition:opacity .5s var(--ease-out)}.n-media__bg-overlay{position:absolute;inset:0;background:var(--accent);opacity:.15;mix-blend-mode:overlay}.n-card[data-on=true] .n-media__bg img{opacity:.35}.n-card[data-hero=true] .n-media__track{margin-top:8px}.n-card[data-hero=true] .n-media__title{font-size:18px}.n-card[data-hero=true] .n-media__controls{gap:20px;margin-top:12px}.n-card[data-hero=true] .n-media__controls .n-icon-btn--primary{width:52px;height:52px}.n-card[data-hero=true] .nido-cal-widget__title{font-size:24px;margin-top:8px}.n-card[data-hero=true] .nido-cal-widget__when{margin-top:6px;font-size:14px}.n-alarm__modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}.n-mode-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 4px;border-radius:var(--r-md, 12px);border:none;background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:11px;font-weight:500;cursor:pointer;transition:background .18s,color .18s}.n-mode-btn:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.n-mode-btn[data-active=true]{background:var(--accent);color:var(--accent-ink)}.n-mode-btn:disabled{opacity:.45;cursor:not-allowed}.n-mode-btn--disarm{grid-column:span 3;flex-direction:row;padding:8px 12px;font-size:12px}.n-card--camera{padding:0;overflow:hidden}.n-card--camera .n-card__head,.n-card--camera .n-eyebrow,.n-card--camera .n-title,.n-card--camera .n-binary-state{padding-left:18px;padding-right:18px}.n-card--camera .n-eyebrow{padding-top:14px}.n-card--camera .n-title{padding-bottom:9px}.n-card__head--inline{margin-bottom:0}.n-camera__frame{position:relative;width:100%;aspect-ratio:16 / 9;background:var(--bg-inset);display:flex;align-items:center;justify-content:center;overflow:hidden}.n-camera__img{width:100%;height:100%;object-fit:cover;display:block}.n-camera__placeholder{color:var(--ink-3);display:flex;align-items:center;justify-content:center}.n-camera__live{position:absolute;top:8px;left:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;padding:3px 8px;border-radius:var(--r-pill);background:var(--danger);color:#fff}.n-camera__frame--btn{appearance:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}.n-camera__frame--btn:disabled{cursor:default}.n-camera__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:opacity .15s ease;pointer-events:none}.n-camera__frame--btn:hover .n-camera__play,.n-camera__frame--btn:focus-visible .n-camera__play{opacity:1}.nido-camera-panel{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px}.nido-camera-panel__backdrop{position:absolute;inset:0;background:#0009;backdrop-filter:blur(2px);animation:fade-in .2s ease-out}.nido-camera-panel__content{position:relative;width:100%;max-width:960px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;display:flex;flex-direction:column;overflow:hidden;animation:fade-in .25s ease-out}.nido-camera-panel__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(var(--fg-rgb),.06)}.nido-camera-panel__header h2{margin:0;font-size:1.1rem;font-weight:600;color:var(--fg)}.nido-camera-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s}.nido-camera-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-camera-panel__body{position:relative;background:#000;aspect-ratio:16 / 9}.nido-camera-panel__video{width:100%;height:100%;display:block}.nido-camera-panel__overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;background:#0006;pointer-events:none}.nido-camera-panel__overlay--error{color:#ffb4b4}.nido-camera-panel__picker{padding:16px 20px;border-top:1px solid rgba(var(--fg-rgb),.06);display:flex;flex-direction:column;gap:10px}.nido-camera-panel__picker-msg{margin:0;font-size:.85rem;color:var(--danger, #b00020)}.nido-camera-panel__picker-hint{margin:0;font-size:.85rem;color:var(--ink-2)}.nido-camera-panel__picker-row{display:flex;gap:8px;flex-wrap:wrap}.nido-camera-panel__picker-select{flex:1 1 220px;min-width:0;padding:8px 10px;border-radius:var(--r-sm);border:1px solid rgba(var(--fg-rgb),.15);background:var(--bg-inset);color:var(--fg);font:inherit}.nido-camera-panel__picker-save{padding:8px 14px;border-radius:var(--r-sm);border:0;background:var(--accent);color:var(--accent-ink, #fff);font:inherit;cursor:pointer}.nido-camera-panel__picker-save:disabled{opacity:.4;cursor:default}@keyframes n-fan-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.n-fan-spin svg{animation:n-fan-spin var(--fan-speed, 2.4s) linear infinite;transform-origin:50% 50%}@media(prefers-reduced-motion:reduce){.n-fan-spin svg{animation:none}}.n-pill-btn--ghost{background:transparent;color:var(--ink-2);font-size:11px;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--ink-4)}.n-pill-btn--ghost:hover:not(:disabled){background:var(--bg-inset);color:var(--ink-1)}.nido-weather-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;background:var(--bg-card);border:1px solid var(--ink-4);border-radius:999px;font-family:var(--font-sans);color:var(--ink-1)}.nido-weather-pill__icon{display:inline-flex;align-items:center;color:var(--accent)}.nido-weather-pill__temp{font-family:var(--font-display);font-size:13px;font-weight:500;letter-spacing:-.01em}.nido-weather-pill__sep{width:1px;height:12px;background:var(--ink-4)}.nido-weather-pill__label{font-size:12px;color:var(--ink-3)}.nido-lights-pill-btn,.nido-covers-pill-btn{background:none;border:none;padding:0;cursor:pointer;display:inline-flex;transition:transform .2s}.nido-lights-pill-btn:hover,.nido-covers-pill-btn:hover{transform:scale(1.04)}.nido-lights-pill-btn:active,.nido-covers-pill-btn:active{transform:scale(.96)}.nido-lights-pill,.nido-covers-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;background:var(--accent-soft);border-radius:var(--r-pill);font-family:var(--font-sans);color:var(--accent-deep)}.nido-lights-pill__count,.nido-covers-pill__count{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-.01em}.nido-lights-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center}.nido-lights-panel .nido-notification-panel__content{height:auto;max-height:min(720px,calc(100% - 48px));max-width:460px;border-radius:var(--r-2xl)}.nido-lights-panel .nido-notification-panel__header{padding:18px 18px 18px 20px}.nido-lights-panel .nido-notification-panel__scroll{padding:12px 18px 18px 20px}.nido-lights-panel .nido-lights-panel__footer{padding:16px 18px 18px 20px}.nido-lights-panel__title{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-lights-panel__count{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;background:var(--accent-soft);color:var(--accent-deep);border-radius:var(--r-pill);font-family:var(--font-display);font-size:14px;font-weight:600}.nido-lights-list{display:flex;flex-direction:column;gap:20px}.nido-lights-group{display:flex;flex-direction:column;gap:10px}.nido-lights-group__title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 4px}.nido-lights-row{display:flex;align-items:center;gap:14px;background:var(--bg-card);border-radius:var(--r-lg);padding:14px 16px;transition:opacity .2s}.nido-lights-row.is-pending{opacity:.6;pointer-events:none}.nido-lights-row__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-lights-row__body{flex:1;min-width:0}.nido-lights-row__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-lights-row__pct{font-family:var(--font-mono);font-size:13px;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ink-3);flex-shrink:0}.nido-openings-row__status.is-open{color:var(--accent-deep)}.nido-covers-row__actions{display:flex;gap:4px;flex-shrink:0}.nido-covers-row__actions .n-pill-btn{flex:0 0 auto;width:32px;height:32px;padding:0}.nido-lights-panel__footer{padding:16px 32px 24px;border-top:1px solid var(--ink-4)}.nido-covers-panel__footer{display:flex;gap:10px}.nido-covers-panel__footer .nido-lights-panel__all-off{width:auto;flex:1}.nido-lights-panel__all-off{width:100%;padding:12px;border-radius:var(--r-pill);border:1px solid var(--ink-4);background:var(--bg-card);color:var(--ink-1);font-family:var(--font-display);font-size:15px;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.nido-lights-panel__all-off:hover{background:var(--ink-1);color:var(--bg-shell);border-color:var(--ink-1)}.nido-lights-panel__all-off:disabled{opacity:.5;cursor:not-allowed}.nido-cal-widget{cursor:pointer;transition:transform .2s var(--ease-spring),background .2s}.nido-cal-widget:hover{transform:translateY(-2px)}.nido-cal-widget:active{transform:scale(.98)}.nido-cal-widget__bubble{background:color-mix(in srgb,var(--cal-color, var(--ink-3)) 14%,var(--bg-inset))!important;color:var(--cal-color, var(--ink-3))!important}.nido-cal-widget__title{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--ink-1)}.nido-cal-widget__when{display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:12px;color:var(--ink-3);margin-top:auto}.nido-cal-widget__sep{opacity:.5}.nido-cal-widget__time{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}.nido-cal-widget--agenda{display:flex;flex-direction:column;gap:10px}.nido-cal-widget__head{display:flex;align-items:center;gap:8px;color:var(--cal-color, var(--ink-3))}.nido-cal-widget__head .n-eyebrow{color:var(--ink-3)}.nido-cal-widget__placeholder{padding-left:12px;border-left:2px solid color-mix(in srgb,var(--cal-color, var(--ink-3)) 35%,transparent)}.nido-cal-widget__agenda{list-style:none;margin:0;padding:2px 0 2px 12px;border-left:2px solid var(--cal-color, var(--ink-3));display:flex;flex-direction:column;gap:8px}.nido-cal-widget__agenda-row{display:grid;grid-template-columns:48px auto 1fr;align-items:start;gap:8px;font-family:var(--font-sans);font-size:12px;color:var(--ink-1);line-height:1.25}.nido-cal-widget__agenda-day{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;color:var(--cal-color, var(--ink-3));font-weight:600;white-space:nowrap}.nido-cal-widget__agenda-time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.04em;white-space:nowrap}.nido-cal-widget__agenda-title{color:var(--ink-1);font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;word-break:break-word}.n-card[data-hero=true] .nido-cal-widget__agenda{gap:10px}.n-card[data-hero=true] .nido-cal-widget__agenda-row{font-size:14px;grid-template-columns:46px auto 1fr}.n-card[data-hero=true] .nido-cal-widget__agenda-day,.n-card[data-hero=true] .nido-cal-widget__agenda-time{font-size:11px}.nido-cal-panel__legend{display:flex;align-items:center;gap:16px;padding:10px 32px 12px;border-bottom:1px solid var(--ink-4)}.nido-cal-panel__legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}.nido-cal-panel__legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.nido-cal-panel__days{display:flex;flex-direction:column;gap:0}.nido-cal-panel__day{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px dashed var(--ink-4)}.nido-cal-panel__day:last-child{border-bottom:none}.nido-cal-panel__badge{width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}.nido-cal-panel__day.is-today .nido-cal-panel__badge{background:var(--accent-soft)}.nido-cal-panel__badge-day{font-family:var(--font-mono);font-size:9px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}.nido-cal-panel__day.is-today .nido-cal-panel__badge-day{color:var(--accent-deep)}.nido-cal-panel__badge-num{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-cal-panel__day.is-today .nido-cal-panel__badge-num{color:var(--accent-deep)}.nido-cal-panel__events{flex:1;display:flex;flex-direction:column;gap:8px;padding-top:4px}.nido-cal-panel__empty{font-family:var(--font-sans);font-size:13px;color:var(--ink-4);line-height:44px}.nido-cal-panel__event{display:flex;align-items:flex-start;gap:10px}.nido-cal-panel__event-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}.nido-cal-panel__event-body{flex:1;min-width:0}.nido-cal-panel__event-title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-cal-panel__event-who{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);display:block;margin-top:2px}.nido-cal-panel__event-time{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;flex-shrink:0;padding-top:2px}.n-weather__icon{color:var(--accent)}.n-weather__readout{display:flex;align-items:baseline;gap:4px;margin-top:6px}.n-weather__meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:12px;color:var(--ink-3)}.n-weather__sep{width:3px;height:3px;border-radius:50%;background:var(--ink-4)}.nido-room--favorites .nido-section-title h2{color:var(--accent-deep)}.nido-drag-item{display:flex;flex-direction:column;position:relative;min-width:0;touch-action:pan-y;transition:transform .22s var(--ease-out),opacity .22s}.nido-drag-item>*{flex:1 1 auto;min-width:0}.nido-drag-item[data-flash=true]:after,.nido-room-card[data-flash=true]:after{content:"";position:absolute;inset:0;border-radius:var(--r-lg);pointer-events:none;z-index:3;animation:nido-state-flash .9s var(--ease-out) forwards}.nido-room-card[data-flash=true]:after{border-radius:inherit}@keyframes nido-state-flash{0%{box-shadow:inset 0 0 0 2px var(--accent);opacity:0}20%{opacity:.9}to{box-shadow:inset 0 0 0 2px var(--accent);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-drag-item[data-flash=true]:after,.nido-room-card[data-flash=true]:after{animation:none;content:none}}.nido-room__grid.is-dragging,.nido-rooms-grid.is-dragging,.nido-room-detail__grid.is-dragging{cursor:grabbing}.nido-room__grid.is-dragging .nido-drag-item,.nido-rooms-grid.is-dragging .nido-room-card,.nido-room-detail__grid.is-dragging .nido-drag-item{cursor:grabbing;user-select:none}[data-dragging=true]{opacity:.45;transform:scale(.97);z-index:2}[data-drag-over=true]{outline:2px dashed var(--accent);outline-offset:4px;transform:translateY(-2px)}.nido-rooms-grid .nido-room-card{touch-action:pan-y}.nido-hero__date{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}.nido-rooms-section{margin-top:28px}.nido-rooms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}.nido-rooms-grid--phone{grid-template-columns:minmax(0,1fr);gap:12px}.nido-rooms-grid--touch{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.nido-room-card{position:relative;display:block;width:100%;box-sizing:border-box;text-align:left;background:var(--bg-card);color:var(--ink-1);border:none;border-radius:var(--r-lg);padding:20px;min-height:170px;cursor:pointer;overflow:hidden;font-family:var(--font-sans);transition:transform .2s var(--ease-out),background .2s}.nido-room-card:hover{transform:translateY(-2px)}.nido-room-card--accent{background:var(--hero-dark);color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__deco{position:absolute;top:-20px;right:-20px;width:120px;height:120px;pointer-events:none}.nido-room-card__body{position:relative;display:flex;flex-direction:column;height:100%;min-height:100px}.nido-room-card__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;color:inherit}.nido-room-card__head-right{display:flex;align-items:center;gap:6px}.nido-room-card__presence{display:flex}.nido-room-card__avatar{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);object-fit:cover;margin-left:-6px;background:var(--accent)}.nido-room-card__avatar:first-child{margin-left:0}.nido-room-card__avatar--initial{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bg);background:var(--accent);letter-spacing:0}.nido-room-card__icon{width:40px;height:40px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-1);display:flex;align-items:center;justify-content:center}.nido-room-card--accent .nido-room-card__icon{background:#f4ede21f;color:var(--hero-dark-ink, var(--bg-shell))}.nido-room-card__icon{position:relative}.nido-room-card__occupancy{position:absolute;top:-2px;right:-2px;width:11px;height:11px;box-sizing:border-box;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card)}.nido-room-card--accent .nido-room-card__occupancy{border-color:var(--hero-dark)}.nido-room-card__occupancy--motion{opacity:.85}.nido-room-card__occupancy:after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1.5px solid var(--accent);animation:nido-occupancy-pulse 2.6s var(--ease-out) infinite}@keyframes nido-occupancy-pulse{0%{transform:scale(.85);opacity:.75}60%{transform:scale(2.1);opacity:0}to{transform:scale(2.1);opacity:0}}@media(prefers-reduced-motion:reduce){.nido-room-card__occupancy:after{animation:none;opacity:.35}}.nido-room-card__head svg{opacity:.5}.nido-room-card__foot{margin-top:auto}.nido-room-card__name{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}.nido-room-card__sep{opacity:.4}.nido-room-card__active{display:inline-flex;align-items:center;gap:5px}.nido-room-card__dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.nido-room-card__chips{display:flex;flex-wrap:wrap;gap:6px}.nido-room-card__chip{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:var(--r-pill);background:var(--bg-inset);font-family:var(--font-sans);font-size:12px;font-weight:500;line-height:1}.nido-room-card--accent .nido-room-card__chip{background:#f4ede21f}.nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--on{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent-deep)}.nido-room-card--accent .nido-room-card__chip--presence{background:color-mix(in srgb,var(--accent) 34%,transparent);color:var(--hero-dark-ink)}.nido-room-card__chip--alert{background:color-mix(in srgb,var(--danger) 16%,transparent);color:var(--danger)}.nido-room-card__chip--idle{opacity:.55}.nido-room-card__band{display:flex;align-items:center;gap:12px;margin-top:12px;padding-top:11px;border-top:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);font-size:13px;font-weight:500;color:color-mix(in srgb,currentColor 80%,transparent)}.nido-room-card--accent .nido-room-card__band{border-top-color:#f4ede229}.nido-room-card__band-item{display:inline-flex;align-items:center;gap:5px;min-width:0}.nido-room-card__band-icon{display:flex;opacity:.65}.nido-room-card__band-label{display:none}.nido-room-card__band-unit{margin-left:1px}.nido-room-card__band-item--tinted{--measure-l: 52%;color:oklch(var(--measure-l) var(--measure-c) var(--measure-h))}.nido-room-card__band-item--tinted .nido-room-card__band-icon{opacity:.9}.nido-room-card__band-item--tinted .nido-room-card__band-unit{opacity:.75}:host([data-mode="dark"]) .nido-room-card__band-item--tinted{--measure-l: 80%}.nido-room-card--accent .nido-room-card__band-item--tinted,:host([data-mode="dark"]) .nido-room-card--accent .nido-room-card__band-item--tinted{--measure-l: 84%}.nido-room-card__actions{display:flex;gap:8px;margin-top:auto;padding-top:14px}.nido-room-card__actions .n-pill-btn.is-idle{opacity:.55}.nido-room-card--accent .nido-room-card__actions .n-pill-btn,.nido-room-card--accent .nido-room-card__actions .n-icon-btn{background:#f4ede224;color:var(--hero-dark-ink)}.nido-room-card--touch{min-height:210px}.nido-room-card--touch .nido-room-card__icon{width:44px;height:44px}.nido-room-card--touch .nido-room-card__name{font-size:19px}.nido-room-card--touch .nido-room-card__band{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);color:inherit}.nido-room-card--accent.nido-room-card--touch .nido-room-card__band{border-bottom-color:#f4ede229}.nido-room-card--touch .nido-room-card__band-item{display:flex;flex-direction:column;align-items:flex-start;gap:0}.nido-room-card--touch .nido-room-card__band-icon{display:none}.nido-room-card--touch .nido-room-card__band-label{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}.nido-room-card--touch .nido-room-card__band-value{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.03em;margin-top:5px}.nido-room-card--touch .nido-room-card__band-unit{font-size:11px;font-weight:500;opacity:.6;margin-left:2px}.nido-room-card--touch .n-pill-btn{height:44px;font-size:13px}.nido-room-card--touch .n-icon-btn{width:44px;height:44px}.nido-room-card--phone{min-height:96px;padding:16px;border-radius:var(--r-md);display:flex;flex-direction:column;gap:10px}.nido-room-card--phone .nido-room-card__deco{display:none}.nido-room-card__row{position:relative;display:flex;align-items:center;gap:12px}.nido-room-card--phone .nido-room-card__icon{width:36px;height:36px}.nido-room-card--phone .nido-room-card__name{flex:1;min-width:0;margin-bottom:0;font-size:17px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-room-card__chev{display:flex;opacity:.45;flex-shrink:0}.nido-room-card__line{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px}.nido-room-card--phone .nido-room-card__band{margin-top:0;padding-top:0;border-top:none;font-size:13.5px;font-weight:600;letter-spacing:-.02em;color:color-mix(in srgb,currentColor 85%,transparent)}.nido-room-card--phone .nido-room-card__chips{flex-wrap:nowrap;flex-shrink:0}.nido-room-card--phone .nido-room-card__line{justify-content:flex-start}.nido-room-card--phone .nido-room-card__band{min-width:0;overflow:hidden}.nido-room-card--phone .nido-room-card__chips{margin-left:auto}.nido-room-card--phone .nido-room-card__chip--cover{flex-shrink:0;margin-left:auto}.nido-room-card--phone .nido-room-card__chips+.nido-room-card__chip--cover{margin-left:6px}.nido-room-detail__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-room-detail__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-room-detail__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-room-detail__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-room-detail__head-actions{display:flex;gap:10px}.nido-room-detail__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-room-detail__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-room-detail__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-room-detail__icon-bg{position:absolute;inset:0;opacity:.2}.nido-room-detail__icon svg{position:relative}.nido-room-detail__hero-meta{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-room-detail__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-room-detail__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-room-detail__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-room-detail__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-room-detail__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-room-detail__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-room-detail__stat--tinted .nido-room-detail__stat-value{--measure-l: 52%;color:oklch(var(--measure-l) var(--measure-c) var(--measure-h))}:host([data-mode="dark"]) .nido-room-detail__stat--tinted .nido-room-detail__stat-value{--measure-l: 80%}.nido-room-detail__filters{margin-top:32px;display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;width:fit-content;max-width:100%}.nido-room-detail__filters>*{flex:0 0 auto;white-space:nowrap}.nido-room-detail__filters::-webkit-scrollbar{height:4px}.nido-room-detail__filters::-webkit-scrollbar-thumb{background:var(--ink-4);border-radius:var(--r-pill)}.n-pill-btn--dark{background:var(--ink-1);color:var(--bg-shell);border:1px solid var(--ink-1);font-size:12px;letter-spacing:.02em;padding:8px 14px}.n-pill-btn--dark:hover:not(:disabled){background:var(--ink-1);opacity:.88}.nido-room-detail__grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:center}@media(max-width:720px){.nido-room-detail__hero{flex-direction:column;align-items:flex-start}.nido-room-detail__stats{width:100%;box-sizing:border-box}}@media(max-width:599px){.nido-room-detail__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch}.nido-room-detail__grid .nido-drag-item[data-hero=true]{grid-column:1 / -1}.nido-room-detail__grid .n-card{padding:14px}.nido-room-detail__grid .n-vacuum__actions,.nido-room-detail__grid .n-climate__temp{flex-wrap:wrap}.nido-room-detail__grid .n-alarm__modes{grid-template-columns:repeat(auto-fit,minmax(60px,1fr))}.nido-room-detail__grid .n-mode-btn--disarm{grid-column:1 / -1}}.nido-empty{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:32px 0}.nido-denied{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:80px 32px}.n-ob{position:fixed;inset:0;z-index:1000;background:var(--bg-canvas);color:var(--ink-1);font-family:var(--font-sans);display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow:hidden;max-height:100vh;animation:nido-stagger-in .32s var(--ease-out)}.n-ob__shell{position:relative;flex:1 1 0;background:var(--bg-shell);border-radius:var(--r-2xl);padding:32px;display:flex;flex-direction:column;min-height:0;overflow:hidden;box-sizing:border-box}.n-ob__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.n-ob__shell>*{position:relative}.n-ob__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.n-ob__brand{display:flex;align-items:center;gap:12px}.n-ob__brand-mark{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center}.n-ob__brand-name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.03em}.n-ob__stepper{display:flex;align-items:center;gap:6px}.n-ob__step-dot{width:6px;height:6px;border-radius:var(--r-pill);background:var(--ink-4);transition:width .32s var(--ease-spring),background .32s}.n-ob__step-dot.is-done{background:var(--ink-1)}.n-ob__step-dot.is-active{width:24px;background:var(--ink-1)}.n-ob__step-count{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin-left:10px}.n-ob__skip{background:none;border:none;color:var(--ink-3);font-family:var(--font-sans);font-size:13px;cursor:pointer;padding:4px 8px}.n-ob__skip:hover{color:var(--ink-1)}.n-ob__body{flex:1;display:flex;min-height:0;animation:nido-stagger-in .48s var(--ease-out) both}.n-ob-step{flex:1;display:grid;gap:32px;align-items:center;min-height:0}.n-ob-step--welcome{grid-template-columns:1.1fr .9fr}.n-ob-step--connect{grid-template-columns:1fr 1fr}.n-ob-step--entities{grid-template-columns:260px 1fr;align-items:stretch}.n-ob-step--theme{grid-template-columns:1fr 1fr}.n-ob-step--family{grid-template-columns:1.1fr .9fr;align-items:start}.n-ob-step__col{display:flex;flex-direction:column;min-width:0}.n-ob-step__illus{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px}.n-ob__eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}.n-ob__eyebrow--accent{color:var(--accent-deep)}.n-ob__h1{font-family:var(--font-display);font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.04em;line-height:.95;margin:0 0 24px}.n-ob__h1 em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob__lead{font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--ink-2);max-width:480px;margin:0 0 24px}.n-ob__hint{font-family:var(--font-sans);font-size:12px;color:var(--ink-3)}.n-ob__footer{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.n-ob__back{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:var(--r-pill);background:transparent;border:1px solid var(--ink-4);color:var(--ink-1);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer}.n-ob__back:disabled{opacity:.4;cursor:not-allowed;color:var(--ink-4)}.n-ob__primary{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);border:none;font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.01em;transition:opacity .18s}.n-ob__primary:hover{opacity:.88}.n-ob-recap{margin-top:24px;display:flex;flex-direction:column;gap:10px}.n-ob-recap__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:480px}.n-ob-recap__card{background:var(--bg-card);border-radius:var(--r-md);padding:12px 14px}.n-ob-recap__card .n-ob__eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:6px}.n-ob-recap__card.is-accent{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-recap__value{font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1}.n-ob-recap__hint{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:4px;letter-spacing:.04em}.n-ob-recap__card.is-accent .n-ob-recap__hint{color:var(--accent-deep);opacity:.7}@media(max-width:720px){.n-ob-recap__grid{grid-template-columns:repeat(2,1fr)}}.n-ob-steps-overview{margin-top:32px;display:flex;gap:24px;flex-wrap:wrap}.n-ob-steps-overview__item{display:flex;flex-direction:column;gap:4px}.n-ob-steps-overview__label{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink-1);letter-spacing:-.01em}.n-ob-welcome-illus{position:relative;width:100%;max-width:400px;aspect-ratio:1 / 1;margin:0 auto;align-self:center;justify-self:center}.n-ob-welcome-illus__bg{position:absolute;inset:0;width:100%;height:100%}.n-ob-welcome-illus__corner{position:absolute;width:19%;aspect-ratio:1 / 1;border-radius:16%;display:flex;align-items:center;justify-content:center}.n-ob-welcome-illus__corner--tl{top:14.3%;left:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--positive)}.n-ob-welcome-illus__corner--tr{top:14.3%;right:9.5%;background:var(--bg-card);border:1px solid var(--ink-4);color:var(--ink-3)}.n-ob-welcome-illus__corner--bl{bottom:14.3%;left:9.5%;background:var(--accent-soft);color:var(--accent-deep)}.n-ob-welcome-illus__corner--br{bottom:14.3%;right:9.5%;background:var(--ink-1);color:var(--accent)}.n-ob-cycle{display:flex;align-items:center;justify-content:center;animation:n-ob-cycle-in .48s var(--ease-out)}@keyframes n-ob-cycle-in{0%{opacity:0;transform:translateY(8px) scale(.9)}60%{opacity:1;transform:translateY(0) scale(1.02)}to{opacity:1;transform:translateY(0) scale(1)}}@media(prefers-reduced-motion:reduce){.n-ob-cycle{animation:none}}.n-ob-pill-card{margin-top:24px;padding:16px;border-radius:var(--r-md);background:var(--bg-card);display:flex;align-items:center;gap:14px;max-width:360px}.n-ob-pill-card__title{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1)}.n-ob-pill-card__hint{font-size:12px;color:var(--ink-3);margin-top:2px}@keyframes n-ob-scan{0%{opacity:0;r:60}50%{opacity:.6}to{opacity:0;r:180}}.n-ob-scan-ring{animation:n-ob-scan 2.4s var(--ease-out) infinite;transform-origin:190px 190px}@media(prefers-reduced-motion:reduce){.n-ob-scan-ring{animation:none}}.n-ob-connect{flex-direction:column;gap:16px}.n-ob-status-pill{padding:10px 20px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);display:inline-flex;align-items:center;gap:10px}.n-ob-status-pill__dot{width:8px;height:8px;border-radius:50%}.n-ob-status-pill__dot.is-scanning{background:var(--warning)}.n-ob-status-pill__dot.is-found{background:var(--accent)}.n-ob-status-pill__dot.is-connected{background:var(--positive)}.n-ob-status-pill__label{font-family:var(--font-mono);font-size:12px;color:var(--ink-1)}.n-ob-ent__rail{display:flex;flex-direction:column;min-width:0}.n-ob-ent__count{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}.n-ob-ent__count-num{color:var(--ink-1)}.n-ob-ent__count-sep{color:var(--ink-3);font-weight:400}.n-ob-ent__list{display:flex;flex-direction:column;gap:4px;max-height:60vh;overflow:auto;padding-right:4px}.n-ob-ent__rail-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-md);background:transparent;color:var(--ink-1);border:none;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:background .2s}.n-ob-ent__rail-row:hover{background:var(--bg-card)}.n-ob-ent__rail-row.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-ent__rail-icon{width:28px;height:28px;border-radius:var(--r-pill);background:var(--bg-card);color:inherit;display:flex;align-items:center;justify-content:center}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-icon{background:#f4ede21f}.n-ob-ent__rail-label{flex:1;font-size:13px;font-weight:500}.n-ob-ent__rail-count{font-family:var(--font-mono);font-size:11px;opacity:.6}.n-ob-ent__rail-row.is-active .n-ob-ent__rail-count{opacity:.8}.n-ob-ent__main{display:flex;flex-direction:column;min-width:0}.n-ob-ent__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}.n-ob-ent__title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}.n-ob-ent__head-actions{display:flex;gap:8px}.n-ob-ent__search{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--r-pill);background:var(--bg-card);border:1px solid var(--ink-4);margin-bottom:12px}.n-ob-ent__search-icon{display:flex;color:var(--ink-3);flex-shrink:0}.n-ob-ent__search-input{flex:1;min-width:0;border:none;outline:none;background:transparent;color:var(--ink-1);font-family:var(--font-sans);font-size:13px}.n-ob-ent__search-input::placeholder{color:var(--ink-3)}.n-ob-ent__search-clear{border:none;background:transparent;cursor:pointer;color:var(--ink-3);padding:4px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center}.n-ob-ent__search-clear:hover{background:var(--bg-shell);color:var(--ink-1)}.n-ob-ent__empty{grid-column:1 / -1;padding:24px;border-radius:var(--r-md);background:var(--bg-card);font-family:var(--font-sans);font-size:13px;color:var(--ink-3);text-align:center}.n-ob-ent__grid{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start;max-height:56vh;padding-right:4px;animation:nido-stagger-in .36s var(--ease-out) both}.n-ob-ent-card{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--bg-card);border:1.5px solid transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s}.n-ob-ent-card:hover{border-color:var(--ink-4)}.n-ob-ent-card.is-exposed{border-color:var(--ink-1)}.n-ob-ent-card__icon{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-ob-ent-card__icon.is-on{background:var(--accent-soft);color:var(--accent-deep)}.n-ob-ent-card__body{flex:1;min-width:0}.n-ob-ent-card__name{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--ink-1);letter-spacing:-.01em;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;word-break:break-word}.n-ob-ent-card__id{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-ob-ent-card__star{background:transparent;border:none;color:var(--ink-4);cursor:pointer;padding:4px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:color .18s,background .18s}.n-ob-ent-card__star:hover{background:var(--bg-shell);color:var(--ink-2)}.n-ob-ent-card__star.is-fav{color:var(--accent)}.n-ob-ent-card__check{width:22px;height:22px;border-radius:50%;background:transparent;border:1.5px solid var(--ink-4);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s var(--ease-spring)}.n-ob-ent-card__check.is-on{background:var(--ink-1);border-color:var(--ink-1)}.n-ob-theme__grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.n-ob-theme__tile{background:var(--bg-card);border-radius:var(--r-lg);border:1.5px solid transparent;padding:14px;cursor:pointer;text-align:left;font-family:var(--font-sans);transition:border-color .2s,transform .18s}.n-ob-theme__tile:hover{transform:translateY(-1px)}.n-ob-theme__tile.is-active{border-color:var(--ink-1)}.n-ob-theme__swatches{display:flex;gap:4px;margin-bottom:12px}.n-ob-theme__swatch{flex:1;height:32px;display:block}.n-ob-theme__name{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em}.n-ob-theme__desc{font-size:12px;color:var(--ink-3);margin-top:2px}.n-ob-theme__modes{display:flex;gap:8px;margin-top:16px}.n-ob-theme__mode{flex:1;padding:12px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-1);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .18s,color .18s}.n-ob-theme__mode.is-active{background:var(--ink-1);color:var(--bg-shell)}.n-ob-preview{border-radius:var(--r-xl);padding:24px;align-self:stretch;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;transition:background .32s;min-height:380px}.n-ob-preview__greet{font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:8px 0 20px}.n-ob-preview__greet em{font-family:var(--font-serif);font-style:italic;font-weight:400}.n-ob-preview__cards{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}.n-ob-preview__hero{border-radius:18px;padding:16px;color:#fff;min-height:100px;position:relative;overflow:hidden}.n-ob-preview__hero-title{font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-.02em}.n-ob-preview__hero-pct{font-family:var(--font-display);font-size:22px;font-weight:600;margin-top:16px}.n-ob-preview__col{display:flex;flex-direction:column;gap:10px}.n-ob-preview__small{border-radius:14px;padding:12px;min-height:50px}.n-ob-preview__small-val{font-family:var(--font-display);font-size:14px;font-weight:600}.n-ob-preview__small-lbl{font-size:10px;opacity:.6}.n-ob-family{align-self:stretch;align-items:stretch;background:var(--bg-card);border-radius:var(--r-xl);padding:20px;flex-direction:column;gap:12px;justify-content:flex-start;min-height:320px}.n-ob-family__list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow:auto}.n-ob-family__row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:var(--r-lg);background:var(--bg-shell);cursor:pointer;transition:background .18s,opacity .18s}.n-ob-family__row.is-excluded{opacity:.5;background:var(--bg-inset)}.n-ob-family__avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:16px;flex-shrink:0}.n-ob-family__info{flex:1;min-width:0}.n-ob-family__name{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.n-ob-family__self{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);font-weight:400}.n-ob-family__role{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin-top:2px}.n-ob-family__toggle{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}.n-ob-family__toggle:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.n-ob-step--welcome,.n-ob-step--connect,.n-ob-step--theme,.n-ob-step--family,.n-ob-step--entities{grid-template-columns:1fr}.n-ob-step{gap:20px}.n-ob-step__illus{min-height:220px}.n-ob-ent__grid{grid-template-columns:1fr}}@media(max-width:600px){.n-ob{padding:0;overflow:hidden}.n-ob__shell{padding:16px;border-radius:0;min-height:0;height:100%}.n-ob__header{margin-bottom:16px;gap:8px;flex-wrap:nowrap;flex:0 0 auto}.n-ob__brand-mark{width:30px;height:30px}.n-ob__brand-name{font-size:14px}.n-ob__step-count{display:none}.n-ob__skip{font-size:12px;padding:4px}.n-ob__body{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.n-ob-step{gap:16px}.n-ob__h1{font-size:clamp(28px,8vw,40px);margin-bottom:16px}.n-ob__lead{font-size:14px;margin-bottom:16px}.n-ob__eyebrow{margin-bottom:12px;font-size:10px}.n-ob__footer{margin-top:16px;gap:8px;flex:0 0 auto}.n-ob__back{padding:10px 14px;font-size:13px}.n-ob__primary{padding:12px 18px;font-size:13px}.n-ob-welcome-illus{max-width:260px}.n-ob-steps-overview{gap:16px;margin-top:20px}.n-ob-recap__grid{grid-template-columns:1fr 1fr;gap:8px}.n-ob-recap__value{font-size:22px}.n-ob-step__illus{min-height:180px}.n-ob-step__illus svg{width:220px;height:220px}.n-ob-pill-card{margin-top:16px;padding:12px}.n-ob-ent__count{font-size:22px}.n-ob-ent__rail{margin-bottom:4px}.n-ob-ent__list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}.n-ob-ent__rail-row{flex-shrink:0;padding:6px 10px 6px 6px;gap:8px;border-radius:var(--r-pill);border:1px solid var(--ink-4)}.n-ob-ent__rail-row.is-active{border-color:var(--ink-1)}.n-ob-ent__rail-icon{width:22px;height:22px}.n-ob-ent__rail-label{font-size:12px;flex:0 0 auto}.n-ob-ent__rail-count{font-size:10px}.n-ob-ent__head{flex-wrap:wrap;margin-bottom:10px;gap:8px}.n-ob-ent__title{font-size:18px}.n-ob-ent__head-actions{width:100%}.n-ob-ent__head-actions .n-pill-btn{flex:1;padding:6px 10px;font-size:12px}.n-ob-ent__search{padding:8px 12px;margin-bottom:8px}.n-ob-ent__search-input{font-size:14px}.n-ob-ent__grid{max-height:none;padding-right:0}.n-ob-ent-card{padding:10px;gap:10px}.n-ob-ent-card__icon{width:32px;height:32px}.n-ob-theme__grid{gap:8px}.n-ob-theme__tile{padding:10px}.n-ob-theme__name{font-size:14px}.n-ob-preview{padding:16px}.n-ob-preview__greet{font-size:22px}.n-ob-family{padding:12px;min-height:0}.n-ob-family__list{max-height:none}}.n-scene__activate{margin-top:auto;align-self:stretch}.n-card.is-flashing{animation:n-scene-flash .6s var(--ease-out)}@keyframes n-scene-flash{0%{background:var(--bg-card)}30%{background:var(--accent-soft)}to{background:var(--bg-card)}}.nido-weather-panel{position:fixed;inset:0;z-index:1000;display:flex;justify-content:flex-end}.nido-weather-panel__backdrop{position:absolute;inset:0;background:#0006;backdrop-filter:blur(1px);animation:fade-in .3s ease-out}.nido-weather-panel__content{position:relative;width:100%;max-width:480px;background:var(--bg-shell);box-shadow:-4px 0 32px color-mix(in srgb,var(--accent) 15%,transparent);display:flex;flex-direction:column;animation:slide-in-right .3s cubic-bezier(.16,1,.3,1);overflow:hidden}.nido-weather-panel__header{padding:24px 32px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(var(--fg-rgb),.05)}.nido-weather-panel__header h2{font-family:Comfortaa,sans-serif;font-size:1.5rem;font-weight:600;margin:0;color:var(--fg)}.nido-weather-panel__close{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:50%;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0}.nido-weather-panel__close:hover{background:rgba(var(--fg-rgb),.07);color:var(--fg)}.nido-weather-panel__scroll{flex:1;overflow-y:auto;padding:24px 32px;display:flex;flex-direction:column;gap:24px}.nido-wp-current{display:flex;align-items:center;gap:24px;padding:16px 0}.nido-wp-current svg{color:var(--accent)}.nido-wp-current-info{display:flex;flex-direction:column;gap:4px}.nido-wp-temp{font-size:3rem;font-weight:300;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}.nido-wp-desc{font-size:1.125rem;color:var(--fg-muted);text-transform:capitalize}.nido-wp-alert{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;font-weight:500}.nido-wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.nido-wp-card{background:var(--bg-card);padding:16px;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}.nido-wp-card-head{display:flex;align-items:center;gap:8px;color:var(--fg-muted);font-size:.875rem}.nido-wp-card-val{font-size:1.125rem;font-weight:500;color:var(--fg)}.nido-wp-section h3{font-size:1rem;font-weight:600;color:var(--fg);margin:0 0 16px;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.05em;opacity:.8}.nido-wp-hourly{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.nido-wp-hourly::-webkit-scrollbar{display:none}.nido-wp-hour{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:60px;background:var(--bg-card);padding:16px 8px;border-radius:100px;border:1px solid var(--border)}.nido-wp-hour-time{font-size:.875rem;color:var(--fg-muted)}.nido-wp-hour svg{color:var(--accent)}.nido-wp-hour-temp{font-weight:600;font-size:1rem}.nido-wp-hour-precip{font-size:.75rem;color:#0ea5e9;font-weight:500}.nido-wp-daily{display:flex;flex-direction:column;gap:12px}.nido-wp-day{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border)}.nido-wp-day-name{width:100px;font-weight:500;color:var(--fg);text-transform:capitalize}.nido-wp-day svg{color:var(--accent)}.nido-wp-day-temps{flex:1;display:flex;align-items:center;gap:12px;justify-content:flex-end}.nido-wp-day-min{color:var(--fg-muted);width:32px;text-align:right}.nido-wp-day-max{font-weight:600;width:32px}.nido-wp-day-bar{flex:1;height:4px;background:var(--border);border-radius:2px;position:relative}.nido-weather-pill-btn{background:none;border:none;padding:0;margin:0;cursor:pointer;transition:transform .2s;border-radius:100px;display:inline-flex}.nido-weather-pill-btn:hover{transform:scale(1.05)}.nido-weather-pill-btn:active{transform:scale(.95)}.nido-home-pill{display:flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--b-1);padding:6px 16px 6px 6px;border-radius:99px}.nido-home-pill__avatars{display:flex;align-items:center}.nido-home-pill__avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-shell);margin-left:-12px;position:relative;transition:transform .2s,z-index .2s}.nido-home-pill__avatar:first-child{margin-left:0}.nido-home-pill__avatar:hover{z-index:10;transform:translateY(-2px)}.nido-home-pill__text{font-size:15px;color:var(--ink-2);font-weight:500;white-space:nowrap}.nido-notification-panel{position:fixed;inset:0;z-index:2000;display:flex;justify-content:flex-end}.nido-notification-panel__backdrop{position:absolute;inset:0;background:#0003;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}.nido-notification-panel__content{position:relative;width:100%;max-width:400px;height:100%;background:var(--bg-shell);box-shadow:-8px 0 32px #0000001a;display:flex;flex-direction:column;animation:nido-slide-in-right .4s var(--ease-out)}@keyframes nido-slide-in-right{0%{transform:translate(100%)}to{transform:translate(0)}}.nido-notification-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4)}.nido-notification-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-notification-panel__title-group{display:flex;align-items:baseline;gap:16px}.nido-notification-panel__clear-all{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;transition:color .2s}.nido-notification-panel__clear-all:hover{color:var(--danger)}.nido-notification-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-notification-panel__close:hover{background:var(--ink-4)}.nido-notification-panel__scroll{flex:1;overflow-y:auto;padding:16px 32px 32px}.nido-notification-empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink-3);text-align:center}.nido-notification-empty__icon{margin-bottom:16px;opacity:.2}.nido-notification-list{display:flex;flex-direction:column;gap:12px}.nido-notification-item{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:16px;display:flex;gap:14px;transition:transform .2s;border:1px solid transparent}.nido-notification-item:hover{transform:translateY(-2px)}.nido-notification-item__icon{width:40px;height:40px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex-shrink:0}.nido-notification-item--info .nido-notification-item__icon{background:color-mix(in srgb,var(--accent) 15%,var(--bg-card));color:var(--accent)}.nido-notification-item--warning .nido-notification-item__icon{background:color-mix(in srgb,var(--danger) 15%,var(--bg-card));color:var(--danger)}.nido-notification-item--success .nido-notification-item__icon{background:color-mix(in srgb,var(--positive) 15%,var(--bg-card));color:var(--positive)}.nido-notification-item__body{flex:1;min-width:0}.nido-notification-item__head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.nido-notification-item__title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-1)}.nido-notification-item__time{font-family:var(--font-mono);font-size:10px;color:var(--ink-3)}.nido-notification-item__message{margin:0;font-size:13px;color:var(--ink-2);line-height:1.4}.nido-notification-item__image{display:block;width:100%;max-height:240px;object-fit:cover;border-radius:var(--r-md);margin-top:10px;background:var(--bg-inset)}.nido-notification-item__dismiss{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;border:none;background:transparent;color:var(--ink-3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}.nido-notification-item:hover .nido-notification-item__dismiss{opacity:1}.nido-notification-item__dismiss:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-bell-btn{position:relative;background:transparent;color:var(--ink-2);padding:6px 12px;border:1px solid var(--ink-4);border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;height:32px;min-width:44px}.nido-bell-btn:hover{background:var(--bg-inset);border-color:var(--ink-3)}.nido-bell-btn__badge{position:absolute;top:4px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-shell)}.nido-topbar__icons>.nido-bell-btn,.nido-topbar__icons>.n-pill-btn--ghost{flex:0 0 auto;width:44px;height:32px;min-width:44px;padding:0;display:inline-flex;align-items:center;justify-content:center}@media(max-width:768px){.nido-topbar{grid-template-columns:1fr auto;grid-template-areas:"weather icons" "brand utility";row-gap:12px}.nido-topbar__weather{justify-content:flex-start}.nido-topbar__icons,.nido-topbar__utility{justify-content:flex-end}}.nido-shopping-panel{position:fixed;inset:0;z-index:2000;display:flex;align-items:stretch;justify-content:center}.nido-shopping-panel__backdrop{position:absolute;inset:0;background:#00000059;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}.nido-shopping-panel__content{position:relative;width:100%;height:100%;background:var(--bg-shell);display:flex;flex-direction:column;animation:nido-shopping-fade .25s var(--ease-out)}@keyframes nido-shopping-fade{0%{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}.nido-shopping-panel__header{padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--ink-4);flex:0 0 auto}.nido-shopping-panel__header h2{margin:0;font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--ink-1)}.nido-shopping-panel__close{width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}.nido-shopping-panel__close:hover{background:var(--ink-4)}.nido-shopping-panel__board{position:relative;flex:1 1 auto;min-height:0;background:var(--bg-shell);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}.nido-shopping-panel__sheet{position:relative;aspect-ratio:3 / 4;height:100%;max-height:100%;max-width:100%;background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-md);box-shadow:var(--shadow-lg);overflow:hidden}.nido-shopping-panel__canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:crosshair;display:block}.nido-shopping-panel__toolbar{position:absolute;bottom:20px;left:50%;transform:translate(-50%);display:flex;align-items:center;gap:var(--s-3);background:var(--bg-card-elev);border:1px solid var(--ink-4);border-radius:var(--r-pill);padding:8px 12px;box-shadow:var(--shadow-lg);z-index:2}.nido-shopping-panel__tool{border:none;background:transparent;font-size:20px;line-height:1;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s}.nido-shopping-panel__tool:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-shopping-panel__tool--danger:hover{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}.nido-shopping-panel__color{width:36px;height:36px;border:1px solid var(--ink-4);border-radius:50%;background:transparent;padding:0;cursor:pointer;overflow:hidden}.nido-shopping-panel__color::-webkit-color-swatch-wrapper{padding:0}.nido-shopping-panel__color::-webkit-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__color::-moz-color-swatch{border:none;border-radius:50%}.nido-shopping-panel__size{width:100px;cursor:pointer;accent-color:var(--accent)}@media(max-width:768px){.nido-shopping-panel__header{padding:16px 20px}.nido-shopping-panel__toolbar{bottom:12px;gap:6px;padding:6px 8px}.nido-shopping-panel__size{width:70px}}@media(prefers-reduced-motion:reduce){.nido-shopping-panel__content{animation:none}}@keyframes nido-pulse{0%,to{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}@media(prefers-reduced-motion:reduce){.n-power-gauge__live-dot,.nido-energy__live-dot,.n-power-gauge__pill-dot{animation:none!important}}.nido-energy__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:14px}.nido-energy__back{width:44px;height:44px;background:var(--bg-card);color:var(--ink-1)}.nido-energy__crumb{flex:1;margin-left:14px;display:flex;flex-direction:column;gap:2px}.nido-energy__brand{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink-1);letter-spacing:-.02em}.nido-energy__head-actions{display:flex;gap:10px;align-items:center}.nido-energy__ha-link{text-decoration:none;display:inline-flex;align-items:center;gap:6px}.nido-energy__hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:32px 0 0;flex-wrap:wrap}.nido-energy__hero-left{display:flex;align-items:center;gap:20px;min-width:0}.nido-energy__icon{position:relative;width:72px;height:72px;border-radius:var(--r-xl);background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}.nido-energy__icon-bg{position:absolute;inset:0;opacity:.2}.nido-energy__icon svg{position:relative}.nido-energy__hero-meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.nido-energy__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4);display:inline-block}.nido-energy__live{display:inline-flex;align-items:center;gap:6px}.nido-energy__live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:nido-pulse 1.4s ease-in-out infinite}.nido-energy__title{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;margin:0}.nido-energy__stats{display:flex;align-items:center;gap:24px;padding:16px 24px;background:var(--bg-card);border-radius:var(--r-lg);flex-shrink:0}.nido-energy__stat-sep{width:1px;height:32px;background:var(--ink-4)}.nido-energy__stat .n-eyebrow{margin-bottom:4px;display:block;opacity:.6}.nido-energy__stat-value{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--ink-1);line-height:1}.nido-energy__stat-unit{font-size:13px;color:var(--ink-3);margin-left:2px}.nido-energy__section{margin-top:28px}.nido-energy__live-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch}@media(max-width:720px){.nido-energy__hero{flex-direction:column;align-items:flex-start}.nido-energy__stats{width:100%;box-sizing:border-box}.nido-energy__live-grid{grid-template-columns:1fr}}.nido-room--energy{margin-top:0}.nido-energy-row{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.nido-energy-row>section{margin-top:0;min-width:0}@media(max-width:900px){.nido-energy-row{grid-template-columns:1fr}}.nido-energy-summary,.nido-kids-summary{display:grid;grid-template-columns:1fr;gap:16px}.n-power-gauge{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-power-gauge__deco{position:absolute;top:-60px;right:-60px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-power-gauge__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;position:relative}.n-power-gauge__head-text{min-width:0}.n-power-gauge__head-actions{display:flex;align-items:center;gap:8px}.n-power-gauge__live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-pill);background:#ffffff2e;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}.n-power-gauge__live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-ink);animation:nido-pulse 1.4s ease-in-out infinite}.n-power-gauge__open{width:32px;height:32px;border-radius:var(--r-pill);background:#ffffff2e;color:var(--accent-ink);display:flex;align-items:center;justify-content:center}.n-power-gauge__chart{display:flex;justify-content:center;position:relative;margin-bottom:8px}.n-power-gauge__svg{display:block}.n-power-gauge__arc{transition:all .6s var(--ease-spring)}.n-power-gauge__readout{position:absolute;left:0;right:0;bottom:6px;display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none}.n-power-gauge__value{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--accent-ink)}.n-power-gauge__unit{font-size:18px;opacity:.7;margin-left:4px}.n-power-gauge__sublabel{color:var(--accent-ink)!important;opacity:.7}.n-power-gauge__foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);opacity:.85}.n-power-gauge__pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:var(--r-pill);background:#ffffff29;color:var(--accent-ink);opacity:1}.n-power-gauge__pill-dot{width:5px;height:5px;border-radius:50%;background:var(--accent-ink)}.n-power-gauge__unavailable{text-align:center;padding:32px 0;color:var(--accent-ink);opacity:.85}.n-subscription-guard{min-height:280px;box-sizing:border-box;display:flex;flex-direction:column}.n-subscription-guard__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}.n-subscription-guard__pill{flex:0 0 auto;white-space:nowrap;font-size:11px}.n-subscription-guard__pill.is-watch{background:var(--accent-soft);color:var(--accent-deep);border-color:transparent}.n-subscription-guard__pill.is-danger{background:var(--warning);color:#fff;border-color:transparent}.n-subscription-guard__chart{position:relative;width:160px;height:160px;margin:8px auto 0}.n-subscription-guard__arc{transition:stroke-dasharray .6s var(--ease-spring),stroke .24s}.n-subscription-guard__readout{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.n-subscription-guard__value{font-family:var(--font-display);font-size:36px;font-weight:600;letter-spacing:-.04em;line-height:1}.n-subscription-guard__unit{font-size:16px;opacity:.7;margin-left:2px}.n-subscription-guard__sub{margin-top:6px;display:block}.n-subscription-guard__msg{margin-top:12px;font-size:12px;color:var(--ink-2);text-align:center}.n-hourly{min-height:320px;box-sizing:border-box;display:flex;flex-direction:column}.n-hourly__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}.n-hourly__total-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.n-hourly__total{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--ink-1)}.n-hourly__total-unit{font-size:22px;opacity:.6;margin-left:4px}.n-hourly__delta{font-size:11px}.n-hourly__modes{display:flex;gap:6px;flex-wrap:wrap}.n-hourly__modes .n-pill-btn{flex:0 0 auto}.n-hourly__modes .is-disabled{opacity:.5;pointer-events:none}.n-hourly__loading{padding:60px 0;text-align:center}.n-bars{position:relative;height:160px;margin-top:8px}.n-bars--empty{display:flex;align-items:center;justify-content:center}.n-bars__avg{position:absolute;left:0;right:0;height:1px;border-top:1px dashed var(--ink-4);pointer-events:none}.n-bars__avg-label{position:absolute;right:0;top:-16px;font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}.n-bars__grid{display:flex;align-items:flex-end;gap:4px;height:100%}.n-bars__col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.n-bars__bar{border-radius:4px;min-height:3px;transition:height .6s var(--ease-spring)}.n-bars__bar.is-now{background:var(--accent-deep)}.n-bars__bar.is-peak{background:var(--accent)}.n-bars__bar.is-past{background:var(--accent-soft)}.n-bars__bar.is-future{background:transparent;border:1px dashed var(--ink-4)}.n-bars__now-label{position:absolute;top:-22px;left:50%;transform:translate(-50%);font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--accent-deep);white-space:nowrap;font-weight:600}.n-bars__axis{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase}.n-top-consumers{min-height:240px;box-sizing:border-box}.n-top-consumers__head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:12px}.n-top-consumers__list{display:flex;flex-direction:column;gap:14px}.n-top-consumers__row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.n-top-consumers__row[role=button]{cursor:pointer}.n-top-consumers__bubble{width:36px;height:36px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}.n-top-consumers__bubble.is-first{background:var(--accent-soft);color:var(--accent-deep)}.n-top-consumers__body{min-width:0}.n-top-consumers__line{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}.n-top-consumers__name-wrap{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.n-top-consumers__name{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--ink-1)}.n-top-consumers__room{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:8px}.n-top-consumers__value{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--ink-1)}.n-top-consumers__value.is-first{color:var(--accent-deep)}.n-top-consumers__unit{font-size:11px;opacity:.6;margin-left:2px}.n-top-consumers__meter{display:flex;align-items:center}.n-top-consumers__bar{flex:1;height:6px;background:var(--bg-inset);border-radius:var(--r-pill);overflow:hidden}.n-top-consumers__bar-fill{height:100%;background:var(--ink-4);border-radius:var(--r-pill);transition:width .6s var(--ease-spring)}.n-top-consumers__bar-fill.is-first{background:var(--accent)}.n-top-consumers__chevron{width:32px;height:32px;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center}.n-top-consumers__empty{padding:24px 0;text-align:center}.n-kids-card{position:relative;overflow:hidden;min-height:280px;box-sizing:border-box;display:flex;flex-direction:column;cursor:pointer}.n-kids-card__deco{position:absolute;top:-20px;right:-40px;opacity:.18;color:var(--accent-ink);pointer-events:none}.n-kids-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:1}.n-kids-card__head-text{display:flex;flex-direction:column;gap:4px}.n-kids-card__head-actions{display:flex;align-items:center;gap:8px}.n-kids-card__star{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#ffffff2e;color:var(--accent-ink)}.n-kids-card__empty{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding-top:16px;position:relative;z-index:1}.n-kids-card__list{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}.n-kids-card__row{display:flex;align-items:center;gap:12px}.n-kids-card__avatar{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;position:relative;box-shadow:0 2px 6px #0000001f}.n-kids-card__crown{position:absolute;top:-8px;right:-6px;font-size:14px;color:#f6c451;text-shadow:0 1px 2px rgba(0,0,0,.25)}.n-kids-card__row-body{flex:1;min-width:0}.n-kids-card__row-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.n-kids-card__name{font-weight:600;color:var(--accent-ink);font-size:14px}.n-kids-card__total{font-weight:700;font-size:18px;color:var(--accent-ink);line-height:1}.n-kids-card__total-unit{font-weight:500;font-size:11px;margin-left:3px;opacity:.7}.n-kids-card__bar{margin-top:6px;height:6px;border-radius:999px;background:#ffffff38;overflow:hidden}.n-kids-card__bar-fill{display:block;height:100%;border-radius:999px;transition:width .4s ease;min-width:6px}.n-kids-card__last{margin-top:4px;font-size:11px;color:var(--accent-ink);opacity:.65}.n-kids-card__privilege{margin-top:6px;display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 10px;border-radius:999px;background:#ffffff2e;border:1px solid rgba(255,255,255,.25);color:var(--accent-ink);font-size:12px;font-weight:600;max-width:100%}.n-kids-card__privilege-emoji{font-size:14px;line-height:1}.n-kids-card__privilege-label{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.n-kids-card__privilege-end{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:#00000026;color:var(--accent-ink);border:none;cursor:pointer;padding:0}.n-kids-card__privilege-end:hover{background:#00000047}.nido-kids-panel{display:flex;flex-direction:column;font-family:"Baloo 2",DM Sans,system-ui,sans-serif;--kids-accent: #ff8a3d;--kids-accent-2: #ffd166;--kids-good: #6fcf97;--kids-bad: #f4736b;--kids-surface: var(--bg-card);--kids-surface-2: var(--bg-inset);--kids-pastel-1: #ffb4a2;--kids-pastel-2: #b8e0d2;--kids-pastel-3: #c7b8ea;--kids-pastel-4: #ffe08a;--kids-pastel-5: #9dd3f8;--kids-pastel-6: #f8a8c9}.nido-kids-panel__header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(135deg,var(--kids-accent),var(--kids-accent-2));color:#fff;position:relative;overflow:hidden}.nido-kids-panel__header:after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 8% 80%,rgba(255,255,255,.18) 0 12px,transparent 13px),radial-gradient(circle at 92% 25%,rgba(255,255,255,.16) 0 9px,transparent 10px),radial-gradient(circle at 50% 115%,rgba(255,255,255,.12) 0 16px,transparent 17px);pointer-events:none}.nido-kids-panel__header h2{margin:0;font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px;text-shadow:0 1px 0 rgba(0,0,0,.08)}.nido-kids-panel__header-star{display:inline-block;animation:nido-kids-spin 6s linear infinite}.nido-kids-panel__header-actions{display:flex;align-items:center;gap:8px;position:relative;z-index:1}.nido-kids-panel__iconbtn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:#ffffff40;color:#fff;display:inline-flex;align-items:center;justify-content:center;transition:transform .15s ease,background .15s ease}.nido-kids-panel__iconbtn:hover{transform:scale(1.08);background:#fff6}.nido-kids-panel__body{padding:22px 24px 28px;overflow-y:auto;flex:1}.nido-kids-panel__empty{padding:36px 0;text-align:center}.nido-kids-panel__empty-emoji{font-size:48px;margin-bottom:12px}.nido-kids-panel__tabs{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}.nido-kids-panel__tab{flex:1 1 180px;min-width:160px;background:var(--kids-surface-2);border:3px solid transparent;border-radius:22px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .18s ease,box-shadow .18s ease;font:inherit;color:var(--ink-1);text-align:left;box-sizing:border-box}.nido-kids-panel__tab:hover{transform:translateY(-2px)}.nido-kids-panel__tab.is-active{border-color:var(--kid-color, var(--kids-accent));background:var(--kids-surface);box-shadow:0 12px 28px #ff8a3d2e;transform:translateY(-2px)}.nido-kids-panel__tab.is-active .nido-kids-panel__tab-avatar{animation:nido-kids-wiggle 1.4s ease-in-out infinite}.nido-kids-panel__tab-avatar{width:56px;height:56px;border-radius:50%;background:var(--kid-color, var(--kids-pastel-1));display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:inset 0 -3px #00000014,0 3px #0000000f}.nido-kids-panel__tab-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.nido-kids-panel__tab-name{font-weight:700;font-size:17px;line-height:1.1}.nido-kids-panel__tab-pts{font-size:18px;font-weight:800;color:var(--kids-accent);display:flex;align-items:baseline;gap:4px}.nido-kids-panel__tab-pts small{font-size:12px;font-weight:600;color:var(--ink-3)}.nido-kids-panel__score{background:linear-gradient(135deg,var(--kids-pastel-4),var(--kids-pastel-2));border-radius:24px;padding:20px 22px;margin-bottom:18px;color:#2a2018;box-shadow:0 6px 20px #ffd1662e}.nido-kids-panel__score-row{display:flex;align-items:center;gap:16px}.nido-kids-panel__score-big{font-size:48px;font-weight:800;line-height:1;display:flex;align-items:baseline;gap:6px}.nido-kids-panel__score-star{font-size:32px;animation:nido-kids-bounce 1.6s ease-in-out infinite}.nido-kids-panel__score-num{font-variant-numeric:tabular-nums}.nido-kids-panel__score-unit{font-size:20px;font-weight:700}.nido-kids-panel__score-badge{margin-left:auto;background:#ffffff8c;border-radius:16px;padding:8px 14px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:inset 0 -3px #0000000f}.nido-kids-panel__progress{margin-top:14px;background:#ffffff73;border-radius:999px;height:14px;overflow:hidden}.nido-kids-panel__progress-bar{background:linear-gradient(90deg,var(--kids-accent),var(--kids-bad));height:100%;border-radius:999px;transition:width .5s cubic-bezier(.34,1.56,.64,1);box-shadow:inset 0 -3px #0000001a}.nido-kids-panel__progress-label{margin-top:6px;font-size:13px;font-weight:600;opacity:.85}.nido-kids-panel__group-title{margin:4px 0 10px;font-size:14px;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:8px;letter-spacing:.02em}.nido-kids-panel__group-title:not(:first-of-type),.nido-kids-panel__tiles+.nido-kids-panel__group-title{margin-top:18px}.nido-kids-panel__group-title--neg{color:var(--kids-bad)}.nido-kids-panel__tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}.nido-kids-panel__tile{background:var(--kids-surface-2);border:none;border-radius:20px;padding:14px 10px 12px;text-align:center;cursor:pointer;position:relative;transition:transform .12s cubic-bezier(.34,1.56,.64,1),box-shadow .15s ease;font:inherit;color:var(--ink-1);user-select:none;box-shadow:0 3px #0000000f;overflow:visible;box-sizing:border-box;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.nido-kids-panel__tile:hover{transform:translateY(-3px);box-shadow:0 6px #0000000f}.nido-kids-panel__tile:active{transform:translateY(1px) scale(.97);box-shadow:0 1px #0000000f}.nido-kids-panel__tile.is-pop{animation:nido-kids-pop .4s cubic-bezier(.34,1.56,.64,1)}.nido-kids-panel__tile.is-negative{background:#fce6e5}[data-mode=dark] .nido-kids-panel__tile.is-negative{background:#3b2422}.nido-kids-panel__tile-emoji{font-size:40px;display:block;line-height:1;margin-bottom:8px;transition:transform .2s ease}.nido-kids-panel__tile:hover .nido-kids-panel__tile-emoji{transform:scale(1.1) rotate(-3deg)}.nido-kids-panel__tile-label{font-size:13px;font-weight:600;line-height:1.2;color:var(--ink-1);min-height:32px;display:flex;align-items:center;justify-content:center}.nido-kids-panel__tile-pts{position:absolute;top:8px;right:8px;background:var(--kids-good);color:#fff;font-size:12px;font-weight:800;padding:3px 8px;border-radius:999px;box-shadow:0 2px #0000001a}.nido-kids-panel__tile.is-negative .nido-kids-panel__tile-pts{background:var(--kids-bad)}.nido-kids-panel__tile-count{position:absolute;top:8px;left:8px;background:var(--kids-accent);color:#fff;min-width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px #0000001a;transform:scale(0);transition:transform .25s cubic-bezier(.34,1.56,.64,1);padding:0 6px}.nido-kids-panel__tile-count.is-visible{transform:scale(1)}.nido-kids-panel__confetti{position:absolute;left:50%;top:40%;width:8px;height:8px;border-radius:2px;pointer-events:none;animation:nido-kids-confetti .8s ease-out forwards}.nido-kids-panel__hint{margin:14px 0 0;font-size:12px;color:var(--ink-3);text-align:center;font-family:DM Sans,system-ui,sans-serif}.nido-kids-panel__avatar-pick{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;box-shadow:inset 0 -2px #00000014}.nido-kids-panel__emoji-picker{flex:1 0 100%;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px;padding:10px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-md)}.nido-kids-panel__emoji-choice{font-size:22px;background:transparent;border:2px solid transparent;border-radius:12px;padding:6px;cursor:pointer;transition:transform .12s ease,border-color .12s ease}.nido-kids-panel__emoji-choice:hover{transform:scale(1.15)}.nido-kids-panel__emoji-choice.is-active{border-color:var(--kids-accent);background:var(--bg-inset)}.nido-kids-panel__task-emoji{font-size:22px;flex:0 0 auto}.nido-kids-panel__task-label-static{flex:1;font-weight:500;color:var(--ink-1)}.nido-kids-panel__task-pts{font-size:12px;color:var(--ink-3);font-weight:600}.nido-kids-panel__task-pts.is-negative,.nido-kids-panel__points-input .is-negative{color:var(--danger, #c45d3f)}.n-kids-card__total.is-negative{color:#ffd2c5}.nido-kids-panel__threshold-input{width:56px;padding:4px 6px;border:1px solid var(--bg-inset);border-radius:8px;background:var(--bg-1);color:var(--ink-1);font-weight:600;text-align:center;font-size:13px}.nido-kids-panel__threshold-input:focus{outline:none;border-color:var(--kids-accent)}.nido-kids-panel__threshold-input::-webkit-outer-spin-button,.nido-kids-panel__threshold-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.nido-kids-panel__threshold-input{-moz-appearance:textfield}.nido-kids-panel__emoji-input{width:48px;text-align:center;font-size:18px;flex:0 0 auto}.nido-kids-panel__privilege{margin-top:12px;padding:12px;border-radius:14px;background:var(--bg-inset);border:1px solid color-mix(in srgb,var(--kids-accent) 30%,transparent);display:flex;flex-direction:column;gap:10px}.nido-kids-panel__privilege--active{background:linear-gradient(135deg,color-mix(in srgb,var(--kids-accent) 20%,var(--bg-inset)),color-mix(in srgb,var(--kids-accent-2) 20%,var(--bg-inset)));border-color:var(--kids-accent)}.nido-kids-panel__privilege-head{display:flex;align-items:center;gap:12px}.nido-kids-panel__privilege-emoji{font-size:28px;flex:0 0 auto}.nido-kids-panel__privilege-meta{flex:1;display:flex;flex-direction:column;min-width:0}.nido-kids-panel__privilege-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-3);font-weight:700}.nido-kids-panel__privilege-label{font-size:15px;font-weight:700;color:var(--ink-1)}.nido-kids-panel__privilege-choices{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}.nido-kids-panel__privilege-choice{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--bg-card);border:1px solid var(--bg-inset);color:var(--ink-1);cursor:pointer;text-align:left;font-weight:600;font-size:13px}.nido-kids-panel__privilege-choice:hover{border-color:var(--kids-accent);background:color-mix(in srgb,var(--kids-accent) 8%,var(--bg-card))}@keyframes nido-kids-wiggle{0%,to{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes nido-kids-bounce{0%,to{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes nido-kids-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes nido-kids-pop{0%{transform:scale(1)}35%{transform:scale(1.12);box-shadow:0 12px 28px #ff8a3d4d}to{transform:scale(1)}}@keyframes nido-kids-confetti{0%{transform:translate(0) rotate(0);opacity:1}to{transform:translate(var(--cx),var(--cy)) rotate(var(--cr));opacity:0}}@media(prefers-reduced-motion:reduce){.nido-kids-panel *,.nido-kids-panel *:before,.nido-kids-panel *:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}.nido-kids-panel__btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .1s ease,opacity .15s ease}.nido-kids-panel__btn:hover:not(:disabled){background:var(--bg-inset)}.nido-kids-panel__btn:active:not(:disabled){transform:scale(.94)}.nido-kids-panel__btn:disabled{opacity:.35;cursor:not-allowed}.nido-kids-panel__btn--plus{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.nido-kids-panel__btn--plus:hover:not(:disabled){background:var(--accent);filter:brightness(1.05)}.nido-kids-panel__btn--danger{color:var(--danger, #c45d3f)}.nido-kids-panel__config{display:flex;flex-direction:column;gap:24px}.nido-kids-panel__section h3{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}.nido-kids-panel__list{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:8px}.nido-kids-panel__list-row{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-inset);border:1px solid var(--line);border-radius:var(--r-lg)}.nido-kids-panel__input{flex:1;min-width:0;padding:8px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--bg-card);color:var(--ink-1);font-size:14px;font-family:inherit;box-sizing:border-box}.nido-kids-panel__input:focus{outline:none;border-color:var(--accent)}.nido-kids-panel__add{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.nido-kids-panel__points-input{display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:999px;background:var(--bg-inset);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-2)}.nido-kids-panel__task-points-edit{display:flex;align-items:center;gap:8px}.nido-compact{width:100%;height:100%;padding:10px;box-sizing:border-box;font-family:var(--font-sans);color:var(--ink-1);overflow:hidden}.nido-compact__shell{position:relative;height:100%;background:var(--bg-shell);border-radius:var(--r-xl);overflow:hidden;display:flex}.nido-compact__shell:before{content:"";position:absolute;inset:0;background:var(--time-tint);pointer-events:none}.nido-compact__shell>*{position:relative}.nido-compact-rail{width:68px;flex-shrink:0;background:var(--bg-card);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:8px}.nido-compact-rail__brand{width:36px;height:36px;border-radius:var(--r-pill);background:var(--ink-1);color:var(--bg-shell);display:flex;align-items:center;justify-content:center;margin-bottom:6px}.nido-compact-rail__btn{width:48px;height:48px;border-radius:var(--r-md);background:transparent;color:var(--ink-2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.nido-compact-rail__btn.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-rail__bell{margin-top:auto;position:relative}.nido-compact-rail__bell-dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent);border:2px solid var(--bg-card);pointer-events:none}.nido-compact-content{position:relative;flex:1;min-width:0;padding:16px;overflow:hidden}.nido-compact-glance{height:100%;display:grid;grid-template-columns:1fr 300px;gap:14px}.nido-compact-glance__main{display:flex;flex-direction:column;min-width:0}.nido-compact-glance__meta{display:flex;align-items:baseline;gap:10px;margin-bottom:2px}.nido-compact-glance__meta-item{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.12em;text-transform:uppercase}.nido-compact-glance__meta-dot{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-glance__title{font-family:var(--font-display);font-size:34px;font-weight:600;letter-spacing:-.035em;line-height:1;margin:6px 0 0}.nido-compact-glance__title em{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}.nido-compact-glance__row{margin-top:12px;display:grid;gap:10px;flex:1;min-height:0}.nido-compact-glance__stack{display:grid;gap:10px}.nido-compact-glance__side{display:flex;flex-direction:column;gap:10px;min-width:0}.nido-compact-tile{position:relative;background:var(--bg-card);border-radius:var(--r-lg);padding:14px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink-1)}.nido-compact-tile--accent{background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-compact-tile__head{position:relative;display:flex;align-items:center;justify-content:space-between}.nido-compact-tile__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}.nido-compact-tile__icon{opacity:.55}.nido-compact-tile--accent .nido-compact-tile__icon{opacity:.8}.nido-compact-tile__value{position:relative;font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:-.035em;line-height:1}.nido-compact-tile__unit{font-size:14px;opacity:.6;margin-left:2px}.nido-compact-tile__caption{font-size:13px;opacity:.85;margin-top:4px}.nido-compact-hero{position:relative;background:var(--bg-card);color:var(--ink-1);border-radius:var(--r-lg);padding:16px;overflow:hidden;display:flex;flex-direction:column}.nido-compact-hero[data-on=true]{background:var(--accent);color:var(--accent-ink)}.nido-compact-hero__glow{position:absolute;top:-50px;right:-50px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25) 0%,transparent 70%);pointer-events:none}.nido-compact-hero__top{position:relative;display:flex;align-items:flex-start;justify-content:space-between}.nido-compact-hero__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.nido-compact-hero__name{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.025em;margin-top:3px}.nido-compact-hero__bottom{position:relative;margin-top:auto}.nido-compact-hero__row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}.nido-compact-hero__pct{font-family:var(--font-display);font-size:26px;font-weight:600;letter-spacing:-.03em}.nido-compact-toggle{width:68px;height:44px;border-radius:var(--r-pill);background:var(--bg-inset);border:none;cursor:pointer;position:relative;flex-shrink:0}.nido-compact-toggle[data-on=true]{background:#ffffff4d}.nido-compact-toggle__thumb{position:absolute;top:4px;left:4px;width:36px;height:36px;border-radius:50%;background:var(--ink-3);transition:left .24s var(--ease-spring),background .24s}.nido-compact-toggle[data-on=true] .nido-compact-toggle__thumb{left:28px;background:var(--accent-ink)}.nido-compact-weather{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px}.nido-compact-weather__icon{color:var(--accent);flex-shrink:0}.nido-compact-weather__temp{font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-weather__cond{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-weather__clock{margin-left:auto;font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--ink-2)}.nido-compact-media{position:relative;background:var(--hero-dark);color:var(--hero-dark-ink);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:12px;overflow:hidden}.nido-compact-media__disc{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 45% 45%,var(--accent) 0%,var(--accent-deep) 38%,var(--hero-dark) 92%);position:relative}.nido-compact-media__disc.is-spinning{animation:nido-compact-spin 8s linear infinite}.nido-compact-media__disc:after{content:"";position:absolute;inset:17px;border-radius:50%;background:var(--hero-dark);border:1px solid rgba(244,237,226,.15)}.nido-compact-media__body{min-width:0;flex:1}.nido-compact-media__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-compact-media__sub{font-size:13px;color:#f4ede2c7;margin-top:2px}.nido-compact-media__play{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}@keyframes nido-compact-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.nido-compact-media__disc.is-spinning{animation:none}}.nido-compact-next{background:var(--bg-card);border-radius:var(--r-lg);padding:14px;flex:1;min-height:0}.nido-compact-next__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px}.nido-compact-next__row{display:flex;align-items:center;gap:10px}.nido-compact-next__badge{width:46px;height:46px;border-radius:var(--r-sm);background:var(--bg-shell);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}.nido-compact-next__badge-day{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);letter-spacing:.1em}.nido-compact-next__badge-num{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-compact-next__title{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.01em}.nido-compact-next__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-compact-controls{height:100%;display:flex;flex-direction:column}.nido-compact-controls__tabs{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;flex-shrink:0;scrollbar-width:thin}.nido-compact-tab{padding:10px 16px;min-height:44px;border-radius:var(--r-pill);background:var(--bg-card);color:var(--ink-2);border:none;cursor:pointer;font-family:var(--font-sans);font-size:13px;font-weight:500;letter-spacing:-.01em;flex-shrink:0;white-space:nowrap}.nido-compact-tab.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-compact-controls__grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:10px;flex:1;min-height:0;overflow-y:auto}.nido-mini-control{position:relative;background:var(--bg-card);border:1.5px solid transparent;border-radius:var(--r-lg);padding:14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;justify-content:space-between;min-height:88px;font-family:var(--font-sans);color:var(--ink-1);transition:background .2s,border-color .2s}.nido-mini-control.is-static{cursor:default}.nido-mini-control[data-on=true]{background:var(--accent-soft);border-color:var(--accent)}.nido-mini-control:disabled{opacity:.55;cursor:not-allowed}.nido-mini-control__top{display:flex;align-items:center;justify-content:space-between;width:100%}.nido-mini-control__icon{width:34px;height:34px;border-radius:var(--r-pill);background:var(--bg-shell);color:var(--ink-3);display:flex;align-items:center;justify-content:center}.nido-mini-control[data-on=true] .nido-mini-control__icon{background:var(--accent);color:var(--accent-ink)}.nido-mini-control__dot{width:8px;height:8px;border-radius:50%;background:var(--ink-4)}.nido-mini-control[data-on=true] .nido-mini-control__dot{background:var(--accent)}.nido-mini-control__name{font-family:var(--font-display);font-size:14px;font-weight:600;letter-spacing:-.015em}.nido-mini-control__sub{font-size:13px;color:var(--ink-2);margin-top:2px}.nido-mini-control[data-on=true] .nido-mini-control__sub{color:var(--accent-deep)}.nido-compact-empty{display:flex;align-items:center;justify-content:center;height:100%;color:var(--ink-3);font-size:14px;text-align:center;padding:0 24px}.nido-compact-ambient{height:100%;display:grid;grid-template-columns:1fr 240px;gap:18px;align-items:center}.nido-compact-ambient__date{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}.nido-compact-ambient__clock{font-family:var(--font-display);font-size:112px;font-weight:600;letter-spacing:-.05em;line-height:.86;margin-top:6px}.nido-compact-ambient__meta{display:flex;align-items:center;gap:14px;margin-top:14px}.nido-compact-ambient__weather{display:flex;align-items:center;gap:8px;color:var(--ink-2)}.nido-compact-ambient__weather-temp{font-family:var(--font-display);font-size:17px;font-weight:500}.nido-compact-ambient__sep{width:4px;height:4px;border-radius:50%;background:var(--ink-4)}.nido-compact-ambient__family{display:flex}.nido-compact-ambient__avatar{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg-shell);object-fit:cover;margin-left:-8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent-ink);font-size:11px;font-weight:600;flex-shrink:0;transition:opacity .2s,filter .2s}.nido-compact-ambient__avatar:first-child{margin-left:0}.nido-compact-ambient__avatar.is-away{opacity:.4;filter:grayscale(1)}.nido-compact-ambient__side{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:10px}.nido-compact-status{background:var(--bg-card);border-radius:var(--r-lg);padding:14px}.nido-compact-status__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}.nido-compact-status__title{font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-.02em}.nido-compact-status__sub{font-size:13px;color:var(--ink-2);margin-top:3px}.nido-compact-next--ambient{background:var(--accent);color:var(--accent-ink);border-radius:var(--r-lg);padding:14px;position:relative;overflow:hidden}.nido-alarm-code{position:fixed;inset:0;z-index:2100;display:flex;align-items:center;justify-content:center;padding:24px}.nido-alarm-code__backdrop{position:absolute;inset:0;background:#00000080;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:fade-in .2s ease-out}.nido-alarm-code__content{position:relative;width:100%;max-width:320px;background:var(--bg-shell);border-radius:var(--r-lg);box-shadow:0 20px 60px #0006;padding:20px;display:flex;flex-direction:column;gap:14px;animation:fade-in .25s ease-out}.nido-alarm-code__content:focus{outline:none}.nido-alarm-code__header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.nido-alarm-code__title-group{display:flex;align-items:center;gap:10px;min-width:0}.nido-alarm-code__title{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--ink-1)}.nido-alarm-code__subtitle{font-size:12px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.nido-alarm-code__close{flex:none;width:30px;height:30px;border:0;border-radius:50%;background:var(--bg-inset);color:var(--ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}.nido-alarm-code__close:hover{background:var(--ink-4);color:var(--ink-1)}.nido-alarm-code__display{height:48px;border-radius:var(--r-md, 12px);background:var(--bg-inset);display:flex;align-items:center;justify-content:center}.nido-alarm-code__placeholder{font-size:13px;color:var(--ink-3)}.nido-alarm-code__dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.nido-alarm-code__dot{width:10px;height:10px;border-radius:50%;background:var(--ink-1)}.nido-alarm-code__input{height:48px;border-radius:var(--r-md, 12px);border:1px solid var(--ink-4);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:16px;padding:0 14px;letter-spacing:.15em}.nido-alarm-code__input:focus{outline:none;border-color:var(--accent)}.nido-alarm-code__error{font-size:12px;color:var(--danger, #d9534f);text-align:center}.nido-alarm-code__pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.nido-alarm-code__key{height:52px;border:0;border-radius:var(--r-md, 12px);background:var(--bg-inset);color:var(--ink-1);font-family:var(--font-sans);font-size:20px;font-weight:500;cursor:pointer;transition:background .15s}.nido-alarm-code__key:hover:not(:disabled){background:color-mix(in srgb,var(--accent) 20%,var(--bg-inset))}.nido-alarm-code__key--aux{font-size:16px;color:var(--ink-2)}.nido-alarm-code__key:disabled{opacity:.4;cursor:not-allowed}.nido-alarm-code__submit{height:44px;border:0;border-radius:var(--r-md, 12px);background:var(--accent);color:var(--accent-ink);font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;transition:opacity .15s}.nido-alarm-code__submit:disabled{opacity:.45;cursor:not-allowed}@keyframes fade-in{0%{opacity:0}to{opacity:1}}.nido-rooms-view{display:flex;gap:2px;padding:3px;border-radius:var(--r-pill);background:var(--bg-inset)}.nido-rooms-view__btn{height:34px;display:inline-flex;align-items:center;gap:6px;padding:0 12px;border:none;border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer}.nido-rooms-view__btn.is-active{background:var(--bg-card);color:var(--ink-1);font-weight:600;box-shadow:var(--shadow-md)}@media(pointer:coarse){.nido-rooms-view__btn{height:40px}}.nido-plan{--plan-fill-l: 93%;--plan-fill-cf: .5;--plan-ink-l: 47%;--plan-glow: rgba(255, 180, 84, .6);--plan-wall: var(--ink-1);display:flex;flex-direction:column;gap:14px;color:var(--ink-1)}:host([data-mode="dark"]) .nido-plan{--plan-fill-l: 34%;--plan-fill-cf: .6;--plan-ink-l: 84%;--plan-glow: rgba(255, 170, 80, .36)}.nido-plan__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.nido-plan__floors,.nido-plan__layers{display:flex;gap:8px;flex-wrap:wrap}.nido-plan__floor{height:44px;padding:0 18px;border:none;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-2);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}.nido-plan__floor.is-active{background:var(--ink-1);color:var(--bg-shell)}.nido-plan__layer{height:40px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:0 14px;box-sizing:border-box;border:1.5px dashed var(--ink-4);border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer}.nido-plan__layer.is-on{border:1.5px solid var(--accent);background:var(--bg-card);color:var(--ink-1);font-weight:600}.nido-plan--phone .nido-plan__layer{width:40px;padding:0}.nido-plan--phone .nido-plan__floor{height:40px;padding:0 16px}.nido-plan__stage{position:relative;min-height:0}.nido-plan__viewport{position:absolute;inset:0;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none}.nido-plan__viewport.is-zoomed{touch-action:none;cursor:grab}.nido-plan__house{position:absolute;box-shadow:0 0 0 1.5px var(--plan-wall);transition:left .18s var(--ease-out),top .18s var(--ease-out)}.nido-plan__viewport.is-zoomed .nido-plan__house{transition:none}.nido-plan__house[data-custom=true]{box-shadow:none}.nido-plan__house[data-custom=true] .nido-plan__room{border-width:2px}.nido-plan__room{position:absolute;box-sizing:border-box;margin:0;padding:10px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;gap:4px;overflow:hidden;border:1.5px solid var(--plan-wall);border-radius:0;background:var(--bg-card);color:var(--ink-1);font-family:inherit;text-align:left;cursor:pointer;transition:background-color .3s var(--ease-out)}.nido-plan__room[data-tinted=true]{background:oklch(var(--plan-fill-l) calc(var(--measure-c) * var(--plan-fill-cf)) var(--measure-h))}.nido-plan__room[data-selected=true]{box-shadow:inset 0 0 0 3px var(--accent);z-index:2}.nido-plan__room[data-narrow=true]{padding:6px}.nido-plan__house[data-lod=overview] .nido-plan__room{padding:4px}.nido-plan__room:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}.nido-plan__glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,var(--plan-glow) 0%,transparent 72%)}.nido-plan__room>:not(.nido-plan__glow){position:relative}.nido-plan__room-head{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}.nido-plan__room-name{font-size:13px;font-weight:600;line-height:1.2;letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis}.nido-plan__room[data-narrow=true] .nido-plan__room-name{font-size:11px}.nido-plan__house[data-lod=detail] .nido-plan__room-name{font-size:15px}.nido-plan__bulb{flex-shrink:0;display:inline-flex;align-items:center;gap:2px;padding:2px 7px 2px 4px;border-radius:var(--r-pill);background:var(--bg-card);font-size:11px;font-weight:600}.nido-plan__room-foot{display:flex;flex-direction:column;align-items:flex-start;gap:6px}.nido-plan__alert{display:inline-flex;align-items:center;gap:5px;max-width:100%;box-sizing:border-box;padding:3px 8px 3px 6px;border-radius:var(--r-pill);background:var(--danger);color:#fff;font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nido-plan__temp{display:flex;align-items:baseline;gap:8px}.nido-plan__temp-value{font-size:20px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-plan__room[data-tinted=true] .nido-plan__temp-value{color:oklch(var(--plan-ink-l) var(--measure-c) var(--measure-h))}.nido-plan__room[data-narrow=true] .nido-plan__temp-value{font-size:13px}.nido-plan__house[data-lod=detail] .nido-plan__temp-value{font-size:26px}.nido-plan__hum{font-size:12px;color:var(--ink-2)}.nido-plan__dots{display:flex;justify-content:flex-end;gap:3px}.nido-plan__dot{flex-shrink:0;width:8px;height:8px;border-radius:50%;box-shadow:0 0 0 2px var(--bg-card)}.nido-plan__dot--light{background:#f0a640}.nido-plan__dot--alert{background:var(--danger)}.nido-plan__zoom{display:flex;gap:6px}.nido-plan__zoom-btn{width:44px;height:44px;border-radius:50%;border:none;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer}.nido-plan__zoom-btn:disabled{opacity:.4;cursor:default}.nido-plan__zoom-label{position:absolute;left:12px;top:12px;z-index:5;padding:5px 10px;border-radius:var(--r-pill);background:var(--bg-shell);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);pointer-events:none}.nido-plan__body{display:flex;gap:20px;align-items:stretch}.nido-plan__card{flex:1;min-width:0;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;padding:20px;border-radius:var(--r-lg);background:var(--bg-card);box-shadow:var(--shadow-md)}.nido-plan--wide .nido-plan__stage{height:clamp(340px,56vh,640px)}.nido-plan__footer{display:flex;align-items:center;justify-content:space-between;gap:16px}.nido-plan__legend{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-2)}.nido-plan__legend-bar{width:180px;height:10px;border-radius:var(--r-pill);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink-1) 12%,transparent)}.nido-plan__side{width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:16px}@media(max-width:899px){.nido-plan__body{flex-direction:column}.nido-plan__side{width:auto;flex-direction:row;flex-wrap:wrap}.nido-plan__side>*{flex:1 1 260px}}.nido-plan__eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}.nido-plan__panel{box-sizing:border-box;display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:var(--r-lg);background:var(--bg-card);box-shadow:var(--shadow-md)}.nido-plan__panel-name{margin-top:4px;font-size:24px;font-weight:600;letter-spacing:-.02em;line-height:1.1}.nido-plan__panel-status{margin-top:6px;font-size:13px;color:var(--ink-2)}.nido-plan__panel-alert{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:var(--r-sm);background:color-mix(in srgb,var(--danger) 14%,transparent);color:var(--danger);font-size:13px;font-weight:600}.nido-plan__panel-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 0;border-top:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent);border-bottom:1px solid color-mix(in srgb,var(--ink-4) 55%,transparent)}.nido-plan__stat{display:flex;flex-direction:column;gap:5px}.nido-plan__stat-value{font-size:19px;font-weight:600;letter-spacing:-.03em}.nido-plan__stat-value small{margin-left:2px;font-size:11px;font-weight:500;color:var(--ink-2)}.nido-plan__stat[data-tinted=true] .nido-plan__stat-value{color:oklch(var(--plan-ink-l) var(--measure-c) var(--measure-h))}.nido-plan__panel-actions{display:flex;flex-wrap:wrap;gap:8px}.nido-plan__action{flex:1;height:44px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:none;border-radius:var(--r-pill);background:var(--bg-inset);color:var(--ink-1);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer}.nido-plan__action--icon{flex:0 0 44px;width:44px;padding:0}.nido-plan__open{flex:1 1 100%;height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:var(--r-pill);background:var(--accent);color:var(--accent-ink);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}.nido-plan__summary{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:var(--r-lg);background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-plan__summary .nido-plan__eyebrow{color:inherit;opacity:.7}.nido-plan__summary-main{display:flex;align-items:baseline;gap:8px;font-size:14px}.nido-plan__summary-main>span:last-child{opacity:.8}.nido-plan__summary-value{font-size:34px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-plan__summary-sub{font-size:13px;opacity:.8}.nido-plan--phone .nido-plan__stage{height:300px;border-radius:24px;background:var(--bg-card);box-shadow:var(--shadow-md);overflow:hidden}.nido-plan--phone .nido-plan__zoom,.nido-plan--compact .nido-plan__zoom{position:absolute;right:10px;bottom:10px;z-index:5;flex-direction:column}.nido-plan--phone .nido-plan__zoom-btn,.nido-plan--compact .nido-plan__zoom-btn{background:var(--bg-shell);box-shadow:0 2px 8px #28190f24}.nido-plan--phone .nido-plan__zoom-btn:disabled,.nido-plan--compact .nido-plan__zoom-btn:disabled{display:none}.nido-plan__panel--sheet{padding:18px 20px}.nido-plan__panel--sheet .nido-plan__panel-name{font-size:22px}.nido-plan--compact{height:100%;flex-direction:row;gap:16px}.nido-plan__rail{width:184px;flex-shrink:0;display:flex;flex-direction:column;gap:10px}.nido-plan--compact .nido-plan__floors{flex-direction:column;flex-wrap:nowrap}.nido-plan--compact .nido-plan__floor{height:56px;border-radius:18px;font-size:17px;text-align:left}.nido-plan--compact .nido-plan__layers{flex-wrap:nowrap}.nido-plan--compact .nido-plan__layer{width:56px;height:56px;padding:0;border-radius:18px}.nido-plan--compact .nido-plan__stage{flex:1;min-width:0;border-radius:24px;background:var(--bg-card);box-shadow:var(--shadow-md);overflow:hidden}.nido-plan__mini{margin-top:auto;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:22px;background:var(--hero-dark);color:var(--hero-dark-ink)}.nido-plan__mini-name{font-size:17px;font-weight:600;letter-spacing:-.02em}.nido-plan__mini-temp{display:flex;align-items:baseline;gap:8px;font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1}.nido-plan__mini-temp span{font-size:12px;font-weight:500;opacity:.75;letter-spacing:0}.nido-plan__mini .nido-plan__open{flex:0 0 auto;margin-top:4px}@media(prefers-reduced-motion:reduce){.nido-plan__house,.nido-plan__room{transition:none}}.nido-plan__opening{position:absolute;box-sizing:border-box;z-index:3;pointer-events:none;border-radius:2px;background:var(--bg-card);border:1.5px solid var(--plan-wall)}.nido-plan__opening[data-kind=door]{border:none;border-radius:0}.nido-plan__opening[data-open=true]{border:none;background:var(--danger);box-shadow:0 0 0 4px color-mix(in srgb,var(--danger) 28%,transparent)}.nido-plan__bar-end{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.nido-plan__edit{height:40px;display:inline-flex;align-items:center;gap:7px;padding:0 14px;border:none;border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer}.nido-plan__edit:hover{background:var(--bg-inset);color:var(--ink-1)}.nido-plan-editor{position:fixed;inset:0;z-index:1000;box-sizing:border-box;padding:16px;background:var(--bg-canvas);font-family:var(--font-sans);color:var(--ink-1)}.nido-plan-editor__shell{height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;padding:24px;border-radius:var(--r-xl);background:var(--bg-shell)}.nido-plan-editor__header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.nido-plan-editor__title{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.nido-plan-editor__title h1{margin:0;font-size:26px;font-weight:600;letter-spacing:-.02em}.nido-plan-editor__back{width:44px;height:44px;border:none;border-radius:50%;background:var(--bg-inset);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer}.nido-plan-editor__actions{display:flex;gap:8px}.nido-plan-editor__ghost,.nido-plan-editor__primary{height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 20px;border:none;border-radius:var(--r-pill);font-family:inherit;font-size:14px;cursor:pointer}.nido-plan-editor__ghost{background:var(--bg-inset);color:var(--ink-1);font-weight:500}.nido-plan-editor__primary{background:var(--accent);color:var(--accent-ink);font-weight:600}.nido-plan-editor__hint{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}.nido-plan-editor__status{font-weight:600}.nido-plan-editor__status.is-dirty{color:var(--accent-deep)}:host([data-mode="dark"]) .nido-plan-editor__status.is-dirty{color:var(--accent)}.nido-plan-editor__body{flex:1;min-height:0;display:flex;gap:20px}.nido-plan-editor__canvas{position:relative;flex:1;min-width:0;box-sizing:border-box;padding:20px;border-radius:var(--r-lg);background:var(--bg-card);box-shadow:var(--shadow-md);display:flex}.nido-plan-editor__field-box{flex:1;min-width:0;min-height:0;box-sizing:border-box;padding:14px;display:flex;align-items:center;justify-content:center;overflow:auto}.nido-plan-editor__field{position:relative;flex-shrink:0;background-image:radial-gradient(circle,var(--ink-4) 1.3px,transparent 1.6px);touch-action:none;user-select:none;-webkit-user-select:none}.nido-plan-editor__room{position:absolute;box-sizing:border-box;margin:0;padding:8px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;overflow:hidden;border:2px solid var(--ink-1);border-radius:0;background:var(--bg-card);color:var(--ink-1);font-family:inherit;text-align:left;cursor:grab;touch-action:none;z-index:1;transition:left .15s var(--ease-out),top .15s var(--ease-out),width .15s var(--ease-out),height .15s var(--ease-out)}.nido-plan-editor__room[data-selected=true]{background:color-mix(in srgb,var(--accent) 12%,var(--bg-card))}.nido-plan-editor__room[data-active=true]{cursor:grabbing;z-index:4;transition:none}.nido-plan-editor__room[data-bad=true]{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 22%,var(--bg-card))}.nido-plan-editor__room:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}.nido-plan-editor__room-name{font-size:13px;font-weight:600;line-height:1.2;pointer-events:none}.nido-plan-editor__room-dims{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);pointer-events:none}.nido-plan-editor__opening{position:absolute;z-index:5;box-sizing:border-box;margin:0;padding:3px;border:none;background:transparent;cursor:pointer;display:flex}.nido-plan-editor__opening span{flex:1;border-radius:2px;background:var(--bg-card);border:1.5px solid var(--ink-1)}.nido-plan-editor__opening[data-kind=door] span{border-style:dashed}.nido-plan-editor__opening[data-selected=true] span{background:var(--accent);border-color:var(--accent)}.nido-plan-editor__handle{position:absolute;z-index:8;width:22px;height:22px;box-sizing:border-box;border-radius:6px;background:var(--bg-card);border:2.5px solid var(--accent);touch-action:none}.nido-plan-editor__badge{position:absolute;z-index:9;padding:4px 10px;border-radius:var(--r-pill);background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:600;white-space:nowrap;pointer-events:none}.nido-plan-editor__badge[data-bad=true]{background:var(--danger);color:#fff}.nido-plan-editor__toast{position:absolute;left:50%;bottom:18px;z-index:20;transform:translate(-50%);padding:10px 18px;border-radius:var(--r-pill);background:var(--hero-dark);color:var(--hero-dark-ink);font-size:13px;font-weight:500;white-space:nowrap;box-shadow:0 10px 30px #140c0640}.nido-plan-editor__side{width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;overflow-y:auto}.nido-plan-editor__card{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:var(--r-lg);background:var(--bg-card);box-shadow:var(--shadow-md)}.nido-plan-editor__card-title{font-size:20px;font-weight:600;letter-spacing:-.02em}.nido-plan-editor__muted{margin:0;font-size:13px;line-height:1.45;color:var(--ink-2)}.nido-plan-editor__row{display:flex;gap:8px}.nido-plan-editor__row .nido-plan-editor__btn{flex:1}.nido-plan-editor__btn{height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;border:none;border-radius:var(--r-sm);background:var(--bg-inset);color:var(--ink-1);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;text-align:left}.nido-plan-editor__btn--danger{background:transparent;color:var(--danger)}.nido-plan-editor__unplaced{height:44px;display:flex;align-items:center;gap:10px;padding:0 12px;border:1.5px dashed var(--accent);border-radius:var(--r-sm);background:transparent;color:var(--ink-1);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;text-align:left}.nido-plan-editor__link{align-self:flex-start;display:inline-flex;align-items:center;gap:4px;min-height:32px;padding:0;border:none;background:none;color:var(--ink-2);font-family:inherit;font-size:13px;cursor:pointer}.nido-plan-editor__field-label{font-size:12px;color:var(--ink-2)}.nido-plan-editor__segmented{display:flex;gap:2px;padding:3px;border-radius:var(--r-sm);background:var(--bg-inset)}.nido-plan-editor__segmented button{flex:1;min-height:38px;border:none;border-radius:10px;background:transparent;color:var(--ink-2);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer}.nido-plan-editor__segmented button.is-active{background:var(--bg-card);color:var(--ink-1);font-weight:600;box-shadow:var(--shadow-md)}.nido-plan-editor__steppers{display:flex;gap:10px}.nido-plan-editor__stepper{flex:1;display:flex;flex-direction:column;gap:6px}.nido-plan-editor__stepper-row{display:flex;align-items:center;justify-content:space-between;padding:3px;border-radius:var(--r-sm);background:var(--bg-inset)}.nido-plan-editor__stepper-row button{width:38px;height:38px;border:none;border-radius:10px;background:var(--bg-card);color:var(--ink-1);display:flex;align-items:center;justify-content:center;cursor:pointer}.nido-plan-editor__stepper-row span{font-size:14px;font-weight:600}.nido-plan-editor__select{height:44px;padding:0 12px;border-radius:var(--r-sm);border:1.5px solid var(--ink-4);background:var(--bg-shell);color:var(--ink-1);font-family:inherit;font-size:14px}.nido-plan-editor__note{margin:0;padding:0 6px;font-size:12px;line-height:1.45;color:var(--ink-2)}@media(max-width:899px){.nido-plan-editor__body{flex-direction:column;overflow-y:auto}.nido-plan-editor__canvas{min-height:420px}.nido-plan-editor__side{width:auto;overflow:visible}.nido-plan-editor__tips{display:none}}@media(prefers-reduced-motion:reduce){.nido-plan-editor__room{transition:none}}.nido-plan__motion{position:absolute;left:50%;top:50%;width:var(--motion-size);height:var(--motion-size);margin:calc(var(--motion-size) / -2) 0 0 calc(var(--motion-size) / -2);box-sizing:border-box;border-radius:50%;pointer-events:none}.nido-plan__motion:before,.nido-plan__motion:after{content:"";position:absolute;inset:0;border-radius:50%}.nido-plan__motion:before{inset:calc(50% - 5px);background:var(--accent);box-shadow:0 0 0 2px var(--bg-card)}.nido-plan__motion[data-state=active]:after{border:2px solid var(--accent);animation:nido-plan-motion 2.4s var(--ease-out) infinite}.nido-plan__motion[data-state=recent]{opacity:.45}.nido-plan__motion[data-state=recent]:after{border:1.5px dashed var(--accent);transform:scale(.6)}@keyframes nido-plan-motion{0%{transform:scale(.25);opacity:.85}70%{transform:scale(1);opacity:0}to{transform:scale(1);opacity:0}}.nido-plan__dot--motion{background:var(--accent)}.nido-plan__dot--motion[data-state=recent]{opacity:.45}.nido-plan__motion-label{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--accent-deep)}:host([data-mode="dark"]) .nido-plan__motion-label{color:var(--accent)}.nido-plan__panel-motion{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:13px;font-weight:600;color:var(--accent-deep)}:host([data-mode="dark"]) .nido-plan__panel-motion{color:var(--accent)}.nido-plan__panel-motion[data-state=recent]{font-weight:500;color:var(--ink-2)}.nido-plan__panel-motion-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}.nido-plan__panel-motion[data-state=recent] .nido-plan__panel-motion-dot{opacity:.45}.nido-plan--compact .nido-plan__layers{gap:6px}.nido-plan--compact .nido-plan__layer{width:auto;flex:1;height:52px;border-radius:16px}@media(prefers-reduced-motion:reduce){.nido-plan__motion[data-state=active]:after{animation:none;transform:scale(.7);opacity:.5}}.nido-plan{--energy-l0: .965;--energy-l1: .74;--energy-c0: .02;--energy-c1: .15}:host([data-mode="dark"]) .nido-plan{--energy-l0: .3;--energy-l1: .46;--energy-c0: .03;--energy-c1: .13}.nido-plan__room[data-energy=true]{background:oklch(calc(var(--energy-l0) + (var(--energy-l1) - var(--energy-l0)) * var(--energy-t)) calc(var(--energy-c0) + (var(--energy-c1) - var(--energy-c0)) * var(--energy-t)) calc(75 - 30 * var(--energy-t)))}.nido-plan__power-value{font-variant-numeric:tabular-nums}.nido-plan__room[data-narrow=true] .nido-plan__power-value{font-size:12px}.nido-plan__legend-bar--energy{background:linear-gradient(90deg,oklch(var(--energy-l0) var(--energy-c0) 75),oklch(calc((var(--energy-l0) + var(--energy-l1)) / 2) calc((var(--energy-c0) + var(--energy-c1)) / 2) 60),oklch(var(--energy-l1) var(--energy-c1) 45))}.nido-plan__panel-power{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ink-2)}.nido-plan__panel-power svg{flex-shrink:0;margin-top:1px;color:var(--accent)}.nido-plan__panel-power strong{color:var(--ink-1);font-weight:600}.nido-plan--compact .nido-plan__layers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.nido-plan--compact .nido-plan__layer{width:auto;height:48px}', tc = "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
+let ic = !1;
+function Tx() {
+  if (ic || typeof document > "u") return;
+  if (!document.head.querySelector(`link[href="${tc}"]`)) {
     const e = document.createElement("link");
-    e.rel = "stylesheet", e.href = Jl, document.head.appendChild(e);
+    e.rel = "stylesheet", e.href = tc, document.head.appendChild(e);
   }
-  ec = !0;
+  ic = !0;
 }
-class bx extends HTMLElement {
+class kx extends HTMLElement {
   constructor() {
-    super(), this._hass = null, this._narrow = !1, this._route = { prefix: "", path: "" }, this._panel = {}, yx();
+    super(), this._hass = null, this._narrow = !1, this._route = { prefix: "", path: "" }, this._panel = {}, Tx();
     const e = this.attachShadow({ mode: "open" }), t = document.createElement("style");
-    t.textContent = `${_x}
-${vx}`, this._mountPoint = document.createElement("div"), this._mountPoint.className = "nido-root-mount", e.append(t, this._mountPoint);
+    t.textContent = `${Ex}
+${Sx}`, this._mountPoint = document.createElement("div"), this._mountPoint.className = "nido-root-mount", e.append(t, this._mountPoint);
   }
   set hass(e) {
     this._hass = e, this._render();
@@ -31128,22 +31176,22 @@ ${vx}`, this._mountPoint = document.createElement("div"), this._mountPoint.class
     return this._panel;
   }
   connectedCallback() {
-    const { theme: e, mode: t } = bc();
+    const { theme: e, mode: t } = Ec();
     this.hasAttribute("data-theme") || this.setAttribute("data-theme", e), this.hasAttribute("data-mode") || this.setAttribute("data-mode", t), this._render();
   }
   disconnectedCallback() {
-    Ua(null, this._mountPoint);
+    Ga(null, this._mountPoint);
   }
   applyTheme(e, t) {
     this.setAttribute("data-theme", e), this.setAttribute("data-mode", t);
   }
   _render() {
-    Ua(sc(mx, { hass: this._hass, host: this }), this._mountPoint);
+    Ga(oc(xx, { hass: this._hass, host: this }), this._mountPoint);
   }
 }
-customElements.get("nido-panel") || customElements.define("nido-panel", bx);
+customElements.get("nido-panel") || customElements.define("nido-panel", kx);
 console.info(
-  "%c NIDO %c v0.3.51 ",
+  "%c NIDO %c v0.3.52 ",
   "background:#c75a2a;color:#fff;padding:2px 6px;border-radius:3px 0 0 3px;",
   "background:#1a1410;color:#fff;padding:2px 6px;border-radius:0 3px 3px 0;"
 );
