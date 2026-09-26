@@ -48,6 +48,8 @@ import {
   IconActivity,
   IconArrowRight,
   IconBlind,
+  IconChevronLeft,
+  IconChevronRight,
   IconBolt,
   IconEdit,
   IconFit,
@@ -96,7 +98,7 @@ interface RoomPower {
   top: { name: string; watts: number };
 }
 
-const PAD = 16;
+const PAD = 10;
 const MAX_ZOOM = 4;
 const ZOOM_STEP = 1.6;
 const DRAG_THRESHOLD = 6;
@@ -211,6 +213,9 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
   const planFloors = useMemo(() => groupAreasByFloor(areas, floors), [areas, floors]);
   const [here, setHere] = useState<YouAreHere | null>(() => loadYouAreHere());
   const [placing, setPlacing] = useState(false);
+  /* Fiche flottante (tablette, PC) : repliable pour voir tout le plan,
+     rouverte dès qu'on touche une pièce. */
+  const [panelOpen, setPanelOpen] = useState(true);
   /* On ouvre sur l'étage et la pièce où se trouve cet écran. */
   const [floorKey, setFloorKey] = useState<string | null>(() => here?.floor ?? null);
   const floor = planFloors.find((f) => f.key === floorKey) ?? planFloors[0];
@@ -580,7 +585,10 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
                 lod={lod}
                 layers={layers}
                 selected={r.area.area_id === selectedId}
-                onSelect={() => setSelected(r.area.area_id)}
+                onSelect={() => {
+                  setSelected(r.area.area_id);
+                  setPanelOpen(true);
+                }}
               />
             ));
           })}
@@ -723,6 +731,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
       placing={placing}
       hasHere={!!here}
       onPlaceHere={() => setPlacing(!placing)}
+      onCollapse={variant === "wide" ? () => setPanelOpen(false) : undefined}
     />
   );
 
@@ -746,6 +755,12 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
   }
 
   const floorSummary = summarizeFloor([...rooms.values()]);
+  /* Le plan est souvent plus large que haut : sans ce plafond, la scène
+     garderait sa hauteur « écran » et laisserait une bande vide sous le plan. */
+  const wideStageStyle =
+    size.w > 0
+      ? { height: `min(clamp(360px, calc(100vh - 240px), 960px), ${Math.ceil((size.w - PAD * 2) * (layout.rows / layout.cols) + PAD * 2)}px)` }
+      : undefined;
   return (
     <div class="nido-plan nido-plan--wide" data-night={night ? "true" : "false"}>
       <div class="nido-plan__bar">
@@ -763,7 +778,9 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
       </div>
       <div class="nido-plan__body">
         <div class="nido-plan__card">
-          <div class="nido-plan__stage">{planView}</div>
+          <div class="nido-plan__stage" style={wideStageStyle}>
+            {planView}
+          </div>
           <div class="nido-plan__footer">
             {layers.temperature ? (
               <div class="nido-plan__legend">
@@ -780,27 +797,28 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
             ) : (
               <span class="nido-plan__legend">Aucun calque de couleur</span>
             )}
-            {zoomButtons}
-          </div>
-        </div>
-        <div class="nido-plan__side">
-          {panel}
-          <div class="nido-plan__summary">
-            <div class="nido-plan__eyebrow">{floor.label}</div>
-            <div class="nido-plan__summary-main">
-              <span class="nido-plan__summary-value">{floorSummary.lights}</span>
-              <span>{floorSummary.lights > 1 ? "lumières allumées" : "lumière allumée"}</span>
-            </div>
-            <div class="nido-plan__summary-sub">
+            <span class="nido-plan__footer-summary">
+              <strong>{floor.label}</strong>
+              {` · ${floorSummary.lights} ${floorSummary.lights > 1 ? "lumières allumées" : "lumière allumée"}`}
               {floorSummary.openings > 0
-                ? `${floorSummary.openings} ouvrant${floorSummary.openings > 1 ? "s" : ""} ouvert${floorSummary.openings > 1 ? "s" : ""}`
-                : "Tout est fermé"}
+                ? ` · ${floorSummary.openings} ouvrant${floorSummary.openings > 1 ? "s" : ""} ouvert${floorSummary.openings > 1 ? "s" : ""}`
+                : " · tout est fermé"}
               {layers.energy && floorSummary.watts !== null && ` · ${formatWatts(floorSummary.watts)} consommés`}
               {floorSummary.occupied > 0 &&
                 ` · ${floorSummary.occupied} pièce${floorSummary.occupied > 1 ? "s" : ""} occupée${floorSummary.occupied > 1 ? "s" : ""}`}
-              {floorSummary.avgTemp !== null && ` · Moyenne ${floorSummary.avgTemp.toLocaleString("fr-FR")} °C`}
-            </div>
+              {floorSummary.avgTemp !== null && ` · moyenne ${floorSummary.avgTemp.toLocaleString("fr-FR")} °C`}
+            </span>
+            {zoomButtons}
           </div>
+          {selectedRoom &&
+            (panelOpen ? (
+              <div class="nido-plan__float">{panel}</div>
+            ) : (
+              <button type="button" class="nido-plan__float-tab" onClick={() => setPanelOpen(true)}>
+                <IconChevronLeft size={16} />
+                {selectedRoom.area.name}
+              </button>
+            ))}
         </div>
       </div>
     </div>
@@ -1164,6 +1182,8 @@ interface RoomPanelProps {
   placing: boolean;
   hasHere: boolean;
   onPlaceHere: () => void;
+  /** Fiche flottante : bouton pour la replier. */
+  onCollapse?: () => void;
 }
 
 function RoomPanel({
@@ -1176,6 +1196,7 @@ function RoomPanel({
   placing,
   hasHere,
   onPlaceHere,
+  onCollapse,
 }: RoomPanelProps) {
   const { summary, stats } = info;
   const alert = info.critical ?? info.opening;
@@ -1183,6 +1204,11 @@ function RoomPanel({
   return (
     <div class={`nido-plan__panel ${compact ? "nido-plan__panel--sheet" : ""}`}>
       <div class="nido-plan__panel-head">
+        {onCollapse && (
+          <button type="button" class="nido-plan__collapse" aria-label="Replier la fiche" title="Replier" onClick={onCollapse}>
+            <IconChevronRight size={18} />
+          </button>
+        )}
         <div>
           <div class="nido-plan__eyebrow">{floorLabel}</div>
           <div class="nido-plan__panel-name">{info.area.name}</div>

@@ -127,10 +127,15 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
 
 | Variante | Où | Rendu |
 |---|---|---|
-| `wide` | tablette + desktop | plan + fiche pièce à droite + résumé d'étage |
+| `wide` | tablette + desktop | plan pleine largeur, fiche pièce flottante repliable, résumé d'étage dans le pied |
 | `phone` | `(max-width: 599px)` | plan 300 px, zoom en surimpression, fiche dessous |
 | `compact` | Echo Show | rail (étages, calques, pièce choisie + Ouvrir) + plan |
 
+- **Place** : Nido est en pleine page sur tous les écrans (plus de marge ni de coins autour
+  de `.nido-dashboard`). La scène `wide` suit la hauteur d'écran mais est plafonnée à la
+  forme du plan (`wideStageStyle`) pour ne pas laisser de bande vide dessous. La fiche est
+  une carte flottante en haut à droite (`.nido-plan__float`), repliée en languette ;
+  toucher une pièce la rouvre.
 - **Étages** : registre HA (`floor_id` des pièces). Pièces sans étage → onglet « Autres
   pièces » (ou « Maison » s'il n'y a aucun étage).
 - **Placement** : `resolveLayout` prend le plan dessiné s'il existe, sinon `autoLayout`
