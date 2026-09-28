@@ -126,8 +126,11 @@ function seedDraft(
   return out;
 }
 
+/* Ne touche que le rectangle visé (`d.rect`) : une pièce en L peut avoir des
+   morceaux détachés (ex. un cadre « Extérieure » à 4 côtés) qu'on doit
+   pouvoir repositionner un par un, pas tous ensemble. */
 function applyDrag(rects: PlanRect[], d: Drag): PlanRect[] {
-  if (d.mode === "move") return rects.map((q) => ({ ...q, x: q.x + d.dx, y: q.y + d.dy }));
+  if (d.mode === "move") return rects.map((q, i) => (i === d.rect ? { ...q, x: q.x + d.dx, y: q.y + d.dy } : q));
   return rects.map((q, i) => {
     if (i !== d.rect || !d.handle) return q;
     let { x, y, w, h } = q;
@@ -159,6 +162,24 @@ function sharesEdge(a: PlanRect, b: PlanRect): boolean {
 
 function newId(): string {
   return "o" + Math.random().toString(36).slice(2, 9);
+}
+
+function shiftRooms(rooms: Rooms, dx: number, dy: number): Rooms {
+  if (!dx && !dy) return rooms;
+  return Object.fromEntries(
+    Object.entries(rooms).map(([id, rects]) => [id, rects.map((r) => ({ ...r, x: r.x + dx, y: r.y + dy }))]),
+  );
+}
+
+/* Un redimensionnement ou un glisser qui sort par le haut ou la gauche
+   repousse tout le plan plutôt que d'être refusé : aucune pièce ne doit
+   passer en coordonnées négatives, la grille s'étend de l'autre côté. */
+function shiftIntoView(rooms: Rooms): Rooms {
+  const all = Object.values(rooms).flat();
+  if (all.length === 0) return rooms;
+  const dx = Math.max(0, -Math.min(...all.map((r) => r.x)));
+  const dy = Math.max(0, -Math.min(...all.map((r) => r.y)));
+  return shiftRooms(rooms, dx, dy);
 }
 
 function deviceTapHint(domain: string | undefined): string {
@@ -219,19 +240,22 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   const cols = Math.max(MIN_COLS, ...allRects.map((r) => r.x + r.w + MARGIN));
   const rows = Math.max(MIN_ROWS, ...allRects.map((r) => r.y + r.h + MARGIN));
 
+  /* Les bornes négatives sont gérées par `shiftIntoView` (tout le plan se
+     décale plutôt que d'être refusé) — ici on ne borne plus que le bas/droite. */
   const fits = (rooms: Rooms, areaId: string, rects: PlanRect[]) =>
     rects.every(
       (q) =>
-        q.x >= 0 && q.y >= 0 && q.x + q.w <= cols && q.y + q.h <= rows &&
+        q.x + q.w <= cols && q.y + q.h <= rows &&
         Object.entries(rooms).every(([id, others]) => id === areaId || others.every((o) => !rectsOverlap(q, o))),
     );
 
   /* Un glisser peut viser une pièce qui vient d'être retirée : on l'ignore. */
   const activeDrag = drag && placed[drag.areaId] ? drag : null;
-  const preview: Rooms =
+  const preview: Rooms = shiftIntoView(
     activeDrag && (activeDrag.dx || activeDrag.dy)
       ? { ...placed, [activeDrag.areaId]: applyDrag(placed[activeDrag.areaId], activeDrag) }
-      : placed;
+      : placed,
+  );
   const previewValid = !activeDrag || fits(preview, activeDrag.areaId, preview[activeDrag.areaId]);
 
   const updateFloor = (patch: Partial<StoredFloor>) => {
@@ -283,14 +307,17 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   const endDrag = () => {
     if (!drag) return;
     if (drag.dx || drag.dy) {
-      if (previewValid) setRooms({ [drag.areaId]: preview[drag.areaId] });
+      /* `preview` couvre tout le plan (pas que la pièce glissée) : un décalage
+         déclenché par `shiftIntoView` doit être conservé pour tout le monde. */
+      if (previewValid) setRooms(preview);
       else flash("Place occupée : la pièce revient à sa position");
     }
     setDrag(null);
   };
 
   const tryRects = (areaId: string, rects: PlanRect[]) => {
-    if (fits(placed, areaId, rects)) setRooms({ [areaId]: rects });
+    const shifted = shiftIntoView({ ...placed, [areaId]: rects });
+    if (fits(shifted, areaId, shifted[areaId])) setRooms(shifted);
   };
 
   const onRoomKey = (e: JSX.TargetedKeyboardEvent<HTMLElement>, areaId: string, rect: number) => {
@@ -304,7 +331,7 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
     if (e.shiftKey) {
       tryRects(areaId, rects.map((q, i) => (i === rect ? { ...q, w: Math.max(1, q.w + d[0]), h: Math.max(1, q.h + d[1]) } : q)));
     } else {
-      tryRects(areaId, rects.map((q) => ({ ...q, x: q.x + d[0], y: q.y + d[1] })));
+      tryRects(areaId, rects.map((q, i) => (i === rect ? { ...q, x: q.x + d[0], y: q.y + d[1] } : q)));
     }
   };
 
