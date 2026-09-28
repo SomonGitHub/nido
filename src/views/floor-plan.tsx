@@ -16,6 +16,7 @@ import {
   areasOnFloor,
   clampToRoom,
   groupAreasByFloor,
+  NO_FLOOR,
   openingSegment,
   floorKind,
   resolveLayout,
@@ -44,6 +45,7 @@ import {
 import { durationLabel } from "../core/time-ago";
 import { useMinuteTick } from "../core/use-minute-tick";
 import { POWER_ENTITY_ID } from "./energy";
+import { CameraPanel } from "../components/camera-panel";
 import {
   IconActivity,
   IconArrowRight,
@@ -210,7 +212,13 @@ function legendGradient(): string {
 
 export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRoom, onEdit }: FloorPlanProps) {
   const now = useMinuteTick();
-  const planFloors = useMemo(() => groupAreasByFloor(areas, floors), [areas, floors]);
+  const planFloors = useMemo(() => {
+    const grouped = groupAreasByFloor(areas, floors);
+    /* Le bac « Autres pièces » reste géré côté éditeur (assigner un étage aux
+       pièces sans floor_id), mais ne s'affiche pas comme onglet ici — sauf
+       s'il n'y a aucun étage HA du tout (c'est alors l'unique onglet « Maison »). */
+    return grouped.length > 1 ? grouped.filter((f) => f.key !== NO_FLOOR) : grouped;
+  }, [areas, floors]);
   const [here, setHere] = useState<YouAreHere | null>(() => loadYouAreHere());
   const [placing, setPlacing] = useState(false);
   /* Fiche flottante (tablette, PC) : repliable pour voir tout le plan,
@@ -222,6 +230,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
   const [selected, setSelected] = useState<string | null>(() => here?.area ?? null);
   const [layers, setLayers] = useState<PlanLayers>(() => loadPlanLayers());
   const [planTime, setPlanTime] = useState<PlanTime>(() => loadPlanTime());
+  const [liveCamera, setLiveCamera] = useState<ResolvedEntity | null>(null);
   /* La nuit suit le soleil de HA ; sans l'intégration Soleil, on reste en jour. */
   const sunDown = hass.states["sun.sun"]?.state === "below_horizon";
   const night = planTime === "night" || (planTime === "auto" && sunDown);
@@ -456,6 +465,10 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
     hass.callService("light", info.summary.lightsOn > 0 ? "turn_off" : "turn_on", { entity_id: ids });
   };
   const toggleDevice = (e: ResolvedEntity) => {
+    if (e.domain === "camera") {
+      setLiveCamera(e);
+      return;
+    }
     const on = isEntityActive(e);
     if (e.domain === "cover") hass.callService("cover", on ? "close_cover" : "open_cover", { entity_id: e.entity_id });
     else if (e.domain === "media_player") hass.callService("media_player", "media_play_pause", { entity_id: e.entity_id });
@@ -676,6 +689,15 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
     </div>
   );
 
+  const liveCameraPanel = liveCamera && (
+    <CameraPanel
+      hass={hass}
+      entityId={liveCamera.entity_id}
+      title={liveCamera.friendly_name}
+      onClose={() => setLiveCamera(null)}
+    />
+  );
+
   if (variant === "compact") {
     return (
       <div class="nido-plan nido-plan--compact" data-night={night ? "true" : "false"}>
@@ -716,6 +738,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           {planView}
           {zoomButtons}
         </div>
+        {liveCameraPanel}
       </div>
     );
   }
@@ -750,6 +773,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           {zoomButtons}
         </div>
         {panel}
+        {liveCameraPanel}
       </div>
     );
   }
@@ -821,6 +845,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
             ))}
         </div>
       </div>
+      {liveCameraPanel}
     </div>
   );
 }
@@ -832,6 +857,8 @@ function deviceStateLabel(e: ResolvedEntity): string {
       return on ? "ouvert" : "fermé";
     case "media_player":
       return on ? "en lecture" : "en pause";
+    case "camera":
+      return on ? "en direct" : "au repos";
     default:
       return on ? "allumé" : "éteint";
   }
@@ -857,7 +884,11 @@ function PlanDeviceButton({
       class="nido-plan__device"
       data-on={on ? "true" : "false"}
       data-domain={entity.domain}
-      aria-label={`${entity.friendly_name}, ${deviceStateLabel(entity)}. Toucher pour basculer`}
+      aria-label={
+        entity.domain === "camera"
+          ? `${entity.friendly_name}, ${deviceStateLabel(entity)}. Toucher pour voir le live`
+          : `${entity.friendly_name}, ${deviceStateLabel(entity)}. Toucher pour basculer`
+      }
       aria-pressed={on}
       title={entity.friendly_name}
       style={{

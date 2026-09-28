@@ -34,9 +34,10 @@ export interface PlacedDevice extends PlanDevice {
   y: number;
 }
 
-/** Domaines qu'on peut poser sur le plan : un toucher les bascule. Serrures et
- *  alarmes en sont exclues — un doigt qui frôle la tablette n'ouvre pas la porte. */
-export const PLACEABLE_DOMAINS = new Set(["light", "switch", "fan", "cover", "media_player"]);
+/** Domaines qu'on peut poser sur le plan : un toucher les bascule (ou ouvre le
+ *  live pour une caméra). Serrures et alarmes en sont exclues — un doigt qui
+ *  frôle la tablette n'ouvre pas la porte. */
+export const PLACEABLE_DOMAINS = new Set(["light", "switch", "fan", "cover", "media_player", "camera"]);
 
 export interface FloorLayout {
   rooms: PlacedRoom[];

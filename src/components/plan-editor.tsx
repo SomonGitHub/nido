@@ -161,6 +161,19 @@ function newId(): string {
   return "o" + Math.random().toString(36).slice(2, 9);
 }
 
+function deviceTapHint(domain: string | undefined): string {
+  switch (domain) {
+    case "cover":
+      return "Sur le plan, un toucher l'ouvre ou la ferme.";
+    case "media_player":
+      return "Sur le plan, un toucher la met en lecture ou en pause.";
+    case "camera":
+      return "Sur le plan, un toucher ouvre le live.";
+    default:
+      return "Sur le plan, un toucher l'allume ou l'éteint.";
+  }
+}
+
 export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave, onClose }: PlanEditorProps) {
   const [draft, setDraft] = useState(() => seedDraft(floors, plan, byArea));
   const [floorKey, setFloorKey] = useState(initialFloor);
@@ -296,18 +309,23 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   };
 
   /* ─── Actions de la fiche ─── */
-  const freeSpot = (w: number, h: number, near?: PlanRect): PlanRect | null => {
+  const freeSpot = (w: number, h: number, near?: PlanRect[]): PlanRect | null => {
     let fallback: PlanRect | null = null;
     for (let y = 0; y + h <= rows; y++) {
       for (let x = 0; x + w <= cols; x++) {
         const q = { x, y, w, h };
         if (!fits(placed, "", [q])) continue;
         if (!near) return q;
-        if (!sharesEdge(q, near)) continue;
+        /* N'importe quel rectangle déjà posé de la pièce peut servir d'ancrage —
+           pas seulement le premier : un cadre à 4 côtés (ex. pièce « Extérieure »
+           qui entoure la maison) a des morceaux qui ne se touchent qu'entre eux. */
+        const touching = near.filter((n) => sharesEdge(q, n));
+        if (touching.length === 0) continue;
         /* Aligné sur un bord de la pièce, le rectangle ajouté forme un vrai L ;
            sinon il dépasserait d'une case, à rectifier à la main. */
-        const aligned =
-          q.y === near.y || q.y + q.h === near.y + near.h || q.x === near.x || q.x + q.w === near.x + near.w;
+        const aligned = touching.some(
+          (n) => q.y === n.y || q.y + q.h === n.y + n.h || q.x === n.x || q.x + q.w === n.x + n.w,
+        );
         if (aligned) return q;
         fallback ??= q;
       }
@@ -332,7 +350,7 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
 
   const addRect = (areaId: string) => {
     const rects = placed[areaId];
-    const spot = freeSpot(2, 2, rects[0]);
+    const spot = freeSpot(2, 2, rects);
     if (!spot) {
       flash("Pas de place libre contre cette pièce : libère un côté");
       return;
@@ -856,7 +874,7 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                 <div class="nido-plan-editor__card-title">{selDeviceEntity?.friendly_name ?? selDevice.entity_id}</div>
                 <p class="nido-plan-editor__muted">
                   {selDeviceEntity ? DOMAIN_LABEL[selDeviceEntity.domain] : "Appareil introuvable"} · glisse l'icône
-                  pour la placer, ou utilise les flèches du clavier. Sur le plan, un toucher l'allume ou l'éteint.
+                  pour la placer, ou utilise les flèches du clavier. {deviceTapHint(selDeviceEntity?.domain)}
                 </p>
                 <button
                   type="button"
