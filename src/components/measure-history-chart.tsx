@@ -74,11 +74,11 @@ export function MeasureHistoryChart({
           <path class="nido-history__area" d={`${line} L${x(last.t)} ${H} L${x(t0)} ${H} Z`} />
           <path class="nido-history__line" d={line} vector-effect="non-scaling-stroke" />
         </svg>
-      </div>
-      <div class="nido-history__axis" aria-hidden="true">
-        <span>-24 h</span>
-        <span>-12 h</span>
-        <span>maintenant</span>
+        <div class="nido-history__axis" aria-hidden="true">
+          <span>-24 h</span>
+          <span>-12 h</span>
+          <span>maintenant</span>
+        </div>
       </div>
     </section>
   );
