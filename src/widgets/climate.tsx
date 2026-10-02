@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import type { HassObject } from "../types";
-import type { ResolvedEntity } from "../core/entities";
+import { isRadiatorOpen, type ResolvedEntity } from "../core/entities";
 import { breatheVars, glowVars, paceVars } from "../core/vitals";
 import { IconThermostat, IconFlame, IconSnowflake, IconMinus, IconPlus } from "../icons";
 import type { JSX } from "preact";
@@ -43,6 +43,7 @@ export function ClimateWidget({
   const unavailable = entity.state.state === "unavailable";
   const mode = entity.state.state;
   const isActive = mode !== "off" && !unavailable;
+  const open = isRadiatorOpen(entity);
 
   const current = entity.state.attributes.current_temperature as number | undefined;
   const targetAttr = entity.state.attributes.temperature as number | undefined;
@@ -94,7 +95,9 @@ export function ClimateWidget({
         <div class="n-icon-bubble">
           <ModeIcon size={18} />
         </div>
-        <span class="n-eyebrow">{MODE_LABEL[mode] ?? mode}</span>
+        <span class="n-eyebrow" data-valve={isActive ? (open ? "open" : "closed") : undefined}>
+          {isActive ? (open ? "Ouverte" : "Fermée") : (MODE_LABEL[mode] ?? mode)}
+        </span>
       </div>
 
       {roomLabel && <div class="n-eyebrow">{roomLabel}</div>}

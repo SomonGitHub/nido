@@ -2245,15 +2245,38 @@
   gap: 12px;
   margin-bottom: 8px;
 }
-.nido-history__range {
+.nido-history__plot {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.nido-history__yaxis {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 40px;
+  text-align: right;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
+  line-height: 1;
   color: var(--ink-3);
+  white-space: nowrap;
+}
+.nido-history__yaxis span {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
 }
 .nido-history__svg {
   display: block;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   height: 120px;
+}
+.nido-history__grid {
+  stroke: var(--ink-4);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  opacity: 0.6;
 }
 .nido-history__line {
   fill: none;
@@ -7583,6 +7606,94 @@
   box-shadow: 0 0 0 5px rgba(240, 166, 64, 0.3), 0 0 18px rgba(240, 166, 64, 0.55);
 }
 .nido-plan__device:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.nido-plan__device[data-domain="climate"][data-on="true"] {
+  background: #e4572e;
+  color: #fff;
+  box-shadow: 0 0 0 5px rgba(228, 87, 46, 0.28), 0 0 16px rgba(228, 87, 46, 0.5);
+}
+.nido-plan__device-temp {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 4px);
+  padding: 1px 6px;
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(40, 25, 15, 0.18);
+  pointer-events: none;
+}
+
+/* Réglage d'un radiateur posé sur le plan : carte fixe en bas de l'écran,
+   le plan zoome et défile sans la déplacer. */
+.nido-thermo {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 60;
+  box-sizing: border-box;
+  width: min(320px, calc(100vw - 32px));
+  padding: 16px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in srgb, var(--ink-4) 55%, transparent);
+}
+.nido-thermo__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-inset);
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nido-thermo__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nido-thermo__step { flex: 0 0 52px; height: 52px; border-radius: 50%; }
+.nido-thermo__value {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink-1);
+}
+.nido-thermo__value small { font-size: 16px; color: var(--ink-3); margin-left: 2px; }
+.nido-thermo__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.nido-thermo__valve {
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+  color: var(--ink-2);
+}
+.nido-thermo__valve[data-open="true"] { background: #e4572e; color: #fff; }
+.n-eyebrow[data-valve="open"] { color: #e4572e; }
 
 .nido-plan-editor__device {
   position: absolute;
@@ -8030,7 +8141,6 @@
   background: none;
 }
 .nido-plan__panel .nido-history__svg { height: 80px; }
-.nido-plan__panel .nido-history__range { display: none; }
 .nido-plan__panel-head { position: relative; }
 .nido-plan__collapse {
   position: absolute;

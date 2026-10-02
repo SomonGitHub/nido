@@ -27,7 +27,7 @@ import {
   type PlacedOpening,
   type PlanRect,
 } from "../core/floor-plan";
-import { isEntityActive } from "../core/entities";
+import { isEntityActive, isRadiatorOpen } from "../core/entities";
 import { DOMAIN_ICON } from "./shared";
 import type { HousePlan, WallSide } from "../core/plan-store";
 import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-tint";
@@ -47,6 +47,7 @@ import { useMinuteTick } from "../core/use-minute-tick";
 import { POWER_ENTITY_ID } from "./energy";
 import { CameraPanel } from "../components/camera-panel";
 import { MeasureHistoryChart } from "../components/measure-history-chart";
+import { ThermostatPopover } from "../components/thermostat-popover";
 import {
   IconActivity,
   IconArrowRight,
@@ -232,6 +233,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
   const [layers, setLayers] = useState<PlanLayers>(() => loadPlanLayers());
   const [planTime, setPlanTime] = useState<PlanTime>(() => loadPlanTime());
   const [liveCamera, setLiveCamera] = useState<ResolvedEntity | null>(null);
+  const [thermostatId, setThermostatId] = useState<string | null>(null);
   /* La nuit suit le soleil de HA ; sans l'intégration Soleil, on reste en jour. */
   const sunDown = hass.states["sun.sun"]?.state === "below_horizon";
   const night = planTime === "night" || (planTime === "auto" && sunDown);
@@ -470,6 +472,10 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
       setLiveCamera(e);
       return;
     }
+    if (e.domain === "climate") {
+      setThermostatId((id) => (id === e.entity_id ? null : e.entity_id));
+      return;
+    }
     const on = isEntityActive(e);
     if (e.domain === "cover") hass.callService("cover", on ? "close_cover" : "open_cover", { entity_id: e.entity_id });
     else if (e.domain === "media_player") hass.callService("media_player", "media_play_pause", { entity_id: e.entity_id });
@@ -690,6 +696,20 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
     </div>
   );
 
+  const thermostat = thermostatId ? hass.states[thermostatId] : undefined;
+  const thermostatEntity = thermostatId
+    ? [...byArea.values()].flat().find((e) => e.entity_id === thermostatId)
+    : undefined;
+  const thermostatPanel = thermostatEntity && thermostat && (
+    <ThermostatPopover
+      hass={hass}
+      entityId={thermostatEntity.entity_id}
+      title={thermostatEntity.friendly_name}
+      open={isRadiatorOpen({ ...thermostatEntity, state: thermostat })}
+      onClose={() => setThermostatId(null)}
+    />
+  );
+
   const liveCameraPanel = liveCamera && (
     <CameraPanel
       hass={hass}
@@ -739,6 +759,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           {planView}
           {zoomButtons}
         </div>
+        {thermostatPanel}
         {liveCameraPanel}
       </div>
     );
@@ -775,6 +796,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
           {zoomButtons}
         </div>
         {panel}
+        {thermostatPanel}
         {liveCameraPanel}
       </div>
     );
@@ -847,14 +869,17 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
             ))}
         </div>
       </div>
-      {liveCameraPanel}
+      {thermostatPanel}
+        {liveCameraPanel}
     </div>
   );
 }
 
 function deviceStateLabel(e: ResolvedEntity): string {
-  const on = isEntityActive(e);
+  const on = e.domain === "climate" ? isRadiatorOpen(e) : isEntityActive(e);
   switch (e.domain) {
+    case "climate":
+      return on ? "ouverte" : "fermée";
     case "cover":
       return on ? "ouvert" : "fermé";
     case "media_player":
@@ -879,7 +904,9 @@ function PlanDeviceButton({
 }) {
   const size = Math.round(Math.max(28, Math.min(40, cell * 0.75)));
   const Ico = DOMAIN_ICON[entity.domain];
-  const on = isEntityActive(entity);
+  const isClimate = entity.domain === "climate";
+  const on = isClimate ? isRadiatorOpen(entity) : isEntityActive(entity);
+  const target = entity.state.attributes.temperature as number | undefined;
   return (
     <button
       type="button"
@@ -889,7 +916,9 @@ function PlanDeviceButton({
       aria-label={
         entity.domain === "camera"
           ? `${entity.friendly_name}, ${deviceStateLabel(entity)}. Toucher pour voir le live`
-          : `${entity.friendly_name}, ${deviceStateLabel(entity)}. Toucher pour basculer`
+          : isClimate
+            ? `${entity.friendly_name}, ${deviceStateLabel(entity)}. Toucher pour régler la température`
+            : `${entity.friendly_name}, ${deviceStateLabel(entity)}. Toucher pour basculer`
       }
       aria-pressed={on}
       title={entity.friendly_name}
@@ -905,6 +934,9 @@ function PlanDeviceButton({
       }}
     >
       {Ico && <Ico size={Math.round(size * 0.5)} />}
+      {isClimate && typeof target === "number" && (
+        <span class="nido-plan__device-temp">{(Math.round(target * 10) / 10).toLocaleString("fr-FR")}°</span>
+      )}
     </button>
   );
 }

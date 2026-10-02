@@ -122,6 +122,18 @@ export function coverPosition(e: ResolvedEntity): number {
   return 50;
 }
 
+/* Une tête thermostatique « ouverte » laisse passer l'eau chaude. hvac_action
+   le dit directement ; sans lui, on déduit depuis l'écart à la consigne. */
+export function isRadiatorOpen(e: ResolvedEntity): boolean {
+  const s = e.state.state;
+  if (s === "off" || s === "unavailable" || s === "unknown") return false;
+  const action = e.state.attributes.hvac_action as string | undefined;
+  if (action) return action === "heating";
+  const current = e.state.attributes.current_temperature as number | undefined;
+  const target = e.state.attributes.temperature as number | undefined;
+  return typeof current === "number" && typeof target === "number" && target > current;
+}
+
 export function isEntityActive(e: ResolvedEntity): boolean {
   const s = e.state.state;
   if (s === "unavailable" || s === "unknown") return false;

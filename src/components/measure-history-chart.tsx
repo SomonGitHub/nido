@@ -43,21 +43,38 @@ export function MeasureHistoryChart({
   const line = series.map((p, i) => `${i ? "L" : "M"}${x(p.t).toFixed(1)} ${y(p.v).toFixed(1)}`).join(" ");
   const last = series[series.length - 1];
   const fmt = (v: number) => v.toFixed(1).replace(".", ",");
+  const ticks = [hi, (hi + lo) / 2, lo];
 
   return (
     <section class="nido-history" aria-label={`${label} sur 24 heures`}>
       <div class="nido-history__head">
         <div class="n-eyebrow">{label} · 24 h</div>
-        <div class="nido-history__range">
-          min {fmt(lo)}
-          {unit} · max {fmt(hi)}
-          {unit}
-        </div>
       </div>
-      <svg class="nido-history__svg" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" role="img">
-        <path class="nido-history__area" d={`${line} L${x(last.t)} ${H} L${x(t0)} ${H} Z`} />
-        <path class="nido-history__line" d={line} vector-effect="non-scaling-stroke" />
-      </svg>
+      <div class="nido-history__plot">
+        <div class="nido-history__yaxis" aria-hidden="true">
+          {ticks.map((v) => (
+            <span key={v} style={{ top: `${(y(v) / H) * 100}%` }}>
+              {fmt(v)}
+              {unit}
+            </span>
+          ))}
+        </div>
+        <svg class="nido-history__svg" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" role="img">
+          {ticks.map((v) => (
+            <line
+              key={v}
+              class="nido-history__grid"
+              x1="0"
+              x2={W}
+              y1={y(v)}
+              y2={y(v)}
+              vector-effect="non-scaling-stroke"
+            />
+          ))}
+          <path class="nido-history__area" d={`${line} L${x(last.t)} ${H} L${x(t0)} ${H} Z`} />
+          <path class="nido-history__line" d={line} vector-effect="non-scaling-stroke" />
+        </svg>
+      </div>
       <div class="nido-history__axis" aria-hidden="true">
         <span>-24 h</span>
         <span>-12 h</span>

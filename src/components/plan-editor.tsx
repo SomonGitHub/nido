@@ -190,6 +190,8 @@ function deviceTapHint(domain: string | undefined): string {
       return "Sur le plan, un toucher la met en lecture ou en pause.";
     case "camera":
       return "Sur le plan, un toucher ouvre le live.";
+    case "climate":
+      return "Sur le plan, un toucher règle la température ; l'icône est orange quand la vanne est ouverte.";
     default:
       return "Sur le plan, un toucher l'allume ou l'éteint.";
   }
