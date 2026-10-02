@@ -14,6 +14,7 @@ import {
   tintStyle,
   type MeasureTint,
 } from "../core/measure-tint";
+import { MeasureHistoryChart } from "../components/measure-history-chart";
 import { IconChevronLeft, IconMore } from "../icons";
 import { pickAreaIcon, DOMAIN_LABEL, DragItem } from "./shared";
 import { renderWidget } from "./render-widget";
@@ -179,6 +180,16 @@ export function RoomDetail({
             </div>
           )}
         </section>
+
+        {stats.temperature && (
+          <MeasureHistoryChart
+            hass={hass}
+            entityId={stats.temperature.entityId}
+            label="Température"
+            unit={stats.temperature.unit || "°"}
+            current={parseFloat(stats.temperature.value)}
+          />
+        )}
 
         <div class="nido-room-detail__filters">
           <button

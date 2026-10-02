@@ -156,6 +156,7 @@ export function isEntityActive(e: ResolvedEntity): boolean {
 export interface RoomStat {
   value: string;
   unit: string;
+  entityId: string;
 }
 export interface RoomStats {
   temperature?: RoomStat;
@@ -364,11 +365,11 @@ export function extractRoomStats(entities: ResolvedEntity[]): RoomStats {
     const value = e.state.state;
     if (value === "unavailable" || value === "unknown") continue;
     if (dc === "temperature" && !stats.temperature) {
-      stats.temperature = { value, unit };
+      stats.temperature = { value, unit, entityId: e.entity_id };
     } else if (dc === "humidity" && !stats.humidity) {
-      stats.humidity = { value, unit };
+      stats.humidity = { value, unit, entityId: e.entity_id };
     } else if (dc === "illuminance" && !stats.illuminance) {
-      stats.illuminance = { value, unit };
+      stats.illuminance = { value, unit, entityId: e.entity_id };
     }
   }
   return stats;

@@ -258,6 +258,21 @@
           refresh();
         },
         callWS: async (msg) => {
+          if (msg.type === "recorder/statistics_during_period") {
+            const result = {};
+            const base = new Date(); base.setMinutes(0, 0, 0);
+            for (const id of (msg.statistic_ids || [])) {
+              const now = parseFloat(states[id]?.state) || 20;
+              result[id] = Array.from({ length: 24 }, (_, i) => {
+                const h = 24 - i;
+                return {
+                  start: base.getTime() - h * 3600000,
+                  mean: now + Math.sin((i - 8) / 24 * Math.PI * 2) * 1.8 + Math.sin(i * 1.7) * 0.2,
+                };
+              });
+            }
+            return result;
+          }
           if (msg.type === "calendar/events" || msg.type === "calendar/get_events") {
             const today = new Date();
             const dt = (offset, time) => {

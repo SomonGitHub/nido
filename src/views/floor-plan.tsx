@@ -46,6 +46,7 @@ import { durationLabel } from "../core/time-ago";
 import { useMinuteTick } from "../core/use-minute-tick";
 import { POWER_ENTITY_ID } from "./energy";
 import { CameraPanel } from "../components/camera-panel";
+import { MeasureHistoryChart } from "../components/measure-history-chart";
 import {
   IconActivity,
   IconArrowRight,
@@ -745,6 +746,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
 
   const panel = selectedRoom && (
     <RoomPanel
+      hass={hass}
       info={selectedRoom}
       floorLabel={floor.label}
       compact={variant === "phone"}
@@ -1204,6 +1206,7 @@ function PlanRoom({ info, rect, cell, surface, labelled, lod: planLod, layers, s
 }
 
 interface RoomPanelProps {
+  hass: HassObject;
   info: RoomInfo;
   floorLabel: string;
   compact: boolean;
@@ -1218,6 +1221,7 @@ interface RoomPanelProps {
 }
 
 function RoomPanel({
+  hass,
   info,
   floorLabel,
   compact,
@@ -1283,6 +1287,15 @@ function RoomPanel({
           </span>
         </div>
       </div>
+      {stats.temperature && (
+        <MeasureHistoryChart
+          hass={hass}
+          entityId={stats.temperature.entityId}
+          label="Température"
+          unit="°"
+          current={parseFloat(stats.temperature.value)}
+        />
+      )}
       {info.power && (
         <div class="nido-plan__panel-power">
           <IconBolt size={16} />
