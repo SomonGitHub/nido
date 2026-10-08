@@ -172,3 +172,18 @@
   .breathe-1, .breathe-2, .breathe-3, .breathe-4,
   .glow-pulse-1, .glow-pulse-2 { animation: none !important; }
 }
+
+/* Listes déroulantes natives : le popup suit le mode clair/sombre et
+   garde un contraste lisible (sinon texte clair sur fond blanc OS). */
+:host([data-mode="light"]) { color-scheme: light; }
+:host([data-mode="dark"]) { color-scheme: dark; }
+select option,
+select optgroup {
+  background-color: var(--bg-card-elev, var(--bg-card));
+  color: var(--ink-1);
+}
+select option:checked {
+  background-color: var(--accent);
+  color: var(--accent-ink, #fff);
+}
+select option:disabled { color: var(--ink-3); }

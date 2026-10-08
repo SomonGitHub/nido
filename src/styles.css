@@ -1175,9 +1175,9 @@
   min-width: 0;
   padding: 8px 10px;
   border-radius: var(--r-sm);
-  border: 1px solid rgba(var(--fg-rgb), 0.15);
+  border: 1.5px solid var(--ink-4);
   background: var(--bg-inset);
-  color: var(--fg);
+  color: var(--ink-1);
   font: inherit;
 }
 .nido-camera-panel__picker-save {
