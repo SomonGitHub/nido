@@ -46,7 +46,10 @@
         "lock.entree":  { entity_id: "lock.entree",  state: "locked",   attributes: { friendly_name: "Serrure entrée" },  last_changed: now, last_updated: now },
         "lock.garage":  { entity_id: "lock.garage",  state: "unlocked", attributes: { friendly_name: "Serrure garage" },  last_changed: now, last_updated: now },
 
-        "vacuum.robot": { entity_id: "vacuum.robot", state: "docked", attributes: { friendly_name: "Robot aspirateur", battery_level: 87 }, last_changed: now, last_updated: now },
+        "vacuum.robot": { entity_id: "vacuum.robot", state: "docked", attributes: { friendly_name: "Robot aspirateur" }, last_changed: now, last_updated: now },
+        "sensor.robot_battery": { entity_id: "sensor.robot_battery", state: "87", attributes: { friendly_name: "Robot batterie", device_class: "battery", unit_of_measurement: "%" }, last_changed: now, last_updated: now },
+        "sensor.robot_area_cleaned": { entity_id: "sensor.robot_area_cleaned", state: "23.5", attributes: { friendly_name: "Robot surface", unit_of_measurement: "m²" }, last_changed: now, last_updated: now },
+        "sensor.robot_cleaning_duration": { entity_id: "sensor.robot_cleaning_duration", state: "18", attributes: { friendly_name: "Robot durée", unit_of_measurement: "min" }, last_changed: now, last_updated: now },
 
         "sensor.salon_temperature": { entity_id: "sensor.salon_temperature", state: "21.4",  attributes: { friendly_name: "Température salon",  device_class: "temperature", unit_of_measurement: "°C" }, last_changed: now, last_updated: now },
         "sensor.salon_humidite":    { entity_id: "sensor.salon_humidite",    state: "47",    attributes: { friendly_name: "Humidité salon",     device_class: "humidity",    unit_of_measurement: "%" },  last_changed: now, last_updated: now },
