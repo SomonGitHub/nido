@@ -47,9 +47,10 @@
         "lock.garage":  { entity_id: "lock.garage",  state: "unlocked", attributes: { friendly_name: "Serrure garage" },  last_changed: now, last_updated: now },
 
         "vacuum.robot": { entity_id: "vacuum.robot", state: "docked", attributes: { friendly_name: "Robot aspirateur" }, last_changed: now, last_updated: now },
-        "sensor.robot_battery": { entity_id: "sensor.robot_battery", state: "87", attributes: { friendly_name: "Robot batterie", device_class: "battery", unit_of_measurement: "%" }, last_changed: now, last_updated: now },
-        "sensor.robot_area_cleaned": { entity_id: "sensor.robot_area_cleaned", state: "23.5", attributes: { friendly_name: "Robot surface", unit_of_measurement: "m²" }, last_changed: now, last_updated: now },
-        "sensor.robot_cleaning_duration": { entity_id: "sensor.robot_cleaning_duration", state: "18", attributes: { friendly_name: "Robot durée", unit_of_measurement: "min" }, last_changed: now, last_updated: now },
+        "select.robot_carte_active": { entity_id: "select.robot_carte_active", state: "Rez-de-chaussée", attributes: { friendly_name: "Robot carte active", options: ["Rez-de-chaussée", "Étage"] }, last_changed: now, last_updated: now },
+        "sensor.robot_batterie": { entity_id: "sensor.robot_batterie", state: "87", attributes: { friendly_name: "Robot batterie", device_class: "battery", unit_of_measurement: "%" }, last_changed: now, last_updated: now },
+        "sensor.robot_surface_nettoyee": { entity_id: "sensor.robot_surface_nettoyee", state: "23.5", attributes: { friendly_name: "Robot surface", unit_of_measurement: "m²" }, last_changed: now, last_updated: now },
+        "sensor.robot_duree_de_nettoyage": { entity_id: "sensor.robot_duree_de_nettoyage", state: "18", attributes: { friendly_name: "Robot durée", unit_of_measurement: "min" }, last_changed: now, last_updated: now },
 
         "sensor.salon_temperature": { entity_id: "sensor.salon_temperature", state: "21.4",  attributes: { friendly_name: "Température salon",  device_class: "temperature", unit_of_measurement: "°C" }, last_changed: now, last_updated: now },
         "sensor.salon_humidite":    { entity_id: "sensor.salon_humidite",    state: "47",    attributes: { friendly_name: "Humidité salon",     device_class: "humidity",    unit_of_measurement: "%" },  last_changed: now, last_updated: now },
@@ -232,6 +233,7 @@
           }
           else if (domain === "vacuum" && service === "start") states[id].state = "cleaning";
           else if (domain === "vacuum" && service === "return_to_base") states[id].state = "returning";
+          else if (domain === "select" && service === "select_option") states[id].state = data.option;
           else if (domain === "vacuum" && service === "pause") states[id].state = "paused";
           else if (domain === "media_player" && service === "media_play_pause") {
             states[id].state = states[id].state === "playing" ? "paused" : "playing";

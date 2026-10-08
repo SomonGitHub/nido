@@ -725,6 +725,30 @@
   letter-spacing: 0.04em;
   color: var(--ink-3);
 }
+.n-vacuum__map {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+.n-vacuum__map select {
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  cursor: pointer;
+}
+.n-vacuum__map select:disabled { opacity: 0.45; cursor: not-allowed; }
 .n-vacuum__error {
   margin-top: 4px;
   font-size: 12px;

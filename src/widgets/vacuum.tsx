@@ -25,11 +25,13 @@ const NO_ERROR = new Set(["", "0", "no_error", "none", "unknown", "unavailable"]
 
 /* Les capteurs d'un aspirateur (Ecovacs, Roborock…) partagent son préfixe
    d'entity_id : vacuum.deebot_t30 → sensor.deebot_t30_battery. */
-function siblingSensor(hass: HassObject, entityId: string, suffix: string) {
+function sibling(hass: HassObject, entityId: string, domain: string, suffixes: string[]) {
   const prefix = entityId.slice(entityId.indexOf(".") + 1);
-  const s = hass.states[`sensor.${prefix}_${suffix}`];
-  if (!s || s.state === "unavailable" || s.state === "unknown") return undefined;
-  return s;
+  for (const suffix of suffixes) {
+    const s = hass.states[`${domain}.${prefix}_${suffix}`];
+    if (s && s.state !== "unavailable" && s.state !== "unknown") return s;
+  }
+  return undefined;
 }
 
 function formatMeasure(s: { state: string; attributes: Record<string, unknown> } | undefined) {
@@ -62,7 +64,7 @@ export function VacuumWidget({
   const [pending, setPending] = useState(false);
 
   const batteryAttr = entity.state.attributes.battery_level as number | undefined;
-  const batterySensor = Number(siblingSensor(hass, entity.entity_id, "battery")?.state);
+  const batterySensor = Number(sibling(hass, entity.entity_id, "sensor", ["batterie", "battery"])?.state);
   const battery =
     typeof batteryAttr === "number"
       ? batteryAttr
@@ -70,13 +72,26 @@ export function VacuumWidget({
         ? batterySensor
         : undefined;
 
-  const area = formatMeasure(siblingSensor(hass, entity.entity_id, "area_cleaned"));
-  const duration = formatMeasure(siblingSensor(hass, entity.entity_id, "cleaning_duration"));
+  const area = formatMeasure(sibling(hass, entity.entity_id, "sensor", ["surface_nettoyee", "area_cleaned"]));
+  const duration = formatMeasure(sibling(hass, entity.entity_id, "sensor", ["duree_de_nettoyage", "cleaning_duration"]));
   const showSession = (isCleaning || isReturning || isPaused) && (area || duration);
 
-  const errorSensor = siblingSensor(hass, entity.entity_id, "error")?.state;
+  const errorSensor = sibling(hass, entity.entity_id, "sensor", ["erreur", "error"])?.state;
   const errorAttr = entity.state.attributes.error as string | undefined;
   const errorText = [errorAttr, errorSensor].find((e) => e && !NO_ERROR.has(e.toLowerCase()));
+
+  const mapSelect = sibling(hass, entity.entity_id, "select", ["carte_active", "active_map"]);
+  const mapOptions = (mapSelect?.attributes.options as string[] | undefined) ?? [];
+
+  const changeMap = async (option: string) => {
+    if (!mapSelect || pending) return;
+    setPending(true);
+    try {
+      await hass.callService("select", "select_option", { entity_id: mapSelect.entity_id, option });
+    } finally {
+      setPending(false);
+    }
+  };
 
   const call = async (service: VacuumService) => {
     if (unavailable || pending) return;
@@ -131,6 +146,23 @@ export function VacuumWidget({
           {area && <span>{area}</span>}
           {duration && <span>{duration}</span>}
         </div>
+      )}
+
+      {mapSelect && mapOptions.length > 0 && (
+        <label class="n-vacuum__map">
+          <span>Carte</span>
+          <select
+            value={mapSelect.state}
+            disabled={pending || isCleaning || isReturning}
+            onChange={(e) => changeMap((e.currentTarget as HTMLSelectElement).value)}
+          >
+            {mapOptions.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+        </label>
       )}
 
       {!unavailable && (
