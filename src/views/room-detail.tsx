@@ -101,7 +101,7 @@ export function RoomDetail({
     <div class="nido-shell">
       <div class="nido-dashboard nido-room-detail">
         <header class="nido-room-detail__header">
-          <button type="button" class="n-icon-btn nido-room-detail__back" onClick={onBack}>
+          <button type="button" class="n-icon-btn nido-room-detail__back" onClick={onBack} aria-label="Retour">
             <IconChevronLeft size={18} />
           </button>
           <div class="nido-room-detail__crumb">
@@ -109,7 +109,7 @@ export function RoomDetail({
             <div class="nido-room-detail__brand">nido</div>
           </div>
           <div class="nido-room-detail__head-actions">
-            <button type="button" class="n-icon-btn">
+            <button type="button" class="n-icon-btn" aria-label="Plus">
               <IconMore size={18} />
             </button>
           </div>

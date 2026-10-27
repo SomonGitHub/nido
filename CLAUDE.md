@@ -31,7 +31,8 @@ nido-dashboard/                # = racine du repo HACS
   README.md, info.md, LICENSE  # docs HACS
   .github/workflows/
     validate.yml               # hacs/action + typecheck + build sur push et PR
-    release.yml                # sur push de tag v*, attache nido.js (+ sourcemap) à la GitHub Release
+    release.yml                # sur push de tag v* ou lancement manuel (tag + commit en entrée),
+                               #   attache nido.js (+ sourcemap) à la GitHub Release
   index.html                   # dev only, mock hass complet pour tous les domaines
   src/
     nido-panel.ts              # Custom Element <nido-panel>, Shadow DOM, applique theme + render Preact
@@ -339,12 +340,16 @@ Dans `RoomDetail`, on passe la liste **filtrée** au hook ; sur reorder, on reco
 **Sortir une nouvelle release** :
 ```bash
 npm version patch          # bump version
-npm run release            # typecheck + build → ./nido.js
+npm run release            # typecheck + tests + build → ./nido.js
 git add nido.js package.json package-lock.json
 git commit -m "release: v$(node -p \"require('./package.json').version\")"
 git push
 git push --tags            # release.yml crée la GitHub Release et attache nido.js
 ```
+
+Sans push de tag possible (session cloud : le proxy git refuse les tags), lancer `release.yml`
+à la main — onglet Actions → Release → Run workflow, ou API `workflow_dispatch` — avec
+`tag: vX.Y.Z` et `ref` = le commit « release: » ; l'action crée le tag et la release.
 
 ## Style et ton du code
 

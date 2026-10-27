@@ -57,6 +57,7 @@ export function LockWidget({ hass, entity, roomLabel }: LockWidgetProps) {
           type="button"
           class="n-toggle"
           role="switch"
+          aria-label={entity.friendly_name}
           aria-checked={isLocked}
           disabled={unavailable || transient || pending}
           onClick={toggle}

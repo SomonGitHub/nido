@@ -46,6 +46,7 @@ export function SwitchWidget({
           type="button"
           class="n-toggle"
           role="switch"
+          aria-label={entity.friendly_name}
           aria-checked={isOn}
           disabled={unavailable || pending}
           onClick={toggle}

@@ -50,6 +50,7 @@ function LightRow({ hass, entity }: LightRowProps) {
         type="button"
         class="n-toggle"
         role="switch"
+        aria-label={entity.friendly_name}
         aria-checked={isOn}
         disabled={pending}
         onClick={toggle}

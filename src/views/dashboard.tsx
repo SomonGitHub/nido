@@ -899,6 +899,8 @@ export function Dashboard({
               type="button"
               class="n-pill-btn n-pill-btn--ghost"
               onClick={onConfigure}
+              aria-label="Personnaliser"
+              title="Personnaliser"
             >
               <IconSettings size={16} />
             </button>
