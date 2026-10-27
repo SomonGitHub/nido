@@ -44,7 +44,6 @@ import {
 } from "../core/storage";
 import { durationLabel } from "../core/time-ago";
 import { useMinuteTick } from "../core/use-minute-tick";
-import { POWER_ENTITY_ID } from "./energy";
 import { CameraPanel } from "../components/camera-panel";
 import { MeasureHistoryChart } from "../components/measure-history-chart";
 import { ThermostatPopover } from "../components/thermostat-popover";
@@ -78,6 +77,8 @@ interface FloorPlanProps {
   byArea: Map<string | null, ResolvedEntity[]>;
   variant: FloorPlanVariant;
   plan: HousePlan;
+  /** Compteur général : exclu du calque Énergie, il mesure toute la maison. */
+  mainPowerEntityId?: string | null;
   onOpenRoom: (areaId: string) => void;
   /** Absent : pas de bouton « Modifier le plan » (téléphone, Echo Show, non-admin). */
   onEdit?: (floorKey: string) => void;
@@ -124,11 +125,11 @@ const ENERGY_MAX_W = 3000;
 
 /* Somme des capteurs de puissance de la pièce, compteur général exclu (il
    mesure toute la maison, pas la pièce où il est rangé). */
-function roomPower(entities: ResolvedEntity[]): RoomPower | null {
+function roomPower(entities: ResolvedEntity[], mainPowerEntityId: string | null): RoomPower | null {
   let watts = 0;
   let top: RoomPower["top"] | null = null;
   for (const e of entities) {
-    if (e.domain !== "sensor" || e.entity_id === POWER_ENTITY_ID) continue;
+    if (e.domain !== "sensor" || e.entity_id === mainPowerEntityId) continue;
     if (e.state.attributes.device_class !== "power") continue;
     const raw = parseFloat(e.state.state);
     if (!Number.isFinite(raw)) continue;
@@ -212,7 +213,7 @@ function legendGradient(): string {
   return `linear-gradient(90deg, ${stops.join(", ")})`;
 }
 
-export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRoom, onEdit }: FloorPlanProps) {
+export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowerEntityId = null, onOpenRoom, onEdit }: FloorPlanProps) {
   const now = useMinuteTick();
   const planFloors = useMemo(() => {
     const grouped = groupAreasByFloor(areas, floors);
@@ -269,7 +270,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, onOpenRo
         critical: summary.alerts.find((a) => !OPENING_KINDS.has(a.kind)) ?? null,
         occupancy: detectOccupancy(list),
         motionAgo: motionAgo(list, now),
-        power: roomPower(list),
+        power: roomPower(list, mainPowerEntityId),
       });
     }
     return map;

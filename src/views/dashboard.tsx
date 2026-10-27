@@ -65,7 +65,7 @@ import { CoversPanel } from "../components/covers-panel";
 import { OpeningsPanel } from "../components/openings-panel";
 import { ShoppingPanel } from "../components/shopping-panel";
 import { PowerGaugeWidget } from "../widgets/power-gauge";
-import { POWER_ENTITY_ID } from "./energy";
+import type { EnergyConfig } from "../core/energy-config";
 import { KidsCard } from "../widgets/kids-card";
 import { KidsPanel } from "../components/kids-panel";
 import { useKidsSync } from "../core/kids-sync";
@@ -76,6 +76,7 @@ import { durationLabel } from "../core/time-ago";
 
 interface DashboardProps {
   hass: HassObject;
+  energy: EnergyConfig;
   areas: Area[];
   floors: Floor[];
   entities: ResolvedEntity[];
@@ -500,6 +501,7 @@ function RoomCard({
 
 export function Dashboard({
   hass,
+  energy,
   areas,
   floors,
   entities,
@@ -771,7 +773,7 @@ export function Dashboard({
     ) : null;
 
   const showEnergy =
-    !!onOpenEnergy && exposedSet.has(POWER_ENTITY_ID) && !!hass.states[POWER_ENTITY_ID];
+    !!onOpenEnergy && !!energy.power && exposedSet.has(energy.power) && !!hass.states[energy.power];
 
   const hasContent = exposedEntities.length > 0;
 
@@ -927,7 +929,7 @@ export function Dashboard({
                   <div class="nido-energy-summary">
                     <PowerGaugeWidget
                       hass={hass}
-                      powerEntityId={POWER_ENTITY_ID}
+                      powerEntityId={energy.power!}
                       onOpen={onOpenEnergy}
                     />
                   </div>
@@ -983,6 +985,7 @@ export function Dashboard({
                     byArea={byArea}
                     variant={roomLayout === "phone" ? "phone" : "wide"}
                     plan={plan}
+                    mainPowerEntityId={energy.power}
                     onOpenRoom={onOpenRoom}
                     onEdit={canEditPlan ? setEditingFloor : undefined}
                   />

@@ -217,6 +217,22 @@ Le widget `weather` s'affiche comme les autres domaines dans le grid. En plus, u
 
 Nido lit `sensor.nido_notifications` (attribut `notifications: NidoNotification[]`). Chaque notification a `id`, `title`, `message`, `type` (info/warning/success), `timestamp`. Le dashboard affiche une cloche avec badge si `notifications` contient des entrées plus récentes que `nido.lastNotificationRead`. Le panneau `NotificationPanel` permet de consulter et dismiss (via `fire_event` → `nido_notification_event`).
 
+## Énergie
+
+Les entités du compteur ne sont plus codées en dur : `EnergyConfig` (`core/energy-config.ts`)
+porte `power`, `dailyKwh`, `dailyCost`, `price` et `subscribedKva`, résolue dans `app.tsx` et
+passée à `Dashboard`, `EnergyPage`, `CompactDashboard` et `FloorPlan` (`mainPowerEntityId`).
+
+- **Choix** : `nido.energy` (par appareil). Clé absente = détection auto, `null` = « Aucun »,
+  chaîne = entité forcée. Réglage dans l'onboarding, étape Vos appareils → Compteur électrique
+  (`components/energy-settings.tsx`) ; choisir la puissance ou la conso du jour les expose.
+- **Détection** (`detectEnergy`) : les anciennes entités en dur d'abord (l'installation d'origine
+  ne change pas), sinon seulement sur un indice clair — nom de compteur (`linky`, `papp`,
+  `compteur`, `maison`…) pour la puissance, `meter_period: daily` ou « jour/daily » pour la conso
+  et le coût, unité `€/kWh` pour le prix. Une prise connectée prise pour le compteur afficherait
+  une jauge fausse : mieux vaut aucune jauge.
+- La jauge de l'accueil et la page Énergie n'apparaissent que si `energy.power` est **exposé**.
+
 ## Pièges connus
 
 - **Pas de `setAttribute` dans le constructor** d'un Custom Element : `NotSupportedError`. Toujours dans `connectedCallback`.

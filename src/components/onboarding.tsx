@@ -13,9 +13,13 @@ import {
   saveExposed,
   saveExcludedUsers,
   saveKidsEnabled,
+  saveEnergyConfig,
   setOnboarded,
 } from "../core/storage";
+import type { StoredEnergyConfig } from "../core/energy-config";
+import { EnergySettings } from "./energy-settings";
 import {
+  IconBolt,
   IconArrowRight,
   IconArrowLeft,
   IconCheck,
@@ -100,6 +104,7 @@ interface OnboardingProps {
   initialFavorites: string[];
   initialExcludedUsers: string[];
   initialKidsEnabled: boolean;
+  initialEnergy: StoredEnergyConfig;
   isReturning: boolean;
   onApplyTheme: (theme: ThemeName, mode: ThemeMode) => void;
   onClose: () => void;
@@ -110,6 +115,7 @@ interface OnboardingProps {
     mode: ThemeMode;
     excludedUsers: string[];
     kidsEnabled: boolean;
+    energy: StoredEnergyConfig;
   }) => void;
 }
 
@@ -124,6 +130,7 @@ export function Onboarding(props: OnboardingProps) {
     initialFavorites,
     initialExcludedUsers,
     initialKidsEnabled,
+    initialEnergy,
     isReturning,
     onApplyTheme,
     onClose,
@@ -140,6 +147,7 @@ export function Onboarding(props: OnboardingProps) {
     new Set(initialExcludedUsers),
   );
   const [kidsEnabled, setKidsEnabled] = useState<boolean>(initialKidsEnabled);
+  const [energy, setEnergy] = useState<StoredEnergyConfig>(initialEnergy);
   const [users, setUsers] = useState<HassUser[] | null>(null);
   const [usersError, setUsersError] = useState<string | null>(null);
 
@@ -220,6 +228,7 @@ export function Onboarding(props: OnboardingProps) {
     saveFavorites(favsArr);
     saveExcludedUsers(excludedArr);
     saveKidsEnabled(kidsEnabled);
+    saveEnergyConfig(energy);
     setOnboarded(true);
     onDone({
       exposed: exposedArr,
@@ -228,6 +237,7 @@ export function Onboarding(props: OnboardingProps) {
       mode,
       excludedUsers: excludedArr,
       kidsEnabled,
+      energy,
     });
   };
 
@@ -237,6 +247,7 @@ export function Onboarding(props: OnboardingProps) {
     saveFavorites(Array.from(favs).filter((id) => exposed.has(id)));
     saveExcludedUsers(Array.from(excludedUsers));
     saveKidsEnabled(kidsEnabled);
+    saveEnergyConfig(energy);
     setOnboarded(true);
     onClose();
   };
@@ -287,6 +298,15 @@ export function Onboarding(props: OnboardingProps) {
               favs={favs}
               onToggleExpose={toggleExpose}
               onToggleFav={toggleFav}
+              energyPanel={
+                <EnergySettings
+                  states={hass.states}
+                  stored={energy}
+                  exposed={exposed}
+                  onChange={setEnergy}
+                  onExpose={toggleExpose}
+                />
+              }
             />
           )}
           {step === 3 && (
@@ -539,14 +559,17 @@ function StepConnect({ entitiesCount, areasCount }: { entitiesCount: number; are
 }
 
 /* ─── Step 2 — Entities ─── */
+const ENERGY_TAB = "__energy";
+
 function StepEntities(props: {
   entities: ResolvedEntity[];
   exposed: Set<string>;
   favs: Set<string>;
   onToggleExpose: (id: string) => void;
   onToggleFav: (id: string) => void;
+  energyPanel: JSX.Element;
 }) {
-  const { entities, exposed, favs, onToggleExpose, onToggleFav } = props;
+  const { entities, exposed, favs, onToggleExpose, onToggleFav, energyPanel } = props;
 
   const groups = useMemo(() => {
     const map = new Map<string, ResolvedEntity[]>();
@@ -560,7 +583,8 @@ function StepEntities(props: {
 
   const [activeDomain, setActiveDomain] = useState<string>(groups[0]?.[0] ?? "light");
   const [query, setQuery] = useState("");
-  const active = groups.find(([d]) => d === activeDomain) ?? groups[0];
+  const showEnergy = activeDomain === ENERGY_TAB;
+  const active = showEnergy ? undefined : groups.find(([d]) => d === activeDomain) ?? groups[0];
   const totalExposed = exposed.size;
   const totalAvailable = entities.filter((e) => PICKABLE_DOMAINS.includes(e.domain)).length;
   const q = query.trim().toLowerCase();
@@ -588,6 +612,16 @@ function StepEntities(props: {
             : `appareil${totalExposed > 1 ? "s" : ""} exposé${totalExposed > 1 ? "s" : ""}`}
         </div>
         <div class="n-ob-ent__list">
+          <button
+            type="button"
+            class={`n-ob-ent__rail-row n-ob-ent__rail-row--energy ${showEnergy ? "is-active" : ""}`}
+            onClick={() => setActiveDomain(ENERGY_TAB)}
+          >
+            <span class="n-ob-ent__rail-icon">
+              <IconBolt size={15} />
+            </span>
+            <span class="n-ob-ent__rail-label">Compteur électrique</span>
+          </button>
           {groups.map(([domain, items]) => {
             const meta = DOMAIN_META[domain];
             const Icon = meta.Icon;
@@ -613,6 +647,17 @@ function StepEntities(props: {
       </aside>
 
       <section class="n-ob-ent__main">
+        {showEnergy && (
+          <>
+            <div class="n-ob-ent__head">
+              <div>
+                <div class="n-ob__eyebrow">Page Énergie</div>
+                <h3 class="n-ob-ent__title">Compteur électrique</h3>
+              </div>
+            </div>
+            {energyPanel}
+          </>
+        )}
         {active && (
           <>
             <div class="n-ob-ent__head">

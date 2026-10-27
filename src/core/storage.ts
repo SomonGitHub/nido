@@ -1,3 +1,5 @@
+import { parseStoredEnergy, type StoredEnergyConfig } from "./energy-config";
+
 const KEYS = {
   favorites: "nido.favorites",
   exposed: "nido.exposed",
@@ -14,6 +16,7 @@ const KEYS = {
   planLayers: "nido.planLayers",
   planTime: "nido.planTime",
   youAreHere: "nido.youAreHere",
+  energy: "nido.energy",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -162,6 +165,20 @@ export function saveCameraLiveMapping(snapshotEntityId: string, liveEntityId: st
   const map = loadCameraLiveMap();
   map[snapshotEntityId] = liveEntityId;
   s.setItem(KEYS.cameraLiveMap, JSON.stringify(map));
+}
+
+export function loadEnergyConfig(): StoredEnergyConfig {
+  const raw = safeStorage()?.getItem(KEYS.energy);
+  if (!raw) return {};
+  try {
+    return parseStoredEnergy(JSON.parse(raw));
+  } catch {
+    return {};
+  }
+}
+
+export function saveEnergyConfig(value: StoredEnergyConfig): void {
+  safeStorage()?.setItem(KEYS.energy, JSON.stringify(value));
 }
 
 export function loadKidsEnabled(): boolean {

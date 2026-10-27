@@ -13,6 +13,7 @@ import {
   loadExcludedUsers,
   loadExposed,
   loadFavorites,
+  loadEnergyConfig,
   loadKidsEnabled,
   loadRoomEntitiesOrder,
   loadRoomsOrder,
@@ -25,7 +26,8 @@ import {
 } from "./core/storage";
 import { Dashboard } from "./views/dashboard";
 import { RoomDetail } from "./views/room-detail";
-import { EnergyPage, POWER_ENTITY_ID } from "./views/energy";
+import { EnergyPage } from "./views/energy";
+import { resolveEnergyConfig, type StoredEnergyConfig } from "./core/energy-config";
 import { Onboarding } from "./components/onboarding";
 import { CompactDashboard } from "./views/compact";
 import { useCompactLayout } from "./core/use-compact-layout";
@@ -59,6 +61,7 @@ export function App({ hass, host }: AppProps) {
   const [exposed, setExposed] = useState<string[]>(() => loadExposed());
   const [excludedUsers, setExcludedUsers] = useState<string[]>(() => loadExcludedUsers());
   const [kidsEnabled, setKidsEnabled] = useState<boolean>(() => loadKidsEnabled());
+  const [energyStored, setEnergyStored] = useState<StoredEnergyConfig>(() => loadEnergyConfig());
   const [roomsOrder, setRoomsOrder] = useState<string[]>(() => loadRoomsOrder());
   const [roomEntitiesOrder, setRoomEntitiesOrder] = useState<Record<string, string[]>>(
     () => loadRoomEntitiesOrder(),
@@ -145,6 +148,11 @@ export function App({ hass, host }: AppProps) {
     return resolveEntities(hass, registry, devices);
   }, [hass?.states, registry, devices]);
 
+  const energy = useMemo(
+    () => resolveEnergyConfig(energyStored, hass?.states ?? {}),
+    [energyStored, hass?.states],
+  );
+
   const applyTheme = (theme: ThemeName, mode: ThemeMode) => {
     host?.applyTheme?.(theme, mode);
   };
@@ -190,7 +198,7 @@ export function App({ hass, host }: AppProps) {
   );
 
   const energyAvailable =
-    !!hass.states[POWER_ENTITY_ID] && exposedSet.has(POWER_ENTITY_ID);
+    !!energy.power && !!hass.states[energy.power] && exposedSet.has(energy.power);
 
   return (
     <>
@@ -204,11 +212,13 @@ export function App({ hass, host }: AppProps) {
           exposed={exposed}
           roomsOrder={roomsOrder}
           plan={housePlan}
+          energy={energy}
           onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
         />
       ) : view.kind === "energy" ? (
         <EnergyPage
           hass={hass}
+          energy={energy}
           entities={entities}
           exposed={exposed}
           areas={areas}
@@ -217,6 +227,7 @@ export function App({ hass, host }: AppProps) {
       ) : view.kind === "dashboard" || !currentArea ? (
         <Dashboard
           hass={hass}
+          energy={energy}
           areas={areas}
           floors={floors}
           entities={entities}
@@ -256,6 +267,7 @@ export function App({ hass, host }: AppProps) {
           initialFavorites={favorites}
           initialExcludedUsers={excludedUsers}
           initialKidsEnabled={kidsEnabled}
+          initialEnergy={energyStored}
           isReturning={isOnboarded()}
           onApplyTheme={applyTheme}
           onClose={() => setShowOnboarding(false)}
@@ -264,6 +276,7 @@ export function App({ hass, host }: AppProps) {
             setFavorites(state.favorites);
             setExcludedUsers(state.excludedUsers);
             setKidsEnabled(state.kidsEnabled);
+            setEnergyStored(state.energy);
             setShowOnboarding(false);
           }}
         />
