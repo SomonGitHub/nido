@@ -29,6 +29,7 @@ import {
   IconSensor,
   IconFloorPlan,
 } from "../icons";
+import { memo, propsEqual, sameEntity } from "../core/memo";
 
 interface CompactDashboardProps {
   hass: HassObject;
@@ -557,7 +558,7 @@ function brightnessPct(entity: ResolvedEntity): number {
   return Math.round((b / 255) * 100);
 }
 
-function CompactHeroLight({ hass, entity }: { hass: HassObject; entity: ResolvedEntity }) {
+function CompactHeroLightView({ hass, entity }: { hass: HassObject; entity: ResolvedEntity }) {
   const isOn = entity.state.state === "on";
   const [draftPct, setDraftPct] = useState<number | null>(null);
   const pct = draftPct ?? brightnessPct(entity);
@@ -644,7 +645,7 @@ function CompactWeatherRow({ entity, timeStr }: { entity: ResolvedEntity; timeSt
   );
 }
 
-function CompactMedia({ hass, entity }: { hass: HassObject; entity: ResolvedEntity }) {
+function CompactMediaView({ hass, entity }: { hass: HassObject; entity: ResolvedEntity }) {
   const isPlaying = entity.state.state === "playing";
   const title = (entity.state.attributes.media_title as string | undefined) ?? entity.friendly_name;
   const artist = entity.state.attributes.media_artist as string | undefined;
@@ -843,7 +844,7 @@ async function toggleControl(hass: HassObject, entity: ResolvedEntity): Promise<
   }
 }
 
-function MiniControl({ hass, entity }: { hass: HassObject; entity: ResolvedEntity }) {
+function MiniControlView({ hass, entity }: { hass: HassObject; entity: ResolvedEntity }) {
   const [pending, setPending] = useState(false);
   const Icon = DOMAIN_ICON[entity.domain] ?? IconSensor;
   const on = isHighlighted(entity);
@@ -1009,3 +1010,9 @@ function CompactAmbient({
     </div>
   );
 }
+
+/* Tuiles qui ne lisent que leur entité : `hass` ne sert qu'à appeler un service. */
+const tileEqual = propsEqual<{ hass: HassObject; entity: ResolvedEntity }>({ hass: "skip", entity: sameEntity });
+const CompactHeroLight = memo(CompactHeroLightView, tileEqual);
+const CompactMedia = memo(CompactMediaView, tileEqual);
+const MiniControl = memo(MiniControlView, tileEqual);
