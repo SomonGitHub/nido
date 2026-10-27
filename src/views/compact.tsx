@@ -9,7 +9,7 @@ import { applyOrder } from "../core/drag-reorder";
 import { greetingFor } from "./dashboard";
 import { SUPPORTED_DOMAINS } from "./render-widget";
 import { DOMAIN_ICON } from "./shared";
-import { DAILY_KWH_ENTITY_ID } from "./energy";
+import type { EnergyConfig } from "../core/energy-config";
 import { fetchCalendarEvents } from "../widgets/calendar";
 import { describeCondition } from "../widgets/weather";
 import { parseHassEvents, type CalendarEvent } from "../core/calendar-events";
@@ -40,6 +40,7 @@ interface CompactDashboardProps {
   exposed: string[];
   roomsOrder: string[];
   plan: HousePlan;
+  energy: EnergyConfig;
   onOpenRoom: (areaId: string) => void;
 }
 
@@ -130,6 +131,7 @@ export function CompactDashboard({
   exposed,
   roomsOrder,
   plan,
+  energy,
   onOpenRoom,
 }: CompactDashboardProps) {
   const [view, setView] = useState<CompactView>("glance");
@@ -229,12 +231,13 @@ export function CompactDashboard({
     [mediaEntities],
   );
 
-  const dailyKwhState = hass.states[DAILY_KWH_ENTITY_ID];
+  const dailyKwhId = energy.dailyKwh;
+  const dailyKwhState = dailyKwhId ? hass.states[dailyKwhId] : undefined;
   const dailyKwhValue = useMemo(() => {
-    if (!dailyKwhState || !exposedSet.has(DAILY_KWH_ENTITY_ID)) return null;
+    if (!dailyKwhState || !dailyKwhId || !exposedSet.has(dailyKwhId)) return null;
     const n = Number(dailyKwhState.state);
     return Number.isFinite(n) ? n : null;
-  }, [dailyKwhState, exposedSet]);
+  }, [dailyKwhState, dailyKwhId, exposedSet]);
 
   const activeLightsCount = useMemo(
     () => lightEntities.filter(isEntityActive).length,
@@ -317,6 +320,7 @@ export function CompactDashboard({
               byArea={byArea}
               variant="compact"
               plan={plan}
+              mainPowerEntityId={energy.power}
               onOpenRoom={onOpenRoom}
             />
           )}

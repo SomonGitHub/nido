@@ -2962,6 +2962,55 @@
   margin: 0;
 }
 .n-ob-ent__head-actions { display: flex; gap: 8px; }
+
+/* Compteur électrique : entrée à part au-dessus des domaines, puis un formulaire. */
+.n-ob-ent__rail-row--energy { margin-bottom: 8px; }
+.n-ob-energy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+.n-ob-energy > .n-ob__hint { margin: 0 0 6px; }
+.n-ob-energy__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  border-radius: var(--r-sm);
+  background: var(--bg-card);
+}
+.n-ob-energy__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.n-ob-energy__label { font-size: 14px; font-weight: 600; color: var(--ink-1); }
+.n-ob-energy__hint { font-size: 12px; color: var(--ink-2); }
+.n-ob-energy__select {
+  min-width: 0;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--ink-4);
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  font: inherit;
+  font-size: 13px;
+}
+.n-ob-energy__note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  background: var(--bg-inset);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.n-ob-energy__note .n-pill-btn { flex: 0 0 auto; white-space: nowrap; }
+@media (max-width: 760px) {
+  .n-ob-energy__row { grid-template-columns: 1fr; gap: 8px; }
+  .n-ob-ent__rail-row--energy { margin-bottom: 0; }
+}
 .n-ob-ent__search {
   display: flex;
   align-items: center;

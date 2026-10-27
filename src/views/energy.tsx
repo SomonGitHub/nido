@@ -7,29 +7,25 @@ import { PowerGaugeWidget } from "../widgets/power-gauge";
 import { SubscriptionGuardWidget } from "../widgets/subscription-guard";
 import { Hourly24hWidget } from "../widgets/hourly-24h";
 import { Top5ConsumersWidget } from "../widgets/top-consumers";
-
-export const POWER_ENTITY_ID = "sensor.consommation_electrique_sinsts";
-export const DAILY_KWH_ENTITY_ID = "sensor.conso";
-export const DAILY_COST_ENTITY_ID = "sensor.conso_daily";
-export const PRICE_KWH_ENTITY_ID = "select.conso_hebdomadaire_2_en_eur";
-const SUBSCRIBED_KVA = 9;
+import type { EnergyConfig } from "../core/energy-config";
 
 interface EnergyPageProps {
   hass: HassObject;
+  energy: EnergyConfig;
   entities: ResolvedEntity[];
   exposed: string[];
   areas: Area[];
   onBack: () => void;
 }
 
-export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPageProps) {
+export function EnergyPage({ hass, energy, entities, exposed, areas, onBack }: EnergyPageProps) {
   const exposedSet = useMemo(() => new Set(exposed), [exposed]);
   const exposedEntities = useMemo(
     () => entities.filter((e) => exposedSet.has(e.entity_id)),
     [entities, exposedSet],
   );
 
-  const powerEntity = hass.states[POWER_ENTITY_ID];
+  const powerEntity = energy.power ? hass.states[energy.power] : undefined;
   const powerAvailable =
     !!powerEntity && powerEntity.state !== "unavailable" && powerEntity.state !== "unknown";
 
@@ -41,7 +37,7 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
   const powerUnit =
     (powerEntity?.attributes.unit_of_measurement as string | undefined) ?? "W";
 
-  const dailyKwhEntity = hass.states[DAILY_KWH_ENTITY_ID];
+  const dailyKwhEntity = energy.dailyKwh ? hass.states[energy.dailyKwh] : undefined;
   const dailyKwhValue = useMemo(() => {
     if (!dailyKwhEntity) return null;
     const n = Number(dailyKwhEntity.state);
@@ -49,7 +45,7 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
   }, [dailyKwhEntity]);
   const dailyKwhUnit = (dailyKwhEntity?.attributes.unit_of_measurement as string | undefined) ?? "kWh";
 
-  const dailyCostEntity = hass.states[DAILY_COST_ENTITY_ID];
+  const dailyCostEntity = energy.dailyCost ? hass.states[energy.dailyCost] : undefined;
   const dailyCostValue = useMemo(() => {
     if (!dailyCostEntity) return null;
     const n = Number(dailyCostEntity.state);
@@ -57,7 +53,7 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
   }, [dailyCostEntity]);
   const dailyCostUnit = (dailyCostEntity?.attributes.unit_of_measurement as string | undefined) ?? "€";
 
-  const priceEntity = hass.states[PRICE_KWH_ENTITY_ID];
+  const priceEntity = energy.price ? hass.states[energy.price] : undefined;
   const priceValue = useMemo(() => {
     if (!priceEntity) return null;
     const s = priceEntity.state;
@@ -116,7 +112,7 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
                 <span class="nido-energy__sep" />
                 <span class="nido-energy__live">
                   <span class="nido-energy__live-dot" />
-                  Données live · Linky
+                  Données live · {/linky|sinsts/i.test(`${energy.power} ${powerEntity?.attributes.friendly_name ?? ""}`) ? "Linky" : "Compteur"}
                 </span>
               </div>
               <h1 class="nido-energy__title">Énergie</h1>
@@ -161,8 +157,14 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
         {!powerAvailable ? (
           <div class="nido-empty">
             <p class="n-muted">
-              L'entité de puissance <code>{POWER_ENTITY_ID}</code> n'est pas disponible.
-              Vérifiez qu'elle est exposée dans Nido.
+              {energy.power ? (
+                <>
+                  L'entité de puissance <code>{energy.power}</code> n'est pas disponible.
+                </>
+              ) : (
+                <>Aucun compteur électrique choisi.</>
+              )}{" "}
+              Réglez-le dans Personnaliser → Vos appareils → Compteur électrique.
             </p>
           </div>
         ) : (
@@ -174,12 +176,12 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
               <div class="nido-energy__live-grid">
                 <PowerGaugeWidget
                   hass={hass}
-                  powerEntityId={POWER_ENTITY_ID}
-                  max={SUBSCRIBED_KVA * 1000}
+                  powerEntityId={energy.power!}
+                  max={energy.subscribedKva * 1000}
                 />
                 <SubscriptionGuardWidget
                   currentPower={currentPower}
-                  subscribedKva={SUBSCRIBED_KVA}
+                  subscribedKva={energy.subscribedKva}
                 />
               </div>
             </section>
@@ -191,8 +193,8 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
               </div>
               <Hourly24hWidget
                 hass={hass}
-                powerEntityId={POWER_ENTITY_ID}
-                dailyConsumptionEntityId={DAILY_KWH_ENTITY_ID}
+                powerEntityId={energy.power!}
+                dailyConsumptionEntityId={energy.dailyKwh ?? undefined}
               />
             </section>
 
@@ -202,7 +204,7 @@ export function EnergyPage({ hass, entities, exposed, areas, onBack }: EnergyPag
               </div>
               <Top5ConsumersWidget
                 entities={exposedEntities}
-                primaryPowerEntityId={POWER_ENTITY_ID}
+                primaryPowerEntityId={energy.power!}
                 areas={areas}
               />
             </section>
