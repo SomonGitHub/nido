@@ -20,6 +20,13 @@ interface Stroke {
 
 const COLOR_KEY = "nido.shoppingColor";
 const SIZE_KEY = "nido.shoppingSize";
+
+function readPref(key: string): string | null {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+function writePref(key: string, value: string) {
+  try { localStorage.setItem(key, value); } catch { /* stockage indisponible : préférence non retenue */ }
+}
 const SIZE_REF = 600;
 
 function smoothPath(ctx: CanvasRenderingContext2D, points: [number, number][], size: number) {
@@ -51,11 +58,11 @@ export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: Shoppin
   const wakeLockRef = useRef<any>(null);
   const clientIdRef = useRef("nido-" + Math.random().toString(36).slice(2, 8));
 
-  const [color, setColor] = useState<string>(() => localStorage.getItem(COLOR_KEY) || "#1a1410");
-  const [size, setSize] = useState<number>(() => parseInt(localStorage.getItem(SIZE_KEY) || "4", 10));
+  const [color, setColor] = useState<string>(() => readPref(COLOR_KEY) || "#1a1410");
+  const [size, setSize] = useState<number>(() => parseInt(readPref(SIZE_KEY) || "4", 10) || 4);
 
   useEffect(() => {
-    if (localStorage.getItem(COLOR_KEY)) return;
+    if (readPref(COLOR_KEY)) return;
     const el = wrapRef.current;
     if (!el) return;
     const inkRaw = getComputedStyle(el).getPropertyValue("--ink-1").trim();
@@ -76,8 +83,8 @@ export function ShoppingPanel({ hass, onClose, topicBase = "shopping" }: Shoppin
 
   const colorRef = useRef(color);
   const sizeStrokeRef = useRef(size);
-  useEffect(() => { colorRef.current = color; localStorage.setItem(COLOR_KEY, color); }, [color]);
-  useEffect(() => { sizeStrokeRef.current = size; localStorage.setItem(SIZE_KEY, String(size)); }, [size]);
+  useEffect(() => { colorRef.current = color; writePref(COLOR_KEY, color); }, [color]);
+  useEffect(() => { sizeStrokeRef.current = size; writePref(SIZE_KEY, String(size)); }, [size]);
 
   const fromNorm = useCallback((p: [number, number]): [number, number] => {
     return [p[0] * sizeRef.current.w, p[1] * sizeRef.current.h];

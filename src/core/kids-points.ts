@@ -116,7 +116,8 @@ export function getCurrentWeekStart(date = new Date()): string {
   const day = d.getDay();
   const diff = day === 0 ? -6 : 1 - day;
   d.setDate(d.getDate() + diff);
-  return d.toISOString().slice(0, 10);
+  // Date locale : toISOString() passerait en UTC, donc au dimanche soir en France.
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 export function pickKidColor(index: number): string {
@@ -176,10 +177,6 @@ function sanitizeThresholds(raw: unknown): MedalThresholds {
   const gold = Number.isFinite(t.gold) ? Math.max(silver + 1, Math.round(t.gold as number)) : Math.max(silver + 1, DEFAULT_MEDAL_THRESHOLDS.gold);
   const platinum = Number.isFinite(t.platinum) ? Math.max(gold + 1, Math.round(t.platinum as number)) : Math.max(gold + 1, DEFAULT_MEDAL_THRESHOLDS.platinum);
   return { silver, gold, platinum };
-}
-
-export function withTimestamp(data: KidsData): KidsData {
-  return { ...data, updatedAt: new Date().toISOString() };
 }
 
 function totalForKid(data: KidsData, kidId: string): number {

@@ -10,15 +10,16 @@ Repo public : https://github.com/SomonGitHub/nido
 - **Vite 6** en library mode → `./nido.js` à la racine du repo (ESM, `inlineDynamicImports`)
 - **TypeScript 5.7** (strict)
 - **Custom Element** `<nido-panel>` avec **Shadow DOM** (isolation totale du CSS HA)
-- Aucune dépendance runtime hors `preact`
+- Dépendances runtime : `preact` et `hls.js` (live caméra hors Safari)
 
 ## Commandes
 
 ```bash
 npm run dev         # Vite dev server, sert index.html avec mock hass (port 5173+)
 npm run typecheck   # tsc --noEmit
+npm test            # vitest run : logique pure de src/core (*.test.ts, fuseau Europe/Paris)
 npm run build       # bundle prod → ./nido.js (à la racine, pour HACS)
-npm run release     # typecheck + build (avant tag/push)
+npm run release     # typecheck + tests + build (avant tag/push)
 ```
 
 ## Architecture
@@ -29,12 +30,12 @@ nido-dashboard/                # = racine du repo HACS
   nido.js                      # bundle prod (committed, lu par HACS)
   README.md, info.md, LICENSE  # docs HACS
   .github/workflows/
-    validate.yml               # hacs/action + typecheck + build sur push
-    release.yml                # sur push de tag v*, attache nido.js à la GitHub Release
+    validate.yml               # hacs/action + typecheck + build sur push et PR
+    release.yml                # sur push de tag v*, attache nido.js (+ sourcemap) à la GitHub Release
   index.html                   # dev only, mock hass complet pour tous les domaines
   src/
     nido-panel.ts              # Custom Element <nido-panel>, Shadow DOM, applique theme + render Preact
-    app.tsx                    # racine : fetch registries, gère view (dashboard/room),
+    app.tsx                    # racine : fetch registries, gère view (dashboard/room/energy),
                                #   onboarding overlay, état exposed/favorites/excludedUsers
     types.ts                   # HassObject, HassEntity, PanelInfo
     core/
@@ -56,22 +57,45 @@ nido-dashboard/                # = racine du repo HACS
       drag-reorder.ts          # hook useDragReorder<T> + applyOrder<T>
                                #   pointer events, threshold 6px clic-vs-drag,
                                #   skip drag sur INPUT/BUTTON/role=switch
+      kids-points.ts           # points enfants : tâches, médailles, privilèges (fonctions pures)
+      kids-sync.ts             # useKidsSync → topic MQTT retain nido/kids/state
+      home-digest.ts           # phrase d'accueil (alertes, arrivées) sous le bonjour
+      calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
+      measure-history.ts       # historique 24 h des mesures (recorder/statistics_during_period)
+      measure-tint.ts          # couleur des mesures de confort (bandeau des cartes pièce)
+      vitals.ts                # grandeur d'appareil (0-1) → variables d'animation
+      time-ago.ts              # durées compactes en français
+      notification-sound.ts    # son à l'arrivée d'une notification Nido
+      use-compact-layout.ts    # détection Echo Show (hauteur ≤ 600 px, largeur ≥ 700 px)
+      use-minute-tick.ts, use-midnight-tick.ts, use-overlay.ts, use-state-flash.ts
     views/
-      shared.tsx               # pickAreaIcon(name), DOMAIN_LABEL, DOMAIN_ICON
-      dashboard.tsx            # hero + Favoris (widgets) + Pièces (RoomCard grid)
+      shared.tsx               # pickAreaIcon(name), DOMAIN_LABEL, DOMAIN_ICON, DragItem
+      render-widget.tsx        # SUPPORTED_DOMAINS + renderWidget : dispatcher domaine → widget
+      dashboard.tsx            # hero + Favoris (widgets) + Pièces (RoomCard grid ou plan)
       room-detail.tsx          # back + hero + stats panel + filters pills + widgets grid
       floor-plan.tsx           # vue plan : étages, calques, zoom/pan, fiche pièce (3 variantes)
+      energy.tsx               # page Énergie : jauge Linky, abonnement, 24 h, gros consommateurs
+                               #   (entités Linky codées en dur : POWER_ENTITY_ID, DAILY_KWH_ENTITY_ID…)
+      compact.tsx              # vue Echo Show : rail Accueil / Contrôles / Plan / Veille
     components/
       onboarding.tsx           # overlay plein écran 5 étapes (Welcome/Connect/Entities/Theme/Family)
       weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
       notification-panel.tsx   # panneau notifications Nido (sensor.nido_notifications, dismiss via fire_event)
       plan-editor.tsx          # éditeur plein écran du plan (pièces, pièces en L, fenêtres/portes)
-    widgets/                   # 1 fichier = 1 domaine HA (15 fichiers)
-      light, cover, switch, binary-sensor, climate, lock, vacuum,
-      sensor, media-player, alarm, camera, fan, scene-script, weather
-    icons.tsx                  # SVG inline 24×24, stroke=currentColor (40+ icônes)
-    logo.png                   # logo Nido (96px)
-    logo-data.ts               # logo en base64 data-URL (auto-generated)
+      lights-panel.tsx, covers-panel.tsx, openings-panel.tsx
+                               # panneaux des pastilles du haut (lumières, volets, ouvrants)
+      shopping-panel.tsx       # liste de courses manuscrite, traits partagés via MQTT (shopping/#)
+      kids-panel.tsx           # points enfants (tâches, médailles, privilèges)
+      calendar-panel.tsx       # agenda des calendriers exposés
+      camera-panel.tsx         # live caméra : HLS natif, hls.js, puis WebRTC, puis MJPEG
+      alarm-code-dialog.tsx, thermostat-popover.tsx, measure-history-chart.tsx
+    widgets/                   # 1 fichier par domaine HA (15 fichiers, scene + script partagent)
+      light, cover, switch, binary-sensor, climate, lock, vacuum, sensor,
+      media-player, alarm, camera, fan, scene-script, weather, calendar
+                               # + widgets hors domaine : power-gauge, hourly-24h,
+                               #   top-consumers, subscription-guard, kids-card
+    icons.tsx                  # SVG inline 24×24, stroke=currentColor (~100 icônes)
+    logo.png                   # logo Nido source (non embarqué dans le bundle)
     tokens.css                 # 4 thèmes × 2 modes via :host([data-theme][data-mode])
     styles.css                 # composants : .n-card, .n-toggle, .n-slider, drag states, ...
 ```
@@ -200,9 +224,9 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
 
 App tient un state `view` :
 ```ts
-{ kind: "dashboard" } | { kind: "room"; areaId: string }
+{ kind: "dashboard" } | { kind: "room"; areaId: string } | { kind: "energy" }
 ```
-Dashboard → clic card pièce → `setView({ kind: "room", areaId })` → RoomDetail. Bouton retour → `{ kind: "dashboard" }`. L'onboarding est un overlay en parallèle (z-index 1000).
+Dashboard → clic card pièce → `setView({ kind: "room", areaId })` → RoomDetail. Bouton retour → `{ kind: "dashboard" }`. La page Énergie s'ouvre depuis la jauge Linky si `POWER_ENTITY_ID` existe et est exposé. L'onboarding est un overlay en parallèle (z-index 1000).
 
 Si `hass.user.id ∈ excludedUsers`, l'App affiche un écran "Nido n'est pas pour vous" à la place.
 
@@ -228,6 +252,10 @@ Nido lit `sensor.nido_notifications` (attribut `notifications: NidoNotification[
   (vacuum, camera, calendar restent hors liste). Pas de `preact/compat` : il réécrit les props globalement.
 - **Registres** : les événements `*_registry_updated` sont regroupés (500 ms) et seul le registre
   concerné est rechargé ; un échec de rechargement garde les données déjà chargées.
+- **Minification** : en lib ES, Vite garde espaces et commentaires. Le plugin `nido-minify-lib`
+  (`vite.config.ts`) repasse esbuild au `generateBundle` en chaînant la sourcemap.
+- **hls.js** : importé via `hls.js/light` (types dans `src/hls-light.d.ts`). Le build complet
+  ajoute ~200 Ko pour sous-titres/DRM/pistes audio, inutiles pour les flux caméra HA.
 - **Cache HACS** : HACS sert `nido.js` depuis `/hacsfiles/nido/`. À chaque release, HACS télécharge la dernière. Pas de `?v=N` à gérer côté utilisateur.
 - **`box-sizing` sur cards** : `.n-card` est `content-box` par défaut → si on met `width: 100%` + padding, ça déborde et mange le grid `gap`. Soit pas de `width: 100%`, soit `box-sizing: border-box` explicite. Cf. fix room-card et drag-item.
 - **`flex: 1` hérité** : `.n-pill-btn` a `flex: 1` (utile dans les actions de vacuum). Dans une barre de filtres `flex-wrap: nowrap`, override avec `flex: 0 0 auto; white-space: nowrap`.
@@ -257,17 +285,17 @@ Convention CSS :
 ## Ajouter un domaine
 
 1. Créer `src/widgets/<domain>.tsx` (suivre `light.tsx` pour interactif, `binary-sensor.tsx` pour read-only)
-2. Ajouter au dispatcher `renderWidget` dans `src/views/dashboard.tsx` ET `src/views/room-detail.tsx`
-3. Ajouter au `SUPPORTED_DOMAINS` Set dans `dashboard.tsx`
+2. Ajouter au dispatcher `renderWidget` dans `src/views/render-widget.tsx` (partagé par dashboard et room-detail)
+3. Ajouter au `SUPPORTED_DOMAINS` Set dans `render-widget.tsx`
 4. Ajouter au `PICKABLE_DOMAINS` + `DOMAIN_META` dans `src/components/onboarding.tsx` (étape 2 sélection entités)
 5. Ajouter au `DOMAIN_LABEL` + `DOMAIN_ICON` dans `src/views/shared.tsx` (filtres pièce)
 6. Étendre le mock dans `index.html` (states + entityRegistry + handlers `callService`)
 7. Ajouter icônes dans `src/icons.tsx` si besoin
 8. Ajouter CSS spécifique dans `src/styles.css`
 
-## Domaines supportés (15)
+## Domaines supportés (16)
 
-`light` · `switch` · `cover` · `binary_sensor` · `climate` · `lock` · `vacuum` · `sensor` · `media_player` · `alarm_control_panel` · `camera` · `fan` · `scene` · `script` · `weather`
+`light` · `switch` · `cover` · `binary_sensor` · `climate` · `lock` · `vacuum` · `sensor` · `media_player` · `alarm_control_panel` · `camera` · `fan` · `scene` · `script` · `weather` · `calendar`
 
 ## Drag & drop
 
@@ -293,7 +321,7 @@ Dans `RoomDetail`, on passe la liste **filtrée** au hook ; sur reorder, on reco
 ```bash
 npm version patch          # bump version
 npm run release            # typecheck + build → ./nido.js
-git add nido.js nido.js.map package.json
+git add nido.js package.json package-lock.json
 git commit -m "release: v$(node -p \"require('./package.json').version\")"
 git push
 git push --tags            # release.yml crée la GitHub Release et attache nido.js
