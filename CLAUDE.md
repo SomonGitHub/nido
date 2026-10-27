@@ -246,6 +246,12 @@ Nido lit `sensor.nido_notifications` (attribut `notifications: NidoNotification[
 - **Pas de `setAttribute` dans le constructor** d'un Custom Element : `NotSupportedError`. Toujours dans `connectedCallback`.
 - **`useEffect([hass])` = fuite** : HA pousse un nouvel objet `hass` à chaque state change → refetch des 3 registries en boucle. Utiliser `[hass != null]` (mount-once) + `subscribeEvents` aux events `*_registry_updated` pour rafraîchir.
 - **`resolveEntities` dans `useMemo`** avec deps `[hass?.states, registry, devices]` — sinon recréé à chaque render.
+- **`memo` (`core/memo.ts`)** : widgets de `renderWidget`, `RoomCard`, jauge Linky et tuiles Echo Show
+  ne se redessinent que si leur entité change (`entity.state` comparé par identité, `hass` ignoré).
+  Un composant qui lit `hass.states[autre entité]` ne doit **pas** être mémoïsé avec `sameEntity`
+  (vacuum, camera, calendar restent hors liste). Pas de `preact/compat` : il réécrit les props globalement.
+- **Registres** : les événements `*_registry_updated` sont regroupés (500 ms) et seul le registre
+  concerné est rechargé ; un échec de rechargement garde les données déjà chargées.
 - **Minification** : en lib ES, Vite garde espaces et commentaires. Le plugin `nido-minify-lib`
   (`vite.config.ts`) repasse esbuild au `generateBundle` en chaînant la sourcemap.
 - **hls.js** : importé via `hls.js/light` (types dans `src/hls-light.d.ts`). Le build complet
