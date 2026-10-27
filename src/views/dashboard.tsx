@@ -73,6 +73,7 @@ import { useMinuteTick } from "../core/use-minute-tick";
 import { useStateFlash } from "../core/use-state-flash";
 import { buildDigest } from "../core/home-digest";
 import { durationLabel } from "../core/time-ago";
+import { memo, propsEqual, sameDragProps, sameEntities } from "../core/memo";
 
 interface DashboardProps {
   hass: HassObject;
@@ -231,7 +232,7 @@ function roomBandItems(stats: RoomStats): BandItem[] {
   return items;
 }
 
-function RoomCard({
+function RoomCardView({
   hass,
   area,
   entities,
@@ -498,6 +499,36 @@ function RoomCard({
     </div>
   );
 }
+
+function samePresence(a?: PersonPresence[], b?: PersonPresence[]): boolean {
+  if (a === b) return true;
+  if (!a || !b || a.length !== b.length) return false;
+  return a.every((p, i) => p.name === b[i].name && p.picture === b[i].picture);
+}
+
+/* `onOpen` est recréé à chaque rendu mais ouvre toujours la même pièce. */
+const RoomCard = memo(
+  RoomCardView,
+  propsEqual<RoomCardProps>({
+    hass: "skip",
+    onOpen: "skip",
+    entities: sameEntities,
+    dragProps: sameDragProps,
+    presence: samePresence,
+    occupancy: (a: RoomOccupancy | null | undefined, b: RoomOccupancy | null | undefined) =>
+      a === b || (!!a && !!b && a.kind === b.kind && a.label === b.label),
+  }),
+);
+
+/* La jauge ne lit que le compteur ; `onOpen` ouvre toujours la page Énergie. */
+type PowerGaugeProps = Parameters<typeof PowerGaugeWidget>[0];
+const PowerGauge = memo(
+  PowerGaugeWidget,
+  (a: PowerGaugeProps, b: PowerGaugeProps) =>
+    a.powerEntityId === b.powerEntityId &&
+    a.max === b.max &&
+    a.hass.states[a.powerEntityId] === b.hass.states[b.powerEntityId],
+);
 
 export function Dashboard({
   hass,
@@ -927,7 +958,7 @@ export function Dashboard({
                     <h2>Consommation en direct</h2>
                   </div>
                   <div class="nido-energy-summary">
-                    <PowerGaugeWidget
+                    <PowerGauge
                       hass={hass}
                       powerEntityId={energy.power!}
                       onOpen={onOpenEnergy}

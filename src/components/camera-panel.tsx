@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
-import Hls from "hls.js";
+import Hls from "hls.js/light";
 import type { HassObject } from "../types";
 import { IconX } from "../icons";
 import { loadCameraLiveMap, saveCameraLiveMapping } from "../core/storage";

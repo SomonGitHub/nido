@@ -33,10 +33,3 @@ export interface PanelInfo {
   config?: Record<string, unknown>;
   title?: string;
 }
-
-export interface NidoPanelProps {
-  hass: HassObject;
-  narrow: boolean;
-  route: { prefix: string; path: string };
-  panel: PanelInfo;
-}

@@ -8,3 +8,6 @@ dist/
 !.env.example
 .idea/
 .vscode/
+
+# Sourcemap du bundle : générée par le build, attachée à la release par la CI.
+nido.js.map

@@ -42,12 +42,18 @@ interface AppProps {
   host?: PanelHost;
 }
 
-const REGISTRY_EVENTS = [
-  "area_registry_updated",
-  "entity_registry_updated",
-  "device_registry_updated",
-  "floor_registry_updated",
-] as const;
+type RegistryKind = "areas" | "entities" | "devices" | "floors";
+
+const REGISTRY_EVENTS: Record<string, RegistryKind> = {
+  area_registry_updated: "areas",
+  entity_registry_updated: "entities",
+  device_registry_updated: "devices",
+  floor_registry_updated: "floors",
+};
+
+/* Les événements de registre arrivent en rafale (une intégration qui démarre
+   met à jour des dizaines d'entités) : on attend que ça se calme. */
+const REGISTRY_RELOAD_MS = 500;
 
 export function App({ hass, host }: AppProps) {
   const [areas, setAreas] = useState<Area[] | null>(null);
@@ -118,12 +124,36 @@ export function App({ hass, host }: AppProps) {
       }
     };
 
+    const reloaders: Record<RegistryKind, (ref: HassObject) => Promise<void>> = {
+      areas: (ref) => fetchAreas(ref).then((v) => { if (!cancelled) setAreas(v); }),
+      entities: (ref) => fetchEntityRegistry(ref).then((v) => { if (!cancelled) setRegistry(v); }),
+      devices: (ref) => fetchDeviceRegistry(ref).then((v) => { if (!cancelled) setDevices(v); }),
+      floors: (ref) => fetchFloors(ref).then((v) => { if (!cancelled) setFloors(v); }),
+    };
+    const pending = new Set<RegistryKind>();
+    let timer: number | undefined;
+
+    /* Un échec ici garde les registres déjà chargés plutôt que de remplacer
+       tout le tableau de bord par l'écran d'erreur. */
+    const flush = () => {
+      timer = undefined;
+      const ref = hassRef.current;
+      if (cancelled || !ref) return;
+      for (const kind of pending) {
+        reloaders[kind](ref).catch((err) => console.warn(`Nido: reload ${kind} failed`, err));
+      }
+      pending.clear();
+    };
+
     load();
 
     Promise.all(
-      REGISTRY_EVENTS.map((evt) =>
+      Object.entries(REGISTRY_EVENTS).map(([evt, kind]) =>
         hass.connection.subscribeEvents(() => {
-          if (!cancelled) load();
+          if (cancelled) return;
+          pending.add(kind);
+          window.clearTimeout(timer);
+          timer = window.setTimeout(flush, REGISTRY_RELOAD_MS);
         }, evt),
       ),
     )
@@ -138,6 +168,7 @@ export function App({ hass, host }: AppProps) {
 
     return () => {
       cancelled = true;
+      window.clearTimeout(timer);
       unsubscribers.forEach((u) => u());
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
