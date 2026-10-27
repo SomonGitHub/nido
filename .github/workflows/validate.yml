@@ -1,10 +1,10 @@
 name: Validate
 
+# Pas de déclencheur `schedule` : GitHub désactive un workflow planifié après
+# 60 jours sans activité sur le dépôt, et il ne se réactive pas tout seul.
 on:
   push:
   pull_request:
-  schedule:
-    - cron: "0 0 * * *"
 
 jobs:
   hacs:
