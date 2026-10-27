@@ -1,9 +1,20 @@
 name: Release
 
+# Lancement manuel : utile quand le tag ne peut pas être poussé (session cloud
+# dont le proxy git refuse les tags). L'action crée alors le tag sur `ref`.
 on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag à créer et publier (ex. v0.3.67)"
+        required: true
+      ref:
+        description: "Commit ou branche à publier"
+        required: true
+        default: main
 
 jobs:
   release:
@@ -12,16 +23,23 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.ref }}
+      - id: commit
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
       - run: npm ci
       - run: npm run typecheck
+      - run: npm test
       - run: npm run build
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ inputs.tag || github.ref_name }}
+          target_commitish: ${{ steps.commit.outputs.sha }}
           files: |
             nido.js
             nido.js.map
