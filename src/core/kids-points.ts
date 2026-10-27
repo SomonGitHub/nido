@@ -178,10 +178,6 @@ function sanitizeThresholds(raw: unknown): MedalThresholds {
   return { silver, gold, platinum };
 }
 
-export function withTimestamp(data: KidsData): KidsData {
-  return { ...data, updatedAt: new Date().toISOString() };
-}
-
 function totalForKid(data: KidsData, kidId: string): number {
   const kidCompleted = data.completed[kidId];
   if (!kidCompleted) return 0;
