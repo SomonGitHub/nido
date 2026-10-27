@@ -23,6 +23,14 @@ export interface RetainedSyncOptions<T extends Stamped> {
   parse: (raw: unknown) => T | null;
 }
 
+/** Message retenu reçu : on adopte la version distante si elle est plus récente,
+ *  on republie la nôtre si c'est elle qui l'est (le broker garde la dernière). */
+export function syncDecision(local: Stamped, remote: Stamped): "adopt" | "republish" | "keep" {
+  if (remote.updatedAt > local.updatedAt) return "adopt";
+  if (local.updatedAt > remote.updatedAt) return "republish";
+  return "keep";
+}
+
 /** `connected` : l'abonnement MQTT a abouti. Faux tant qu'il n'a pas répondu,
  *  ou si MQTT n'est pas installé — les modifications restent alors locales. */
 export function useRetainedSync<T extends Stamped>(
@@ -72,10 +80,11 @@ export function useRetainedSync<T extends Stamped>(
         const remote = parse(payload.data);
         if (!remote) return;
         const local = dataRef.current;
-        if (remote.updatedAt > local.updatedAt) {
+        const decision = syncDecision(local, remote);
+        if (decision === "adopt") {
           setData(remote);
           save(remote);
-        } else if (local.updatedAt > remote.updatedAt) {
+        } else if (decision === "republish") {
           publish(local);
         }
       } catch (err) {

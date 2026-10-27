@@ -17,8 +17,9 @@ Repo public : https://github.com/SomonGitHub/nido
 ```bash
 npm run dev         # Vite dev server, sert index.html avec mock hass (port 5173+)
 npm run typecheck   # tsc --noEmit
+npm test            # vitest run : logique pure de src/core (*.test.ts, fuseau Europe/Paris)
 npm run build       # bundle prod → ./nido.js (à la racine, pour HACS)
-npm run release     # typecheck + build (avant tag/push)
+npm run release     # typecheck + tests + build (avant tag/push)
 ```
 
 ## Architecture
