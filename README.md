@@ -73,8 +73,8 @@ Architecture : voir [CLAUDE.md](CLAUDE.md).
 
 ```bash
 npm version patch     # ou minor / major
-npm run release       # typecheck + build → ./nido.js
-git add nido.js nido.js.map package.json
+npm run release       # typecheck + build → ./nido.js (la sourcemap reste locale, la CI l'attache à la release)
+git add nido.js package.json package-lock.json
 git commit -m "release: v$(node -p \"require('./package.json').version\")"
 git push
 git push --tags       # déclenche le workflow Release qui crée la GitHub Release
