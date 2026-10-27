@@ -59,6 +59,8 @@ nido-dashboard/                # = racine du repo HACS
                                #   skip drag sur INPUT/BUTTON/role=switch
       kids-points.ts           # points enfants : tâches, médailles, privilèges (fonctions pures)
       kids-sync.ts             # useKidsSync → topic MQTT retain nido/kids/state
+      energy-config.ts         # EnergyConfig : compteur électrique détecté ou choisi (cf. Énergie)
+      memo.ts                  # memo léger + comparateurs (sameEntity, propsEqual…)
       home-digest.ts           # phrase d'accueil (alertes, arrivées) sous le bonjour
       calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
       measure-history.ts       # historique 24 h des mesures (recorder/statistics_during_period)
@@ -75,10 +77,11 @@ nido-dashboard/                # = racine du repo HACS
       room-detail.tsx          # back + hero + stats panel + filters pills + widgets grid
       floor-plan.tsx           # vue plan : étages, calques, zoom/pan, fiche pièce (3 variantes)
       energy.tsx               # page Énergie : jauge Linky, abonnement, 24 h, gros consommateurs
-                               #   (entités Linky codées en dur : POWER_ENTITY_ID, DAILY_KWH_ENTITY_ID…)
+                               #   (entités lues dans EnergyConfig, cf. Énergie)
       compact.tsx              # vue Echo Show : rail Accueil / Contrôles / Plan / Veille
     components/
       onboarding.tsx           # overlay plein écran 5 étapes (Welcome/Connect/Entities/Theme/Family)
+      energy-settings.tsx      # réglage du compteur électrique (étape Vos appareils)
       weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
       notification-panel.tsx   # panneau notifications Nido (sensor.nido_notifications, dismiss via fire_event)
       plan-editor.tsx          # éditeur plein écran du plan (pièces, pièces en L, fenêtres/portes)
@@ -211,7 +214,7 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   Mouvement (onde accent pulsée au centre de la pièce tant qu'un binary_sensor
   motion/occupancy/presence est actif via `detectOccupancy`, trace fixe et pâle pendant les
   10 min qui suivent ; même langage que la pastille des cartes pièce), Énergie (somme des
-  sensors `device_class: power` de la pièce, W ou kW, compteur général `POWER_ENTITY_ID`
+  sensors `device_class: power` de la pièce, W ou kW, compteur général (`energy.power`)
   exclu ; fond ambre → orange sur échelle log 10 W – 3 kW via `--energy-t`). Température et
   Énergie sont **exclusifs** : les deux colorent le fond, activer l'un coupe l'autre.
 - **Zoom** : pincement, Ctrl/⌘ + molette, double-clic, boutons + / − / Ajuster. Le niveau de
@@ -226,7 +229,7 @@ App tient un state `view` :
 ```ts
 { kind: "dashboard" } | { kind: "room"; areaId: string } | { kind: "energy" }
 ```
-Dashboard → clic card pièce → `setView({ kind: "room", areaId })` → RoomDetail. Bouton retour → `{ kind: "dashboard" }`. La page Énergie s'ouvre depuis la jauge Linky si `POWER_ENTITY_ID` existe et est exposé. L'onboarding est un overlay en parallèle (z-index 1000).
+Dashboard → clic card pièce → `setView({ kind: "room", areaId })` → RoomDetail. Bouton retour → `{ kind: "dashboard" }`. La page Énergie s'ouvre depuis la jauge Linky si `energy.power` existe et est exposé. L'onboarding est un overlay en parallèle (z-index 1000).
 
 Si `hass.user.id ∈ excludedUsers`, l'App affiche un écran "Nido n'est pas pour vous" à la place.
 
