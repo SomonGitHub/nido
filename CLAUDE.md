@@ -222,6 +222,10 @@ Nido lit `sensor.nido_notifications` (attribut `notifications: NidoNotification[
 - **Pas de `setAttribute` dans le constructor** d'un Custom Element : `NotSupportedError`. Toujours dans `connectedCallback`.
 - **`useEffect([hass])` = fuite** : HA pousse un nouvel objet `hass` à chaque state change → refetch des 3 registries en boucle. Utiliser `[hass != null]` (mount-once) + `subscribeEvents` aux events `*_registry_updated` pour rafraîchir.
 - **`resolveEntities` dans `useMemo`** avec deps `[hass?.states, registry, devices]` — sinon recréé à chaque render.
+- **Minification** : en lib ES, Vite garde espaces et commentaires. Le plugin `nido-minify-lib`
+  (`vite.config.ts`) repasse esbuild au `generateBundle` en chaînant la sourcemap.
+- **hls.js** : importé via `hls.js/light` (types dans `src/hls-light.d.ts`). Le build complet
+  ajoute ~200 Ko pour sous-titres/DRM/pistes audio, inutiles pour les flux caméra HA.
 - **Cache HACS** : HACS sert `nido.js` depuis `/hacsfiles/nido/`. À chaque release, HACS télécharge la dernière. Pas de `?v=N` à gérer côté utilisateur.
 - **`box-sizing` sur cards** : `.n-card` est `content-box` par défaut → si on met `width: 100%` + padding, ça déborde et mange le grid `gap`. Soit pas de `width: 100%`, soit `box-sizing: border-box` explicite. Cf. fix room-card et drag-item.
 - **`flex: 1` hérité** : `.n-pill-btn` a `flex: 1` (utile dans les actions de vacuum). Dans une barre de filtres `flex-wrap: nowrap`, override avec `flex: 0 0 auto; white-space: nowrap`.
