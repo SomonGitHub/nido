@@ -18,36 +18,9 @@ export interface DeviceRegistryEntry {
   name_by_user: string | null;
 }
 
-export type Domain =
-  | "light"
-  | "switch"
-  | "climate"
-  | "cover"
-  | "sensor"
-  | "binary_sensor"
-  | "media_player"
-  | "lock"
-  | "alarm_control_panel"
-  | "camera"
-  | "vacuum";
-
-export const SUPPORTED_DOMAINS: readonly Domain[] = [
-  "light",
-  "climate",
-  "cover",
-  "media_player",
-  "lock",
-  "alarm_control_panel",
-  "camera",
-  "vacuum",
-  "switch",
-  "sensor",
-  "binary_sensor",
-] as const;
-
 export interface ResolvedEntity {
   entity_id: string;
-  domain: Domain | string;
+  domain: string;
   area_id: string | null;
   friendly_name: string;
   state: HassEntity;
