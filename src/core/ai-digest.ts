@@ -1,6 +1,7 @@
 import type { HassEntity, HassObject } from "../types";
 import { parseNextEventFromAttrs } from "./calendar-events";
 import { extractRoomStats, isEntityActive, type ResolvedEntity } from "./entities";
+import { isQuietHour } from "./announce";
 import type { Stamped } from "./mqtt-sync";
 import { durationLabel } from "./time-ago";
 
@@ -21,6 +22,12 @@ export function parseAiDigest(raw: unknown): AiDigest | null {
   const d = raw as Partial<AiDigest>;
   if (typeof d.text !== "string" || typeof d.generatedAt !== "string" || typeof d.updatedAt !== "string") return null;
   return { text: d.text, generatedAt: d.generatedAt, updatedAt: d.updatedAt };
+}
+
+/** La nuit (22 h – 7 h), personne ne lit l'accueil : pas d'appel automatique.
+ *  Le premier passage après 7 h renouvelle le résumé de la veille. */
+export function shouldRegenerate(d: AiDigest, now: Date): boolean {
+  return isDigestStale(d, now) && !isQuietHour(now);
 }
 
 export function isDigestStale(d: AiDigest, now: Date): boolean {

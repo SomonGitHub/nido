@@ -296,7 +296,9 @@ remplace la phrase d'accueil sous le bonjour par un bilan rédigé par l'IA de H
   ouvrants, lumières, chauffage, gros consommateurs, agenda), plus météo et `person.*`.
 - **Rythme** : un résumé a 2 h de vie (`AI_DIGEST_TTL_MS`). Il est partagé via MQTT retain
   (`nido/digest/state`) : une seule tablette le régénère, après un délai aléatoire de 4 à 20 s
-  qui laisse arriver le message retenu. Un échec réessaie au bout de 15 min. Bouton « Actualiser ».
+  qui laisse arriver le message retenu. Un échec réessaie au bout de 15 min. Pas d'appel
+  automatique de 22 h à 7 h (`shouldRegenerate`, mêmes heures calmes que les annonces). Boutons
+  « Écouter » (voix de l'appareil, cf. Annonces vocales) et « Actualiser ».
 - Les alertes critiques (fumée, eau, gaz) restent affichées **en direct** au-dessus du texte,
   qui peut dater de 2 h.
 

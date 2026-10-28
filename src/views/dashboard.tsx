@@ -71,6 +71,7 @@ import { PowerGaugeWidget } from "../widgets/power-gauge";
 import type { EnergyConfig } from "../core/energy-config";
 import { KidsCard } from "../widgets/kids-card";
 import type { AiDigestState } from "../core/use-ai-digest";
+import { speak } from "../core/speech";
 import { KidsPanel } from "../components/kids-panel";
 import { useKidsSync } from "../core/kids-sync";
 import { useMinuteTick } from "../core/use-minute-tick";
@@ -114,7 +115,7 @@ function renderFacts(facts: DigestFact[]) {
   );
 }
 
-function AiDigestMeta({ state }: { state: AiDigestState }) {
+function AiDigestMeta({ state, onListen }: { state: AiDigestState; onListen?: () => void }) {
   const at = state.digest.generatedAt ? new Date(state.digest.generatedAt) : null;
   const label = state.loading
     ? "Rédaction du résumé…"
@@ -127,6 +128,11 @@ function AiDigestMeta({ state }: { state: AiDigestState }) {
     <div class="nido-hero__ai-meta">
       <IconSparkles size={12} />
       <span role="status">{label}</span>
+      {!state.loading && onListen && state.digest.text && (
+        <button type="button" class="nido-hero__ai-refresh" onClick={onListen}>
+          Écouter
+        </button>
+      )}
       {!state.loading && (
         <button type="button" class="nido-hero__ai-refresh" onClick={state.refresh}>
           Actualiser
@@ -1006,7 +1012,7 @@ export function Dashboard({
             <div class="nido-hero__ai" style={{ marginTop: '24px' }}>
               {alertFacts.length > 0 && renderFacts(alertFacts)}
               <p class="nido-hero__ai-text">{aiDigest.digest.text}</p>
-              <AiDigestMeta state={aiDigest} />
+              <AiDigestMeta state={aiDigest} onListen={() => void speak(aiDigest.digest.text, hass.language, hass)} />
             </div>
           ) : (
             <div style={{ marginTop: '24px' }}>
