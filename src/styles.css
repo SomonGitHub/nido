@@ -8482,3 +8482,10 @@
   .nido-assist__dots,
   .nido-assist__action--mic[data-listening="true"] { animation: none; }
 }
+
+/* Annonces vocales (onboarding, étape Ambiance) : la colonne défile plutôt que
+   de passer sous le pied de l'onboarding sur les écrans peu hauts. */
+.n-ob-step--theme { grid-template-rows: minmax(0, 1fr); }
+.n-ob-step--theme > .n-ob-step__col { max-height: 100%; overflow-y: auto; padding-right: 4px; }
+.n-ob-announce__test { flex: 0 0 auto; white-space: nowrap; }
+.n-ob-family__row[aria-disabled="true"] { opacity: 0.6; cursor: default; }

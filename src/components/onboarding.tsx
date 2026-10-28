@@ -13,13 +13,16 @@ import {
   saveExposed,
   saveExcludedUsers,
   saveKidsEnabled,
+  saveAnnounce,
   saveEnergyConfig,
   setOnboarded,
 } from "../core/storage";
 import type { StoredEnergyConfig } from "../core/energy-config";
 import { EnergySettings } from "./energy-settings";
+import { speak, speechEngine } from "../core/speech";
 import {
   IconBolt,
+  IconVolume,
   IconArrowRight,
   IconArrowLeft,
   IconCheck,
@@ -104,6 +107,7 @@ interface OnboardingProps {
   initialFavorites: string[];
   initialExcludedUsers: string[];
   initialKidsEnabled: boolean;
+  initialAnnounce: boolean;
   initialEnergy: StoredEnergyConfig;
   isReturning: boolean;
   onApplyTheme: (theme: ThemeName, mode: ThemeMode) => void;
@@ -115,6 +119,7 @@ interface OnboardingProps {
     mode: ThemeMode;
     excludedUsers: string[];
     kidsEnabled: boolean;
+    announce: boolean;
     energy: StoredEnergyConfig;
   }) => void;
 }
@@ -130,6 +135,7 @@ export function Onboarding(props: OnboardingProps) {
     initialFavorites,
     initialExcludedUsers,
     initialKidsEnabled,
+    initialAnnounce,
     initialEnergy,
     isReturning,
     onApplyTheme,
@@ -147,6 +153,7 @@ export function Onboarding(props: OnboardingProps) {
     new Set(initialExcludedUsers),
   );
   const [kidsEnabled, setKidsEnabled] = useState<boolean>(initialKidsEnabled);
+  const [announce, setAnnounce] = useState<boolean>(initialAnnounce);
   const [energy, setEnergy] = useState<StoredEnergyConfig>(initialEnergy);
   const [users, setUsers] = useState<HassUser[] | null>(null);
   const [usersError, setUsersError] = useState<string | null>(null);
@@ -228,6 +235,7 @@ export function Onboarding(props: OnboardingProps) {
     saveFavorites(favsArr);
     saveExcludedUsers(excludedArr);
     saveKidsEnabled(kidsEnabled);
+    saveAnnounce(announce);
     saveEnergyConfig(energy);
     setOnboarded(true);
     onDone({
@@ -237,6 +245,7 @@ export function Onboarding(props: OnboardingProps) {
       mode,
       excludedUsers: excludedArr,
       kidsEnabled,
+      announce,
       energy,
     });
   };
@@ -247,6 +256,7 @@ export function Onboarding(props: OnboardingProps) {
     saveFavorites(Array.from(favs).filter((id) => exposed.has(id)));
     saveExcludedUsers(Array.from(excludedUsers));
     saveKidsEnabled(kidsEnabled);
+    saveAnnounce(announce);
     saveEnergyConfig(energy);
     setOnboarded(true);
     onClose();
@@ -317,6 +327,9 @@ export function Onboarding(props: OnboardingProps) {
               userName={hass.user?.name ?? "vous"}
               kidsEnabled={kidsEnabled}
               onToggleKidsEnabled={() => setKidsEnabled((v) => !v)}
+              announce={announce}
+              onToggleAnnounce={() => setAnnounce((v) => !v)}
+              language={hass.language}
             />
           )}
           {step === 4 && (
@@ -758,8 +771,12 @@ function StepTheme(props: {
   onPick: (theme: ThemeName, mode: ThemeMode) => void;
   kidsEnabled: boolean;
   onToggleKidsEnabled: () => void;
+  announce: boolean;
+  onToggleAnnounce: () => void;
+  language: string;
 }) {
-  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled } = props;
+  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, language } = props;
+  const engine = speechEngine();
   const active = THEME_DETAILS[theme];
 
   return (
@@ -836,6 +853,51 @@ function StepTheme(props: {
             onClick={(ev) => {
               ev.stopPropagation();
               onToggleKidsEnabled();
+            }}
+          >
+            <span class="n-toggle__thumb" />
+          </button>
+        </div>
+
+        <div
+          class="n-ob-family__row"
+          style={{ marginTop: 12 }}
+          onClick={engine ? onToggleAnnounce : undefined}
+          aria-disabled={engine ? undefined : "true"}
+        >
+          <span class="n-ob-family__avatar" aria-hidden="true">
+            <IconVolume size={18} />
+          </span>
+          <div class="n-ob-family__info">
+            <div class="n-ob-family__name">Annonces vocales sur cet appareil</div>
+            <div class="n-ob-family__role">
+              {engine
+                ? `Notifications et alertes lues à voix haute${engine === "fully" ? " (voix de Fully)" : ""}. La nuit, les alertes seules.`
+                : "La synthèse vocale n'est pas disponible dans ce navigateur."}
+            </div>
+          </div>
+          {engine && (
+            <button
+              type="button"
+              class="n-pill-btn n-pill-btn--ghost n-ob-announce__test"
+              onClick={(ev) => {
+                ev.stopPropagation();
+                speak("Bonjour, je suis Nido. Les annonces vocales fonctionnent.", language);
+              }}
+            >
+              Tester
+            </button>
+          )}
+          <button
+            type="button"
+            class="n-toggle"
+            role="switch"
+            aria-checked={announce}
+            aria-label="Annonces vocales sur cet appareil"
+            disabled={!engine}
+            onClick={(ev) => {
+              ev.stopPropagation();
+              onToggleAnnounce();
             }}
           >
             <span class="n-toggle__thumb" />

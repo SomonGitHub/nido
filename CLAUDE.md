@@ -64,6 +64,9 @@ nido-dashboard/                # = racine du repo HACS
       memo.ts                  # memo léger + comparateurs (sameEntity, propsEqual…)
       assist.ts                # client du pipeline Assist (texte / voix), décodage des événements
       mic-recorder.ts          # micro → AudioWorklet → PCM 16 kHz (contexte sécurisé requis)
+      speech.ts                # voix de l'appareil : fully.textToSpeech, sinon speechSynthesis
+      announce.ts              # quoi annoncer (nouvelles notifications, alertes critiques, heures calmes)
+      use-announcements.ts     # hook appelé dans App : lit les annonces si nido.announce est actif
       home-digest.ts           # phrase d'accueil (alertes, arrivées) sous le bonjour
       calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
       measure-history.ts       # historique 24 h des mesures (recorder/statistics_during_period)
@@ -264,6 +267,19 @@ ne pilote que les entités exposées à Assist.
   aucune référence à une variable extérieure. Le micro n'est proposé qu'en contexte sécurisé
   (HTTPS / localhost).
 - Le mock (`index.html`) simule le pipeline : réponses selon des mots-clés, VAD au bout de 1,5 s.
+
+## Annonces vocales
+
+`nido.announce` (**par appareil**, désactivé par défaut) — réglage dans l'onboarding, étape
+Ambiance, avec un bouton « Tester ». `useAnnouncements` (appelé dans `App`, avant les retours
+anticipés) lit :
+- les **nouvelles** entrées de `sensor.nido_notifications` (`titre. message`), sauf de 22 h à 7 h ;
+- les **alertes critiques** qui passent à `on` sur les binary_sensor exposés (smoke, gas,
+  carbon_monoxide, moisture), à toute heure, avec la pièce.
+
+Rien n'est lu au chargement : seul ce qui change pendant que Nido est ouvert. Voix : Fully Kiosk
+(`window.fully.textToSpeech`, interface JavaScript à activer, licence Plus) sinon la synthèse du
+navigateur. « Demande à Nido » s'en sert aussi quand la voix de HA ne peut pas être jouée.
 
 ## Énergie
 
