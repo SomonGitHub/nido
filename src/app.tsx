@@ -15,6 +15,7 @@ import {
   loadFavorites,
   loadEnergyConfig,
   loadKidsEnabled,
+  loadAnnounce,
   loadRoomEntitiesOrder,
   loadRoomsOrder,
   loadTheme,
@@ -32,6 +33,7 @@ import { Onboarding } from "./components/onboarding";
 import { CompactDashboard } from "./views/compact";
 import { useCompactLayout } from "./core/use-compact-layout";
 import { usePlanSync } from "./core/plan-store";
+import { useAnnouncements } from "./core/use-announcements";
 
 interface PanelHost {
   applyTheme?: (theme: string, mode: string) => void;
@@ -67,6 +69,7 @@ export function App({ hass, host }: AppProps) {
   const [exposed, setExposed] = useState<string[]>(() => loadExposed());
   const [excludedUsers, setExcludedUsers] = useState<string[]>(() => loadExcludedUsers());
   const [kidsEnabled, setKidsEnabled] = useState<boolean>(() => loadKidsEnabled());
+  const [announce, setAnnounce] = useState<boolean>(() => loadAnnounce());
   const [energyStored, setEnergyStored] = useState<StoredEnergyConfig>(() => loadEnergyConfig());
   const [roomsOrder, setRoomsOrder] = useState<string[]>(() => loadRoomsOrder());
   const [roomEntitiesOrder, setRoomEntitiesOrder] = useState<Record<string, string[]>>(
@@ -178,6 +181,19 @@ export function App({ hass, host }: AppProps) {
     if (!hass || !registry || !devices) return [];
     return resolveEntities(hass, registry, devices);
   }, [hass?.states, registry, devices]);
+
+  const exposedEntities = useMemo(() => {
+    const set = new Set(exposed);
+    return entities.filter((e) => set.has(e.entity_id));
+  }, [entities, exposed]);
+  const areasRef = useRef(areas);
+  areasRef.current = areas;
+  useAnnouncements(
+    hass,
+    exposedEntities,
+    (areaId) => areasRef.current?.find((a) => a.area_id === areaId)?.name ?? null,
+    announce,
+  );
 
   const energy = useMemo(
     () => resolveEnergyConfig(energyStored, hass?.states ?? {}),
@@ -298,6 +314,7 @@ export function App({ hass, host }: AppProps) {
           initialFavorites={favorites}
           initialExcludedUsers={excludedUsers}
           initialKidsEnabled={kidsEnabled}
+          initialAnnounce={announce}
           initialEnergy={energyStored}
           isReturning={isOnboarded()}
           onApplyTheme={applyTheme}
@@ -307,6 +324,7 @@ export function App({ hass, host }: AppProps) {
             setFavorites(state.favorites);
             setExcludedUsers(state.excludedUsers);
             setKidsEnabled(state.kidsEnabled);
+            setAnnounce(state.announce);
             setEnergyStored(state.energy);
             setShowOnboarding(false);
           }}

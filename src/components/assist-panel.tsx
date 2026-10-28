@@ -13,6 +13,7 @@ import {
   type AssistEvent,
 } from "../core/assist";
 import { micAvailable, startMic, type MicSession } from "../core/mic-recorder";
+import { speak } from "../core/speech";
 
 interface Message {
   id: number;
@@ -44,6 +45,7 @@ export function AssistPanel({ hass, onClose }: { hass: HassObject; onClose: () =
   const queuedRef = useRef<Int16Array[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const lastReplyRef = useRef("");
   const hassRef = useRef(hass);
   hassRef.current = hass;
   const canListen = micAvailable();
@@ -107,13 +109,21 @@ export function AssistPanel({ hass, onClose }: { hass: HassObject; onClose: () =
     const reply = replyOf(e);
     if (reply) {
       conversationRef.current = reply.conversationId ?? conversationRef.current;
+      lastReplyRef.current = reply.speech;
       settle(replyId, reply.speech);
     }
-    const url = ttsUrlOf(e);
-    if (url) {
-      audioRef.current?.pause();
-      audioRef.current = new Audio(absoluteUrl(hassRef.current, url));
-      void audioRef.current.play().catch(() => {});
+    /* La voix de HA peut être bloquée (lecture automatique refusée, WebView) :
+       la voix de l'appareil prend alors le relais. */
+    if (e.type === "tts-end") {
+      const url = ttsUrlOf(e);
+      const fallback = () => speak(lastReplyRef.current, hassRef.current.language);
+      if (url) {
+        audioRef.current?.pause();
+        audioRef.current = new Audio(absoluteUrl(hassRef.current, url));
+        void audioRef.current.play().catch(fallback);
+      } else {
+        fallback();
+      }
     }
     const error = errorOf(e);
     if (error) {

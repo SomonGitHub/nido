@@ -12,6 +12,7 @@ const KEYS = {
   lastNotificationRead: "nido.lastNotificationRead",
   cameraLiveMap: "nido.cameraLiveMap",
   kidsEnabled: "nido.kidsEnabled",
+  announce: "nido.announce",
   roomsView: "nido.roomsView",
   planLayers: "nido.planLayers",
   planTime: "nido.planTime",
@@ -188,6 +189,16 @@ export function loadKidsEnabled(): boolean {
 
 export function saveKidsEnabled(value: boolean): void {
   safeStorage()?.setItem(KEYS.kidsEnabled, value ? "1" : "0");
+}
+
+/** Annonces vocales : par appareil et désactivées par défaut, pour que seule la
+ *  tablette choisie parle et pas chaque téléphone de la maison. */
+export function loadAnnounce(): boolean {
+  return safeStorage()?.getItem(KEYS.announce) === "1";
+}
+
+export function saveAnnounce(value: boolean): void {
+  safeStorage()?.setItem(KEYS.announce, value ? "1" : "0");
 }
 
 export type RoomsView = "cards" | "plan";
