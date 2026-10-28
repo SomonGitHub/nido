@@ -1,0 +1,230 @@
+/* Écran de veille : par-dessus tout sauf l'onboarding (1000). */
+.nido-veille {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--ink-1);
+  background:
+    radial-gradient(1200px 600px at 20% 110%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
+    var(--bg-shell);
+  animation: nido-veille-in 600ms var(--ease-out) both;
+  -webkit-tap-highlight-color: transparent;
+}
+.nido-veille:focus-visible { outline: none; }
+.nido-veille__brand {
+  position: absolute;
+  top: 28px;
+  left: 64px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+}
+.nido-veille__stage {
+  position: absolute;
+  inset: 56px 64px;
+  display: flex;
+  transition: transform 2s var(--ease-in-out);
+}
+.nido-veille__day {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
+  gap: 56px;
+  align-items: center;
+}
+.nido-veille__date {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.nido-veille__clock {
+  font-family: var(--font-display);
+  font-size: clamp(120px, 18vw, 232px);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 0.84;
+  margin: 14px 0 26px -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.nido-veille__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  font-size: 20px;
+  color: var(--ink-2);
+}
+.nido-veille__meta b { font-weight: 600; color: var(--ink-1); }
+.nido-veille__weather, .nido-veille__people { display: inline-flex; align-items: center; gap: 10px; }
+.nido-veille__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ink-4); }
+.nido-veille__avatars { display: flex; }
+.nido-veille__avatars > * {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-shell);
+  margin-left: -10px;
+  object-fit: cover;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nido-veille__avatars > :first-child { margin-left: 0; }
+.nido-veille__avatars > .is-away { filter: grayscale(1); opacity: 0.5; }
+.nido-veille__side { display: flex; flex-direction: column; gap: 16px; }
+.nido-veille__card {
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-md);
+}
+.nido-veille__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.nido-veille__ai {
+  margin: 10px 0 0;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  line-height: 1.28;
+  text-wrap: pretty;
+}
+.nido-veille__event { display: flex; align-items: center; gap: 16px; margin-top: 12px; }
+.nido-veille__event-time {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+.nido-veille__event-title { display: block; font-size: 18px; font-weight: 600; }
+.nido-veille__event-when { display: block; font-size: 14px; color: var(--ink-3); margin-top: 2px; }
+.nido-veille__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.nido-veille__chip {
+  padding: 10px 14px;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.nido-veille__chip[data-tone="active"] { background: var(--accent-soft); color: var(--accent-deep); font-weight: 600; }
+.nido-veille__chip[data-tone="notice"] { color: var(--accent-deep); font-weight: 600; }
+.nido-veille__hint {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+/* Nuit : couleurs fixes, quel que soit le thème ; l'écran éclaire le moins possible. */
+.nido-veille[data-night] { background: #0b0806; color: #d9c3a8; }
+.nido-veille[data-night] .nido-veille__brand { display: none; }
+.nido-veille__night {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.nido-veille[data-night] .nido-veille__date { color: #6e5c4a; }
+.nido-veille[data-night] .nido-veille__clock {
+  font-size: clamp(150px, 23vw, 300px);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  opacity: 0.78;
+  text-shadow: 0 0 60px rgba(224, 122, 74, 0.18);
+  margin: 18px 0 30px;
+}
+.nido-veille[data-night] .nido-veille__meta { color: #7a6652; justify-content: center; }
+.nido-veille[data-night] .nido-veille__dot { background: #3a2e24; }
+.nido-veille[data-night] .nido-veille__hint { color: #2e241c; }
+
+/* Alerte critique : passe devant la veille, de jour comme de nuit. */
+.nido-veille__alert {
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 44px 48px;
+  border-radius: var(--r-xl);
+  background: #b8423a;
+  color: #fff;
+  box-shadow: 0 30px 80px rgba(184, 66, 58, 0.35);
+  cursor: default;
+  animation: nido-veille-alert 700ms var(--ease-spring) both;
+}
+.nido-veille[data-alert] .nido-veille__stage { filter: blur(3px); opacity: 0.45; }
+.nido-veille__alert-icon {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nido-veille__alert-text h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.nido-veille__alert-text p { margin: 10px 0 0; font-size: 20px; opacity: 0.85; }
+.nido-veille__alert-actions { margin-left: auto; display: flex; flex-direction: column; gap: 12px; }
+.nido-veille__alert-btn {
+  min-height: 52px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: #8a2a22;
+  font: 600 18px var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nido-veille__alert-btn--ghost { background: rgba(255, 255, 255, 0.16); color: #fff; }
+
+@keyframes nido-veille-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nido-veille-alert { from { opacity: 0; transform: translateY(-46%); } to { opacity: 1; transform: translateY(-50%); } }
+
+@media (max-width: 900px) {
+  .nido-veille__stage { inset: 56px 28px; }
+  .nido-veille__day { grid-template-columns: 1fr; gap: 28px; align-content: center; }
+  .nido-veille__brand { left: 28px; }
+  .nido-veille__alert { left: 20px; right: 20px; flex-direction: column; text-align: center; padding: 32px 24px; gap: 20px; }
+  .nido-veille__alert-actions { margin-left: 0; width: 100%; }
+  .nido-veille__alert-text h2 { font-size: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nido-veille, .nido-veille__alert { animation: none; }
+  .nido-veille__stage { transition: none; }
+}

@@ -15,3 +15,4 @@
 @import "./styles/plan-editor.css"; /* Éditeur de plan */
 @import "./styles/plan-architect.css"; /* Plan d'architecte : sols, murs, nuit */
 @import "./styles/assist.css"; /* Demande à Nido */
+@import "./styles/screensaver.css"; /* Écran de veille */
