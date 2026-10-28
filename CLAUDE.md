@@ -368,6 +368,10 @@ Dans `RoomDetail`, on passe la liste **filtrée** au hook ; sur reorder, on reco
 
 ## Déploiement
 
+**Version chargée** : toucher le logo « nido » (accueil) ou le logo du rail (Echo Show) affiche
+`vX.Y.Z` 4 s (`useVersionPeek`, `NIDO_VERSION` dans `views/shared.tsx`) ; elle est aussi dans la
+console au chargement et en info-bulle du logo.
+
 **Via HACS (custom repository)** :
 - HACS → ⋮ → Dépôts personnalisés → `https://github.com/SomonGitHub/nido` type Lovelace → installer
 - `panel_custom` dans `configuration.yaml` (cf. README.md), `module_url: /hacsfiles/nido/nido.js`

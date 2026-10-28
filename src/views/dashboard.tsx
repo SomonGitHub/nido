@@ -46,7 +46,7 @@ import {
   IconCards,
   IconFloorPlan,
 } from "../icons";
-import { pickAreaIcon, DragItem } from "./shared";
+import { pickAreaIcon, DragItem, NIDO_VERSION, useVersionPeek } from "./shared";
 import { renderWidget, SUPPORTED_DOMAINS } from "./render-widget";
 import {
   loadLastNotificationRead,
@@ -811,15 +811,29 @@ export function Dashboard({
     !!onOpenEnergy && !!energy.power && exposedSet.has(energy.power) && !!hass.states[energy.power];
 
   const hasContent = exposedEntities.length > 0;
+  const [versionShown, peekVersion] = useVersionPeek();
 
   return (
     <div class="nido-shell">
       <div class="nido-dashboard">
         <header class="nido-topbar">
-          <div class="nido-topbar__brand">
+          <button
+            type="button"
+            class="nido-topbar__brand"
+            onClick={peekVersion}
+            aria-label={`Nido, version ${NIDO_VERSION}`}
+            title={`Nido v${NIDO_VERSION}`}
+          >
             <div class="nido-topbar__clock">{timeStr}</div>
-            <span>nido</span>
-          </div>
+            <span class="nido-topbar__name">
+              nido
+              {versionShown && (
+                <small class="nido-version-tag" role="status">
+                  v{NIDO_VERSION}
+                </small>
+              )}
+            </span>
+          </button>
 
           <div class="nido-topbar__weather">
             {weatherEntity && (
