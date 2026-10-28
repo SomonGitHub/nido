@@ -16,6 +16,7 @@ import {
   loadEnergyConfig,
   loadKidsEnabled,
   loadAnnounce,
+  loadAiDigestEnabled,
   loadRoomEntitiesOrder,
   loadRoomsOrder,
   loadTheme,
@@ -34,6 +35,7 @@ import { CompactDashboard } from "./views/compact";
 import { useCompactLayout } from "./core/use-compact-layout";
 import { usePlanSync } from "./core/plan-store";
 import { useAnnouncements } from "./core/use-announcements";
+import { useAiDigest } from "./core/use-ai-digest";
 
 interface PanelHost {
   applyTheme?: (theme: string, mode: string) => void;
@@ -70,6 +72,7 @@ export function App({ hass, host }: AppProps) {
   const [excludedUsers, setExcludedUsers] = useState<string[]>(() => loadExcludedUsers());
   const [kidsEnabled, setKidsEnabled] = useState<boolean>(() => loadKidsEnabled());
   const [announce, setAnnounce] = useState<boolean>(() => loadAnnounce());
+  const [aiDigestEnabled, setAiDigestEnabled] = useState<boolean>(() => loadAiDigestEnabled());
   const [energyStored, setEnergyStored] = useState<StoredEnergyConfig>(() => loadEnergyConfig());
   const [roomsOrder, setRoomsOrder] = useState<string[]>(() => loadRoomsOrder());
   const [roomEntitiesOrder, setRoomEntitiesOrder] = useState<Record<string, string[]>>(
@@ -194,6 +197,8 @@ export function App({ hass, host }: AppProps) {
     (areaId) => areasRef.current?.find((a) => a.area_id === areaId)?.name ?? null,
     announce,
   );
+  const areaNameById = useMemo(() => new Map((areas ?? []).map((a) => [a.area_id, a.name])), [areas]);
+  const aiDigest = useAiDigest(hass, exposedEntities, areaNameById, aiDigestEnabled);
 
   const energy = useMemo(
     () => resolveEnergyConfig(energyStored, hass?.states ?? {}),
@@ -285,6 +290,7 @@ export function App({ hass, host }: AppProps) {
           planSynced={planSynced}
           onSavePlan={saveHousePlan}
           kidsEnabled={kidsEnabled}
+          aiDigest={aiDigest}
           onConfigure={() => setShowOnboarding(true)}
           onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
           onOpenEnergy={
@@ -315,6 +321,7 @@ export function App({ hass, host }: AppProps) {
           initialExcludedUsers={excludedUsers}
           initialKidsEnabled={kidsEnabled}
           initialAnnounce={announce}
+          initialAiDigest={aiDigestEnabled}
           initialEnergy={energyStored}
           isReturning={isOnboarded()}
           onApplyTheme={applyTheme}
@@ -325,6 +332,7 @@ export function App({ hass, host }: AppProps) {
             setExcludedUsers(state.excludedUsers);
             setKidsEnabled(state.kidsEnabled);
             setAnnounce(state.announce);
+            setAiDigestEnabled(state.aiDigest);
             setEnergyStored(state.energy);
             setShowOnboarding(false);
           }}

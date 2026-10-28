@@ -68,6 +68,8 @@ nido-dashboard/                # = racine du repo HACS
       announce.ts              # quoi annoncer (nouvelles notifications, alertes critiques, heures calmes)
       use-announcements.ts     # hook appelé dans App : lit les annonces si nido.announce est actif
       home-digest.ts           # phrase d'accueil (alertes, arrivées) sous le bonjour
+      ai-digest.ts             # résumé IA : état de la maison en texte, appel ai_task.generate_data
+      use-ai-digest.ts         # hook (dans App) : régénère toutes les 2 h, partagé via MQTT nido/digest/state
       calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
       measure-history.ts       # historique 24 h des mesures (recorder/statistics_during_period)
       measure-tint.ts          # couleur des mesures de confort (bandeau des cartes pièce)
@@ -280,6 +282,21 @@ anticipés) lit :
 Rien n'est lu au chargement : seul ce qui change pendant que Nido est ouvert. Voix : Fully Kiosk
 (`window.fully.textToSpeech`, interface JavaScript à activer, licence Plus) sinon la synthèse du
 navigateur. « Demande à Nido » s'en sert aussi quand la voix de HA ne peut pas être jouée.
+
+## Résumé IA
+
+`nido.aiDigest` (**par appareil**, désactivé par défaut, étape Ambiance ; grisé sans entité `ai_task`)
+remplace la phrase d'accueil sous le bonjour par un bilan rédigé par l'IA de HA.
+
+- **Appel** : `call_service` `ai_task.generate_data` avec `return_response`, réponse dans
+  `response.data`. Sans `entity_id` d'abord (IA par défaut de HA), puis la première entité `ai_task`.
+- **Contexte** (`describeHouse`) : uniquement les entités **exposées** dans Nido (mesures,
+  ouvrants, lumières, chauffage, gros consommateurs, agenda), plus météo et `person.*`.
+- **Rythme** : un résumé a 2 h de vie (`AI_DIGEST_TTL_MS`). Il est partagé via MQTT retain
+  (`nido/digest/state`) : une seule tablette le régénère, après un délai aléatoire de 4 à 20 s
+  qui laisse arriver le message retenu. Un échec réessaie au bout de 15 min. Bouton « Actualiser ».
+- Les alertes critiques (fumée, eau, gaz) restent affichées **en direct** au-dessus du texte,
+  qui peut dater de 2 h.
 
 ## Énergie
 

@@ -70,11 +70,12 @@ import { assistAvailable } from "../core/assist";
 import { PowerGaugeWidget } from "../widgets/power-gauge";
 import type { EnergyConfig } from "../core/energy-config";
 import { KidsCard } from "../widgets/kids-card";
+import type { AiDigestState } from "../core/use-ai-digest";
 import { KidsPanel } from "../components/kids-panel";
 import { useKidsSync } from "../core/kids-sync";
 import { useMinuteTick } from "../core/use-minute-tick";
 import { useStateFlash } from "../core/use-state-flash";
-import { buildDigest } from "../core/home-digest";
+import { buildDigest, type DigestFact } from "../core/home-digest";
 import { durationLabel } from "../core/time-ago";
 import { memo, propsEqual, sameDragProps, sameEntities } from "../core/memo";
 
@@ -91,11 +92,48 @@ interface DashboardProps {
   planSynced: boolean;
   onSavePlan: (plan: HousePlan) => void;
   kidsEnabled: boolean;
+  aiDigest: AiDigestState | null;
   onConfigure: () => void;
   onOpenRoom: (areaId: string) => void;
   onOpenEnergy?: () => void;
   onReorderFavorites: (ids: string[]) => void;
   onReorderRooms: (ids: string[]) => void;
+}
+
+function renderFacts(facts: DigestFact[]) {
+  return (
+    <div class="nido-hero__digest" aria-live="polite">
+      {facts.map((fact, i) => (
+        <span key={fact.id} class="nido-hero__fact" data-tone={fact.tone}>
+          {i > 0 && <span class="nido-hero__fact-sep" aria-hidden="true" />}
+          <span class="nido-hero__fact-text">{fact.text}</span>
+          {fact.room && <span class="nido-hero__fact-room">{fact.room}</span>}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function AiDigestMeta({ state }: { state: AiDigestState }) {
+  const at = state.digest.generatedAt ? new Date(state.digest.generatedAt) : null;
+  const label = state.loading
+    ? "Rédaction du résumé…"
+    : state.error && !state.digest.text
+      ? "Résumé IA indisponible, nouvel essai dans 15 min"
+      : at
+        ? `Résumé IA · ${at.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}`
+        : "Résumé IA";
+  return (
+    <div class="nido-hero__ai-meta">
+      <IconSparkles size={12} />
+      <span role="status">{label}</span>
+      {!state.loading && (
+        <button type="button" class="nido-hero__ai-refresh" onClick={state.refresh}>
+          Actualiser
+        </button>
+      )}
+    </div>
+  );
 }
 
 export function greetingFor(hour: number): { greeting: string; sub: string } {
@@ -546,6 +584,7 @@ export function Dashboard({
   planSynced,
   onSavePlan,
   kidsEnabled,
+  aiDigest,
   onConfigure,
   onOpenRoom,
   onOpenEnergy,
@@ -630,6 +669,7 @@ export function Dashboard({
     () => buildDigest({ hass, entities: exposedEntities, areaNameById, now }),
     [hass.states, exposedEntities, areaNameById, now],
   );
+  const alertFacts = useMemo(() => digest.filter((f) => f.tone === "alert"), [digest]);
 
   const hasMeteoFrance = useMemo(() => {
     if (!weatherEntity) return false;
@@ -948,18 +988,17 @@ export function Dashboard({
               </div>
             )}
           </div>
-          {digest.length > 0 ? (
-            <div class="nido-hero__digest" style={{ marginTop: '24px' }} aria-live="polite">
-              {digest.map((fact, i) => (
-                <span key={fact.id} class="nido-hero__fact" data-tone={fact.tone}>
-                  {i > 0 && <span class="nido-hero__fact-sep" aria-hidden="true" />}
-                  <span class="nido-hero__fact-text">{fact.text}</span>
-                  {fact.room && <span class="nido-hero__fact-room">{fact.room}</span>}
-                </span>
-              ))}
+          {aiDigest?.digest.text ? (
+            <div class="nido-hero__ai" style={{ marginTop: '24px' }}>
+              {alertFacts.length > 0 && renderFacts(alertFacts)}
+              <p class="nido-hero__ai-text">{aiDigest.digest.text}</p>
+              <AiDigestMeta state={aiDigest} />
             </div>
           ) : (
-            <p class="nido-hero__sub" style={{ marginTop: '24px' }}>{sub}</p>
+            <div style={{ marginTop: '24px' }}>
+              {digest.length > 0 ? renderFacts(digest) : <p class="nido-hero__sub" style={{ margin: 0 }}>{sub}</p>}
+              {aiDigest && (aiDigest.loading || aiDigest.error) && <AiDigestMeta state={aiDigest} />}
+            </div>
           )}
         </section>
 
