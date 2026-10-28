@@ -8540,7 +8540,7 @@ button.nido-topbar__brand {
    de passer sous le pied de l'onboarding sur les écrans peu hauts. */
 .n-ob-step--theme { grid-template-rows: minmax(0, 1fr); }
 .n-ob-step--theme > .n-ob-step__col { max-height: 100%; overflow-y: auto; padding-right: 4px; }
-.n-ob-announce__test { flex: 0 0 auto; white-space: nowrap; }
+.n-ob-announce__test { flex: 0 0 auto; white-space: nowrap; min-height: 44px; padding: 0 16px; touch-action: manipulation; }
 .n-ob-announce__result { margin: 8px 4px 0; font-size: 13px; line-height: 1.4; color: var(--ink-2); }
 .n-ob-family__row[aria-disabled="true"] { opacity: 0.6; cursor: default; }
 

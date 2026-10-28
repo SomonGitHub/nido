@@ -116,7 +116,7 @@ export function AssistPanel({ hass, onClose }: { hass: HassObject; onClose: () =
        la voix de l'appareil prend alors le relais. */
     if (e.type === "tts-end") {
       const url = ttsUrlOf(e);
-      const fallback = () => speak(lastReplyRef.current, hassRef.current.language);
+      const fallback = () => void speak(lastReplyRef.current, hassRef.current.language);
       if (url) {
         audioRef.current?.pause();
         audioRef.current = new Audio(absoluteUrl(hassRef.current, url));
