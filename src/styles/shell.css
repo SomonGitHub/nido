@@ -1,0 +1,306 @@
+/* Layout shell */
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-sans);
+  color: var(--ink-1);
+  background: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.nido-root-mount {
+  width: 100%;
+  height: 100%;
+}
+
+/* Pleine page sur tous les écrans : les marges et coins arrondis autour de
+   Nido coûtaient ~50 px de chaque côté, pris au plan et aux cartes. */
+.nido-shell {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nido-loading,
+.nido-stub,
+.n-muted {
+  color: var(--ink-3);
+}
+.nido-loading {
+  padding: 32px;
+  text-align: center;
+  font-size: 14px;
+}
+.nido-loading--error {
+  color: var(--danger);
+}
+
+/* Conteneur arrondi principal (la "shell" crème) */
+.nido-dashboard {
+  background: var(--bg-shell);
+  border-radius: 0;
+  padding: 24px 28px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.nido-dashboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--time-tint);
+  pointer-events: none;
+}
+.nido-dashboard > * { position: relative; }
+
+@media (max-width: 600px) {
+  .nido-dashboard {
+    padding: 20px 16px;
+  }
+}
+
+/* Header — grid so weather/icons/utility groups can be rearranged per breakpoint
+   without touching DOM order (see mobile layout below). */
+.nido-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-areas: "brand . weather utility icons";
+  align-items: center;
+  column-gap: 12px;
+  margin-bottom: 28px;
+}
+.nido-topbar__brand {
+  grid-area: brand;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.nido-topbar__weather {
+  grid-area: weather;
+  display: flex;
+  align-items: center;
+}
+.nido-topbar__utility {
+  grid-area: utility;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nido-topbar__icons {
+  grid-area: icons;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nido-topbar__clock {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-3);
+  line-height: 1;
+}
+button.nido-topbar__brand {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.nido-topbar__brand span {
+  font-family: "Comfortaa", var(--font-sans);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* Hero greeting */
+.nido-hero {
+  margin-bottom: 32px;
+}
+.nido-hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--ink-1);
+}
+.nido-hero h1 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+@media (max-width: 600px) {
+  .nido-hero h1 {
+    font-size: 30px;
+  }
+}
+.nido-hero__sub {
+  margin: 12px 0 0;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+/* Hero digest — faits réels tirés de l'état courant */
+.nido-hero__digest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 10px;
+  font-size: 15px;
+  color: var(--ink-2);
+  min-height: 20px;
+}
+.nido-hero__fact {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  animation: nido-fact-in 420ms var(--ease-out) both;
+}
+.nido-hero__fact-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  transform: translateY(-4px);
+}
+.nido-hero__fact[data-tone="alert"] .nido-hero__fact-text {
+  color: var(--danger);
+  font-weight: 600;
+}
+.nido-hero__fact[data-tone="notice"] .nido-hero__fact-text {
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+.nido-hero__fact[data-tone="active"] .nido-hero__fact-text {
+  color: var(--ink-1);
+}
+.nido-hero__fact-room {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+@keyframes nido-fact-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* En colonne sous 600px : un séparateur qui retombe en début de ligne
+   après un retour à la ligne se lit comme une puce orpheline. */
+@media (max-width: 600px) {
+  .nido-hero__digest {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px 0;
+  }
+  .nido-hero__fact-sep { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nido-hero__fact { animation: none; }
+}
+
+/* Résumé IA : remplace la phrase d'accueil, les alertes restent en direct au-dessus */
+.nido-hero__ai {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nido-hero__ai-text {
+  margin: 0;
+  max-width: 68ch;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-1);
+  text-wrap: pretty;
+  animation: nido-fact-in 420ms var(--ease-out) both;
+}
+.nido-hero__ai-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+}
+.nido-hero__ai-refresh {
+  margin-left: 4px;
+  padding: 6px 4px;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .nido-hero__ai-text { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nido-hero__ai-text { animation: none; }
+}
+
+/* Section titles */
+.nido-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.nido-section-title h2 {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.nido-section-title h2.is-accent {
+  color: var(--accent-deep);
+}
+
+/* Rooms grid */
+.nido-rooms {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.nido-room__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  align-items: center;
+}
+
+
+/* Version au toucher du logo : discrète, disparaît seule au bout de 4 s. */
+.nido-topbar__name { display: inline-flex; align-items: baseline; gap: 8px; }
+.nido-version-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+  white-space: nowrap;
+  animation: nido-version-in 200ms var(--ease-out) both;
+}
+@keyframes nido-version-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .nido-version-tag { animation: none; } }

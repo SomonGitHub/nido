@@ -1,0 +1,807 @@
+/* Scene/script — activate button + flash */
+.n-scene__activate {
+  margin-top: auto;
+  align-self: stretch;
+}
+.n-card.is-flashing {
+  animation: n-scene-flash 600ms var(--ease-out);
+}
+@keyframes n-scene-flash {
+  0%   { background: var(--bg-card); }
+  30%  { background: var(--accent-soft); }
+  100% { background: var(--bg-card); }
+}
+
+/* Weather Panel */
+.nido-weather-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nido-weather-panel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(1px);
+  animation: fade-in 0.3s ease-out;
+}
+
+.nido-weather-panel__content {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-shell);
+  box-shadow: -4px 0 32px color-mix(in srgb, var(--accent) 15%, transparent);
+  display: flex;
+  flex-direction: column;
+  animation: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.nido-weather-panel__header {
+  padding: 24px 32px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(var(--fg-rgb), 0.05);
+}
+
+.nido-weather-panel__header h2 {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--fg);
+}
+
+.nido-weather-panel__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 150ms, color 150ms;
+  flex-shrink: 0;
+}
+.nido-weather-panel__close:hover {
+  background: rgba(var(--fg-rgb), 0.07);
+  color: var(--fg);
+}
+
+.nido-weather-panel__scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.nido-wp-current {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.nido-wp-current svg {
+  color: var(--accent);
+}
+
+.nido-wp-current-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nido-wp-temp {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.nido-wp-desc {
+  font-size: 1.125rem;
+  color: var(--fg-muted);
+  text-transform: capitalize;
+}
+
+.nido-wp-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.nido-wp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.nido-wp-card {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nido-wp-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fg-muted);
+  font-size: 0.875rem;
+}
+
+.nido-wp-card-val {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.nido-wp-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 16px 0;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.nido-wp-hourly {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: none; /* Firefox */
+}
+.nido-wp-hourly::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.nido-wp-hour {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 60px;
+  background: var(--bg-card);
+  padding: 16px 8px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+.nido-wp-hour-time {
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+}
+
+.nido-wp-hour svg {
+  color: var(--accent);
+}
+
+.nido-wp-hour-temp {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.nido-wp-hour-precip {
+  font-size: 0.75rem;
+  color: #0ea5e9;
+  font-weight: 500;
+}
+
+.nido-wp-daily {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nido-wp-day {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.nido-wp-day-name {
+  width: 100px;
+  font-weight: 500;
+  color: var(--fg);
+  text-transform: capitalize;
+}
+
+.nido-wp-day svg {
+  color: var(--accent);
+}
+
+.nido-wp-day-temps {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.nido-wp-day-min {
+  color: var(--fg-muted);
+  width: 32px;
+  text-align: right;
+}
+
+.nido-wp-day-max {
+  font-weight: 600;
+  width: 32px;
+}
+
+.nido-wp-day-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  position: relative;
+}
+
+.nido-weather-pill-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 100px;
+  display: inline-flex;
+}
+
+.nido-weather-pill-btn:hover {
+  transform: scale(1.05);
+}
+
+.nido-weather-pill-btn:active {
+  transform: scale(0.95);
+}
+  
+/* Home Pill Avatars */  
+.nido-home-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: 1px solid var(--b-1);
+  padding: 6px 16px 6px 6px;
+  border-radius: 99px;
+}
+.nido-home-pill__avatars {
+  display: flex;
+  align-items: center;
+}
+.nido-home-pill__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--bg-shell);
+  margin-left: -12px;
+  position: relative;
+  transition: transform 0.2s, z-index 0.2s;
+}
+.nido-home-pill__avatar:first-child {
+  margin-left: 0;
+}
+.nido-home-pill__avatar:hover {
+  z-index: 10;
+  transform: translateY(-2px);
+}
+.nido-home-pill__text {
+  font-size: 15px;
+  color: var(--ink-2);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+
+/* Notification Panel */
+.nido-notification-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nido-notification-panel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.nido-notification-panel__content {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  background: var(--bg-shell);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  animation: nido-slide-in-right 0.4s var(--ease-out);
+}
+
+@keyframes nido-slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.nido-notification-panel__header {
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ink-4);
+}
+
+.nido-notification-panel__header h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink-1);
+}
+
+.nido-notification-panel__title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.nido-notification-panel__clear-all {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-3);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.nido-notification-panel__clear-all:hover {
+  color: var(--danger);
+}
+
+
+.nido-notification-panel__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-inset);
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nido-notification-panel__close:hover {
+  background: var(--ink-4);
+}
+
+.nido-notification-panel__scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 32px 32px;
+}
+
+.nido-notification-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.nido-notification-empty__icon {
+  margin-bottom: 16px;
+  opacity: 0.2;
+}
+
+.nido-notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nido-notification-item {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  transition: transform 0.2s;
+  border: 1px solid transparent;
+}
+
+.nido-notification-item:hover {
+  transform: translateY(-2px);
+}
+
+.nido-notification-item__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nido-notification-item--info .nido-notification-item__icon {
+  background: color-mix(in srgb, var(--accent) 15%, var(--bg-card));
+  color: var(--accent);
+}
+
+.nido-notification-item--warning .nido-notification-item__icon {
+  background: color-mix(in srgb, var(--danger) 15%, var(--bg-card));
+  color: var(--danger);
+}
+
+.nido-notification-item--success .nido-notification-item__icon {
+  background: color-mix(in srgb, var(--positive) 15%, var(--bg-card));
+  color: var(--positive);
+}
+
+.nido-notification-item__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.nido-notification-item__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.nido-notification-item__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-1);
+}
+
+.nido-notification-item__time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-3);
+}
+
+.nido-notification-item__message {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.4;
+}
+
+.nido-notification-item__image {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  margin-top: 10px;
+  background: var(--bg-inset);
+}
+
+.nido-notification-item__dismiss {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.nido-notification-item:hover .nido-notification-item__dismiss {
+  opacity: 1;
+}
+
+.nido-notification-item__dismiss:hover {
+  background: var(--bg-inset);
+  color: var(--ink-1);
+}
+
+/* Bell button with badge */
+.nido-bell-btn {
+  position: relative;
+  background: transparent;
+  color: var(--ink-2);
+  padding: 6px 12px;
+  border: 1px solid var(--ink-4);
+  border-radius: var(--r-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  height: 32px;
+  min-width: 44px;
+}
+
+.nido-bell-btn:hover {
+  background: var(--bg-inset);
+  border-color: var(--ink-3);
+}
+
+.nido-bell-btn__badge {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-shell);
+}
+
+/* Topbar : les 3 boutons icônes (bloc note, notifications, settings) doivent
+   avoir des dimensions identiques. .n-pill-btn--ghost hérite flex:1 → override. */
+.nido-topbar__icons > .nido-bell-btn,
+.nido-topbar__icons > .n-pill-btn--ghost {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 32px;
+  min-width: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Topbar : météo en haut à gauche (au-dessus de l'heure/nido),
+   bloc note/notif/réglages en haut à droite, lumières/volets en dessous à droite. */
+@media (max-width: 768px) {
+  .nido-topbar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "weather icons"
+      "brand utility";
+    row-gap: 12px;
+  }
+  .nido-topbar__weather {
+    justify-content: flex-start;
+  }
+  .nido-topbar__icons,
+  .nido-topbar__utility {
+    justify-content: flex-end;
+  }
+}
+
+
+/* ========== Shopping Panel ========== */
+.nido-shopping-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.nido-shopping-panel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.nido-shopping-panel__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-shell);
+  display: flex;
+  flex-direction: column;
+  animation: nido-shopping-fade 0.25s var(--ease-out);
+}
+
+@keyframes nido-shopping-fade {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.nido-shopping-panel__header {
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ink-4);
+  flex: 0 0 auto;
+}
+
+.nido-shopping-panel__header h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink-1);
+}
+
+.nido-shopping-panel__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-inset);
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nido-shopping-panel__close:hover {
+  background: var(--ink-4);
+}
+
+.nido-shopping-panel__board {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  background: var(--bg-shell);
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 24px 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.nido-shopping-panel__sheet {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  background: var(--bg-card-elev);
+  border: 1px solid var(--ink-4);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.nido-shopping-panel__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  cursor: crosshair;
+  display: block;
+}
+
+.nido-shopping-panel__toolbar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  background: var(--bg-card-elev);
+  border: 1px solid var(--ink-4);
+  border-radius: var(--r-pill);
+  padding: 8px 12px;
+  box-shadow: var(--shadow-lg);
+  z-index: 2;
+}
+
+.nido-shopping-panel__tool {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-2);
+  transition: background 0.2s, color 0.2s;
+}
+
+.nido-shopping-panel__tool:hover {
+  background: var(--bg-inset);
+  color: var(--ink-1);
+}
+
+.nido-shopping-panel__tool--danger:hover {
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  color: var(--danger);
+}
+
+.nido-shopping-panel__color {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--ink-4);
+  border-radius: 50%;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.nido-shopping-panel__color::-webkit-color-swatch-wrapper { padding: 0; }
+.nido-shopping-panel__color::-webkit-color-swatch { border: none; border-radius: 50%; }
+.nido-shopping-panel__color::-moz-color-swatch { border: none; border-radius: 50%; }
+
+.nido-shopping-panel__size {
+  width: 100px;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .nido-shopping-panel__header {
+    padding: 16px 20px;
+  }
+  .nido-shopping-panel__toolbar {
+    bottom: 12px;
+    gap: 6px;
+    padding: 6px 8px;
+  }
+  .nido-shopping-panel__size {
+    width: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-shopping-panel__content {
+    animation: none;
+  }
+}

@@ -1,0 +1,300 @@
+/* ─── Room detail page ─── */
+.nido-room-detail__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 14px;
+}
+.nido-room-detail__back {
+  width: 44px;
+  height: 44px;
+  background: var(--bg-card);
+  color: var(--ink-1);
+}
+.nido-room-detail__crumb {
+  flex: 1;
+  margin-left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nido-room-detail__brand {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-1);
+  letter-spacing: -0.02em;
+}
+.nido-room-detail__head-actions { display: flex; gap: 10px; align-items: center; }
+
+.nido-room-detail__hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 32px 0 0;
+  flex-wrap: wrap;
+}
+.nido-room-detail__hero-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+.nido-room-detail__icon {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--r-xl);
+  background: var(--accent);
+  color: var(--accent-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.nido-room-detail__icon-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+}
+.nido-room-detail__icon svg { position: relative; }
+.nido-room-detail__hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+.nido-room-detail__title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+}
+
+.nido-room-detail__stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  flex-shrink: 0;
+}
+.nido-room-detail__stat-sep {
+  width: 1px;
+  height: 32px;
+  background: var(--ink-4);
+}
+.nido-room-detail__stat .n-eyebrow {
+  margin-bottom: 4px;
+  display: block;
+  opacity: 0.6;
+}
+.nido-room-detail__stat-value {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink-1);
+  line-height: 1;
+}
+.nido-room-detail__stat-unit {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-left: 2px;
+}
+/* Même dégradé que le bandeau des cartes pièce : la valeur porte la teinte,
+   le libellé et l'unité restent neutres pour garder la mesure lisible.
+   Le panneau est posé sur `--bg-card`, d'où les mêmes luminosités que là-bas. */
+.nido-room-detail__stat--tinted .nido-room-detail__stat-value {
+  --measure-l: 52%;
+  color: oklch(var(--measure-l) var(--measure-c) var(--measure-h));
+}
+:host([data-mode="dark"]) .nido-room-detail__stat--tinted .nido-room-detail__stat-value {
+  --measure-l: 80%;
+}
+
+.nido-history {
+  margin-top: 24px;
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+}
+.nido-history__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.nido-history__plot {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 8px;
+}
+.nido-history__yaxis {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 40px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.nido-history__yaxis span {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+}
+.nido-history__svg {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 120px;
+}
+.nido-history__grid {
+  stroke: var(--ink-4);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  opacity: 0.6;
+}
+.nido-history__line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.nido-history__area {
+  fill: var(--accent);
+  opacity: 0.12;
+}
+/* Sous la zone de tracé uniquement : « -24 h » au bord gauche de la courbe,
+   « -12 h » pile au milieu, « maintenant » au bord droit. */
+.nido-history__axis {
+  grid-column: 2;
+  position: relative;
+  height: 12px;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 12px;
+  white-space: nowrap;
+}
+.nido-history__axis span { position: absolute; top: 0; }
+.nido-history__axis span:nth-child(1) { left: 0; }
+.nido-history__axis span:nth-child(2) { left: 50%; transform: translateX(-50%); }
+.nido-history__axis span:nth-child(3) { right: 0; }
+
+.nido-room-detail__filters {
+  margin-top: 32px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  width: fit-content;
+  max-width: 100%;
+}
+.nido-room-detail__filters > * {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.nido-room-detail__filters::-webkit-scrollbar { height: 4px; }
+.nido-room-detail__filters::-webkit-scrollbar-thumb {
+  background: var(--ink-4);
+  border-radius: var(--r-pill);
+}
+.n-pill-btn--dark {
+  background: var(--ink-1);
+  color: var(--bg-shell);
+  border: 1px solid var(--ink-1);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  padding: 8px 14px;
+}
+.n-pill-btn--dark:hover:not(:disabled) {
+  background: var(--ink-1);
+  opacity: 0.88;
+}
+
+.nido-room-detail__grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  align-items: center;
+}
+
+@media (max-width: 720px) {
+  .nido-room-detail__hero { flex-direction: column; align-items: flex-start; }
+  .nido-room-detail__stats { width: 100%; box-sizing: border-box; }
+}
+
+/* Téléphone : deux entités par ligne, le hero gardant la largeur pleine.
+   Seuil aligné sur useRoomLayout, pour que la page pièce bascule en même
+   temps que les cartes du dashboard. */
+@media (max-width: 599px) {
+  .nido-room-detail__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: stretch;
+  }
+  .nido-room-detail__grid .nido-drag-item[data-hero="true"] {
+    grid-column: 1 / -1;
+  }
+  /* 166 px de carte : 20 px de marge de chaque côté mangent un quart de la
+     largeur utile. */
+  .nido-room-detail__grid .n-card { padding: 14px; }
+  /* Rangées de boutons et de mesures trop larges pour une demi-colonne :
+     elles passent à la ligne au lieu d'être rognées. */
+  .nido-room-detail__grid .n-vacuum__actions,
+  .nido-room-detail__grid .n-climate__temp {
+    flex-wrap: wrap;
+  }
+  .nido-room-detail__grid .n-alarm__modes {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+  /* `span 3` recréerait une troisième colonne implicite alors qu'auto-fit
+     n'en retient que deux à cette largeur. */
+  .nido-room-detail__grid .n-mode-btn--disarm {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Empty state */
+.nido-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 32px 0;
+}
+
+/* Denied access */
+.nido-denied {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 80px 32px;
+}

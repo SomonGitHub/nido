@@ -1,0 +1,208 @@
+/* Lights / covers pill (topbar) */
+.nido-lights-pill-btn,
+.nido-covers-pill-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  transition: transform 200ms;
+}
+.nido-lights-pill-btn:hover,
+.nido-covers-pill-btn:hover { transform: scale(1.04); }
+.nido-lights-pill-btn:active,
+.nido-covers-pill-btn:active { transform: scale(0.96); }
+
+.nido-lights-pill,
+.nido-covers-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--accent-soft);
+  border-radius: var(--r-pill);
+  font-family: var(--font-sans);
+  color: var(--accent-deep);
+}
+.nido-lights-pill__count,
+.nido-covers-pill__count {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Lights / covers / openings panels : contrairement à .nido-notification-panel
+   (drawer plein écran), ces 3 panneaux épousent leur contenu — évite le grand
+   vide sous une courte liste — et sont plus larges pour allonger les pilules. */
+.nido-lights-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nido-lights-panel .nido-notification-panel__content {
+  height: auto;
+  max-height: min(720px, calc(100% - 48px));
+  max-width: 460px;
+  border-radius: var(--r-2xl);
+}
+.nido-lights-panel .nido-notification-panel__header {
+  padding: 18px 18px 18px 20px;
+}
+.nido-lights-panel .nido-notification-panel__scroll {
+  padding: 12px 18px 18px 20px;
+}
+.nido-lights-panel .nido-lights-panel__footer {
+  padding: 16px 18px 18px 20px;
+}
+
+.nido-lights-panel__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink-1);
+}
+.nido-lights-panel__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+  border-radius: var(--r-pill);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nido-lights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nido-lights-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nido-lights-group__title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 0 4px;
+}
+
+.nido-lights-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: 14px 16px;
+  transition: opacity 0.2s;
+}
+.nido-lights-row.is-pending {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.nido-lights-row__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nido-lights-row__body {
+  flex: 1;
+  min-width: 0;
+}
+.nido-lights-row__name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nido-lights-row__pct {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+
+.nido-openings-row__status {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-3);
+  flex-shrink: 0;
+}
+.nido-openings-row__status.is-open {
+  color: var(--accent-deep);
+}
+
+.nido-covers-row__actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.nido-covers-row__actions .n-pill-btn {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.nido-lights-panel__footer {
+  padding: 16px 32px 24px;
+  border-top: 1px solid var(--ink-4);
+}
+.nido-covers-panel__footer {
+  display: flex;
+  gap: 10px;
+}
+.nido-covers-panel__footer .nido-lights-panel__all-off {
+  width: auto;
+  flex: 1;
+}
+.nido-lights-panel__all-off {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--ink-4);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 180ms, color 180ms;
+}
+.nido-lights-panel__all-off:hover {
+  background: var(--ink-1);
+  color: var(--bg-shell);
+  border-color: var(--ink-1);
+}
+.nido-lights-panel__all-off:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

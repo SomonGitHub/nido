@@ -4,19 +4,16 @@ import type { HassObject, PanelInfo } from "./types";
 import { loadTheme } from "./core/storage";
 import tokens from "./tokens.css?inline";
 import styles from "./styles.css?inline";
-
-const FONTS_HREF =
-  "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Comfortaa:wght@700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap";
+import { FONT_FACES_CSS } from "./fonts";
 
 let fontsInjected = false;
 function ensureFonts() {
   if (fontsInjected || typeof document === "undefined") return;
-  const exists = document.head.querySelector(`link[href="${FONTS_HREF}"]`);
-  if (!exists) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = FONTS_HREF;
-    document.head.appendChild(link);
+  if (!document.getElementById("nido-fonts")) {
+    const style = document.createElement("style");
+    style.id = "nido-fonts";
+    style.textContent = FONT_FACES_CSS;
+    document.head.appendChild(style);
   }
   fontsInjected = true;
 }

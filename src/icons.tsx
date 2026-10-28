@@ -481,14 +481,6 @@ export const IconChevronLeft = (p: P) => (
   </Icon>
 );
 
-export const IconMore = (p: P) => (
-  <Icon {...p}>
-    <circle cx="6" cy="12" r="1.2" fill="currentColor" />
-    <circle cx="12" cy="12" r="1.2" fill="currentColor" />
-    <circle cx="18" cy="12" r="1.2" fill="currentColor" />
-  </Icon>
-);
-
 export const IconCouch = (p: P) => (
   <Icon {...p}>
     <path d="M4 12.8a1.9 1.9 0 0 1 3.8 0V15h8.4v-2.2a1.9 1.9 0 0 1 3.8 0V18H4v-5.2Z" />

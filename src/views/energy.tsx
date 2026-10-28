@@ -2,7 +2,7 @@ import { useMemo } from "preact/hooks";
 import type { HassObject } from "../types";
 import type { Area } from "../core/areas";
 import type { ResolvedEntity } from "../core/entities";
-import { IconBolt, IconChevronLeft, IconMore, IconArrowUpRight } from "../icons";
+import { IconBolt, IconChevronLeft, IconArrowUpRight } from "../icons";
 import { PowerGaugeWidget } from "../widgets/power-gauge";
 import { SubscriptionGuardWidget } from "../widgets/subscription-guard";
 import { Hourly24hWidget } from "../widgets/hourly-24h";
@@ -94,9 +94,6 @@ export function EnergyPage({ hass, energy, entities, exposed, areas, onBack }: E
               <IconArrowUpRight size={12} />
               Ouvrir HA
             </a>
-            <button type="button" class="n-icon-btn" aria-label="Plus">
-              <IconMore size={18} />
-            </button>
           </div>
         </header>
 
