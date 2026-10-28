@@ -592,6 +592,7 @@ function CompactHeroLightView({ hass, entity }: { hass: HassObject; entity: Reso
           type="button"
           class="nido-compact-toggle"
           role="switch"
+          aria-label={entity.friendly_name}
           aria-checked={isOn}
           data-on={isOn ? "true" : "false"}
           onClick={toggle}
