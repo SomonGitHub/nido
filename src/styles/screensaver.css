@@ -1,14 +1,17 @@
 /* Écran de veille : par-dessus tout sauf l'onboarding (1000). */
 .nido-veille {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 900;
   overflow: hidden;
   cursor: pointer;
   color: var(--ink-1);
-  background:
-    radial-gradient(1200px 600px at 20% 110%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
-    var(--bg-shell);
+  /* Couleur à part : une WebView qui ignore color-mix() perdrait tout le fond. */
+  background-color: var(--bg-shell);
+  background-image: radial-gradient(1200px 600px at 20% 110%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
   animation: nido-veille-in 600ms var(--ease-out) both;
   -webkit-tap-highlight-color: transparent;
 }
@@ -24,7 +27,10 @@
 }
 .nido-veille__stage {
   position: absolute;
-  inset: 56px 64px;
+  top: 56px;
+  right: 64px;
+  bottom: 56px;
+  left: 64px;
   display: flex;
   transition: transform 2s var(--ease-in-out);
 }
@@ -138,7 +144,7 @@
 }
 
 /* Nuit : couleurs fixes, quel que soit le thème ; l'écran éclaire le moins possible. */
-.nido-veille[data-night] { background: #0b0806; color: #d9c3a8; }
+.nido-veille[data-night] { background-color: #0b0806; background-image: none; color: #d9c3a8; }
 .nido-veille[data-night] .nido-veille__brand { display: none; }
 .nido-veille__night {
   flex: 1;
@@ -217,7 +223,7 @@
 @keyframes nido-veille-alert { from { opacity: 0; transform: translateY(-46%); } to { opacity: 1; transform: translateY(-50%); } }
 
 @media (max-width: 900px) {
-  .nido-veille__stage { inset: 56px 28px; }
+  .nido-veille__stage { left: 28px; right: 28px; }
   .nido-veille__day { grid-template-columns: 1fr; gap: 28px; align-content: center; }
   .nido-veille__brand { left: 28px; }
   .nido-veille__alert { left: 20px; right: 20px; flex-direction: column; text-align: center; padding: 32px 24px; gap: 20px; }
