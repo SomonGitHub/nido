@@ -14,12 +14,14 @@ import {
   saveExcludedUsers,
   saveKidsEnabled,
   saveAnnounce,
+  saveAiDigestEnabled,
   saveEnergyConfig,
   setOnboarded,
 } from "../core/storage";
 import type { StoredEnergyConfig } from "../core/energy-config";
 import { EnergySettings } from "./energy-settings";
 import { haVoiceAvailable, speakTest, speechEngine } from "../core/speech";
+import { aiTaskEntities } from "../core/ai-digest";
 import {
   IconBolt,
   IconVolume,
@@ -108,6 +110,7 @@ interface OnboardingProps {
   initialExcludedUsers: string[];
   initialKidsEnabled: boolean;
   initialAnnounce: boolean;
+  initialAiDigest: boolean;
   initialEnergy: StoredEnergyConfig;
   isReturning: boolean;
   onApplyTheme: (theme: ThemeName, mode: ThemeMode) => void;
@@ -120,6 +123,7 @@ interface OnboardingProps {
     excludedUsers: string[];
     kidsEnabled: boolean;
     announce: boolean;
+    aiDigest: boolean;
     energy: StoredEnergyConfig;
   }) => void;
 }
@@ -136,6 +140,7 @@ export function Onboarding(props: OnboardingProps) {
     initialExcludedUsers,
     initialKidsEnabled,
     initialAnnounce,
+    initialAiDigest,
     initialEnergy,
     isReturning,
     onApplyTheme,
@@ -154,6 +159,7 @@ export function Onboarding(props: OnboardingProps) {
   );
   const [kidsEnabled, setKidsEnabled] = useState<boolean>(initialKidsEnabled);
   const [announce, setAnnounce] = useState<boolean>(initialAnnounce);
+  const [aiDigest, setAiDigest] = useState<boolean>(initialAiDigest);
   const [energy, setEnergy] = useState<StoredEnergyConfig>(initialEnergy);
   const [users, setUsers] = useState<HassUser[] | null>(null);
   const [usersError, setUsersError] = useState<string | null>(null);
@@ -236,6 +242,7 @@ export function Onboarding(props: OnboardingProps) {
     saveExcludedUsers(excludedArr);
     saveKidsEnabled(kidsEnabled);
     saveAnnounce(announce);
+    saveAiDigestEnabled(aiDigest);
     saveEnergyConfig(energy);
     setOnboarded(true);
     onDone({
@@ -246,6 +253,7 @@ export function Onboarding(props: OnboardingProps) {
       excludedUsers: excludedArr,
       kidsEnabled,
       announce,
+      aiDigest,
       energy,
     });
   };
@@ -257,6 +265,7 @@ export function Onboarding(props: OnboardingProps) {
     saveExcludedUsers(Array.from(excludedUsers));
     saveKidsEnabled(kidsEnabled);
     saveAnnounce(announce);
+    saveAiDigestEnabled(aiDigest);
     saveEnergyConfig(energy);
     setOnboarded(true);
     onClose();
@@ -329,6 +338,9 @@ export function Onboarding(props: OnboardingProps) {
               onToggleKidsEnabled={() => setKidsEnabled((v) => !v)}
               announce={announce}
               onToggleAnnounce={() => setAnnounce((v) => !v)}
+              aiDigest={aiDigest}
+              aiDigestAvailable={aiTaskEntities(hass.states).length > 0}
+              onToggleAiDigest={() => setAiDigest((v) => !v)}
               language={hass.language}
               hass={hass}
             />
@@ -774,10 +786,13 @@ function StepTheme(props: {
   onToggleKidsEnabled: () => void;
   announce: boolean;
   onToggleAnnounce: () => void;
+  aiDigest: boolean;
+  aiDigestAvailable: boolean;
+  onToggleAiDigest: () => void;
   language: string;
   hass: HassObject;
 }) {
-  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, language, hass } = props;
+  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, aiDigest, aiDigestAvailable, onToggleAiDigest, language, hass } = props;
   const [haVoice, setHaVoice] = useState(false);
   useEffect(() => {
     let alive = true;
@@ -924,6 +939,39 @@ function StepTheme(props: {
             {testResult}
           </p>
         )}
+
+        <div
+          class="n-ob-family__row"
+          style={{ marginTop: 12 }}
+          onClick={aiDigestAvailable ? onToggleAiDigest : undefined}
+          aria-disabled={aiDigestAvailable ? undefined : "true"}
+        >
+          <span class="n-ob-family__avatar" aria-hidden="true">
+            <IconSparkles size={18} />
+          </span>
+          <div class="n-ob-family__info">
+            <div class="n-ob-family__name">Résumé IA sous le bonjour</div>
+            <div class="n-ob-family__role">
+              {aiDigestAvailable
+                ? "Un bilan de la maison rédigé par l'IA de Home Assistant, renouvelé toutes les 2 heures."
+                : "Ajoutez une intégration de tâches IA à Home Assistant (Claude, Google, OpenAI…)."}
+            </div>
+          </div>
+          <button
+            type="button"
+            class="n-toggle"
+            role="switch"
+            aria-checked={aiDigest}
+            aria-label="Résumé IA sous le bonjour"
+            disabled={!aiDigestAvailable}
+            onClick={(ev) => {
+              ev.stopPropagation();
+              onToggleAiDigest();
+            }}
+          >
+            <span class="n-toggle__thumb" />
+          </button>
+        </div>
       </div>
 
       <div

@@ -1,3 +1,4 @@
+import { EMPTY_AI_DIGEST, parseAiDigest, type AiDigest } from "./ai-digest";
 import { parseStoredEnergy, type StoredEnergyConfig } from "./energy-config";
 
 const KEYS = {
@@ -13,6 +14,8 @@ const KEYS = {
   cameraLiveMap: "nido.cameraLiveMap",
   kidsEnabled: "nido.kidsEnabled",
   announce: "nido.announce",
+  aiDigest: "nido.aiDigest",
+  aiDigestCache: "nido.aiDigestCache",
   roomsView: "nido.roomsView",
   planLayers: "nido.planLayers",
   planTime: "nido.planTime",
@@ -199,6 +202,26 @@ export function loadAnnounce(): boolean {
 
 export function saveAnnounce(value: boolean): void {
   safeStorage()?.setItem(KEYS.announce, value ? "1" : "0");
+}
+
+export function loadAiDigestEnabled(): boolean {
+  return safeStorage()?.getItem(KEYS.aiDigest) === "1";
+}
+
+export function saveAiDigestEnabled(value: boolean): void {
+  safeStorage()?.setItem(KEYS.aiDigest, value ? "1" : "0");
+}
+
+export function loadAiDigestCache(): AiDigest {
+  try {
+    return parseAiDigest(JSON.parse(safeStorage()?.getItem(KEYS.aiDigestCache) ?? "null")) ?? EMPTY_AI_DIGEST;
+  } catch {
+    return EMPTY_AI_DIGEST;
+  }
+}
+
+export function saveAiDigestCache(digest: AiDigest): void {
+  safeStorage()?.setItem(KEYS.aiDigestCache, JSON.stringify(digest));
 }
 
 export type RoomsView = "cards" | "plan";
