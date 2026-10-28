@@ -277,9 +277,11 @@ anticipés) lit :
 - les **alertes critiques** qui passent à `on` sur les binary_sensor exposés (smoke, gas,
   carbon_monoxide, moisture), à toute heure, avec la pièce.
 
-Rien n'est lu au chargement : seul ce qui change pendant que Nido est ouvert. Voix : Fully Kiosk
-(`window.fully.textToSpeech`, interface JavaScript à activer, licence Plus) sinon la synthèse du
-navigateur. « Demande à Nido » s'en sert aussi quand la voix de HA ne peut pas être jouée.
+Rien n'est lu au chargement : seul ce qui change pendant que Nido est ouvert. Voix, dans l'ordre :
+Fully Kiosk (`window.fully.textToSpeech`, interface JavaScript à activer, licence Plus), puis la voix
+du pipeline Assist préféré (`assist_pipeline/pipeline/get` → `callApi("POST", "tts_get_url")`, on joue
+le `path` et pas l'`url` interne de HA), puis la synthèse du navigateur — absente ou muette dans la
+WebView Android de Fully. Le bouton « Tester » est toujours affiché (cible 44 px) et dit ce qui a marché. « Demande à Nido » s'en sert aussi quand la voix de HA ne peut pas être jouée.
 
 ## Énergie
 

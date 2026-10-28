@@ -28,14 +28,14 @@ export function useAnnouncements(
     if (isQuietHour(new Date())) return;
     const texts = newNotifications(known, list).map(notificationText).filter(Boolean);
     if (texts.length === 0) return;
-    window.setTimeout(() => speak(texts.join(". "), hass?.language), SPEAK_DELAY_MS);
+    window.setTimeout(() => void speak(texts.join(". "), hass?.language, hass), SPEAK_DELAY_MS);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [notifState, enabled]);
 
   useEffect(() => {
     const alerts = newCriticalAlerts(alertsRef.current, entities, areaName);
     if (!enabled || alerts.length === 0) return;
-    speak(alerts.map((a) => a.text).join(" "), hass?.language);
+    void speak(alerts.map((a) => a.text).join(" "), hass?.language, hass);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entities, enabled]);
 }

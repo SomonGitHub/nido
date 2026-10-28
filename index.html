@@ -262,7 +262,16 @@
           }
           refresh();
         },
+        callApi: async (method, path, data) => {
+          console.log("callApi", method, path, JSON.stringify(data));
+          if (path === "tts_get_url") return { url: "http://homeassistant.local:8123/api/tts_proxy/mock.mp3", path: "/api/tts_proxy/mock.mp3" };
+          throw new Error("mock: " + path);
+        },
+        hassUrl: (p = "") => location.origin + p,
         callWS: async (msg) => {
+          if (msg.type === "assist_pipeline/pipeline/get") {
+            return { name: "Mock", language: "fr", tts_engine: "tts.google_translate_fr", tts_language: "fr", tts_voice: null };
+          }
           if (msg.type === "recorder/statistics_during_period") {
             const result = {};
             const base = new Date(); base.setMinutes(0, 0, 0);

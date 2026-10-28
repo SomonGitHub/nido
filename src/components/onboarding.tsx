@@ -19,7 +19,7 @@ import {
 } from "../core/storage";
 import type { StoredEnergyConfig } from "../core/energy-config";
 import { EnergySettings } from "./energy-settings";
-import { speakTest, speechEngine } from "../core/speech";
+import { haVoiceAvailable, speakTest, speechEngine } from "../core/speech";
 import {
   IconBolt,
   IconVolume,
@@ -330,6 +330,7 @@ export function Onboarding(props: OnboardingProps) {
               announce={announce}
               onToggleAnnounce={() => setAnnounce((v) => !v)}
               language={hass.language}
+              hass={hass}
             />
           )}
           {step === 4 && (
@@ -774,9 +775,20 @@ function StepTheme(props: {
   announce: boolean;
   onToggleAnnounce: () => void;
   language: string;
+  hass: HassObject;
 }) {
-  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, language } = props;
-  const engine = speechEngine();
+  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, language, hass } = props;
+  const [haVoice, setHaVoice] = useState(false);
+  useEffect(() => {
+    let alive = true;
+    void haVoiceAvailable(hass).then((ok) => alive && setHaVoice(ok));
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const detected = speechEngine();
+  const engine = detected === "fully" ? "fully" : haVoice ? "ha" : detected;
   const [testResult, setTestResult] = useState<string | null>(null);
   const [testing, setTesting] = useState(false);
   const active = THEME_DETAILS[theme];
@@ -874,26 +886,24 @@ function StepTheme(props: {
             <div class="n-ob-family__name">Annonces vocales sur cet appareil</div>
             <div class="n-ob-family__role">
               {engine
-                ? `Notifications et alertes lues à voix haute${engine === "fully" ? " (voix de Fully)" : ""}. La nuit, les alertes seules.`
-                : "La synthèse vocale n'est pas disponible dans ce navigateur."}
+                ? `Notifications et alertes lues à voix haute${engine === "fully" ? " (voix de Fully)" : engine === "ha" ? " (voix de Home Assistant)" : ""}. La nuit, les alertes seules.`
+                : "Pas de voix sur cet appareil : touchez Tester pour savoir pourquoi."}
             </div>
           </div>
-          {engine && (
-            <button
-              type="button"
-              class="n-pill-btn n-pill-btn--ghost n-ob-announce__test"
-              disabled={testing}
-              onClick={async (ev) => {
-                ev.stopPropagation();
-                setTesting(true);
-                setTestResult(null);
-                setTestResult(await speakTest("Bonjour, je suis Nido. Les annonces vocales fonctionnent.", language));
-                setTesting(false);
-              }}
-            >
-              {testing ? "Lecture…" : "Tester"}
-            </button>
-          )}
+          <button
+            type="button"
+            class="n-pill-btn n-pill-btn--ghost n-ob-announce__test"
+            disabled={testing}
+            onClick={async (ev) => {
+              ev.stopPropagation();
+              setTesting(true);
+              setTestResult(null);
+              setTestResult(await speakTest("Bonjour, je suis Nido. Les annonces vocales fonctionnent.", language, hass));
+              setTesting(false);
+            }}
+          >
+            {testing ? "Lecture…" : "Tester"}
+          </button>
           <button
             type="button"
             class="n-toggle"
