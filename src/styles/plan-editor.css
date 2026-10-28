@@ -1,0 +1,747 @@
+/* ─── Éditeur de plan (plein écran) ─── */
+.nido-plan-editor {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  padding: 16px;
+  background: var(--bg-canvas);
+  font-family: var(--font-sans);
+  color: var(--ink-1);
+}
+.nido-plan-editor__shell {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: var(--r-xl);
+  background: var(--bg-shell);
+}
+.nido-plan-editor__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.nido-plan-editor__title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.nido-plan-editor__title h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.nido-plan-editor__back {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nido-plan-editor__actions { display: flex; gap: 8px; }
+.nido-plan-editor__ghost,
+.nido-plan-editor__primary {
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--r-pill);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.nido-plan-editor__ghost { background: var(--bg-inset); color: var(--ink-1); font-weight: 500; }
+.nido-plan-editor__primary { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+
+.nido-plan-editor__hint {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.nido-plan-editor__status { font-weight: 600; }
+.nido-plan-editor__status.is-dirty { color: var(--accent-deep); }
+:host([data-mode="dark"]) .nido-plan-editor__status.is-dirty { color: var(--accent); }
+
+.nido-plan-editor__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 20px;
+}
+.nido-plan-editor__canvas {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+  display: flex;
+}
+.nido-plan-editor__field-box {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+.nido-plan-editor__field {
+  position: relative;
+  flex-shrink: 0;
+  background-image: radial-gradient(circle, var(--ink-4) 1.3px, transparent 1.6px);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.nido-plan-editor__room {
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  overflow: hidden;
+  border: 2px solid var(--ink-1);
+  border-radius: 0;
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-family: inherit;
+  text-align: left;
+  cursor: grab;
+  touch-action: none;
+  z-index: 1;
+  transition: left 0.15s var(--ease-out), top 0.15s var(--ease-out),
+    width 0.15s var(--ease-out), height 0.15s var(--ease-out);
+}
+.nido-plan-editor__room[data-selected="true"] {
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+}
+.nido-plan-editor__room[data-active="true"] {
+  cursor: grabbing;
+  z-index: 4;
+  transition: none;
+}
+.nido-plan-editor__room[data-bad="true"] {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 22%, var(--bg-card));
+}
+.nido-plan-editor__room:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+.nido-plan-editor__room-name {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  pointer-events: none;
+}
+.nido-plan-editor__room-dims {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  pointer-events: none;
+}
+
+.nido-plan-editor__opening {
+  position: absolute;
+  z-index: 5;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 3px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+}
+.nido-plan-editor__opening span {
+  flex: 1;
+  border-radius: 2px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--ink-1);
+}
+.nido-plan-editor__opening[data-kind="door"] span {
+  border-style: dashed;
+}
+.nido-plan-editor__opening[data-selected="true"] span {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.nido-plan-editor__handle {
+  position: absolute;
+  z-index: 8;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: var(--bg-card);
+  border: 2.5px solid var(--accent);
+  touch-action: none;
+}
+.nido-plan-editor__badge {
+  position: absolute;
+  z-index: 9;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.nido-plan-editor__badge[data-bad="true"] { background: var(--danger); color: #ffffff; }
+
+.nido-plan-editor__toast {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 20;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  background: var(--hero-dark);
+  color: var(--hero-dark-ink);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(20, 12, 6, 0.25);
+}
+
+.nido-plan-editor__side {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+}
+.nido-plan-editor__card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+}
+.nido-plan-editor__card-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.nido-plan-editor__muted {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+.nido-plan-editor__row { display: flex; gap: 8px; }
+.nido-plan-editor__row .nido-plan-editor__btn { flex: 1; }
+.nido-plan-editor__btn {
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: none;
+  border-radius: var(--r-sm);
+  background: var(--bg-inset);
+  color: var(--ink-1);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+}
+.nido-plan-editor__btn--danger { background: transparent; color: var(--danger); }
+.nido-plan-editor__unplaced {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1.5px dashed var(--accent);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--ink-1);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.nido-plan-editor__link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.nido-plan-editor__field-label {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.nido-plan-editor__segmented {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--r-sm);
+  background: var(--bg-inset);
+}
+.nido-plan-editor__segmented button {
+  flex: 1;
+  min-height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-plan-editor__segmented button.is-active {
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+}
+.nido-plan-editor__steppers { display: flex; gap: 10px; }
+.nido-plan-editor__stepper { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.nido-plan-editor__stepper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  border-radius: var(--r-sm);
+  background: var(--bg-inset);
+}
+.nido-plan-editor__stepper-row button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: var(--bg-card);
+  color: var(--ink-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nido-plan-editor__stepper-row span { font-size: 14px; font-weight: 600; }
+.nido-plan-editor__select {
+  height: 44px;
+  padding: 0 12px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--ink-4);
+  background: var(--bg-shell);
+  color: var(--ink-1);
+  font-family: inherit;
+  font-size: 14px;
+}
+.nido-plan-editor__note {
+  margin: 0;
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+@media (max-width: 899px) {
+  .nido-plan-editor__body { flex-direction: column; overflow-y: auto; }
+  .nido-plan-editor__canvas { min-height: 420px; }
+  .nido-plan-editor__side { width: auto; overflow: visible; }
+  .nido-plan-editor__tips { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-plan-editor__room { transition: none; }
+}
+
+/* Calque Mouvement : même langage que la pastille des cartes pièce (accent
+   pulsé). Une onde au centre de la pièce tant qu'un détecteur est actif, une
+   trace fixe et pâle pendant les dix minutes qui suivent. */
+.nido-plan__motion {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--motion-size);
+  height: var(--motion-size);
+  margin: calc(var(--motion-size) / -2) 0 0 calc(var(--motion-size) / -2);
+  box-sizing: border-box;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.nido-plan__motion::before,
+.nido-plan__motion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+.nido-plan__motion::before {
+  inset: calc(50% - 5px);
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--bg-card);
+}
+.nido-plan__motion[data-state="active"]::after {
+  border: 2px solid var(--accent);
+  animation: nido-plan-motion 2.4s var(--ease-out) infinite;
+}
+.nido-plan__motion[data-state="recent"] { opacity: 0.45; }
+.nido-plan__motion[data-state="recent"]::after {
+  border: 1.5px dashed var(--accent);
+  transform: scale(0.6);
+}
+@keyframes nido-plan-motion {
+  0% { transform: scale(0.25); opacity: 0.85; }
+  70% { transform: scale(1); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.nido-plan__dot--motion { background: var(--accent); }
+.nido-plan__dot--motion[data-state="recent"] { opacity: 0.45; }
+.nido-plan__motion-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+:host([data-mode="dark"]) .nido-plan__motion-label { color: var(--accent); }
+.nido-plan__panel-motion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+:host([data-mode="dark"]) .nido-plan__panel-motion { color: var(--accent); }
+.nido-plan__panel-motion[data-state="recent"] { font-weight: 500; color: var(--ink-2); }
+.nido-plan__panel-motion-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.nido-plan__panel-motion[data-state="recent"] .nido-plan__panel-motion-dot { opacity: 0.45; }
+
+/* Quatre calques dans le rail Echo Show : une rangée de boutons plus étroits. */
+.nido-plan--compact .nido-plan__layers { gap: 6px; }
+.nido-plan--compact .nido-plan__layer { width: auto; flex: 1; height: 52px; border-radius: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-plan__motion[data-state="active"]::after { animation: none; transform: scale(0.7); opacity: 0.5; }
+}
+
+/* Calque Énergie : remplace le dégradé température (un seul calque colore le
+   fond). Ambre → orange, la clarté baisse avec la puissance ; --energy-t
+   (0-1, échelle log) vient du composant. */
+.nido-plan {
+  --energy-l0: 0.965;
+  --energy-l1: 0.74;
+  --energy-c0: 0.02;
+  --energy-c1: 0.15;
+}
+:host([data-mode="dark"]) .nido-plan {
+  --energy-l0: 0.3;
+  --energy-l1: 0.46;
+  --energy-c0: 0.03;
+  --energy-c1: 0.13;
+}
+.nido-plan__room[data-energy="true"] {
+  background: oklch(
+    calc(var(--energy-l0) + (var(--energy-l1) - var(--energy-l0)) * var(--energy-t))
+    calc(var(--energy-c0) + (var(--energy-c1) - var(--energy-c0)) * var(--energy-t))
+    calc(75 - 30 * var(--energy-t))
+  );
+}
+.nido-plan__power-value { font-variant-numeric: tabular-nums; }
+.nido-plan__room[data-narrow="true"] .nido-plan__power-value { font-size: 12px; }
+.nido-plan__legend-bar--energy {
+  background: linear-gradient(
+    90deg,
+    oklch(var(--energy-l0) var(--energy-c0) 75),
+    oklch(calc((var(--energy-l0) + var(--energy-l1)) / 2) calc((var(--energy-c0) + var(--energy-c1)) / 2) 60),
+    oklch(var(--energy-l1) var(--energy-c1) 45)
+  );
+}
+.nido-plan__panel-power {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.nido-plan__panel-power svg { flex-shrink: 0; margin-top: 1px; color: var(--accent); }
+.nido-plan__panel-power strong { color: var(--ink-1); font-weight: 600; }
+
+/* Cinq calques dans le rail Echo Show : grille de trois colonnes. */
+.nido-plan--compact .nido-plan__layers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.nido-plan--compact .nido-plan__layer { width: auto; height: 48px; }
+
+/* Appareils posés sur le plan : un toucher bascule l'appareil. Cachés en vue
+   d'ensemble, où une icône ne tient pas dans une pièce. */
+.nido-plan__device {
+  position: absolute;
+  z-index: 4;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid color-mix(in srgb, var(--ink-1) 22%, transparent);
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--ink-2);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(40, 25, 15, 0.14);
+  transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out), transform 0.15s var(--ease-out);
+}
+/* Cible tactile de 44 px même quand l'icône est plus petite. */
+.nido-plan__device::before {
+  content: "";
+  position: absolute;
+  inset: calc((100% - 44px) / 2);
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+}
+.nido-plan__device:active { transform: scale(0.92); }
+.nido-plan__device[data-on="true"] {
+  border-color: transparent;
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent), 0 2px 8px rgba(40, 25, 15, 0.2);
+}
+.nido-plan__device[data-on="true"][data-domain="light"] {
+  background: #f0a640;
+  color: #1a1410;
+  box-shadow: 0 0 0 5px rgba(240, 166, 64, 0.3), 0 0 18px rgba(240, 166, 64, 0.55);
+}
+.nido-plan__device:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.nido-plan__device[data-domain="climate"][data-on="true"] {
+  background: #e4572e;
+  color: #fff;
+  box-shadow: 0 0 0 5px rgba(228, 87, 46, 0.28), 0 0 16px rgba(228, 87, 46, 0.5);
+}
+.nido-plan__device-temp {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 4px);
+  padding: 1px 6px;
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(40, 25, 15, 0.18);
+  pointer-events: none;
+}
+
+/* Réglage d'un radiateur posé sur le plan : carte fixe en bas de l'écran,
+   le plan zoome et défile sans la déplacer. */
+.nido-thermo {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 60;
+  box-sizing: border-box;
+  width: min(320px, calc(100vw - 32px));
+  padding: 16px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md), 0 0 0 1px color-mix(in srgb, var(--ink-4) 55%, transparent);
+}
+.nido-thermo__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-inset);
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nido-thermo__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nido-thermo__step { flex: 0 0 52px; height: 52px; border-radius: 50%; }
+.nido-thermo__value {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink-1);
+}
+.nido-thermo__value small { font-size: 16px; color: var(--ink-3); margin-left: 2px; }
+.nido-thermo__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.nido-thermo__valve {
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--bg-inset);
+  color: var(--ink-2);
+}
+.nido-thermo__valve[data-open="true"] { background: #e4572e; color: #fff; }
+.n-eyebrow[data-valve="open"] { color: #e4572e; }
+
+.nido-plan-editor__device {
+  position: absolute;
+  z-index: 6;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink-1);
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--ink-1);
+  cursor: grab;
+  touch-action: none;
+}
+.nido-plan-editor__device[data-selected="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.nido-plan-editor__device[data-active="true"] { cursor: grabbing; z-index: 7; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-plan__device { transition: none; }
+  .nido-plan__device:active { transform: none; }
+}
+
+/* Murs tracés d'après le contour de chaque pièce (roomWalls) plutôt que par
+   une bordure de rectangle : une pièce en L n'a pas de trait intérieur. Un mur
+   entre deux pièces est dessiné par chacune, au même endroit. */
+.nido-plan__house,
+.nido-plan__house[data-custom="true"] { box-shadow: none; }
+.nido-plan__room,
+.nido-plan__house[data-custom="true"] .nido-plan__room { border: none; }
+.nido-plan__room[data-selected="true"] { box-shadow: none; }
+.nido-plan__wall {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background: var(--plan-wall);
+}
+.nido-plan__wall[data-selected="true"] {
+  z-index: 4;
+  background: var(--accent);
+}
+.nido-plan__opening { z-index: 5; }
+.nido-plan__device { z-index: 6; }
+
+.nido-plan-editor__room,
+.nido-plan-editor__room[data-bad="true"] { border: none; }
+.nido-plan-editor__wall {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background: var(--ink-1);
+}
+.nido-plan-editor__wall[data-state="selected"] { z-index: 4; background: var(--accent); }
+.nido-plan-editor__wall[data-state="bad"] { z-index: 4; background: var(--danger); }
+
+/* Portes : trou dans le mur (même fond que la carte) + battant et arc
+   d'ouverture côté pièce. En rouge quand le capteur signale la porte ouverte. */
+.nido-plan__opening[data-kind="door"] {
+  border: none;
+  border-radius: 0;
+  background: var(--bg-card);
+  box-shadow: none;
+}
+.nido-plan__opening[data-kind="door"][data-open="true"] {
+  background: color-mix(in srgb, var(--danger) 30%, var(--bg-card));
+}
+.nido-plan__door,
+.nido-plan-editor__door {
+  position: absolute;
+  z-index: 5;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+}
+.nido-plan__door .door-leaf,
+.nido-plan-editor__door .door-leaf {
+  stroke: var(--plan-wall, var(--ink-1));
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.nido-plan__door .door-arc,
+.nido-plan-editor__door .door-arc {
+  stroke: var(--plan-wall, var(--ink-1));
+  stroke-width: 1.2;
+  stroke-dasharray: 3 3;
+  opacity: 0.7;
+}
+.nido-plan__door[data-open="true"] .door-leaf,
+.nido-plan__door[data-open="true"] .door-arc { stroke: var(--danger); opacity: 1; }
+.nido-plan-editor__door[data-open="true"] .door-leaf,
+.nido-plan-editor__door[data-open="true"] .door-arc { stroke: var(--accent); opacity: 1; }

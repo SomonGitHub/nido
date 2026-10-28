@@ -108,8 +108,13 @@ nido-dashboard/                # = racine du repo HACS
                                #   top-consumers, subscription-guard, kids-card
     icons.tsx                  # SVG inline 24×24, stroke=currentColor (~100 icônes)
     logo.png                   # logo Nido source (non embarqué dans le bundle)
+    fonts.ts                   # polices embarquées (woff2 Fontsource en data URL, latin) → @font-face
+                               #   injectés dans le document (ignorés dans un shadow root)
     tokens.css                 # 4 thèmes × 2 modes via :host([data-theme][data-mode])
-    styles.css                 # composants : .n-card, .n-toggle, .n-slider, drag states, ...
+    styles.css                 # index des @import de styles/, dans l'ordre de la cascade
+    styles/                    # un fichier par zone : shell, widgets, topbar, calendar, dashboard,
+                               #   room-detail, onboarding, panels, energy, kids, compact,
+                               #   alarm-dialog, floor-plan, plan-editor, plan-architect, assist
 ```
 
 ## Modèle mental utilisateur
@@ -331,6 +336,12 @@ passée à `Dashboard`, `EnergyPage`, `CompactDashboard` et `FloorPlan` (`mainPo
   concerné est rechargé ; un échec de rechargement garde les données déjà chargées.
 - **Minification** : en lib ES, Vite garde espaces et commentaires. Le plugin `nido-minify-lib`
   (`vite.config.ts`) repasse esbuild au `generateBundle` en chaînant la sourcemap.
+- **Polices** : embarquées dans le bundle (`src/fonts.ts`, paquets `@fontsource*` en devDependencies,
+  sous-ensemble latin qui couvre é, ç, œ), plus de Google Fonts. HACS ne télécharge que `nido.js` :
+  des fichiers de police à côté ne seraient pas installés. DM Sans garde l'axe `opsz` (titres serrés).
+- **Styles** : `styles.css` n'est qu'une liste d'`@import` (Vite les inline dans `?inline`). Un
+  nouveau style va dans le fichier de sa zone ; une règle qui doit en écraser une autre doit venir
+  après elle dans l'ordre des imports.
 - **hls.js** : importé via `hls.js/light` (types dans `src/hls-light.d.ts`). Le build complet
   ajoute ~200 Ko pour sous-titres/DRM/pistes audio, inutiles pour les flux caméra HA.
 - **Cache HACS** : HACS sert `nido.js` depuis `/hacsfiles/nido/`. À chaque release, HACS télécharge la dernière. Pas de `?v=N` à gérer côté utilisateur.

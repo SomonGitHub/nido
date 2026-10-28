@@ -15,7 +15,7 @@ import {
   type MeasureTint,
 } from "../core/measure-tint";
 import { MeasureHistoryChart } from "../components/measure-history-chart";
-import { IconChevronLeft, IconMore } from "../icons";
+import { IconArrowUpRight, IconChevronLeft } from "../icons";
 import { pickAreaIcon, DOMAIN_LABEL, DragItem } from "./shared";
 import { renderWidget } from "./render-widget";
 import { useMinuteTick } from "../core/use-minute-tick";
@@ -109,9 +109,16 @@ export function RoomDetail({
             <div class="nido-room-detail__brand">nido</div>
           </div>
           <div class="nido-room-detail__head-actions">
-            <button type="button" class="n-icon-btn" aria-label="Plus">
-              <IconMore size={18} />
-            </button>
+            {hass.user?.is_admin && (
+              <a
+                class="n-pill-btn n-pill-btn--ghost nido-energy__ha-link"
+                href={`/config/areas/area/${encodeURIComponent(area.area_id)}`}
+                target="_top"
+              >
+                <IconArrowUpRight size={12} />
+                Ouvrir HA
+              </a>
+            )}
           </div>
         </header>
 
