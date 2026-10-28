@@ -17,6 +17,7 @@ import {
   loadKidsEnabled,
   loadAnnounce,
   loadAiDigestEnabled,
+  loadScreensaver,
   loadRoomEntitiesOrder,
   loadRoomsOrder,
   loadTheme,
@@ -36,6 +37,10 @@ import { useCompactLayout } from "./core/use-compact-layout";
 import { usePlanSync } from "./core/plan-store";
 import { useAnnouncements } from "./core/use-announcements";
 import { useAiDigest } from "./core/use-ai-digest";
+import { useIdle } from "./core/use-idle";
+import { useRoomLayout } from "./core/use-room-layout";
+import { effectiveDelay, type ScreensaverDelay } from "./core/screensaver";
+import { Screensaver } from "./components/screensaver";
 
 interface PanelHost {
   applyTheme?: (theme: string, mode: string) => void;
@@ -73,6 +78,7 @@ export function App({ hass, host }: AppProps) {
   const [kidsEnabled, setKidsEnabled] = useState<boolean>(() => loadKidsEnabled());
   const [announce, setAnnounce] = useState<boolean>(() => loadAnnounce());
   const [aiDigestEnabled, setAiDigestEnabled] = useState<boolean>(() => loadAiDigestEnabled());
+  const [screensaver, setScreensaver] = useState<ScreensaverDelay | null>(() => loadScreensaver());
   const [energyStored, setEnergyStored] = useState<StoredEnergyConfig>(() => loadEnergyConfig());
   const [roomsOrder, setRoomsOrder] = useState<string[]>(() => loadRoomsOrder());
   const [roomEntitiesOrder, setRoomEntitiesOrder] = useState<Record<string, string[]>>(
@@ -199,6 +205,9 @@ export function App({ hass, host }: AppProps) {
   );
   const areaNameById = useMemo(() => new Map((areas ?? []).map((a) => [a.area_id, a.name])), [areas]);
   const aiDigest = useAiDigest(hass, exposedEntities, areaNameById, aiDigestEnabled);
+  const roomLayout = useRoomLayout();
+  /* Echo Show a déjà sa page Veille ; jamais par-dessus la configuration. */
+  const [idle, wake] = useIdle(compact || showOnboarding || !hass ? 0 : effectiveDelay(screensaver, roomLayout));
 
   const energy = useMemo(
     () => resolveEnergyConfig(energyStored, hass?.states ?? {}),
@@ -309,6 +318,16 @@ export function App({ hass, host }: AppProps) {
           onReorderEntities={(ids) => reorderRoomEntities(currentArea.area_id, ids)}
         />
       )}
+      {idle && (
+        <Screensaver
+          hass={hass}
+          entities={exposedEntities}
+          areaNameById={areaNameById}
+          aiDigest={aiDigest}
+          onWake={wake}
+          onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
+        />
+      )}
       {showOnboarding && (
         <Onboarding
           hass={hass}
@@ -322,6 +341,7 @@ export function App({ hass, host }: AppProps) {
           initialKidsEnabled={kidsEnabled}
           initialAnnounce={announce}
           initialAiDigest={aiDigestEnabled}
+          initialScreensaver={screensaver}
           initialEnergy={energyStored}
           isReturning={isOnboarded()}
           onApplyTheme={applyTheme}
@@ -333,6 +353,7 @@ export function App({ hass, host }: AppProps) {
             setKidsEnabled(state.kidsEnabled);
             setAnnounce(state.announce);
             setAiDigestEnabled(state.aiDigest);
+            setScreensaver(state.screensaver);
             setEnergyStored(state.energy);
             setShowOnboarding(false);
           }}

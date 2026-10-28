@@ -70,6 +70,8 @@ nido-dashboard/                # = racine du repo HACS
       home-digest.ts           # phrase d'accueil (alertes, arrivées) sous le bonjour
       ai-digest.ts             # résumé IA : état de la maison en texte, appel ai_task.generate_data
       use-ai-digest.ts         # hook (dans App) : régénère toutes les 2 h, partagé via MQTT nido/digest/state
+      screensaver.ts           # écran de veille : délai par appareil, alertes, ligne de nuit, décalage anti-marquage
+      use-idle.ts              # useIdle(minutes) : inactivité (pointer/clavier/molette sur document)
       calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
       measure-history.ts       # historique 24 h des mesures (recorder/statistics_during_period)
       measure-tint.ts          # couleur des mesures de confort (bandeau des cartes pièce)
@@ -99,6 +101,7 @@ nido-dashboard/                # = racine du repo HACS
       shopping-panel.tsx       # liste de courses manuscrite, traits partagés via MQTT (shopping/#)
       kids-panel.tsx           # points enfants (tâches, médailles, privilèges)
       calendar-panel.tsx       # agenda des calendriers exposés
+      screensaver.tsx          # écran de veille plein écran (jour / nuit / alerte)
       camera-panel.tsx         # live caméra : HLS natif, hls.js, puis WebRTC, puis MJPEG
       alarm-code-dialog.tsx, thermostat-popover.tsx, measure-history-chart.tsx
     widgets/                   # 1 fichier par domaine HA (15 fichiers, scene + script partagent)
@@ -114,7 +117,8 @@ nido-dashboard/                # = racine du repo HACS
     styles.css                 # index des @import de styles/, dans l'ordre de la cascade
     styles/                    # un fichier par zone : shell, widgets, topbar, calendar, dashboard,
                                #   room-detail, onboarding, panels, energy, kids, compact,
-                               #   alarm-dialog, floor-plan, plan-editor, plan-architect, assist
+                               #   alarm-dialog, floor-plan, plan-editor, plan-architect, assist,
+                               #   screensaver
 ```
 
 ## Modèle mental utilisateur
@@ -306,6 +310,23 @@ remplace la phrase d'accueil sous le bonjour par un bilan rédigé par l'IA de H
   « Écouter » (voix de l'appareil, cf. Annonces vocales) et « Actualiser ».
 - Les alertes critiques (fumée, eau, gaz) restent affichées **en direct** au-dessus du texte,
   qui peut dater de 2 h.
+
+## Écran de veille
+
+`nido.screensaver` (**par appareil**) : 0 (jamais), 2, 5 ou 10 min sans toucher l'écran. Clé absente
+= 5 min sur la mise en page `touch` (tablette murale), jamais ailleurs. Réglage dans l'onboarding,
+étape Ambiance. `useIdle` est appelé dans `App` ; pas de veille sur Echo Show (page Veille à lui)
+ni pendant l'onboarding. Overlay `z-index: 900`.
+
+- **Jour** : horloge, météo, présences (zone HA de l'absent), résumé IA s'il existe, prochain
+  événement, puces de `buildDigest` (sans alertes, arrivées ni agenda, montrés ailleurs).
+- **Nuit** (22 h – 7 h, `isQuietHour`) : fond quasi noir à couleurs fixes, horloge fine, une ligne
+  (`nightLine` : dehors, ouvertures, alarme). Avec Fully Plus, `setScreenBrightness(6)` puis
+  restauration de la valeur d'avant au réveil ou sur alerte.
+- **Alerte** critique active (fumée, eau, gaz, CO) : bandeau rouge devant la veille, « Voir la pièce »
+  ou « J'ai compris » (acquittée jusqu'à ce que le capteur repasse à off).
+- Le toucher qui réveille est absorbé par l'overlay : il ne déclenche pas le bouton dessous.
+  Le contenu se décale de ±6 px chaque minute (`burnInOffset`).
 
 ## Énergie
 

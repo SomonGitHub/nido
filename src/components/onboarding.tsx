@@ -15,6 +15,7 @@ import {
   saveKidsEnabled,
   saveAnnounce,
   saveAiDigestEnabled,
+  saveScreensaver,
   saveEnergyConfig,
   setOnboarded,
 } from "../core/storage";
@@ -22,6 +23,8 @@ import type { StoredEnergyConfig } from "../core/energy-config";
 import { EnergySettings } from "./energy-settings";
 import { haVoiceAvailable, speakTest, speechEngine } from "../core/speech";
 import { aiTaskEntities } from "../core/ai-digest";
+import { effectiveDelay, SCREENSAVER_DELAYS, type ScreensaverDelay } from "../core/screensaver";
+import { useRoomLayout } from "../core/use-room-layout";
 import {
   IconBolt,
   IconVolume,
@@ -111,6 +114,7 @@ interface OnboardingProps {
   initialKidsEnabled: boolean;
   initialAnnounce: boolean;
   initialAiDigest: boolean;
+  initialScreensaver: ScreensaverDelay | null;
   initialEnergy: StoredEnergyConfig;
   isReturning: boolean;
   onApplyTheme: (theme: ThemeName, mode: ThemeMode) => void;
@@ -124,6 +128,7 @@ interface OnboardingProps {
     kidsEnabled: boolean;
     announce: boolean;
     aiDigest: boolean;
+    screensaver: ScreensaverDelay | null;
     energy: StoredEnergyConfig;
   }) => void;
 }
@@ -141,6 +146,7 @@ export function Onboarding(props: OnboardingProps) {
     initialKidsEnabled,
     initialAnnounce,
     initialAiDigest,
+    initialScreensaver,
     initialEnergy,
     isReturning,
     onApplyTheme,
@@ -160,6 +166,7 @@ export function Onboarding(props: OnboardingProps) {
   const [kidsEnabled, setKidsEnabled] = useState<boolean>(initialKidsEnabled);
   const [announce, setAnnounce] = useState<boolean>(initialAnnounce);
   const [aiDigest, setAiDigest] = useState<boolean>(initialAiDigest);
+  const [screensaver, setScreensaver] = useState<ScreensaverDelay | null>(initialScreensaver);
   const [energy, setEnergy] = useState<StoredEnergyConfig>(initialEnergy);
   const [users, setUsers] = useState<HassUser[] | null>(null);
   const [usersError, setUsersError] = useState<string | null>(null);
@@ -243,6 +250,7 @@ export function Onboarding(props: OnboardingProps) {
     saveKidsEnabled(kidsEnabled);
     saveAnnounce(announce);
     saveAiDigestEnabled(aiDigest);
+    saveScreensaver(screensaver);
     saveEnergyConfig(energy);
     setOnboarded(true);
     onDone({
@@ -254,6 +262,7 @@ export function Onboarding(props: OnboardingProps) {
       kidsEnabled,
       announce,
       aiDigest,
+      screensaver,
       energy,
     });
   };
@@ -266,6 +275,7 @@ export function Onboarding(props: OnboardingProps) {
     saveKidsEnabled(kidsEnabled);
     saveAnnounce(announce);
     saveAiDigestEnabled(aiDigest);
+    saveScreensaver(screensaver);
     saveEnergyConfig(energy);
     setOnboarded(true);
     onClose();
@@ -341,6 +351,8 @@ export function Onboarding(props: OnboardingProps) {
               aiDigest={aiDigest}
               aiDigestAvailable={aiTaskEntities(hass.states).length > 0}
               onToggleAiDigest={() => setAiDigest((v) => !v)}
+              screensaver={screensaver}
+              onPickScreensaver={setScreensaver}
               language={hass.language}
               hass={hass}
             />
@@ -789,10 +801,14 @@ function StepTheme(props: {
   aiDigest: boolean;
   aiDigestAvailable: boolean;
   onToggleAiDigest: () => void;
+  screensaver: ScreensaverDelay | null;
+  onPickScreensaver: (delay: ScreensaverDelay) => void;
   language: string;
   hass: HassObject;
 }) {
-  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, aiDigest, aiDigestAvailable, onToggleAiDigest, language, hass } = props;
+  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, aiDigest, aiDigestAvailable, onToggleAiDigest, screensaver, onPickScreensaver, language, hass } = props;
+  const layout = useRoomLayout();
+  const saverDelay = effectiveDelay(screensaver, layout);
   const [haVoice, setHaVoice] = useState(false);
   useEffect(() => {
     let alive = true;
@@ -971,6 +987,29 @@ function StepTheme(props: {
           >
             <span class="n-toggle__thumb" />
           </button>
+        </div>
+
+        <div class="n-ob-family__row n-ob-saver" style={{ marginTop: 12, cursor: "default" }}>
+          <span class="n-ob-family__avatar" aria-hidden="true">
+            <IconMoon size={18} />
+          </span>
+          <div class="n-ob-family__info">
+            <div class="n-ob-family__name">Écran de veille sur cet appareil</div>
+            <div class="n-ob-family__role">Horloge, météo et résumé quand personne ne touche l'écran ; tamisé la nuit.</div>
+          </div>
+          <div class="n-ob-saver__choices" role="radiogroup" aria-label="Écran de veille">
+            {SCREENSAVER_DELAYS.map((d) => (
+              <button
+                type="button"
+                role="radio"
+                aria-checked={saverDelay === d}
+                class={`n-ob-saver__choice ${saverDelay === d ? "is-active" : ""}`}
+                onClick={() => onPickScreensaver(d)}
+              >
+                {d === 0 ? "Non" : `${d} min`}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
