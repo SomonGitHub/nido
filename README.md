@@ -6,6 +6,10 @@
 
 Nido est un **custom panel** pour Home Assistant qui transforme vos entités HA en un tableau de bord familial : section Favoris, grille de pièces avec recap température/humidité, page pièce dédiée, drag-and-drop pour réorganiser, 4 thèmes en clair/sombre, onboarding guidé.
 
+![Accueil de Nido : favoris, consommation en direct, points enfants](https://raw.githubusercontent.com/SomonGitHub/nido/main/docs/images/dashboard.png)
+
+![Vue plan : calques température, lumières, ouvrants et mouvement, fiche pièce](https://raw.githubusercontent.com/SomonGitHub/nido/main/docs/images/plan.png)
+
 ## Installation via HACS (custom repository)
 
 1. Dans Home Assistant, ouvrez **HACS → ⋮ (menu) → Dépôts personnalisés**
