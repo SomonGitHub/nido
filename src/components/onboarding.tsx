@@ -19,7 +19,7 @@ import {
 } from "../core/storage";
 import type { StoredEnergyConfig } from "../core/energy-config";
 import { EnergySettings } from "./energy-settings";
-import { speak, speechEngine } from "../core/speech";
+import { speakTest, speechEngine } from "../core/speech";
 import {
   IconBolt,
   IconVolume,
@@ -777,6 +777,8 @@ function StepTheme(props: {
 }) {
   const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, language } = props;
   const engine = speechEngine();
+  const [testResult, setTestResult] = useState<string | null>(null);
+  const [testing, setTesting] = useState(false);
   const active = THEME_DETAILS[theme];
 
   return (
@@ -880,12 +882,16 @@ function StepTheme(props: {
             <button
               type="button"
               class="n-pill-btn n-pill-btn--ghost n-ob-announce__test"
-              onClick={(ev) => {
+              disabled={testing}
+              onClick={async (ev) => {
                 ev.stopPropagation();
-                speak("Bonjour, je suis Nido. Les annonces vocales fonctionnent.", language);
+                setTesting(true);
+                setTestResult(null);
+                setTestResult(await speakTest("Bonjour, je suis Nido. Les annonces vocales fonctionnent.", language));
+                setTesting(false);
               }}
             >
-              Tester
+              {testing ? "Lecture…" : "Tester"}
             </button>
           )}
           <button
@@ -903,6 +909,11 @@ function StepTheme(props: {
             <span class="n-toggle__thumb" />
           </button>
         </div>
+        {testResult && (
+          <p class="n-ob-announce__result" role="status">
+            {testResult}
+          </p>
+        )}
       </div>
 
       <div
