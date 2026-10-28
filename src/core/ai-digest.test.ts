@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { HassEntity } from "../types";
 import type { ResolvedEntity } from "./entities";
-import { aiTaskEntities, describeHouse, digestTextOf, isDigestStale, parseAiDigest } from "./ai-digest";
+import { aiTaskEntities, describeHouse, digestTextOf, isDigestStale, parseAiDigest, shouldRegenerate } from "./ai-digest";
 
 const NOW = new Date("2026-10-28T14:05:00");
 const ago = (min: number) => new Date(NOW.getTime() - min * 60_000).toISOString();
@@ -72,5 +72,15 @@ describe("describeHouse", () => {
     expect(text).toContain("À la maison : Simon. Absents : Adèle.");
     expect(text).toContain("- Salle de bain : 22,3 °C, humidité 76 %, fenêtre ouverte depuis 25 min.");
     expect(text).toContain("- Salon : lumière allumée.");
+  });
+});
+
+describe("shouldRegenerate", () => {
+  const old = { text: "ok", generatedAt: "2026-10-28T19:00:00", updatedAt: "2026-10-28T19:00:00" };
+  it("ne rappelle pas l'IA la nuit, même avec un résumé périmé", () => {
+    expect(shouldRegenerate(old, new Date("2026-10-28T23:30:00"))).toBe(false);
+    expect(shouldRegenerate(old, new Date("2026-10-29T06:59:00"))).toBe(false);
+    expect(shouldRegenerate(old, new Date("2026-10-29T07:00:00"))).toBe(true);
+    expect(shouldRegenerate(old, new Date("2026-10-28T21:00:00"))).toBe(true);
   });
 });

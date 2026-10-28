@@ -7,7 +7,7 @@ import {
   describeHouse,
   digestInstructions,
   generateDigest,
-  isDigestStale,
+  shouldRegenerate,
   parseAiDigest,
   type AiDigest,
 } from "./ai-digest";
@@ -73,11 +73,11 @@ export function useAiDigest(
     if (!available) return;
     let timer = 0;
     const check = () => {
-      if (timer || !isDigestStale(live.current.digest, new Date()) || Date.now() < retryAtRef.current) return;
+      if (timer || !shouldRegenerate(live.current.digest, new Date()) || Date.now() < retryAtRef.current) return;
       const wait = JITTER_MS[0] + Math.random() * (JITTER_MS[1] - JITTER_MS[0]);
       timer = window.setTimeout(() => {
         timer = 0;
-        if (isDigestStale(live.current.digest, new Date())) void run();
+        if (shouldRegenerate(live.current.digest, new Date())) void run();
       }, wait);
     };
     check();
