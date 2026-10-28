@@ -106,6 +106,16 @@
   color: var(--ink-3);
   line-height: 1;
 }
+button.nido-topbar__brand {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
 .nido-topbar__brand span {
   font-family: "Comfortaa", var(--font-sans);
   font-weight: 700;
@@ -8490,3 +8500,29 @@
 .n-ob-announce__test { flex: 0 0 auto; white-space: nowrap; }
 .n-ob-announce__result { margin: 8px 4px 0; font-size: 13px; line-height: 1.4; color: var(--ink-2); }
 .n-ob-family__row[aria-disabled="true"] { opacity: 0.6; cursor: default; }
+
+/* Version au toucher du logo : discrète, disparaît seule au bout de 4 s. */
+.nido-topbar__name { display: inline-flex; align-items: baseline; gap: 8px; }
+.nido-version-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+  white-space: nowrap;
+  animation: nido-version-in 200ms var(--ease-out) both;
+}
+button.nido-compact-rail__brand { position: relative; border: none; padding: 0; cursor: pointer; }
+.nido-version-tag--rail {
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 5;
+}
+@keyframes nido-version-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .nido-version-tag { animation: none; } }

@@ -8,7 +8,7 @@ import { groupByArea, isEntityActive, type ResolvedEntity } from "../core/entiti
 import { applyOrder } from "../core/drag-reorder";
 import { greetingFor } from "./dashboard";
 import { SUPPORTED_DOMAINS } from "./render-widget";
-import { DOMAIN_ICON } from "./shared";
+import { DOMAIN_ICON, NIDO_VERSION, useVersionPeek } from "./shared";
 import type { EnergyConfig } from "../core/energy-config";
 import { fetchCalendarEvents } from "../widgets/calendar";
 import { describeCondition } from "../widgets/weather";
@@ -368,15 +368,27 @@ function CompactRail({
     { id: "plan", label: "Plan", Icon: IconFloorPlan },
     { id: "ambient", label: "Veille", Icon: IconMoon },
   ];
+  const [versionShown, peekVersion] = useVersionPeek();
   return (
     <div class="nido-compact-rail">
-      <div class="nido-compact-rail__brand">
+      <button
+        type="button"
+        class="nido-compact-rail__brand"
+        onClick={peekVersion}
+        aria-label={`Nido, version ${NIDO_VERSION}`}
+        title={`Nido v${NIDO_VERSION}`}
+      >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
           <path d="M3 16c2-3 6-5 9-5s7 2 9 5" />
           <path d="M5 16c1.5-2.5 4-4 7-4s5.5 1.5 7 4" />
           <circle cx="12" cy="13" r="1.5" fill="currentColor" />
         </svg>
-      </div>
+        {versionShown && (
+          <small class="nido-version-tag nido-version-tag--rail" role="status">
+            v{NIDO_VERSION}
+          </small>
+        )}
+      </button>
       {items.map((it) => (
         <button
           key={it.id}

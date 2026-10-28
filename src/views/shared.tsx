@@ -1,4 +1,5 @@
 import type { ComponentChildren, JSX } from "preact";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { useStateFlash } from "../core/use-state-flash";
 import {
   IconCouch,
@@ -122,4 +123,20 @@ export function DragItem({
       {children}
     </div>
   );
+}
+
+export const NIDO_VERSION = __NIDO_VERSION__;
+
+/** Version affichée quelques secondes au toucher du logo : discrète, mais là quand
+ *  il faut vérifier que la mise à jour HACS a bien été chargée. */
+export function useVersionPeek(ms = 4000): [boolean, () => void] {
+  const [shown, setShown] = useState(false);
+  const timer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+  const peek = () => {
+    setShown(true);
+    window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => setShown(false), ms);
+  };
+  return [shown, peek];
 }
