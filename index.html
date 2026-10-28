@@ -355,7 +355,16 @@
         },
         connection: {
           subscribeEvents: async () => () => {},
+          // Assist : le son arrive en binaire, un octet seul (l'identifiant) clôt la phrase.
+          socket: {
+            send: (frame) => {
+              if (!assistVoice) return;
+              if (frame.length <= 1) assistVoice.finish();
+              else assistVoice.bytes += frame.length - 1;
+            },
+          },
           subscribeMessage: async (cb, msg) => {
+            if (msg.type === "assist_pipeline/run") return mockAssistRun(cb, msg);
             if (msg.type !== "mqtt/subscribe") throw new Error("unsupported");
             const list = (mqttSubs[msg.topic] ??= []);
             list.push(cb);
@@ -364,6 +373,51 @@
           },
         },
       };
+
+      let assistVoice = null;
+      function mockAssistAnswer(text) {
+        const t = text.toLowerCase();
+        if (t.includes("volet")) return "C'est fait, les volets du salon sont fermés.";
+        if (t.includes("lumière")) return "J'ai éteint les quatre lumières allumées.";
+        if (t.includes("température")) return "Il fait 21 degrés à l'étage, 23 dans la salle de bain.";
+        return "Je n'ai pas d'appareil pour ça, mais je retiens l'idée.";
+      }
+      function mockAssistRun(cb, msg) {
+        const convo = msg.conversation_id || "mock-" + Date.now();
+        const reply = (text) => {
+          cb({ type: "intent-start", data: {} });
+          setTimeout(() => {
+            cb({ type: "intent-end", data: { intent_output: { conversation_id: convo, response: { speech: { plain: { speech: mockAssistAnswer(text) } } } } } });
+            if (msg.end_stage === "tts") cb({ type: "tts-end", data: { tts_output: { url: null } } });
+            cb({ type: "run-end", data: null });
+          }, 500);
+        };
+        setTimeout(() => {
+          cb({ type: "run-start", data: { pipeline: "mock", runner_data: msg.start_stage === "stt" ? { stt_binary_handler_id: 1 } : {} } });
+          if (msg.start_stage === "intent") return reply(msg.input.text);
+          assistVoice = {
+            bytes: 0,
+            done: false,
+            finish() {
+              if (this.done) return;
+              this.done = true;
+              assistVoice = null;
+              cb({ type: "stt-vad-end", data: {} });
+              if (this.bytes === 0) {
+                cb({ type: "error", data: { code: "stt-no-text-recognized", message: "No text recognized" } });
+                cb({ type: "run-end", data: null });
+                return;
+              }
+              const heard = "Quelle température fait-il à l'étage ?";
+              cb({ type: "stt-end", data: { stt_output: { text: heard } } });
+              reply(heard);
+            },
+          };
+          const voice = assistVoice;
+          setTimeout(() => voice.finish(), 1500);
+        }, 0);
+        return Promise.resolve(() => {});
+      }
 
       customElements.whenDefined("nido-panel").then(refresh);
     </script>

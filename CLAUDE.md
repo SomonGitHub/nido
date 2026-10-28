@@ -61,6 +61,8 @@ nido-dashboard/                # = racine du repo HACS
       kids-sync.ts             # useKidsSync → topic MQTT retain nido/kids/state
       energy-config.ts         # EnergyConfig : compteur électrique détecté ou choisi (cf. Énergie)
       memo.ts                  # memo léger + comparateurs (sameEntity, propsEqual…)
+      assist.ts                # client du pipeline Assist (texte / voix), décodage des événements
+      mic-recorder.ts          # micro → AudioWorklet → PCM 16 kHz (contexte sécurisé requis)
       home-digest.ts           # phrase d'accueil (alertes, arrivées) sous le bonjour
       calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
       measure-history.ts       # historique 24 h des mesures (recorder/statistics_during_period)
@@ -82,6 +84,7 @@ nido-dashboard/                # = racine du repo HACS
     components/
       onboarding.tsx           # overlay plein écran 5 étapes (Welcome/Connect/Entities/Theme/Family)
       energy-settings.tsx      # réglage du compteur électrique (étape Vos appareils)
+      assist-panel.tsx         # « Demande à Nido » : conversation texte + bouton micro
       weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
       notification-panel.tsx   # panneau notifications Nido (sensor.nido_notifications, dismiss via fire_event)
       plan-editor.tsx          # éditeur plein écran du plan (pièces, pièces en L, fenêtres/portes)
@@ -243,6 +246,23 @@ Le widget `weather` s'affiche comme les autres domaines dans le grid. En plus, u
 ## Notifications
 
 Nido lit `sensor.nido_notifications` (attribut `notifications: NidoNotification[]`). Chaque notification a `id`, `title`, `message`, `type` (info/warning/success), `timestamp`. Le dashboard affiche une cloche avec badge si `notifications` contient des entrées plus récentes que `nido.lastNotificationRead`. Le panneau `NotificationPanel` permet de consulter et dismiss (via `fire_event` → `nido_notification_event`).
+
+## Demande à Nido (Assist)
+
+Bouton ✨ de la barre du haut → `AssistPanel`. Nido ne parle **pas** directement à une API d'IA :
+il lance `assist_pipeline/run` sur le **pipeline préféré** de HA (agent, STT et TTS choisis dans
+Paramètres → Assistants vocaux), via `subscribeMessage`. Aucune clé dans le navigateur, et l'agent
+ne pilote que les entités exposées à Assist.
+
+- **Texte** : `start_stage: intent` → `intent-end` (réponse + `conversation_id` gardé pour la suite).
+- **Voix** : `start_stage: stt`, `end_stage: tts`. L'audio part en binaire sur la socket : un octet
+  `stt_binary_handler_id` (reçu dans `run-start`) puis le PCM 16 bits 16 kHz ; l'octet seul clôt la
+  phrase. HA détecte la fin de phrase (`stt-vad-end`), on peut aussi re-toucher le micro. La voix de
+  `tts-end` est jouée avec `Audio`.
+- `resampleToPcm16` est **autonome** : sa source est recopiée dans l'AudioWorklet (Blob URL), donc
+  aucune référence à une variable extérieure. Le micro n'est proposé qu'en contexte sécurisé
+  (HTTPS / localhost).
+- Le mock (`index.html`) simule le pipeline : réponses selon des mots-clés, VAD au bout de 1,5 s.
 
 ## Énergie
 

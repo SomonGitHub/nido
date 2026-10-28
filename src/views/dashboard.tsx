@@ -33,6 +33,7 @@ import {
   IconLightOn,
   IconBlind,
   IconNotebook,
+  IconSparkles,
   IconMusic,
   IconWindow,
   IconDoor,
@@ -64,6 +65,8 @@ import { LightsPanel } from "../components/lights-panel";
 import { CoversPanel } from "../components/covers-panel";
 import { OpeningsPanel } from "../components/openings-panel";
 import { ShoppingPanel } from "../components/shopping-panel";
+import { AssistPanel } from "../components/assist-panel";
+import { assistAvailable } from "../core/assist";
 import { PowerGaugeWidget } from "../widgets/power-gauge";
 import type { EnergyConfig } from "../core/energy-config";
 import { KidsCard } from "../widgets/kids-card";
@@ -642,6 +645,7 @@ export function Dashboard({
   const [showCoversPanel, setShowCoversPanel] = useState(false);
   const [showOpeningsPanel, setShowOpeningsPanel] = useState(false);
   const [showShoppingPanel, setShowShoppingPanel] = useState(false);
+  const [showAssistPanel, setShowAssistPanel] = useState(false);
   const [showKidsPanel, setShowKidsPanel] = useState(false);
   const [kidsData, updateKidsData] = useKidsSync(hass);
 
@@ -877,6 +881,17 @@ export function Dashboard({
           </div>
 
           <div class="nido-topbar__icons">
+            {assistAvailable(hass) && (
+              <button
+                type="button"
+                class="nido-bell-btn"
+                onClick={() => setShowAssistPanel(true)}
+                aria-label="Demande à Nido"
+                title="Demande à Nido"
+              >
+                <IconSparkles size={20} />
+              </button>
+            )}
             <button
               type="button"
               class="nido-bell-btn"
@@ -1114,6 +1129,7 @@ export function Dashboard({
         />
       )}
 
+      {showAssistPanel && <AssistPanel hass={hass} onClose={() => setShowAssistPanel(false)} />}
       {showShoppingPanel && (
         <ShoppingPanel
           hass={hass}

@@ -374,6 +374,21 @@ export const IconFan = (p: P) => (
   </Icon>
 );
 
+export const IconMic = (p: P) => (
+  <Icon {...p}>
+    <rect x="9" y="3" width="6" height="11" rx="3" />
+    <path d="M5 11a7 7 0 0 0 14 0" />
+    <path d="M12 18v3" />
+  </Icon>
+);
+
+export const IconSend = (p: P) => (
+  <Icon {...p}>
+    <path d="M4 12 20 4l-6 16-3-7-7-1Z" />
+    <path d="m11 13 9-9" />
+  </Icon>
+);
+
 export const IconSparkles = (p: P) => (
   <Icon {...p}>
     <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
