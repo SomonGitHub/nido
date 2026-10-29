@@ -5,6 +5,9 @@ import { loadTheme } from "./core/storage";
 import tokens from "./tokens.css?inline";
 import styles from "./styles.css?inline";
 import { FONT_FACES_CSS } from "./fonts";
+import { literalCustomProperties, rewriteColorMix, supportsColorMix } from "./core/css-compat";
+
+const BASE_CSS = `${tokens}\n${styles}`;
 
 let fontsInjected = false;
 function ensureFonts() {
@@ -24,17 +27,18 @@ class NidoPanel extends HTMLElement {
   private _route: { prefix: string; path: string } = { prefix: "", path: "" };
   private _panel: PanelInfo = {};
   private _mountPoint: HTMLDivElement;
+  private _style: HTMLStyleElement;
 
   constructor() {
     super();
     ensureFonts();
 
     const shadow = this.attachShadow({ mode: "open" });
-    const style = document.createElement("style");
-    style.textContent = `${tokens}\n${styles}`;
+    this._style = document.createElement("style");
+    this._style.textContent = BASE_CSS;
     this._mountPoint = document.createElement("div");
     this._mountPoint.className = "nido-root-mount";
-    shadow.append(style, this._mountPoint);
+    shadow.append(this._style, this._mountPoint);
   }
 
   set hass(value: HassObject) {
@@ -56,6 +60,7 @@ class NidoPanel extends HTMLElement {
     const { theme, mode } = loadTheme();
     if (!this.hasAttribute("data-theme")) this.setAttribute("data-theme", theme);
     if (!this.hasAttribute("data-mode")) this.setAttribute("data-mode", mode);
+    this._applyCompat();
     this._render();
   }
   disconnectedCallback() { render(null, this._mountPoint); }
@@ -63,6 +68,20 @@ class NidoPanel extends HTMLElement {
   applyTheme(theme: string, mode: string) {
     this.setAttribute("data-theme", theme);
     this.setAttribute("data-mode", mode);
+    this._applyCompat();
+  }
+
+  /* Vieille WebView sans color-mix() : les mélanges sont calculés pour le thème
+     affiché, d'où un nouveau calcul à chaque changement de thème ou de mode. */
+  private _applyCompat() {
+    if (supportsColorMix()) return;
+    this._style.textContent = BASE_CSS;
+    const computed = getComputedStyle(this);
+    const literals = literalCustomProperties(BASE_CSS);
+    this._style.textContent = rewriteColorMix(
+      BASE_CSS,
+      (name) => computed.getPropertyValue(name).trim() || literals.get(name) || null,
+    );
   }
 
   private _render() {
