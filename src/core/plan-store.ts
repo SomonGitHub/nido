@@ -1,6 +1,7 @@
 import type { HassObject } from "../types";
 import type { FloorKind, PlanRect } from "./floor-plan";
 import { useRetainedSync } from "./mqtt-sync";
+import { parseFurniture, type PlanFurniture } from "./furniture";
 
 export type WallSide = "top" | "right" | "bottom" | "left";
 /** `french` : porte-fenêtre — vitrée comme une fenêtre, à deux vantaux. */
@@ -32,6 +33,8 @@ export interface StoredFloor {
   rooms: Record<string, PlanRect[]>;
   openings: Record<string, PlanOpening[]>;
   devices: Record<string, PlanDevice[]>;
+  /** Meubles dessinés (lit, canapé, évier…) ; absent dans un plan d'avant les meubles. */
+  furniture?: Record<string, PlanFurniture[]>;
   /** Sol choisi dans l'éditeur ; absent = deviné d'après le nom de la pièce. */
   surfaces: Record<string, FloorKind>;
 }
@@ -122,11 +125,17 @@ export function parseHousePlan(raw: unknown): HousePlan | null {
       const parsed = list.map(parseDevice).filter((d): d is PlanDevice => d !== null);
       if (parsed.length > 0) devices[areaId] = parsed;
     }
+    const furniture: Record<string, PlanFurniture[]> = {};
+    for (const [areaId, list] of Object.entries((f.furniture as Record<string, unknown>) ?? {})) {
+      if (!Array.isArray(list)) continue;
+      const parsed = list.map(parseFurniture).filter((x): x is PlanFurniture => x !== null);
+      if (parsed.length > 0) furniture[areaId] = parsed;
+    }
     const surfaces: Record<string, FloorKind> = {};
     for (const [areaId, kind] of Object.entries((f.surfaces as Record<string, unknown>) ?? {})) {
       if (SURFACES.includes(kind as FloorKind)) surfaces[areaId] = kind as FloorKind;
     }
-    floors[key] = { rooms, openings, devices, surfaces };
+    floors[key] = { rooms, openings, devices, furniture, surfaces };
   }
   return {
     version: 1,

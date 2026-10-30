@@ -14,5 +14,6 @@
 @import "./styles/floor-plan.css"; /* Vue plan */
 @import "./styles/plan-editor.css"; /* Éditeur de plan */
 @import "./styles/plan-architect.css"; /* Plan d'architecte : sols, murs, nuit */
+@import "./styles/furniture.css"; /* Meubles du plan (vue et éditeur) */
 @import "./styles/assist.css"; /* Demande à Nido */
 @import "./styles/screensaver.css"; /* Écran de veille */

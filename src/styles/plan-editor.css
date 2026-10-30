@@ -361,7 +361,7 @@
   justify-content: center;
   cursor: pointer;
 }
-.nido-plan-editor__stepper-row span { font-size: 14px; font-weight: 600; }
+.nido-plan-editor__stepper-row span { font-size: 14px; font-weight: 600; white-space: nowrap; }
 .nido-plan-editor__select {
   height: 44px;
   padding: 0 12px;

@@ -1,5 +1,6 @@
 import type { Area, Floor } from "./areas";
 import type { PlanDevice, PlanOpening, StoredFloor } from "./plan-store";
+import type { PlanFurniture } from "./furniture";
 
 /** Rectangle en cases de grille (pas en pixels) : le même plan sert tous les écrans. */
 export interface PlanRect {
@@ -27,6 +28,13 @@ export interface PlacedOpening extends PlanOpening {
   area_id: string;
 }
 
+export interface PlacedFurniture extends PlanFurniture {
+  area_id: string;
+  /** Centre en cases, dans le repère du plan affiché. */
+  x: number;
+  y: number;
+}
+
 export interface PlacedDevice extends PlanDevice {
   area_id: string;
   /** Centre de l'icône en cases, dans le repère du plan affiché. */
@@ -45,6 +53,7 @@ export interface FloorLayout {
   rows: number;
   openings: PlacedOpening[];
   devices: PlacedDevice[];
+  furniture: PlacedFurniture[];
   /** Faux tant que l'étage n'a jamais été dessiné : placement automatique. */
   custom: boolean;
 }
@@ -104,7 +113,7 @@ function rowWidths(weights: number[]): number[] {
 /** Plan généré sans intervention : rangées de pièces dont la largeur suit le
  *  nombre d'appareils. Point de départ tant que le plan n'a pas été dessiné. */
 export function autoLayout(areas: Area[], weightOf: (a: Area) => number): FloorLayout {
-  if (areas.length === 0) return { rooms: [], cols: ROW_UNITS, rows: ROW_HEIGHT, openings: [], devices: [], custom: false };
+  if (areas.length === 0) return { rooms: [], cols: ROW_UNITS, rows: ROW_HEIGHT, openings: [], devices: [], furniture: [], custom: false };
   const rooms: PlacedRoom[] = [];
   let index = 0;
   const counts = splitRows(areas.length);
@@ -118,7 +127,7 @@ export function autoLayout(areas: Area[], weightOf: (a: Area) => number): FloorL
       x += widths[i];
     });
   });
-  return { rooms, cols: ROW_UNITS, rows: counts.length * ROW_HEIGHT, openings: [], devices: [], custom: false };
+  return { rooms, cols: ROW_UNITS, rows: counts.length * ROW_HEIGHT, openings: [], devices: [], furniture: [], custom: false };
 }
 
 const NEW_ROOM = { w: 4, h: 3 };
@@ -172,7 +181,15 @@ export function resolveLayout(
       ...clampToRoom(rects, rects[0].x + d.dx, rects[0].y + d.dy),
     }));
   });
-  return { rooms, cols, rows, openings, devices, custom: true };
+  const furniture = drawn.flatMap((a) => {
+    const rects = rooms.find((r) => r.area.area_id === a.area_id)!.rects;
+    return (stored.furniture?.[a.area_id] ?? []).map((f) => ({
+      ...f,
+      area_id: a.area_id,
+      ...clampToRoom(rects, rects[0].x + f.dx, rects[0].y + f.dy),
+    }));
+  });
+  return { rooms, cols, rows, openings, devices, furniture, custom: true };
 }
 
 /** Ramène un point dans l'emprise de la pièce (après un redimensionnement). */

@@ -1,0 +1,73 @@
+/* Meubles du plan : traits fins d'architecte, fond légèrement opaque qui
+   masque le motif du sol. Pas de color-mix() ici : rgba() direct, lisible
+   aussi par les vieilles WebView. */
+.nido-plan,
+.nido-plan-editor {
+  --fur-stroke: rgba(60, 40, 25, 0.62);
+  --fur-fill: rgba(255, 251, 244, 0.72);
+  --fur-soft: rgba(60, 40, 25, 0.07);
+}
+:host([data-mode="dark"]) .nido-plan,
+:host([data-mode="dark"]) .nido-plan-editor,
+.nido-plan[data-night="true"] {
+  --fur-stroke: rgba(244, 232, 214, 0.55);
+  --fur-fill: rgba(22, 17, 13, 0.45);
+  --fur-soft: rgba(244, 232, 214, 0.08);
+}
+
+.nido-fur {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.nido-fur * {
+  fill: var(--fur-fill);
+  stroke: var(--fur-stroke);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.nido-fur line,
+.nido-fur path { fill: none; }
+.nido-fur .nido-fur__soft { fill: var(--fur-soft); }
+.nido-fur .nido-fur__solid { fill: var(--fur-stroke); stroke: none; }
+
+/* Plan : dessin seul, le toucher passe à la pièce dessous. */
+.nido-plan__furniture {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+.nido-plan__house[data-lod="overview"] .nido-fur * { stroke-width: 0.9; }
+
+/* Éditeur : on le saisit pour le déplacer. */
+.nido-plan-editor__furniture {
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: grab;
+  touch-action: none;
+  border-radius: 4px;
+}
+.nido-plan-editor__furniture[data-selected="true"] {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  --fur-stroke: var(--accent-deep);
+}
+.nido-plan-editor__furniture[data-active="true"] { cursor: grabbing; z-index: 7; }
+.nido-plan-editor__furniture:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Nom de la pièce, mesures et alertes restent lisibles au-dessus d'un meuble. */
+.nido-plan__room-head,
+.nido-plan__room-foot,
+.nido-plan__alert {
+  position: relative;
+  z-index: 3;
+}

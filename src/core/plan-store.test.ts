@@ -11,6 +11,7 @@ const valid = {
         salon: [{ id: "o1", kind: "french", rect: 0, side: "bottom", offset: 1, length: 2, entity_id: "binary_sensor.baie" }],
       },
       devices: { salon: [{ id: "d1", entity_id: "light.plafond", dx: 3, dy: 2 }] },
+      furniture: { salon: [{ id: "f1", kind: "sofa", dx: 2, dy: 1, w: 4, h: 1.75, rot: 90 }] },
       surfaces: { salon: "tile" },
     },
   },
