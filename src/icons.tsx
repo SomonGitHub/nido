@@ -737,3 +737,18 @@ export const IconPin = (p: P) => (
     <circle cx="12" cy="9.5" r="2.5" />
   </Icon>
 );
+
+export const IconRotate = (p: P) => (
+  <Icon {...p}>
+    <path d="M20 11a8 8 0 1 0-2.3 5.7" />
+    <path d="M20 4v7h-7" />
+  </Icon>
+);
+
+export const IconSofa = (p: P) => (
+  <Icon {...p}>
+    <path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" />
+    <path d="M3 13a2 2 0 0 1 4 0v2h10v-2a2 2 0 0 1 4 0v5H3z" />
+    <path d="M6 18v2M18 18v2" />
+  </Icon>
+);

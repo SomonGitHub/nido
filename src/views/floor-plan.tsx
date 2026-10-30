@@ -31,6 +31,8 @@ import { isEntityActive, isRadiatorOpen } from "../core/entities";
 import { DOMAIN_ICON } from "./shared";
 import type { HousePlan, WallSide } from "../core/plan-store";
 import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-tint";
+import { footprint } from "../core/furniture";
+import { FurnitureSymbol } from "./furniture-symbol";
 import { oklchCss, supportsOklch } from "../core/css-compat";
 import {
   loadPlanLayers,
@@ -628,6 +630,23 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
                 }}
               />
             ));
+          })}
+          {layout.furniture.map((f) => {
+            const fp = footprint(f);
+            return (
+              <span
+                key={f.id}
+                class="nido-plan__furniture"
+                style={{
+                  left: `${(f.x - fp.w / 2) * cell}px`,
+                  top: `${(f.y - fp.h / 2) * cell}px`,
+                  width: `${fp.w * cell}px`,
+                  height: `${fp.h * cell}px`,
+                }}
+              >
+                <FurnitureSymbol kind={f.kind} w={f.w} h={f.h} rot={f.rot} />
+              </span>
+            );
           })}
           {layout.rooms.map((r) => {
             const neighbours = layout.rooms.filter((o) => o !== r).flatMap((o) => o.rects);

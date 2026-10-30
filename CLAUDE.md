@@ -44,6 +44,7 @@ nido-dashboard/                # = racine du repo HACS
                                #   fetchFloors → "config/floor_registry/list" ([] si HA < 2024.4)
       floor-plan.ts            # groupAreasByFloor, autoLayout, resolveLayout (plan dessiné ou auto),
                                #   géométrie des murs (openingSegment)
+      furniture.ts             # meubles du plan : catalogue (taille réelle), place libre, parse défensif
       plan-store.ts            # HousePlan (rects + ouvrants par pièce et étage), parse défensif,
                                #   usePlanSync → topic MQTT retain nido/floorplan/state
       mqtt-sync.ts             # useRetainedSync<T> : état partagé via MQTT retain, le plus
@@ -87,6 +88,7 @@ nido-dashboard/                # = racine du repo HACS
       dashboard.tsx            # hero + Favoris (widgets) + Pièces (RoomCard grid ou plan)
       room-detail.tsx          # back + hero + stats panel + filters pills + widgets grid
       floor-plan.tsx           # vue plan : étages, calques, zoom/pan, fiche pièce (3 variantes)
+      furniture-symbol.tsx     # symboles SVG des meubles, vus de dessus (style plan d'architecte)
       energy.tsx               # page Énergie : jauge Linky, abonnement, 24 h, gros consommateurs
                                #   (entités lues dans EnergyConfig, cf. Énergie)
       compact.tsx              # vue Echo Show : rail Accueil / Contrôles / Plan / Veille
@@ -118,7 +120,7 @@ nido-dashboard/                # = racine du repo HACS
     styles.css                 # index des @import de styles/, dans l'ordre de la cascade
     styles/                    # un fichier par zone : shell, widgets, topbar, calendar, dashboard,
                                #   room-detail, onboarding, panels, energy, kids, compact,
-                               #   alarm-dialog, floor-plan, plan-editor, plan-architect, assist,
+                               #   alarm-dialog, floor-plan, plan-editor, plan-architect, furniture, assist,
                                #   screensaver, compat (replis @supports not, toujours en dernier)
 ```
 
@@ -227,6 +229,15 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   sélectionner la pièce ; icônes masquées en vue d'ensemble, cible tactile 44 px via `::before`.
   Dans l'éditeur : liste « Poser un appareil », glisser par pas de 0,5 case, flèches, refus
   hors de la pièce.
+- **Meubles** (`furniture[area_id]: PlanFurniture[]`, optionnel dans `StoredFloor`) : dessin seul,
+  sans entité. 19 types (`FURNITURE`, lits, armoire, canapé, télé, tables, évier, plaques, frigo,
+  lave-linge, baignoire, douche, lavabo, WC, plante), taille réelle en mètres. Le plan n'a pas
+  d'échelle : on suppose **une case = 50 cm** (`METERS_PER_CELL`), réduit à 70 % de la pièce si
+  besoin. `dx`/`dy` = centre relatif au 1er rectangle (comme les appareils), `w`/`h` en cases avant
+  rotation, `rot` en quarts de tour (`footprint` échange w/h). Ajout sur la première place libre
+  sous la bande du nom (`furnitureSpot`). Éditeur : « Ajouter un meuble », glisser (pas 0,25),
+  flèches, R pour tourner, Suppr ; largeur/profondeur par pas de 10 cm. Sur le plan :
+  `pointer-events: none` (le toucher va à la pièce), sous les murs, nom et pastilles au-dessus.
 - **Calques** (`nido.planLayers`) : Température (remplissage `oklch` piloté par
   `--measure-h/c` + `--plan-fill-l/cf` selon le mode), Lumières (halo + compteur), Ouvrants
   (pastille « Ouverte · 25 min » ; les alertes fumée/eau/gaz s'affichent toujours),

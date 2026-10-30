@@ -26,9 +26,27 @@ import {
   IconLShape,
   IconMinus,
   IconPlus,
+  IconRotate,
+  IconSofa,
   IconTrash,
   IconWindow,
 } from "../icons";
+import {
+  FURNITURE,
+  FURNITURE_GROUPS,
+  FURNITURE_KINDS,
+  FURNITURE_SIZE_STEP,
+  FURNITURE_STEP,
+  METERS_PER_CELL,
+  defaultFurnitureSize,
+  furnitureSpot,
+  footprint,
+  resizeFurniture,
+  rotateQuarter,
+  type FurnitureKind,
+  type PlanFurniture,
+} from "../core/furniture";
+import { FurnitureSymbol } from "../views/furniture-symbol";
 
 interface PlanEditorProps {
   floors: PlanFloor[];
@@ -47,7 +65,8 @@ type Handle = "nw" | "n" | "ne" | "e" | "se" | "s" | "sw" | "w";
 type Selection =
   | { kind: "room"; areaId: string; rect: number }
   | { kind: "opening"; areaId: string; id: string }
-  | { kind: "device"; areaId: string; id: string };
+  | { kind: "device"; areaId: string; id: string }
+  | { kind: "furniture"; areaId: string; id: string };
 
 interface DeviceDrag {
   areaId: string;
@@ -109,6 +128,7 @@ function seedDraft(
         rooms: { ...stored.rooms },
         openings: { ...stored.openings },
         devices: { ...stored.devices },
+        furniture: { ...stored.furniture },
         surfaces: { ...stored.surfaces },
       };
       continue;
@@ -120,6 +140,7 @@ function seedDraft(
       rooms: Object.fromEntries(auto.rooms.map((r) => [r.area.area_id, r.rects])),
       openings: stored?.openings ?? {},
       devices: stored?.devices ?? {},
+      furniture: stored?.furniture ?? {},
       surfaces: stored?.surfaces ?? {},
     };
   }
@@ -204,6 +225,9 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   const [sel, setSel] = useState<Selection | null>(null);
   const [drag, setDrag] = useState<Drag | null>(null);
   const [devDrag, setDevDrag] = useState<DeviceDrag | null>(null);
+  const [furDrag, setFurDrag] = useState<DeviceDrag | null>(null);
+  /* Meuble à focaliser au prochain rendu (après un ajout) : R le tourne aussitôt. */
+  const focusFurniture = useRef<string | null>(null);
   const [dirty, setDirty] = useState(false);
   const [toast, setToast] = useState("");
   const toastTimer = useRef<number | undefined>(undefined);
@@ -410,10 +434,12 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
     const rooms = { ...stored.rooms };
     const openings = { ...stored.openings };
     const devices = { ...stored.devices };
+    const furniture = { ...stored.furniture };
     delete rooms[areaId];
     delete openings[areaId];
     delete devices[areaId];
-    updateFloor({ rooms, openings, devices });
+    delete furniture[areaId];
+    updateFloor({ rooms, openings, devices, furniture });
     setSel(null);
     setDrag(null);
     flash(isGuest(areaId) ? `${nameOf(areaId)} retirée de cet étage` : `Pièce retirée du plan : ${nameOf(areaId)}`);
@@ -551,6 +577,89 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
     moveDevice(areaId, id, d[0], d[1]);
   };
 
+  /* ─── Meubles ─── */
+  const furnitureOf = (areaId: string) => stored.furniture?.[areaId] ?? [];
+  const setFurnitureOf = (areaId: string, list: PlanFurniture[]) =>
+    updateFloor({ furniture: { ...stored.furniture, [areaId]: list } });
+
+  const addFurniture = (areaId: string, kind: FurnitureKind) => {
+    const r0 = placed[areaId][0];
+    const size = defaultFurnitureSize(kind, r0);
+    const taken = furnitureOf(areaId).map((f) => ({ x: r0.x + f.dx, y: r0.y + f.dy, ...footprint(f) }));
+    const pos = furnitureSpot(r0, size, taken);
+    const item: PlanFurniture = { id: newId(), kind, dx: pos.x - r0.x, dy: pos.y - r0.y, rot: 0, ...size };
+    setFurnitureOf(areaId, [...furnitureOf(areaId), item]);
+    setSel({ kind: "furniture", areaId, id: item.id });
+    focusFurniture.current = item.id;
+  };
+
+  const patchFurniture = (areaId: string, id: string, patch: Partial<PlanFurniture>) =>
+    setFurnitureOf(areaId, furnitureOf(areaId).map((f) => (f.id === id ? { ...f, ...patch } : f)));
+
+  /* Le centre reste dans la pièce ; le meuble peut toucher le mur. */
+  const moveFurniture = (areaId: string, id: string, dx: number, dy: number) => {
+    const rects = placed[areaId];
+    const f = furnitureOf(areaId).find((x) => x.id === id);
+    if (!f) return;
+    const x = rects[0].x + f.dx + dx;
+    const y = rects[0].y + f.dy + dy;
+    if (!rects.some((r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h)) {
+      flash("Un meuble reste dans sa pièce");
+      return;
+    }
+    patchFurniture(areaId, id, { dx: f.dx + dx, dy: f.dy + dy });
+  };
+
+  const removeFurniture = (areaId: string, id: string) => {
+    setFurnitureOf(areaId, furnitureOf(areaId).filter((f) => f.id !== id));
+    setSel({ kind: "room", areaId, rect: 0 });
+  };
+
+  const startFurnitureDrag = (e: JSX.TargetedPointerEvent<HTMLElement>, areaId: string, id: string) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      /* pointeur déjà relâché */
+    }
+    setSel({ kind: "furniture", areaId, id });
+    setFurDrag({ areaId, id, sx: e.clientX, sy: e.clientY, dx: 0, dy: 0 });
+  };
+  const moveFurnitureDrag = (e: JSX.TargetedPointerEvent<HTMLElement>) => {
+    if (!furDrag || cell === 0) return;
+    const snap = (v: number) => Math.round(v / cell / FURNITURE_STEP) * FURNITURE_STEP;
+    const dx = snap(e.clientX - furDrag.sx);
+    const dy = snap(e.clientY - furDrag.sy);
+    if (dx !== furDrag.dx || dy !== furDrag.dy) setFurDrag({ ...furDrag, dx, dy });
+  };
+  const endFurnitureDrag = () => {
+    if (!furDrag) return;
+    if (furDrag.dx || furDrag.dy) moveFurniture(furDrag.areaId, furDrag.id, furDrag.dx, furDrag.dy);
+    setFurDrag(null);
+  };
+
+  const onFurnitureKey = (e: JSX.TargetedKeyboardEvent<HTMLElement>, areaId: string, f: PlanFurniture) => {
+    const delta: Record<string, [number, number]> = {
+      ArrowLeft: [-FURNITURE_STEP, 0], ArrowRight: [FURNITURE_STEP, 0], ArrowUp: [0, -FURNITURE_STEP], ArrowDown: [0, FURNITURE_STEP],
+    };
+    if (e.key === "r" || e.key === "R") {
+      e.preventDefault();
+      patchFurniture(areaId, f.id, { rot: rotateQuarter(f.rot) });
+      return;
+    }
+    if (e.key === "Delete" || e.key === "Backspace") {
+      e.preventDefault();
+      removeFurniture(areaId, f.id);
+      return;
+    }
+    const d = delta[e.key];
+    if (!d) return;
+    e.preventDefault();
+    moveFurniture(areaId, f.id, d[0], d[1]);
+  };
+
   const save = () => {
     onSave({ ...plan, floors: { ...plan.floors, ...draft } });
     setDirty(false);
@@ -575,6 +684,8 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
   const selDeviceEntity = selDevice
     ? (byArea.get(sel!.areaId) ?? []).find((e) => e.entity_id === selDevice.entity_id) ?? null
     : null;
+  const selFurniture =
+    sel?.kind === "furniture" ? furnitureOf(sel.areaId).find((f) => f.id === sel.id) ?? null : null;
   const selOpening =
     sel?.kind === "opening" ? (stored.openings[sel.areaId] ?? []).find((o) => o.id === sel.id) ?? null : null;
   const selPreviewRect = sel?.kind === "room" && preview[sel.areaId] ? preview[sel.areaId][selRectIndex] : null;
@@ -673,6 +784,47 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                       </button>
                     ));
                   })}
+
+                  {Object.entries(preview).flatMap(([areaId, rects]) =>
+                    areaById.has(areaId)
+                      ? furnitureOf(areaId).map((f) => {
+                          const moving = furDrag?.id === f.id;
+                          const fp = footprint(f);
+                          const cx = rects[0].x + f.dx + (moving ? furDrag!.dx : 0);
+                          const cy = rects[0].y + f.dy + (moving ? furDrag!.dy : 0);
+                          return (
+                            <button
+                              key={f.id}
+                              type="button"
+                              class="nido-plan-editor__furniture"
+                              data-selected={sel?.kind === "furniture" && sel.id === f.id ? "true" : "false"}
+                              data-active={moving ? "true" : "false"}
+                              aria-label={`${FURNITURE[f.kind].label}. Flèches pour déplacer, R pour tourner`}
+                              title={FURNITURE[f.kind].label}
+                              style={{
+                                left: `${(cx - fp.w / 2) * cell}px`,
+                                top: `${(cy - fp.h / 2) * cell}px`,
+                                width: `${fp.w * cell}px`,
+                                height: `${fp.h * cell}px`,
+                              }}
+                              onPointerDown={(e) => startFurnitureDrag(e, areaId, f.id)}
+                              onPointerMove={moveFurnitureDrag}
+                              onPointerUp={endFurnitureDrag}
+                              onPointerCancel={endFurnitureDrag}
+                              onKeyDown={(e) => onFurnitureKey(e, areaId, f)}
+                              ref={(el) => {
+                                if (el && focusFurniture.current === f.id) {
+                                  focusFurniture.current = null;
+                                  el.focus({ preventScroll: true });
+                                }
+                              }}
+                            >
+                              <FurnitureSymbol kind={f.kind} w={f.w} h={f.h} rot={f.rot} />
+                            </button>
+                          );
+                        })
+                      : [],
+                  )}
 
                   {Object.entries(preview).flatMap(([areaId, rects]) => {
                     if (!areaById.has(areaId)) return [];
@@ -878,6 +1030,29 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                     </select>
                   </>
                 )}
+                <label class="nido-plan-editor__field-label" for="plan-add-furniture">
+                  Ajouter un meuble
+                </label>
+                <select
+                  id="plan-add-furniture"
+                  class="nido-plan-editor__select"
+                  value=""
+                  onChange={(e) => {
+                    const v = (e.currentTarget as HTMLSelectElement).value as FurnitureKind | "";
+                    if (v) addFurniture(sel.areaId, v);
+                  }}
+                >
+                  <option value="">Choisir…</option>
+                  {FURNITURE_GROUPS.map((g) => (
+                    <optgroup key={g} label={g}>
+                      {FURNITURE_KINDS.filter((k) => FURNITURE[k].group === g).map((k) => (
+                        <option key={k} value={k}>
+                          {FURNITURE[k].label}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
                 <button type="button" class="nido-plan-editor__btn" onClick={() => addRect(sel.areaId)}>
                   <IconLShape size={16} /> Ajouter un rectangle (pièce en L)
                 </button>
@@ -913,6 +1088,16 @@ export function PlanEditor({ floors, byArea, plan, initialFloor, synced, onSave,
                   <IconTrash size={16} /> Retirer du plan
                 </button>
               </div>
+            )}
+
+            {sel?.kind === "furniture" && selFurniture && (
+              <FurnitureCard
+                item={selFurniture}
+                roomName={areaById.get(sel.areaId)?.name ?? ""}
+                onBack={() => setSel({ kind: "room", areaId: sel.areaId, rect: 0 })}
+                onPatch={(patch) => patchFurniture(sel.areaId, selFurniture.id, patch)}
+                onRemove={() => removeFurniture(sel.areaId, selFurniture.id)}
+              />
             )}
 
             {sel?.kind === "opening" && selOpening && (
@@ -1080,19 +1265,79 @@ function OpeningCard({
   );
 }
 
-function Stepper({ label, value, onChange }: { label: string; value: number; onChange: (v: number) => void }) {
+function Stepper({
+  label,
+  value,
+  onChange,
+  step = OPENING_STEP,
+  format = (v: number) => v.toLocaleString("fr-FR"),
+}: {
+  label: string;
+  value: number;
+  onChange: (v: number) => void;
+  step?: number;
+  format?: (v: number) => string;
+}) {
   return (
     <div class="nido-plan-editor__stepper">
       <span class="nido-plan-editor__field-label">{label}</span>
       <div class="nido-plan-editor__stepper-row">
-        <button type="button" aria-label={`${label} : moins`} onClick={() => onChange(value - OPENING_STEP)}>
+        <button type="button" aria-label={`${label} : moins`} onClick={() => onChange(value - step)}>
           <IconMinus size={16} />
         </button>
-        <span>{value.toLocaleString("fr-FR")}</span>
-        <button type="button" aria-label={`${label} : plus`} onClick={() => onChange(value + OPENING_STEP)}>
+        <span>{format(value)}</span>
+        <button type="button" aria-label={`${label} : plus`} onClick={() => onChange(value + step)}>
           <IconPlus size={16} />
         </button>
       </div>
+    </div>
+  );
+}
+
+function FurnitureCard({
+  item,
+  roomName,
+  onBack,
+  onPatch,
+  onRemove,
+}: {
+  item: PlanFurniture;
+  roomName: string;
+  onBack: () => void;
+  onPatch: (patch: Partial<PlanFurniture>) => void;
+  onRemove: () => void;
+}) {
+  const meters = (cells: number) =>
+    `${(cells * METERS_PER_CELL).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} m`;
+  const size = (label: string, key: "w" | "h") => (
+    <Stepper
+      label={label}
+      value={item[key]}
+      step={FURNITURE_SIZE_STEP}
+      format={meters}
+      onChange={(v) => onPatch({ [key]: resizeFurniture(v, 0) })}
+    />
+  );
+  return (
+    <div class="nido-plan-editor__card">
+      <button type="button" class="nido-plan-editor__link" onClick={onBack}>
+        <IconArrowLeft size={14} /> {roomName}
+      </button>
+      <div class="nido-plan-editor__card-title">
+        <IconSofa size={18} /> {FURNITURE[item.kind].label}
+      </div>
+      <p class="nido-plan-editor__muted">Glisse le meuble pour le placer. Flèches pour l'ajuster, R pour le tourner.</p>
+      <div class="nido-plan-editor__steppers">
+        {size("Largeur", "w")}
+        {size("Profondeur", "h")}
+      </div>
+      <p class="nido-plan-editor__muted">Mesures indicatives, une case = 50 cm.</p>
+      <button type="button" class="nido-plan-editor__btn" onClick={() => onPatch({ rot: rotateQuarter(item.rot) })}>
+        <IconRotate size={16} /> Tourner d'un quart de tour
+      </button>
+      <button type="button" class="nido-plan-editor__btn nido-plan-editor__btn--danger" onClick={onRemove}>
+        <IconTrash size={16} /> Retirer le meuble
+      </button>
     </div>
   );
 }
