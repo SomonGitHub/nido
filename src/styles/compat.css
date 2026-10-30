@@ -1,0 +1,36 @@
+/* Vieilles WebView (Chrome < 111, Fully Kiosk sur une ancienne tablette) : sans
+   oklch(), ces couleurs tomberaient. Un navigateur récent ignore tout ce bloc.
+   Les --mfb-* sont précalculées par tintStyle (core/measure-tint.ts) dans ce seul
+   cas ; color-mix() est réécrit à part, au chargement (core/css-compat.ts). */
+@supports not (color: oklch(0 0 0)) {
+  .nido-room-card__band-item--tinted { color: var(--mfb-52); }
+  :host([data-mode="dark"]) .nido-room-card__band-item--tinted { color: var(--mfb-80); }
+  .nido-room-card--accent .nido-room-card__band-item--tinted,
+  :host([data-mode="dark"]) .nido-room-card--accent .nido-room-card__band-item--tinted { color: var(--mfb-84); }
+
+  .nido-room-detail__stat--tinted .nido-room-detail__stat-value { color: var(--mfb-52); }
+  :host([data-mode="dark"]) .nido-room-detail__stat--tinted .nido-room-detail__stat-value { color: var(--mfb-80); }
+
+  .nido-plan__room[data-tinted="true"] { background: var(--mfb-fill-light); }
+  :host([data-mode="dark"]) .nido-plan__room[data-tinted="true"] { background: var(--mfb-fill-dark); }
+  .nido-plan__room[data-tinted="true"] .nido-plan__temp-value,
+  .nido-plan__stat[data-tinted="true"] .nido-plan__stat-value { color: var(--mfb-47); }
+  :host([data-mode="dark"]) .nido-plan__room[data-tinted="true"] .nido-plan__temp-value,
+  :host([data-mode="dark"]) .nido-plan__stat[data-tinted="true"] .nido-plan__stat-value { color: var(--mfb-84); }
+  .nido-plan[data-night="true"] .nido-plan__house .nido-plan__room[data-tinted="true"] .nido-plan__temp-value { color: var(--mfb-82); }
+
+  .nido-plan__legend-bar { background: var(--legend-light); }
+  :host([data-mode="dark"]) .nido-plan__legend-bar { background: var(--legend-dark); }
+
+  /* Énergie : la couleur de fin posée sur celle de départ, opacité = --energy-t. */
+  .nido-plan { --energy-fb0: rgb(252, 242, 229); --energy-fb1: 247, 137, 85; --energy-fbmid: rgb(249, 194, 150); }
+  :host([data-mode="dark"]) .nido-plan { --energy-fb0: rgb(55, 44, 29); --energy-fb1: 144, 58, 3; --energy-fbmid: rgb(97, 55, 13); }
+  .nido-plan__room[data-energy="true"] {
+    background-color: var(--energy-fb0);
+    background-image: linear-gradient(rgba(var(--energy-fb1), var(--energy-t)), rgba(var(--energy-fb1), var(--energy-t)));
+  }
+  .nido-plan__legend-bar--energy { background: linear-gradient(90deg, var(--energy-fb0), var(--energy-fbmid), rgb(var(--energy-fb1))); }
+
+  .nido-plan[data-night="true"] .nido-plan__room:not([data-energy="true"]) { background-color: rgb(30, 24, 20); }
+  .nido-plan[data-night="true"] .nido-plan__room[data-lit="true"]:not([data-energy="true"]) { background-color: rgb(60, 45, 28); }
+}

@@ -17,3 +17,4 @@
 @import "./styles/furniture.css"; /* Meubles du plan (vue et éditeur) */
 @import "./styles/assist.css"; /* Demande à Nido */
 @import "./styles/screensaver.css"; /* Écran de veille */
+@import "./styles/compat.css"; /* Replis des vieilles WebView, toujours en dernier */

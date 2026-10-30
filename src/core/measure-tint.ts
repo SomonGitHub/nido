@@ -8,6 +8,8 @@
    teintes proches, ce qui évite les intermédiaires ternes d'une interpolation
    bleu → rouge en ligne droite. */
 
+import { oklchCss, supportsOklch } from "./css-compat";
+
 /** [valeur, teinte OKLCH (deg), chroma OKLCH] */
 type TintStop = readonly [number, number, number];
 
@@ -76,8 +78,17 @@ export function humidityTint(raw: string): MeasureTint | null {
 /** Variables CSS consommées par `.nido-room-card__band-item--tinted`. */
 export function tintStyle(tint: MeasureTint | null): Record<string, string> | undefined {
   if (!tint) return undefined;
-  return {
+  const style: Record<string, string> = {
     "--measure-h": tint.hue.toFixed(1),
     "--measure-c": tint.chroma.toFixed(3),
   };
+  /* Vieille WebView sans oklch() : la même couleur, précalculée pour chaque
+     luminosité utilisée par le CSS (cf. styles/compat.css). */
+  if (!supportsOklch()) {
+    const { hue, chroma } = tint;
+    for (const l of [47, 52, 80, 82, 84]) style[`--mfb-${l}`] = oklchCss(l / 100, chroma, hue);
+    style["--mfb-fill-light"] = oklchCss(0.955, chroma * 0.32, hue);
+    style["--mfb-fill-dark"] = oklchCss(0.33, chroma * 0.45, hue);
+  }
+  return style;
 }
