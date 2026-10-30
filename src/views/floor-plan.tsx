@@ -31,6 +31,7 @@ import { isEntityActive, isRadiatorOpen } from "../core/entities";
 import { DOMAIN_ICON } from "./shared";
 import type { HousePlan, WallSide } from "../core/plan-store";
 import { temperatureTint, tintStyle, type MeasureTint } from "../core/measure-tint";
+import { oklchCss, supportsOklch } from "../core/css-compat";
 import {
   loadPlanLayers,
   loadPlanTime,
@@ -211,6 +212,21 @@ function legendGradient(): string {
     );
   }
   return `linear-gradient(90deg, ${stops.join(", ")})`;
+}
+
+/* Vieille WebView sans oklch() : la légende en rgb, en clair et en sombre ; le
+   choix se fait dans styles/compat.css selon le mode. */
+function legendStyle(): Record<string, string> {
+  if (supportsOklch()) return { background: legendGradient() };
+  const ramp = (l: number, cf: number) => {
+    const stops: string[] = [];
+    for (let v = 14; v <= 30; v += 2) {
+      const t = temperatureTint(String(v), "°C");
+      if (t) stops.push(`${oklchCss(l, t.chroma * cf, t.hue)} ${Math.round(((v - 14) / 16) * 100)}%`);
+    }
+    return `linear-gradient(90deg, ${stops.join(", ")})`;
+  };
+  return { "--legend-light": ramp(0.955, 0.32), "--legend-dark": ramp(0.33, 0.45) };
 }
 
 export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowerEntityId = null, onOpenRoom, onEdit }: FloorPlanProps) {
@@ -834,7 +850,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
             {layers.temperature ? (
               <div class="nido-plan__legend">
                 <span>16°</span>
-                <span class="nido-plan__legend-bar" style={{ background: legendGradient() }} aria-hidden="true" />
+                <span class="nido-plan__legend-bar" style={legendStyle()} aria-hidden="true" />
                 <span>28°</span>
               </div>
             ) : layers.energy ? (

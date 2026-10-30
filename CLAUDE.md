@@ -72,6 +72,7 @@ nido-dashboard/                # = racine du repo HACS
       use-ai-digest.ts         # hook (dans App) : régénère toutes les 2 h, partagé via MQTT nido/digest/state
       screensaver.ts           # écran de veille : délai par appareil, alertes, ligne de nuit, décalage anti-marquage
       use-idle.ts              # useIdle(minutes) : inactivité (pointer/clavier/molette sur document)
+      css-compat.ts            # vieilles WebView (Chrome < 111) : color-mix() réécrit en rgba, oklch → rgb
       calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
       measure-history.ts       # historique 24 h des mesures (recorder/statistics_during_period)
       measure-tint.ts          # couleur des mesures de confort (bandeau des cartes pièce)
@@ -118,7 +119,7 @@ nido-dashboard/                # = racine du repo HACS
     styles/                    # un fichier par zone : shell, widgets, topbar, calendar, dashboard,
                                #   room-detail, onboarding, panels, energy, kids, compact,
                                #   alarm-dialog, floor-plan, plan-editor, plan-architect, assist,
-                               #   screensaver
+                               #   screensaver, compat (replis @supports not, toujours en dernier)
 ```
 
 ## Modèle mental utilisateur
@@ -363,6 +364,16 @@ passée à `Dashboard`, `EnergyPage`, `CompactDashboard` et `FloorPlan` (`mainPo
 - **Styles** : `styles.css` n'est qu'une liste d'`@import` (Vite les inline dans `?inline`). Un
   nouveau style va dans le fichier de sa zone ; une règle qui doit en écraser une autre doit venir
   après elle dans l'ordre des imports.
+- **Vieilles WebView** (Fully sur une tablette ancienne, Chrome < 111) : `color-mix()` et `oklch()`
+  y sont inconnus. Rien ne change sur un navigateur récent :
+  - `color-mix()` : `NidoPanel._applyCompat` réécrit la feuille en `rgba()` avec les couleurs du
+    thème affiché (`rewriteColorMix`), seulement si `CSS.supports` dit non, à chaque changement de thème.
+  - `oklch()` avec `var()` : une ligne de repli placée avant **ne marche pas** (une valeur avec
+    `var()` est acceptée à la lecture puis devient invalide au calcul, sans retomber sur la ligne
+    d'avant). Les replis vont dans `styles/compat.css`, sous `@supports not (color: oklch(0 0 0))`,
+    importé en dernier ; `tintStyle` y ajoute les couleurs précalculées `--mfb-*` dans ce seul cas.
+  - Nouvelle couleur en `oklch()` ou `color-mix()` avec `var()` : ajouter son repli dans compat.css.
+  - Vérifier en renommant `color-mix`/`oklch` dans une copie du bundle (le navigateur les ignore).
 - **hls.js** : importé via `hls.js/light` (types dans `src/hls-light.d.ts`). Le build complet
   ajoute ~200 Ko pour sous-titres/DRM/pistes audio, inutiles pour les flux caméra HA.
 - **Cache HACS** : HACS sert `nido.js` depuis `/hacsfiles/nido/`. À chaque release, HACS télécharge la dernière. Pas de `?v=N` à gérer côté utilisateur.

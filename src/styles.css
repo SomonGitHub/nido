@@ -16,3 +16,4 @@
 @import "./styles/plan-architect.css"; /* Plan d'architecte : sols, murs, nuit */
 @import "./styles/assist.css"; /* Demande à Nido */
 @import "./styles/screensaver.css"; /* Écran de veille */
+@import "./styles/compat.css"; /* Replis des vieilles WebView, toujours en dernier */
