@@ -71,3 +71,4 @@
   position: relative;
   z-index: 3;
 }
+.nido-fur .nido-fur__dash { fill: none; stroke-dasharray: 3 3; opacity: 0.7; }

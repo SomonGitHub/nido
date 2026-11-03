@@ -3,7 +3,7 @@ import type { HassEntity } from "../types";
 import type { Area } from "./areas";
 import type { ResolvedEntity } from "./entities";
 import { emptyPlan } from "./plan-store";
-import { cameraFor, parseScreensaverStyle, roomStatus, tourStops } from "./screensaver-tour";
+import { bubbleFor, cameraFor, houseSummary, parseScreensaverStyle, roomStatus, tourStops } from "./screensaver-tour";
 
 const NOW = new Date("2026-11-03T15:42:00");
 const ago = (min: number) => new Date(NOW.getTime() - min * 60_000).toISOString();
@@ -28,6 +28,7 @@ describe("parseScreensaverStyle", () => {
     expect(parseScreensaverStyle(null)).toBe("tour");
     expect(parseScreensaverStyle("n'importe quoi")).toBe("tour");
     expect(parseScreensaverStyle("cards")).toBe("cards");
+    expect(parseScreensaverStyle("live")).toBe("live");
   });
 });
 
@@ -96,5 +97,27 @@ describe("cameraFor", () => {
     const cam = cameraFor(room, 20, { w: 390, h: 844 });
     expect(cam.x + 12 * 20 * cam.zoom).toBeCloseTo(195);
     expect(cam.y + 3 * 20 * cam.zoom).toBeCloseTo(844 * 0.4);
+  });
+});
+
+describe("Maison vivante", () => {
+  it("résume lumières, ouvertures et température moyenne", () => {
+    const chips = houseSummary([
+      ent(st("light.a", "on")),
+      ent(st("light.b", "on")),
+      ent(st("light.c", "off")),
+      ent(st("binary_sensor.f", "on", { device_class: "window" })),
+      ent(st("sensor.t1", "20", { device_class: "temperature" })),
+      ent(st("sensor.t2", "22.5", { device_class: "temperature" })),
+    ]);
+    expect(chips.map((c) => `${c.value} ${c.label}`)).toEqual(["2 lumières allumées", "1 ouverture", "21,3° en moyenne"]);
+  });
+  it("place la bulle à droite, sinon à gauche, sinon sur la pièce", () => {
+    const view = { w: 1280, h: 800, top: 120 };
+    const bubble = { w: 300, h: 300 };
+    expect(bubbleFor({ x: 100, y: 200, w: 200, h: 150 }, bubble, view)).toEqual({ x: 318, y: 200, side: "right" });
+    expect(bubbleFor({ x: 900, y: 600, w: 300, h: 150 }, bubble, view)).toEqual({ x: 582, y: 488, side: "left" });
+    expect(bubbleFor({ x: 20, y: 50, w: 1240, h: 600 }, bubble, view).side).toBe("over");
+    expect(bubbleFor({ x: 20, y: 50, w: 100, h: 100 }, bubble, view).y).toBe(120);
   });
 });

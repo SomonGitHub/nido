@@ -59,24 +59,36 @@ const SYMBOLS: Record<FurnitureKind, Draw> = {
       })}
     </>
   ),
-  wardrobe: (W, H) => (
-    <>
-      {R(0, 0, W, H, 2)}
-      {L(4, H / 2, W - 4, H / 2)}
-      {bars(Math.max(3, Math.floor(W / 14))).map((i, _, all) => {
-        const x = ((i + 1) * W) / (all.length + 1);
-        return L(x - 4, H / 2 - 9, x + 4, H / 2 + 9);
-      })}
-    </>
-  ),
+  /* Portes coulissantes en façade (bas), tringle et cintres dedans. */
+  wardrobe: (W, H) => {
+    const n = Math.max(4, Math.floor((W - 16) / 9));
+    return (
+      <>
+        {R(0, 0, W, H, 2)}
+        {L(6, H * 0.42, W - 6, H * 0.42)}
+        {bars(n).map((i) => {
+          const x = 10 + (i * (W - 20)) / (n - 1);
+          return L(x, H * 0.16, x, H * 0.68);
+        })}
+        {L(3, H - 9, W * 0.55, H - 9)}
+        {L(W * 0.45, H - 4, W - 3, H - 4)}
+      </>
+    );
+  },
   sofa: (W, H) => seating(W, H, W >= 170 ? 3 : 2),
   armchair: (W, H) => seating(W, H, 1),
-  tv: (W, H) => (
-    <>
-      {R(0, H * 0.3, W, H * 0.7, 3)}
-      <rect x={W * 0.08} y={0} width={W * 0.84} height={Math.max(3, H * 0.16)} rx={1.5} class="nido-fur__solid" />
-    </>
-  ),
+  /* Meuble bas, écran plat sur son pied au fond, angle de vue vers l'avant. */
+  tv: (W, H) => {
+    const screenY = H * 0.14;
+    return (
+      <>
+        {R(0, H * 0.08, W, H * 0.92, 3)}
+        <rect x={W * 0.06} y={screenY} width={W * 0.88} height={Math.max(4, H * 0.12)} rx={1.5} class="nido-fur__solid" />
+        {R(W * 0.4, screenY + Math.max(4, H * 0.12), W * 0.2, H * 0.22, 2, "nido-fur__soft")}
+        <path class="nido-fur__dash" d={`M ${W * 0.12} ${H * 0.34} L ${W * 0.04} ${H * 0.96} M ${W * 0.88} ${H * 0.34} L ${W * 0.96} ${H * 0.96}`} />
+      </>
+    );
+  },
   dining_table: (W, H) => {
     const chair = Math.min(40, H * 0.32);
     const n = Math.max(1, Math.floor(W / 60));
@@ -99,13 +111,22 @@ const SYMBOLS: Record<FurnitureKind, Draw> = {
       {R(8, 8, W - 16, H - 16, 3)}
     </>
   ),
-  desk: (W, H) => (
-    <>
-      {R(0, 0, W, H, 2)}
-      {R(W * 0.3, 6, W * 0.4, Math.max(3, H * 0.08), 1.5, "nido-fur__solid")}
-      <path d={`M ${W * 0.36} ${H} A ${W * 0.14} ${W * 0.14} 0 0 1 ${W * 0.64} ${H}`} />
-    </>
-  ),
+  /* Plateau au fond (écran et clavier), chaise devant, dossier vers l'avant. */
+  desk: (W, H) => {
+    const top = H * 0.6;
+    const seat = Math.min(W * 0.36, H * 0.38);
+    const cx = W / 2;
+    return (
+      <>
+        {R(0, 0, W, top, 2)}
+        <rect x={W * 0.3} y={6} width={W * 0.4} height={Math.max(3, top * 0.08)} rx={1.5} class="nido-fur__solid" />
+        {L(cx, 6 + Math.max(3, top * 0.08), cx, top * 0.3)}
+        {R(W * 0.32, top * 0.5, W * 0.36, top * 0.18, 2, "nido-fur__soft")}
+        {R(cx - seat / 2, top - seat * 0.25, seat, seat, seat * 0.3)}
+        <path d={`M ${cx - seat / 2 - 2} ${top + seat * 0.62} Q ${cx} ${top + seat * 1.02} ${cx + seat / 2 + 2} ${top + seat * 0.62}`} />
+      </>
+    );
+  },
   sink: (W, H) => {
     const bw = Math.min(W * 0.42, 50);
     return (
@@ -127,14 +148,24 @@ const SYMBOLS: Record<FurnitureKind, Draw> = {
       <circle cx={W * 0.7} cy={H * 0.7} r={Math.min(W, H) * 0.16} />
     </>
   ),
-  fridge: (W, H) => (
-    <>
-      {R(0, 0, W, H, 3)}
-      {L(0, H * 0.82, W, H * 0.82)}
-      {L(W * 0.2, H * 0.9, W * 0.8, H * 0.9)}
-      {L(4, 4, W - 4, H * 0.82 - 4)}
-    </>
-  ),
+  /* Caisse, porte en façade (bas) et sa poignée, flocon au centre. */
+  fridge: (W, H) => {
+    const door = H * 0.82;
+    const r = Math.min(W, H) * 0.18;
+    const cx = W / 2;
+    const cy = door / 2;
+    return (
+      <>
+        {R(0, 0, W, H, 3)}
+        {L(0, door, W, door)}
+        {L(W * 0.72, door + 3, W * 0.72, H - 3)}
+        {[0, 60, 120].map((a) => {
+          const t = (a * Math.PI) / 180;
+          return L(cx - Math.cos(t) * r, cy - Math.sin(t) * r, cx + Math.cos(t) * r, cy + Math.sin(t) * r);
+        })}
+      </>
+    );
+  },
   washer: (W, H) => (
     <>
       {R(0, 0, W, H, 4)}
@@ -173,6 +204,39 @@ const SYMBOLS: Record<FurnitureKind, Draw> = {
       <ellipse cx={W / 2} cy={H * 0.64} rx={W * 0.26} ry={H * 0.22} class="nido-fur__soft" />
     </>
   ),
+  /* Radiateur en fonte vu de dessus : éléments à colonnes, robinet à un bout. */
+  radiator: (W, H) => {
+    const n = Math.max(4, Math.round((W - 10) / 6));
+    const step = (W - 10) / n;
+    return (
+      <>
+        {bars(n).map((i) => R(4 + i * step, 1, step - 1.2, H - 2, Math.min(step, H) * 0.4, "nido-fur__soft"))}
+        <circle cx={W - 3} cy={H / 2} r={Math.max(2.5, H * 0.22)} />
+      </>
+    );
+  },
+  /* Meuble bas à abattants : deux paires de chaussures dessinées dessus. */
+  shoe_cabinet: (W, H) => {
+    const pairs = Math.max(1, Math.floor(W / 30));
+    const gap = W / pairs;
+    const sw = Math.min(9, gap * 0.18);
+    const sh = H * 0.62;
+    return (
+      <>
+        {R(0, 0, W, H, 2)}
+        {L(3, H - 5, W - 3, H - 5)}
+        {bars(pairs).map((i) => {
+          const cx = i * gap + gap / 2;
+          return (
+            <>
+              <ellipse cx={cx - sw * 0.8} cy={H * 0.44} rx={sw / 2} ry={sh / 2} class="nido-fur__soft" />
+              <ellipse cx={cx + sw * 0.8} cy={H * 0.44} rx={sw / 2} ry={sh / 2} class="nido-fur__soft" />
+            </>
+          );
+        })}
+      </>
+    );
+  },
   plant: (W, H) => {
     const cx = W / 2;
     const cy = H / 2;

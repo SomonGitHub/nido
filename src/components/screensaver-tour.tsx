@@ -5,7 +5,7 @@ import { summarizeRoom, extractRoomStats, type ResolvedEntity } from "../core/en
 import { floorKind, roomWalls, wallStyle, type FloorLayout, type PlanRect } from "../core/floor-plan";
 import { footprint } from "../core/furniture";
 import { temperatureTint, tintStyle } from "../core/measure-tint";
-import { cameraFor, roomStatus, type StatusIcon, type TourStop } from "../core/screensaver-tour";
+import { bubbleFor, cameraFor, houseSummary, roomStatus, type StatusIcon, type TourStop } from "../core/screensaver-tour";
 import { FurnitureSymbol } from "../views/furniture-symbol";
 import { PlanOpeningMark, facadeThickness, onSide } from "../views/floor-plan";
 import { DOMAIN_ICON } from "../views/shared";
@@ -345,4 +345,66 @@ export function useTourIndex(count: number, stepMs: number): number {
     return () => window.clearInterval(t);
   }, [count > 0, stepMs]);
   return count === 0 ? 0 : index % count;
+}
+
+const BUBBLE = { w: 310, h: 330 };
+
+/** C · Maison vivante : tout l'étage reste visible et vit (lumières, mouvement,
+ *  ouvertures) ; un cadre passe de pièce en pièce avec une bulle d'état. */
+export function LiveView({ hass, stops, index, byArea, now, dateStr, timeStr }: ViewProps) {
+  const [ref, size] = useSize<HTMLDivElement>();
+  const stop = stops[index];
+  const { cols, rows } = stop.layout;
+  const band = Math.max(84, size.h * 0.15);
+  const availW = size.w * 0.96;
+  const availH = size.h - band - size.h * 0.04;
+  const cell = size.w ? Math.min(availW / cols, availH / rows) : 0;
+  const ox = (size.w - cols * cell) / 2;
+  const oy = band + (availH - rows * cell) / 2;
+  const b = bbox(stop.room.rects);
+  const room = { x: ox + b.x * cell, y: oy + b.y * cell, w: b.w * cell, h: b.h * cell };
+  const bubble = bubbleFor(room, BUBBLE, { ...size, top: band });
+  const chips = useMemo(() => houseSummary([...byArea.values()].flat()), [byArea]);
+  return (
+    <div class="nido-veille-live" ref={ref}>
+      <div class="nido-veille-live__band">
+        <div class="nido-veille-live__clock">
+          <span class="nido-veille__clock">{timeStr}</span>
+          <span class="nido-veille__date">{dateStr}</span>
+        </div>
+        <div class="nido-veille-live__chips">
+          <span class="nido-veille-live__chip nido-veille-live__chip--floor">{stop.floorLabel}</span>
+          {chips.map((c) => (
+            <span key={c.id} class="nido-veille-live__chip">
+              <b>{c.value}</b> {c.label}
+            </span>
+          ))}
+        </div>
+      </div>
+      {cell > 0 && (
+        <>
+          <div class="nido-veille-live__plan" key={stop.floorKey} style={{ left: `${ox}px`, top: `${oy}px` }}>
+            <PlanScene hass={hass} layout={stop.layout} cell={cell} byArea={byArea} />
+          </div>
+          {/* Le voile sombre autour du cadre reste dans l'emprise du plan. */}
+          <div
+            class="nido-veille-live__clip"
+            style={{ left: `${ox}px`, top: `${oy}px`, width: `${cols * cell}px`, height: `${rows * cell}px` }}
+          >
+            <div
+              class="nido-veille-live__spot"
+              style={{ left: `${room.x - ox}px`, top: `${room.y - oy}px`, width: `${room.w}px`, height: `${room.h}px` }}
+            />
+          </div>
+          <div
+            class="nido-veille-live__bubble"
+            data-side={bubble.side}
+            style={{ left: `${bubble.x}px`, top: `${bubble.y}px`, width: `${BUBBLE.w}px` }}
+          >
+            <StatusCard stop={stop} byArea={byArea} now={now} count={stops.length} index={index} />
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
