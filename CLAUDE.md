@@ -72,6 +72,7 @@ nido-dashboard/                # = racine du repo HACS
       ai-digest.ts             # résumé IA : état de la maison en texte, appel ai_task.generate_data
       use-ai-digest.ts         # hook (dans App) : régénère toutes les 2 h, partagé via MQTT nido/digest/state
       screensaver.ts           # écran de veille : délai par appareil, alertes, ligne de nuit, décalage anti-marquage
+      screensaver-tour.ts      # veille Visite / Cartes : pièces à visiter, statuts d'une pièce, caméra
       use-idle.ts              # useIdle(minutes) : inactivité (pointer/clavier/molette sur document)
       css-compat.ts            # vieilles WebView (Chrome < 111) : color-mix() réécrit en rgba, oklch → rgb
       calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
@@ -105,6 +106,7 @@ nido-dashboard/                # = racine du repo HACS
       kids-panel.tsx           # points enfants (tâches, médailles, privilèges)
       calendar-panel.tsx       # agenda des calendriers exposés
       screensaver.tsx          # écran de veille plein écran (jour / nuit / alerte)
+      screensaver-tour.tsx     # vues Visite (caméra sur le plan) et Cartes (pièce en grand), PlanScene
       camera-panel.tsx         # live caméra : HLS natif, hls.js, puis WebRTC, puis MJPEG
       alarm-code-dialog.tsx, thermostat-popover.tsx, measure-history-chart.tsx
     widgets/                   # 1 fichier par domaine HA (15 fichiers, scene + script partagent)
@@ -330,8 +332,16 @@ remplace la phrase d'accueil sous le bonjour par un bilan rédigé par l'IA de H
 étape Ambiance. `useIdle` est appelé dans `App` ; pas de veille sur Echo Show (page Veille à lui)
 ni pendant l'onboarding. Overlay `z-index: 900`.
 
-- **Jour** : horloge, météo, présences (zone HA de l'absent), résumé IA s'il existe, prochain
-  événement, puces de `buildDigest` (sans alertes, arrivées ni agenda, montrés ailleurs).
+- **Jour** : `nido.screensaverStyle` (**par appareil**, Ambiance) — `tour` (« Visite », défaut) ou
+  `cards` (« Cartes »). Les pièces du plan qui ont un appareil exposé (`tourStops`, étage par étage)
+  défilent toutes les 5 s (`TOUR_STEP_MS`) avec leurs statuts (`roomStatus` : alertes, puis allumé /
+  ouvert, puis le reste, 6 lignes max). Visite : le plan de l'étage en plein écran, caméra en
+  `transform` (`cameraFor`, 1,8 s de mouvement), autres pièces estompées, horloge en haut à gauche,
+  carte d'état en bas à droite (en portrait : pièce en haut, carte en bas). Cartes : colonne fixe
+  (heure, météo, présences, statuts, prochain événement) et la pièce seule en grand, qui glisse.
+  `PlanScene` reprend les classes du plan (`.nido-plan__room`, murs, `PlanOpeningMark`, meubles) dans
+  un conteneur `.nido-plan`, en lecture seule. Sans pièce à visiter : l'ancien écran (horloge, météo,
+  présences, résumé IA, prochain événement, puces de `buildDigest`).
 - **Nuit** (22 h – 7 h, `isQuietHour`) : fond quasi noir à couleurs fixes, horloge fine, une ligne
   (`nightLine` : dehors, ouvertures, alarme). Avec Fully Plus, `setScreenBrightness(6)` puis
   restauration de la valeur d'avant au réveil ou sur alerte.
