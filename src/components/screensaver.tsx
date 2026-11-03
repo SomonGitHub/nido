@@ -1,7 +1,11 @@
 import { Fragment } from "preact";
 import { useEffect, useMemo, useState } from "preact/hooks";
 import type { HassObject } from "../types";
-import type { ResolvedEntity } from "../core/entities";
+import { groupByArea, type ResolvedEntity } from "../core/entities";
+import type { Area, Floor } from "../core/areas";
+import type { HousePlan } from "../core/plan-store";
+import { TOUR_STEP_MS, tourStops, type ScreensaverStyle } from "../core/screensaver-tour";
+import { CardsView, TourView, useTourIndex } from "./screensaver-tour";
 import type { AiDigestState } from "../core/use-ai-digest";
 import { buildDigest } from "../core/home-digest";
 import { isQuietHour } from "../core/announce";
@@ -42,6 +46,10 @@ interface ScreensaverProps {
   entities: ResolvedEntity[];
   areaNameById: Map<string, string>;
   aiDigest: AiDigestState | null;
+  style: ScreensaverStyle;
+  areas: Area[];
+  floors: Floor[];
+  plan: HousePlan;
   onWake: () => void;
   onOpenRoom: (areaId: string) => void;
 }
@@ -52,7 +60,7 @@ function pictureUrl(hass: HassObject, pic: string | undefined): string | undefin
   return base.replace(/\/$/, "") + pic;
 }
 
-export function Screensaver({ hass, entities, areaNameById, aiDigest, onWake, onOpenRoom }: ScreensaverProps) {
+export function Screensaver({ hass, entities, areaNameById, aiDigest, style, areas, floors, plan, onWake, onOpenRoom }: ScreensaverProps) {
   const now = useMinuteTick();
   const night = isQuietHour(now);
   const offset = burnInOffset(now);
@@ -91,6 +99,40 @@ export function Screensaver({ hass, entities, areaNameById, aiDigest, onWake, on
     [hass.states, entities, areaNameById, now],
   );
   const aiText = aiDigest?.digest.text;
+  const byArea = useMemo(() => groupByArea(entities), [entities]);
+  const stops = useMemo(() => tourStops(areas, floors, plan, byArea), [areas, floors, plan, byArea]);
+  const tourIndex = useTourIndex(night ? 0 : stops.length, TOUR_STEP_MS);
+  const touring = !night && stops.length > 0;
+
+  const weatherLine = weather && condition && (
+    <span class="nido-veille__weather">
+      <condition.Icon size={20} />
+      {weather.attributes.temperature != null && <b>{String(weather.attributes.temperature).replace(".", ",")}°</b>}
+      <span>{condition.label}</span>
+    </span>
+  );
+  const nextLine = event && (
+    <span class="nido-veille-next">
+      {event.time && <b>{event.time}</b>}
+      {event.title} · {event.when}
+    </span>
+  );
+  const tourProps = {
+    hass,
+    stops,
+    index: tourIndex,
+    byArea,
+    now,
+    dateStr: now.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" }),
+    timeStr: now.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }),
+    meta: (
+      <>
+        {weatherLine}
+        {people.length > 0 && <span>{presenceText(people)}</span>}
+      </>
+    ),
+    next: nextLine,
+  };
 
   return (
     <div
@@ -102,8 +144,13 @@ export function Screensaver({ hass, entities, areaNameById, aiDigest, onWake, on
       aria-label="Écran de veille. Touchez pour revenir à Nido."
       onClick={onWake}
     >
-      <div class="nido-veille__brand">nido</div>
-      <div class="nido-veille__stage" style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} aria-hidden={alert ? "true" : undefined}>
+      {touring && (
+        <div class="nido-plan nido-veille__scene" data-style={style} aria-hidden={alert ? "true" : undefined}>
+          {style === "cards" ? <CardsView {...tourProps} /> : <TourView {...tourProps} />}
+        </div>
+      )}
+      {!touring && <div class="nido-veille__brand">nido</div>}
+      {!touring && <div class="nido-veille__stage" style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} aria-hidden={alert ? "true" : undefined}>
         {night ? (
           <div class="nido-veille__night">
             <div class="nido-veille__date">{dateStr}</div>
@@ -184,8 +231,8 @@ export function Screensaver({ hass, entities, areaNameById, aiDigest, onWake, on
             </div>
           </div>
         )}
-      </div>
-      {!alert && <div class="nido-veille__hint">{night ? "Mode nuit" : "Touchez l'écran pour revenir à Nido"}</div>}
+      </div>}
+      {!alert && !touring && <div class="nido-veille__hint">{night ? "Mode nuit" : "Touchez l'écran pour revenir à Nido"}</div>}
 
       {alert && (
         <div class="nido-veille__alert" role="alertdialog" aria-label={alert.label} onClick={(ev) => ev.stopPropagation()}>

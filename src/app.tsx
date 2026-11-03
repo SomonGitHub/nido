@@ -18,6 +18,7 @@ import {
   loadAnnounce,
   loadAiDigestEnabled,
   loadScreensaver,
+  loadScreensaverStyle,
   loadRoomEntitiesOrder,
   loadRoomsOrder,
   loadTheme,
@@ -40,6 +41,7 @@ import { useAiDigest } from "./core/use-ai-digest";
 import { useIdle } from "./core/use-idle";
 import { useRoomLayout } from "./core/use-room-layout";
 import { effectiveDelay, type ScreensaverDelay } from "./core/screensaver";
+import type { ScreensaverStyle } from "./core/screensaver-tour";
 import { Screensaver } from "./components/screensaver";
 
 interface PanelHost {
@@ -79,6 +81,7 @@ export function App({ hass, host }: AppProps) {
   const [announce, setAnnounce] = useState<boolean>(() => loadAnnounce());
   const [aiDigestEnabled, setAiDigestEnabled] = useState<boolean>(() => loadAiDigestEnabled());
   const [screensaver, setScreensaver] = useState<ScreensaverDelay | null>(() => loadScreensaver());
+  const [screensaverStyle, setScreensaverStyle] = useState<ScreensaverStyle>(() => loadScreensaverStyle());
   const [energyStored, setEnergyStored] = useState<StoredEnergyConfig>(() => loadEnergyConfig());
   const [roomsOrder, setRoomsOrder] = useState<string[]>(() => loadRoomsOrder());
   const [roomEntitiesOrder, setRoomEntitiesOrder] = useState<Record<string, string[]>>(
@@ -324,6 +327,10 @@ export function App({ hass, host }: AppProps) {
           entities={exposedEntities}
           areaNameById={areaNameById}
           aiDigest={aiDigest}
+          style={screensaverStyle}
+          areas={areas}
+          floors={floors}
+          plan={housePlan}
           onWake={wake}
           onOpenRoom={(areaId) => setView({ kind: "room", areaId })}
         />
@@ -342,6 +349,7 @@ export function App({ hass, host }: AppProps) {
           initialAnnounce={announce}
           initialAiDigest={aiDigestEnabled}
           initialScreensaver={screensaver}
+          initialScreensaverStyle={screensaverStyle}
           initialEnergy={energyStored}
           isReturning={isOnboarded()}
           onApplyTheme={applyTheme}
@@ -354,6 +362,7 @@ export function App({ hass, host }: AppProps) {
             setAnnounce(state.announce);
             setAiDigestEnabled(state.aiDigest);
             setScreensaver(state.screensaver);
+            setScreensaverStyle(state.screensaverStyle);
             setEnergyStored(state.energy);
             setShowOnboarding(false);
           }}

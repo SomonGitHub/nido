@@ -234,3 +234,176 @@
   .nido-veille, .nido-veille__alert { animation: none; }
   .nido-veille__stage { transition: none; }
 }
+
+/* ── Veille « Visite » et « Cartes » : le vrai plan, pièce par pièce ── */
+.nido-veille__scene {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  gap: 0;
+}
+.nido-veille[data-alert] .nido-veille__scene { filter: blur(3px); opacity: 0.45; }
+.nido-veille-house { filter: none; }
+.nido-veille-house .nido-plan__room { transition: opacity 1s var(--ease-out); }
+.nido-veille-house .nido-plan__room[data-dim="true"] { opacity: 0.35; }
+.nido-veille-dev {
+  position: absolute;
+  z-index: 6;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--ink-1);
+  background: var(--bg-card);
+  color: var(--ink-1);
+}
+.nido-veille-dev[data-on="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 0 0 5px rgba(199, 90, 42, 0.18);
+}
+
+.nido-veille-status__name {
+  margin: 6px 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.nido-veille-status__measures { display: flex; gap: 20px; margin-bottom: 12px; }
+.nido-veille-status__measures small {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.nido-veille-status__measures b { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+.nido-veille-status__rows { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.nido-veille-status__rows li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--ink-2); }
+.nido-veille-status__rows i {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-inset);
+  color: var(--ink-2);
+}
+.nido-veille-status__rows li[data-tone="on"] { color: var(--ink-1); font-weight: 600; }
+.nido-veille-status__rows li[data-tone="on"] i { background: var(--accent); color: var(--accent-ink); }
+.nido-veille-status__rows li[data-tone="alert"] { color: var(--danger); font-weight: 600; }
+.nido-veille-status__rows li[data-tone="alert"] i { background: var(--danger); color: #fff; }
+.nido-veille-status { animation: nido-veille-fade 0.7s var(--ease-out) both; }
+@keyframes nido-veille-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.nido-veille-dots { display: flex; gap: 6px; align-items: center; }
+.nido-veille-dots span { width: 8px; height: 8px; border-radius: 4px; background: var(--ink-4); transition: width 0.5s var(--ease-out), background-color 0.5s; }
+.nido-veille-dots span[data-on="true"] { width: 26px; background: var(--accent); }
+.nido-veille-dots--text { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--ink-3); }
+
+/* A · Visite : plein écran, caméra 1,8 s puis ~3 s d'arrêt sur la pièce */
+.nido-veille-tour { position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; }
+.nido-veille-tour__cam {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+  transition: transform 1.8s cubic-bezier(0.65, 0, 0.35, 1);
+  animation: nido-veille-in 0.8s var(--ease-out) both;
+}
+.nido-veille-tour__clock {
+  position: absolute;
+  left: 3%;
+  top: 4%;
+  z-index: 10;
+  padding: 12px 20px 14px;
+  border-radius: var(--r-lg);
+  background: var(--bg-shell);
+  box-shadow: var(--shadow-md);
+}
+.nido-veille-tour__clock .nido-veille__clock { font-size: clamp(56px, 8.5vw, 112px); margin: 4px 0 0 -0.04em; }
+.nido-veille-tour__card {
+  position: absolute;
+  right: 3%;
+  bottom: 5%;
+  z-index: 10;
+  width: clamp(280px, 30%, 380px);
+  padding: 20px 22px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: 0 12px 40px rgba(40, 25, 15, 0.14);
+}
+.nido-veille-tour > .nido-veille-dots { position: absolute; left: 3%; bottom: 5%; z-index: 10; }
+
+/* B · Cartes : colonne fixe + pièce en grand qui glisse */
+.nido-veille-cards { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: 31% 1fr; }
+.nido-veille-cards__side {
+  min-width: 0;
+  padding: 5% 4% 5% 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+.nido-veille-cards__side .nido-veille__clock { font-size: clamp(64px, 9.5vw, 136px); margin: 6px 0 10px -0.04em; }
+.nido-veille-cards__meta { display: flex; flex-direction: column; gap: 6px; font-size: 17px; color: var(--ink-2); }
+.nido-veille-cards__meta b { color: var(--ink-1); }
+.nido-veille-next { display: flex; align-items: baseline; gap: 10px; font-size: 15px; color: var(--ink-2); }
+.nido-veille-next b { font-size: 24px; color: var(--accent); letter-spacing: -0.02em; }
+.nido-veille-cards__stage {
+  position: relative;
+  margin: 3.5% 3.5% 3.5% 0;
+  border-radius: var(--r-xl);
+  background: var(--bg-inset);
+  overflow: hidden;
+}
+.nido-veille-cards__slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: nido-veille-slide 1s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+.nido-veille-cards__slide .nido-plan__house { position: relative; }
+@keyframes nido-veille-slide { from { opacity: 0; transform: translateX(6%); } to { opacity: 1; transform: none; } }
+.nido-veille-cards__progress {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 4%;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform-origin: 0 50%;
+  animation: nido-veille-progress 5s linear both;
+}
+@keyframes nido-veille-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (max-width: 900px) {
+  .nido-veille-cards { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .nido-veille-cards__side { padding: 6% 6% 0; }
+  .nido-veille-cards__stage { margin: 4%; }
+  .nido-veille-tour__card { left: 4%; right: 4%; width: auto; bottom: 4%; }
+  .nido-veille-tour > .nido-veille-dots { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nido-veille-tour__cam, .nido-veille-house .nido-plan__room { transition: none; }
+  .nido-veille-tour__cam, .nido-veille-cards__slide, .nido-veille-status, .nido-veille-cards__progress { animation: none; }
+}

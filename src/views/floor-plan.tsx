@@ -1040,11 +1040,11 @@ export function DoorSwing({
 
 /* Épaisseur des murs de façade : trois fois une cloison, bornée pour rester
    lisible en vue d'ensemble comme au zoom maximal. */
-function facadeThickness(cell: number): number {
+export function facadeThickness(cell: number): number {
   return Math.round(Math.max(5, Math.min(10, cell * 0.22)));
 }
 
-function onSide(w: { x: number; y: number; horizontal: boolean }, rect: PlanRect, side: WallSide): boolean {
+export function onSide(w: { x: number; y: number; horizontal: boolean }, rect: PlanRect, side: WallSide): boolean {
   switch (side) {
     case "top":
       return w.horizontal && w.y === rect.y;
@@ -1057,7 +1057,7 @@ function onSide(w: { x: number; y: number; horizontal: boolean }, rect: PlanRect
   }
 }
 
-function PlanOpeningMark({
+export function PlanOpeningMark({
   opening,
   rect,
   cell,

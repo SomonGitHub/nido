@@ -1,4 +1,5 @@
 import { parseScreensaverDelay, type ScreensaverDelay } from "./screensaver";
+import { parseScreensaverStyle, type ScreensaverStyle } from "./screensaver-tour";
 import { EMPTY_AI_DIGEST, parseAiDigest, type AiDigest } from "./ai-digest";
 import { parseStoredEnergy, type StoredEnergyConfig } from "./energy-config";
 
@@ -18,6 +19,7 @@ const KEYS = {
   aiDigest: "nido.aiDigest",
   aiDigestCache: "nido.aiDigestCache",
   screensaver: "nido.screensaver",
+  screensaverStyle: "nido.screensaverStyle",
   roomsView: "nido.roomsView",
   planLayers: "nido.planLayers",
   planTime: "nido.planTime",
@@ -233,6 +235,14 @@ export function loadScreensaver(): ScreensaverDelay | null {
 export function saveScreensaver(delay: ScreensaverDelay | null): void {
   if (delay === null) safeStorage()?.removeItem(KEYS.screensaver);
   else safeStorage()?.setItem(KEYS.screensaver, String(delay));
+}
+
+export function loadScreensaverStyle(): ScreensaverStyle {
+  return parseScreensaverStyle(safeStorage()?.getItem(KEYS.screensaverStyle));
+}
+
+export function saveScreensaverStyle(style: ScreensaverStyle): void {
+  safeStorage()?.setItem(KEYS.screensaverStyle, style);
 }
 
 export type RoomsView = "cards" | "plan";
