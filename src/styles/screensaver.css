@@ -396,14 +396,83 @@
 }
 @keyframes nido-veille-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
+/* C · Maison vivante : l'étage entier, un cadre glisse de pièce en pièce */
+.nido-veille-live { position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; }
+.nido-veille-live__band {
+  position: absolute;
+  left: 3%;
+  right: 3%;
+  top: 2.5%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.nido-veille-live__clock { display: flex; align-items: baseline; gap: 18px; min-width: 0; }
+.nido-veille-live__clock .nido-veille__clock { font-size: clamp(48px, 7vw, 92px); margin: 0; }
+.nido-veille-live__chips { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.nido-veille-live__chip {
+  padding: 9px 14px;
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.nido-veille-live__chip b { color: var(--ink-1); }
+.nido-veille-live__chip--floor { background: var(--ink-1); color: var(--bg-shell); font-weight: 600; }
+.nido-veille-live__plan { position: absolute; animation: nido-veille-in 0.8s var(--ease-out) both; }
+.nido-veille-live__clip { position: absolute; z-index: 7; overflow: hidden; pointer-events: none; }
+.nido-veille-live__spot {
+  position: absolute;
+  box-sizing: border-box;
+  border: 3px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 0 0 9999px rgba(26, 20, 16, 0.22);
+  transition: left 1.2s cubic-bezier(0.65, 0, 0.35, 1), top 1.2s cubic-bezier(0.65, 0, 0.35, 1),
+    width 1.2s cubic-bezier(0.65, 0, 0.35, 1), height 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.nido-veille-live__bubble {
+  position: absolute;
+  z-index: 8;
+  box-sizing: border-box;
+  padding: 18px 20px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  box-shadow: 0 14px 40px rgba(40, 25, 15, 0.2);
+  transition: left 1.2s cubic-bezier(0.65, 0, 0.35, 1), top 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.nido-veille-live__bubble::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 14px;
+  height: 14px;
+  background: var(--bg-card);
+  transform: rotate(45deg);
+}
+.nido-veille-live__bubble[data-side="right"]::before { left: -7px; }
+.nido-veille-live__bubble[data-side="left"]::before { right: -7px; }
+.nido-veille-live__bubble[data-side="over"]::before { display: none; }
+.nido-veille-live__bubble .nido-veille-status__name { font-size: 26px; }
+
 @media (max-width: 900px) {
   .nido-veille-cards { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
   .nido-veille-cards__side { padding: 6% 6% 0; }
   .nido-veille-cards__stage { margin: 4%; }
   .nido-veille-tour__card { left: 4%; right: 4%; width: auto; bottom: 4%; }
   .nido-veille-tour > .nido-veille-dots { display: none; }
+  .nido-veille-live__band { flex-direction: column; align-items: flex-start; }
+  .nido-veille-live__chips { justify-content: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .nido-veille-tour__cam, .nido-veille-house .nido-plan__room { transition: none; }
+  .nido-veille-tour__cam, .nido-veille-house .nido-plan__room, .nido-veille-live__spot, .nido-veille-live__bubble { transition: none; }
+  .nido-veille-live__plan { animation: none; }
   .nido-veille-tour__cam, .nido-veille-cards__slide, .nido-veille-status, .nido-veille-cards__progress { animation: none; }
+}
+@media (max-width: 600px) {
+  .nido-veille-live__bubble { left: 4% !important; right: 4%; top: auto !important; bottom: 3%; width: auto !important; }
+  .nido-veille-live__bubble::before { display: none; }
 }

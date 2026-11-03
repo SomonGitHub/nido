@@ -1029,6 +1029,7 @@ function StepTheme(props: {
                 [
                   ["tour", "Visite", "Le plan défile de pièce en pièce, caméra qui glisse"],
                   ["cards", "Cartes", "Une pièce en grand à la fois, avec l'heure à côté"],
+                  ["live", "Maison", "Tout l'étage visible, un cadre passe de pièce en pièce"],
                 ] as const
               ).map(([value, label, hint]) => (
                 <button

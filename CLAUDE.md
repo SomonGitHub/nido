@@ -72,7 +72,7 @@ nido-dashboard/                # = racine du repo HACS
       ai-digest.ts             # résumé IA : état de la maison en texte, appel ai_task.generate_data
       use-ai-digest.ts         # hook (dans App) : régénère toutes les 2 h, partagé via MQTT nido/digest/state
       screensaver.ts           # écran de veille : délai par appareil, alertes, ligne de nuit, décalage anti-marquage
-      screensaver-tour.ts      # veille Visite / Cartes : pièces à visiter, statuts d'une pièce, caméra
+      screensaver-tour.ts      # veille Visite / Cartes / Maison : pièces à visiter, statuts, caméra, bulle
       use-idle.ts              # useIdle(minutes) : inactivité (pointer/clavier/molette sur document)
       css-compat.ts            # vieilles WebView (Chrome < 111) : color-mix() réécrit en rgba, oklch → rgb
       calendar-events.ts       # CalendarEvent + mise en forme des événements des calendriers HA
@@ -106,7 +106,7 @@ nido-dashboard/                # = racine du repo HACS
       kids-panel.tsx           # points enfants (tâches, médailles, privilèges)
       calendar-panel.tsx       # agenda des calendriers exposés
       screensaver.tsx          # écran de veille plein écran (jour / nuit / alerte)
-      screensaver-tour.tsx     # vues Visite (caméra sur le plan) et Cartes (pièce en grand), PlanScene
+      screensaver-tour.tsx     # vues Visite (caméra), Cartes (pièce en grand), Maison (étage + cadre), PlanScene
       camera-panel.tsx         # live caméra : HLS natif, hls.js, puis WebRTC, puis MJPEG
       alarm-code-dialog.tsx, thermostat-popover.tsx, measure-history-chart.tsx
     widgets/                   # 1 fichier par domaine HA (15 fichiers, scene + script partagent)
@@ -232,8 +232,10 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
   Dans l'éditeur : liste « Poser un appareil », glisser par pas de 0,5 case, flèches, refus
   hors de la pièce.
 - **Meubles** (`furniture[area_id]: PlanFurniture[]`, optionnel dans `StoredFloor`) : dessin seul,
-  sans entité. 19 types (`FURNITURE`, lits, armoire, canapé, télé, tables, évier, plaques, frigo,
-  lave-linge, baignoire, douche, lavabo, WC, plante), taille réelle en mètres. Le plan n'a pas
+  sans entité. 21 types (`FURNITURE`, groupés par `FURNITURE_GROUPS` : Chambre, Salon, Bureau,
+  Cuisine, Salle de bain, Entrée et divers — lits, armoire, canapé, télé, tables, bureau et chaise,
+  évier, plaques, frigo, lave-linge, baignoire, douche, lavabo, WC, radiateur en fonte, meuble à
+  chaussures, plante), taille réelle en mètres ; la façade d'un meuble est son côté bas. Le plan n'a pas
   d'échelle : on suppose **une case = 50 cm** (`METERS_PER_CELL`), réduit à 70 % de la pièce si
   besoin. `dx`/`dy` = centre relatif au 1er rectangle (comme les appareils), `w`/`h` en cases avant
   rotation, `rot` en quarts de tour (`footprint` échange w/h). Ajout sur la première place libre
@@ -332,8 +334,10 @@ remplace la phrase d'accueil sous le bonjour par un bilan rédigé par l'IA de H
 étape Ambiance. `useIdle` est appelé dans `App` ; pas de veille sur Echo Show (page Veille à lui)
 ni pendant l'onboarding. Overlay `z-index: 900`.
 
-- **Jour** : `nido.screensaverStyle` (**par appareil**, Ambiance) — `tour` (« Visite », défaut) ou
-  `cards` (« Cartes »). Les pièces du plan qui ont un appareil exposé (`tourStops`, étage par étage)
+- **Jour** : `nido.screensaverStyle` (**par appareil**, Ambiance) — `tour` (« Visite », défaut),
+  `cards` (« Cartes ») ou `live` (« Maison » : l'étage entier sous une bande heure + `houseSummary`,
+  un cadre glisse de pièce en pièce et assombrit le reste du plan, bulle d'état placée par
+  `bubbleFor` ; en bas de l'écran sous 600 px). Les pièces du plan qui ont un appareil exposé (`tourStops`, étage par étage)
   défilent toutes les 5 s (`TOUR_STEP_MS`) avec leurs statuts (`roomStatus` : alertes, puis allumé /
   ouvert, puis le reste, 6 lignes max). Visite : le plan de l'étage en plein écran, caméra en
   `transform` (`cameraFor`, 1,8 s de mouvement), autres pièces estompées, horloge en haut à gauche,

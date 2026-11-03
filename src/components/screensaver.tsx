@@ -5,7 +5,7 @@ import { groupByArea, type ResolvedEntity } from "../core/entities";
 import type { Area, Floor } from "../core/areas";
 import type { HousePlan } from "../core/plan-store";
 import { TOUR_STEP_MS, tourStops, type ScreensaverStyle } from "../core/screensaver-tour";
-import { CardsView, TourView, useTourIndex } from "./screensaver-tour";
+import { CardsView, LiveView, TourView, useTourIndex } from "./screensaver-tour";
 import type { AiDigestState } from "../core/use-ai-digest";
 import { buildDigest } from "../core/home-digest";
 import { isQuietHour } from "../core/announce";
@@ -146,7 +146,13 @@ export function Screensaver({ hass, entities, areaNameById, aiDigest, style, are
     >
       {touring && (
         <div class="nido-plan nido-veille__scene" data-style={style} aria-hidden={alert ? "true" : undefined}>
-          {style === "cards" ? <CardsView {...tourProps} /> : <TourView {...tourProps} />}
+          {style === "cards" ? (
+            <CardsView {...tourProps} />
+          ) : style === "live" ? (
+            <LiveView {...tourProps} />
+          ) : (
+            <TourView {...tourProps} />
+          )}
         </div>
       )}
       {!touring && <div class="nido-veille__brand">nido</div>}

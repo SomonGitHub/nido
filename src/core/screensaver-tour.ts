@@ -7,12 +7,13 @@ import { durationLabel } from "./time-ago";
 /* Veille « Visite » et « Cartes » : on passe de pièce en pièce sur le vrai plan,
    avec l'état des appareils exposés de chacune. */
 
-export type ScreensaverStyle = "tour" | "cards";
-export const SCREENSAVER_STYLES: ScreensaverStyle[] = ["tour", "cards"];
+/** `tour` : Visite (A) · `cards` : Cartes (B) · `live` : Maison vivante (C). */
+export type ScreensaverStyle = "tour" | "cards" | "live";
+export const SCREENSAVER_STYLES: ScreensaverStyle[] = ["tour", "cards", "live"];
 export const TOUR_STEP_MS = 5000;
 
 export function parseScreensaverStyle(raw: string | null | undefined): ScreensaverStyle {
-  return raw === "cards" ? "cards" : "tour";
+  return raw === "cards" || raw === "live" ? raw : "tour";
 }
 
 export interface TourStop {
@@ -174,4 +175,46 @@ export function cameraFor(
   const cx = ((x0 + x1) / 2) * cell;
   const cy = ((y0 + y1) / 2) * cell;
   return { x: view.w * frame.x - cx * zoom, y: view.h * frame.y - cy * zoom, zoom };
+}
+
+export interface HouseChip {
+  id: string;
+  value: string;
+  label: string;
+}
+
+/** Bandeau de la Maison vivante : lumières, ouvertures, température moyenne. */
+export function houseSummary(entities: ResolvedEntity[]): HouseChip[] {
+  const lights = entities.filter((e) => e.domain === "light" && e.state.state === "on").length;
+  const open = entities.filter(
+    (e) => e.domain === "binary_sensor" && e.state.state === "on" && OPENING.has(String(e.state.attributes.device_class ?? "")),
+  ).length;
+  const temps = entities
+    .filter((e) => e.domain === "sensor" && e.state.attributes.device_class === "temperature")
+    .map((e) => parseFloat(e.state.state))
+    .filter(Number.isFinite);
+  const chips: HouseChip[] = [
+    { id: "lights", value: String(lights), label: lights > 1 ? "lumières allumées" : "lumière allumée" },
+    { id: "open", value: String(open), label: open > 1 ? "ouvertures" : "ouverture" },
+  ];
+  if (temps.length > 0) {
+    const avg = temps.reduce((a, b) => a + b, 0) / temps.length;
+    chips.push({ id: "temp", value: `${num(avg.toFixed(1))}°`, label: "en moyenne" });
+  }
+  return chips;
+}
+
+/** Bulle d'état de la Maison vivante : à droite de la pièce si elle tient,
+ *  sinon à gauche, sinon posée sur la pièce ; jamais hors de l'écran. */
+export function bubbleFor(
+  room: { x: number; y: number; w: number; h: number },
+  bubble: { w: number; h: number },
+  view: { w: number; h: number; top: number },
+): { x: number; y: number; side: "right" | "left" | "over" } {
+  const gap = 18;
+  const margin = 12;
+  const y = Math.max(view.top, Math.min(room.y, view.h - bubble.h - margin));
+  if (room.x + room.w + gap + bubble.w <= view.w - margin) return { x: room.x + room.w + gap, y, side: "right" };
+  if (room.x - gap - bubble.w >= margin) return { x: room.x - gap - bubble.w, y, side: "left" };
+  return { x: Math.max(margin, Math.min(room.x + room.w - bubble.w, view.w - bubble.w - margin)), y, side: "over" };
 }

@@ -23,6 +23,8 @@ export const FURNITURE_KINDS = [
   "shower",
   "washbasin",
   "toilet",
+  "radiator",
+  "shoe_cabinet",
   "plant",
 ] as const;
 
@@ -47,7 +49,7 @@ export const FURNITURE: Record<FurnitureKind, FurnitureMeta> = {
   tv: { label: "Télé", group: "Salon", size: [1.4, 0.4] },
   dining_table: { label: "Table à manger", group: "Salon", size: [1.6, 0.9] },
   coffee_table: { label: "Table basse", group: "Salon", size: [1, 0.6] },
-  desk: { label: "Bureau", group: "Salon", size: [1.2, 0.6] },
+  desk: { label: "Bureau et chaise", group: "Bureau", size: [1.2, 1] },
   sink: { label: "Évier", group: "Cuisine", size: [1.2, 0.6] },
   cooktop: { label: "Plaques de cuisson", group: "Cuisine", size: [0.6, 0.6] },
   fridge: { label: "Réfrigérateur", group: "Cuisine", size: [0.6, 0.65] },
@@ -56,10 +58,12 @@ export const FURNITURE: Record<FurnitureKind, FurnitureMeta> = {
   shower: { label: "Douche", group: "Salle de bain", size: [0.9, 0.9] },
   washbasin: { label: "Lavabo", group: "Salle de bain", size: [0.6, 0.45] },
   toilet: { label: "WC", group: "Salle de bain", size: [0.4, 0.65] },
-  plant: { label: "Plante", group: "Salon", size: [0.5, 0.5] },
+  radiator: { label: "Radiateur en fonte", group: "Entrée et divers", size: [1, 0.2] },
+  shoe_cabinet: { label: "Meuble à chaussures", group: "Entrée et divers", size: [0.9, 0.35] },
+  plant: { label: "Plante", group: "Entrée et divers", size: [0.5, 0.5] },
 };
 
-export const FURNITURE_GROUPS = ["Chambre", "Salon", "Cuisine", "Salle de bain"] as const;
+export const FURNITURE_GROUPS = ["Chambre", "Salon", "Bureau", "Cuisine", "Salle de bain", "Entrée et divers"] as const;
 
 export const METERS_PER_CELL = 0.5;
 /** Pas de déplacement, en cases. */
