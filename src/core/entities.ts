@@ -7,6 +7,7 @@ export interface EntityRegistryEntry {
   name: string | null;
   original_name: string | null;
   platform: string;
+  config_entry_id?: string | null;
   disabled_by: string | null;
   hidden_by: string | null;
 }
