@@ -46,6 +46,7 @@ import { Screensaver } from "./components/screensaver";
 import { MusicPanel } from "./components/music-panel";
 import { MiniPlayer } from "./components/mini-player";
 import { useMusic } from "./core/use-music";
+import { MusicContext, type MusicContextValue } from "./core/music-context";
 import { hasMedia } from "./core/music-assistant";
 
 interface PanelHost {
@@ -214,6 +215,25 @@ export function App({ hass, host }: AppProps) {
     announce,
   );
   const areaNameById = useMemo(() => new Map((areas ?? []).map((a) => [a.area_id, a.name])), [areas]);
+  const { players: musicPlayerList, activeId: musicActiveId, selectPlayer, shortcuts: musicShortcuts, setShortcuts: setMusicShortcuts } = music;
+  const musicContext = useMemo<MusicContextValue | null>(
+    () =>
+      musicPlayerList.length === 0
+        ? null
+        : {
+            players: musicPlayerList,
+            activeId: musicActiveId,
+            selectPlayer,
+            shortcuts: musicShortcuts,
+            setShortcuts: setMusicShortcuts,
+            open: (entityId?: string) => {
+              if (entityId) selectPlayer(entityId);
+              setShowMusic(true);
+            },
+            areaNameById,
+          },
+    [musicPlayerList, musicActiveId, selectPlayer, musicShortcuts, setMusicShortcuts, areaNameById],
+  );
   const aiDigest = useAiDigest(hass, exposedEntities, areaNameById, aiDigestEnabled);
   const roomLayout = useRoomLayout();
   /* Echo Show a déjà sa page Veille ; jamais par-dessus la configuration. */
@@ -279,7 +299,7 @@ export function App({ hass, host }: AppProps) {
     !!energy.power && !!hass.states[energy.power] && exposedSet.has(energy.power);
 
   return (
-    <>
+    <MusicContext.Provider value={musicContext}>
       {showMiniPlayer && miniPlayerId && (
         <MiniPlayer
           hass={hass}
@@ -397,6 +417,6 @@ export function App({ hass, host }: AppProps) {
           }}
         />
       )}
-    </>
+    </MusicContext.Provider>
   );
 }

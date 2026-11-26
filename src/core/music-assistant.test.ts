@@ -15,6 +15,9 @@ import {
   toggleShortcut,
   emptyShortcuts,
   MAX_SHORTCUTS,
+  musicByRoom,
+  playingSource,
+  groupLeaderOf,
 } from "./music-assistant";
 
 function st(entity_id: string, state: string, attributes: Record<string, unknown> = {}, last_changed = ""): HassEntity {
@@ -232,5 +235,40 @@ describe("raccourcis", () => {
     expect(parseShortcuts(many)?.items).toHaveLength(MAX_SHORTCUTS);
     expect(parseShortcuts({ items: [{ uri: "a", name: "A", media_type: "video" }, "x"] })?.items).toEqual([]);
     expect(parseShortcuts("x")).toBeNull();
+  });
+});
+
+describe("musique par pièce", () => {
+  const players = [
+    { entity_id: "media_player.salon_a", configEntryId: "ma", area_id: "salon" },
+    { entity_id: "media_player.salon_b", configEntryId: "ma", area_id: "salon" },
+    { entity_id: "media_player.cuisine", configEntryId: "ma", area_id: "cuisine" },
+    { entity_id: "media_player.sans_piece", configEntryId: "ma", area_id: null },
+  ];
+  const states = {
+    "media_player.salon_a": st("media_player.salon_a", "idle"),
+    "media_player.salon_b": st("media_player.salon_b", "playing", { media_title: "Myth", media_artist: "Beach House" }, "2026-01-01T09:00:00Z"),
+    "media_player.cuisine": st("media_player.cuisine", "playing", { media_title: "FIP", group_members: ["media_player.cuisine", "media_player.salon_a"] }, "2026-01-01T10:00:00Z"),
+    "media_player.sans_piece": st("media_player.sans_piece", "playing", { media_title: "x" }),
+  };
+  it("met en tête l'enceinte qui joue et ignore celles sans pièce", () => {
+    const map = musicByRoom(players, states);
+    expect([...map.keys()].sort()).toEqual(["cuisine", "salon"]);
+    expect(map.get("salon")).toEqual({
+      entityId: "media_player.salon_b",
+      playing: true,
+      title: "Myth",
+      artist: "Beach House",
+      others: ["media_player.salon_a"],
+    });
+  });
+  it("trouve la source la plus récente, hors de la pièce visée", () => {
+    const withRoom = players.slice(0, 3);
+    expect(playingSource(withRoom, states)).toBe("media_player.cuisine");
+    expect(playingSource(withRoom, states, "media_player.cuisine")).toBe("media_player.salon_b");
+  });
+  it("retrouve le chef du groupe", () => {
+    expect(groupLeaderOf(players, states, "media_player.salon_a")).toBe("media_player.cuisine");
+    expect(groupLeaderOf(players, states, "media_player.cuisine")).toBeNull();
   });
 });

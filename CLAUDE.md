@@ -65,6 +65,7 @@ nido-dashboard/                # = racine du repo HACS
       music-assistant.ts       # Music Assistant : lecteurs, lecture des réponses search/get_library/get_queue,
                                #   progression, raccourcis (fonctions pures + appels de service)
       use-music.ts             # hook (dans App) : lecteurs MA exposés, lecteur actif, raccourcis MQTT nido/music/state
+      music-context.ts         # MusicContext (fourni par App) : musique lue par le plan, les cartes et la page pièce
       memo.ts                  # memo léger + comparateurs (sameEntity, propsEqual…)
       assist.ts                # client du pipeline Assist (texte / voix), décodage des événements
       mic-recorder.ts          # micro → AudioWorklet → PCM 16 kHz (contexte sécurisé requis)
@@ -101,6 +102,7 @@ nido-dashboard/                # = racine du repo HACS
       energy-settings.tsx      # réglage du compteur électrique (étape Vos appareils)
       music-panel.tsx          # panneau Musique : Lecture / Ensuite / Parcourir / Enceintes (cf. Musique)
       mini-player.tsx          # barre fine en bas de l'écran quand un lecteur MA a un média
+      room-music.tsx           # section Musique d'une pièce (page pièce, fiche du plan)
       assist-panel.tsx         # « Demande à Nido » : conversation texte + bouton micro
       weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
       notification-panel.tsx   # panneau notifications Nido (sensor.nido_notifications, dismiss via fire_event)
@@ -250,6 +252,7 @@ sans choix, la tablette `touch` ouvre sur le plan). La vue compacte Echo Show a 
 - **Calques** (`nido.planLayers`) : Température (remplissage `oklch` piloté par
   `--measure-h/c` + `--plan-fill-l/cf` selon le mode), Lumières (halo + compteur), Ouvrants
   (pastille « Ouverte · 25 min » ; les alertes fumée/eau/gaz s'affichent toujours),
+  Musique (ondes violettes autour de l'enceinte MA qui joue, cf. Musique),
   Mouvement (onde accent pulsée au centre de la pièce tant qu'un binary_sensor
   motion/occupancy/presence est actif via `detectOccupancy`, trace fixe et pâle pendant les
   10 min qui suivent ; même langage que la pastille des cartes pièce), Énergie (somme des
@@ -359,6 +362,17 @@ les « sections » du services.yaml ne sont qu'un regroupement d'interface (imbr
 - **Images** : l'imageproxy de MA (`http://<ip>:8095/…?size=0`) est ramené à `size=256`. Sur une
   page HTTPS il est bloqué (contenu mixte) : `Artwork` affiche alors l'icône du type. La pochette du
   lecteur en cours (`entity_picture`) passe par le proxy de HA et s'affiche toujours.
+- **Par pièce** (`musicByRoom` : enceinte qui joue en tête, `area_id` du registre) via `MusicContext`
+  (fourni par `App`, `null` sans enceinte MA) — pas de props à travers Dashboard / Compact / RoomDetail.
+  - `RoomMusic` (page pièce, fiche du plan en `compact`) : en cours, volume, « Faire venir la musique »
+    (`transfer_queue` depuis `playingSource`), « Jouer aussi ici » (`join`), « Quitter le groupe »
+    (`groupLeaderOf`), raccourcis joués sur l'enceinte de la pièce, « Tout parcourir ».
+  - Carte pièce `touch` : bouton lecture/pause si l'enceinte de la pièce a un média.
+  - Plan, calque **Musique** (`layers.music`, affiché seulement s'il y a une enceinte MA) : ondes au point
+    `musicEmitter` (enceinte posée, sinon centre du plus grand rectangle), note violette par-dessus
+    (elle remplace l'icône de l'enceinte posée). Toucher = lecture/pause ; glisser la note sur une autre
+    pièce qui a une enceinte (contour pointillé, plein au survol, `roomAtPoint`) = `transfer_queue`.
+    La note capture le pointeur et arrête la propagation : le viewport ne déplace pas le plan.
 - Le mock (`index.html`) a deux lecteurs MA (salon qui joue, cuisine), un petit catalogue et les services.
 
 ## Écran de veille

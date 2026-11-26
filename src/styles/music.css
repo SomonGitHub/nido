@@ -561,3 +561,180 @@
   .nido-music-eq i { animation: none; transform: scaleY(0.7); }
   .nido-miniplayer__bar span { transition: none; }
 }
+
+/* Plan : calque Musique. Une teinte à part (violet) pour ne pas se confondre
+   avec l'onde de mouvement, qui prend l'accent du thème. */
+.nido-plan { --plan-music: #7d63c9; --plan-music-soft: rgba(125, 99, 201, 0.16); }
+.nido-plan[data-night="true"] { --plan-music: #b39cff; --plan-music-soft: rgba(179, 156, 255, 0.2); }
+
+.nido-plan__music {
+  position: absolute;
+  z-index: 5;
+  width: var(--music-size);
+  height: var(--music-size);
+  margin: calc(var(--music-size) / -2) 0 0 calc(var(--music-size) / -2);
+  pointer-events: none;
+}
+.nido-plan__music i {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--plan-music);
+  opacity: 0;
+  animation: nido-plan-music 2.7s linear infinite;
+}
+.nido-plan__music i:nth-child(2) { animation-delay: -0.9s; }
+.nido-plan__music i:nth-child(3) { animation-delay: -1.8s; }
+@keyframes nido-plan-music {
+  0% { transform: scale(0.18); opacity: 0.75; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+.nido-plan__music-note {
+  position: absolute;
+  z-index: 8;
+  height: 32px;
+  min-width: 32px;
+  transform: translate(-16px, -50%);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--plan-music);
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(40, 20, 80, 0.3);
+  cursor: grab;
+  touch-action: none;
+}
+.nido-plan__music-note::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+}
+.nido-plan__music-note[data-playing="false"] { background: var(--bg-card-elev); color: var(--plan-music); box-shadow: 0 0 0 1.5px var(--plan-music), 0 2px 8px rgba(40, 20, 80, 0.15); }
+.nido-plan__music-note[data-dragging="true"] { opacity: 0.4; cursor: grabbing; }
+.nido-plan__music-label {
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nido-plan__music-ghost {
+  position: absolute;
+  z-index: 9;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border-radius: 50%;
+  background: var(--plan-music);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 28px rgba(40, 20, 80, 0.4);
+  pointer-events: none;
+}
+.nido-plan__room[data-drop="target"] { outline: 2px dashed var(--plan-music); outline-offset: -12px; }
+.nido-plan__room[data-drop="over"] { outline: 4px solid var(--plan-music); outline-offset: -12px; }
+
+/* Section Musique d'une pièce (page pièce, fiche du plan) */
+.nido-room-music {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: var(--r-md);
+  background: var(--bg-card);
+}
+.nido-room-music[data-compact="true"] { margin: 0; padding: 12px; background: var(--bg-inset); border-radius: var(--r-sm); }
+.nido-room-music__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.nido-room-music__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.nido-room-music[data-playing="true"] .nido-room-music__title { color: var(--accent); }
+.nido-room-music__speaker {
+  font-size: 12px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nido-room-music__now { display: flex; align-items: center; gap: 10px; }
+.nido-room-music__meta { flex: 1; min-width: 0; }
+.nido-room-music__track,
+.nido-room-music__artist { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nido-room-music__track { font-size: 15px; font-weight: 600; color: var(--ink-1); }
+.nido-room-music__artist { margin-top: 2px; font-size: 12px; color: var(--ink-3); }
+.nido-room-music__play { width: 44px; height: 44px; }
+.nido-room-music__idle { font-size: 13px; color: var(--ink-3); }
+.nido-room-music__idle:empty { display: none; }
+.nido-room-music__group,
+.nido-room-music__bring {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.nido-room-music__group .n-pill-btn,
+.nido-room-music__bring .n-pill-btn { flex: 0 0 auto; white-space: nowrap; min-height: 40px; padding: 8px 14px; }
+.nido-room-music__shortcuts {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nido-room-music__chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 4px 12px 4px 6px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--bg-shell);
+  color: var(--ink-1);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-room-music[data-compact="false"] .nido-room-music__chip { background: var(--bg-inset); }
+.nido-room-music__chip .nido-music-art { border-radius: 50%; }
+.nido-room-music__chip span { max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nido-room-music__browse {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nido-plan__music i { animation: none; opacity: 0.35; transform: scale(0.6); }
+  .nido-plan__music i:nth-child(n + 2) { display: none; }
+}

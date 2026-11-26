@@ -11,6 +11,10 @@ import {
   rectsOverlap,
   resolveLayout,
   roomWalls,
+  roomAtPoint,
+  musicEmitter,
+  type PlacedDevice,
+  type PlacedRoom,
   type PlanRect,
   type WallSegment,
 } from "./floor-plan";
@@ -228,5 +232,20 @@ describe("floorKind", () => {
     ["Chambre d'Émile", "wood"],
   ])("%s → %s", (name, kind) => {
     expect(floorKind(name)).toBe(kind);
+  });
+});
+
+describe("roomAtPoint / musicEmitter", () => {
+  const salon: PlacedRoom = { area: area("salon"), rects: [{ x: 0, y: 0, w: 4, h: 3 }, { x: 0, y: 3, w: 8, h: 5 }] };
+  const cuisine: PlacedRoom = { area: area("cuisine"), rects: [{ x: 8, y: 0, w: 4, h: 4 }] };
+  it("trouve la pièce sous le point, y compris dans le second rectangle d'une pièce en L", () => {
+    expect(roomAtPoint([salon, cuisine], 6, 6)?.area.area_id).toBe("salon");
+    expect(roomAtPoint([salon, cuisine], 9, 1)?.area.area_id).toBe("cuisine");
+    expect(roomAtPoint([salon, cuisine], 6, 1)).toBeNull();
+  });
+  it("part de l'enceinte posée, sinon du centre du plus grand rectangle", () => {
+    const device = { id: "d", entity_id: "media_player.salon", dx: 0, dy: 0, area_id: "salon", x: 1.5, y: 2 } as PlacedDevice;
+    expect(musicEmitter(salon, [device], "media_player.salon")).toEqual({ x: 1.5, y: 2 });
+    expect(musicEmitter(salon, [device], "media_player.autre")).toEqual({ x: 4, y: 5.5 });
   });
 });

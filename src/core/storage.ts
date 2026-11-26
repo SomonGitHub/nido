@@ -266,6 +266,8 @@ export interface PlanLayers {
   motion: boolean;
   /** Exclusif avec `temperature` : les deux colorent le fond des pièces. */
   energy: boolean;
+  /** Ondes autour des enceintes Music Assistant qui jouent. */
+  music: boolean;
 }
 
 const DEFAULT_PLAN_LAYERS: PlanLayers = {
@@ -274,6 +276,7 @@ const DEFAULT_PLAN_LAYERS: PlanLayers = {
   openings: true,
   motion: true,
   energy: false,
+  music: true,
 };
 
 export function loadPlanLayers(): PlanLayers {
@@ -287,6 +290,7 @@ export function loadPlanLayers(): PlanLayers {
       openings: parsed.openings !== false,
       motion: parsed.motion !== false,
       energy: parsed.energy === true && parsed.temperature === false,
+      music: parsed.music !== false,
     };
   } catch {
     return DEFAULT_PLAN_LAYERS;

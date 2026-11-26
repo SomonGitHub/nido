@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
-import type { JSX } from "preact";
+import { Fragment, type JSX } from "preact";
 import type { HassObject } from "../types";
 import type { Area, Floor } from "../core/areas";
 import {
@@ -19,7 +19,9 @@ import {
   NO_FLOOR,
   openingSegment,
   floorKind,
+  musicEmitter,
   resolveLayout,
+  roomAtPoint,
   roomWalls,
   wallStyle,
   type FloorKind,
@@ -50,6 +52,9 @@ import { useMinuteTick } from "../core/use-minute-tick";
 import { CameraPanel } from "../components/camera-panel";
 import { MeasureHistoryChart } from "../components/measure-history-chart";
 import { ThermostatPopover } from "../components/thermostat-popover";
+import { RoomMusic } from "../components/room-music";
+import { useMusicContext } from "../core/music-context";
+import { hasMedia, maTransfer, musicByRoom, type RoomMusic as RoomMusicInfo } from "../core/music-assistant";
 import {
   IconActivity,
   IconArrowRight,
@@ -61,6 +66,7 @@ import {
   IconFit,
   IconLightOn,
   IconMinus,
+  IconMusic,
   IconMoon,
   IconPin,
   IconPlus,
@@ -99,6 +105,7 @@ interface RoomInfo {
   /** Minutes depuis que le dernier détecteur est retombé, s'il y a peu. */
   motionAgo: number | null;
   power: RoomPower | null;
+  music: RoomMusicInfo | null;
 }
 
 interface RoomPower {
@@ -272,6 +279,12 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
     [floor, areas, plan, byArea],
   );
 
+  const musicCtx = useMusicContext();
+  const roomMusic = useMemo(
+    () => (musicCtx ? musicByRoom(musicCtx.players, hass.states) : new Map<string, RoomMusicInfo>()),
+    [musicCtx, hass.states],
+  );
+
   const rooms = useMemo(() => {
     const map = new Map<string, RoomInfo>();
     for (const r of layout.rooms) {
@@ -289,10 +302,11 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
         occupancy: detectOccupancy(list),
         motionAgo: motionAgo(list, now),
         power: roomPower(list, mainPowerEntityId),
+        music: roomMusic.get(r.area.area_id) ?? null,
       });
     }
     return map;
-  }, [layout, byArea, now]);
+  }, [layout, byArea, now, roomMusic]);
 
   const selectedId =
     selected && rooms.has(selected) ? selected : (layout.rooms[0]?.area.area_id ?? null);
@@ -480,6 +494,61 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
   const zoomIn = () => zoomAt(ZOOM_STEP, size.w / 2, size.h / 2);
   const zoomOut = () => zoomAt(1 / ZOOM_STEP, size.w / 2, size.h / 2);
 
+  /* ─── Musique : toucher la note = lecture/pause, la glisser sur une autre
+     pièce = y transférer la file (transfer_queue). ─── */
+  const houseRef = useRef<HTMLDivElement>(null);
+  const [musicDrag, setMusicDrag] = useState<{ from: string; x: number; y: number; over: string | null } | null>(null);
+  const musicPress = useRef<{ id: number; sx: number; sy: number; from: string; source: string; active: boolean } | null>(null);
+
+  const musicTarget = (clientX: number, clientY: number, from: string) => {
+    const r = houseRef.current!.getBoundingClientRect();
+    const x = clientX - r.left;
+    const y = clientY - r.top;
+    const room = roomAtPoint(layout.rooms, x / cell, y / cell);
+    const id = room?.area.area_id ?? null;
+    return { x, y, over: id && id !== from && roomMusic.has(id) ? id : null };
+  };
+
+  const onNoteDown = (e: JSX.TargetedPointerEvent<HTMLButtonElement>, from: string, source: string) => {
+    e.stopPropagation();
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    musicPress.current = { id: e.pointerId, sx: e.clientX, sy: e.clientY, from, source, active: false };
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      /* pointeur déjà relâché */
+    }
+  };
+  const onNoteMove = (e: JSX.TargetedPointerEvent<HTMLButtonElement>) => {
+    const p = musicPress.current;
+    if (!p || p.id !== e.pointerId) return;
+    e.stopPropagation();
+    if (!p.active && Math.hypot(e.clientX - p.sx, e.clientY - p.sy) <= DRAG_THRESHOLD) return;
+    p.active = true;
+    setMusicDrag({ from: p.from, ...musicTarget(e.clientX, e.clientY, p.from) });
+  };
+  const onNoteUp = (e: JSX.TargetedPointerEvent<HTMLButtonElement>) => {
+    const p = musicPress.current;
+    if (!p || p.id !== e.pointerId) return;
+    e.stopPropagation();
+    musicPress.current = null;
+    setMusicDrag(null);
+    if (!p.active) {
+      hass.callService("media_player", "media_play_pause", { entity_id: p.source });
+      return;
+    }
+    const { over } = musicTarget(e.clientX, e.clientY, p.from);
+    const target = over ? roomMusic.get(over)?.entityId : null;
+    if (!over || !target || target === p.source) return;
+    maTransfer(hass, p.source, target).catch((err) => console.warn("Nido: transfer_queue failed", err));
+    setSelected(over);
+    setPanelOpen(true);
+  };
+  const onNoteCancel = () => {
+    musicPress.current = null;
+    setMusicDrag(null);
+  };
+
   /* ─── Actions ─── */
   const toggleLights = (info: RoomInfo) => {
     const ids = info.summary.lightIds;
@@ -551,6 +620,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
           ["openings", "Ouvrants", IconWindow],
           ["motion", "Mouvement", IconActivity],
           ["energy", "Énergie", IconBolt],
+          ...(roomMusic.size > 0 ? ([["music", "Musique", IconMusic]] as const) : []),
         ] as const
       ).map(([key, label, Ico]) => (
         <button
@@ -601,6 +671,7 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
       {fit > 0 && (
         <div
           class="nido-plan__house"
+          ref={houseRef}
           data-lod={lod}
           data-custom={layout.custom ? "true" : "false"}
           style={{
@@ -623,6 +694,15 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
                 labelled={i === 0}
                 lod={lod}
                 layers={layers}
+                drop={
+                  !musicDrag
+                    ? null
+                    : musicDrag.over === r.area.area_id
+                      ? "over"
+                      : r.area.area_id !== musicDrag.from && roomMusic.has(r.area.area_id)
+                        ? "target"
+                        : null
+                }
                 selected={r.area.area_id === selectedId}
                 onSelect={() => {
                   setSelected(r.area.area_id);
@@ -675,11 +755,63 @@ export function FloorPlan({ hass, areas, floors, byArea, variant, plan, mainPowe
             )}
           {lod !== "overview" &&
             layout.devices.map((d) => {
+              if (layers.music && roomMusic.get(d.area_id)?.entityId === d.entity_id && hasMedia(hass.states[d.entity_id])) {
+                return null;
+              }
               const entity = (byArea.get(d.area_id) ?? []).find((e) => e.entity_id === d.entity_id);
               return entity ? (
                 <PlanDeviceButton key={d.id} device={d} entity={entity} cell={cell} onToggle={() => toggleDevice(entity)} />
               ) : null;
             })}
+          {layers.music &&
+            layout.rooms.map((r) => {
+              const m = roomMusic.get(r.area.area_id);
+              if (!m || !hasMedia(hass.states[m.entityId])) return null;
+              const pos = musicEmitter(r, layout.devices, m.entityId);
+              const rect = r.rects[0];
+              const waves = Math.max(48, Math.min(280, Math.min(rect.w, rect.h) * cell * 0.95));
+              const dragging = musicDrag?.from === r.area.area_id;
+              return (
+                <Fragment key={`music-${r.area.area_id}`}>
+                  {m.playing && (
+                    <span
+                      class="nido-plan__music"
+                      aria-hidden="true"
+                      style={{ left: `${pos.x * cell}px`, top: `${pos.y * cell}px`, "--music-size": `${waves}px` }}
+                    >
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                  )}
+                  <button
+                    type="button"
+                    class="nido-plan__music-note"
+                    data-playing={m.playing ? "true" : "false"}
+                    data-dragging={dragging ? "true" : "false"}
+                    style={{ left: `${pos.x * cell}px`, top: `${pos.y * cell}px` }}
+                    aria-label={`${m.title ?? "Musique"}, ${r.area.name}. Toucher pour ${m.playing ? "mettre en pause" : "reprendre"}, glisser vers une autre pièce pour y faire passer la musique`}
+                    title={m.title ?? undefined}
+                    onPointerDown={(e) => onNoteDown(e, r.area.area_id, m.entityId)}
+                    onPointerMove={onNoteMove}
+                    onPointerUp={onNoteUp}
+                    onPointerCancel={onNoteCancel}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (e.detail === 0) hass.callService("media_player", "media_play_pause", { entity_id: m.entityId });
+                    }}
+                  >
+                    <IconMusic size={16} />
+                    {lod === "detail" && m.title && <span class="nido-plan__music-label">{m.title}</span>}
+                  </button>
+                </Fragment>
+              );
+            })}
+          {musicDrag && (
+            <span class="nido-plan__music-ghost" aria-hidden="true" style={{ left: `${musicDrag.x}px`, top: `${musicDrag.y}px` }}>
+              <IconMusic size={18} />
+            </span>
+          )}
           {herePos && (
             <span
               class="nido-plan__here"
@@ -1138,11 +1270,13 @@ interface PlanRoomProps {
   labelled: boolean;
   lod: "overview" | "labels" | "detail";
   layers: PlanLayers;
+  /** Glisser de la musique en cours : pièce qui peut la recevoir, ou survolée. */
+  drop: "target" | "over" | null;
   selected: boolean;
   onSelect: () => void;
 }
 
-function PlanRoom({ info, rect, cell, surface, labelled, lod: planLod, layers, selected, onSelect }: PlanRoomProps) {
+function PlanRoom({ info, rect, cell, surface, labelled, lod: planLod, layers, drop, selected, onSelect }: PlanRoomProps) {
   const lit = layers.lights && info.summary.lightsOn > 0;
   const opening = layers.openings ? info.opening : null;
   const alert = info.critical ?? opening;
@@ -1192,6 +1326,7 @@ function PlanRoom({ info, rect, cell, surface, labelled, lod: planLod, layers, s
       data-selected={selected ? "true" : "false"}
       data-narrow={narrow ? "true" : "false"}
       data-motion={motion ?? "none"}
+      data-drop={drop ?? undefined}
       data-floor={surface}
       aria-label={aria}
       aria-pressed={selected}
@@ -1377,6 +1512,7 @@ function RoomPanel({
           </span>
         </div>
       )}
+      <RoomMusic hass={hass} areaId={info.area.area_id} compact />
       <div class="nido-plan__panel-actions">
         {summary.lightIds.length > 0 && (
           <button type="button" class="nido-plan__action" onClick={onToggleLights}>
