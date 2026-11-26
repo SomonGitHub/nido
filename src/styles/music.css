@@ -738,3 +738,230 @@
   .nido-plan__music i { animation: none; opacity: 0.35; transform: scale(0.6); }
   .nido-plan__music i:nth-child(n + 2) { display: none; }
 }
+
+/* Écran de veille « Pochette » : couleurs fixes, sombres, quel que soit le thème. */
+.nido-veille-cover {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #120e0b;
+  color: #f4ede2;
+}
+.nido-veille-cover__bg {
+  position: absolute;
+  inset: -12%;
+  opacity: 0.55;
+}
+.nido-veille-cover__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(70px) saturate(1.3);
+}
+.nido-veille-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 7, 5, 0.25), rgba(10, 7, 5, 0.65));
+  pointer-events: none;
+}
+.nido-veille-cover__inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 6vh 7vw;
+  display: flex;
+  align-items: center;
+  gap: 6vw;
+  transition: transform 2s var(--ease-in-out);
+}
+.nido-veille-cover__art {
+  flex: 0 0 auto;
+  width: min(68vh, 44vw);
+  aspect-ratio: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(244, 237, 226, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+.nido-veille-cover__art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.nido-veille-cover__text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.nido-veille-cover__clock {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 9vh, 96px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.nido-veille-cover__date {
+  margin-top: 8px;
+  font-size: 16px;
+  color: rgba(244, 237, 226, 0.65);
+  text-transform: capitalize;
+}
+.nido-veille-cover__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 7vh;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 226, 0.7);
+}
+.nido-veille-cover__eyebrow .nido-music-eq { color: #f4ede2; }
+.nido-veille-cover__title {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 6vh, 64px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.nido-veille-cover__artist {
+  margin-top: 10px;
+  font-size: clamp(16px, 2.6vh, 24px);
+  color: rgba(244, 237, 226, 0.75);
+}
+.nido-veille-cover__bar {
+  margin-top: 4vh;
+  height: 4px;
+  max-width: 420px;
+  border-radius: 2px;
+  background: rgba(244, 237, 226, 0.2);
+  overflow: hidden;
+}
+.nido-veille-cover__bar span { display: block; height: 100%; background: #f4ede2; transition: width 1s linear; }
+.nido-veille-cover__meta {
+  margin-top: auto;
+  padding-top: 4vh;
+  font-size: 15px;
+  color: rgba(244, 237, 226, 0.7);
+}
+.nido-veille-cover__meta .nido-veille__weather { color: inherit; }
+
+@media (orientation: portrait), (max-width: 699px) {
+  .nido-veille-cover__inner { flex-direction: column; justify-content: center; align-items: flex-start; gap: 4vh; padding: 8vh 8vw; }
+  .nido-veille-cover__art { width: min(84vw, 52vh); align-self: center; }
+  .nido-veille-cover__eyebrow { margin-top: 3vh; }
+  .nido-veille-cover__meta { margin-top: 3vh; padding-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nido-veille-cover__inner { transition: none; }
+  .nido-veille-cover__bar span { transition: none; }
+}
+
+/* Echo Show : page Musique du rail */
+.nido-compact-music {
+  height: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 16px;
+  min-height: 0;
+}
+.nido-compact-music__now {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  min-height: 0;
+}
+.nido-compact-music__now .nido-music-art { width: min(200px, 34vh) !important; height: min(200px, 34vh) !important; border-radius: var(--r-md); box-shadow: var(--shadow-md); }
+.nido-compact-music__meta { width: 100%; text-align: center; min-width: 0; }
+.nido-compact-music__title,
+.nido-compact-music__artist { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nido-compact-music__title { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--ink-1); }
+.nido-compact-music__artist { margin-top: 2px; font-size: 14px; color: var(--ink-3); }
+.nido-compact-music__controls { display: flex; align-items: center; gap: 12px; }
+.nido-compact-music__now .nido-music-volume { width: 100%; }
+.nido-compact-music__side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+}
+.nido-compact-music__speakers { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; flex: 0 0 auto; }
+.nido-compact-music__speaker {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--bg-card);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-compact-music__speaker[data-active="true"] { background: var(--ink-1); color: var(--bg-shell); }
+.nido-compact-music__speaker[data-active="true"] .nido-music-eq { color: var(--bg-shell); }
+.nido-compact-music__speaker:disabled { opacity: 0.4; }
+.nido-compact-music__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.nido-compact-music__tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.nido-compact-music__tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border: none;
+  border-radius: var(--r-md);
+  background: var(--bg-card);
+  color: var(--ink-1);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nido-compact-music__tile:active { transform: scale(0.97); }
+.nido-compact-music__tile span {
+  width: 100%;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.nido-compact-music__empty { padding: 24px; border-radius: var(--r-md); background: var(--bg-card); color: var(--ink-3); font-size: 14px; }
+.nido-compact-music__status {
+  position: sticky;
+  bottom: 0;
+  align-self: center;
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  background: var(--hero-dark);
+  color: var(--hero-dark-ink);
+  font-size: 13px;
+}

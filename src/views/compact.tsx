@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { CompactMusic } from "./compact-music";
+import { useMusicContext } from "../core/music-context";
 import type { JSX } from "preact";
 import type { HassObject } from "../types";
 import type { Area, Floor } from "../core/areas";
@@ -21,6 +23,7 @@ import {
   IconHome,
   IconLightOn,
   IconMoon,
+  IconMusic,
   IconBell,
   IconThermostat,
   IconBolt,
@@ -44,7 +47,7 @@ interface CompactDashboardProps {
   onOpenRoom: (areaId: string) => void;
 }
 
-type CompactView = "glance" | "controls" | "plan" | "ambient";
+type CompactView = "glance" | "controls" | "plan" | "music" | "ambient";
 
 const CONTROL_DOMAINS = new Set(["light", "switch", "cover", "lock", "vacuum", "fan", "climate"]);
 
@@ -135,6 +138,7 @@ export function CompactDashboard({
   onOpenRoom,
 }: CompactDashboardProps) {
   const [view, setView] = useState<CompactView>("glance");
+  const hasMusic = useMusicContext() != null;
   const [, forceTick] = useState(0);
   const [showNotifications, setShowNotifications] = useState(false);
 
@@ -283,6 +287,7 @@ export function CompactDashboard({
           setView={setView}
           hasNewNotifications={hasNewNotifications}
           onOpenNotifications={handleOpenNotifications}
+          hasMusic={hasMusic}
         />
         <div class="nido-compact-content">
           {view === "glance" && (
@@ -324,6 +329,7 @@ export function CompactDashboard({
               onOpenRoom={onOpenRoom}
             />
           )}
+          {view === "music" && hasMusic && <CompactMusic hass={hass} />}
           {view === "ambient" && (
             <CompactAmbient
               hass={hass}
@@ -356,7 +362,9 @@ function CompactRail({
   setView,
   hasNewNotifications,
   onOpenNotifications,
+  hasMusic,
 }: {
+  hasMusic: boolean;
   view: CompactView;
   setView: (v: CompactView) => void;
   hasNewNotifications: boolean;
@@ -366,6 +374,7 @@ function CompactRail({
     { id: "glance", label: "Accueil", Icon: IconHome },
     { id: "controls", label: "Contrôles", Icon: IconLightOn },
     { id: "plan", label: "Plan", Icon: IconFloorPlan },
+    ...(hasMusic ? [{ id: "music" as const, label: "Musique", Icon: IconMusic }] : []),
     { id: "ambient", label: "Veille", Icon: IconMoon },
   ];
   const [versionShown, peekVersion] = useVersionPeek();

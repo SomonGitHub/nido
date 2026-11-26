@@ -9,6 +9,10 @@ import { CardsView, LiveView, TourView, useTourIndex } from "./screensaver-tour"
 import type { AiDigestState } from "../core/use-ai-digest";
 import { buildDigest } from "../core/home-digest";
 import { isQuietHour } from "../core/announce";
+import { useMusicContext } from "../core/music-context";
+import { coverPlayer } from "../core/music-assistant";
+import { loadYouAreHere } from "../core/storage";
+import { MusicCover } from "./screensaver-music";
 import { useMinuteTick } from "../core/use-minute-tick";
 import {
   activeAlerts,
@@ -47,6 +51,8 @@ interface ScreensaverProps {
   areaNameById: Map<string, string>;
   aiDigest: AiDigestState | null;
   style: ScreensaverStyle;
+  /** « Pochette » à la place du style quand une enceinte Music Assistant joue. */
+  musicCover?: boolean;
   areas: Area[];
   floors: Floor[];
   plan: HousePlan;
@@ -60,7 +66,7 @@ function pictureUrl(hass: HassObject, pic: string | undefined): string | undefin
   return base.replace(/\/$/, "") + pic;
 }
 
-export function Screensaver({ hass, entities, areaNameById, aiDigest, style, areas, floors, plan, onWake, onOpenRoom }: ScreensaverProps) {
+export function Screensaver({ hass, entities, areaNameById, aiDigest, style, musicCover = true, areas, floors, plan, onWake, onOpenRoom }: ScreensaverProps) {
   const now = useMinuteTick();
   const night = isQuietHour(now);
   const offset = burnInOffset(now);
@@ -102,7 +108,11 @@ export function Screensaver({ hass, entities, areaNameById, aiDigest, style, are
   const byArea = useMemo(() => groupByArea(entities), [entities]);
   const stops = useMemo(() => tourStops(areas, floors, plan, byArea), [areas, floors, plan, byArea]);
   const tourIndex = useTourIndex(night ? 0 : stops.length, TOUR_STEP_MS);
-  const touring = !night && stops.length > 0;
+  const music = useMusicContext();
+  const coverId =
+    musicCover && music && !night ? coverPlayer(music.players, hass.states, loadYouAreHere()?.area ?? null) : null;
+  const coverArea = coverId ? music?.players.find((p) => p.entity_id === coverId)?.area_id : null;
+  const touring = !night && stops.length > 0 && !coverId;
 
   const weatherLine = weather && condition && (
     <span class="nido-veille__weather">
@@ -155,8 +165,19 @@ export function Screensaver({ hass, entities, areaNameById, aiDigest, style, are
           )}
         </div>
       )}
-      {!touring && <div class="nido-veille__brand">nido</div>}
-      {!touring && <div class="nido-veille__stage" style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} aria-hidden={alert ? "true" : undefined}>
+      {coverId && (
+        <MusicCover
+          hass={hass}
+          entityId={coverId}
+          roomName={coverArea ? areaNameById.get(coverArea) ?? null : null}
+          dateStr={dateStr}
+          timeStr={timeStr}
+          offset={offset}
+          meta={weatherLine}
+        />
+      )}
+      {!touring && !coverId && <div class="nido-veille__brand">nido</div>}
+      {!touring && !coverId && <div class="nido-veille__stage" style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} aria-hidden={alert ? "true" : undefined}>
         {night ? (
           <div class="nido-veille__night">
             <div class="nido-veille__date">{dateStr}</div>
@@ -238,7 +259,7 @@ export function Screensaver({ hass, entities, areaNameById, aiDigest, style, are
           </div>
         )}
       </div>}
-      {!alert && !touring && <div class="nido-veille__hint">{night ? "Mode nuit" : "Touchez l'écran pour revenir à Nido"}</div>}
+      {!alert && !touring && !coverId && <div class="nido-veille__hint">{night ? "Mode nuit" : "Touchez l'écran pour revenir à Nido"}</div>}
 
       {alert && (
         <div class="nido-veille__alert" role="alertdialog" aria-label={alert.label} onClick={(ev) => ev.stopPropagation()}>

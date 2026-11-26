@@ -17,6 +17,7 @@ import {
   saveAiDigestEnabled,
   saveScreensaver,
   saveScreensaverStyle,
+  saveScreensaverMusic,
   saveEnergyConfig,
   setOnboarded,
 } from "../core/storage";
@@ -26,6 +27,7 @@ import { haVoiceAvailable, speakTest, speechEngine } from "../core/speech";
 import { aiTaskEntities } from "../core/ai-digest";
 import { effectiveDelay, SCREENSAVER_DELAYS, type ScreensaverDelay } from "../core/screensaver";
 import type { ScreensaverStyle } from "../core/screensaver-tour";
+import { useMusicContext } from "../core/music-context";
 import { useRoomLayout } from "../core/use-room-layout";
 import {
   IconBolt,
@@ -118,6 +120,7 @@ interface OnboardingProps {
   initialAiDigest: boolean;
   initialScreensaver: ScreensaverDelay | null;
   initialScreensaverStyle: ScreensaverStyle;
+  initialScreensaverMusic: boolean;
   initialEnergy: StoredEnergyConfig;
   isReturning: boolean;
   onApplyTheme: (theme: ThemeName, mode: ThemeMode) => void;
@@ -133,6 +136,7 @@ interface OnboardingProps {
     aiDigest: boolean;
     screensaver: ScreensaverDelay | null;
     screensaverStyle: ScreensaverStyle;
+    screensaverMusic: boolean;
     energy: StoredEnergyConfig;
   }) => void;
 }
@@ -152,6 +156,7 @@ export function Onboarding(props: OnboardingProps) {
     initialAiDigest,
     initialScreensaver,
     initialScreensaverStyle,
+    initialScreensaverMusic,
     initialEnergy,
     isReturning,
     onApplyTheme,
@@ -173,6 +178,7 @@ export function Onboarding(props: OnboardingProps) {
   const [aiDigest, setAiDigest] = useState<boolean>(initialAiDigest);
   const [screensaver, setScreensaver] = useState<ScreensaverDelay | null>(initialScreensaver);
   const [screensaverStyle, setScreensaverStyle] = useState<ScreensaverStyle>(initialScreensaverStyle);
+  const [screensaverMusic, setScreensaverMusic] = useState<boolean>(initialScreensaverMusic);
   const [energy, setEnergy] = useState<StoredEnergyConfig>(initialEnergy);
   const [users, setUsers] = useState<HassUser[] | null>(null);
   const [usersError, setUsersError] = useState<string | null>(null);
@@ -258,6 +264,7 @@ export function Onboarding(props: OnboardingProps) {
     saveAiDigestEnabled(aiDigest);
     saveScreensaver(screensaver);
     saveScreensaverStyle(screensaverStyle);
+    saveScreensaverMusic(screensaverMusic);
     saveEnergyConfig(energy);
     setOnboarded(true);
     onDone({
@@ -271,6 +278,7 @@ export function Onboarding(props: OnboardingProps) {
       aiDigest,
       screensaver,
       screensaverStyle,
+      screensaverMusic,
       energy,
     });
   };
@@ -285,6 +293,7 @@ export function Onboarding(props: OnboardingProps) {
     saveAiDigestEnabled(aiDigest);
     saveScreensaver(screensaver);
     saveScreensaverStyle(screensaverStyle);
+    saveScreensaverMusic(screensaverMusic);
     saveEnergyConfig(energy);
     setOnboarded(true);
     onClose();
@@ -364,6 +373,8 @@ export function Onboarding(props: OnboardingProps) {
               onPickScreensaver={setScreensaver}
               screensaverStyle={screensaverStyle}
               onPickScreensaverStyle={setScreensaverStyle}
+              screensaverMusic={screensaverMusic}
+              onToggleScreensaverMusic={() => setScreensaverMusic((v) => !v)}
               language={hass.language}
               hass={hass}
             />
@@ -816,10 +827,13 @@ function StepTheme(props: {
   onPickScreensaver: (delay: ScreensaverDelay) => void;
   screensaverStyle: ScreensaverStyle;
   onPickScreensaverStyle: (style: ScreensaverStyle) => void;
+  screensaverMusic: boolean;
+  onToggleScreensaverMusic: () => void;
   language: string;
   hass: HassObject;
 }) {
-  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, aiDigest, aiDigestAvailable, onToggleAiDigest, screensaver, onPickScreensaver, screensaverStyle, onPickScreensaverStyle, language, hass } = props;
+  const { theme, mode, userName, onPick, kidsEnabled, onToggleKidsEnabled, announce, onToggleAnnounce, aiDigest, aiDigestAvailable, onToggleAiDigest, screensaver, onPickScreensaver, screensaverStyle, onPickScreensaverStyle, screensaverMusic, onToggleScreensaverMusic, language, hass } = props;
+  const hasMusic = useMusicContext() != null;
   const layout = useRoomLayout();
   const saverDelay = effectiveDelay(screensaver, layout);
   const [haVoice, setHaVoice] = useState(false);
@@ -1044,6 +1058,23 @@ function StepTheme(props: {
                 </button>
               ))}
             </div>
+          )}
+          {saverDelay > 0 && hasMusic && (
+            <button
+              type="button"
+              class="n-ob-saver__music"
+              role="switch"
+              aria-checked={screensaverMusic}
+              onClick={onToggleScreensaverMusic}
+            >
+              <span>
+                <b>Pochette quand la musique joue</b>
+                <span>La pochette en grand, le titre et l'heure, à la place du style choisi</span>
+              </span>
+              <span class="n-toggle" aria-hidden="true" aria-checked={screensaverMusic}>
+                <span class="n-toggle__thumb" />
+              </span>
+            </button>
           )}
         </div>
       </div>

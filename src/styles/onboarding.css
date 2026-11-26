@@ -566,7 +566,7 @@
 }
 .n-ob-ent__search-clear:hover { background: var(--bg-shell); color: var(--ink-1); }
 .n-ob-ent__empty {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
   padding: 24px;
   border-radius: var(--r-md);
   background: var(--bg-card);
@@ -1039,3 +1039,26 @@
 }
 .n-ob-saver__style b { color: var(--ink-1); font-size: 14px; }
 .n-ob-saver__style.is-active { border-color: var(--accent); background: var(--bg-card-elev); }
+.n-ob-saver__music {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  margin-top: 8px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border: 1.5px solid var(--ink-4);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--ink-2);
+  font: 13px var(--font-sans);
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.n-ob-saver__music > span:first-child { display: flex; flex-direction: column; gap: 2px; }
+.n-ob-saver__music b { color: var(--ink-1); font-size: 14px; }
+.n-ob-saver__music .n-toggle { flex: 0 0 auto; pointer-events: none; }

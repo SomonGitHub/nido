@@ -18,6 +18,7 @@ import {
   musicByRoom,
   playingSource,
   groupLeaderOf,
+  coverPlayer,
 } from "./music-assistant";
 
 function st(entity_id: string, state: string, attributes: Record<string, unknown> = {}, last_changed = ""): HassEntity {
@@ -270,5 +271,23 @@ describe("musique par pièce", () => {
   it("retrouve le chef du groupe", () => {
     expect(groupLeaderOf(players, states, "media_player.salon_a")).toBe("media_player.cuisine");
     expect(groupLeaderOf(players, states, "media_player.cuisine")).toBeNull();
+  });
+});
+
+describe("coverPlayer", () => {
+  const players = [
+    { entity_id: "media_player.salon", configEntryId: "ma", area_id: "salon" },
+    { entity_id: "media_player.cuisine", configEntryId: "ma", area_id: "cuisine" },
+  ];
+  it("préfère l'enceinte de la pièce de l'écran, puis la dernière lancée, jamais une enceinte en pause", () => {
+    const states = {
+      "media_player.salon": st("media_player.salon", "playing", { media_title: "A" }, "2026-01-01T09:00:00Z"),
+      "media_player.cuisine": st("media_player.cuisine", "playing", { media_title: "B" }, "2026-01-01T10:00:00Z"),
+    };
+    expect(coverPlayer(players, states, "salon")).toBe("media_player.salon");
+    expect(coverPlayer(players, states, null)).toBe("media_player.cuisine");
+    expect(
+      coverPlayer(players, { "media_player.salon": st("media_player.salon", "paused", { media_title: "A" }) }, "salon"),
+    ).toBeNull();
   });
 });

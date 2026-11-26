@@ -28,6 +28,7 @@ const KEYS = {
   energy: "nido.energy",
   musicPlayer: "nido.musicPlayer",
   musicShortcuts: "nido.musicShortcuts",
+  screensaverMusic: "nido.screensaverMusic",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -366,4 +367,13 @@ export function loadMusicShortcuts(): MusicShortcuts {
 
 export function saveMusicShortcuts(value: MusicShortcuts): void {
   safeStorage()?.setItem(KEYS.musicShortcuts, JSON.stringify(value));
+}
+
+/** Écran de veille « Pochette » quand une enceinte joue (par appareil, actif par défaut). */
+export function loadScreensaverMusic(): boolean {
+  return safeStorage()?.getItem(KEYS.screensaverMusic) !== "0";
+}
+
+export function saveScreensaverMusic(value: boolean): void {
+  safeStorage()?.setItem(KEYS.screensaverMusic, value ? "1" : "0");
 }
