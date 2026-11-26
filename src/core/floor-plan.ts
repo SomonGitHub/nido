@@ -314,3 +314,17 @@ export function openingSegment(
       return { x: rect.x + rect.w, y: rect.y + offset, horizontal: false, length };
   }
 }
+
+/** Pièce sous un point du plan (en cases). */
+export function roomAtPoint(rooms: PlacedRoom[], u: number, v: number): PlacedRoom | null {
+  return rooms.find((r) => r.rects.some((q) => u >= q.x && u <= q.x + q.w && v >= q.y && v <= q.y + q.h)) ?? null;
+}
+
+/** D'où part le son d'une pièce : l'enceinte si elle est posée sur le plan,
+ *  sinon le centre du plus grand rectangle. */
+export function musicEmitter(room: PlacedRoom, devices: PlacedDevice[], entityId: string): { x: number; y: number } {
+  const placed = devices.find((d) => d.area_id === room.area.area_id && d.entity_id === entityId);
+  if (placed) return { x: placed.x, y: placed.y };
+  const main = room.rects.reduce((a, b) => (b.w * b.h > a.w * a.h ? b : a));
+  return { x: main.x + main.w / 2, y: main.y + main.h / 2 };
+}

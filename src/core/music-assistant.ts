@@ -360,3 +360,60 @@ export function toggleShortcut(current: MusicShortcuts, item: MaItem): MusicShor
       );
   return { ...current, items };
 }
+
+/* Musique par pièce : enceintes MA rangées par area_id, celle qui joue en tête. */
+
+export interface RoomMusic {
+  /** Enceinte de la pièce à piloter : celle qui a un média, sinon la première. */
+  entityId: string;
+  playing: boolean;
+  title: string | null;
+  artist: string | null;
+  /** Autres enceintes MA de la même pièce. */
+  others: string[];
+}
+
+export function musicByRoom(players: MaPlayer[], states: Record<string, HassEntity>): Map<string, RoomMusic> {
+  const byArea = new Map<string, MaPlayer[]>();
+  for (const p of players) {
+    if (!p.area_id || !states[p.entity_id]) continue;
+    byArea.set(p.area_id, [...(byArea.get(p.area_id) ?? []), p]);
+  }
+  const out = new Map<string, RoomMusic>();
+  for (const [area, list] of byArea) {
+    const ranked = [...list].sort((a, b) => rank(states[b.entity_id]) - rank(states[a.entity_id]));
+    const main = states[ranked[0].entity_id];
+    const media = hasMedia(main);
+    out.set(area, {
+      entityId: main.entity_id,
+      playing: main.state === "playing",
+      title: media ? (main.attributes.media_title as string) : null,
+      artist: media ? str(main.attributes.media_artist) : null,
+      others: ranked.slice(1).map((p) => p.entity_id),
+    });
+  }
+  return out;
+}
+
+function rank(s: HassEntity | undefined): number {
+  if (!s || s.state === "unavailable") return 0;
+  if (s.state === "playing") return 3;
+  return hasMedia(s) ? 2 : 1;
+}
+
+/** Enceinte qui joue, la plus récemment lancée : la source d'un transfert. */
+export function playingSource(players: MaPlayer[], states: Record<string, HassEntity>, exclude?: string): string | null {
+  const playing = players
+    .filter((p) => p.entity_id !== exclude && states[p.entity_id]?.state === "playing")
+    .sort((a, b) => states[b.entity_id].last_changed.localeCompare(states[a.entity_id].last_changed));
+  return playing[0]?.entity_id ?? null;
+}
+
+/** Enceintes jouées ensemble : `group_members` du chef de groupe contient les autres. */
+export function groupLeaderOf(players: MaPlayer[], states: Record<string, HassEntity>, entityId: string): string | null {
+  for (const p of players) {
+    if (p.entity_id === entityId) continue;
+    if (groupMembers(states[p.entity_id]).includes(entityId)) return p.entity_id;
+  }
+  return null;
+}

@@ -35,6 +35,8 @@ import {
   IconNotebook,
   IconSparkles,
   IconMusic,
+  IconPause,
+  IconPlay,
   IconWindow,
   IconDoor,
   IconWater,
@@ -79,6 +81,8 @@ import { useStateFlash } from "../core/use-state-flash";
 import { buildDigest, type DigestFact } from "../core/home-digest";
 import { durationLabel } from "../core/time-ago";
 import { memo, propsEqual, sameDragProps, sameEntities } from "../core/memo";
+import { useMusicContext } from "../core/music-context";
+import { hasMedia, musicByRoom } from "../core/music-assistant";
 
 interface DashboardProps {
   hass: HassObject;
@@ -310,6 +314,10 @@ function RoomCardView({
   const phone = layout === "phone";
   const activity = idle ? (activityProp ?? null) : null;
 
+  const music = useMusicContext();
+  const roomMusic = music ? musicByRoom(music.players, hass.states).get(area.area_id) : undefined;
+  const musicReady = !!roomMusic && hasMedia(hass.states[roomMusic.entityId]);
+
   const runAction = (e: Event, domain: string, service: string, ids: string[]) => {
     e.stopPropagation();
     if (ids.length === 0) return;
@@ -437,7 +445,7 @@ function RoomCardView({
     ) : null;
 
   const actionsEl =
-    layout === "touch" && (summary.lightIds.length > 0 || summary.coverIds.length > 0) ? (
+    layout === "touch" && (summary.lightIds.length > 0 || summary.coverIds.length > 0 || musicReady) ? (
       <div class="nido-room-card__actions" data-no-drag>
         {summary.lightIds.length > 0 && (
           <button
@@ -471,6 +479,17 @@ function RoomCardView({
             }
           >
             <IconBlind size={18} />
+          </button>
+        )}
+        {musicReady && roomMusic && (
+          <button
+            type="button"
+            class="n-icon-btn"
+            aria-label={roomMusic.playing ? `Mettre en pause ${roomMusic.title ?? "la musique"}` : `Reprendre ${roomMusic.title ?? "la musique"}`}
+            title={roomMusic.title ?? undefined}
+            onClick={(e) => runAction(e, "media_player", "media_play_pause", [roomMusic.entityId])}
+          >
+            {roomMusic.playing ? <IconPause size={18} /> : <IconPlay size={18} />}
           </button>
         )}
       </div>

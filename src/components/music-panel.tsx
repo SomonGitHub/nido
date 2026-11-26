@@ -123,7 +123,7 @@ export function useSecondTick(active: boolean): number {
   return now;
 }
 
-function VolumeSlider({ hass, state }: { hass: HassObject; state: HassEntity }) {
+export function VolumeSlider({ hass, state }: { hass: HassObject; state: HassEntity }) {
   const volume = typeof state.attributes.volume_level === "number" ? state.attributes.volume_level : null;
   const muted = state.attributes.is_volume_muted === true;
   const [draft, setDraft] = useState<number | null>(null);

@@ -18,6 +18,7 @@ import { MeasureHistoryChart } from "../components/measure-history-chart";
 import { IconArrowUpRight, IconChevronLeft } from "../icons";
 import { pickAreaIcon, DOMAIN_LABEL, DragItem } from "./shared";
 import { renderWidget } from "./render-widget";
+import { RoomMusic } from "../components/room-music";
 import { useMinuteTick } from "../core/use-minute-tick";
 import { durationLabel } from "../core/time-ago";
 
@@ -197,6 +198,8 @@ export function RoomDetail({
             current={parseFloat(stats.temperature.value)}
           />
         )}
+
+        <RoomMusic hass={hass} areaId={area.area_id} />
 
         <div class="nido-room-detail__filters">
           <button
