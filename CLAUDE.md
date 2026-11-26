@@ -96,13 +96,15 @@ nido-dashboard/                # = racine du repo HACS
       furniture-symbol.tsx     # symboles SVG des meubles, vus de dessus (style plan d'architecte)
       energy.tsx               # page Énergie : jauge Linky, abonnement, 24 h, gros consommateurs
                                #   (entités lues dans EnergyConfig, cf. Énergie)
-      compact.tsx              # vue Echo Show : rail Accueil / Contrôles / Plan / Veille
+      compact.tsx              # vue Echo Show : rail Accueil / Contrôles / Plan / Musique / Veille
+      compact-music.tsx        # page Musique d'Echo Show (tuiles, enceintes, en cours)
     components/
       onboarding.tsx           # overlay plein écran 5 étapes (Welcome/Connect/Entities/Theme/Family)
       energy-settings.tsx      # réglage du compteur électrique (étape Vos appareils)
       music-panel.tsx          # panneau Musique : Lecture / Ensuite / Parcourir / Enceintes (cf. Musique)
       mini-player.tsx          # barre fine en bas de l'écran quand un lecteur MA a un média
       room-music.tsx           # section Musique d'une pièce (page pièce, fiche du plan)
+      screensaver-music.tsx    # écran de veille « Pochette » (pochette en grand, fond flou, heure)
       assist-panel.tsx         # « Demande à Nido » : conversation texte + bouton micro
       weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
       notification-panel.tsx   # panneau notifications Nido (sensor.nido_notifications, dismiss via fire_event)
@@ -373,6 +375,13 @@ les « sections » du services.yaml ne sont qu'un regroupement d'interface (imbr
     (elle remplace l'icône de l'enceinte posée). Toucher = lecture/pause ; glisser la note sur une autre
     pièce qui a une enceinte (contour pointillé, plein au survol, `roomAtPoint`) = `transfer_queue`.
     La note capture le pointeur et arrête la propagation : le viewport ne déplace pas le plan.
+- **Écran de veille « Pochette »** (`nido.screensaverMusic`, **par appareil**, actif par défaut, réglage
+  dans Ambiance sous les styles, visible seulement s'il y a une enceinte MA) : de jour, quand une enceinte
+  **joue** (pas en pause), remplace le style choisi. `coverPlayer` : l'enceinte de la pièce
+  « Vous êtes ici », sinon la dernière lancée. Couleurs fixes sombres, fond = pochette floutée, décalage
+  anti-marquage appliqué. La nuit et les alertes gardent leur écran.
+- **Echo Show** : page Musique dans le rail (si enceinte MA) : en cours + volume, enceintes en pastilles,
+  8 grosses tuiles = raccourcis, sinon les playlists de la bibliothèque. Pas de recherche.
 - Le mock (`index.html`) a deux lecteurs MA (salon qui joue, cuisine), un petit catalogue et les services.
 
 ## Écran de veille

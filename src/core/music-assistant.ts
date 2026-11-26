@@ -417,3 +417,13 @@ export function groupLeaderOf(players: MaPlayer[], states: Record<string, HassEn
   }
   return null;
 }
+
+/** Enceinte montrée par l'écran de veille « Pochette » : celle qui joue dans la
+ *  pièce de cet écran (« Vous êtes ici »), sinon la dernière lancée ailleurs. */
+export function coverPlayer(players: MaPlayer[], states: Record<string, HassEntity>, hereArea: string | null): string | null {
+  const playing = (p: MaPlayer) => states[p.entity_id]?.state === "playing" && hasMedia(states[p.entity_id]);
+  const local = hereArea ? players.find((p) => p.area_id === hereArea && playing(p)) : undefined;
+  if (local) return local.entity_id;
+  const source = playingSource(players, states);
+  return source && hasMedia(states[source]) ? source : null;
+}

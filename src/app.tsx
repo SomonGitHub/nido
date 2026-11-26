@@ -19,6 +19,7 @@ import {
   loadAiDigestEnabled,
   loadScreensaver,
   loadScreensaverStyle,
+  loadScreensaverMusic,
   loadRoomEntitiesOrder,
   loadRoomsOrder,
   loadTheme,
@@ -87,6 +88,7 @@ export function App({ hass, host }: AppProps) {
   const [aiDigestEnabled, setAiDigestEnabled] = useState<boolean>(() => loadAiDigestEnabled());
   const [screensaver, setScreensaver] = useState<ScreensaverDelay | null>(() => loadScreensaver());
   const [screensaverStyle, setScreensaverStyle] = useState<ScreensaverStyle>(() => loadScreensaverStyle());
+  const [screensaverMusic, setScreensaverMusic] = useState<boolean>(() => loadScreensaverMusic());
   const [energyStored, setEnergyStored] = useState<StoredEnergyConfig>(() => loadEnergyConfig());
   const [roomsOrder, setRoomsOrder] = useState<string[]>(() => loadRoomsOrder());
   const [roomEntitiesOrder, setRoomEntitiesOrder] = useState<Record<string, string[]>>(
@@ -377,6 +379,7 @@ export function App({ hass, host }: AppProps) {
           areaNameById={areaNameById}
           aiDigest={aiDigest}
           style={screensaverStyle}
+          musicCover={screensaverMusic}
           areas={areas}
           floors={floors}
           plan={housePlan}
@@ -399,6 +402,7 @@ export function App({ hass, host }: AppProps) {
           initialAiDigest={aiDigestEnabled}
           initialScreensaver={screensaver}
           initialScreensaverStyle={screensaverStyle}
+          initialScreensaverMusic={screensaverMusic}
           initialEnergy={energyStored}
           isReturning={isOnboarded()}
           onApplyTheme={applyTheme}
@@ -412,6 +416,7 @@ export function App({ hass, host }: AppProps) {
             setAiDigestEnabled(state.aiDigest);
             setScreensaver(state.screensaver);
             setScreensaverStyle(state.screensaverStyle);
+            setScreensaverMusic(state.screensaverMusic);
             setEnergyStored(state.energy);
             setShowOnboarding(false);
           }}
