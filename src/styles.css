@@ -17,4 +17,5 @@
 @import "./styles/furniture.css"; /* Meubles du plan (vue et éditeur) */
 @import "./styles/assist.css"; /* Demande à Nido */
 @import "./styles/screensaver.css"; /* Écran de veille */
+@import "./styles/music.css"; /* Musique : mini-lecteur et panneau Music Assistant */
 @import "./styles/compat.css"; /* Replis des vieilles WebView, toujours en dernier */

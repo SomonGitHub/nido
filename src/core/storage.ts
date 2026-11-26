@@ -2,6 +2,7 @@ import { parseScreensaverDelay, type ScreensaverDelay } from "./screensaver";
 import { parseScreensaverStyle, type ScreensaverStyle } from "./screensaver-tour";
 import { EMPTY_AI_DIGEST, parseAiDigest, type AiDigest } from "./ai-digest";
 import { parseStoredEnergy, type StoredEnergyConfig } from "./energy-config";
+import { emptyShortcuts, parseShortcuts, type MusicShortcuts } from "./music-assistant";
 
 const KEYS = {
   favorites: "nido.favorites",
@@ -25,6 +26,8 @@ const KEYS = {
   planTime: "nido.planTime",
   youAreHere: "nido.youAreHere",
   energy: "nido.energy",
+  musicPlayer: "nido.musicPlayer",
+  musicShortcuts: "nido.musicShortcuts",
 } as const;
 
 export type ThemeName = "terracotta" | "miel" | "sauge" | "cosy";
@@ -334,4 +337,29 @@ export function saveYouAreHere(value: YouAreHere | null): void {
   if (!s) return;
   if (value) s.setItem(KEYS.youAreHere, JSON.stringify(value));
   else s.removeItem(KEYS.youAreHere);
+}
+
+/** Lecteur Music Assistant choisi sur cet appareil (une tablette de cuisine
+ *  joue en cuisine). */
+export function loadMusicPlayer(): string | null {
+  const raw = safeStorage()?.getItem(KEYS.musicPlayer);
+  return raw && raw.startsWith("media_player.") ? raw : null;
+}
+
+export function saveMusicPlayer(entityId: string): void {
+  safeStorage()?.setItem(KEYS.musicPlayer, entityId);
+}
+
+export function loadMusicShortcuts(): MusicShortcuts {
+  const raw = safeStorage()?.getItem(KEYS.musicShortcuts);
+  if (!raw) return emptyShortcuts();
+  try {
+    return parseShortcuts(JSON.parse(raw)) ?? emptyShortcuts();
+  } catch {
+    return emptyShortcuts();
+  }
+}
+
+export function saveMusicShortcuts(value: MusicShortcuts): void {
+  safeStorage()?.setItem(KEYS.musicShortcuts, JSON.stringify(value));
 }

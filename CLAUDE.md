@@ -62,6 +62,9 @@ nido-dashboard/                # = racine du repo HACS
       kids-points.ts           # points enfants : tâches, médailles, privilèges (fonctions pures)
       kids-sync.ts             # useKidsSync → topic MQTT retain nido/kids/state
       energy-config.ts         # EnergyConfig : compteur électrique détecté ou choisi (cf. Énergie)
+      music-assistant.ts       # Music Assistant : lecteurs, lecture des réponses search/get_library/get_queue,
+                               #   progression, raccourcis (fonctions pures + appels de service)
+      use-music.ts             # hook (dans App) : lecteurs MA exposés, lecteur actif, raccourcis MQTT nido/music/state
       memo.ts                  # memo léger + comparateurs (sameEntity, propsEqual…)
       assist.ts                # client du pipeline Assist (texte / voix), décodage des événements
       mic-recorder.ts          # micro → AudioWorklet → PCM 16 kHz (contexte sécurisé requis)
@@ -96,6 +99,8 @@ nido-dashboard/                # = racine du repo HACS
     components/
       onboarding.tsx           # overlay plein écran 5 étapes (Welcome/Connect/Entities/Theme/Family)
       energy-settings.tsx      # réglage du compteur électrique (étape Vos appareils)
+      music-panel.tsx          # panneau Musique : Lecture / Ensuite / Parcourir / Enceintes (cf. Musique)
+      mini-player.tsx          # barre fine en bas de l'écran quand un lecteur MA a un média
       assist-panel.tsx         # « Demande à Nido » : conversation texte + bouton micro
       weather-panel.tsx        # panneau détail météo (prévisions, Météo France sensors : pluie, alertes, UV)
       notification-panel.tsx   # panneau notifications Nido (sensor.nido_notifications, dismiss via fire_event)
@@ -123,7 +128,7 @@ nido-dashboard/                # = racine du repo HACS
     styles/                    # un fichier par zone : shell, widgets, topbar, calendar, dashboard,
                                #   room-detail, onboarding, panels, energy, kids, compact,
                                #   alarm-dialog, floor-plan, plan-editor, plan-architect, furniture, assist,
-                               #   screensaver, compat (replis @supports not, toujours en dernier)
+                               #   screensaver, music, compat (replis @supports not, toujours en dernier)
 ```
 
 ## Modèle mental utilisateur
@@ -326,6 +331,35 @@ remplace la phrase d'accueil sous le bonjour par un bilan rédigé par l'IA de H
   « Écouter » (voix de l'appareil, cf. Annonces vocales) et « Actualiser ».
 - Les alertes critiques (fumée, eau, gaz) restent affichées **en direct** au-dessus du texte,
   qui peut dater de 2 h.
+
+## Musique (Music Assistant)
+
+Tout passe par les services HA `music_assistant.*` (pas de connexion au serveur MA, pas de jeton) :
+`search`, `get_library`, `get_queue` en `call_service` WebSocket avec `return_response` (réponse
+dans `response`), `play_media` (`enqueue` play / next / add, `radio_mode`) et `transfer_queue`.
+Les options de `search`/`get_library` (`limit`, `order_by`) sont **à plat** dans `service_data` :
+les « sections » du services.yaml ne sont qu'un regroupement d'interface (imbriquées → 400).
+
+- **Lecteurs** : entités du registre `platform: "music_assistant"`, domaine media_player, **exposées**
+  dans Nido. `config_entry_id` (registre) est l'instance MA à passer à search / get_library.
+- **Lecteur actif** (`pickActivePlayer`) : celui qui joue (dernier lancé), sinon `nido.musicPlayer`
+  (**par appareil**), sinon un lecteur en pause, sinon le premier. Un choix dans le panneau l'emporte
+  tant que Nido reste ouvert.
+- **Mini-lecteur** (`MiniPlayer`, dans `App`, rendu **avant** la vue : `.nido-miniplayer ~ .nido-shell`
+  ajoute la marge du bas) : seulement si un lecteur a un média (`hasMedia`), pas sur Echo Show, ni
+  pendant l'onboarding, la veille ou le panneau ouvert. `z-index: 800`.
+- **Panneau** (`MusicPanel`, bouton ♪ de la barre du haut s'il y a un lecteur) : deux colonnes
+  (en cours à gauche, onglets Ensuite / Parcourir / Enceintes à droite) ; sur téléphone, un onglet
+  Lecture en plus. Parcourir : recherche (2 caractères, 350 ms), sinon bibliothèque par type ; un
+  toucher lit, « ⋯ » propose ensuite / à la fin / radio similaire / épingler. Enceintes : volume,
+  « Écouter ici » (`transfer_queue` depuis celle qui joue), « Jouer avec » (`media_player.join`,
+  si `supported_features` a GROUPING).
+- **File** : HA ne donne que le titre en cours, le suivant et le nombre de titres, pas la liste.
+- **Raccourcis** : épinglés depuis Parcourir, 12 max, partagés via MQTT retain (`nido/music/state`).
+- **Images** : l'imageproxy de MA (`http://<ip>:8095/…?size=0`) est ramené à `size=256`. Sur une
+  page HTTPS il est bloqué (contenu mixte) : `Artwork` affiche alors l'icône du type. La pochette du
+  lecteur en cours (`entity_picture`) passe par le proxy de HA et s'affiche toujours.
+- Le mock (`index.html`) a deux lecteurs MA (salon qui joue, cuisine), un petit catalogue et les services.
 
 ## Écran de veille
 

@@ -43,6 +43,10 @@ import { useRoomLayout } from "./core/use-room-layout";
 import { effectiveDelay, type ScreensaverDelay } from "./core/screensaver";
 import type { ScreensaverStyle } from "./core/screensaver-tour";
 import { Screensaver } from "./components/screensaver";
+import { MusicPanel } from "./components/music-panel";
+import { MiniPlayer } from "./components/mini-player";
+import { useMusic } from "./core/use-music";
+import { hasMedia } from "./core/music-assistant";
 
 interface PanelHost {
   applyTheme?: (theme: string, mode: string) => void;
@@ -194,10 +198,13 @@ export function App({ hass, host }: AppProps) {
     return resolveEntities(hass, registry, devices);
   }, [hass?.states, registry, devices]);
 
-  const exposedEntities = useMemo(() => {
-    const set = new Set(exposed);
-    return entities.filter((e) => set.has(e.entity_id));
-  }, [entities, exposed]);
+  const exposedIds = useMemo(() => new Set(exposed), [exposed]);
+  const exposedEntities = useMemo(
+    () => entities.filter((e) => exposedIds.has(e.entity_id)),
+    [entities, exposedIds],
+  );
+  const music = useMusic(hass, registry, exposedIds);
+  const [showMusic, setShowMusic] = useState(false);
   const areasRef = useRef(areas);
   areasRef.current = areas;
   useAnnouncements(
@@ -261,11 +268,29 @@ export function App({ hass, host }: AppProps) {
     [entities, currentArea, exposedSet],
   );
 
+  const miniPlayerId =
+    music.activeId && hasMedia(hass.states[music.activeId])
+      ? music.activeId
+      : music.players.find((p) => hasMedia(hass.states[p.entity_id]))?.entity_id ?? null;
+  const miniPlayerArea = music.players.find((p) => p.entity_id === miniPlayerId)?.area_id ?? null;
+  const showMiniPlayer = !!miniPlayerId && !compact && !showOnboarding && !idle && !showMusic;
+
   const energyAvailable =
     !!energy.power && !!hass.states[energy.power] && exposedSet.has(energy.power);
 
   return (
     <>
+      {showMiniPlayer && miniPlayerId && (
+        <MiniPlayer
+          hass={hass}
+          entityId={miniPlayerId}
+          roomName={miniPlayerArea ? areaNameById.get(miniPlayerArea) ?? null : null}
+          onOpen={() => {
+            music.selectPlayer(miniPlayerId);
+            setShowMusic(true);
+          }}
+        />
+      )}
       {compact && (view.kind === "dashboard" || !currentArea) ? (
         <CompactDashboard
           hass={hass}
@@ -308,6 +333,7 @@ export function App({ hass, host }: AppProps) {
           onOpenEnergy={
             energyAvailable ? () => setView({ kind: "energy" }) : undefined
           }
+          onOpenMusic={music.players.length > 0 ? () => setShowMusic(true) : undefined}
           onReorderFavorites={reorderFavorites}
           onReorderRooms={reorderRooms}
         />
@@ -320,6 +346,9 @@ export function App({ hass, host }: AppProps) {
           onBack={() => setView({ kind: "dashboard" })}
           onReorderEntities={(ids) => reorderRoomEntities(currentArea.area_id, ids)}
         />
+      )}
+      {showMusic && !compact && (
+        <MusicPanel hass={hass} music={music} areaNameById={areaNameById} onClose={() => setShowMusic(false)} />
       )}
       {idle && (
         <Screensaver

@@ -752,3 +752,83 @@ export const IconSofa = (p: P) => (
     <path d="M6 18v2M18 18v2" />
   </Icon>
 );
+
+export const IconShuffle = (p: P) => (
+  <Icon {...p}>
+    <path d="M16 3h5v5" />
+    <path d="M4 20 21 3" />
+    <path d="M21 16v5h-5" />
+    <path d="m15 15 6 6" />
+    <path d="M4 4l5 5" />
+  </Icon>
+);
+
+export const IconRepeat = (p: P) => (
+  <Icon {...p}>
+    <path d="m17 2 4 4-4 4" />
+    <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+    <path d="m7 22-4-4 4-4" />
+    <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+  </Icon>
+);
+
+export const IconRepeatOne = (p: P) => (
+  <Icon {...p}>
+    <path d="m17 2 4 4-4 4" />
+    <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+    <path d="m7 22-4-4 4-4" />
+    <path d="M21 13v1a4 4 0 0 1-4 4H3" />
+    <path d="M11 10h1v4" />
+  </Icon>
+);
+
+export const IconQueue = (p: P) => (
+  <Icon {...p}>
+    <path d="M3 6h13" />
+    <path d="M3 12h13" />
+    <path d="M3 18h8" />
+    <path d="M17 18V10l4 2" />
+    <circle cx="15" cy="18" r="2" />
+  </Icon>
+);
+
+export const IconSpeaker = (p: P) => (
+  <Icon {...p}>
+    <rect x="5" y="2" width="14" height="20" rx="2" />
+    <circle cx="12" cy="14" r="4" />
+    <path d="M12 6h.01" />
+  </Icon>
+);
+
+export const IconMore = (p: P) => (
+  <Icon {...p}>
+    <circle cx="5" cy="12" r="1" />
+    <circle cx="12" cy="12" r="1" />
+    <circle cx="19" cy="12" r="1" />
+  </Icon>
+);
+
+export const IconVolumeOff = (p: P) => (
+  <Icon {...p}>
+    <path d="M11 5 6 9H2v6h4l5 4V5z" />
+    <path d="m22 9-6 6" />
+    <path d="m16 9 6 6" />
+  </Icon>
+);
+
+export const IconRadio = (p: P) => (
+  <Icon {...p}>
+    <path d="M4.9 19.1a10 10 0 0 1 0-14.2" />
+    <path d="M7.8 16.2a6 6 0 0 1 0-8.4" />
+    <circle cx="12" cy="12" r="2" />
+    <path d="M16.2 7.8a6 6 0 0 1 0 8.4" />
+    <path d="M19.1 4.9a10 10 0 0 1 0 14.2" />
+  </Icon>
+);
+
+export const IconDisc = (p: P) => (
+  <Icon {...p}>
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="2" />
+  </Icon>
+);

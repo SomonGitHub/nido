@@ -65,6 +65,9 @@
 
         "media_player.salon": { entity_id: "media_player.salon", state: "playing", attributes: { friendly_name: "Enceinte salon", media_title: "Bloom", media_artist: "Beach House", volume_level: 0.4 }, last_changed: now, last_updated: now },
 
+        "media_player.ma_salon": { entity_id: "media_player.ma_salon", state: "playing", attributes: { friendly_name: "Salon (Music Assistant)", media_title: "Midnight City", media_artist: "M83", media_album_name: "Hurry Up, We're Dreaming", media_duration: 243, media_position: 61, media_position_updated_at: now, entity_picture: "https://picsum.photos/seed/nido-m83/400/400", volume_level: 0.35, is_volume_muted: false, shuffle: false, repeat: "off", group_members: ["media_player.ma_salon"], supported_features: 1 | 2 | 4 | 8 | 16 | 32 | 512 | 16384 | 32768 | 262144 | 524288 | 1048576, device_class: "speaker" }, last_changed: now, last_updated: now },
+        "media_player.ma_cuisine": { entity_id: "media_player.ma_cuisine", state: "idle", attributes: { friendly_name: "Cuisine (Music Assistant)", volume_level: 0.5, is_volume_muted: false, shuffle: false, repeat: "off", group_members: ["media_player.ma_cuisine"], supported_features: 1 | 2 | 4 | 8 | 16 | 32 | 512 | 16384 | 32768 | 262144 | 524288 | 1048576, device_class: "speaker" }, last_changed: now, last_updated: now },
+
         "alarm_control_panel.maison": { entity_id: "alarm_control_panel.maison", state: "armed_home", attributes: { friendly_name: "Alarme maison" }, last_changed: now, last_updated: now },
 
         "camera.entree":  { entity_id: "camera.entree",  state: "streaming", attributes: { friendly_name: "Caméra entrée",  entity_picture: "https://picsum.photos/seed/nido-entree/480/270"  }, last_changed: now, last_updated: now },
@@ -144,6 +147,8 @@
         mk("sensor.entree_temperature", "entree"),
         mk("sensor.entree_lux", "entree"),
         mk("media_player.salon", "salon"),
+        { ...mk("media_player.ma_salon", "salon"), platform: "music_assistant", config_entry_id: "ma-mock" },
+        { ...mk("media_player.ma_cuisine", "cuisine"), platform: "music_assistant", config_entry_id: "ma-mock" },
         mk("alarm_control_panel.maison", "entree"),
         mk("camera.entree", "entree"),
         mk("camera.jardin", "salon"),
@@ -170,6 +175,40 @@
         mk("sensor.bureau_power", "salon"),
       ];
       const deviceRegistry = entityRegistry.map(e => ({ id: e.device_id, area_id: e.area_id, name: null, name_by_user: null }));
+
+      const maImg = (seed) => `https://picsum.photos/seed/nido-${seed}/300/300`;
+      const maCatalog = [
+        { media_type: "track", uri: "spotify://track/m83", name: "Midnight City", artists: [{ name: "M83" }], album: { name: "Hurry Up, We're Dreaming" }, image: maImg("m83"), duration: 243 },
+        { media_type: "track", uri: "spotify://track/bloom", name: "Myth", artists: [{ name: "Beach House" }], album: { name: "Bloom" }, image: maImg("bloom"), duration: 258 },
+        { media_type: "track", uri: "spotify://track/daft", name: "Instant Crush", artists: [{ name: "Daft Punk" }, { name: "Julian Casablancas" }], album: { name: "Random Access Memories" }, image: maImg("ram"), duration: 337 },
+        { media_type: "track", uri: "spotify://track/air", name: "La femme d'argent", artists: [{ name: "Air" }], album: { name: "Moon Safari" }, image: maImg("air"), duration: 428 },
+        { media_type: "artist", uri: "spotify://artist/daft", name: "Daft Punk", image: maImg("daft") },
+        { media_type: "artist", uri: "spotify://artist/air", name: "Air", image: maImg("airartist") },
+        { media_type: "album", uri: "spotify://album/ram", name: "Random Access Memories", artists: [{ name: "Daft Punk" }], image: maImg("ram") },
+        { media_type: "album", uri: "spotify://album/moon", name: "Moon Safari", artists: [{ name: "Air" }], image: maImg("air") },
+        { media_type: "playlist", uri: "spotify://playlist/diner", name: "Dîner jazz", owner: "Nido", image: maImg("jazz") },
+        { media_type: "playlist", uri: "spotify://playlist/matin", name: "Réveil en douceur", owner: "Simon", image: maImg("matin") },
+        { media_type: "playlist", uri: "library://playlist/1", name: "All favorited tracks", image: maImg("fav") },
+        { media_type: "radio", uri: "tunein://radio/fip", name: "FIP", image: maImg("fip") },
+        { media_type: "radio", uri: "tunein://radio/inter", name: "France Inter", image: maImg("inter") },
+        { media_type: "podcast", uri: "spotify://podcast/ia", name: "Le code a changé", publisher: "France Inter", image: maImg("podcast") },
+      ];
+      const maQueues = { "media_player.ma_salon": { index: 0, items: [maCatalog[0], maCatalog[1], maCatalog[2]] } };
+      const maPlayItem = (id, item) => {
+        const st = states[id];
+        if (!st) return;
+        Object.assign(st.attributes, {
+          media_title: item.name,
+          media_artist: (item.artists ?? []).map((a) => a.name).join(", ") || item.owner || item.publisher || "",
+          media_album_name: item.album?.name ?? "",
+          media_duration: item.duration ?? (item.media_type === "radio" ? undefined : 240),
+          media_position: 0,
+          media_position_updated_at: new Date().toISOString(),
+          entity_picture: item.image,
+        });
+        st.state = "playing";
+        st.last_changed = new Date().toISOString();
+      };
 
       const mqttRetained = {};
       const mqttSubs = {};
@@ -241,6 +280,51 @@
           }
           else if (domain === "media_player" && service === "volume_set") {
             if (typeof data.volume_level === "number") states[id].attributes.volume_level = data.volume_level;
+          }
+          else if (domain === "media_player" && service === "volume_mute") states[id].attributes.is_volume_muted = !!data.is_volume_muted;
+          else if (domain === "media_player" && service === "shuffle_set") states[id].attributes.shuffle = !!data.shuffle;
+          else if (domain === "media_player" && service === "repeat_set") states[id].attributes.repeat = data.repeat;
+          else if (domain === "media_player" && service === "media_seek") {
+            states[id].attributes.media_position = data.seek_position;
+            states[id].attributes.media_position_updated_at = new Date().toISOString();
+          }
+          else if (domain === "media_player" && (service === "media_next_track" || service === "media_previous_track")) {
+            const q = maQueues[id];
+            if (q) {
+              q.index = (q.index + (service === "media_next_track" ? 1 : q.items.length - 1)) % q.items.length;
+              maPlayItem(id, q.items[q.index]);
+            }
+          }
+          else if (domain === "media_player" && service === "join") {
+            const members = new Set([id, ...(states[id].attributes.group_members ?? []), ...data.group_members]);
+            states[id].attributes.group_members = [...members];
+          }
+          else if (domain === "media_player" && service === "unjoin") {
+            for (const st of Object.values(states)) {
+              if (Array.isArray(st.attributes.group_members) && st.entity_id !== id) st.attributes.group_members = st.attributes.group_members.filter((m) => m !== id);
+            }
+          }
+          else if (domain === "music_assistant" && service === "play_media") {
+            const item = maCatalog.find((c) => c.uri === data.media_id);
+            if (item) {
+              const q = (maQueues[id] ??= { index: 0, items: [] });
+              if (data.enqueue === "next") q.items.splice(q.index + 1, 0, item);
+              else if (data.enqueue === "add") q.items.push(item);
+              else {
+                q.items = [item, ...maCatalog.filter((c) => c.media_type === "track" && c.uri !== item.uri)];
+                q.index = 0;
+                maPlayItem(id, item);
+              }
+            }
+          }
+          else if (domain === "music_assistant" && service === "transfer_queue") {
+            const from = data.source_player;
+            if (from && states[from] && maQueues[from]) {
+              maQueues[id] = maQueues[from];
+              delete maQueues[from];
+              maPlayItem(id, maQueues[id].items[maQueues[id].index]);
+              states[from].state = "idle";
+            }
           }
           else if (domain === "alarm_control_panel") {
             if (service === "alarm_disarm") states[id].state = "disarmed";
@@ -347,6 +431,26 @@
               out[id] = points;
             }
             return out;
+          }
+          if (msg.type === "call_service" && msg.domain === "music_assistant") {
+            await new Promise((r) => setTimeout(r, 250));
+            const d = msg.service_data ?? {};
+            if (msg.service === "search") {
+              const q = String(d.name ?? "").toLowerCase();
+              const hit = (c) => [c.name, ...(c.artists ?? []).map((a) => a.name), c.album?.name ?? ""].some((t) => t.toLowerCase().includes(q));
+              const of = (t) => maCatalog.filter((c) => c.media_type === t && hit(c)).slice(0, d.limit ?? 5);
+              return { context: {}, response: { artists: of("artist"), albums: of("album"), tracks: of("track"), playlists: of("playlist"), radio: of("radio"), audiobooks: of("audiobook"), podcasts: of("podcast") } };
+            }
+            if (msg.service === "get_library") {
+              const items = maCatalog.filter((c) => c.media_type === d.media_type);
+              return { context: {}, response: { items, limit: d.limit ?? 25, offset: 0, order_by: d.order_by ?? "name", media_type: d.media_type } };
+            }
+            if (msg.service === "get_queue") {
+              const id = msg.target?.entity_id;
+              const q = maQueues[id];
+              const qi = (it) => it ? { queue_item_id: it.uri, name: it.name, duration: it.duration ?? 0, media_item: it, image: it.image } : null;
+              return { context: {}, response: { [id]: q ? { queue_id: id, active: true, items: q.items.length, current_index: q.index, current_item: qi(q.items[q.index]), next_item: qi(q.items[q.index + 1]) } : { queue_id: id, active: false, items: 0, current_item: null, next_item: null } } };
+            }
           }
           if (msg.type === "call_service" && msg.domain === "ai_task" && msg.service === "generate_data") {
             console.log("ai_task prompt\n" + msg.service_data.instructions);

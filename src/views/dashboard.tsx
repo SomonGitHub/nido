@@ -97,6 +97,7 @@ interface DashboardProps {
   onConfigure: () => void;
   onOpenRoom: (areaId: string) => void;
   onOpenEnergy?: () => void;
+  onOpenMusic?: () => void;
   onReorderFavorites: (ids: string[]) => void;
   onReorderRooms: (ids: string[]) => void;
 }
@@ -594,6 +595,7 @@ export function Dashboard({
   onConfigure,
   onOpenRoom,
   onOpenEnergy,
+  onOpenMusic,
   onReorderFavorites,
   onReorderRooms,
 }: DashboardProps) {
@@ -950,6 +952,17 @@ export function Dashboard({
                 title="Demande à Nido"
               >
                 <IconSparkles size={20} />
+              </button>
+            )}
+            {onOpenMusic && (
+              <button
+                type="button"
+                class="nido-bell-btn"
+                onClick={onOpenMusic}
+                aria-label="Musique"
+                title="Musique"
+              >
+                <IconMusic size={20} />
               </button>
             )}
             <button
